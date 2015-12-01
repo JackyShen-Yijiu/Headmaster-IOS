@@ -10,6 +10,7 @@
 #import "RefreshTableView.h"
 #import "TeacherCell.h"
 #import "BaseModelMethod.h"
+#import "ChatViewController.h"
 
 @interface TeacherController ()<UITableViewDelegate,UITableViewDataSource,TeacherCellDelegate,UISearchBarDelegate,UISearchDisplayDelegate>
 @property(nonatomic,strong)UIImageView * bgView;
@@ -222,7 +223,9 @@
 
 - (void)teacherCell:(TeacherCell *)cell didClickMessageButton:(UIButton *)button
 {
-
+    ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:cell.model.userId conversationType:eConversationTypeChat];
+//    chatController.studentModel = cell.model;
+    [self.navigationController pushViewController:chatController animated:YES];
 }
 
 @end
