@@ -28,5 +28,11 @@
                      success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
                      failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
+/**
+ *  教练信息
+ */
++ (void)getTeacherListWithSchoolId:(NSString *)schoolId pageIndex:(NSInteger)index
+                           success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+                           failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
 @end

@@ -12,6 +12,8 @@
 #import "AFNetworkActivityLogger.h"
 #import "APService.h"
 #import "HMNagationController.h"
+#import "LoginViewController.h"
+#import "TeacherController.h"
 
 @interface AppDelegate ()
 @property(nonatomic,strong)HMNagationController * navController;
@@ -26,6 +28,22 @@
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
+    LoginViewController * loginViewC = [[LoginViewController alloc] init];
+    
+    self.navController = [[HMNagationController alloc] initWithRootViewController:loginViewC];
+    self.window.rootViewController =  self.navController;
+    [self.window makeKeyAndVisible];
+//    if ([UserInfoModel isLogin]) {
+//        [self loginViewControllerdidLoginSucess:nil];
+//    }
+    if([self isReciveFromHunaxin:launchOptions]){
+//        [self.navController jumpToMessageList];
+    }
+    [self.navController pushViewController:[[TeacherController alloc] init] animated:YES];
+    [self sysConfigWithApplication:application LaunchOptions:launchOptions];
+    
+    [self.window makeKeyAndVisible];
+    
     
     return YES;
 }

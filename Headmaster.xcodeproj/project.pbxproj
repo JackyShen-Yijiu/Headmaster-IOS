@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		92A9E5D7EE3DDE4857910BA1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95191FB6D2020B2944026A70 /* libPods.a */; };
+		B84536801C0DDA8000B42E98 /* TeacherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B845367F1C0DDA8000B42E98 /* TeacherModel.m */; };
+		B84536841C0DDB2B00B42E98 /* TeacherController.m in Sources */ = {isa = PBXBuildFile; fileRef = B84536831C0DDB2B00B42E98 /* TeacherController.m */; };
+		B84536871C0DDCA100B42E98 /* TeacherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B84536861C0DDCA100B42E98 /* TeacherCell.m */; };
+		B845368A1C0DDDEE00B42E98 /* CWStarRateView.m in Sources */ = {isa = PBXBuildFile; fileRef = B84536891C0DDDEE00B42E98 /* CWStarRateView.m */; };
+		B845368E1C0DE30700B42E98 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B845368D1C0DE30700B42E98 /* LoginViewController.m */; };
+		B84536911C0DE97900B42E98 /* BaseModelMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = B84536901C0DE97900B42E98 /* BaseModelMethod.m */; };
+		B84536941C0DE99A00B42E98 /* HMRecomendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B84536931C0DE99A00B42E98 /* HMRecomendModel.m */; };
+		B84536971C0DEA8000B42E98 /* HMPortraitInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B84536961C0DEA8000B42E98 /* HMPortraitInfoModel.m */; };
 		B8771AFA1C0976200051DE9D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B8771AF91C0976200051DE9D /* main.m */; };
 		B8771AFD1C0976200051DE9D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B8771AFC1C0976200051DE9D /* AppDelegate.m */; };
 		B8771B0B1C0976200051DE9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8771B0A1C0976200051DE9D /* Assets.xcassets */; };
@@ -284,6 +292,22 @@
 		948A09C6A9F41BA727FBB910 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		95191FB6D2020B2944026A70 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3E14DCC66DCDB782D0DD66F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		B845367E1C0DDA8000B42E98 /* TeacherModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherModel.h; sourceTree = "<group>"; };
+		B845367F1C0DDA8000B42E98 /* TeacherModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherModel.m; sourceTree = "<group>"; };
+		B84536821C0DDB2B00B42E98 /* TeacherController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherController.h; sourceTree = "<group>"; };
+		B84536831C0DDB2B00B42E98 /* TeacherController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherController.m; sourceTree = "<group>"; };
+		B84536851C0DDCA100B42E98 /* TeacherCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherCell.h; sourceTree = "<group>"; };
+		B84536861C0DDCA100B42E98 /* TeacherCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherCell.m; sourceTree = "<group>"; };
+		B84536881C0DDDEE00B42E98 /* CWStarRateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWStarRateView.h; sourceTree = "<group>"; };
+		B84536891C0DDDEE00B42E98 /* CWStarRateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWStarRateView.m; sourceTree = "<group>"; };
+		B845368C1C0DE30700B42E98 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		B845368D1C0DE30700B42E98 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		B845368F1C0DE97900B42E98 /* BaseModelMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModelMethod.h; sourceTree = "<group>"; };
+		B84536901C0DE97900B42E98 /* BaseModelMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModelMethod.m; sourceTree = "<group>"; };
+		B84536921C0DE99A00B42E98 /* HMRecomendModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMRecomendModel.h; sourceTree = "<group>"; };
+		B84536931C0DE99A00B42E98 /* HMRecomendModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMRecomendModel.m; sourceTree = "<group>"; };
+		B84536951C0DEA8000B42E98 /* HMPortraitInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMPortraitInfoModel.h; sourceTree = "<group>"; };
+		B84536961C0DEA8000B42E98 /* HMPortraitInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMPortraitInfoModel.m; sourceTree = "<group>"; };
 		B8771AF51C0976200051DE9D /* Headmaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Headmaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8771AF91C0976200051DE9D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B8771AFB1C0976200051DE9D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -758,6 +782,43 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		B845367D1C0DD93C00B42E98 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				B84536951C0DEA8000B42E98 /* HMPortraitInfoModel.h */,
+				B84536961C0DEA8000B42E98 /* HMPortraitInfoModel.m */,
+				B845368F1C0DE97900B42E98 /* BaseModelMethod.h */,
+				B84536901C0DE97900B42E98 /* BaseModelMethod.m */,
+				B84536921C0DE99A00B42E98 /* HMRecomendModel.h */,
+				B84536931C0DE99A00B42E98 /* HMRecomendModel.m */,
+				B845367E1C0DDA8000B42E98 /* TeacherModel.h */,
+				B845367F1C0DDA8000B42E98 /* TeacherModel.m */,
+			);
+			name = DataModel;
+			sourceTree = "<group>";
+		};
+		B84536811C0DDAF100B42E98 /* TeacherController */ = {
+			isa = PBXGroup;
+			children = (
+				B84536821C0DDB2B00B42E98 /* TeacherController.h */,
+				B84536831C0DDB2B00B42E98 /* TeacherController.m */,
+				B84536851C0DDCA100B42E98 /* TeacherCell.h */,
+				B84536861C0DDCA100B42E98 /* TeacherCell.m */,
+				B84536881C0DDDEE00B42E98 /* CWStarRateView.h */,
+				B84536891C0DDDEE00B42E98 /* CWStarRateView.m */,
+			);
+			name = TeacherController;
+			sourceTree = "<group>";
+		};
+		B845368B1C0DE2F600B42E98 /* LoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B845368C1C0DE30700B42E98 /* LoginViewController.h */,
+				B845368D1C0DE30700B42E98 /* LoginViewController.m */,
+			);
+			name = LoginViewController;
+			sourceTree = "<group>";
+		};
 		B8771AEC1C09761F0051DE9D = {
 			isa = PBXGroup;
 			children = (
@@ -782,6 +843,9 @@
 				B8771AFB1C0976200051DE9D /* AppDelegate.h */,
 				B8771AFC1C0976200051DE9D /* AppDelegate.m */,
 				B8771E4A1C098F7D0051DE9D /* PrefixHeader.pch */,
+				B845368B1C0DE2F600B42E98 /* LoginViewController */,
+				B84536811C0DDAF100B42E98 /* TeacherController */,
+				B845367D1C0DD93C00B42E98 /* DataModel */,
 				B8771E561C09920C0051DE9D /* NavigationController */,
 				B8771E4F1C0990980051DE9D /* UserInfoModel */,
 				B8771E4B1C0990370051DE9D /* NetWorkEntiry */,
@@ -2173,6 +2237,7 @@
 				B8771D081C098DE40051DE9D /* EMGifImage.m in Sources */,
 				B8771E351C098E6B0051DE9D /* YiRefreshHeader.m in Sources */,
 				B8771D1B1C098DE40051DE9D /* MWZoomingScrollView.m in Sources */,
+				B845368E1C0DE30700B42E98 /* LoginViewController.m in Sources */,
 				B8771DEC1C098DE40051DE9D /* EaseImageView.m in Sources */,
 				B8771D0B1C098DE40051DE9D /* MJRefreshFooter.m in Sources */,
 				B8771D021C098DE40051DE9D /* EMCDDeviceManagerBase.m in Sources */,
@@ -2181,7 +2246,9 @@
 				B8771D001C098DE40051DE9D /* EMCDDeviceManager+ProximitySensor.m in Sources */,
 				B8771DCB1C098DE40051DE9D /* EaseSDKHelper.m in Sources */,
 				B8771D321C098DE40051DE9D /* PSTCollectionViewFlowLayout.m in Sources */,
+				B84536801C0DDA8000B42E98 /* TeacherModel.m in Sources */,
 				B8771CFF1C098DE40051DE9D /* EMCDDeviceManager+Microphone.m in Sources */,
+				B84536841C0DDB2B00B42E98 /* TeacherController.m in Sources */,
 				B8771E3A1C098E6B0051DE9D /* UIView+TKCategory.m in Sources */,
 				B8771DE71C098DE40051DE9D /* EaseBubbleView+Video.m in Sources */,
 				B8771DE11C098DE40051DE9D /* EaseMessageCell.m in Sources */,
@@ -2223,6 +2290,7 @@
 				B8771D241C098DE40051DE9D /* MKAnnotationView+EMWebCache.m in Sources */,
 				B8771E3B1C098E6B0051DE9D /* UIViewAdditions.m in Sources */,
 				B8771CFD1C098DE40051DE9D /* EMAudioRecorderUtil.m in Sources */,
+				B84536911C0DE97900B42E98 /* BaseModelMethod.m in Sources */,
 				B8771E551C0991570051DE9D /* UIViewController+Method.m in Sources */,
 				B8771DD31C098DE40051DE9D /* UIViewController+DismissKeyboard.m in Sources */,
 				B8771DDC1C098DE40051DE9D /* ConversationListController.m in Sources */,
@@ -2255,6 +2323,7 @@
 				B8771DCC1C098DE40051DE9D /* EaseConversationModel.m in Sources */,
 				B8771DE81C098DE40051DE9D /* EaseBubbleView+Voice.m in Sources */,
 				B8771D2B1C098DE40051DE9D /* UIImageView+EMWebCache.m in Sources */,
+				B84536941C0DE99A00B42E98 /* HMRecomendModel.m in Sources */,
 				B8771CFC1C098DE40051DE9D /* EMAudioPlayerUtil.m in Sources */,
 				B8771DD81C098DE40051DE9D /* EaseEmoji.m in Sources */,
 				B8771DD91C098DE40051DE9D /* EaseEmojiEmoticons.m in Sources */,
@@ -2275,6 +2344,7 @@
 				B8771DE41C098DE40051DE9D /* EaseBubbleView+Image.m in Sources */,
 				B8771E371C098E6B0051DE9D /* NSDictionary+StrDic.m in Sources */,
 				B8771D0E1C098DE40051DE9D /* MJRefreshHeader.m in Sources */,
+				B84536971C0DEA8000B42E98 /* HMPortraitInfoModel.m in Sources */,
 				B8771DEA1C098DE40051DE9D /* EaseChatToolbar.m in Sources */,
 				B8771DD51C098DE40051DE9D /* EaseChineseToPinyin.m in Sources */,
 				B8771D1C1C098DE40051DE9D /* DACircularProgressView.m in Sources */,
@@ -2283,10 +2353,12 @@
 				B8771D201C098DE40051DE9D /* EMSDWebImageDownloader.m in Sources */,
 				B8771D1E1C098DE40051DE9D /* EMSDWebImageCompat.m in Sources */,
 				B8771AFA1C0976200051DE9D /* main.m in Sources */,
+				B845368A1C0DDDEE00B42E98 /* CWStarRateView.m in Sources */,
 				B8771DDD1C098DE40051DE9D /* EaseConversationListViewController.m in Sources */,
 				B8771D031C098DE40051DE9D /* amrFileCodec.mm in Sources */,
 				B8771D231C098DE40051DE9D /* EMSDWebImagePrefetcher.m in Sources */,
 				B8771DEE1C098DE40051DE9D /* EaseFaceView.m in Sources */,
+				B84536871C0DDCA100B42E98 /* TeacherCell.m in Sources */,
 				B8771D351C098DE40051DE9D /* PSTCollectionViewUpdateItem.m in Sources */,
 				B8771D2C1C098DE40051DE9D /* UIView+EMWebCacheOperation.m in Sources */,
 				B8771D0A1C098DE40051DE9D /* MJRefreshConst.m in Sources */,
@@ -2386,6 +2458,7 @@
 			baseConfigurationReference = A3E14DCC66DCDB782D0DD66F /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Headmaster/PrefixHeader.pch";
 				INFOPLIST_FILE = Headmaster/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -2406,6 +2479,7 @@
 			baseConfigurationReference = 948A09C6A9F41BA727FBB910 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Headmaster/PrefixHeader.pch";
 				INFOPLIST_FILE = Headmaster/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
