@@ -8,16 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		92A9E5D7EE3DDE4857910BA1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95191FB6D2020B2944026A70 /* libPods.a */; };
-		B84536801C0DDA8000B42E98 /* TeacherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B845367F1C0DDA8000B42E98 /* TeacherModel.m */; };
-		B84536841C0DDB2B00B42E98 /* TeacherController.m in Sources */ = {isa = PBXBuildFile; fileRef = B84536831C0DDB2B00B42E98 /* TeacherController.m */; };
-		B84536871C0DDCA100B42E98 /* TeacherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B84536861C0DDCA100B42E98 /* TeacherCell.m */; };
-		B845368A1C0DDDEE00B42E98 /* CWStarRateView.m in Sources */ = {isa = PBXBuildFile; fileRef = B84536891C0DDDEE00B42E98 /* CWStarRateView.m */; };
-		B845368E1C0DE30700B42E98 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B845368D1C0DE30700B42E98 /* LoginViewController.m */; };
-		B84536911C0DE97900B42E98 /* BaseModelMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = B84536901C0DE97900B42E98 /* BaseModelMethod.m */; };
-		B84536941C0DE99A00B42E98 /* HMRecomendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B84536931C0DE99A00B42E98 /* HMRecomendModel.m */; };
-		B84536971C0DEA8000B42E98 /* HMPortraitInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B84536961C0DEA8000B42E98 /* HMPortraitInfoModel.m */; };
 		B8771AFA1C0976200051DE9D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B8771AF91C0976200051DE9D /* main.m */; };
-		B8771AFD1C0976200051DE9D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B8771AFC1C0976200051DE9D /* AppDelegate.m */; };
 		B8771B0B1C0976200051DE9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8771B0A1C0976200051DE9D /* Assets.xcassets */; };
 		B8771CFC1C098DE40051DE9D /* EMAudioPlayerUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = B8771B4C1C098DE30051DE9D /* EMAudioPlayerUtil.m */; };
 		B8771CFD1C098DE40051DE9D /* EMAudioRecorderUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = B8771B4E1C098DE30051DE9D /* EMAudioRecorderUtil.m */; };
@@ -281,37 +272,29 @@
 		B8771E471C098F500051DE9D /* NGOSegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B8771E411C098F500051DE9D /* NGOSegmentControl.m */; };
 		B8771E481C098F500051DE9D /* PortraitView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8771E431C098F500051DE9D /* PortraitView.m */; };
 		B8771E491C098F500051DE9D /* RefreshTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8771E451C098F500051DE9D /* RefreshTableView.m */; };
-		B8771E4E1C0990370051DE9D /* NetWorkEntiry.m in Sources */ = {isa = PBXBuildFile; fileRef = B8771E4D1C0990370051DE9D /* NetWorkEntiry.m */; };
 		B8771E521C0990980051DE9D /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B8771E511C0990980051DE9D /* UserInfoModel.m */; };
 		B8771E551C0991570051DE9D /* UIViewController+Method.m in Sources */ = {isa = PBXBuildFile; fileRef = B8771E541C0991570051DE9D /* UIViewController+Method.m */; };
-		B8771E5B1C09920C0051DE9D /* HMNagationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8771E581C09920C0051DE9D /* HMNagationController.m */; };
-		B8771E5C1C09920C0051DE9D /* UITabBar+RedHot.m in Sources */ = {isa = PBXBuildFile; fileRef = B8771E5A1C09920C0051DE9D /* UITabBar+RedHot.m */; };
+		D9CEC8EB1C0E8C83008DEE69 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC8EA1C0E8C83008DEE69 /* AppDelegate.m */; };
+		D9CEC90F1C0E8CF7008DEE69 /* HMNagationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC8EF1C0E8CF7008DEE69 /* HMNagationController.m */; };
+		D9CEC9101C0E8CF7008DEE69 /* UITabBar+RedHot.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC8F11C0E8CF7008DEE69 /* UITabBar+RedHot.m */; };
+		D9CEC9111C0E8CF7008DEE69 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC8F71C0E8CF7008DEE69 /* LoginViewController.m */; };
+		D9CEC9121C0E8CF7008DEE69 /* TeacherController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC8FA1C0E8CF7008DEE69 /* TeacherController.m */; };
+		D9CEC9131C0E8CF7008DEE69 /* BaseModelMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9011C0E8CF7008DEE69 /* BaseModelMethod.m */; };
+		D9CEC9141C0E8CF7008DEE69 /* HMPortraitInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9031C0E8CF7008DEE69 /* HMPortraitInfoModel.m */; };
+		D9CEC9151C0E8CF7008DEE69 /* HMRecomendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9051C0E8CF7008DEE69 /* HMRecomendModel.m */; };
+		D9CEC9161C0E8CF7008DEE69 /* TeacherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9071C0E8CF7008DEE69 /* TeacherModel.m */; };
+		D9CEC9171C0E8CF7008DEE69 /* CWStarRateView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC90B1C0E8CF7008DEE69 /* CWStarRateView.m */; };
+		D9CEC9181C0E8CF7008DEE69 /* TeacherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC90D1C0E8CF7008DEE69 /* TeacherCell.m */; };
+		D9CEC9321C0EA4C5008DEE69 /* NetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9301C0EA4C5008DEE69 /* NetworkTool.m */; };
+		D9CEC9351C0EB778008DEE69 /* NetworkEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9341C0EB778008DEE69 /* NetworkEntity.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		948A09C6A9F41BA727FBB910 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		95191FB6D2020B2944026A70 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3E14DCC66DCDB782D0DD66F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		B845367E1C0DDA8000B42E98 /* TeacherModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherModel.h; sourceTree = "<group>"; };
-		B845367F1C0DDA8000B42E98 /* TeacherModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherModel.m; sourceTree = "<group>"; };
-		B84536821C0DDB2B00B42E98 /* TeacherController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherController.h; sourceTree = "<group>"; };
-		B84536831C0DDB2B00B42E98 /* TeacherController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherController.m; sourceTree = "<group>"; };
-		B84536851C0DDCA100B42E98 /* TeacherCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherCell.h; sourceTree = "<group>"; };
-		B84536861C0DDCA100B42E98 /* TeacherCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherCell.m; sourceTree = "<group>"; };
-		B84536881C0DDDEE00B42E98 /* CWStarRateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWStarRateView.h; sourceTree = "<group>"; };
-		B84536891C0DDDEE00B42E98 /* CWStarRateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWStarRateView.m; sourceTree = "<group>"; };
-		B845368C1C0DE30700B42E98 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		B845368D1C0DE30700B42E98 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		B845368F1C0DE97900B42E98 /* BaseModelMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModelMethod.h; sourceTree = "<group>"; };
-		B84536901C0DE97900B42E98 /* BaseModelMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModelMethod.m; sourceTree = "<group>"; };
-		B84536921C0DE99A00B42E98 /* HMRecomendModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMRecomendModel.h; sourceTree = "<group>"; };
-		B84536931C0DE99A00B42E98 /* HMRecomendModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMRecomendModel.m; sourceTree = "<group>"; };
-		B84536951C0DEA8000B42E98 /* HMPortraitInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMPortraitInfoModel.h; sourceTree = "<group>"; };
-		B84536961C0DEA8000B42E98 /* HMPortraitInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMPortraitInfoModel.m; sourceTree = "<group>"; };
 		B8771AF51C0976200051DE9D /* Headmaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Headmaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8771AF91C0976200051DE9D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		B8771AFB1C0976200051DE9D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		B8771AFC1C0976200051DE9D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B8771B0A1C0976200051DE9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8771B0F1C0976200051DE9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8771B471C098DE30051DE9D /* EMCDDeviceManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCDDeviceManagerDelegate.h; sourceTree = "<group>"; };
@@ -738,16 +721,38 @@
 		B8771E441C098F500051DE9D /* RefreshTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefreshTableView.h; sourceTree = "<group>"; };
 		B8771E451C098F500051DE9D /* RefreshTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefreshTableView.m; sourceTree = "<group>"; };
 		B8771E4A1C098F7D0051DE9D /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		B8771E4C1C0990370051DE9D /* NetWorkEntiry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkEntiry.h; sourceTree = "<group>"; };
-		B8771E4D1C0990370051DE9D /* NetWorkEntiry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkEntiry.m; sourceTree = "<group>"; };
 		B8771E501C0990980051DE9D /* UserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoModel.h; sourceTree = "<group>"; };
 		B8771E511C0990980051DE9D /* UserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoModel.m; sourceTree = "<group>"; };
 		B8771E531C0991570051DE9D /* UIViewController+Method.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Method.h"; sourceTree = "<group>"; };
 		B8771E541C0991570051DE9D /* UIViewController+Method.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Method.m"; sourceTree = "<group>"; };
-		B8771E571C09920C0051DE9D /* HMNagationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMNagationController.h; sourceTree = "<group>"; };
-		B8771E581C09920C0051DE9D /* HMNagationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMNagationController.m; sourceTree = "<group>"; };
-		B8771E591C09920C0051DE9D /* UITabBar+RedHot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+RedHot.h"; sourceTree = "<group>"; };
-		B8771E5A1C09920C0051DE9D /* UITabBar+RedHot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+RedHot.m"; sourceTree = "<group>"; };
+		D9CEC8E91C0E8C83008DEE69 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D9CEC8EA1C0E8C83008DEE69 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D9CEC8EE1C0E8CF7008DEE69 /* HMNagationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMNagationController.h; sourceTree = "<group>"; };
+		D9CEC8EF1C0E8CF7008DEE69 /* HMNagationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMNagationController.m; sourceTree = "<group>"; };
+		D9CEC8F01C0E8CF7008DEE69 /* UITabBar+RedHot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+RedHot.h"; sourceTree = "<group>"; };
+		D9CEC8F11C0E8CF7008DEE69 /* UITabBar+RedHot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+RedHot.m"; sourceTree = "<group>"; };
+		D9CEC8F61C0E8CF7008DEE69 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		D9CEC8F71C0E8CF7008DEE69 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		D9CEC8F91C0E8CF7008DEE69 /* TeacherController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherController.h; sourceTree = "<group>"; };
+		D9CEC8FA1C0E8CF7008DEE69 /* TeacherController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherController.m; sourceTree = "<group>"; };
+		D9CEC9001C0E8CF7008DEE69 /* BaseModelMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModelMethod.h; sourceTree = "<group>"; };
+		D9CEC9011C0E8CF7008DEE69 /* BaseModelMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModelMethod.m; sourceTree = "<group>"; };
+		D9CEC9021C0E8CF7008DEE69 /* HMPortraitInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMPortraitInfoModel.h; sourceTree = "<group>"; };
+		D9CEC9031C0E8CF7008DEE69 /* HMPortraitInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMPortraitInfoModel.m; sourceTree = "<group>"; };
+		D9CEC9041C0E8CF7008DEE69 /* HMRecomendModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMRecomendModel.h; sourceTree = "<group>"; };
+		D9CEC9051C0E8CF7008DEE69 /* HMRecomendModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMRecomendModel.m; sourceTree = "<group>"; };
+		D9CEC9061C0E8CF7008DEE69 /* TeacherModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherModel.h; sourceTree = "<group>"; };
+		D9CEC9071C0E8CF7008DEE69 /* TeacherModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherModel.m; sourceTree = "<group>"; };
+		D9CEC90A1C0E8CF7008DEE69 /* CWStarRateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWStarRateView.h; sourceTree = "<group>"; };
+		D9CEC90B1C0E8CF7008DEE69 /* CWStarRateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWStarRateView.m; sourceTree = "<group>"; };
+		D9CEC90C1C0E8CF7008DEE69 /* TeacherCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherCell.h; sourceTree = "<group>"; };
+		D9CEC90D1C0E8CF7008DEE69 /* TeacherCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherCell.m; sourceTree = "<group>"; };
+		D9CEC92E1C0EA4C5008DEE69 /* NetworkInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkInterface.h; sourceTree = "<group>"; };
+		D9CEC92F1C0EA4C5008DEE69 /* NetworkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkTool.h; sourceTree = "<group>"; };
+		D9CEC9301C0EA4C5008DEE69 /* NetworkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkTool.m; sourceTree = "<group>"; };
+		D9CEC9331C0EB778008DEE69 /* NetworkEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkEntity.h; sourceTree = "<group>"; };
+		D9CEC9341C0EB778008DEE69 /* NetworkEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkEntity.m; sourceTree = "<group>"; };
+		D9CEC9361C0EBB4E008DEE69 /* AppMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppMacro.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -782,43 +787,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		B845367D1C0DD93C00B42E98 /* DataModel */ = {
-			isa = PBXGroup;
-			children = (
-				B84536951C0DEA8000B42E98 /* HMPortraitInfoModel.h */,
-				B84536961C0DEA8000B42E98 /* HMPortraitInfoModel.m */,
-				B845368F1C0DE97900B42E98 /* BaseModelMethod.h */,
-				B84536901C0DE97900B42E98 /* BaseModelMethod.m */,
-				B84536921C0DE99A00B42E98 /* HMRecomendModel.h */,
-				B84536931C0DE99A00B42E98 /* HMRecomendModel.m */,
-				B845367E1C0DDA8000B42E98 /* TeacherModel.h */,
-				B845367F1C0DDA8000B42E98 /* TeacherModel.m */,
-			);
-			name = DataModel;
-			sourceTree = "<group>";
-		};
-		B84536811C0DDAF100B42E98 /* TeacherController */ = {
-			isa = PBXGroup;
-			children = (
-				B84536821C0DDB2B00B42E98 /* TeacherController.h */,
-				B84536831C0DDB2B00B42E98 /* TeacherController.m */,
-				B84536851C0DDCA100B42E98 /* TeacherCell.h */,
-				B84536861C0DDCA100B42E98 /* TeacherCell.m */,
-				B84536881C0DDDEE00B42E98 /* CWStarRateView.h */,
-				B84536891C0DDDEE00B42E98 /* CWStarRateView.m */,
-			);
-			name = TeacherController;
-			sourceTree = "<group>";
-		};
-		B845368B1C0DE2F600B42E98 /* LoginViewController */ = {
-			isa = PBXGroup;
-			children = (
-				B845368C1C0DE30700B42E98 /* LoginViewController.h */,
-				B845368D1C0DE30700B42E98 /* LoginViewController.m */,
-			);
-			name = LoginViewController;
-			sourceTree = "<group>";
-		};
 		B8771AEC1C09761F0051DE9D = {
 			isa = PBXGroup;
 			children = (
@@ -840,20 +808,21 @@
 		B8771AF71C0976200051DE9D /* Headmaster */ = {
 			isa = PBXGroup;
 			children = (
-				B8771AFB1C0976200051DE9D /* AppDelegate.h */,
-				B8771AFC1C0976200051DE9D /* AppDelegate.m */,
-				B8771E4A1C098F7D0051DE9D /* PrefixHeader.pch */,
-				B845368B1C0DE2F600B42E98 /* LoginViewController */,
-				B84536811C0DDAF100B42E98 /* TeacherController */,
-				B845367D1C0DD93C00B42E98 /* DataModel */,
-				B8771E561C09920C0051DE9D /* NavigationController */,
+				D9CEC8E81C0E8C83008DEE69 /* AppDelegate */,
+				D9CEC8FF1C0E8CF7008DEE69 /* DataModel */,
+				D9CEC9091C0E8CF7008DEE69 /* View */,
+				D9CEC8F21C0E8CF7008DEE69 /* Controller */,
+				D9CEC90E1C0E8CF7008DEE69 /* ViewModel */,
+				D9CEC92B1C0EA4C5008DEE69 /* Network */,
 				B8771E4F1C0990980051DE9D /* UserInfoModel */,
-				B8771E4B1C0990370051DE9D /* NetWorkEntiry */,
+				D9CEC9081C0E8CF7008DEE69 /* Macro */,
 				B8771E3D1C098F500051DE9D /* UntityBox */,
+				D9CEC8EC1C0E8CF7008DEE69 /* Base */,
 				B8771DF31C098E6B0051DE9D /* ThirdPary */,
 				B8771B431C098DE30051DE9D /* EaseMobEntity */,
 				B8771B0A1C0976200051DE9D /* Assets.xcassets */,
 				B8771B0F1C0976200051DE9D /* Info.plist */,
+				B8771E4A1C098F7D0051DE9D /* PrefixHeader.pch */,
 				B8771AF81C0976200051DE9D /* Supporting Files */,
 			);
 			path = Headmaster;
@@ -1945,15 +1914,6 @@
 			path = UntityBox;
 			sourceTree = "<group>";
 		};
-		B8771E4B1C0990370051DE9D /* NetWorkEntiry */ = {
-			isa = PBXGroup;
-			children = (
-				B8771E4C1C0990370051DE9D /* NetWorkEntiry.h */,
-				B8771E4D1C0990370051DE9D /* NetWorkEntiry.m */,
-			);
-			path = NetWorkEntiry;
-			sourceTree = "<group>";
-		};
 		B8771E4F1C0990980051DE9D /* UserInfoModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1963,15 +1923,161 @@
 			path = UserInfoModel;
 			sourceTree = "<group>";
 		};
-		B8771E561C09920C0051DE9D /* NavigationController */ = {
+		D9CEC8E81C0E8C83008DEE69 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
-				B8771E571C09920C0051DE9D /* HMNagationController.h */,
-				B8771E581C09920C0051DE9D /* HMNagationController.m */,
-				B8771E591C09920C0051DE9D /* UITabBar+RedHot.h */,
-				B8771E5A1C09920C0051DE9D /* UITabBar+RedHot.m */,
+				D9CEC8E91C0E8C83008DEE69 /* AppDelegate.h */,
+				D9CEC8EA1C0E8C83008DEE69 /* AppDelegate.m */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		D9CEC8EC1C0E8CF7008DEE69 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				D9CEC8ED1C0E8CF7008DEE69 /* NavigationController */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		D9CEC8ED1C0E8CF7008DEE69 /* NavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				D9CEC8EE1C0E8CF7008DEE69 /* HMNagationController.h */,
+				D9CEC8EF1C0E8CF7008DEE69 /* HMNagationController.m */,
+				D9CEC8F01C0E8CF7008DEE69 /* UITabBar+RedHot.h */,
+				D9CEC8F11C0E8CF7008DEE69 /* UITabBar+RedHot.m */,
 			);
 			path = NavigationController;
+			sourceTree = "<group>";
+		};
+		D9CEC8F21C0E8CF7008DEE69 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D9CEC8F31C0E8CF7008DEE69 /* Home */,
+				D9CEC8F41C0E8CF7008DEE69 /* Information */,
+				D9CEC8F81C0E8CF7008DEE69 /* Message */,
+				D9CEC8F51C0E8CF7008DEE69 /* Login */,
+				D9CEC8FB1C0E8CF7008DEE69 /* Set */,
+				D9CEC8FC1C0E8CF7008DEE69 /* SideMenu */,
+				D9CEC8FD1C0E8CF7008DEE69 /* UserCenter */,
+				D9CEC8FE1C0E8CF7008DEE69 /* Welcome */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D9CEC8F31C0E8CF7008DEE69 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		D9CEC8F41C0E8CF7008DEE69 /* Information */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Information;
+			sourceTree = "<group>";
+		};
+		D9CEC8F51C0E8CF7008DEE69 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D9CEC8F61C0E8CF7008DEE69 /* LoginViewController.h */,
+				D9CEC8F71C0E8CF7008DEE69 /* LoginViewController.m */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		D9CEC8F81C0E8CF7008DEE69 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				D9CEC8F91C0E8CF7008DEE69 /* TeacherController.h */,
+				D9CEC8FA1C0E8CF7008DEE69 /* TeacherController.m */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		D9CEC8FB1C0E8CF7008DEE69 /* Set */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Set;
+			sourceTree = "<group>";
+		};
+		D9CEC8FC1C0E8CF7008DEE69 /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
+		D9CEC8FD1C0E8CF7008DEE69 /* UserCenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UserCenter;
+			sourceTree = "<group>";
+		};
+		D9CEC8FE1C0E8CF7008DEE69 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		D9CEC8FF1C0E8CF7008DEE69 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				D9CEC9001C0E8CF7008DEE69 /* BaseModelMethod.h */,
+				D9CEC9011C0E8CF7008DEE69 /* BaseModelMethod.m */,
+				D9CEC9021C0E8CF7008DEE69 /* HMPortraitInfoModel.h */,
+				D9CEC9031C0E8CF7008DEE69 /* HMPortraitInfoModel.m */,
+				D9CEC9041C0E8CF7008DEE69 /* HMRecomendModel.h */,
+				D9CEC9051C0E8CF7008DEE69 /* HMRecomendModel.m */,
+				D9CEC9061C0E8CF7008DEE69 /* TeacherModel.h */,
+				D9CEC9071C0E8CF7008DEE69 /* TeacherModel.m */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
+		D9CEC9081C0E8CF7008DEE69 /* Macro */ = {
+			isa = PBXGroup;
+			children = (
+				D9CEC9361C0EBB4E008DEE69 /* AppMacro.h */,
+			);
+			path = Macro;
+			sourceTree = "<group>";
+		};
+		D9CEC9091C0E8CF7008DEE69 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D9CEC90A1C0E8CF7008DEE69 /* CWStarRateView.h */,
+				D9CEC90B1C0E8CF7008DEE69 /* CWStarRateView.m */,
+				D9CEC90C1C0E8CF7008DEE69 /* TeacherCell.h */,
+				D9CEC90D1C0E8CF7008DEE69 /* TeacherCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D9CEC90E1C0E8CF7008DEE69 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D9CEC92B1C0EA4C5008DEE69 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				D9CEC9331C0EB778008DEE69 /* NetworkEntity.h */,
+				D9CEC9341C0EB778008DEE69 /* NetworkEntity.m */,
+				D9CEC92F1C0EA4C5008DEE69 /* NetworkTool.h */,
+				D9CEC9301C0EA4C5008DEE69 /* NetworkTool.m */,
+				D9CEC92E1C0EA4C5008DEE69 /* NetworkInterface.h */,
+			);
+			name = Network;
+			path = ViewModel/Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2234,10 +2340,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8771E361C098E6B0051DE9D /* RFSegmentView.m in Sources */,
+				D9CEC9351C0EB778008DEE69 /* NetworkEntity.m in Sources */,
 				B8771D081C098DE40051DE9D /* EMGifImage.m in Sources */,
 				B8771E351C098E6B0051DE9D /* YiRefreshHeader.m in Sources */,
 				B8771D1B1C098DE40051DE9D /* MWZoomingScrollView.m in Sources */,
-				B845368E1C0DE30700B42E98 /* LoginViewController.m in Sources */,
 				B8771DEC1C098DE40051DE9D /* EaseImageView.m in Sources */,
 				B8771D0B1C098DE40051DE9D /* MJRefreshFooter.m in Sources */,
 				B8771D021C098DE40051DE9D /* EMCDDeviceManagerBase.m in Sources */,
@@ -2246,22 +2352,24 @@
 				B8771D001C098DE40051DE9D /* EMCDDeviceManager+ProximitySensor.m in Sources */,
 				B8771DCB1C098DE40051DE9D /* EaseSDKHelper.m in Sources */,
 				B8771D321C098DE40051DE9D /* PSTCollectionViewFlowLayout.m in Sources */,
-				B84536801C0DDA8000B42E98 /* TeacherModel.m in Sources */,
 				B8771CFF1C098DE40051DE9D /* EMCDDeviceManager+Microphone.m in Sources */,
-				B84536841C0DDB2B00B42E98 /* TeacherController.m in Sources */,
 				B8771E3A1C098E6B0051DE9D /* UIView+TKCategory.m in Sources */,
+				D9CEC9181C0E8CF7008DEE69 /* TeacherCell.m in Sources */,
+				D9CEC9121C0E8CF7008DEE69 /* TeacherController.m in Sources */,
 				B8771DE71C098DE40051DE9D /* EaseBubbleView+Video.m in Sources */,
 				B8771DE11C098DE40051DE9D /* EaseMessageCell.m in Sources */,
 				B8771D091C098DE40051DE9D /* MJRefreshComponent.m in Sources */,
 				B8771D0F1C098DE40051DE9D /* MJRefreshLegendFooter.m in Sources */,
+				D9CEC9141C0E8CF7008DEE69 /* HMPortraitInfoModel.m in Sources */,
 				B8771DD01C098DE40051DE9D /* NSDateFormatter+Category.m in Sources */,
-				B8771E5B1C09920C0051DE9D /* HMNagationController.m in Sources */,
+				D9CEC90F1C0E8CF7008DEE69 /* HMNagationController.m in Sources */,
 				B8771D381C098DE40051DE9D /* PSTGridLayoutRow.m in Sources */,
 				B8771D2D1C098DE40051DE9D /* NSIndexPath+PSTCollectionViewAdditions.m in Sources */,
 				B8771D131C098DE40051DE9D /* UIView+MJExtension.m in Sources */,
 				B8771D0D1C098DE40051DE9D /* MJRefreshGifHeader.m in Sources */,
 				B8771D181C098DE40051DE9D /* MWPhotoBrowser.m in Sources */,
 				B8771DDF1C098DE40051DE9D /* EaseUserCell.m in Sources */,
+				D9CEC9151C0E8CF7008DEE69 /* HMRecomendModel.m in Sources */,
 				B8771D151C098DE40051DE9D /* MWGridCell.m in Sources */,
 				B8771E391C098E6B0051DE9D /* UIView+Sizes.m in Sources */,
 				B8771D111C098DE40051DE9D /* UIScrollView+MJExtension.m in Sources */,
@@ -2290,7 +2398,6 @@
 				B8771D241C098DE40051DE9D /* MKAnnotationView+EMWebCache.m in Sources */,
 				B8771E3B1C098E6B0051DE9D /* UIViewAdditions.m in Sources */,
 				B8771CFD1C098DE40051DE9D /* EMAudioRecorderUtil.m in Sources */,
-				B84536911C0DE97900B42E98 /* BaseModelMethod.m in Sources */,
 				B8771E551C0991570051DE9D /* UIViewController+Method.m in Sources */,
 				B8771DD31C098DE40051DE9D /* UIViewController+DismissKeyboard.m in Sources */,
 				B8771DDC1C098DE40051DE9D /* ConversationListController.m in Sources */,
@@ -2298,18 +2405,17 @@
 				B8771D361C098DE40051DE9D /* PSTGridLayoutInfo.m in Sources */,
 				B8771E481C098F500051DE9D /* PortraitView.m in Sources */,
 				B8771D281C098DE40051DE9D /* UIImage+EMMultiFormat.m in Sources */,
-				B8771E5C1C09920C0051DE9D /* UITabBar+RedHot.m in Sources */,
+				D9CEC9101C0E8CF7008DEE69 /* UITabBar+RedHot.m in Sources */,
 				B8771DEB1C098DE40051DE9D /* EaseChatToolbarItem.m in Sources */,
 				B8771D191C098DE40051DE9D /* MWTapDetectingImageView.m in Sources */,
 				B8771D291C098DE40051DE9D /* UIImage+EMWebP.m in Sources */,
-				B8771AFD1C0976200051DE9D /* AppDelegate.m in Sources */,
+				D9CEC9171C0E8CF7008DEE69 /* CWStarRateView.m in Sources */,
 				B8771DE31C098DE40051DE9D /* EaseBubbleView+File.m in Sources */,
 				B8771DDA1C098DE40051DE9D /* EaseEmotionEscape.m in Sources */,
 				B8771DD21C098DE40051DE9D /* NSString+Valid.m in Sources */,
 				B8771DE21C098DE40051DE9D /* EaseMessageTimeCell.m in Sources */,
 				B8771DCE1C098DE40051DE9D /* EaseUserModel.m in Sources */,
 				B8771E2F1C098E6B0051DE9D /* AFNetworkActivityLogger.m in Sources */,
-				B8771E4E1C0990370051DE9D /* NetWorkEntiry.m in Sources */,
 				B8771D2E1C098DE40051DE9D /* PSTCollectionView.m in Sources */,
 				B8771D3C1C098DE40051DE9D /* EMBubbleView+Gif.m in Sources */,
 				B8771D261C098DE40051DE9D /* UIButton+EMWebCache.m in Sources */,
@@ -2323,28 +2429,31 @@
 				B8771DCC1C098DE40051DE9D /* EaseConversationModel.m in Sources */,
 				B8771DE81C098DE40051DE9D /* EaseBubbleView+Voice.m in Sources */,
 				B8771D2B1C098DE40051DE9D /* UIImageView+EMWebCache.m in Sources */,
-				B84536941C0DE99A00B42E98 /* HMRecomendModel.m in Sources */,
 				B8771CFC1C098DE40051DE9D /* EMAudioPlayerUtil.m in Sources */,
 				B8771DD81C098DE40051DE9D /* EaseEmoji.m in Sources */,
 				B8771DD91C098DE40051DE9D /* EaseEmojiEmoticons.m in Sources */,
 				B8771D101C098DE40051DE9D /* MJRefreshLegendHeader.m in Sources */,
+				D9CEC9131C0E8CF7008DEE69 /* BaseModelMethod.m in Sources */,
 				B8771DE61C098DE40051DE9D /* EaseBubbleView+Text.m in Sources */,
 				B8771DCA1C098DE40051DE9D /* EaseViewController.m in Sources */,
 				B8771D271C098DE40051DE9D /* UIImage+EMGIF.m in Sources */,
 				B8771D141C098DE40051DE9D /* MWCaptionView.m in Sources */,
+				D9CEC8EB1C0E8C83008DEE69 /* AppDelegate.m in Sources */,
 				B8771D121C098DE40051DE9D /* UIScrollView+MJRefresh.m in Sources */,
 				B8771E521C0990980051DE9D /* UserInfoModel.m in Sources */,
+				D9CEC9111C0E8CF7008DEE69 /* LoginViewController.m in Sources */,
 				B8771D2A1C098DE40051DE9D /* UIImageView+EMHighlightedWebCache.m in Sources */,
+				D9CEC9161C0E8CF7008DEE69 /* TeacherModel.m in Sources */,
 				B8771DED1C098DE40051DE9D /* EaseTextView.m in Sources */,
 				B8771DDB1C098DE40051DE9D /* EaseEmotionManager.m in Sources */,
 				B8771D161C098DE40051DE9D /* MWGridViewController.m in Sources */,
 				B8771D1D1C098DE40051DE9D /* EMSDImageCache.m in Sources */,
 				B8771DD71C098DE40051DE9D /* EaseMessageReadManager.m in Sources */,
 				B8771D3D1C098DE40051DE9D /* ChatViewController.m in Sources */,
+				D9CEC9321C0EA4C5008DEE69 /* NetworkTool.m in Sources */,
 				B8771DE41C098DE40051DE9D /* EaseBubbleView+Image.m in Sources */,
 				B8771E371C098E6B0051DE9D /* NSDictionary+StrDic.m in Sources */,
 				B8771D0E1C098DE40051DE9D /* MJRefreshHeader.m in Sources */,
-				B84536971C0DEA8000B42E98 /* HMPortraitInfoModel.m in Sources */,
 				B8771DEA1C098DE40051DE9D /* EaseChatToolbar.m in Sources */,
 				B8771DD51C098DE40051DE9D /* EaseChineseToPinyin.m in Sources */,
 				B8771D1C1C098DE40051DE9D /* DACircularProgressView.m in Sources */,
@@ -2353,12 +2462,10 @@
 				B8771D201C098DE40051DE9D /* EMSDWebImageDownloader.m in Sources */,
 				B8771D1E1C098DE40051DE9D /* EMSDWebImageCompat.m in Sources */,
 				B8771AFA1C0976200051DE9D /* main.m in Sources */,
-				B845368A1C0DDDEE00B42E98 /* CWStarRateView.m in Sources */,
 				B8771DDD1C098DE40051DE9D /* EaseConversationListViewController.m in Sources */,
 				B8771D031C098DE40051DE9D /* amrFileCodec.mm in Sources */,
 				B8771D231C098DE40051DE9D /* EMSDWebImagePrefetcher.m in Sources */,
 				B8771DEE1C098DE40051DE9D /* EaseFaceView.m in Sources */,
-				B84536871C0DDCA100B42E98 /* TeacherCell.m in Sources */,
 				B8771D351C098DE40051DE9D /* PSTCollectionViewUpdateItem.m in Sources */,
 				B8771D2C1C098DE40051DE9D /* UIView+EMWebCacheOperation.m in Sources */,
 				B8771D0A1C098DE40051DE9D /* MJRefreshConst.m in Sources */,

@@ -7,9 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AFNetworking.h"
-
-
+#import "NetworkTool.h"
 
 @interface NetWorkEntiry : NSObject
 
@@ -24,15 +22,15 @@
  *  @param photoNumber （req）  手机号
  *  @param password     (req)  密码 MD5加密后
  */
-+ (void)loginWithPhotoNumber:(NSString *)photoNumber password:(NSString *)password
-                     success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
-                     failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+
++ (void)loginWithPhotoNumber:(NSString *)photoNumber password:(NSString *)password success:(NetworkSuccessBlock)success failure:(NetworkFailureBlock)failure;
 
 /**
  *  教练信息
  */
 + (void)getTeacherListWithSchoolId:(NSString *)schoolId pageIndex:(NSInteger)index
-                           success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
-                           failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+                           success:(NetworkSuccessBlock)success
+                           failure:(NetworkFailureBlock)failure;
+
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "NSDictionary+StrDic.h"
-#import "NetWorkEntiry.h"
+#import "NetWorkEntity.h"
 
 @implementation NSDictionary (StrDic)
 - (NSString *)objectStringForKey:(NSString *)key
