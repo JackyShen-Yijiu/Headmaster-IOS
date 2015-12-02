@@ -15,6 +15,7 @@
 #import "UIImageView+WebCache.h"
 #import "UIViewController+Method.h"
 #import "MBProgressHUD.h"
+#import "NetWorkEntity.h"
 #import "AFNetworking.h"
 #import "NetWorkEntity.h"
 #import "JSONKit.h"
