@@ -1,0 +1,174 @@
+//
+//  YBWelcomeController.m
+//  Headmaster
+//
+//  Created by 大威 on 15/12/2.
+//  Copyright © 2015年 ke. All rights reserved.
+//
+
+#import "YBWelcomeController.h"
+
+#pragma mark - 给NSString添加一个方法，用来获取当前的版本
+@interface NSString(Version)
+
++ (NSString *)currentVersion;
+
+@end
+
+@implementation NSString(Version)
+
++ (NSString *)currentVersion {
+    
+    NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary];
+    NSString *currentVersion = [infoDict objectForKey:@"CFBundleVersion"];
+    return currentVersion;
+}
+
+@end
+
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+
+#define kVersion @"kVersion"
+
+
+@interface YBWelcomeController ()
+
+@property (nonatomic, strong) UIWindow *window;
+
+@property (nonatomic, strong) UIScrollView *scrollView;
+
+@end
+
+@implementation YBWelcomeController
+
+#pragma mark - 检测是否需要展示引导页
++ (BOOL)isShowWelcome {
+    
+    NSString *savedVersion = [[NSUserDefaults standardUserDefaults] objectForKey:kVersion];
+    if (savedVersion) {
+        NSString *currentVersion = [NSString currentVersion];
+        if ([savedVersion isEqualToString:currentVersion]) {
+            return NO;
+        }
+    }
+    return YES;
+}
+
++ (void)removeSavedVersion {
+    // 删除在本地保存的版本信息
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"kVersion"];
+}
+
+#pragma mark 显示视图的方法
++ (void)show {
+    // 不使用静态修饰，在ARC中可能会提前释放
+    static UIWindow *window = nil;
+    window = [UIWindow new];
+    window.windowLevel = UIWindowLevelAlert;
+    window.backgroundColor = [UIColor clearColor];
+    window.rootViewController = [self new];
+    [window makeKeyAndVisible];
+}
+
+
+#pragma mark - 保存当前的版本
+- (void)saveVersion {
+    
+    [[NSUserDefaults standardUserDefaults] setObject:[NSString currentVersion] forKey:kVersion];
+}
+
+#pragma mark - 显示的内容
+- (void)cycleCreateImageView:(NSArray *)nameArray {
+    
+    for (int i = 0; i < nameArray.count; i++) {
+        
+        UIImageView *imageView = [UIImageView new];
+        imageView.frame = CGRectMake(i * SCREEN_WIDTH, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+        imageView.image = [UIImage imageNamed:nameArray[i]];
+        imageView.tag = i;
+        
+        [self.scrollView addSubview:imageView];
+    }
+    self.scrollView.contentSize = CGSizeMake(nameArray.count * SCREEN_WIDTH, 0);
+    [self createGoButton:nameArray.count - 1];
+}
+
+#pragma mark 创建按钮
+- (void)createGoButton:(NSInteger)tag {
+    
+    CGFloat btnWidth = 200;
+    CGFloat btnHeight = 40;
+    CGFloat btnBottom = 60;
+    UIButton *button = [UIButton new];
+    button.frame = CGRectMake((SCREEN_WIDTH - btnWidth) / 2, SCREEN_HEIGHT - btnHeight - btnBottom, btnWidth, btnHeight);
+    button.backgroundColor = [UIColor redColor];
+    [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIImageView *imageView = (UIImageView *)[self.scrollView viewWithTag:tag];
+    imageView.userInteractionEnabled = YES;
+    [imageView addSubview:button];
+}
+
+#pragma mark 按钮的点击事件
+- (void)buttonAction:(UIButton *)sender {
+    
+    CGRect rect = self.view.frame;
+    rect.origin.x = -SCREEN_WIDTH;
+    [UIView animateWithDuration:0.5 animations:^{
+        self.view.frame = rect;
+        self.view.alpha = 0;
+    } completion:^(BOOL finished) {
+        [self.view.window resignKeyWindow];
+        self.view.window.hidden = YES;
+    }];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    
+    // 保存版本号
+    [self saveVersion];
+    
+    [self.view addSubview:self.scrollView];
+    
+    [self cycleCreateImageView:@[ @"bg", @"bg", @"bg" ]];
+    
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
+#pragma mark - lazy load
+
+- (UIScrollView *)scrollView {
+    if (!_scrollView) {
+        _scrollView = [UIScrollView new];
+        _scrollView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+        _scrollView.showsHorizontalScrollIndicator = NO;
+        _scrollView.showsVerticalScrollIndicator = NO;
+        _scrollView.pagingEnabled = YES;
+        // 弹簧效果
+        _scrollView.bounces = NO;
+    }
+    return _scrollView;
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+@end

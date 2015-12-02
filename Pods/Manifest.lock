@@ -29,13 +29,14 @@ PODS:
   - Masonry (0.6.3)
   - MBProgressHUD (0.9.1)
   - MD5Digest (1.0.2)
-  - Qiniu (7.0.15):
+  - Qiniu (7.0.16):
     - AFNetworking (~> 2.0)
     - HappyDNS (~> 0.2)
+  - RESideMenu (4.0.7)
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
-  - UMengAnalytics (3.6.4)
+  - UMengAnalytics (3.6.6)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.6.0)
@@ -46,6 +47,7 @@ DEPENDENCIES:
   - MBProgressHUD (~> 0.9.1)
   - MD5Digest
   - Qiniu (~> 7.0)
+  - RESideMenu (~> 4.0.7)
   - SDWebImage (~> 3.7)
   - UMengAnalytics
 
@@ -58,8 +60,9 @@ SPEC CHECKSUMS:
   Masonry: ff105a956abcd19a618b2028b121cb638d7a8e2f
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   MD5Digest: b6d6b4b640a379c611d9828fe8f0e45dbaf88d2c
-  Qiniu: ade34d722c8ce0eed7080fd268249e8402a2f535
+  Qiniu: 51a8702cddc02b50867e10cef99291b9a8a006b1
+  RESideMenu: f24c508404b49c667344c54aba7e590883533958
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
-  UMengAnalytics: d24fb5200e13d2874f36b6337bc129b96511c54e
+  UMengAnalytics: 4bf831415146b9c57cb10be65fbd43462ef8cf65
 
 COCOAPODS: 0.39.0

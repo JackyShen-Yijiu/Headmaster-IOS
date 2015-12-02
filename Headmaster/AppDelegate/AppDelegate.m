@@ -12,11 +12,15 @@
 #import "AFNetworkActivityLogger.h"
 #import "APService.h"
 #import "HMNagationController.h"
-#import "LoginViewController.h"
+#import "LoginController.h"
 #import "TeacherController.h"
+#import "YBWelcomeController.h"
+#import "AppDelegate+RootViewController.h"
 
 @interface AppDelegate ()
-@property(nonatomic,strong)HMNagationController * navController;
+
+//@property(nonatomic,strong)HMNagationController * navController;
+
 @end
 
 @implementation AppDelegate
@@ -25,25 +29,32 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [self sysConfigWithApplication:application LaunchOptions:launchOptions];
-
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
-    LoginViewController * loginViewC = [[LoginViewController alloc] init];
     
-    self.navController = [[HMNagationController alloc] initWithRootViewController:loginViewC];
-    self.window.rootViewController =  self.navController;
-    [self.window makeKeyAndVisible];
+//    LoginController * loginViewC = [[LoginController alloc] init];
+//    self.navController = [[HMNagationController alloc] initWithRootViewController:loginViewC];
+//    self.window.rootViewController =  self.navController;
+//    [self.window makeKeyAndVisible];
 //    if ([UserInfoModel isLogin]) {
 //        [self loginViewControllerdidLoginSucess:nil];
 //    }
-    if([self isReciveFromHunaxin:launchOptions]){
+//    if([self isReciveFromHunaxin:launchOptions]){
 //        [self.navController jumpToMessageList];
-    }
-    [self.navController pushViewController:[[TeacherController alloc] init] animated:YES];
-    [self sysConfigWithApplication:application LaunchOptions:launchOptions];
+//    }
+//    [self.navController pushViewController:[self rootViewController] animated:YES];
     
+    self.window.rootViewController = [self rootViewController];
     [self.window makeKeyAndVisible];
     
+    [self sysConfigWithApplication:application LaunchOptions:launchOptions];
+    
+    // 添加引导页
+//    [YBWelcomeController removeSavedVersion]; // 测试引导页时使用打开注释
+    if ([YBWelcomeController isShowWelcome]) {
+        [YBWelcomeController show];
+    }
     
     return YES;
 }

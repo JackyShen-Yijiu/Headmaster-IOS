@@ -277,7 +277,6 @@
 		D9CEC8EB1C0E8C83008DEE69 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC8EA1C0E8C83008DEE69 /* AppDelegate.m */; };
 		D9CEC90F1C0E8CF7008DEE69 /* HMNagationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC8EF1C0E8CF7008DEE69 /* HMNagationController.m */; };
 		D9CEC9101C0E8CF7008DEE69 /* UITabBar+RedHot.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC8F11C0E8CF7008DEE69 /* UITabBar+RedHot.m */; };
-		D9CEC9111C0E8CF7008DEE69 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC8F71C0E8CF7008DEE69 /* LoginViewController.m */; };
 		D9CEC9121C0E8CF7008DEE69 /* TeacherController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC8FA1C0E8CF7008DEE69 /* TeacherController.m */; };
 		D9CEC9131C0E8CF7008DEE69 /* BaseModelMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9011C0E8CF7008DEE69 /* BaseModelMethod.m */; };
 		D9CEC9141C0E8CF7008DEE69 /* HMPortraitInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9031C0E8CF7008DEE69 /* HMPortraitInfoModel.m */; };
@@ -290,6 +289,27 @@
 		D9CEC9451C0EC432008DEE69 /* YBBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9441C0EC432008DEE69 /* YBBaseController.m */; };
 		D9CEC9481C0EC46F008DEE69 /* YBBaseTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9471C0EC46F008DEE69 /* YBBaseTableController.m */; };
 		D9CEC94B1C0EC4FE008DEE69 /* YBBaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC94A1C0EC4FE008DEE69 /* YBBaseViewModel.m */; };
+		D9CEC9511C0ECD35008DEE69 /* YBWelcomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9501C0ECD35008DEE69 /* YBWelcomeController.m */; };
+		D9CEC9541C0ED044008DEE69 /* AppDelegate+RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9531C0ED044008DEE69 /* AppDelegate+RootViewController.m */; };
+		D9CEC9571C0ED27E008DEE69 /* HomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9561C0ED27E008DEE69 /* HomeController.m */; };
+		D9CEC9611C0ED2D5008DEE69 /* HomeTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9591C0ED2D5008DEE69 /* HomeTopView.m */; };
+		D9CEC9621C0ED2D5008DEE69 /* HomeEvaluateView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC95B1C0ED2D5008DEE69 /* HomeEvaluateView.m */; };
+		D9CEC9631C0ED2D5008DEE69 /* HomeSeeTimeView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC95D1C0ED2D5008DEE69 /* HomeSeeTimeView.m */; };
+		D9CEC9641C0ED2D5008DEE69 /* InformationListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC95F1C0ED2D5008DEE69 /* InformationListCell.m */; };
+		D9CEC9651C0ED2D5008DEE69 /* InformationListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9CEC9601C0ED2D5008DEE69 /* InformationListCell.xib */; };
+		D9CEC9681C0ED46A008DEE69 /* HomeDataListController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9671C0ED46A008DEE69 /* HomeDataListController.m */; };
+		D9CEC9771C0ED643008DEE69 /* NSString+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC96A1C0ED643008DEE69 /* NSString+Helper.m */; };
+		D9CEC9781C0ED643008DEE69 /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC96C1C0ED643008DEE69 /* UIColor+Extension.m */; };
+		D9CEC9791C0ED643008DEE69 /* UIImage+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC96E1C0ED643008DEE69 /* UIImage+Helper.m */; };
+		D9CEC97A1C0ED643008DEE69 /* UIImageView+SDWedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9701C0ED643008DEE69 /* UIImageView+SDWedImage.m */; };
+		D9CEC97B1C0ED643008DEE69 /* UINavigationItem+BackItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9721C0ED643008DEE69 /* UINavigationItem+BackItem.m */; };
+		D9CEC97C1C0ED643008DEE69 /* DVVDoubleRowToolBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9741C0ED643008DEE69 /* DVVDoubleRowToolBarView.m */; };
+		D9CEC97D1C0ED643008DEE69 /* DVVToolBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9761C0ED643008DEE69 /* DVVToolBarView.m */; };
+		D9CEC9801C0ED6A6008DEE69 /* InformationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC97F1C0ED6A6008DEE69 /* InformationController.m */; };
+		D9CEC9851C0ED7D8008DEE69 /* SideMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9821C0ED7D8008DEE69 /* SideMenuController.m */; };
+		D9CEC9861C0ED7D8008DEE69 /* SideMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9841C0ED7D8008DEE69 /* SideMenuItem.m */; };
+		D9CEC9891C0EDBCD008DEE69 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9881C0EDBCD008DEE69 /* LoginController.m */; };
+		D9CEC98C1C0EDEC6008DEE69 /* YBBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC98B1C0EDEC6008DEE69 /* YBBaseNavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -734,8 +754,6 @@
 		D9CEC8EF1C0E8CF7008DEE69 /* HMNagationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMNagationController.m; sourceTree = "<group>"; };
 		D9CEC8F01C0E8CF7008DEE69 /* UITabBar+RedHot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+RedHot.h"; sourceTree = "<group>"; };
 		D9CEC8F11C0E8CF7008DEE69 /* UITabBar+RedHot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+RedHot.m"; sourceTree = "<group>"; };
-		D9CEC8F61C0E8CF7008DEE69 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		D9CEC8F71C0E8CF7008DEE69 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		D9CEC8F91C0E8CF7008DEE69 /* TeacherController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherController.h; sourceTree = "<group>"; };
 		D9CEC8FA1C0E8CF7008DEE69 /* TeacherController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherController.m; sourceTree = "<group>"; };
 		D9CEC9001C0E8CF7008DEE69 /* BaseModelMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModelMethod.h; sourceTree = "<group>"; };
@@ -762,6 +780,47 @@
 		D9CEC9471C0EC46F008DEE69 /* YBBaseTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YBBaseTableController.m; sourceTree = "<group>"; };
 		D9CEC9491C0EC4FE008DEE69 /* YBBaseViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBBaseViewModel.h; sourceTree = "<group>"; };
 		D9CEC94A1C0EC4FE008DEE69 /* YBBaseViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YBBaseViewModel.m; sourceTree = "<group>"; };
+		D9CEC94F1C0ECD35008DEE69 /* YBWelcomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBWelcomeController.h; sourceTree = "<group>"; };
+		D9CEC9501C0ECD35008DEE69 /* YBWelcomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YBWelcomeController.m; sourceTree = "<group>"; };
+		D9CEC9521C0ED044008DEE69 /* AppDelegate+RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+RootViewController.h"; sourceTree = "<group>"; };
+		D9CEC9531C0ED044008DEE69 /* AppDelegate+RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+RootViewController.m"; sourceTree = "<group>"; };
+		D9CEC9551C0ED27E008DEE69 /* HomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeController.h; sourceTree = "<group>"; };
+		D9CEC9561C0ED27E008DEE69 /* HomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeController.m; sourceTree = "<group>"; };
+		D9CEC9581C0ED2D5008DEE69 /* HomeTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeTopView.h; path = ../HomeTopView.h; sourceTree = "<group>"; };
+		D9CEC9591C0ED2D5008DEE69 /* HomeTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeTopView.m; path = ../HomeTopView.m; sourceTree = "<group>"; };
+		D9CEC95A1C0ED2D5008DEE69 /* HomeEvaluateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeEvaluateView.h; path = ../HomeEvaluateView.h; sourceTree = "<group>"; };
+		D9CEC95B1C0ED2D5008DEE69 /* HomeEvaluateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeEvaluateView.m; path = ../HomeEvaluateView.m; sourceTree = "<group>"; };
+		D9CEC95C1C0ED2D5008DEE69 /* HomeSeeTimeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeSeeTimeView.h; path = ../HomeSeeTimeView.h; sourceTree = "<group>"; };
+		D9CEC95D1C0ED2D5008DEE69 /* HomeSeeTimeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeSeeTimeView.m; path = ../HomeSeeTimeView.m; sourceTree = "<group>"; };
+		D9CEC95E1C0ED2D5008DEE69 /* InformationListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InformationListCell.h; path = ../InformationListCell.h; sourceTree = "<group>"; };
+		D9CEC95F1C0ED2D5008DEE69 /* InformationListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InformationListCell.m; path = ../InformationListCell.m; sourceTree = "<group>"; };
+		D9CEC9601C0ED2D5008DEE69 /* InformationListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InformationListCell.xib; path = ../InformationListCell.xib; sourceTree = "<group>"; };
+		D9CEC9661C0ED46A008DEE69 /* HomeDataListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeDataListController.h; sourceTree = "<group>"; };
+		D9CEC9671C0ED46A008DEE69 /* HomeDataListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeDataListController.m; sourceTree = "<group>"; };
+		D9CEC9691C0ED643008DEE69 /* NSString+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Helper.h"; sourceTree = "<group>"; };
+		D9CEC96A1C0ED643008DEE69 /* NSString+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Helper.m"; sourceTree = "<group>"; };
+		D9CEC96B1C0ED643008DEE69 /* UIColor+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
+		D9CEC96C1C0ED643008DEE69 /* UIColor+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extension.m"; sourceTree = "<group>"; };
+		D9CEC96D1C0ED643008DEE69 /* UIImage+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Helper.h"; sourceTree = "<group>"; };
+		D9CEC96E1C0ED643008DEE69 /* UIImage+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Helper.m"; sourceTree = "<group>"; };
+		D9CEC96F1C0ED643008DEE69 /* UIImageView+SDWedImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+SDWedImage.h"; sourceTree = "<group>"; };
+		D9CEC9701C0ED643008DEE69 /* UIImageView+SDWedImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+SDWedImage.m"; sourceTree = "<group>"; };
+		D9CEC9711C0ED643008DEE69 /* UINavigationItem+BackItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationItem+BackItem.h"; sourceTree = "<group>"; };
+		D9CEC9721C0ED643008DEE69 /* UINavigationItem+BackItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+BackItem.m"; sourceTree = "<group>"; };
+		D9CEC9731C0ED643008DEE69 /* DVVDoubleRowToolBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVVDoubleRowToolBarView.h; sourceTree = "<group>"; };
+		D9CEC9741C0ED643008DEE69 /* DVVDoubleRowToolBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVVDoubleRowToolBarView.m; sourceTree = "<group>"; };
+		D9CEC9751C0ED643008DEE69 /* DVVToolBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVVToolBarView.h; sourceTree = "<group>"; };
+		D9CEC9761C0ED643008DEE69 /* DVVToolBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVVToolBarView.m; sourceTree = "<group>"; };
+		D9CEC97E1C0ED6A6008DEE69 /* InformationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationController.h; sourceTree = "<group>"; };
+		D9CEC97F1C0ED6A6008DEE69 /* InformationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationController.m; sourceTree = "<group>"; };
+		D9CEC9811C0ED7D8008DEE69 /* SideMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuController.h; sourceTree = "<group>"; };
+		D9CEC9821C0ED7D8008DEE69 /* SideMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuController.m; sourceTree = "<group>"; };
+		D9CEC9831C0ED7D8008DEE69 /* SideMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuItem.h; sourceTree = "<group>"; };
+		D9CEC9841C0ED7D8008DEE69 /* SideMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuItem.m; sourceTree = "<group>"; };
+		D9CEC9871C0EDBCD008DEE69 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
+		D9CEC9881C0EDBCD008DEE69 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
+		D9CEC98A1C0EDEC6008DEE69 /* YBBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBBaseNavigationController.h; sourceTree = "<group>"; };
+		D9CEC98B1C0EDEC6008DEE69 /* YBBaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YBBaseNavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -825,8 +884,8 @@
 				D9CEC92B1C0EA4C5008DEE69 /* Network */,
 				B8771E4F1C0990980051DE9D /* UserInfoModel */,
 				D9CEC9081C0E8CF7008DEE69 /* Macro */,
-				B8771E3D1C098F500051DE9D /* UntityBox */,
 				D9CEC8EC1C0E8CF7008DEE69 /* Base */,
+				B8771E3D1C098F500051DE9D /* UntityBox */,
 				B8771DF31C098E6B0051DE9D /* ThirdPary */,
 				B8771B431C098DE30051DE9D /* EaseMobEntity */,
 				B8771B0A1C0976200051DE9D /* Assets.xcassets */,
@@ -1919,6 +1978,20 @@
 				B8771E451C098F500051DE9D /* RefreshTableView.m */,
 				B8771E531C0991570051DE9D /* UIViewController+Method.h */,
 				B8771E541C0991570051DE9D /* UIViewController+Method.m */,
+				D9CEC9691C0ED643008DEE69 /* NSString+Helper.h */,
+				D9CEC96A1C0ED643008DEE69 /* NSString+Helper.m */,
+				D9CEC96B1C0ED643008DEE69 /* UIColor+Extension.h */,
+				D9CEC96C1C0ED643008DEE69 /* UIColor+Extension.m */,
+				D9CEC96D1C0ED643008DEE69 /* UIImage+Helper.h */,
+				D9CEC96E1C0ED643008DEE69 /* UIImage+Helper.m */,
+				D9CEC96F1C0ED643008DEE69 /* UIImageView+SDWedImage.h */,
+				D9CEC9701C0ED643008DEE69 /* UIImageView+SDWedImage.m */,
+				D9CEC9711C0ED643008DEE69 /* UINavigationItem+BackItem.h */,
+				D9CEC9721C0ED643008DEE69 /* UINavigationItem+BackItem.m */,
+				D9CEC9731C0ED643008DEE69 /* DVVDoubleRowToolBarView.h */,
+				D9CEC9741C0ED643008DEE69 /* DVVDoubleRowToolBarView.m */,
+				D9CEC9751C0ED643008DEE69 /* DVVToolBarView.h */,
+				D9CEC9761C0ED643008DEE69 /* DVVToolBarView.m */,
 			);
 			path = UntityBox;
 			sourceTree = "<group>";
@@ -1937,6 +2010,8 @@
 			children = (
 				D9CEC8E91C0E8C83008DEE69 /* AppDelegate.h */,
 				D9CEC8EA1C0E8C83008DEE69 /* AppDelegate.m */,
+				D9CEC9521C0ED044008DEE69 /* AppDelegate+RootViewController.h */,
+				D9CEC9531C0ED044008DEE69 /* AppDelegate+RootViewController.m */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -1947,6 +2022,8 @@
 				D9CEC8ED1C0E8CF7008DEE69 /* NavigationController */,
 				D9CEC9431C0EC432008DEE69 /* YBBaseController.h */,
 				D9CEC9441C0EC432008DEE69 /* YBBaseController.m */,
+				D9CEC98A1C0EDEC6008DEE69 /* YBBaseNavigationController.h */,
+				D9CEC98B1C0EDEC6008DEE69 /* YBBaseNavigationController.m */,
 				D9CEC9461C0EC46F008DEE69 /* YBBaseTableController.h */,
 				D9CEC9471C0EC46F008DEE69 /* YBBaseTableController.m */,
 				D9CEC9491C0EC4FE008DEE69 /* YBBaseViewModel.h */,
@@ -1984,6 +2061,10 @@
 		D9CEC8F31C0E8CF7008DEE69 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				D9CEC9551C0ED27E008DEE69 /* HomeController.h */,
+				D9CEC9561C0ED27E008DEE69 /* HomeController.m */,
+				D9CEC9661C0ED46A008DEE69 /* HomeDataListController.h */,
+				D9CEC9671C0ED46A008DEE69 /* HomeDataListController.m */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1991,6 +2072,8 @@
 		D9CEC8F41C0E8CF7008DEE69 /* Information */ = {
 			isa = PBXGroup;
 			children = (
+				D9CEC97E1C0ED6A6008DEE69 /* InformationController.h */,
+				D9CEC97F1C0ED6A6008DEE69 /* InformationController.m */,
 			);
 			path = Information;
 			sourceTree = "<group>";
@@ -1998,8 +2081,8 @@
 		D9CEC8F51C0E8CF7008DEE69 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				D9CEC8F61C0E8CF7008DEE69 /* LoginViewController.h */,
-				D9CEC8F71C0E8CF7008DEE69 /* LoginViewController.m */,
+				D9CEC9871C0EDBCD008DEE69 /* LoginController.h */,
+				D9CEC9881C0EDBCD008DEE69 /* LoginController.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -2023,6 +2106,10 @@
 		D9CEC8FC1C0E8CF7008DEE69 /* SideMenu */ = {
 			isa = PBXGroup;
 			children = (
+				D9CEC9811C0ED7D8008DEE69 /* SideMenuController.h */,
+				D9CEC9821C0ED7D8008DEE69 /* SideMenuController.m */,
+				D9CEC9831C0ED7D8008DEE69 /* SideMenuItem.h */,
+				D9CEC9841C0ED7D8008DEE69 /* SideMenuItem.m */,
 			);
 			path = SideMenu;
 			sourceTree = "<group>";
@@ -2037,6 +2124,8 @@
 		D9CEC8FE1C0E8CF7008DEE69 /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
+				D9CEC94F1C0ECD35008DEE69 /* YBWelcomeController.h */,
+				D9CEC9501C0ECD35008DEE69 /* YBWelcomeController.m */,
 			);
 			path = Welcome;
 			sourceTree = "<group>";
@@ -2067,6 +2156,15 @@
 		D9CEC9091C0E8CF7008DEE69 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D9CEC9581C0ED2D5008DEE69 /* HomeTopView.h */,
+				D9CEC9591C0ED2D5008DEE69 /* HomeTopView.m */,
+				D9CEC95A1C0ED2D5008DEE69 /* HomeEvaluateView.h */,
+				D9CEC95B1C0ED2D5008DEE69 /* HomeEvaluateView.m */,
+				D9CEC95C1C0ED2D5008DEE69 /* HomeSeeTimeView.h */,
+				D9CEC95D1C0ED2D5008DEE69 /* HomeSeeTimeView.m */,
+				D9CEC95E1C0ED2D5008DEE69 /* InformationListCell.h */,
+				D9CEC95F1C0ED2D5008DEE69 /* InformationListCell.m */,
+				D9CEC9601C0ED2D5008DEE69 /* InformationListCell.xib */,
 				D9CEC90A1C0E8CF7008DEE69 /* CWStarRateView.h */,
 				D9CEC90B1C0E8CF7008DEE69 /* CWStarRateView.m */,
 				D9CEC90C1C0E8CF7008DEE69 /* TeacherCell.h */,
@@ -2177,6 +2275,7 @@
 				B8771D801C098DE40051DE9D /* chat_location_preview.png in Resources */,
 				B8771DBD1C098DE40051DE9D /* chat_receiver_audio_playing003@2x.png in Resources */,
 				B8771D621C098DE40051DE9D /* VoiceSearchFeedback019.png in Resources */,
+				D9CEC9651C0ED2D5008DEE69 /* InformationListCell.xib in Resources */,
 				B8771DA31C098DE40051DE9D /* chatBar_colorMore_video@2x.png in Resources */,
 				B8771D781C098DE40051DE9D /* chatBar_textBg.png in Resources */,
 				B8771D7B1C098DE40051DE9D /* chat_location_annotation_someone@2x.png in Resources */,
@@ -2384,6 +2483,7 @@
 				D9CEC9481C0EC46F008DEE69 /* YBBaseTableController.m in Sources */,
 				B8771D0D1C098DE40051DE9D /* MJRefreshGifHeader.m in Sources */,
 				B8771D181C098DE40051DE9D /* MWPhotoBrowser.m in Sources */,
+				D9CEC9541C0ED044008DEE69 /* AppDelegate+RootViewController.m in Sources */,
 				B8771DDF1C098DE40051DE9D /* EaseUserCell.m in Sources */,
 				D9CEC9151C0E8CF7008DEE69 /* HMRecomendModel.m in Sources */,
 				B8771D151C098DE40051DE9D /* MWGridCell.m in Sources */,
@@ -2397,13 +2497,16 @@
 				B8771D341C098DE40051DE9D /* PSTCollectionViewLayout.m in Sources */,
 				B8771DF21C098DE40051DE9D /* EaseConversationCell.m in Sources */,
 				B8771DCF1C098DE40051DE9D /* NSDate+Category.m in Sources */,
+				D9CEC97B1C0ED643008DEE69 /* UINavigationItem+BackItem.m in Sources */,
 				B8771D011C098DE40051DE9D /* EMCDDeviceManager+Remind.m in Sources */,
+				D9CEC9611C0ED2D5008DEE69 /* HomeTopView.m in Sources */,
 				B8771DD61C098DE40051DE9D /* EaseConvertToCommonEmoticonsHelper.m in Sources */,
 				B8771DCD1C098DE40051DE9D /* EaseMessageModel.m in Sources */,
 				B8771D041C098DE40051DE9D /* wav.mm in Sources */,
 				B8771DDE1C098DE40051DE9D /* EaseRefreshTableViewController.m in Sources */,
 				B8771D311C098DE40051DE9D /* PSTCollectionViewData.m in Sources */,
 				B8771DF01C098DE40051DE9D /* EaseChatBarMoreView.m in Sources */,
+				D9CEC97C1C0ED643008DEE69 /* DVVDoubleRowToolBarView.m in Sources */,
 				B8771DF11C098DE40051DE9D /* EaseRecordView.m in Sources */,
 				B8771D371C098DE40051DE9D /* PSTGridLayoutItem.m in Sources */,
 				D9CEC94B1C0EC4FE008DEE69 /* YBBaseViewModel.m in Sources */,
@@ -2425,10 +2528,17 @@
 				D9CEC9101C0E8CF7008DEE69 /* UITabBar+RedHot.m in Sources */,
 				B8771DEB1C098DE40051DE9D /* EaseChatToolbarItem.m in Sources */,
 				B8771D191C098DE40051DE9D /* MWTapDetectingImageView.m in Sources */,
+				D9CEC9791C0ED643008DEE69 /* UIImage+Helper.m in Sources */,
 				B8771D291C098DE40051DE9D /* UIImage+EMWebP.m in Sources */,
 				D9CEC9171C0E8CF7008DEE69 /* CWStarRateView.m in Sources */,
+				D9CEC9861C0ED7D8008DEE69 /* SideMenuItem.m in Sources */,
+				D9CEC9781C0ED643008DEE69 /* UIColor+Extension.m in Sources */,
+				D9CEC9511C0ECD35008DEE69 /* YBWelcomeController.m in Sources */,
 				B8771DE31C098DE40051DE9D /* EaseBubbleView+File.m in Sources */,
+				D9CEC97D1C0ED643008DEE69 /* DVVToolBarView.m in Sources */,
 				B8771DDA1C098DE40051DE9D /* EaseEmotionEscape.m in Sources */,
+				D9CEC9681C0ED46A008DEE69 /* HomeDataListController.m in Sources */,
+				D9CEC9571C0ED27E008DEE69 /* HomeController.m in Sources */,
 				B8771DD21C098DE40051DE9D /* NSString+Valid.m in Sources */,
 				B8771DE21C098DE40051DE9D /* EaseMessageTimeCell.m in Sources */,
 				B8771DCE1C098DE40051DE9D /* EaseUserModel.m in Sources */,
@@ -2436,30 +2546,37 @@
 				B8771D2E1C098DE40051DE9D /* PSTCollectionView.m in Sources */,
 				B8771D3C1C098DE40051DE9D /* EMBubbleView+Gif.m in Sources */,
 				D9CEC9451C0EC432008DEE69 /* YBBaseController.m in Sources */,
+				D9CEC9621C0ED2D5008DEE69 /* HomeEvaluateView.m in Sources */,
 				B8771D261C098DE40051DE9D /* UIButton+EMWebCache.m in Sources */,
 				B8771DD41C098DE40051DE9D /* UIViewController+HUD.m in Sources */,
 				B8771D221C098DE40051DE9D /* EMSDWebImageManager.m in Sources */,
 				B8771D171C098DE40051DE9D /* MWPhoto.m in Sources */,
 				B8771DC81C098DE40051DE9D /* EaseLocationViewController.m in Sources */,
+				D9CEC9801C0ED6A6008DEE69 /* InformationController.m in Sources */,
 				B8771DC91C098DE40051DE9D /* EaseMessageViewController.m in Sources */,
+				D9CEC97A1C0ED643008DEE69 /* UIImageView+SDWedImage.m in Sources */,
 				B8771DD11C098DE40051DE9D /* NSObject+EaseMob.m in Sources */,
 				B8771DE51C098DE40051DE9D /* EaseBubbleView+Location.m in Sources */,
 				B8771DCC1C098DE40051DE9D /* EaseConversationModel.m in Sources */,
 				B8771DE81C098DE40051DE9D /* EaseBubbleView+Voice.m in Sources */,
+				D9CEC9641C0ED2D5008DEE69 /* InformationListCell.m in Sources */,
 				B8771D2B1C098DE40051DE9D /* UIImageView+EMWebCache.m in Sources */,
 				B8771CFC1C098DE40051DE9D /* EMAudioPlayerUtil.m in Sources */,
 				B8771DD81C098DE40051DE9D /* EaseEmoji.m in Sources */,
 				B8771DD91C098DE40051DE9D /* EaseEmojiEmoticons.m in Sources */,
 				B8771D101C098DE40051DE9D /* MJRefreshLegendHeader.m in Sources */,
+				D9CEC9771C0ED643008DEE69 /* NSString+Helper.m in Sources */,
 				D9CEC9131C0E8CF7008DEE69 /* BaseModelMethod.m in Sources */,
+				D9CEC98C1C0EDEC6008DEE69 /* YBBaseNavigationController.m in Sources */,
 				B8771DE61C098DE40051DE9D /* EaseBubbleView+Text.m in Sources */,
 				B8771DCA1C098DE40051DE9D /* EaseViewController.m in Sources */,
 				B8771D271C098DE40051DE9D /* UIImage+EMGIF.m in Sources */,
 				B8771D141C098DE40051DE9D /* MWCaptionView.m in Sources */,
 				D9CEC8EB1C0E8C83008DEE69 /* AppDelegate.m in Sources */,
+				D9CEC9631C0ED2D5008DEE69 /* HomeSeeTimeView.m in Sources */,
+				D9CEC9851C0ED7D8008DEE69 /* SideMenuController.m in Sources */,
 				B8771D121C098DE40051DE9D /* UIScrollView+MJRefresh.m in Sources */,
 				B8771E521C0990980051DE9D /* UserInfoModel.m in Sources */,
-				D9CEC9111C0E8CF7008DEE69 /* LoginViewController.m in Sources */,
 				B8771D2A1C098DE40051DE9D /* UIImageView+EMHighlightedWebCache.m in Sources */,
 				D9CEC9161C0E8CF7008DEE69 /* TeacherModel.m in Sources */,
 				B8771DED1C098DE40051DE9D /* EaseTextView.m in Sources */,
@@ -2486,6 +2603,7 @@
 				B8771DEE1C098DE40051DE9D /* EaseFaceView.m in Sources */,
 				B8771D351C098DE40051DE9D /* PSTCollectionViewUpdateItem.m in Sources */,
 				B8771D2C1C098DE40051DE9D /* UIView+EMWebCacheOperation.m in Sources */,
+				D9CEC9891C0EDBCD008DEE69 /* LoginController.m in Sources */,
 				B8771D0A1C098DE40051DE9D /* MJRefreshConst.m in Sources */,
 				B8771D1A1C098DE40051DE9D /* MWTapDetectingView.m in Sources */,
 				B8771DEF1C098DE40051DE9D /* EaseFacialView.m in Sources */,
