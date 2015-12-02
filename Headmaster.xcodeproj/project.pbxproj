@@ -287,6 +287,9 @@
 		D9CEC9181C0E8CF7008DEE69 /* TeacherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC90D1C0E8CF7008DEE69 /* TeacherCell.m */; };
 		D9CEC9321C0EA4C5008DEE69 /* NetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9301C0EA4C5008DEE69 /* NetworkTool.m */; };
 		D9CEC9351C0EB778008DEE69 /* NetworkEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9341C0EB778008DEE69 /* NetworkEntity.m */; };
+		D9CEC9451C0EC432008DEE69 /* YBBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9441C0EC432008DEE69 /* YBBaseController.m */; };
+		D9CEC9481C0EC46F008DEE69 /* YBBaseTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9471C0EC46F008DEE69 /* YBBaseTableController.m */; };
+		D9CEC94B1C0EC4FE008DEE69 /* YBBaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC94A1C0EC4FE008DEE69 /* YBBaseViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -753,6 +756,12 @@
 		D9CEC9331C0EB778008DEE69 /* NetworkEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkEntity.h; sourceTree = "<group>"; };
 		D9CEC9341C0EB778008DEE69 /* NetworkEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkEntity.m; sourceTree = "<group>"; };
 		D9CEC9361C0EBB4E008DEE69 /* AppMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppMacro.h; sourceTree = "<group>"; };
+		D9CEC9431C0EC432008DEE69 /* YBBaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBBaseController.h; sourceTree = "<group>"; };
+		D9CEC9441C0EC432008DEE69 /* YBBaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YBBaseController.m; sourceTree = "<group>"; };
+		D9CEC9461C0EC46F008DEE69 /* YBBaseTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBBaseTableController.h; sourceTree = "<group>"; };
+		D9CEC9471C0EC46F008DEE69 /* YBBaseTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YBBaseTableController.m; sourceTree = "<group>"; };
+		D9CEC9491C0EC4FE008DEE69 /* YBBaseViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBBaseViewModel.h; sourceTree = "<group>"; };
+		D9CEC94A1C0EC4FE008DEE69 /* YBBaseViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YBBaseViewModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1936,6 +1945,12 @@
 			isa = PBXGroup;
 			children = (
 				D9CEC8ED1C0E8CF7008DEE69 /* NavigationController */,
+				D9CEC9431C0EC432008DEE69 /* YBBaseController.h */,
+				D9CEC9441C0EC432008DEE69 /* YBBaseController.m */,
+				D9CEC9461C0EC46F008DEE69 /* YBBaseTableController.h */,
+				D9CEC9471C0EC46F008DEE69 /* YBBaseTableController.m */,
+				D9CEC9491C0EC4FE008DEE69 /* YBBaseViewModel.h */,
+				D9CEC94A1C0EC4FE008DEE69 /* YBBaseViewModel.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -2366,6 +2381,7 @@
 				B8771D381C098DE40051DE9D /* PSTGridLayoutRow.m in Sources */,
 				B8771D2D1C098DE40051DE9D /* NSIndexPath+PSTCollectionViewAdditions.m in Sources */,
 				B8771D131C098DE40051DE9D /* UIView+MJExtension.m in Sources */,
+				D9CEC9481C0EC46F008DEE69 /* YBBaseTableController.m in Sources */,
 				B8771D0D1C098DE40051DE9D /* MJRefreshGifHeader.m in Sources */,
 				B8771D181C098DE40051DE9D /* MWPhotoBrowser.m in Sources */,
 				B8771DDF1C098DE40051DE9D /* EaseUserCell.m in Sources */,
@@ -2390,6 +2406,7 @@
 				B8771DF01C098DE40051DE9D /* EaseChatBarMoreView.m in Sources */,
 				B8771DF11C098DE40051DE9D /* EaseRecordView.m in Sources */,
 				B8771D371C098DE40051DE9D /* PSTGridLayoutItem.m in Sources */,
+				D9CEC94B1C0EC4FE008DEE69 /* YBBaseViewModel.m in Sources */,
 				B8771D301C098DE40051DE9D /* PSTCollectionViewController.m in Sources */,
 				B8771D0C1C098DE40051DE9D /* MJRefreshGifFooter.m in Sources */,
 				B8771E341C098E6B0051DE9D /* YiRefreshFooter.m in Sources */,
@@ -2418,6 +2435,7 @@
 				B8771E2F1C098E6B0051DE9D /* AFNetworkActivityLogger.m in Sources */,
 				B8771D2E1C098DE40051DE9D /* PSTCollectionView.m in Sources */,
 				B8771D3C1C098DE40051DE9D /* EMBubbleView+Gif.m in Sources */,
+				D9CEC9451C0EC432008DEE69 /* YBBaseController.m in Sources */,
 				B8771D261C098DE40051DE9D /* UIButton+EMWebCache.m in Sources */,
 				B8771DD41C098DE40051DE9D /* UIViewController+HUD.m in Sources */,
 				B8771D221C098DE40051DE9D /* EMSDWebImageManager.m in Sources */,

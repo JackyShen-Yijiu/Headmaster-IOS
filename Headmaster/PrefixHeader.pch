@@ -16,8 +16,6 @@
 #import "UIViewController+Method.h"
 #import "MBProgressHUD.h"
 #import "NetworkEntity.h"
-#import "AFNetworking.h"
-#import "NetWorkEntity.h"
 #import "JSONKit.h"
 #import "NSDictionary+StrDic.h"
 #import "Masonry.h"
