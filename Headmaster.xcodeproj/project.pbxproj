@@ -2792,10 +2792,7 @@
 				B8771D2E1C098DE40051DE9D /* PSTCollectionView.m in Sources */,
 				B8771D3C1C098DE40051DE9D /* EMBubbleView+Gif.m in Sources */,
 				D9CEC9451C0EC432008DEE69 /* YBBaseController.m in Sources */,
-<<<<<<< HEAD
-=======
 				060BA8811C10116C009AD55E /* CoachOfCourse.m in Sources */,
->>>>>>> 00d3324aab1ae0d83f9029811fd06c76dde76728
 				55BA0F581C0EF6FA00F83CD8 /* SettingController.m in Sources */,
 				B895A1A31C10448100FEDD78 /* RecomendCell.m in Sources */,
 				B8771D261C098DE40051DE9D /* UIButton+EMWebCache.m in Sources */,
