@@ -79,7 +79,7 @@
     [[DZNSegmentedControl appearance] setHairlineColor:[UIColor clearColor]];
     
     [[DZNSegmentedControl appearance] setFont:[UIFont systemFontOfSize:15.f]];
-    [[DZNSegmentedControl appearance] setSelectionIndicatorHeight:2.5];
+    [[DZNSegmentedControl appearance] setSelectionIndicatorHeight:1];
     [[DZNSegmentedControl appearance] setAnimationDuration:0.125];
 
     self.control.frame = CGRectMake(0, 64, self.view.width, 60);
@@ -168,7 +168,7 @@
     {
         _control = [[DZNSegmentedControl alloc] initWithItems:self.menuItems];
         _control.selectedSegmentIndex = 0;
-        _control.bouncySelectionIndicator = YES;
+        _control.bouncySelectionIndicator = NO;
         _control.showsCount = NO;
         [_control addTarget:self action:@selector(selectedSegment:) forControlEvents:UIControlEventValueChanged];
     }
@@ -179,10 +179,10 @@
 {
     if (!_menuItems) {
         _menuItems = @[
-                       @"好评",
-                       @"中评",
-                       @"差评",
-                       @"投诉"
+                       @"  好评       ",
+                       @"  中评       ",
+                       @"  差评       ",
+                       @"  投诉       "
                        ];
     }
     return _menuItems;
