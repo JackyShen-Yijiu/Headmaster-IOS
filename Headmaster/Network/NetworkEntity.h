@@ -10,6 +10,8 @@
 #import "NetworkTool.h"
 #import "AFNetworking.h"
 
+@class UserInfoModel;
+
 @interface NetworkEntity : NSObject
 
 /**
@@ -32,6 +34,20 @@
 + (void)getTeacherListWithSchoolId:(NSString *)schoolId pageIndex:(NSInteger)index
                            success:(NetworkSuccessBlock)success
                            failure:(NetworkFailureBlock)failure;
+/**
+ *  获取发布
+ */
++ (void)getPublishListWithUseInfoModel:(UserInfoModel *)uim seqindex:(NSString *)index count:(NSString *)count
+                               success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+                               failure:(void (^)(AFHTTPRequestOperation *operation, id responseObject))failure;
+
+/**
+ *  发布公告
+ */
+
++ (void)postPublishMessageWithUseInfoModel:(UserInfoModel *)uim textContent:(NSString *)content type:(NSString *)type
+                                   success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+                                   failure:(void (^)(AFHTTPRequestOperation *operation, id responseObject))failure;
 
 
 @end

@@ -2254,6 +2254,7 @@
 				TargetAttributes = {
 					B8771AF41C0976200051DE9D = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = 5VZ6WB2437;
 					};
 				};
 			};
@@ -2578,11 +2579,7 @@
 				B8771D2E1C098DE40051DE9D /* PSTCollectionView.m in Sources */,
 				B8771D3C1C098DE40051DE9D /* EMBubbleView+Gif.m in Sources */,
 				D9CEC9451C0EC432008DEE69 /* YBBaseController.m in Sources */,
-
-				D9CEC9621C0ED2D5008DEE69 /* HomeEvaluateView.m in Sources */,
 				55BA0F581C0EF6FA00F83CD8 /* SettingController.m in Sources */,
-
-
 				B8771D261C098DE40051DE9D /* UIButton+EMWebCache.m in Sources */,
 				B8771DD41C098DE40051DE9D /* UIViewController+HUD.m in Sources */,
 				B8771D221C098DE40051DE9D /* EMSDWebImageManager.m in Sources */,
@@ -2739,6 +2736,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Headmaster/PrefixHeader.pch";
 				INFOPLIST_FILE = Headmaster/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -2751,6 +2751,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yibukeji.Headmaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -2760,6 +2761,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Headmaster/PrefixHeader.pch";
 				INFOPLIST_FILE = Headmaster/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -2772,6 +2776,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yibukeji.Headmaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

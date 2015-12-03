@@ -20,4 +20,12 @@
 
 #define SCHOOLCOACH @"getschoolcoach"
 
+/* 获取公告 */
+
+#define GETPUBLISH @"userinfo/getbulletin"
+
+/* 发布公告 */
+
+#define PUBLISHMESSAGE @"userinfo/publishbulletin"
+
 #endif /* NetworkMacro_h */
