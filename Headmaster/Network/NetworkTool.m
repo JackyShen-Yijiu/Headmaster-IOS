@@ -10,7 +10,7 @@
 
 #import "AFNetworking.h"
 
-#define  HOST_TEST_DAMIAN  @"http://101.200.204.240:8181/api/v1"
+#define  HOST_TEST_DAMIAN  @"http://101.200.204.240:8181/api/headmaster"
 
 #define  HOST_LINE_DOMAIN  @"http://123.57.63.15:8181/api/v1"
 
@@ -47,10 +47,11 @@
 
 #pragma mark - AFN网络请求
 #pragma mark POST请求
-+ (void)postWithPath:(NSString *)path
-              params:(NSDictionary *)params
-             success:(NetworkSuccessBlock)success
-             failure:(NetworkFailureBlock)failure {
++ (void)POST:(NSString *)path
+      params:(NSDictionary *)params
+     success:(NetworkSuccessBlock)success
+     failure:(NetworkFailureBlock)failure {
+    
     AFHttpClient *manager = [AFHttpClient sharedClient];
     
     [manager POST:path parameters:params success:^(NSURLSessionDataTask *task, id JSON) {
@@ -66,10 +67,11 @@
 }
 
 #pragma mark GET请求
-+ (void)getWithPath:(NSString *)path
-             params:(NSDictionary *)params
-            success:(NetworkSuccessBlock)success
-            failure:(NetworkFailureBlock)failure {
++ (void)GET:(NSString *)path
+     params:(NSDictionary *)params
+    success:(NetworkSuccessBlock)success
+    failure:(NetworkFailureBlock)failure {
+    
     AFHttpClient *manager = [AFHttpClient sharedClient];
     
     [manager GET:path parameters:params success:^(NSURLSessionDataTask *task, id JSON) {
@@ -86,7 +88,7 @@
 }
 
 #pragma mark POST上传图片
-+ (void)postWithImgPath:(NSString *)path
++ (void)postWithImagePath:(NSString *)path
                  params:(NSDictionary *)params
                  images:(NSArray *)images
                 success:(NetworkSuccessBlock)success
@@ -118,6 +120,13 @@
     }];
     
     [opration start];
+}
+
++ (void)missParagramerCallBackFailure:(NetworkFailureBlock)failure
+{
+    NSError * error = [NSError errorWithDomain:@"Deomin" code:0
+                                      userInfo:@{@"error":@"缺少参数"}];
+    failure(error);
 }
 
 #pragma mark -

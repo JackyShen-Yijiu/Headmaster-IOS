@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
@@ -15,24 +15,24 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OAJ-q0-BZ2">
-                        <rect key="frame" x="83" y="5" width="229" height="47"/>
+                        <rect key="frame" x="86" y="5" width="226" height="47"/>
                         <color key="backgroundColor" red="0.64500473484848486" green="0.62347153578330672" blue="0.62240740246509341" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="15分钟前" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8kU-Po-zbF">
-                        <rect key="frame" x="83" y="55" width="114" height="20"/>
+                        <rect key="frame" x="86" y="55" width="106" height="20"/>
                         <color key="backgroundColor" red="0.64500473479999998" green="0.62347153580000003" blue="0.62240740250000004" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="332" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dtq-o6-Uh0">
-                        <rect key="frame" x="205" y="55" width="86" height="20"/>
+                        <rect key="frame" x="195" y="55" width="96" height="20"/>
                         <color key="backgroundColor" red="0.64500473479999998" green="0.62347153580000003" blue="0.62240740250000004" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Q3-hH-3eX">
@@ -44,7 +44,7 @@
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iPA-Yw-Iik">
-                        <rect key="frame" x="5" y="5" width="70" height="70"/>
+                        <rect key="frame" x="8" y="5" width="70" height="70"/>
                         <color key="backgroundColor" red="0.57660590277777779" green="0.5583972953216374" blue="0.5583972953216374" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="70" id="9yr-Ne-BUG"/>
@@ -55,7 +55,7 @@
                 <constraints>
                     <constraint firstItem="8kU-Po-zbF" firstAttribute="leading" secondItem="iPA-Yw-Iik" secondAttribute="trailing" constant="8" id="7hM-tA-fY2"/>
                     <constraint firstItem="8kU-Po-zbF" firstAttribute="top" secondItem="OAJ-q0-BZ2" secondAttribute="bottom" constant="3" id="8nL-rh-e7o"/>
-                    <constraint firstItem="iPA-Yw-Iik" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="EL5-YF-LAg"/>
+                    <constraint firstItem="iPA-Yw-Iik" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="EL5-YF-LAg"/>
                     <constraint firstItem="5Q3-hH-3eX" firstAttribute="leading" secondItem="Dtq-o6-Uh0" secondAttribute="trailing" constant="1" id="EfX-tg-dyR"/>
                     <constraint firstAttribute="bottom" secondItem="8kU-Po-zbF" secondAttribute="bottom" constant="4" id="RAa-OY-Yxd"/>
                     <constraint firstAttribute="trailing" secondItem="OAJ-q0-BZ2" secondAttribute="trailing" constant="8" id="Zqu-oN-dua"/>
