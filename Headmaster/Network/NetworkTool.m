@@ -7,7 +7,6 @@
 //
 
 #import "NetworkTool.h"
-
 #import "AFNetworking.h"
 
 #define  HOST_TEST_DAMIAN  @"http://101.200.204.240:8181/api/headmaster"
