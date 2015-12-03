@@ -79,7 +79,7 @@
     UIBarButtonItem* someBarButtonItem= [[UIBarButtonItem alloc] initWithCustomView:backButton];
     self.myNavigationItem.leftBarButtonItems = @[[self barSpaingItem],someBarButtonItem];
     
-//    self.myNavigationItem.title = self.studentModel.userName;
+    self.myNavigationItem.title = self.model.userName;
     //单聊
     if (self.conversation.conversationType == eConversationTypeChat) {
 
