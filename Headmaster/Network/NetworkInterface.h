@@ -12,12 +12,13 @@
 /****** 这里定义各个接口 ******/
 
 /* 用户相关 */
-
 // 登录
 #define USER_LOGIN @"userinfo/userlogin"
 
-/* 教练相关 */
+/* 资讯相关 */
+#define INFORMATION_LIST @"info/getnews"
 
+/* 教练相关 */
 #define SCHOOLCOACH @"getschoolcoach"
 
 #endif /* NetworkMacro_h */

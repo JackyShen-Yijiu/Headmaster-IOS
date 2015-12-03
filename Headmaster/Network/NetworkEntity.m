@@ -43,4 +43,14 @@
     [NetworkTool GET:urlStr params:nil success:success failure:failure];
 }
 
++ (void)informationListWithseqindex:(NSInteger)seqindex
+                              count:(NSInteger)count
+                            success:(NetworkSuccessBlock)success
+                            failure:(NetworkFailureBlock)failure {
+    
+    NSDictionary * dict = @{ @"seqindex": [NSString stringWithFormat:@"%li", seqindex],
+                            @"count": [NSString stringWithFormat:@"%li", count] };
+    [NetworkTool GET:INFORMATION_LIST params:dict success:success failure:failure];
+}
+
 @end

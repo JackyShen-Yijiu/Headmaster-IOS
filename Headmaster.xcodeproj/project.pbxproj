@@ -296,7 +296,6 @@
 		B8771E491C098F500051DE9D /* RefreshTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8771E451C098F500051DE9D /* RefreshTableView.m */; };
 		B8771E521C0990980051DE9D /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B8771E511C0990980051DE9D /* UserInfoModel.m */; };
 		B8771E551C0991570051DE9D /* UIViewController+Method.m in Sources */ = {isa = PBXBuildFile; fileRef = B8771E541C0991570051DE9D /* UIViewController+Method.m */; };
-		D92296B51C0FD14F00D0FFDF /* InformationViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D92296B41C0FD14F00D0FFDF /* InformationViewModel.m */; };
 		D92296BC1C0FD29C00D0FFDF /* NetworkEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = D92296B81C0FD29C00D0FFDF /* NetworkEntity.m */; };
 		D92296BD1C0FD29C00D0FFDF /* NetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D92296BB1C0FD29C00D0FFDF /* NetworkTool.m */; };
 		D92296C81C0FD2FF00D0FFDF /* HomeEvaluateView.m in Sources */ = {isa = PBXBuildFile; fileRef = D92296BF1C0FD2FF00D0FFDF /* HomeEvaluateView.m */; };
@@ -304,6 +303,9 @@
 		D92296CA1C0FD2FF00D0FFDF /* HomeTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = D92296C31C0FD2FF00D0FFDF /* HomeTopView.m */; };
 		D92296CC1C0FD2FF00D0FFDF /* InformationListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D92296C61C0FD2FF00D0FFDF /* InformationListCell.m */; };
 		D92296CD1C0FD2FF00D0FFDF /* InformationListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D92296C71C0FD2FF00D0FFDF /* InformationListCell.xib */; };
+		D92296E51C0FDCC500D0FFDF /* InformationViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D92296E41C0FDCC500D0FFDF /* InformationViewModel.m */; };
+		D92296E81C0FE9A000D0FFDF /* InformationDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D92296E71C0FE9A000D0FFDF /* InformationDataModel.m */; };
+		D92296EB1C0FEE9500D0FFDF /* InformationDataModelRootClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D92296EA1C0FEE9500D0FFDF /* InformationDataModelRootClass.m */; };
 		D9CEC8EB1C0E8C83008DEE69 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC8EA1C0E8C83008DEE69 /* AppDelegate.m */; };
 		D9CEC90F1C0E8CF7008DEE69 /* HMNagationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC8EF1C0E8CF7008DEE69 /* HMNagationController.m */; };
 		D9CEC9101C0E8CF7008DEE69 /* UITabBar+RedHot.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC8F11C0E8CF7008DEE69 /* UITabBar+RedHot.m */; };
@@ -812,8 +814,6 @@
 		B8771E511C0990980051DE9D /* UserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoModel.m; sourceTree = "<group>"; };
 		B8771E531C0991570051DE9D /* UIViewController+Method.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Method.h"; sourceTree = "<group>"; };
 		B8771E541C0991570051DE9D /* UIViewController+Method.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Method.m"; sourceTree = "<group>"; };
-		D92296B31C0FD14F00D0FFDF /* InformationViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationViewModel.h; sourceTree = "<group>"; };
-		D92296B41C0FD14F00D0FFDF /* InformationViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationViewModel.m; sourceTree = "<group>"; };
 		D92296B71C0FD29C00D0FFDF /* NetworkEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkEntity.h; sourceTree = "<group>"; };
 		D92296B81C0FD29C00D0FFDF /* NetworkEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkEntity.m; sourceTree = "<group>"; };
 		D92296B91C0FD29C00D0FFDF /* NetworkInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkInterface.h; sourceTree = "<group>"; };
@@ -828,6 +828,12 @@
 		D92296C51C0FD2FF00D0FFDF /* InformationListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationListCell.h; sourceTree = "<group>"; };
 		D92296C61C0FD2FF00D0FFDF /* InformationListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationListCell.m; sourceTree = "<group>"; };
 		D92296C71C0FD2FF00D0FFDF /* InformationListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InformationListCell.xib; sourceTree = "<group>"; };
+		D92296E31C0FDCC500D0FFDF /* InformationViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationViewModel.h; sourceTree = "<group>"; };
+		D92296E41C0FDCC500D0FFDF /* InformationViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationViewModel.m; sourceTree = "<group>"; };
+		D92296E61C0FE9A000D0FFDF /* InformationDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationDataModel.h; sourceTree = "<group>"; };
+		D92296E71C0FE9A000D0FFDF /* InformationDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationDataModel.m; sourceTree = "<group>"; };
+		D92296E91C0FEE9500D0FFDF /* InformationDataModelRootClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationDataModelRootClass.h; sourceTree = "<group>"; };
+		D92296EA1C0FEE9500D0FFDF /* InformationDataModelRootClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationDataModelRootClass.m; sourceTree = "<group>"; };
 		D9CEC8E91C0E8C83008DEE69 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D9CEC8EA1C0E8C83008DEE69 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D9CEC8EE1C0E8CF7008DEE69 /* HMNagationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMNagationController.h; sourceTree = "<group>"; };
@@ -2130,10 +2136,10 @@
 			isa = PBXGroup;
 			children = (
 				D9CEC8ED1C0E8CF7008DEE69 /* NavigationController */,
-				D9CEC9431C0EC432008DEE69 /* YBBaseController.h */,
-				D9CEC9441C0EC432008DEE69 /* YBBaseController.m */,
 				D9CEC98A1C0EDEC6008DEE69 /* YBBaseNavigationController.h */,
 				D9CEC98B1C0EDEC6008DEE69 /* YBBaseNavigationController.m */,
+				D9CEC9431C0EC432008DEE69 /* YBBaseController.h */,
+				D9CEC9441C0EC432008DEE69 /* YBBaseController.m */,
 				D9CEC9461C0EC46F008DEE69 /* YBBaseTableController.h */,
 				D9CEC9471C0EC46F008DEE69 /* YBBaseTableController.m */,
 				D9CEC9491C0EC4FE008DEE69 /* YBBaseViewModel.h */,
@@ -2261,6 +2267,10 @@
 				D9CEC9051C0E8CF7008DEE69 /* HMRecomendModel.m */,
 				D9CEC9061C0E8CF7008DEE69 /* TeacherModel.h */,
 				D9CEC9071C0E8CF7008DEE69 /* TeacherModel.m */,
+				D92296E61C0FE9A000D0FFDF /* InformationDataModel.h */,
+				D92296E71C0FE9A000D0FFDF /* InformationDataModel.m */,
+				D92296E91C0FEE9500D0FFDF /* InformationDataModelRootClass.h */,
+				D92296EA1C0FEE9500D0FFDF /* InformationDataModelRootClass.m */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -2300,8 +2310,8 @@
 		D9CEC90E1C0E8CF7008DEE69 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				D92296B31C0FD14F00D0FFDF /* InformationViewModel.h */,
-				D92296B41C0FD14F00D0FFDF /* InformationViewModel.m */,
+				D92296E31C0FDCC500D0FFDF /* InformationViewModel.h */,
+				D92296E41C0FDCC500D0FFDF /* InformationViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -2714,6 +2724,7 @@
 				B8771DD71C098DE40051DE9D /* EaseMessageReadManager.m in Sources */,
 				55BA0F551C0EF6D300F83CD8 /* PublishController.m in Sources */,
 				B8771D3D1C098DE40051DE9D /* ChatViewController.m in Sources */,
+				D92296EB1C0FEE9500D0FFDF /* InformationDataModelRootClass.m in Sources */,
 				B8771DE41C098DE40051DE9D /* EaseBubbleView+Image.m in Sources */,
 				B8771E371C098E6B0051DE9D /* NSDictionary+StrDic.m in Sources */,
 				B8771D0E1C098DE40051DE9D /* MJRefreshHeader.m in Sources */,

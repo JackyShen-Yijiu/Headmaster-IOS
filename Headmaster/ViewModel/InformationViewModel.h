@@ -10,4 +10,6 @@
 
 @interface InformationViewModel : YBBaseViewModel
 
+@property (nonatomic, strong) NSArray *informationArray;
+
 @end
