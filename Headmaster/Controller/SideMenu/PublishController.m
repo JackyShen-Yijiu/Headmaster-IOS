@@ -17,7 +17,7 @@
     UILabel *_placeholderLabel;
 }
 
-@property (nonatomic, strong) RefreshTableView *tableView;
+@property (nonatomic, strong) UITableView *tableView;
 
 @end
 
@@ -72,17 +72,10 @@
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[RefreshTableView alloc] initWithFrame:CGRectMake(0, 0, h_size.width, h_size.height)];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, h_size.width, h_size.height)];
         _tableView.dataSource = self;
         _tableView.delegate = self;
         
-        _tableView.refreshHeader.beginRefreshingBlock = ^() {
-            
-        };
-        
-        _tableView.refreshFooter.beginRefreshingBlock = ^() {
-            
-        };
     }
     return _tableView;
 }
