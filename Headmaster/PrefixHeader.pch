@@ -25,6 +25,7 @@
 
 
 #import "AppMacro.h"
+#import "UIImageView+SDWedImage.h"
 
 
 #define RGB_Color(r,g,b)    RGBA_Color(r,g,b,1)

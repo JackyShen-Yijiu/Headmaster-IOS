@@ -7,9 +7,12 @@
 //
 
 #import "InformationController.h"
+#import "InformationViewModel.h"
 #import "InformationListCell.h"
 
 @interface InformationController ()
+
+@property (nonatomic, strong) InformationViewModel *viewModel;
 
 @end
 
@@ -18,15 +21,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+//    [self addBackgroundImage];
     self.tableView.rowHeight = 80;
+    
+    _viewModel = [InformationViewModel new];
+    [_viewModel successRefreshBlock:^{
+        NSLog(@"我被成功回调了哟！");
+        [self.tableView reloadData];
+    }];
+    [_viewModel networkRequestRefresh];
 }
 
 #pragma mark - tableView data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 9;
+    return _viewModel.informationArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -34,11 +44,11 @@
     static NSString *cellID = @"cellID";
     InformationListCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (!cell) {
-        cell = [InformationListCell new];
+        cell = [[InformationListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
-    cell.contentLabel.text = @"label";
-    cell.timeLabel.text = @"13:35";
-    cell.seeLabel.text = @"322";
+    
+    InformationDataModel *dataModel = _viewModel.informationArray[indexPath.row];
+    [cell refreshData:dataModel];
     
     return cell;
 }

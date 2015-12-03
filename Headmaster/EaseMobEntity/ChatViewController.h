@@ -12,5 +12,5 @@
 #import "TeacherModel.h"
 
 @interface ChatViewController : EaseMessageViewController
-//@property(nonatomic,strong)HMStudentModel * studentModel;
+@property(nonatomic,strong)TeacherModel * model;
 @end

@@ -11,6 +11,7 @@
 #import "TeacherCell.h"
 #import "BaseModelMethod.h"
 #import "ChatViewController.h"
+#import "NetworkEntity.h"
 
 @interface TeacherController ()<UITableViewDelegate,UITableViewDataSource,TeacherCellDelegate,UISearchBarDelegate,UISearchDisplayDelegate>
 @property(nonatomic,strong)UIImageView * bgView;
@@ -96,50 +97,46 @@
 
 - (void)initRefreshView
 {
-//    WS(ws);
-//    self.tableView.refreshHeader.beginRefreshingBlock = ^(){
-//        
-//        NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
-//        [NetWorkEntiry getTeacherListWithSchoolId:type pageIndex:1 success:^(id responseObject) {
-//            
-//            if (type == 1) {
-//                ws.tableViewData = [[BaseModelMethod getTeacherListArrayFormDicInfo:[responseObject objectArrayForKey:@"data"]] mutableCopy];
-//                dispatch_async(dispatch_get_main_queue(), ^{
-//                    [ws.tableView.refreshHeader endRefreshing];
-//                    [ws.tableView reloadData];
-//                });
-//            }
-//         
-//        } failure:^(NSError *failure) {
-//            [ws netErrorWithTableView:ws.tableView];
-//        }];
-//
-//    };
-//    
-//    self.tableView.refreshFooter.beginRefreshingBlock = ^(){
-//        
-//        
-//        [NetWorkEntiry getTeacherListWithSchoolId:@"56163c376816a9741248b7f9" pageIndex:ws.tableViewData.count / RELOADDATACOUNT + 1 success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//            NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
-//            
-//            if (type == 1) {
-//                NSArray * listArray = [[BaseModelMethod getTeacherListArrayFormDicInfo:[responseObject objectArrayForKey:@"data"]] mutableCopy];
-//                if (listArray.count) {
-//                    [ws.tableViewData addObjectsFromArray:listArray];
-//                    [ws.tableView reloadData];
-//                }else{
-//                    [ws showTotasViewWithMes:@"已经加载所有数据"];
-//                }
-//                [ws.tableView.refreshFooter endRefreshing];
-//            }else{
-//                [ws dealErrorResponseWithTableView:ws.tableView info:responseObject];
-//            }
-//            
-//        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//            [ws netErrorWithTableView:ws.tableView];
-//        }];
-//
-//    };
+    WS(ws);
+    self.tableView.refreshHeader.beginRefreshingBlock = ^(){
+        
+        [NetworkEntity getTeacherListWithSchoolId:@"56163c376816a9741248b7f9" pageIndex:1 success:^(id responseObject) {
+            
+            NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
+            if (type == 1) {
+                ws.tableViewData = [[BaseModelMethod getTeacherListArrayFormDicInfo:[responseObject objectArrayForKey:@"data"]] mutableCopy];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [ws.tableView.refreshHeader endRefreshing];
+                    [ws.tableView reloadData];
+                });
+            }
+        } failure:^(NSError *failure) {
+            [ws netErrorWithTableView:ws.tableView];
+        }];
+    };
+    
+    self.tableView.refreshFooter.beginRefreshingBlock = ^(){
+        [NetworkEntity getTeacherListWithSchoolId:@"56163c376816a9741248b7f9" pageIndex:ws.tableViewData.count / RELOADDATACOUNT + 1 success:^(id responseObject) {
+            NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
+            
+            if (type == 1) {
+                NSArray * listArray = [[BaseModelMethod getTeacherListArrayFormDicInfo:[responseObject objectArrayForKey:@"data"]] mutableCopy];
+                if (listArray.count) {
+                    [ws.tableViewData addObjectsFromArray:listArray];
+                    [ws.tableView reloadData];
+                }else{
+                    [ws showTotasViewWithMes:@"已经加载所有数据"];
+                }
+                [ws.tableView.refreshFooter endRefreshing];
+            }else{
+                [ws dealErrorResponseWithTableView:ws.tableView info:responseObject];
+            }
+            
+        }  failure:^(NSError *failure) {
+            [ws netErrorWithTableView:ws.tableView];
+        }];
+        
+    };
 }
 
 #pragma mark - SearchBar
@@ -226,7 +223,7 @@
 - (void)teacherCell:(TeacherCell *)cell didClickMessageButton:(UIButton *)button
 {
     ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:cell.model.userId conversationType:eConversationTypeChat];
-//    chatController.studentModel = cell.model;
+    chatController.model = cell.model;
     [self.navigationController pushViewController:chatController animated:YES];
 }
 

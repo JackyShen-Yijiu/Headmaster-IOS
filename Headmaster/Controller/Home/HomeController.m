@@ -11,6 +11,7 @@
 #import "HomeEvaluateView.h"
 #import "HomeSeeTimeView.h"
 #import "HomeDataListController.h"
+#import "DataDatilViewController.h"
 
 @interface HomeController ()
 
@@ -26,6 +27,12 @@
 @end
 
 @implementation HomeController
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    // 显示下面的导航栏
+    self.tabBarController.tabBar.hidden = NO;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -56,7 +63,9 @@
 #pragma mark 更多按钮
 - (void)moreButtonAction {
     
-    HomeDataListController *dataListVC = [HomeDataListController new];
+    DataDatilViewController *dataListVC = [[DataDatilViewController alloc] init];
+    
+//    HomeDataListController *dataListVC = [HomeDataListController new];
     [self.navigationController pushViewController:dataListVC animated:YES];
 }
 

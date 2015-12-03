@@ -49,5 +49,15 @@
                                    success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
                                    failure:(void (^)(AFHTTPRequestOperation *operation, id responseObject))failure;
 
+/**
+ *  资讯列表
+ *
+ *  @param seqindex  开始的索引
+ *  @param count     获取的数量
+ */
++ (void)informationListWithseqindex:(NSInteger)seqindex
+                              count:(NSInteger) count
+                            success:(NetworkSuccessBlock)success
+                            failure:(NetworkFailureBlock)failure;
 
 @end

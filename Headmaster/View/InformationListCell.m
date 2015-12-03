@@ -23,8 +23,17 @@
             self = array.lastObject;
         }
         self.selectionStyle = UITableViewCellSelectionStyleNone;
+        self.backgroundColor = [UIColor clearColor];
     }
     return self;
+}
+
+- (void)refreshData:(InformationDataModel *)dataModel {
+    
+    [self.iconImageView downloadImage:dataModel.logimg];
+    self.timeLabel.text = dataModel.title;
+    self.contentLabel.text = dataModel.descriptionString;
+    self.timeLabel.text = dataModel.createtime;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

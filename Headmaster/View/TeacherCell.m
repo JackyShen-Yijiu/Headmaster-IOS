@@ -46,7 +46,9 @@
     self.titleLabel.backgroundColor = [UIColor clearColor];
     [self.contentView addSubview:self.titleLabel];
     
-    self.rateView = [[CWStarRateView alloc] init];
+    self.rateView = [[CWStarRateView alloc] initWithFrame:CGRectMake(0, 0, 146, 23.f) numberOfStars:5];
+    [self.rateView setUserInteractionEnabled:NO];
+    self.rateView.scorePercent = (2.5 / 5.f);
     [self.contentView addSubview:self.rateView];
     
     self.messageButton = [[UIButton alloc] init];

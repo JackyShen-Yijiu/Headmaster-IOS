@@ -11,6 +11,9 @@
 
 /* 颜色相关 */
 
+// 主体背景色
+#define BACKGROUND_COLOR @"303030"
+
 // 绿色高亮
 #define HIGHLIGHT_COLOR @"01E2B6"
 // 绿色正常
