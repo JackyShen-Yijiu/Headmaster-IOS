@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55BA0F4F1C0EF19A00F83CD8 /* TeacherController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55BA0F4E1C0EF19A00F83CD8 /* TeacherController.m */; };
+		55BA0F551C0EF6D300F83CD8 /* PublishController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55BA0F541C0EF6D300F83CD8 /* PublishController.m */; };
+		55BA0F581C0EF6FA00F83CD8 /* SettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55BA0F571C0EF6FA00F83CD8 /* SettingController.m */; };
+		55BA0F5C1C0EFA8100F83CD8 /* PublishCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55BA0F5A1C0EFA8100F83CD8 /* PublishCell.m */; };
+		55BA0F5D1C0EFA8100F83CD8 /* PublishCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55BA0F5B1C0EFA8100F83CD8 /* PublishCell.xib */; };
+		55FDE40A1C0FC5C700329F17 /* InformationDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FDE4091C0FC5C700329F17 /* InformationDetailController.m */; };
 		92A9E5D7EE3DDE4857910BA1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95191FB6D2020B2944026A70 /* libPods.a */; };
 		B8771AFA1C0976200051DE9D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B8771AF91C0976200051DE9D /* main.m */; };
 		B8771B0B1C0976200051DE9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8771B0A1C0976200051DE9D /* Assets.xcassets */; };
@@ -287,7 +293,6 @@
 		D9CEC8EB1C0E8C83008DEE69 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC8EA1C0E8C83008DEE69 /* AppDelegate.m */; };
 		D9CEC90F1C0E8CF7008DEE69 /* HMNagationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC8EF1C0E8CF7008DEE69 /* HMNagationController.m */; };
 		D9CEC9101C0E8CF7008DEE69 /* UITabBar+RedHot.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC8F11C0E8CF7008DEE69 /* UITabBar+RedHot.m */; };
-		D9CEC9121C0E8CF7008DEE69 /* TeacherController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC8FA1C0E8CF7008DEE69 /* TeacherController.m */; };
 		D9CEC9131C0E8CF7008DEE69 /* BaseModelMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9011C0E8CF7008DEE69 /* BaseModelMethod.m */; };
 		D9CEC9141C0E8CF7008DEE69 /* HMPortraitInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9031C0E8CF7008DEE69 /* HMPortraitInfoModel.m */; };
 		D9CEC9151C0E8CF7008DEE69 /* HMRecomendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9051C0E8CF7008DEE69 /* HMRecomendModel.m */; };
@@ -316,6 +321,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		55BA0F4D1C0EF19A00F83CD8 /* TeacherController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherController.h; sourceTree = "<group>"; };
+		55BA0F4E1C0EF19A00F83CD8 /* TeacherController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherController.m; sourceTree = "<group>"; };
+		55BA0F531C0EF6D300F83CD8 /* PublishController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishController.h; sourceTree = "<group>"; };
+		55BA0F541C0EF6D300F83CD8 /* PublishController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishController.m; sourceTree = "<group>"; };
+		55BA0F561C0EF6FA00F83CD8 /* SettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingController.h; path = Headmaster/Controller/SideMenu/SettingController.h; sourceTree = SOURCE_ROOT; };
+		55BA0F571C0EF6FA00F83CD8 /* SettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingController.m; path = Headmaster/Controller/SideMenu/SettingController.m; sourceTree = SOURCE_ROOT; };
+		55BA0F591C0EFA8100F83CD8 /* PublishCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishCell.h; sourceTree = "<group>"; };
+		55BA0F5A1C0EFA8100F83CD8 /* PublishCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishCell.m; sourceTree = "<group>"; };
+		55BA0F5B1C0EFA8100F83CD8 /* PublishCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PublishCell.xib; sourceTree = "<group>"; };
+		55FDE4081C0FC5C700329F17 /* InformationDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationDetailController.h; sourceTree = "<group>"; };
+		55FDE4091C0FC5C700329F17 /* InformationDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationDetailController.m; sourceTree = "<group>"; };
 		948A09C6A9F41BA727FBB910 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		95191FB6D2020B2944026A70 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3E14DCC66DCDB782D0DD66F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -777,8 +793,6 @@
 		D9CEC8EF1C0E8CF7008DEE69 /* HMNagationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMNagationController.m; sourceTree = "<group>"; };
 		D9CEC8F01C0E8CF7008DEE69 /* UITabBar+RedHot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+RedHot.h"; sourceTree = "<group>"; };
 		D9CEC8F11C0E8CF7008DEE69 /* UITabBar+RedHot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+RedHot.m"; sourceTree = "<group>"; };
-		D9CEC8F91C0E8CF7008DEE69 /* TeacherController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherController.h; sourceTree = "<group>"; };
-		D9CEC8FA1C0E8CF7008DEE69 /* TeacherController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherController.m; sourceTree = "<group>"; };
 		D9CEC9001C0E8CF7008DEE69 /* BaseModelMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModelMethod.h; sourceTree = "<group>"; };
 		D9CEC9011C0E8CF7008DEE69 /* BaseModelMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModelMethod.m; sourceTree = "<group>"; };
 		D9CEC9021C0E8CF7008DEE69 /* HMPortraitInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMPortraitInfoModel.h; sourceTree = "<group>"; };
@@ -2095,6 +2109,8 @@
 			children = (
 				D9CEC97E1C0ED6A6008DEE69 /* InformationController.h */,
 				D9CEC97F1C0ED6A6008DEE69 /* InformationController.m */,
+				55FDE4081C0FC5C700329F17 /* InformationDetailController.h */,
+				55FDE4091C0FC5C700329F17 /* InformationDetailController.m */,
 			);
 			path = Information;
 			sourceTree = "<group>";
@@ -2111,8 +2127,8 @@
 		D9CEC8F81C0E8CF7008DEE69 /* Message */ = {
 			isa = PBXGroup;
 			children = (
-				D9CEC8F91C0E8CF7008DEE69 /* TeacherController.h */,
-				D9CEC8FA1C0E8CF7008DEE69 /* TeacherController.m */,
+				55BA0F4D1C0EF19A00F83CD8 /* TeacherController.h */,
+				55BA0F4E1C0EF19A00F83CD8 /* TeacherController.m */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -2120,6 +2136,8 @@
 		D9CEC8FB1C0E8CF7008DEE69 /* Set */ = {
 			isa = PBXGroup;
 			children = (
+				55BA0F561C0EF6FA00F83CD8 /* SettingController.h */,
+				55BA0F571C0EF6FA00F83CD8 /* SettingController.m */,
 			);
 			path = Set;
 			sourceTree = "<group>";
@@ -2131,6 +2149,8 @@
 				D9CEC9821C0ED7D8008DEE69 /* SideMenuController.m */,
 				D9CEC9831C0ED7D8008DEE69 /* SideMenuItem.h */,
 				D9CEC9841C0ED7D8008DEE69 /* SideMenuItem.m */,
+				55BA0F531C0EF6D300F83CD8 /* PublishController.h */,
+				55BA0F541C0EF6D300F83CD8 /* PublishController.m */,
 			);
 			path = SideMenu;
 			sourceTree = "<group>";
@@ -2194,6 +2214,9 @@
 				D9CEC90B1C0E8CF7008DEE69 /* CWStarRateView.m */,
 				D9CEC90C1C0E8CF7008DEE69 /* TeacherCell.h */,
 				D9CEC90D1C0E8CF7008DEE69 /* TeacherCell.m */,
+				55BA0F591C0EFA8100F83CD8 /* PublishCell.h */,
+				55BA0F5A1C0EFA8100F83CD8 /* PublishCell.m */,
+				55BA0F5B1C0EFA8100F83CD8 /* PublishCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2347,6 +2370,7 @@
 				B8771D6C1C098DE40051DE9D /* call_silence_h.png in Resources */,
 				B8771D641C098DE40051DE9D /* VoiceSearchFeedback020.png in Resources */,
 				B8771D971C098DE40051DE9D /* chatBar_recordSelected.png in Resources */,
+				55BA0F5D1C0EFA8100F83CD8 /* PublishCell.xib in Resources */,
 				B8771DAF1C098DE40051DE9D /* chatBar_more_photo.png in Resources */,
 				B8771D471C098DE40051DE9D /* VoiceSearchFeedback005@2x.png in Resources */,
 				B8771DAC1C098DE40051DE9D /* chatBar_more_location@2x.png in Resources */,
@@ -2485,7 +2509,6 @@
 				B8771CFF1C098DE40051DE9D /* EMCDDeviceManager+Microphone.m in Sources */,
 				B8771E3A1C098E6B0051DE9D /* UIView+TKCategory.m in Sources */,
 				D9CEC9181C0E8CF7008DEE69 /* TeacherCell.m in Sources */,
-				D9CEC9121C0E8CF7008DEE69 /* TeacherController.m in Sources */,
 				B8771DE71C098DE40051DE9D /* EaseBubbleView+Video.m in Sources */,
 				B8771DE11C098DE40051DE9D /* EaseMessageCell.m in Sources */,
 				B8771D091C098DE40051DE9D /* MJRefreshComponent.m in Sources */,
@@ -2534,6 +2557,7 @@
 				B8771E471C098F500051DE9D /* NGOSegmentControl.m in Sources */,
 				B8771D241C098DE40051DE9D /* MKAnnotationView+EMWebCache.m in Sources */,
 				B8771E3B1C098E6B0051DE9D /* UIViewAdditions.m in Sources */,
+				55BA0F5C1C0EFA8100F83CD8 /* PublishCell.m in Sources */,
 				B8771CFD1C098DE40051DE9D /* EMAudioRecorderUtil.m in Sources */,
 				B8771E551C0991570051DE9D /* UIViewController+Method.m in Sources */,
 				B8771DD31C098DE40051DE9D /* UIViewController+DismissKeyboard.m in Sources */,
@@ -2542,6 +2566,7 @@
 				B8771D361C098DE40051DE9D /* PSTGridLayoutInfo.m in Sources */,
 				B8771E481C098F500051DE9D /* PortraitView.m in Sources */,
 				B8771D281C098DE40051DE9D /* UIImage+EMMultiFormat.m in Sources */,
+				55FDE40A1C0FC5C700329F17 /* InformationDetailController.m in Sources */,
 				D9CEC9101C0E8CF7008DEE69 /* UITabBar+RedHot.m in Sources */,
 				B8771DEB1C098DE40051DE9D /* EaseChatToolbarItem.m in Sources */,
 				B8771D191C098DE40051DE9D /* MWTapDetectingImageView.m in Sources */,
@@ -2549,6 +2574,7 @@
 				B8771D291C098DE40051DE9D /* UIImage+EMWebP.m in Sources */,
 				D9CEC9171C0E8CF7008DEE69 /* CWStarRateView.m in Sources */,
 				D9CEC9861C0ED7D8008DEE69 /* SideMenuItem.m in Sources */,
+				55BA0F4F1C0EF19A00F83CD8 /* TeacherController.m in Sources */,
 				D9CEC9781C0ED643008DEE69 /* UIColor+Extension.m in Sources */,
 				D9CEC9511C0ECD35008DEE69 /* YBWelcomeController.m in Sources */,
 				B8771DE31C098DE40051DE9D /* EaseBubbleView+File.m in Sources */,
@@ -2563,6 +2589,11 @@
 				B8771D2E1C098DE40051DE9D /* PSTCollectionView.m in Sources */,
 				B8771D3C1C098DE40051DE9D /* EMBubbleView+Gif.m in Sources */,
 				D9CEC9451C0EC432008DEE69 /* YBBaseController.m in Sources */,
+
+				D9CEC9621C0ED2D5008DEE69 /* HomeEvaluateView.m in Sources */,
+				55BA0F581C0EF6FA00F83CD8 /* SettingController.m in Sources */,
+
+
 				B8771D261C098DE40051DE9D /* UIButton+EMWebCache.m in Sources */,
 				B8771DD41C098DE40051DE9D /* UIViewController+HUD.m in Sources */,
 				B8771D221C098DE40051DE9D /* EMSDWebImageManager.m in Sources */,
@@ -2599,6 +2630,7 @@
 				B8771D161C098DE40051DE9D /* MWGridViewController.m in Sources */,
 				B8771D1D1C098DE40051DE9D /* EMSDImageCache.m in Sources */,
 				B8771DD71C098DE40051DE9D /* EaseMessageReadManager.m in Sources */,
+				55BA0F551C0EF6D300F83CD8 /* PublishController.m in Sources */,
 				B8771D3D1C098DE40051DE9D /* ChatViewController.m in Sources */,
 				D92296EB1C0FEE9500D0FFDF /* InformationDataModelRootClass.m in Sources */,
 				B8771DE41C098DE40051DE9D /* EaseBubbleView+Image.m in Sources */,

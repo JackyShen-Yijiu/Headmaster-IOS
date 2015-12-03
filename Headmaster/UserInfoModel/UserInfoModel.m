@@ -74,8 +74,15 @@
 - (BOOL)loginViewDic:(NSDictionary *)info
 {
   
-    self.name =  [info objectForKey:@"name"];
-    self.portrait = [[info objectInfoForKey:@"headportrait"] objectStringForKey:@"originalpic"];
+//    self.name =  [info objectForKey:@"name"];
+//    self.portrait = [[info objectInfoForKey:@"headportrait"] objectStringForKey:@"originalpic"];
+    self.userID = [[info objectForKey:@"data"] objectForKey:@"userid"];
+    self.portrait = [[info objectForKey:@"data"] objectForKey:@"headportrait"];
+    self.name = [[info objectForKey:@"data"] objectForKey:@"name"];
+    self.tel = [[info objectForKey:@"data"] objectForKey:@"mobile"];
+    self.token = [[info objectForKey:@"data"] objectForKey:@"token"];
+    self.schoolId = [[[info objectForKey:@"data"] objectForKey:@"driveschool"] objectForKey:@"schoolid"];
+    self.schoolName = [[[info objectForKey:@"data"] objectForKey:@"driveschool"] objectForKey:@"name"];
 
     //IM登陆注册
 //    [[EaseMob sharedInstance].chatManager asyncLoginWithUsername:self.userID password:self.md5Pass];

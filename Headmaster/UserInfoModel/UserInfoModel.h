@@ -14,6 +14,8 @@
 @property(nonatomic,strong)NSString * name;
 @property(nonatomic,strong)NSString * tel;
 @property(nonatomic,strong)NSString * token;
+@property(nonatomic,strong)NSString * schoolId;
+@property(nonatomic,strong)NSString * schoolName;
 
 + (UserInfoModel *)defaultUserInfo;
 
