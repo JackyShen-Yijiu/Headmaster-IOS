@@ -14,6 +14,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 
 @property (nonatomic, copy) void(^deleteCell)();
+@property (weak, nonatomic) IBOutlet UILabel *whichPersonLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 - (void)adaptHeightWithString:(NSString *)str;
 
