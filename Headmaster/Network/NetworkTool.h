@@ -34,7 +34,7 @@ typedef void (^NetworkFailureBlock) (NSError *failure);
  *
  *  @param failure 请求失败值 (NSError)
  */
-+ (void)getWithPath:(NSString *)path
++ (void)GET:(NSString *)path
              params:(NSDictionary *)params
             success:(NetworkSuccessBlock)success
             failure:(NetworkFailureBlock)failure;
@@ -50,7 +50,7 @@ typedef void (^NetworkFailureBlock) (NSError *failure);
  *
  *  @param failure 请求失败值 (NSError)
  */
-+ (void)postWithPath:(NSString *)path
++ (void)POST:(NSString *)path
               params:(NSDictionary *)params
              success:(NetworkSuccessBlock)success
              failure:(NetworkFailureBlock)failure;
@@ -69,11 +69,16 @@ typedef void (^NetworkFailureBlock) (NSError *failure);
  *
  *  @param failure 请求失败值 (NSError)
  */
-+ (void)postWithImgPath:(NSString *)path
++ (void)postWithImagePath:(NSString *)path
                  params:(NSDictionary *)params
                  images:(NSArray *)images
                 success:(NetworkSuccessBlock)success
                 failure:(NetworkFailureBlock)failure;
+
+/**
+ *  错误处理
+ */
++ (void)missParagramerCallBackFailure:(NetworkFailureBlock)failure;
 
 /**
  *   取消网络请求

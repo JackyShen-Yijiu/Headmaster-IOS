@@ -280,6 +280,14 @@
 		B8771E491C098F500051DE9D /* RefreshTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8771E451C098F500051DE9D /* RefreshTableView.m */; };
 		B8771E521C0990980051DE9D /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B8771E511C0990980051DE9D /* UserInfoModel.m */; };
 		B8771E551C0991570051DE9D /* UIViewController+Method.m in Sources */ = {isa = PBXBuildFile; fileRef = B8771E541C0991570051DE9D /* UIViewController+Method.m */; };
+		D92296B51C0FD14F00D0FFDF /* InformationViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D92296B41C0FD14F00D0FFDF /* InformationViewModel.m */; };
+		D92296BC1C0FD29C00D0FFDF /* NetworkEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = D92296B81C0FD29C00D0FFDF /* NetworkEntity.m */; };
+		D92296BD1C0FD29C00D0FFDF /* NetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D92296BB1C0FD29C00D0FFDF /* NetworkTool.m */; };
+		D92296C81C0FD2FF00D0FFDF /* HomeEvaluateView.m in Sources */ = {isa = PBXBuildFile; fileRef = D92296BF1C0FD2FF00D0FFDF /* HomeEvaluateView.m */; };
+		D92296C91C0FD2FF00D0FFDF /* HomeSeeTimeView.m in Sources */ = {isa = PBXBuildFile; fileRef = D92296C11C0FD2FF00D0FFDF /* HomeSeeTimeView.m */; };
+		D92296CA1C0FD2FF00D0FFDF /* HomeTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = D92296C31C0FD2FF00D0FFDF /* HomeTopView.m */; };
+		D92296CC1C0FD2FF00D0FFDF /* InformationListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D92296C61C0FD2FF00D0FFDF /* InformationListCell.m */; };
+		D92296CD1C0FD2FF00D0FFDF /* InformationListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D92296C71C0FD2FF00D0FFDF /* InformationListCell.xib */; };
 		D9CEC8EB1C0E8C83008DEE69 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC8EA1C0E8C83008DEE69 /* AppDelegate.m */; };
 		D9CEC90F1C0E8CF7008DEE69 /* HMNagationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC8EF1C0E8CF7008DEE69 /* HMNagationController.m */; };
 		D9CEC9101C0E8CF7008DEE69 /* UITabBar+RedHot.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC8F11C0E8CF7008DEE69 /* UITabBar+RedHot.m */; };
@@ -289,19 +297,12 @@
 		D9CEC9161C0E8CF7008DEE69 /* TeacherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9071C0E8CF7008DEE69 /* TeacherModel.m */; };
 		D9CEC9171C0E8CF7008DEE69 /* CWStarRateView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC90B1C0E8CF7008DEE69 /* CWStarRateView.m */; };
 		D9CEC9181C0E8CF7008DEE69 /* TeacherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC90D1C0E8CF7008DEE69 /* TeacherCell.m */; };
-		D9CEC9321C0EA4C5008DEE69 /* NetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9301C0EA4C5008DEE69 /* NetworkTool.m */; };
-		D9CEC9351C0EB778008DEE69 /* NetworkEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9341C0EB778008DEE69 /* NetworkEntity.m */; };
 		D9CEC9451C0EC432008DEE69 /* YBBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9441C0EC432008DEE69 /* YBBaseController.m */; };
 		D9CEC9481C0EC46F008DEE69 /* YBBaseTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9471C0EC46F008DEE69 /* YBBaseTableController.m */; };
 		D9CEC94B1C0EC4FE008DEE69 /* YBBaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC94A1C0EC4FE008DEE69 /* YBBaseViewModel.m */; };
 		D9CEC9511C0ECD35008DEE69 /* YBWelcomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9501C0ECD35008DEE69 /* YBWelcomeController.m */; };
 		D9CEC9541C0ED044008DEE69 /* AppDelegate+RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9531C0ED044008DEE69 /* AppDelegate+RootViewController.m */; };
 		D9CEC9571C0ED27E008DEE69 /* HomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9561C0ED27E008DEE69 /* HomeController.m */; };
-		D9CEC9611C0ED2D5008DEE69 /* HomeTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9591C0ED2D5008DEE69 /* HomeTopView.m */; };
-		D9CEC9621C0ED2D5008DEE69 /* HomeEvaluateView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC95B1C0ED2D5008DEE69 /* HomeEvaluateView.m */; };
-		D9CEC9631C0ED2D5008DEE69 /* HomeSeeTimeView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC95D1C0ED2D5008DEE69 /* HomeSeeTimeView.m */; };
-		D9CEC9641C0ED2D5008DEE69 /* InformationListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC95F1C0ED2D5008DEE69 /* InformationListCell.m */; };
-		D9CEC9651C0ED2D5008DEE69 /* InformationListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9CEC9601C0ED2D5008DEE69 /* InformationListCell.xib */; };
 		D9CEC9681C0ED46A008DEE69 /* HomeDataListController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9671C0ED46A008DEE69 /* HomeDataListController.m */; };
 		D9CEC9771C0ED643008DEE69 /* NSString+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC96A1C0ED643008DEE69 /* NSString+Helper.m */; };
 		D9CEC9781C0ED643008DEE69 /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC96C1C0ED643008DEE69 /* UIColor+Extension.m */; };
@@ -764,6 +765,22 @@
 		B8771E511C0990980051DE9D /* UserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoModel.m; sourceTree = "<group>"; };
 		B8771E531C0991570051DE9D /* UIViewController+Method.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Method.h"; sourceTree = "<group>"; };
 		B8771E541C0991570051DE9D /* UIViewController+Method.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Method.m"; sourceTree = "<group>"; };
+		D92296B31C0FD14F00D0FFDF /* InformationViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationViewModel.h; sourceTree = "<group>"; };
+		D92296B41C0FD14F00D0FFDF /* InformationViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationViewModel.m; sourceTree = "<group>"; };
+		D92296B71C0FD29C00D0FFDF /* NetworkEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkEntity.h; sourceTree = "<group>"; };
+		D92296B81C0FD29C00D0FFDF /* NetworkEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkEntity.m; sourceTree = "<group>"; };
+		D92296B91C0FD29C00D0FFDF /* NetworkInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkInterface.h; sourceTree = "<group>"; };
+		D92296BA1C0FD29C00D0FFDF /* NetworkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkTool.h; sourceTree = "<group>"; };
+		D92296BB1C0FD29C00D0FFDF /* NetworkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkTool.m; sourceTree = "<group>"; };
+		D92296BE1C0FD2FF00D0FFDF /* HomeEvaluateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeEvaluateView.h; sourceTree = "<group>"; };
+		D92296BF1C0FD2FF00D0FFDF /* HomeEvaluateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeEvaluateView.m; sourceTree = "<group>"; };
+		D92296C01C0FD2FF00D0FFDF /* HomeSeeTimeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeSeeTimeView.h; sourceTree = "<group>"; };
+		D92296C11C0FD2FF00D0FFDF /* HomeSeeTimeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeSeeTimeView.m; sourceTree = "<group>"; };
+		D92296C21C0FD2FF00D0FFDF /* HomeTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTopView.h; sourceTree = "<group>"; };
+		D92296C31C0FD2FF00D0FFDF /* HomeTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTopView.m; sourceTree = "<group>"; };
+		D92296C51C0FD2FF00D0FFDF /* InformationListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationListCell.h; sourceTree = "<group>"; };
+		D92296C61C0FD2FF00D0FFDF /* InformationListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationListCell.m; sourceTree = "<group>"; };
+		D92296C71C0FD2FF00D0FFDF /* InformationListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InformationListCell.xib; sourceTree = "<group>"; };
 		D9CEC8E91C0E8C83008DEE69 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D9CEC8EA1C0E8C83008DEE69 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D9CEC8EE1C0E8CF7008DEE69 /* HMNagationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMNagationController.h; sourceTree = "<group>"; };
@@ -782,11 +799,6 @@
 		D9CEC90B1C0E8CF7008DEE69 /* CWStarRateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWStarRateView.m; sourceTree = "<group>"; };
 		D9CEC90C1C0E8CF7008DEE69 /* TeacherCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherCell.h; sourceTree = "<group>"; };
 		D9CEC90D1C0E8CF7008DEE69 /* TeacherCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherCell.m; sourceTree = "<group>"; };
-		D9CEC92E1C0EA4C5008DEE69 /* NetworkInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkInterface.h; sourceTree = "<group>"; };
-		D9CEC92F1C0EA4C5008DEE69 /* NetworkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkTool.h; sourceTree = "<group>"; };
-		D9CEC9301C0EA4C5008DEE69 /* NetworkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkTool.m; sourceTree = "<group>"; };
-		D9CEC9331C0EB778008DEE69 /* NetworkEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkEntity.h; sourceTree = "<group>"; };
-		D9CEC9341C0EB778008DEE69 /* NetworkEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkEntity.m; sourceTree = "<group>"; };
 		D9CEC9361C0EBB4E008DEE69 /* AppMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppMacro.h; sourceTree = "<group>"; };
 		D9CEC9431C0EC432008DEE69 /* YBBaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBBaseController.h; sourceTree = "<group>"; };
 		D9CEC9441C0EC432008DEE69 /* YBBaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YBBaseController.m; sourceTree = "<group>"; };
@@ -800,15 +812,6 @@
 		D9CEC9531C0ED044008DEE69 /* AppDelegate+RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+RootViewController.m"; sourceTree = "<group>"; };
 		D9CEC9551C0ED27E008DEE69 /* HomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeController.h; sourceTree = "<group>"; };
 		D9CEC9561C0ED27E008DEE69 /* HomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeController.m; sourceTree = "<group>"; };
-		D9CEC9581C0ED2D5008DEE69 /* HomeTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeTopView.h; path = ../HomeTopView.h; sourceTree = "<group>"; };
-		D9CEC9591C0ED2D5008DEE69 /* HomeTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeTopView.m; path = ../HomeTopView.m; sourceTree = "<group>"; };
-		D9CEC95A1C0ED2D5008DEE69 /* HomeEvaluateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeEvaluateView.h; path = ../HomeEvaluateView.h; sourceTree = "<group>"; };
-		D9CEC95B1C0ED2D5008DEE69 /* HomeEvaluateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeEvaluateView.m; path = ../HomeEvaluateView.m; sourceTree = "<group>"; };
-		D9CEC95C1C0ED2D5008DEE69 /* HomeSeeTimeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeSeeTimeView.h; path = ../HomeSeeTimeView.h; sourceTree = "<group>"; };
-		D9CEC95D1C0ED2D5008DEE69 /* HomeSeeTimeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeSeeTimeView.m; path = ../HomeSeeTimeView.m; sourceTree = "<group>"; };
-		D9CEC95E1C0ED2D5008DEE69 /* InformationListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InformationListCell.h; path = ../InformationListCell.h; sourceTree = "<group>"; };
-		D9CEC95F1C0ED2D5008DEE69 /* InformationListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InformationListCell.m; path = ../InformationListCell.m; sourceTree = "<group>"; };
-		D9CEC9601C0ED2D5008DEE69 /* InformationListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InformationListCell.xib; path = ../InformationListCell.xib; sourceTree = "<group>"; };
 		D9CEC9661C0ED46A008DEE69 /* HomeDataListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeDataListController.h; sourceTree = "<group>"; };
 		D9CEC9671C0ED46A008DEE69 /* HomeDataListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeDataListController.m; sourceTree = "<group>"; };
 		D9CEC9691C0ED643008DEE69 /* NSString+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Helper.h"; sourceTree = "<group>"; };
@@ -895,7 +898,7 @@
 				D9CEC9091C0E8CF7008DEE69 /* View */,
 				D9CEC8F21C0E8CF7008DEE69 /* Controller */,
 				D9CEC90E1C0E8CF7008DEE69 /* ViewModel */,
-				D9CEC92B1C0EA4C5008DEE69 /* Network */,
+				D92296B61C0FD29C00D0FFDF /* Network */,
 				B8771E4F1C0990980051DE9D /* UserInfoModel */,
 				D9CEC9081C0E8CF7008DEE69 /* Macro */,
 				D9CEC8EC1C0E8CF7008DEE69 /* Base */,
@@ -2019,6 +2022,18 @@
 			path = UserInfoModel;
 			sourceTree = "<group>";
 		};
+		D92296B61C0FD29C00D0FFDF /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				D92296B71C0FD29C00D0FFDF /* NetworkEntity.h */,
+				D92296B81C0FD29C00D0FFDF /* NetworkEntity.m */,
+				D92296B91C0FD29C00D0FFDF /* NetworkInterface.h */,
+				D92296BA1C0FD29C00D0FFDF /* NetworkTool.h */,
+				D92296BB1C0FD29C00D0FFDF /* NetworkTool.m */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		D9CEC8E81C0E8C83008DEE69 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -2176,15 +2191,15 @@
 		D9CEC9091C0E8CF7008DEE69 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D9CEC9581C0ED2D5008DEE69 /* HomeTopView.h */,
-				D9CEC9591C0ED2D5008DEE69 /* HomeTopView.m */,
-				D9CEC95A1C0ED2D5008DEE69 /* HomeEvaluateView.h */,
-				D9CEC95B1C0ED2D5008DEE69 /* HomeEvaluateView.m */,
-				D9CEC95C1C0ED2D5008DEE69 /* HomeSeeTimeView.h */,
-				D9CEC95D1C0ED2D5008DEE69 /* HomeSeeTimeView.m */,
-				D9CEC95E1C0ED2D5008DEE69 /* InformationListCell.h */,
-				D9CEC95F1C0ED2D5008DEE69 /* InformationListCell.m */,
-				D9CEC9601C0ED2D5008DEE69 /* InformationListCell.xib */,
+				D92296BE1C0FD2FF00D0FFDF /* HomeEvaluateView.h */,
+				D92296BF1C0FD2FF00D0FFDF /* HomeEvaluateView.m */,
+				D92296C01C0FD2FF00D0FFDF /* HomeSeeTimeView.h */,
+				D92296C11C0FD2FF00D0FFDF /* HomeSeeTimeView.m */,
+				D92296C21C0FD2FF00D0FFDF /* HomeTopView.h */,
+				D92296C31C0FD2FF00D0FFDF /* HomeTopView.m */,
+				D92296C51C0FD2FF00D0FFDF /* InformationListCell.h */,
+				D92296C61C0FD2FF00D0FFDF /* InformationListCell.m */,
+				D92296C71C0FD2FF00D0FFDF /* InformationListCell.xib */,
 				D9CEC90A1C0E8CF7008DEE69 /* CWStarRateView.h */,
 				D9CEC90B1C0E8CF7008DEE69 /* CWStarRateView.m */,
 				D9CEC90C1C0E8CF7008DEE69 /* TeacherCell.h */,
@@ -2199,21 +2214,10 @@
 		D9CEC90E1C0E8CF7008DEE69 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				D92296B31C0FD14F00D0FFDF /* InformationViewModel.h */,
+				D92296B41C0FD14F00D0FFDF /* InformationViewModel.m */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		D9CEC92B1C0EA4C5008DEE69 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				D9CEC9331C0EB778008DEE69 /* NetworkEntity.h */,
-				D9CEC9341C0EB778008DEE69 /* NetworkEntity.m */,
-				D9CEC92F1C0EA4C5008DEE69 /* NetworkTool.h */,
-				D9CEC9301C0EA4C5008DEE69 /* NetworkTool.m */,
-				D9CEC92E1C0EA4C5008DEE69 /* NetworkInterface.h */,
-			);
-			name = Network;
-			path = ViewModel/Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2298,7 +2302,6 @@
 				B8771D801C098DE40051DE9D /* chat_location_preview.png in Resources */,
 				B8771DBD1C098DE40051DE9D /* chat_receiver_audio_playing003@2x.png in Resources */,
 				B8771D621C098DE40051DE9D /* VoiceSearchFeedback019.png in Resources */,
-				D9CEC9651C0ED2D5008DEE69 /* InformationListCell.xib in Resources */,
 				B8771DA31C098DE40051DE9D /* chatBar_colorMore_video@2x.png in Resources */,
 				B8771D781C098DE40051DE9D /* chatBar_textBg.png in Resources */,
 				B8771D7B1C098DE40051DE9D /* chat_location_annotation_someone@2x.png in Resources */,
@@ -2407,6 +2410,7 @@
 				B8771D6D1C098DE40051DE9D /* call_silence_h@2x.png in Resources */,
 				B8771DB81C098DE40051DE9D /* titleBar.png in Resources */,
 				B8771D531C098DE40051DE9D /* VoiceSearchFeedback011@2x.png in Resources */,
+				D92296CD1C0FD2FF00D0FFDF /* InformationListCell.xib in Resources */,
 				B8771DA71C098DE40051DE9D /* chatBar_more_camera.png in Resources */,
 				B8771DC31C098DE40051DE9D /* chat_sender_audio_playing_002@2x.png in Resources */,
 				B8771DA81C098DE40051DE9D /* chatBar_more_camera@2x.png in Resources */,
@@ -2478,7 +2482,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8771E361C098E6B0051DE9D /* RFSegmentView.m in Sources */,
-				D9CEC9351C0EB778008DEE69 /* NetworkEntity.m in Sources */,
 				B8771D081C098DE40051DE9D /* EMGifImage.m in Sources */,
 				B8771E351C098E6B0051DE9D /* YiRefreshHeader.m in Sources */,
 				B8771D1B1C098DE40051DE9D /* MWZoomingScrollView.m in Sources */,
@@ -2489,13 +2492,16 @@
 				B8771DE91C098DE40051DE9D /* EaseBubbleView.m in Sources */,
 				B8771D001C098DE40051DE9D /* EMCDDeviceManager+ProximitySensor.m in Sources */,
 				B8771DCB1C098DE40051DE9D /* EaseSDKHelper.m in Sources */,
+				D92296BC1C0FD29C00D0FFDF /* NetworkEntity.m in Sources */,
 				B8771D321C098DE40051DE9D /* PSTCollectionViewFlowLayout.m in Sources */,
+				D92296B51C0FD14F00D0FFDF /* InformationViewModel.m in Sources */,
 				B8771CFF1C098DE40051DE9D /* EMCDDeviceManager+Microphone.m in Sources */,
 				B8771E3A1C098E6B0051DE9D /* UIView+TKCategory.m in Sources */,
 				D9CEC9181C0E8CF7008DEE69 /* TeacherCell.m in Sources */,
 				B8771DE71C098DE40051DE9D /* EaseBubbleView+Video.m in Sources */,
 				B8771DE11C098DE40051DE9D /* EaseMessageCell.m in Sources */,
 				B8771D091C098DE40051DE9D /* MJRefreshComponent.m in Sources */,
+				D92296C81C0FD2FF00D0FFDF /* HomeEvaluateView.m in Sources */,
 				B8771D0F1C098DE40051DE9D /* MJRefreshLegendFooter.m in Sources */,
 				D9CEC9141C0E8CF7008DEE69 /* HMPortraitInfoModel.m in Sources */,
 				B8771DD01C098DE40051DE9D /* NSDateFormatter+Category.m in Sources */,
@@ -2522,9 +2528,9 @@
 				B8771DCF1C098DE40051DE9D /* NSDate+Category.m in Sources */,
 				D9CEC97B1C0ED643008DEE69 /* UINavigationItem+BackItem.m in Sources */,
 				B8771D011C098DE40051DE9D /* EMCDDeviceManager+Remind.m in Sources */,
-				D9CEC9611C0ED2D5008DEE69 /* HomeTopView.m in Sources */,
 				B8771DD61C098DE40051DE9D /* EaseConvertToCommonEmoticonsHelper.m in Sources */,
 				B8771DCD1C098DE40051DE9D /* EaseMessageModel.m in Sources */,
+				D92296BD1C0FD29C00D0FFDF /* NetworkTool.m in Sources */,
 				B8771D041C098DE40051DE9D /* wav.mm in Sources */,
 				B8771DDE1C098DE40051DE9D /* EaseRefreshTableViewController.m in Sources */,
 				B8771D311C098DE40051DE9D /* PSTCollectionViewData.m in Sources */,
@@ -2572,8 +2578,11 @@
 				B8771D2E1C098DE40051DE9D /* PSTCollectionView.m in Sources */,
 				B8771D3C1C098DE40051DE9D /* EMBubbleView+Gif.m in Sources */,
 				D9CEC9451C0EC432008DEE69 /* YBBaseController.m in Sources */,
+<<<<<<< HEAD
 				D9CEC9621C0ED2D5008DEE69 /* HomeEvaluateView.m in Sources */,
 				55BA0F581C0EF6FA00F83CD8 /* SettingController.m in Sources */,
+=======
+>>>>>>> bd671f398fe8d79b4c4ffc665c425f9a795cbdfb
 				B8771D261C098DE40051DE9D /* UIButton+EMWebCache.m in Sources */,
 				B8771DD41C098DE40051DE9D /* UIViewController+HUD.m in Sources */,
 				B8771D221C098DE40051DE9D /* EMSDWebImageManager.m in Sources */,
@@ -2586,8 +2595,8 @@
 				B8771DE51C098DE40051DE9D /* EaseBubbleView+Location.m in Sources */,
 				B8771DCC1C098DE40051DE9D /* EaseConversationModel.m in Sources */,
 				B8771DE81C098DE40051DE9D /* EaseBubbleView+Voice.m in Sources */,
-				D9CEC9641C0ED2D5008DEE69 /* InformationListCell.m in Sources */,
 				B8771D2B1C098DE40051DE9D /* UIImageView+EMWebCache.m in Sources */,
+				D92296C91C0FD2FF00D0FFDF /* HomeSeeTimeView.m in Sources */,
 				B8771CFC1C098DE40051DE9D /* EMAudioPlayerUtil.m in Sources */,
 				B8771DD81C098DE40051DE9D /* EaseEmoji.m in Sources */,
 				B8771DD91C098DE40051DE9D /* EaseEmojiEmoticons.m in Sources */,
@@ -2600,7 +2609,6 @@
 				B8771D271C098DE40051DE9D /* UIImage+EMGIF.m in Sources */,
 				B8771D141C098DE40051DE9D /* MWCaptionView.m in Sources */,
 				D9CEC8EB1C0E8C83008DEE69 /* AppDelegate.m in Sources */,
-				D9CEC9631C0ED2D5008DEE69 /* HomeSeeTimeView.m in Sources */,
 				D9CEC9851C0ED7D8008DEE69 /* SideMenuController.m in Sources */,
 				B8771D121C098DE40051DE9D /* UIScrollView+MJRefresh.m in Sources */,
 				B8771E521C0990980051DE9D /* UserInfoModel.m in Sources */,
@@ -2613,7 +2621,6 @@
 				B8771DD71C098DE40051DE9D /* EaseMessageReadManager.m in Sources */,
 				55BA0F551C0EF6D300F83CD8 /* PublishController.m in Sources */,
 				B8771D3D1C098DE40051DE9D /* ChatViewController.m in Sources */,
-				D9CEC9321C0EA4C5008DEE69 /* NetworkTool.m in Sources */,
 				B8771DE41C098DE40051DE9D /* EaseBubbleView+Image.m in Sources */,
 				B8771E371C098E6B0051DE9D /* NSDictionary+StrDic.m in Sources */,
 				B8771D0E1C098DE40051DE9D /* MJRefreshHeader.m in Sources */,
@@ -2621,10 +2628,12 @@
 				B8771DD51C098DE40051DE9D /* EaseChineseToPinyin.m in Sources */,
 				B8771D1C1C098DE40051DE9D /* DACircularProgressView.m in Sources */,
 				B8771E381C098E6B0051DE9D /* ToastAlertView.m in Sources */,
+				D92296CA1C0FD2FF00D0FFDF /* HomeTopView.m in Sources */,
 				B8771E491C098F500051DE9D /* RefreshTableView.m in Sources */,
 				B8771D201C098DE40051DE9D /* EMSDWebImageDownloader.m in Sources */,
 				B8771D1E1C098DE40051DE9D /* EMSDWebImageCompat.m in Sources */,
 				B8771AFA1C0976200051DE9D /* main.m in Sources */,
+				D92296CC1C0FD2FF00D0FFDF /* InformationListCell.m in Sources */,
 				B8771DDD1C098DE40051DE9D /* EaseConversationListViewController.m in Sources */,
 				B8771D031C098DE40051DE9D /* amrFileCodec.mm in Sources */,
 				B8771D231C098DE40051DE9D /* EMSDWebImagePrefetcher.m in Sources */,
