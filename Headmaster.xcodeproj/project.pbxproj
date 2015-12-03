@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		060BA87F1C10116C009AD55E /* InviteStudentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 060BA8761C10116C009AD55E /* InviteStudentView.m */; };
+		060BA8801C10116C009AD55E /* AppointmentCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = 060BA8781C10116C009AD55E /* AppointmentCourse.m */; };
+		060BA8811C10116C009AD55E /* CoachOfCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = 060BA87A1C10116C009AD55E /* CoachOfCourse.m */; };
+		060BA8821C10116C009AD55E /* JudgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 060BA87C1C10116C009AD55E /* JudgeView.m */; };
+		060BA8831C10116C009AD55E /* ZTJudgeBottonSign.m in Sources */ = {isa = PBXBuildFile; fileRef = 060BA87E1C10116C009AD55E /* ZTJudgeBottonSign.m */; };
+		060BA8901C101197009AD55E /* TodayDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 060BA8851C101197009AD55E /* TodayDataView.m */; };
+		060BA8911C101197009AD55E /* YesterdayDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 060BA8871C101197009AD55E /* YesterdayDataView.m */; };
+		060BA8921C101197009AD55E /* WeekDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 060BA8891C101197009AD55E /* WeekDataView.m */; };
+		060BA8931C101197009AD55E /* MonthViewData.m in Sources */ = {isa = PBXBuildFile; fileRef = 060BA88B1C101197009AD55E /* MonthViewData.m */; };
+		060BA8941C101197009AD55E /* YearDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 060BA88D1C101197009AD55E /* YearDataView.m */; };
+		060BA8951C101197009AD55E /* TopButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 060BA88F1C101197009AD55E /* TopButtonView.m */; };
+		060BA8981C1011D7009AD55E /* UILabel+LabelAdjustBig.m in Sources */ = {isa = PBXBuildFile; fileRef = 060BA8971C1011D7009AD55E /* UILabel+LabelAdjustBig.m */; };
+		060BA89C1C1011F8009AD55E /* CoachOfCoureDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 060BA89A1C1011F8009AD55E /* CoachOfCoureDetailCell.m */; };
+		060BA89D1C1011F8009AD55E /* CoachOfCoureDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 060BA89B1C1011F8009AD55E /* CoachOfCoureDetailCell.xib */; };
+		060BA8A01C10121F009AD55E /* DataDatilViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 060BA89F1C10121F009AD55E /* DataDatilViewController.m */; };
+		060BA8A31C10122C009AD55E /* CoachOfCoureDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 060BA8A21C10122C009AD55E /* CoachOfCoureDetailController.m */; };
 		55BA0F4F1C0EF19A00F83CD8 /* TeacherController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55BA0F4E1C0EF19A00F83CD8 /* TeacherController.m */; };
 		55BA0F551C0EF6D300F83CD8 /* PublishController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55BA0F541C0EF6D300F83CD8 /* PublishController.m */; };
 		55BA0F581C0EF6FA00F83CD8 /* SettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55BA0F571C0EF6FA00F83CD8 /* SettingController.m */; };
@@ -319,6 +335,37 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		060BA8751C10116C009AD55E /* InviteStudentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteStudentView.h; sourceTree = "<group>"; };
+		060BA8761C10116C009AD55E /* InviteStudentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteStudentView.m; sourceTree = "<group>"; };
+		060BA8771C10116C009AD55E /* AppointmentCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppointmentCourse.h; sourceTree = "<group>"; };
+		060BA8781C10116C009AD55E /* AppointmentCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppointmentCourse.m; sourceTree = "<group>"; };
+		060BA8791C10116C009AD55E /* CoachOfCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoachOfCourse.h; sourceTree = "<group>"; };
+		060BA87A1C10116C009AD55E /* CoachOfCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoachOfCourse.m; sourceTree = "<group>"; };
+		060BA87B1C10116C009AD55E /* JudgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JudgeView.h; sourceTree = "<group>"; };
+		060BA87C1C10116C009AD55E /* JudgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JudgeView.m; sourceTree = "<group>"; };
+		060BA87D1C10116C009AD55E /* ZTJudgeBottonSign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTJudgeBottonSign.h; sourceTree = "<group>"; };
+		060BA87E1C10116C009AD55E /* ZTJudgeBottonSign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTJudgeBottonSign.m; sourceTree = "<group>"; };
+		060BA8841C101197009AD55E /* TodayDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodayDataView.h; sourceTree = "<group>"; };
+		060BA8851C101197009AD55E /* TodayDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodayDataView.m; sourceTree = "<group>"; };
+		060BA8861C101197009AD55E /* YesterdayDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YesterdayDataView.h; sourceTree = "<group>"; };
+		060BA8871C101197009AD55E /* YesterdayDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YesterdayDataView.m; sourceTree = "<group>"; };
+		060BA8881C101197009AD55E /* WeekDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeekDataView.h; sourceTree = "<group>"; };
+		060BA8891C101197009AD55E /* WeekDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeekDataView.m; sourceTree = "<group>"; };
+		060BA88A1C101197009AD55E /* MonthViewData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonthViewData.h; sourceTree = "<group>"; };
+		060BA88B1C101197009AD55E /* MonthViewData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonthViewData.m; sourceTree = "<group>"; };
+		060BA88C1C101197009AD55E /* YearDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YearDataView.h; sourceTree = "<group>"; };
+		060BA88D1C101197009AD55E /* YearDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YearDataView.m; sourceTree = "<group>"; };
+		060BA88E1C101197009AD55E /* TopButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopButtonView.h; sourceTree = "<group>"; };
+		060BA88F1C101197009AD55E /* TopButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopButtonView.m; sourceTree = "<group>"; };
+		060BA8961C1011D7009AD55E /* UILabel+LabelAdjustBig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+LabelAdjustBig.h"; sourceTree = "<group>"; };
+		060BA8971C1011D7009AD55E /* UILabel+LabelAdjustBig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+LabelAdjustBig.m"; sourceTree = "<group>"; };
+		060BA8991C1011F8009AD55E /* CoachOfCoureDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoachOfCoureDetailCell.h; sourceTree = "<group>"; };
+		060BA89A1C1011F8009AD55E /* CoachOfCoureDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoachOfCoureDetailCell.m; sourceTree = "<group>"; };
+		060BA89B1C1011F8009AD55E /* CoachOfCoureDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoachOfCoureDetailCell.xib; sourceTree = "<group>"; };
+		060BA89E1C10121F009AD55E /* DataDatilViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataDatilViewController.h; sourceTree = "<group>"; };
+		060BA89F1C10121F009AD55E /* DataDatilViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataDatilViewController.m; sourceTree = "<group>"; };
+		060BA8A11C10122C009AD55E /* CoachOfCoureDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoachOfCoureDetailController.h; sourceTree = "<group>"; };
+		060BA8A21C10122C009AD55E /* CoachOfCoureDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoachOfCoureDetailController.m; sourceTree = "<group>"; };
 		55BA0F4D1C0EF19A00F83CD8 /* TeacherController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherController.h; sourceTree = "<group>"; };
 		55BA0F4E1C0EF19A00F83CD8 /* TeacherController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherController.m; sourceTree = "<group>"; };
 		55BA0F531C0EF6D300F83CD8 /* PublishController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishController.h; sourceTree = "<group>"; };
@@ -855,6 +902,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		060BA8741C1010F3009AD55E /* DataDatialView */ = {
+			isa = PBXGroup;
+			children = (
+				060BA8751C10116C009AD55E /* InviteStudentView.h */,
+				060BA8761C10116C009AD55E /* InviteStudentView.m */,
+				060BA8771C10116C009AD55E /* AppointmentCourse.h */,
+				060BA8781C10116C009AD55E /* AppointmentCourse.m */,
+				060BA8791C10116C009AD55E /* CoachOfCourse.h */,
+				060BA87A1C10116C009AD55E /* CoachOfCourse.m */,
+				060BA87B1C10116C009AD55E /* JudgeView.h */,
+				060BA87C1C10116C009AD55E /* JudgeView.m */,
+				060BA87D1C10116C009AD55E /* ZTJudgeBottonSign.h */,
+				060BA87E1C10116C009AD55E /* ZTJudgeBottonSign.m */,
+				060BA8841C101197009AD55E /* TodayDataView.h */,
+				060BA8851C101197009AD55E /* TodayDataView.m */,
+				060BA8861C101197009AD55E /* YesterdayDataView.h */,
+				060BA8871C101197009AD55E /* YesterdayDataView.m */,
+				060BA8881C101197009AD55E /* WeekDataView.h */,
+				060BA8891C101197009AD55E /* WeekDataView.m */,
+				060BA88A1C101197009AD55E /* MonthViewData.h */,
+				060BA88B1C101197009AD55E /* MonthViewData.m */,
+				060BA88C1C101197009AD55E /* YearDataView.h */,
+				060BA88D1C101197009AD55E /* YearDataView.m */,
+				060BA88E1C101197009AD55E /* TopButtonView.h */,
+				060BA88F1C101197009AD55E /* TopButtonView.m */,
+				060BA8961C1011D7009AD55E /* UILabel+LabelAdjustBig.h */,
+				060BA8971C1011D7009AD55E /* UILabel+LabelAdjustBig.m */,
+				060BA8991C1011F8009AD55E /* CoachOfCoureDetailCell.h */,
+				060BA89A1C1011F8009AD55E /* CoachOfCoureDetailCell.m */,
+				060BA89B1C1011F8009AD55E /* CoachOfCoureDetailCell.xib */,
+			);
+			name = DataDatialView;
+			sourceTree = "<group>";
+		};
 		145B830FCF45682C02C93D3C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -2094,6 +2175,10 @@
 				D9CEC9561C0ED27E008DEE69 /* HomeController.m */,
 				D9CEC9661C0ED46A008DEE69 /* HomeDataListController.h */,
 				D9CEC9671C0ED46A008DEE69 /* HomeDataListController.m */,
+				060BA89E1C10121F009AD55E /* DataDatilViewController.h */,
+				060BA89F1C10121F009AD55E /* DataDatilViewController.m */,
+				060BA8A11C10122C009AD55E /* CoachOfCoureDetailController.h */,
+				060BA8A21C10122C009AD55E /* CoachOfCoureDetailController.m */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -2191,6 +2276,7 @@
 		D9CEC9091C0E8CF7008DEE69 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				060BA8741C1010F3009AD55E /* DataDatialView */,
 				D92296BE1C0FD2FF00D0FFDF /* HomeEvaluateView.h */,
 				D92296BF1C0FD2FF00D0FFDF /* HomeEvaluateView.m */,
 				D92296C01C0FD2FF00D0FFDF /* HomeSeeTimeView.h */,
@@ -2391,6 +2477,7 @@
 				B8771D981C098DE40051DE9D /* chatBar_recordSelected@2x.png in Resources */,
 				B8771DBF1C098DE40051DE9D /* chat_receiver_bg.png in Resources */,
 				B8771D451C098DE40051DE9D /* VoiceSearchFeedback004@2x.png in Resources */,
+				060BA89D1C1011F8009AD55E /* CoachOfCoureDetailCell.xib in Resources */,
 				B8771DB71C098DE40051DE9D /* group_detail@2x.png in Resources */,
 				B8771D771C098DE40051DE9D /* chatBar_more_faceSelected@2x.png in Resources */,
 				B8771D4C1C098DE40051DE9D /* VoiceSearchFeedback008.png in Resources */,
@@ -2482,6 +2569,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8771E361C098E6B0051DE9D /* RFSegmentView.m in Sources */,
+				060BA8831C10116C009AD55E /* ZTJudgeBottonSign.m in Sources */,
 				B8771D081C098DE40051DE9D /* EMGifImage.m in Sources */,
 				B8771E351C098E6B0051DE9D /* YiRefreshHeader.m in Sources */,
 				B8771D1B1C098DE40051DE9D /* MWZoomingScrollView.m in Sources */,
@@ -2495,9 +2583,13 @@
 				D92296BC1C0FD29C00D0FFDF /* NetworkEntity.m in Sources */,
 				B8771D321C098DE40051DE9D /* PSTCollectionViewFlowLayout.m in Sources */,
 				D92296B51C0FD14F00D0FFDF /* InformationViewModel.m in Sources */,
+				060BA8951C101197009AD55E /* TopButtonView.m in Sources */,
+				060BA8A31C10122C009AD55E /* CoachOfCoureDetailController.m in Sources */,
+				060BA8801C10116C009AD55E /* AppointmentCourse.m in Sources */,
 				B8771CFF1C098DE40051DE9D /* EMCDDeviceManager+Microphone.m in Sources */,
 				B8771E3A1C098E6B0051DE9D /* UIView+TKCategory.m in Sources */,
 				D9CEC9181C0E8CF7008DEE69 /* TeacherCell.m in Sources */,
+				060BA8941C101197009AD55E /* YearDataView.m in Sources */,
 				B8771DE71C098DE40051DE9D /* EaseBubbleView+Video.m in Sources */,
 				B8771DE11C098DE40051DE9D /* EaseMessageCell.m in Sources */,
 				B8771D091C098DE40051DE9D /* MJRefreshComponent.m in Sources */,
@@ -2535,7 +2627,9 @@
 				B8771DDE1C098DE40051DE9D /* EaseRefreshTableViewController.m in Sources */,
 				B8771D311C098DE40051DE9D /* PSTCollectionViewData.m in Sources */,
 				B8771DF01C098DE40051DE9D /* EaseChatBarMoreView.m in Sources */,
+				060BA8901C101197009AD55E /* TodayDataView.m in Sources */,
 				D9CEC97C1C0ED643008DEE69 /* DVVDoubleRowToolBarView.m in Sources */,
+				060BA8821C10116C009AD55E /* JudgeView.m in Sources */,
 				B8771DF11C098DE40051DE9D /* EaseRecordView.m in Sources */,
 				B8771D371C098DE40051DE9D /* PSTGridLayoutItem.m in Sources */,
 				D9CEC94B1C0EC4FE008DEE69 /* YBBaseViewModel.m in Sources */,
@@ -2549,6 +2643,7 @@
 				55BA0F5C1C0EFA8100F83CD8 /* PublishCell.m in Sources */,
 				B8771CFD1C098DE40051DE9D /* EMAudioRecorderUtil.m in Sources */,
 				B8771E551C0991570051DE9D /* UIViewController+Method.m in Sources */,
+				060BA8921C101197009AD55E /* WeekDataView.m in Sources */,
 				B8771DD31C098DE40051DE9D /* UIViewController+DismissKeyboard.m in Sources */,
 				B8771DDC1C098DE40051DE9D /* ConversationListController.m in Sources */,
 				B8771D051C098DE40051DE9D /* EMVoiceConverter.mm in Sources */,
@@ -2578,11 +2673,8 @@
 				B8771D2E1C098DE40051DE9D /* PSTCollectionView.m in Sources */,
 				B8771D3C1C098DE40051DE9D /* EMBubbleView+Gif.m in Sources */,
 				D9CEC9451C0EC432008DEE69 /* YBBaseController.m in Sources */,
-
-				D9CEC9621C0ED2D5008DEE69 /* HomeEvaluateView.m in Sources */,
+				060BA8811C10116C009AD55E /* CoachOfCourse.m in Sources */,
 				55BA0F581C0EF6FA00F83CD8 /* SettingController.m in Sources */,
-
-
 				B8771D261C098DE40051DE9D /* UIButton+EMWebCache.m in Sources */,
 				B8771DD41C098DE40051DE9D /* UIViewController+HUD.m in Sources */,
 				B8771D221C098DE40051DE9D /* EMSDWebImageManager.m in Sources */,
@@ -2590,6 +2682,7 @@
 				B8771DC81C098DE40051DE9D /* EaseLocationViewController.m in Sources */,
 				D9CEC9801C0ED6A6008DEE69 /* InformationController.m in Sources */,
 				B8771DC91C098DE40051DE9D /* EaseMessageViewController.m in Sources */,
+				060BA8911C101197009AD55E /* YesterdayDataView.m in Sources */,
 				D9CEC97A1C0ED643008DEE69 /* UIImageView+SDWedImage.m in Sources */,
 				B8771DD11C098DE40051DE9D /* NSObject+EaseMob.m in Sources */,
 				B8771DE51C098DE40051DE9D /* EaseBubbleView+Location.m in Sources */,
@@ -2624,6 +2717,7 @@
 				B8771DE41C098DE40051DE9D /* EaseBubbleView+Image.m in Sources */,
 				B8771E371C098E6B0051DE9D /* NSDictionary+StrDic.m in Sources */,
 				B8771D0E1C098DE40051DE9D /* MJRefreshHeader.m in Sources */,
+				060BA89C1C1011F8009AD55E /* CoachOfCoureDetailCell.m in Sources */,
 				B8771DEA1C098DE40051DE9D /* EaseChatToolbar.m in Sources */,
 				B8771DD51C098DE40051DE9D /* EaseChineseToPinyin.m in Sources */,
 				B8771D1C1C098DE40051DE9D /* DACircularProgressView.m in Sources */,
@@ -2631,11 +2725,13 @@
 				D92296CA1C0FD2FF00D0FFDF /* HomeTopView.m in Sources */,
 				B8771E491C098F500051DE9D /* RefreshTableView.m in Sources */,
 				B8771D201C098DE40051DE9D /* EMSDWebImageDownloader.m in Sources */,
+				060BA87F1C10116C009AD55E /* InviteStudentView.m in Sources */,
 				B8771D1E1C098DE40051DE9D /* EMSDWebImageCompat.m in Sources */,
 				B8771AFA1C0976200051DE9D /* main.m in Sources */,
 				D92296CC1C0FD2FF00D0FFDF /* InformationListCell.m in Sources */,
 				B8771DDD1C098DE40051DE9D /* EaseConversationListViewController.m in Sources */,
 				B8771D031C098DE40051DE9D /* amrFileCodec.mm in Sources */,
+				060BA8981C1011D7009AD55E /* UILabel+LabelAdjustBig.m in Sources */,
 				B8771D231C098DE40051DE9D /* EMSDWebImagePrefetcher.m in Sources */,
 				B8771DEE1C098DE40051DE9D /* EaseFaceView.m in Sources */,
 				B8771D351C098DE40051DE9D /* PSTCollectionViewUpdateItem.m in Sources */,
@@ -2644,8 +2740,10 @@
 				B8771D0A1C098DE40051DE9D /* MJRefreshConst.m in Sources */,
 				B8771D1A1C098DE40051DE9D /* MWTapDetectingView.m in Sources */,
 				B8771DEF1C098DE40051DE9D /* EaseFacialView.m in Sources */,
+				060BA8A01C10121F009AD55E /* DataDatilViewController.m in Sources */,
 				B8771DE01C098DE40051DE9D /* EaseBaseMessageCell.m in Sources */,
 				B8771E461C098F500051DE9D /* HMButton.m in Sources */,
+				060BA8931C101197009AD55E /* MonthViewData.m in Sources */,
 				B8771D3B1C098DE40051DE9D /* CustomMessageCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
