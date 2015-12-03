@@ -36,10 +36,10 @@
     if (!_tableView) {
         _tableView = [UITableView new];
         _tableView.frame = self.view.bounds;
-        _tableView.backgroundColor = [UIColor whiteColor];
         _tableView.dataSource = self;
         _tableView.delegate = self;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _tableView.backgroundColor = [UIColor colorWithHexString:BACKGROUND_COLOR];
     }
     return _tableView;
 }

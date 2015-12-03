@@ -23,6 +23,7 @@
 #import "UserInfoModel.h"
 #import "UIColor+Extension.h"
 #import "AppMacro.h"
+#import "UIImageView+SDWedImage.h"
 
 #define RGB_Color(r,g,b)    RGBA_Color(r,g,b,1)
 #define RGBA_Color(r,g,b,a) ([UIColor colorWithRed:r/255.f green:g/255.f blue:b/255.f alpha:a])
