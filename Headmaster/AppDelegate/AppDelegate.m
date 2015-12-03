@@ -16,6 +16,8 @@
 #import "TeacherController.h"
 #import "YBWelcomeController.h"
 #import "AppDelegate+RootViewController.h"
+#import "LoginController.h"
+#import "InformationController.h"
 
 @interface AppDelegate ()
 
@@ -45,7 +47,10 @@
 //    }
 //    [self.navController pushViewController:[self rootViewController] animated:YES];
     
-    self.window.rootViewController = [self rootViewController];
+    
+//    self.window.rootViewController = [self rootViewController];
+//    self.window.rootViewController = [LoginController new];
+    self.window.rootViewController = [InformationController new];
     [self.window makeKeyAndVisible];
     
     [self sysConfigWithApplication:application LaunchOptions:launchOptions];

@@ -39,6 +39,10 @@
 {
     [super viewWillAppear:animated];
     [self initNavBar];
+    if(self.isNeedRefresh){
+        [self.tableView.refreshHeader beginRefreshing];
+    }
+    self.isNeedRefresh = NO;
 }
 
 - (void)viewDidAppear:(BOOL)animated

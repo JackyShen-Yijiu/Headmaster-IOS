@@ -18,6 +18,8 @@
 
 @property (nonatomic, copy) NSArray                     *LeftItemArray;
 
+@property (nonatomic, copy) NSArray                     *LeftIconArray;
+
 @end
 
 @implementation SideMenuController
@@ -28,14 +30,20 @@
     self.view.backgroundColor = [UIColor lightGrayColor];
     
     SideMenuItem * item1 = [[SideMenuItem alloc] init];
-    item1.title = @"第一页";
-    item1.target = @"HomeController";
+    item1.title = @"发布公告";
+    item1.target = @"PublishController";
     
     SideMenuItem * item2 = [[SideMenuItem alloc] init];
-    item2.title = @"第一页";
-    item2.target = @"InformationController";
+    item2.title = @"我的教练";
+    item2.target = @"TeacherController";
     
-    self.LeftItemArray = @[ item1,item2 ];
+    SideMenuItem * item3 = [[SideMenuItem alloc] init];
+    item3.title = @"设置";
+    item3.target = @"SettingController";
+    
+    self.LeftItemArray = @[ item1,item2,item3 ];
+    
+    self.LeftIconArray = @[ @"imessageButton",@"imessageButton",@"imessageButton" ];
     
     [self.view addSubview:self.tableView];
     self.tableView.tableHeaderView = self.headView;
@@ -45,21 +53,31 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.LeftItemArray.count;
 }
+
+// 返回单元格高度
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 80;
+}
+
 // 每行中的内容
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellId = @"cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:cellId];
-        cell.backgroundColor = [UIColor redColor];
-        cell.contentView.backgroundColor = [UIColor orangeColor];
+        UIImageView *cellIconView = [[UIImageView alloc] initWithFrame:CGRectMake(40, 20, 40, 40)];
+        cellIconView.tag = 10 +indexPath.row;
+        [cell.contentView addSubview:cellIconView];
+        UILabel *lb = [[UILabel alloc] initWithFrame:CGRectMake(90, 20, 100, 40)];
+        lb.tag = 100 +indexPath.row;
+        [cell.contentView addSubview:lb];
     }
-    
-    cell.backgroundColor = [UIColor blackColor];
+    UIImageView *cellIconView = (id)[cell.contentView viewWithTag:10 +indexPath.row];
+    cellIconView.image = [UIImage imageNamed:[self.LeftIconArray objectAtIndex:indexPath.row]];
     
     SideMenuItem *item = [self.LeftItemArray objectAtIndex:indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@",item.title];
-    cell.textLabel.textColor = [UIColor whiteColor];
+    UILabel *lb = (id)[cell.contentView viewWithTag:100 +indexPath.row];
+    lb.text = [NSString stringWithFormat:@"%@",item.title];
     
     return cell;
 }
@@ -70,10 +88,14 @@
     SideMenuItem * item = self.LeftItemArray[indexPath.row];
     
 //    [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[[NSClassFromString(item.target) alloc]init] ]animated:YES];
-    
-    [[UIApplication sharedApplication].keyWindow.rootViewController.navigationController pushViewController:[UIViewController new] animated:YES];
+    UIViewController *vc = [[NSClassFromString(item.target) alloc]init];
+    vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    [self.sideMenuViewController.leftMenuViewController presentViewController:nav animated:YES completion:nil];
+//    [[UIApplication sharedApplication].keyWindow.rootViewController.navigationController pushViewController:[UIViewController new] animated:YES];
     
     // 隐藏侧滑菜单
+
     [self.sideMenuViewController hideMenuViewController];
 }
 
@@ -84,7 +106,7 @@
         _headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 100)];
         _headView.backgroundColor = [UIColor lightGrayColor];
         UIImageView * imgView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 80, 80)];
-        imgView.image = [UIImage imageNamed:@"ic_sex_male"];
+        imgView.image = [UIImage imageNamed:@"imessageButton"];
         imgView.layer.masksToBounds = YES;
         imgView.layer.cornerRadius = 40;
         [_headView addSubview:imgView];
