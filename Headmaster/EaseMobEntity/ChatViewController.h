@@ -9,8 +9,7 @@
 #define KNOTIFICATIONNAME_DELETEALLMESSAGE @"RemoveAllMessages"
 
 #import "EaseMessageViewController.h"
-#import "TeacherModel.h"
 
 @interface ChatViewController : EaseMessageViewController
-@property(nonatomic,strong)TeacherModel * model;
+@property(nonatomic,strong)NSString *  userName;
 @end

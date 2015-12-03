@@ -298,6 +298,10 @@
 		B8771E551C0991570051DE9D /* UIViewController+Method.m in Sources */ = {isa = PBXBuildFile; fileRef = B8771E541C0991570051DE9D /* UIViewController+Method.m */; };
 		B895A1951C10329F00FEDD78 /* InformationDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D92296E71C0FE9A000D0FFDF /* InformationDataModel.m */; };
 		B895A1961C1032C000FEDD78 /* InformationViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D92296E41C0FDCC500D0FFDF /* InformationViewModel.m */; };
+		B895A19A1C1041D100FEDD78 /* RecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B895A1991C1041D100FEDD78 /* RecommendViewController.m */; };
+		B895A19D1C1042DB00FEDD78 /* DZNSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B895A19C1C1042DB00FEDD78 /* DZNSegmentedControl.m */; };
+		B895A1A01C10444200FEDD78 /* RecomendPieChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = B895A19F1C10444200FEDD78 /* RecomendPieChartView.m */; };
+		B895A1A31C10448100FEDD78 /* RecomendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B895A1A21C10448100FEDD78 /* RecomendCell.m */; };
 		D92296BC1C0FD29C00D0FFDF /* NetworkEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = D92296B81C0FD29C00D0FFDF /* NetworkEntity.m */; };
 		D92296BD1C0FD29C00D0FFDF /* NetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D92296BB1C0FD29C00D0FFDF /* NetworkTool.m */; };
 		D92296C81C0FD2FF00D0FFDF /* HomeEvaluateView.m in Sources */ = {isa = PBXBuildFile; fileRef = D92296BF1C0FD2FF00D0FFDF /* HomeEvaluateView.m */; };
@@ -814,6 +818,14 @@
 		B8771E511C0990980051DE9D /* UserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoModel.m; sourceTree = "<group>"; };
 		B8771E531C0991570051DE9D /* UIViewController+Method.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Method.h"; sourceTree = "<group>"; };
 		B8771E541C0991570051DE9D /* UIViewController+Method.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Method.m"; sourceTree = "<group>"; };
+		B895A1981C1041D100FEDD78 /* RecommendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendViewController.h; sourceTree = "<group>"; };
+		B895A1991C1041D100FEDD78 /* RecommendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendViewController.m; sourceTree = "<group>"; };
+		B895A19B1C1042DB00FEDD78 /* DZNSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZNSegmentedControl.h; sourceTree = "<group>"; };
+		B895A19C1C1042DB00FEDD78 /* DZNSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZNSegmentedControl.m; sourceTree = "<group>"; };
+		B895A19E1C10444200FEDD78 /* RecomendPieChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecomendPieChartView.h; sourceTree = "<group>"; };
+		B895A19F1C10444200FEDD78 /* RecomendPieChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecomendPieChartView.m; sourceTree = "<group>"; };
+		B895A1A11C10448100FEDD78 /* RecomendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecomendCell.h; path = ../View/RecomendCell.h; sourceTree = "<group>"; };
+		B895A1A21C10448100FEDD78 /* RecomendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecomendCell.m; path = ../View/RecomendCell.m; sourceTree = "<group>"; };
 		D92296B71C0FD29C00D0FFDF /* NetworkEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkEntity.h; sourceTree = "<group>"; };
 		D92296B81C0FD29C00D0FFDF /* NetworkEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkEntity.m; sourceTree = "<group>"; };
 		D92296B91C0FD29C00D0FFDF /* NetworkInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkInterface.h; sourceTree = "<group>"; };
@@ -2109,6 +2121,21 @@
 			path = UserInfoModel;
 			sourceTree = "<group>";
 		};
+		B895A1971C1041BD00FEDD78 /* Recomond */ = {
+			isa = PBXGroup;
+			children = (
+				B895A1981C1041D100FEDD78 /* RecommendViewController.h */,
+				B895A1991C1041D100FEDD78 /* RecommendViewController.m */,
+				B895A19E1C10444200FEDD78 /* RecomendPieChartView.h */,
+				B895A19F1C10444200FEDD78 /* RecomendPieChartView.m */,
+				B895A19B1C1042DB00FEDD78 /* DZNSegmentedControl.h */,
+				B895A19C1C1042DB00FEDD78 /* DZNSegmentedControl.m */,
+				B895A1A11C10448100FEDD78 /* RecomendCell.h */,
+				B895A1A21C10448100FEDD78 /* RecomendCell.m */,
+			);
+			name = Recomond;
+			sourceTree = "<group>";
+		};
 		D92296B61C0FD29C00D0FFDF /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -2162,6 +2189,7 @@
 		D9CEC8F21C0E8CF7008DEE69 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B895A1971C1041BD00FEDD78 /* Recomond */,
 				D9CEC8F31C0E8CF7008DEE69 /* Home */,
 				D9CEC8F41C0E8CF7008DEE69 /* Information */,
 				D9CEC8F81C0E8CF7008DEE69 /* Message */,
@@ -2610,6 +2638,7 @@
 				B8771DD01C098DE40051DE9D /* NSDateFormatter+Category.m in Sources */,
 				D9CEC90F1C0E8CF7008DEE69 /* HMNagationController.m in Sources */,
 				B8771D381C098DE40051DE9D /* PSTGridLayoutRow.m in Sources */,
+				B895A19D1C1042DB00FEDD78 /* DZNSegmentedControl.m in Sources */,
 				B8771D2D1C098DE40051DE9D /* NSIndexPath+PSTCollectionViewAdditions.m in Sources */,
 				B8771D131C098DE40051DE9D /* UIView+MJExtension.m in Sources */,
 				D9CEC9481C0EC46F008DEE69 /* YBBaseTableController.m in Sources */,
@@ -2686,6 +2715,7 @@
 				D9CEC9451C0EC432008DEE69 /* YBBaseController.m in Sources */,
 				060BA8811C10116C009AD55E /* CoachOfCourse.m in Sources */,
 				55BA0F581C0EF6FA00F83CD8 /* SettingController.m in Sources */,
+				B895A1A31C10448100FEDD78 /* RecomendCell.m in Sources */,
 				B8771D261C098DE40051DE9D /* UIButton+EMWebCache.m in Sources */,
 				B8771DD41C098DE40051DE9D /* UIViewController+HUD.m in Sources */,
 				B8771D221C098DE40051DE9D /* EMSDWebImageManager.m in Sources */,
@@ -2722,6 +2752,7 @@
 				B8771DDB1C098DE40051DE9D /* EaseEmotionManager.m in Sources */,
 				B8771D161C098DE40051DE9D /* MWGridViewController.m in Sources */,
 				B8771D1D1C098DE40051DE9D /* EMSDImageCache.m in Sources */,
+				B895A1A01C10444200FEDD78 /* RecomendPieChartView.m in Sources */,
 				B8771DD71C098DE40051DE9D /* EaseMessageReadManager.m in Sources */,
 				55BA0F551C0EF6D300F83CD8 /* PublishController.m in Sources */,
 				B8771D3D1C098DE40051DE9D /* ChatViewController.m in Sources */,
@@ -2739,6 +2770,7 @@
 				B8771D201C098DE40051DE9D /* EMSDWebImageDownloader.m in Sources */,
 				060BA87F1C10116C009AD55E /* InviteStudentView.m in Sources */,
 				B8771D1E1C098DE40051DE9D /* EMSDWebImageCompat.m in Sources */,
+				B895A19A1C1041D100FEDD78 /* RecommendViewController.m in Sources */,
 				B8771AFA1C0976200051DE9D /* main.m in Sources */,
 				D92296CC1C0FD2FF00D0FFDF /* InformationListCell.m in Sources */,
 				B8771DDD1C098DE40051DE9D /* EaseConversationListViewController.m in Sources */,

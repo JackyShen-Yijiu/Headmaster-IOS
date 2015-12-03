@@ -11,6 +11,8 @@
 #import "CustomMessageCell.h"
 #import "EaseEmotionManager.h"
 #import "EaseEmoji.h"
+#import "TeacherModel.h"
+
 //#import "SutdentHomeController.h"
 
 @interface ChatViewController ()<UIAlertViewDelegate, EaseMessageViewControllerDelegate, EaseMessageViewControllerDataSource>
@@ -79,7 +81,7 @@
     UIBarButtonItem* someBarButtonItem= [[UIBarButtonItem alloc] initWithCustomView:backButton];
     self.myNavigationItem.leftBarButtonItems = @[[self barSpaingItem],someBarButtonItem];
     
-    self.myNavigationItem.title = self.model.userName;
+    self.myNavigationItem.title = self.userName;
     //单聊
     if (self.conversation.conversationType == eConversationTypeChat) {
 
