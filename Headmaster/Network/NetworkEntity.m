@@ -43,6 +43,41 @@
     [NetworkTool GET:urlStr params:nil success:success failure:failure];
 }
 
++ (void)getPublishListWithUseInfoModel:(UserInfoModel *)uim seqindex:(NSString *)index count:(NSString *)count
+                               success:(void (^)(AFHTTPRequestOperation *, id))success
+                               failure:(void (^)(AFHTTPRequestOperation *, id))failure {
+    NSDictionary *params =@{
+                            @"seqindex":index,
+                            @"count":count,
+                            @"userid":uim.userID,
+                            @"schoolid":uim.schoolId
+                            };
+    NSString *urlStr = [NSString stringWithFormat:@"%@/%@",[NetworkTool domain],GETPUBLISH];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [manager.requestSerializer setValue:uim.token forHTTPHeaderField:@"authorization"];
+    [manager GET:urlStr parameters:params success:success failure:failure];
+}
++ (void)postPublishMessageWithUseInfoModel:(UserInfoModel *)uim textContent:(NSString *)content type:(NSString *)type
+                                   success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+                                   failure:(void (^)(AFHTTPRequestOperation *operation, id responseObject))failure {
+    NSDictionary *params =@{
+                            @"content":content,
+                            @"bulletobject": type,
+                            @"userid":uim.userID,
+                            @"schoolid":uim.schoolId
+                            };
+    NSLog(@"params = %@",params);
+    NSString *urlStr = [NSString stringWithFormat:@"%@/%@",[NetworkTool domain],PUBLISHMESSAGE];
+    
+    AFHTTPRequestOperationManager * manager = [AFHTTPRequestOperationManager manager];
+    [manager.requestSerializer setValue:uim.token forHTTPHeaderField:@"authorization"];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [manager POST:urlStr parameters:params success:success failure:failure];
+}
+
+
 + (void)informationListWithseqindex:(NSInteger)seqindex
                               count:(NSInteger)count
                             success:(NetworkSuccessBlock)success

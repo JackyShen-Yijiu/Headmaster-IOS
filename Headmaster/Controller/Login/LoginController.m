@@ -36,7 +36,7 @@
 
 - (void)createUI {
     _iv = [[UIImageView alloc] initWithFrame:self.view.bounds];
-    _iv.image = [UIImage imageNamed:@"bg"];
+    _iv.image = [UIImage imageNamed:@"bg_login"];
     [self.view addSubview:_iv];
     
     UIImageView *iconView = [[UIImageView alloc] initWithFrame:CGRectMake(h_center.x -h_iconViewWidth/2, h_iconViewTOP, h_iconViewWidth, h_iconViewHeight)];
@@ -45,7 +45,9 @@
     
     _phoneTF = [[UITextField alloc] initWithFrame:CGRectMake(26, iconView.frame.origin.y +iconView.frame.size.height +h_iconViewTOP , h_size.width -26, h_phoneTFHeight)];
     _phoneTF.placeholder = @"账号";
-    [_phoneTF setValue:[self colorWithHexString:@"#fefefe"] forKeyPath:@"_placeholderLabel.textColor"];
+    _phoneTF.textColor = [self colorWithHexString:@"#fefefe"];
+    _phoneTF.text = @"15652305651";
+    [_phoneTF setValue:[self colorWithHexString:@"#bfbfbf"] forKeyPath:@"_placeholderLabel.textColor"];
     [_phoneTF setValue:[UIFont systemFontOfSize:15] forKeyPath:@"_placeholderLabel.font"];
     _phoneTF.delegate = self;
     
@@ -69,7 +71,9 @@
     
     _passwordTF = [[UITextField alloc] initWithFrame:CGRectMake(26, _phoneTF.frame.origin.y +_phoneTF.frame.size.height+1 , h_size.width -26, h_phoneTFHeight)];
     _passwordTF.placeholder = @"密码";
-    [_passwordTF setValue:[self colorWithHexString:@"#fefefe"] forKeyPath:@"_placeholderLabel.textColor"];
+    _passwordTF.textColor = [self colorWithHexString:@"#fefefe"];
+    _passwordTF.text = @"123456";
+    [_passwordTF setValue:[self colorWithHexString:@"#bfbfbf"] forKeyPath:@"_placeholderLabel.textColor"];
     [_passwordTF setValue:[UIFont systemFontOfSize:15] forKeyPath:@"_placeholderLabel.font"];
     _passwordTF.delegate = self;
     _passwordTF.secureTextEntry = YES;
@@ -192,6 +196,8 @@
         ToastAlertView *toastView = [[ToastAlertView alloc] initWithTitle:@"账号或密码错误"];
         [toastView show];
     }];
+//    UserInfoModel *uim = [UserInfoModel defaultUserInfo];
+//    [uim loginOut];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
