@@ -19,10 +19,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
-@property (weak, nonatomic) IBOutlet UILabel *seeLabel;
-
-@property (weak, nonatomic) IBOutlet UIImageView *seeIconImageView;
-
 - (void)refreshData:(InformationDataModel *)dataModel;
 
 @end

@@ -37,7 +37,9 @@
 - (void)refreshData:(PublishDataModel *)dataModel {
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.contentLabel.text = dataModel.content;
+    self.contentLabel.textColor = [UIColor colorWithHexString:TEXT_HIGHLIGHT_COLOR];
     [self adaptHeightWithString:dataModel.content];
+    self.whichPersonLabel.textColor = [UIColor colorWithHexString:DARK_COLOR];
     if ([dataModel.bulletobject isEqualToString:@"1"]) {
         self.whichPersonLabel.text = @"学员";
     }else {
@@ -47,6 +49,13 @@
     NSRange rangeData = NSMakeRange(11, 5);
     self.dateLabel.text = [dataModel.createtime substringWithRange:rangeTime];
     self.timeLabel.text = [dataModel.createtime substringWithRange:rangeData];
+    self.timeLabel.textColor = [UIColor colorWithHexString:TEXT_NORMAL_COLOR];
+    self.dateLabel.textColor = [UIColor colorWithHexString:TEXT_NORMAL_COLOR];
+    self.lineBtn.layer.shadowColor = [UIColor whiteColor].CGColor;
+    self.lineBtn.layer.shadowOffset = CGSizeMake(0, 1);
+    self.lineBtn.layer.shadowOpacity = 0.2;
+    self.lineBtn.layer.shadowRadius = 0.5;
+    self.lineBtn.alpha = 0.7;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -18,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *whichPersonLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UIButton *deleteBtn;
+@property (weak, nonatomic) IBOutlet UIButton *lineBtn;
 
 - (void)adaptHeightWithString:(NSString *)str;
 
