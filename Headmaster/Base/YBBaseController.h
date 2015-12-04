@@ -10,4 +10,6 @@
 
 @interface YBBaseController : UIViewController
 
+- (void)addBackgroundImage;
+
 @end
