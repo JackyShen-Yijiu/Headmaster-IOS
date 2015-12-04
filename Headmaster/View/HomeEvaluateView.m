@@ -56,6 +56,8 @@
 
 - (void)createButtons {
     
+    NSArray *imageArray = [NSArray arrayWithObjects:@"high",@"middle",@"low",@"complain", nil];
+    
     CGFloat btnWidth = self.width / 4.0;
     
     for (int i = 0; i < 4; i++) {
@@ -69,26 +71,26 @@
         label.tag = i + 1;
         label.frame = CGRectMake(0, 0, btnWidth, labelViewHeight);
         label.textAlignment = 1;
+        label.textColor = [UIColor colorWithHexString:@"19f9cc"];
+        label.font = [UIFont italicSystemFontOfSize:14];
         label.text = @"23";
         
-        CGFloat imageViewWidth = 30;
+        CGFloat imageViewWidth = 20;
         UIImageView *imageView = [UIImageView new];
-        imageView.frame = CGRectMake(btnWidth / 2.0 - imageViewWidth / 2.0, labelViewHeight, imageViewWidth, imageViewWidth);
-        imageView.backgroundColor = [UIColor greenColor];
+        if (i == 3) {
+            imageView.frame = CGRectMake(btnWidth / 2.0 - imageViewWidth / 2.0, labelViewHeight, imageViewWidth, imageViewWidth);
+            imageView.image = [UIImage imageNamed:imageArray[i]];
+            [button addSubview:imageView];
+        }else
+        {
+            imageView.frame = CGRectMake(btnWidth / 2.0 - imageViewWidth / 2.0, labelViewHeight - 5, imageViewWidth, imageViewWidth);
+            imageView.image = [UIImage imageNamed:imageArray[i]];
+            [button addSubview:imageView];
+        }
         [button addSubview:label];
-        [button addSubview:imageView];
-        
         [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
     }
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
 @end
