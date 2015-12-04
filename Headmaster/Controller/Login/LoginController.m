@@ -183,19 +183,24 @@
     NSLog(@"%@",_phoneTF.text);
     NSLog(@"%@",_passwordTF.text);
     [NetworkEntity loginWithPhotoNumber:_phoneTF.text password:_passwordTF.text success:^(id responseObject) {
-        UserInfoModel *uim = [UserInfoModel defaultUserInfo];
-        BOOL isLogin = [uim loginViewDic:responseObject];
-        if (isLogin) {
-            NSLog(@"==================%@",uim.name);
-            NSLog(@"==================%@",uim.userID);
-            NSLog(@"==================%@",uim.token);
-            NSLog(@"==================%@",uim.portrait);
-            NSLog(@"==================%@",uim.schoolId);
+        NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
+        if (type == 1) {
+            UserInfoModel *uim = [UserInfoModel defaultUserInfo];
+            BOOL isLogin = [uim loginViewDic:responseObject];
+            NSLog(@"%@",[responseObject objectForKey:@"msg"]);
+            if (isLogin) {
+                NSLog(@"==================%@",uim.name);
+            }
+        }else {
+            ToastAlertView *toastView = [[ToastAlertView alloc] initWithTitle:[responseObject objectForKey:@"msg"]];
+            [toastView show];
         }
     } failure:^(NSError *failure) {
-        ToastAlertView *toastView = [[ToastAlertView alloc] initWithTitle:@"账号或密码错误"];
+        ToastAlertView *toastView = [[ToastAlertView alloc] initWithTitle:@"网络连接失败"];
         [toastView show];
     }];
+    
+
 //    UserInfoModel *uim = [UserInfoModel defaultUserInfo];
 //    [uim loginOut];
 }
