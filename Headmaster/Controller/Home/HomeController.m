@@ -75,7 +75,7 @@
     if (!_topView) {
         _topView = [HomeTopView new];
         _topView.frame = CGRectMake(0, 64, self.view.width, 60);
-        _topView.backgroundColor = [UIColor redColor];
+//        _topView.backgroundColor = [UIColor redColor];
     }
     return _topView;
 }

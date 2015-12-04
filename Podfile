@@ -15,4 +15,5 @@ pod 'EaseMobSDKFull'
 pod "Qiniu", "~> 7.0"
 pod 'ChameleonFramework'
 pod 'RESideMenu', '~> 4.0.7'
+pod 'BaiduMapKit'
 

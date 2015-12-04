@@ -128,7 +128,7 @@
         
         [self addSubview:itemButton];
     }
-    _followBarLabel = [UILabel new];
+//    _followBarLabel = [UILabel new];
     //添加跟随的按钮
     CGFloat locationFloat = _selectButtonInteger * buttonSize.width;
     if (_followBarLocation) {

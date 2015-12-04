@@ -56,7 +56,8 @@
     if (!_doubleRowView) {
         _doubleRowView = [DVVDoubleRowToolBarView new];
         _doubleRowView.backgroundColor = [UIColor lightGrayColor];
-        _doubleRowView.downTitleFont = [UIFont systemFontOfSize:14];
+        _doubleRowView.upTitleFont = [UIFont italicSystemFontOfSize:18];
+        _doubleRowView.downTitleFont = [UIFont italicSystemFontOfSize:12];
         _doubleRowView.followBarHidden = 0;
         _doubleRowView.upTitleOffSetY = 5;
         _doubleRowView.upTitleArray = @[ @"44", @"25", @"5", @"46" ];
@@ -74,13 +75,13 @@
         upLabel.tag = 1;
         upLabel.textAlignment = 1;
         upLabel.text = @"34";
-        upLabel.font = [UIFont systemFontOfSize:24];
-        
+        upLabel.font = [UIFont italicSystemFontOfSize:22];
+        upLabel.textColor = [UIColor colorWithHexString:@"19f9cc"];
         UILabel *downLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, upLabel.height, rightBtnWidth, downLabelHeight)];
         downLabel.textAlignment = 1;
         downLabel.text = @"当天报名";
-        downLabel.font = [UIFont systemFontOfSize:14];
-        
+        downLabel.font = [UIFont italicSystemFontOfSize:12];
+        downLabel.textColor = [UIColor colorWithHexString:@"009577"];
         [_rightButton addSubview:upLabel];
         [_rightButton addSubview:downLabel];
     }

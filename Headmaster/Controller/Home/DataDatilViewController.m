@@ -42,6 +42,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _todayDataView = self.todayDataView;
     UIImage*img =[UIImage imageNamed:@"bgg.png"];
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:img]];
     // 隐藏导航栏下面的线
@@ -144,36 +145,40 @@
         
         [_topButtonView selectedItem:101];
     }
-    if (scrollView.contentOffset.x == selfSize.width) {
-        
-        [_topButtonView selectedItem:102];
+    if ( 0 < scrollView.contentOffset.x <= selfSize.width) {
         if (!_yesterdayDataView) {
             
             [_scrollView addSubview:self.yesterdayDataView];
+        }if (scrollView.contentOffset.x == selfSize.width) {
+            [_topButtonView selectedItem:102];
         }
     }
-    if (scrollView.contentOffset.x == selfSize.width * 2) {
+    if (selfSize.width < scrollView.contentOffset.x <= selfSize.width * 2) {
         
-        [_topButtonView selectedItem:103];
         if (!_weekDataView) {
             
             [_scrollView addSubview:self.weekDataView];
         }
+        if (scrollView.contentOffset.x == selfSize.width * 2) {
+            [_topButtonView selectedItem:103];
+        }
     }
-    if (scrollView.contentOffset.x == selfSize.width * 3) {
-        
-        [_topButtonView selectedItem:104];
+    if (selfSize.width * 2 < scrollView.contentOffset.x <= selfSize.width * 3) {
         if (!_monthDataView) {
             
             [_scrollView addSubview:self.monthDataView];
         }
+        if (scrollView.contentOffset.x == selfSize.width * 3) {
+            [_topButtonView selectedItem:104];
+        }
     }
-    if (scrollView.contentOffset.x == selfSize.width * 4) {
-        
-        [_topButtonView selectedItem:105];
+    if (selfSize.width * 3 < scrollView.contentOffset.x <= selfSize.width * 4) {
         if (!_yearDataView) {
             
             [_scrollView addSubview:self.yearDataView];
+        }
+        if (scrollView.contentOffset.x == selfSize.width * 4) {
+             [_topButtonView selectedItem:105];
         }
     }
 

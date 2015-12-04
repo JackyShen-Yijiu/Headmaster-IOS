@@ -21,13 +21,13 @@
     // appearance 设置所有的UINavigationBar
     UINavigationBar *bar = [UINavigationBar appearance];
     [bar setBarTintColor:[UIColor colorWithHexString:@"303030"]];
-    [bar setTintColor:[UIColor whiteColor]];
+    [bar setTintColor:[UIColor colorWithHexString:@"fefefe"]];
     // 标题字体颜色
-    [bar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont boldSystemFontOfSize:18]}];
+    [bar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont italicSystemFontOfSize:16]}];
     
     UIBarButtonItem *item = [UIBarButtonItem appearance];
     
-    [item setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont boldSystemFontOfSize:18]} forState:UIControlStateNormal];
+    [item setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont boldSystemFontOfSize:16]} forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning {
