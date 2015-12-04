@@ -181,7 +181,6 @@
     searchBar.text = @"";
     [searchBar resignFirstResponder];
     [searchBar setShowsCancelButton:NO animated:YES];
-    NSLog(@"%@",searchBar.text);
 }
 
 #pragma mark - DataSource
@@ -208,9 +207,7 @@
         cell = [[TeacherCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CELL"];
         cell.delegate = self;
     }
-    
     return cell;
-    return [UITableViewCell new];
 }
 
 #pragma mark - Action
@@ -223,7 +220,7 @@
 - (void)teacherCell:(TeacherCell *)cell didClickMessageButton:(UIButton *)button
 {
     ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:cell.model.userId conversationType:eConversationTypeChat];
-    chatController.model = cell.model;
+    chatController.userName = cell.model.userName;
     [self.navigationController pushViewController:chatController animated:YES];
 }
 

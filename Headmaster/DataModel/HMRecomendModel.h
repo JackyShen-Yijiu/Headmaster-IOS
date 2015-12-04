@@ -11,10 +11,19 @@
 
 @interface HMRecomendModel : NSObject
 @property(nonatomic,strong)NSString * recomendId;
-@property(nonatomic,strong)NSString * coachid;
-@property(nonatomic,strong)NSString * coachName;
-@property(nonatomic,strong)HMPortraitInfoModel * portrait;
-@property(nonatomic,strong)NSString * recomedContent;
-@property(nonatomic,strong)NSString * recomendData;
+@property(nonatomic,strong)NSString * recomendContent;
+@property(nonatomic,strong)NSString * recomendDate;
+@property(nonatomic,strong)NSString * courseType;
+@property(nonatomic,strong)NSString * courseName;
+@property(nonatomic,assign)CGFloat rating;
+
+@property(nonatomic,strong)NSString * coaId;
+@property(nonatomic,strong)NSString * coaName;
+@property(nonatomic,strong)HMPortraitInfoModel * coaPortrait;
+
+@property(nonatomic,strong)NSString * studentid;
+@property(nonatomic,strong)NSString * studendName;
+@property(nonatomic,strong)HMPortraitInfoModel * stuPortrait;
+
 + (HMRecomendModel *)converJsonDicToModel:(NSDictionary *)dic;
 @end

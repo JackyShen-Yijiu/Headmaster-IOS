@@ -39,7 +39,7 @@
         _tableView.dataSource = self;
         _tableView.delegate = self;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _tableView.backgroundColor = [UIColor colorWithHexString:BACKGROUND_COLOR];
+        _tableView.backgroundColor = [UIColor clearColor];
     }
     return _tableView;
 }

@@ -42,7 +42,10 @@
     [NetworkTool GET:urlStr params:nil success:success failure:failure];
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1cfb0b55d8b24419973a65bc8746653559dc019f
 + (void)getPublishListWithUseInfoModel:(UserInfoModel *)uim seqindex:(NSString *)index count:(NSString *)count
                                success:(void (^)(AFHTTPRequestOperation *, id))success
                                failure:(void (^)(AFHTTPRequestOperation *, id))failure {
@@ -79,8 +82,11 @@
 }
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 1cfb0b55d8b24419973a65bc8746653559dc019f
 + (void)informationListWithseqindex:(NSInteger)seqindex
                               count:(NSInteger)count
                             success:(NetworkSuccessBlock)success
@@ -91,5 +97,8 @@
     [NetworkTool GET:INFORMATION_LIST params:dict success:success failure:failure];
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1cfb0b55d8b24419973a65bc8746653559dc019f
 @end

@@ -37,6 +37,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self addBackgroundImage];
     
     [self.view addSubview:self.topView];
     [self.view addSubview:self.moreButton];
@@ -75,7 +76,7 @@
     if (!_topView) {
         _topView = [HomeTopView new];
         _topView.frame = CGRectMake(0, 64, self.view.width, 60);
-        _topView.backgroundColor = [UIColor redColor];
+//        _topView.backgroundColor = [UIColor redColor];
     }
     return _topView;
 }

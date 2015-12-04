@@ -19,7 +19,7 @@
                                   @"InformationController",
                                   @"TeacherController" ];
     
-    NSArray *titleArray = @[ @"首页", @"资讯", @"消息" ];
+    NSArray *titleArray = @[ @"数据概览", @"资讯", @"消息" ];
     
     UITabBarController *tabBarVC = [UITabBarController new];
     
