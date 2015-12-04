@@ -87,9 +87,10 @@
         downLabel.font = [UIFont italicSystemFontOfSize:12];
         downLabel.textColor = [UIColor colorWithHexString:@"009577"];
         
+        // 添加分割线
             UIView *lineView = [[UIView alloc] init];
         lineView.frame = CGRectMake(8, 10, 2, rightBtnWidth - 55);
-        lineView.backgroundColor = [UIColor grayColor];
+        lineView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
         [_rightButton addSubview:lineView];
        
         [_rightButton addSubview:upLabel];

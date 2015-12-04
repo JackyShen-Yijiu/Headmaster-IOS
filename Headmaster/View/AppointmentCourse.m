@@ -10,6 +10,8 @@
 #import <Masonry/Masonry.h>
 #import "UILabel+LabelAdjustBig.h"
 
+#import "YBLineChartView.h"
+
 #define kSystemW [UIScreen mainScreen].bounds.size.width
 #define kSystemH [UIScreen mainScreen].bounds.size.height
 @interface AppointmentCourse()
@@ -31,7 +33,8 @@
  *  约课的表格视图
  *
  */
-@property (nonatomic,strong) UIView *appintmentChartView;
+//@property (nonatomic,strong) UIView *appintmentChartView;
+@property (nonatomic,strong) YBLineChartView *appintmentChartView;
 
 @end
 
@@ -54,7 +57,7 @@
         _appintmentCoureLabel = [[UILabel alloc] init];
         _appintmentCoureLabel.text = @"约课";
         _appintmentCoureLabel.font = [UIFont systemFontOfSize:16.f];
-        _appintmentCoureLabel.tintColor = [UIColor grayColor];
+        _appintmentCoureLabel.textColor = [UIColor colorWithHexString:@"01e2b6"];
         
         
     }
@@ -70,15 +73,16 @@
         // 自适应宽高
         _resuleW  = [UILabel initWithUILabel:str font:16.f].size.width;
         _allPeopelNumberLabel.font = [UIFont systemFontOfSize:16.f];
-        _allPeopelNumberLabel.tintColor = [UIColor grayColor];
+        _allPeopelNumberLabel.textColor = [UIColor colorWithHexString:@"01e2b6"];
     }
     return _allPeopelNumberLabel;
 }
-- (UIView *)appintmentChartView
+- (YBLineChartView *)appintmentChartView
 {
     if (_appintmentChartView == nil) {
-        _appintmentChartView = [[UILabel alloc]init];
-        _appintmentChartView.backgroundColor = [UIColor grayColor];
+        _appintmentChartView = [[YBLineChartView alloc]init];
+        [_appintmentChartView refreshUI];
+//        _appintmentChartView.backgroundColor = [UIColor grayColor];
         
     }
     return _appintmentChartView;

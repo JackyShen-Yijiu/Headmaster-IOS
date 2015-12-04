@@ -9,6 +9,8 @@
 #import "JudgeView.h"
 #import "ZTJudgeBottonSign.h"
 #import <Masonry/Masonry.h>
+
+#import "YBLineChartView.h"
 # define ksystemH [UIScreen mainScreen].bounds.size.height
 # define ksystemW [UIScreen mainScreen].bounds.size.width
 @interface JudgeView()
@@ -30,7 +32,8 @@
  * 评价图表
  *
  */
-@property (nonatomic,strong) UIView *judgeChart;
+@property (nonatomic,strong) YBLineChartView *judgeChart;
+//@property (nonatomic,strong) UIView *judgeChart;
 /**
  *
  *  底部标示图
@@ -58,7 +61,7 @@
         _judgeLabel = [[UILabel alloc]init];
         _judgeLabel.text = @"评价";
         _judgeLabel.font = [UIFont systemFontOfSize:16.0];
-        _judgeLabel.tintColor = [UIColor redColor];
+        _judgeLabel.textColor = [UIColor colorWithHexString:@"01e2b6"];
         
         
     }
@@ -101,13 +104,13 @@
      */
     if (_judgeButton == nil) {
         _judgeButton = [[UIButton alloc] init];
-        _judgeButton.backgroundColor = [UIColor redColor];
+//        _judgeButton.backgroundColor = [UIColor redColor];
         
         [_judgeButton setTitle:@"详情" forState:UIControlStateNormal];
         
-        _judgeButton.titleLabel.font = [UIFont systemFontOfSize:10.f];
+        _judgeButton.titleLabel.font = [UIFont systemFontOfSize:12.f];
         
-        [_judgeButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_judgeButton setTitleColor:[UIColor colorWithHexString:@"047a64"] forState:UIControlStateNormal];
         _judgeButton.titleEdgeInsets = UIEdgeInsetsMake(5, -17, 5, 1);
         
         [_judgeButton setImage:[UIImage imageNamed:@"xq.png"] forState:UIControlStateNormal];
@@ -116,11 +119,12 @@
     
     return _judgeButton;
 }
-- (UIView *)judgeChart
+- (YBLineChartView *)judgeChart
 {
     if (_judgeChart == nil) {
-        _judgeChart = [[UIView alloc] init];
-        _judgeChart.backgroundColor = [UIColor grayColor];
+        _judgeChart = [[YBLineChartView alloc] init];
+        [_judgeChart refreshUI];
+//        _judgeChart.backgroundColor = [UIColor grayColor];
     }
     return _judgeChart;
 }
@@ -163,16 +167,16 @@
     [self.judgeButton mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.left.mas_equalTo(_judgeLabel.mas_right).with.offset(90);
         make.right.mas_equalTo(self.mas_right).with.offset(-16);
-        make.height.mas_equalTo(@30);
+        make.height.mas_equalTo(@10);
          make.width.mas_equalTo(@30);
-        make.top.mas_equalTo(self.mas_top).with.offset(0);
+        make.top.mas_equalTo(self.mas_top).with.offset(10);
     }];
     
     [self.judgeChart mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.mas_left).with.offset(16);
         make.right.mas_equalTo(self.mas_right).with.offset(-16);
         make.top.mas_equalTo(_judgeLabel.mas_bottom).with.offset(10);
-        make.height.mas_equalTo(100);
+        make.height.mas_equalTo(120);
     }];
     [self.signView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.mas_left).with.offset(40);

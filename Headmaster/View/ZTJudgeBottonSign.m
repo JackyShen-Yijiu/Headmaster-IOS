@@ -27,7 +27,7 @@
 {
     
     NSArray *strArray = @[@"好评",@"中评",@"差评",@"投诉"];
-    NSArray *colorArray = @[@"",@"",@"",@""];
+    NSArray *colorArray = @[@"ff00f0",@"00ffcc",@"f3ad54",@"ff663a"];
     CGFloat smallGap = 3.f;
 //    CGFloat bigCap = 5.0f;
     CGFloat bigCap = (ksystemW - 4 * 63 - 80) / 3;
@@ -43,7 +43,7 @@
     for (int i = 0; i < strArray.count; i++) {
         UIView *view = [[UIView alloc] init];
         view.frame = CGRectMake(i * (viewSize.width + labelSize.width + smallGap + bigCap), (bottonH - viewSize.height) / 2, viewSize.width, viewSize.height);
-        view.backgroundColor = [UIColor redColor];
+        view.backgroundColor = [UIColor colorWithHexString:colorArray[i]];
         view.layer.masksToBounds = YES;
         view.layer.cornerRadius  =  viewSize.height / 2;
         
@@ -51,9 +51,9 @@
         
         UILabel *signLabel = [[UILabel alloc]init];
         signLabel.frame = CGRectMake((i + 1) * (viewSize.width + smallGap) +   i * (bigCap + labelSize.width), (bottonH - labelSize.height) / 2, labelSize.width, labelSize.height);
-        signLabel.font = [UIFont systemFontOfSize:17.f];
+        signLabel.font = [UIFont systemFontOfSize:12.f];
         signLabel.text = strArray[i];
-        signLabel.tintColor = [UIColor orangeColor];
+        signLabel.textColor = [UIColor colorWithHexString:colorArray[i]];
         [self addSubview:view];
         [self addSubview:signLabel];
         

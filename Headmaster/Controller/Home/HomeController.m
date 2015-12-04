@@ -39,10 +39,10 @@
     
     // 添加button上面一条线
     UIView *lineTopView = [[UIView alloc] initWithFrame:CGRectMake(7.5, 64, self.view.frame.size.width - 15, 2)];
-    lineTopView.backgroundColor = [UIColor grayColor];
+    lineTopView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
     // 添加button下面一条线
     UIView *lineDownView = [[UIView alloc] initWithFrame:CGRectMake(7.5, 127, self.view.frame.size.width - 15, 2)];
-    lineDownView.backgroundColor = [UIColor grayColor];
+    lineDownView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
     
     [self.view addSubview:lineTopView];
     [self.view addSubview:lineDownView];
