@@ -9,6 +9,7 @@
 #import "BaseModelMethod.h"
 #import "TeacherModel.h"
 #import "HMRecomendModel.h"
+#import "PublishDataModel.h"
 
 @implementation BaseModelMethod
 
@@ -36,6 +37,20 @@
     NSMutableArray * oArray = [NSMutableArray arrayWithCapacity:0];
     for (NSDictionary * info in array) {
         HMRecomendModel * courseModel = [HMRecomendModel converJsonDicToModel:info];
+        if (courseModel) {
+            [oArray addObject:courseModel];
+        }
+    }
+    return [oArray copy];
+}
+
++ (NSArray *)getPublishListArrayFormDicInfo:(NSArray *)array {
+    if (![array isKindOfClass:[NSArray class]] || !array.count) {
+        return nil;
+    }
+    NSMutableArray * oArray = [NSMutableArray arrayWithCapacity:0];
+    for (NSDictionary * info in array) {
+        PublishDataModel * courseModel = [PublishDataModel converJsonDicToModel:info];
         if (courseModel) {
             [oArray addObject:courseModel];
         }

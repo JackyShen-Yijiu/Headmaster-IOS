@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PublishDataModel.h"
 
 @interface PublishCell : UITableViewCell
 
@@ -19,5 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 - (void)adaptHeightWithString:(NSString *)str;
+
+- (void)refreshData:(PublishDataModel *)dataModel;
 
 @end

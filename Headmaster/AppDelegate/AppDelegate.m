@@ -53,10 +53,7 @@
     self.window.rootViewController = [self rootViewController];
 //    self.window.rootViewController = [LoginController new];
 //    self.window.rootViewController = [InformationController new];
-<<<<<<< HEAD
 
-=======
->>>>>>> 00d3324aab1ae0d83f9029811fd06c76dde76728
     [self.window makeKeyAndVisible];
     
     [self sysConfigWithApplication:application LaunchOptions:launchOptions];
