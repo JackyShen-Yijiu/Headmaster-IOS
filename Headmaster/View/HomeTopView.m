@@ -56,14 +56,6 @@
     if (!_doubleRowView) {
         _doubleRowView = [DVVDoubleRowToolBarView new];
         _doubleRowView.backgroundColor = [UIColor lightGrayColor];
-<<<<<<< HEAD
-        _doubleRowView.upTitleFont = [UIFont italicSystemFontOfSize:18];
-        _doubleRowView.downTitleFont = [UIFont italicSystemFontOfSize:12];
-        _doubleRowView.followBarHidden = 0;
-=======
-        _doubleRowView.downTitleFont = [UIFont systemFontOfSize:14];
-        _doubleRowView.followBarHidden = 1;
->>>>>>> 5e15ece707049d512e6c0df3ddaece9c5490f1b9
         _doubleRowView.upTitleOffSetY = 5;
         _doubleRowView.upTitleArray = @[ @"44", @"25", @"5", @"46" ];
         _doubleRowView.downTitleArray = @[ @"科一", @"科二", @"科三", @"科四" ];
