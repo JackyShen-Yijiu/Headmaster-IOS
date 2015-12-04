@@ -9,6 +9,8 @@
 #import "CoachOfCourse.h"
 #import <Masonry/Masonry.h>
 
+#import "YBBarChartView.h"
+
 #define kSystemW [UIScreen mainScreen].bounds.size.width
 #define kSystemH [UIScreen mainScreen].bounds.size.height
 
@@ -31,7 +33,8 @@
  * 教练授课图表
  *
  */
-@property (nonatomic,strong) UIView *coachOfCourseChart;
+//@property (nonatomic,strong) UIView *coachOfCourseChart;
+@property (nonatomic,strong) YBBarChartView *coachOfCourseChart;
 
 @end
 
@@ -55,7 +58,7 @@
         _coachOfCourseLabel = [[UILabel alloc]init];
         _coachOfCourseLabel.text = @"教练授课";
         _coachOfCourseLabel.font = [UIFont systemFontOfSize:16.0];
-        _coachOfCourseLabel.tintColor = [UIColor redColor];
+        _coachOfCourseLabel.textColor = [UIColor colorWithHexString:@"01e2b6"];
         
         
     }
@@ -98,10 +101,10 @@
      */
     if (_coachOfCourseButton == nil) {
         _coachOfCourseButton = [[UIButton alloc] init];
-        _coachOfCourseButton.backgroundColor = [UIColor redColor];
+//        _coachOfCourseButton.backgroundColor = [UIColor redColor];
         [_coachOfCourseButton setTitle:@"详情" forState:UIControlStateNormal];
-        _coachOfCourseButton.titleLabel.font = [UIFont systemFontOfSize:10.f];
-        [_coachOfCourseButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        _coachOfCourseButton.titleLabel.font = [UIFont systemFontOfSize:12.f];
+        [_coachOfCourseButton setTitleColor:[UIColor colorWithHexString:@"047a64"] forState:UIControlStateNormal];
         _coachOfCourseButton.titleEdgeInsets = UIEdgeInsetsMake(5, -17, 5, 1);
         
         [_coachOfCourseButton setImage:[UIImage imageNamed:@"xq.png"] forState:UIControlStateNormal];
@@ -110,11 +113,12 @@
     
     return _coachOfCourseButton;
 }
-- (UIView *)coachOfCourseChart
+- (YBBarChartView *)coachOfCourseChart
 {
     if (_coachOfCourseChart == nil) {
-        _coachOfCourseChart = [[UIView alloc] init];
-        _coachOfCourseChart.backgroundColor = [UIColor grayColor];
+        _coachOfCourseChart = [[YBBarChartView alloc] init];
+        [_coachOfCourseChart refreshUI];
+//        _coachOfCourseChart.backgroundColor = [UIColor grayColor];
     }
     return _coachOfCourseChart;
 }
@@ -146,9 +150,9 @@
     [self.coachOfCourseButton mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.left.mas_equalTo(_coachOfCourseLabel.mas_right).with.offset(70);
         make.right.mas_equalTo(self.mas_right).with.offset(-16);
-        make.height.mas_equalTo(@30);
+        make.height.mas_equalTo(@10);
         make.width.mas_equalTo(@30);
-        make.top.mas_equalTo(self.mas_top).with.offset(0);
+        make.top.mas_equalTo(self.mas_top).with.offset(10);
     }];
     
     [self.coachOfCourseChart mas_makeConstraints:^(MASConstraintMaker *make) {

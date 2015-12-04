@@ -10,6 +10,8 @@
 #import <Masonry/Masonry.h>
 #import "UILabel+LabelAdjustBig.h"
 
+#import "YBLineChartView.h"
+
 
 #define kSystemW [UIScreen mainScreen].bounds.size.width
 #define kSystemH [UIScreen mainScreen].bounds.size.height
@@ -35,9 +37,11 @@
  *
  */
 
-@property (nonatomic,strong) UIView *chartView;
+//@property (nonatomic,strong) UIView *chartView;
 
+@property (nonatomic,strong) YBLineChartView *chartView;
 
+//@property (nonatomic,strong) YBLineChartView *lineChartView;
 
 @end
 
@@ -63,6 +67,7 @@
 {
     titleLabel.text = title;
     titleLabel.font = [UIFont systemFontOfSize:16.f];
+    titleLabel.textColor = [UIColor colorWithHexString:@"01e2b6"];
 //    [titleLabel setTextColor:[UIColor grayColor]];
     
 }
@@ -95,11 +100,12 @@
     return _inviteStudentNumberLabel;
     
 }
-- (UIView *)chartView
+- (YBLineChartView *)chartView
 {
     if (_chartView == nil) {
-        _chartView = [[UIView alloc] init];
-        _chartView.backgroundColor = [UIColor redColor];
+        _chartView = [[YBLineChartView alloc] init];
+        [_chartView refreshUI];
+//        _chartView.backgroundColor = [UIColor redColor];
     }
     
     

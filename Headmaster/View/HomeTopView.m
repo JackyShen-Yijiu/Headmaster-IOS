@@ -9,7 +9,7 @@
 #import "HomeTopView.h"
 #import "DVVDoubleRowToolBarView.h"
 
-#define rightBtnWidth 60
+#define rightBtnWidth 100
 #define rightBtnHeight 60
 #define downLabelHeight 30
 
@@ -55,7 +55,14 @@
 - (DVVDoubleRowToolBarView *)doubleRowView {
     if (!_doubleRowView) {
         _doubleRowView = [DVVDoubleRowToolBarView new];
-        _doubleRowView.backgroundColor = [UIColor lightGrayColor];
+//        _doubleRowView.backgroundColor = [UIColor lightGrayColor];
+        
+        _doubleRowView.upTitleFont = [UIFont italicSystemFontOfSize:18];
+        
+        _doubleRowView.downTitleFont = [UIFont italicSystemFontOfSize:12];
+        _doubleRowView.followBarHidden = 0;
+        _doubleRowView.downTitleFont = [UIFont systemFontOfSize:14];
+        _doubleRowView.followBarHidden = 1;
         _doubleRowView.upTitleOffSetY = 5;
         _doubleRowView.upTitleArray = @[ @"44", @"25", @"5", @"46" ];
         _doubleRowView.downTitleArray = @[ @"科一", @"科二", @"科三", @"科四" ];
@@ -79,6 +86,13 @@
         downLabel.text = @"当天报名";
         downLabel.font = [UIFont italicSystemFontOfSize:12];
         downLabel.textColor = [UIColor colorWithHexString:@"009577"];
+        
+        // 添加分割线
+            UIView *lineView = [[UIView alloc] init];
+        lineView.frame = CGRectMake(8, 10, 2, rightBtnWidth - 55);
+        lineView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
+        [_rightButton addSubview:lineView];
+       
         [_rightButton addSubview:upLabel];
         [_rightButton addSubview:downLabel];
     }

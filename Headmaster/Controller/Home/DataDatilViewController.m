@@ -61,28 +61,25 @@
     
     // 添加button上面一条线
     UIView *lineTopView = [[UIView alloc] initWithFrame:CGRectMake(7.5, 64, self.view.frame.size.width - 15, 2)];
-    lineTopView.backgroundColor = [UIColor grayColor];
+    lineTopView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
+//    lineTopView.backgroundColor = [UIColor grayColor];
     // 添加button下面一条线
     UIView *lineDownView = [[UIView alloc] initWithFrame:CGRectMake(7.5, 102, self.view.frame.size.width - 15, 2)];
-    lineDownView.backgroundColor = [UIColor grayColor];
+    lineDownView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
+//    lineDownView.backgroundColor = [UIColor grayColor];
     
     [self.view addSubview:lineTopView];
     [self.view addSubview:lineDownView];
     [self.view addSubview:_topButtonView];
     // 点击button的回调
+    __block DataDatilViewController *dataVC = self;
     _topButtonView.didClick = ^(UIButton *btn)
     {
+        NSArray *strArray = [NSArray arrayWithObjects:@"今天数据",@"昨天数据",@"本周数据",@"本月数据",@"本年数据", nil];
          // 设置title的显示内容
-        if (btn.tag == 101) {
-            self.title = @"改变";
-        }else
-        {
-            self.title = @"计划";
-            
-        }
-        
+        dataVC.title = strArray[btn.tag - 101];
         CGFloat contentOffsetX;
-        CGFloat width = self.view.frame.size.width;
+        CGFloat width = dataVC.view.frame.size.width;
         if (btn.tag == 101) {
             
             contentOffsetX = 0;
