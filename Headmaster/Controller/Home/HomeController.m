@@ -37,6 +37,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self addBackgroundImage];
     
     [self.view addSubview:self.topView];
     [self.view addSubview:self.moreButton];

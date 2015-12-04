@@ -57,7 +57,7 @@
         _doubleRowView = [DVVDoubleRowToolBarView new];
         _doubleRowView.backgroundColor = [UIColor lightGrayColor];
         _doubleRowView.downTitleFont = [UIFont systemFontOfSize:14];
-        _doubleRowView.followBarHidden = 0;
+        _doubleRowView.followBarHidden = 1;
         _doubleRowView.upTitleOffSetY = 5;
         _doubleRowView.upTitleArray = @[ @"44", @"25", @"5", @"46" ];
         _doubleRowView.downTitleArray = @[ @"科一", @"科二", @"科三", @"科四" ];

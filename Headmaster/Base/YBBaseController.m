@@ -20,6 +20,12 @@
     
 }
 
+- (void)addBackgroundImage {
+    
+    UIImage *image = [UIImage imageNamed:@"controllerBackground"];
+    self.view.layer.contents = (id)image.CGImage;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
