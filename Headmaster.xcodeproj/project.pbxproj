@@ -348,6 +348,8 @@
 		D9CEC9861C0ED7D8008DEE69 /* SideMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9841C0ED7D8008DEE69 /* SideMenuItem.m */; };
 		D9CEC9891C0EDBCD008DEE69 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9881C0EDBCD008DEE69 /* LoginController.m */; };
 		D9CEC98C1C0EDEC6008DEE69 /* YBBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC98B1C0EDEC6008DEE69 /* YBBaseNavigationController.m */; };
+		D9D375611C127457008C54FF /* DVVDockItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D3755E1C127457008C54FF /* DVVDockItem.m */; };
+		D9D375621C127457008C54FF /* DVVTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D375601C127457008C54FF /* DVVTabBarController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -933,6 +935,10 @@
 		D9CEC9881C0EDBCD008DEE69 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
 		D9CEC98A1C0EDEC6008DEE69 /* YBBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBBaseNavigationController.h; sourceTree = "<group>"; };
 		D9CEC98B1C0EDEC6008DEE69 /* YBBaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YBBaseNavigationController.m; sourceTree = "<group>"; };
+		D9D3755D1C127457008C54FF /* DVVDockItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVVDockItem.h; sourceTree = "<group>"; };
+		D9D3755E1C127457008C54FF /* DVVDockItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVVDockItem.m; sourceTree = "<group>"; };
+		D9D3755F1C127457008C54FF /* DVVTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVVTabBarController.h; sourceTree = "<group>"; };
+		D9D375601C127457008C54FF /* DVVTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVVTabBarController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2237,6 +2243,7 @@
 			isa = PBXGroup;
 			children = (
 				D9CEC8ED1C0E8CF7008DEE69 /* NavigationController */,
+				D9D3755C1C127457008C54FF /* DVVTabBarController */,
 				D9CEC98A1C0EDEC6008DEE69 /* YBBaseNavigationController.h */,
 				D9CEC98B1C0EDEC6008DEE69 /* YBBaseNavigationController.m */,
 				D9CEC9431C0EC432008DEE69 /* YBBaseController.h */,
@@ -2416,6 +2423,17 @@
 				D92296E41C0FDCC500D0FFDF /* InformationViewModel.m */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D9D3755C1C127457008C54FF /* DVVTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				D9D3755D1C127457008C54FF /* DVVDockItem.h */,
+				D9D3755E1C127457008C54FF /* DVVDockItem.m */,
+				D9D3755F1C127457008C54FF /* DVVTabBarController.h */,
+				D9D375601C127457008C54FF /* DVVTabBarController.m */,
+			);
+			path = DVVTabBarController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2726,6 +2744,7 @@
 				D9CEC9151C0E8CF7008DEE69 /* HMRecomendModel.m in Sources */,
 				B8771D151C098DE40051DE9D /* MWGridCell.m in Sources */,
 				B8771E391C098E6B0051DE9D /* UIView+Sizes.m in Sources */,
+				D9D375621C127457008C54FF /* DVVTabBarController.m in Sources */,
 				B8771D111C098DE40051DE9D /* UIScrollView+MJExtension.m in Sources */,
 				B8771D391C098DE40051DE9D /* PSTGridLayoutSection.m in Sources */,
 				B8771D251C098DE40051DE9D /* NSData+EMImageContentType.m in Sources */,
@@ -2751,6 +2770,7 @@
 				B8771DF11C098DE40051DE9D /* EaseRecordView.m in Sources */,
 				B8771D371C098DE40051DE9D /* PSTGridLayoutItem.m in Sources */,
 				D9CEC94B1C0EC4FE008DEE69 /* YBBaseViewModel.m in Sources */,
+				D9D375611C127457008C54FF /* DVVDockItem.m in Sources */,
 				B8771D301C098DE40051DE9D /* PSTCollectionViewController.m in Sources */,
 				D92297461C10439200D0FFDF /* UUChart.m in Sources */,
 				B8771D0C1C098DE40051DE9D /* MJRefreshGifFooter.m in Sources */,
