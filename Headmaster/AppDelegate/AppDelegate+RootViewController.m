@@ -11,6 +11,7 @@
 #import "RESideMenu.h"
 #import "SideMenuController.h"
 #import "DVVTabBarController.h"
+#import "RecommendViewController.h"
 
 @implementation AppDelegate (RootViewController)
 
@@ -18,7 +19,7 @@
     
     NSArray *controllerArray = @[ @"HomeController",
                                   @"InformationController",
-                                  @"TeacherController" ];
+                                  @"RecommendViewController" ];
     
     NSArray *titleArray = @[ @"数据概览", @"资讯", @"消息" ];
     

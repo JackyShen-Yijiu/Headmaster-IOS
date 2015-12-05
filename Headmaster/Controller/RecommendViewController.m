@@ -65,7 +65,7 @@
 - (void)initNavBar
 {
     [self resetNavBar];
-    self.myNavigationItem.title = @"我的教练";
+    self.myNavigationItem.title = @"评价详情";
 }
 
 -(void)initUI
@@ -82,7 +82,7 @@
     [[DZNSegmentedControl appearance] setSelectionIndicatorHeight:1];
     [[DZNSegmentedControl appearance] setAnimationDuration:0.125];
 
-    self.control.frame = CGRectMake(0, 64, self.view.width, 60);
+    self.control.frame = CGRectMake(0, 0, self.view.width, 60);
     self.control.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.control];
     

@@ -54,7 +54,6 @@
         {
             viewController.navigationItem.leftBarButtonItems = @[[self barSpaingItem],[self createBackButton]];
         }
-        
     }
     @catch (NSException *exception) {
         
