@@ -25,6 +25,7 @@
 @property(nonatomic,strong)HMNagationController * navController;
 @end
 
+
 @implementation AppDelegate
 
 
@@ -41,6 +42,7 @@
     self.navController = [[HMNagationController alloc] initWithRootViewController:loginViewC];
     self.window.rootViewController =  self.navController;
     
+
     if ([UserInfoModel isLogin]) {
         [self loginControllerDidLoginSucess:nil];
     }

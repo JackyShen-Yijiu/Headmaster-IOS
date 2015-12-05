@@ -19,13 +19,16 @@
 
 @property (nonatomic, strong) UIImageView * bgView;
 @property (nonatomic, strong) RecommendSegView *controlView;
-@property (nonatomic, strong) NSArray *menuItems;
 
 @property (nonatomic, strong) RecomendPieChartView * pieView;
 //@property (nonatomic, strong) RecomendPieChartViewModel * pieModel;
 
 @property (nonatomic, strong)RefreshTableView * tableView;
-@property (nonatomic, strong)NSMutableArray * dataModel;
+//@property (nonatomic, strong) RecomendPieChartView * pieView;
+
+@property (nonatomic, strong)NSMutableArray * recomendData;
+@property (nonatomic, strong)NSMutableArray * complainData;
+
 @property (nonatomic, assign)BOOL isNeedRefresh;
 
 @end
@@ -132,26 +135,46 @@
     WS(ws);
     self.tableView.refreshHeader.beginRefreshingBlock = ^(){
         
-        if (self.controlView.control.selectedSegmentIndex == 3) {
+        if (![ws isShowRecomend]) {
             //投诉
+            ws.tableView.tableHeaderView = nil;
+            [NetworkEntity getComplainListWithUserid:[[UserInfoModel defaultUserInfo] userID]
+                                            SchoolId:[[UserInfoModel defaultUserInfo] schoolId]
+                                           pageIndex:1
+                                             success:^(id responseObject) {
+                                                 
+                                                 NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
+                                                 if (type == 1) {
+                                                     ws.complainData = [[BaseModelMethod getComplainListArrayFormDicInfo:[responseObject objectArrayForKey:@"data"]] mutableCopy];
+                                                     [ws.tableView.refreshHeader endRefreshing];
+                                                     [ws.tableView reloadData];
+                                                 }
+
+                                                 
+                                             } failure:^(NSError *failure) {
+                                                 [ws netErrorWithTableView:ws.tableView];
+                                             }];
             
         }else{
             //评论
+            ws.tableView.tableHeaderView = ws.pieView;
             [NetworkEntity getRecommendListWithUserid:[[UserInfoModel defaultUserInfo] userID]
                                              SchoolId:[[UserInfoModel defaultUserInfo] schoolId]
                                             pageIndex:1
                                            searchType:ws.searchType
                                          commentLevle:ws.controlView.control.selectedSegmentIndex + 1
                                               success:^(id responseObject) {
+                                                
                                                   
                                                   NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
                                                   if (type == 1) {
                                                       NSDictionary * data = [responseObject objectInfoForKey:@"data"];
-                                                      ws.dataModel = [[BaseModelMethod getRecomendListArrayFormDicInfo:[data objectArrayForKey:@"commentlist"]] mutableCopy];
-                                                                      
+                                                      ws.recomendData = [[BaseModelMethod getRecomendListArrayFormDicInfo:[data objectArrayForKey:@"commentlist"]] mutableCopy];
+                                                      [ws.pieView updateUIWithCountInfo:[data objectInfoForKey:@"commentcount"]];
+                                                      
                                                       [ws.tableView.refreshHeader endRefreshing];
                                                       [ws.tableView reloadData];
-                                                  }
+                                                  } 
                                                   
                                                   
                                               } failure:^(NSError *failure) {
@@ -162,15 +185,42 @@
     };
     
     self.tableView.refreshFooter.beginRefreshingBlock = ^(){
-        if (self.controlView.control.selectedSegmentIndex == 3) {
+        
+        if (![ws isShowRecomend]) {
             //投诉
+            ws.tableView.tableHeaderView = nil;
+            ws.tableView.tableHeaderView = nil;
+            [NetworkEntity getComplainListWithUserid:[[UserInfoModel defaultUserInfo] userID]
+                                            SchoolId:[[UserInfoModel defaultUserInfo] schoolId]
+                                           pageIndex:1
+                                             success:^(id responseObject) {
+                                                 
+                                                 NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
+                                                 
+                                                 if (type == 1) {
+                                                     NSArray * listArray = [[BaseModelMethod getComplainListArrayFormDicInfo:[responseObject objectArrayForKey:@"data"]] mutableCopy];
+                                                     if (listArray.count) {
+                                                         [ws.complainData addObjectsFromArray:listArray];
+                                                         [ws.tableView reloadData];
+                                                     }else{
+                                                         [ws showTotasViewWithMes:@"已经加载所有数据"];
+                                                     }
+                                                     [ws.tableView.refreshFooter endRefreshing];
+                                                 }else{
+                                                     [ws dealErrorResponseWithTableView:ws.tableView info:responseObject];
+                                                 }
+
+                                             } failure:^(NSError *failure) {
+                                                 
+                                             }];
         }else{
             //评论
+            ws.tableView.tableHeaderView = ws.pieView;
             [NetworkEntity getRecommendListWithUserid:[[UserInfoModel defaultUserInfo] userID]
                                              SchoolId:[[UserInfoModel defaultUserInfo] schoolId]
                                             pageIndex:1
                                            searchType:ws.searchType
-                                         commentLevle:ws.dataModel.count / RELOADDATACOUNT + 1
+                                         commentLevle:ws.recomendData.count / RELOADDATACOUNT + 1
                                               success:^(id responseObject) {
                                                   
                                                   NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
@@ -179,7 +229,7 @@
                                                       NSDictionary * data = [responseObject objectInfoForKey:@"data"];
                                                       NSArray * listArray = [[BaseModelMethod getRecomendListArrayFormDicInfo:[data objectArrayForKey:@"commentlist"]] mutableCopy];
                                                       if (listArray.count) {
-                                                          [ws.dataModel addObjectsFromArray:listArray];
+                                                          [ws.recomendData addObjectsFromArray:listArray];
                                                           [ws.tableView reloadData];
                                                       }else{
                                                           [ws showTotasViewWithMes:@"已经加载所有数据"];
@@ -196,6 +246,15 @@
         }
 
     };
+}
+
+#pragma mark - PieChatView
+- (RecomendPieChartView *)pieView
+{
+    if (!_pieView) {
+        _pieView = [[RecomendPieChartView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 210)];
+    }
+    return _pieView;
 }
 
 #pragma mark -  DZNSegmentedControl
@@ -215,15 +274,19 @@
     [self.tableView.refreshHeader beginRefreshing];
 }
 
+- (BOOL)isShowRecomend
+{
+    return self.controlView.control.selectedSegmentIndex != 3;
+}
 #pragma mark - DataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.dataModel.count;
+    return [self isShowRecomend] ?  self.recomendData.count : self.complainData.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    HMRecomendModel * model  =  self.dataModel[indexPath.row];
+    HMRecomendModel * model  =  self.recomendData[indexPath.row];
     return [RecomendCell cellHigthWithModel:model];
 }
 
@@ -234,13 +297,16 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RecomendCell * cell = [tableView dequeueReusableCellWithIdentifier:@"CELL"];
+    NSString * identify = [self isShowRecomend] ? @"Recomend" : @"Complain";
+    RecomendCell * cell = [tableView dequeueReusableCellWithIdentifier:identify];
     if (!cell) {
-        cell = [[RecomendCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CELL"];
+        cell = [[RecomendCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify cellType:[self isShowRecomend] ? KRecomendCellTypeDefoult : KRecomendCellTypeVaule1];
         cell.delegate = self;
     }
-    HMRecomendModel * model  =  self.dataModel[indexPath.row];
+    
+    HMRecomendModel * model  =   [self isShowRecomend] ?  self.recomendData[indexPath.row] : self.complainData[indexPath.row];
     cell.model = model;
+    
     return cell;
 }
 
@@ -266,5 +332,32 @@
 }
 
 #pragma mark - 投诉
+- (void)complainCell:(RecomendCell *)cell DidSwithcButttonValueChanged:(UISwitch *)swithcButton
+{
+    WS(ws);
+    HMComplainModel * model  = (HMComplainModel *)cell.model;
+    if (swithcButton.isOn != model.isDealDone) {
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [NetworkEntity markDealComplainWithComplainId:model.recomendId
+                                                useID:[[UserInfoModel defaultUserInfo] userID]
+                                              Success:^(id responseObject) {
+            NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
+            if(type == 1){
+                [ws showTotasViewWithMes: @"成功处理"];
+                model.isDealDone = YES;
+            }else{
+                model.isDealDone = NO;
+                [ws showTotasViewWithMes:[responseObject objectForKey:@"msg"]];
+            }
+            cell.model = (HMRecomendModel *)model;
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
 
+        } failure:^(NSError *failure) {
+            model.isDealDone = NO;
+            cell.model = (HMRecomendModel *)model;
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+            [ws showTotasViewWithMes: @"网络异常，稍后重试"];
+        }];
+    }
+}
 @end

@@ -54,6 +54,26 @@
                       commentLevle:(KCommnetLevel)level
                            success:(NetworkSuccessBlock)success
                            failure:(NetworkFailureBlock)failure;
+/**
+ *  投诉
+ *  ====================================================================================================================================
+ */
+
++ (void)getComplainListWithUserid:(NSString *)userId
+                         SchoolId:(NSString *)schoolId
+                        pageIndex:(NSInteger)index
+                          success:(NetworkSuccessBlock)success
+                          failure:(NetworkFailureBlock)failure;
+
+
+/**
+ *  标示处理完成投诉
+ *
+ */
++ (void)markDealComplainWithComplainId:(NSString *)complainId
+                                 useID:(NSString *)userId
+                               Success:(NetworkSuccessBlock)success
+                               failure:(NetworkFailureBlock)failure;
 
 /**
  *  获取发布
@@ -81,6 +101,7 @@
                             success:(NetworkSuccessBlock)success
                             failure:(NetworkFailureBlock)failure;
 /**
+<<<<<<< HEAD
  *  首页
  *
  *  @param searchType 查询的类型（昨天、今天、本周）
@@ -88,5 +109,30 @@
 + (void)getHomeDataWithSearchType:(NSInteger)searchType
                           success:(NetworkSuccessBlock)success
                           failure:(NetworkFailureBlock)failure;
+=======
+ *    更多数据
+ *     @param   userid
+ *     @param   searchtype
+ *     @param  schoolid
+ *     @param  authorization
+ *
+ */
++ (void)moreDataDatilListWithuserid:(NSString *)userid
+                         searchtype:(NSInteger ) searchtype
+                           schoolid:(NSString *)schoolid
+                            success:(NetworkSuccessBlock)success
+                            failure:(NetworkFailureBlock)failure;
+
+
+/**
+ *   天气情况
+ *     @param   cityname
+  *
+ */
++ (void)weatherDataListWithcityname:(NSString *)cityname
+                            success:(NetworkSuccessBlock)success
+                            failure:(NetworkFailureBlock)failure;
+
+>>>>>>> c04354b85f28606fc9f842593cbf621e2dab89d9
 
 @end

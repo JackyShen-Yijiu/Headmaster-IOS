@@ -22,7 +22,17 @@
 @interface LoginController () <UITextFieldDelegate> {
     UITextField *_phoneTF;
     UITextField *_passwordTF;
-    UIImageView *_iv;
+    UIImageView *_BackgroundImage;
+    UIImageView *_phoneLeftView;
+    UIImageView *_iconView;
+    UIImageView *_phoneView;
+    UIView *_upView;
+    UIView *_lineViewUP;
+    UIImageView *_passwordView;
+    UIView *_downView;
+    UIView *_lineViewDown;
+    UIButton *_loginButton;
+    UIButton *_callBtn;
 }
 
 @end
@@ -31,6 +41,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    [self initUI];
+    [self configeUI];
+    [self updateUI];
+    [self addNotify];
+}
+
+- (void)initUI {
+    
+    
     
     [self createUI];
     [self addNotify];
@@ -43,82 +63,110 @@
 }
 
 - (void)createUI {
+    _BackgroundImage = [[UIImageView alloc] init];    //背景图片
+    [self.view addSubview:_BackgroundImage];
     
-    _iv = [[UIImageView alloc] initWithFrame:self.view.bounds];
-    _iv.image = [UIImage imageNamed:@"bg_login"];
-    [self.view addSubview:_iv];
+    _iconView = [[UIImageView alloc] init];          //logo
+    [self.view addSubview:_iconView];
     
-    UIImageView *iconView = [[UIImageView alloc] initWithFrame:CGRectMake(h_center.x -h_iconViewWidth/2, h_iconViewTOP, h_iconViewWidth, h_iconViewHeight)];
-    iconView.image = [UIImage imageNamed:@"icon120x110.png"];
-    [self.view addSubview:iconView];
+    _phoneTF = [[UITextField alloc] init];           //账号输入框
+    [self.view addSubview:_phoneTF];
+    
+    _upView = [[UIView alloc] init];                 //账号输入框左侧的父视图
+    [self.view addSubview:_upView];
+    
+    _phoneView = [[UIImageView alloc]init];          //账号输入框的icon
+    [_upView addSubview:_phoneView];
+    
+    _lineViewUP = [[UIView alloc] init];             //账号输入框下的线
+    [self.view addSubview:_lineViewUP];
+    
+    _passwordTF = [[UITextField alloc] init];        //密码输入框
+    [self.view addSubview:_passwordTF];
+    
+    _downView = [[UIView alloc] init];               //密码输入框左侧的父视图
+    [self.view addSubview:_downView];
+    
+    _passwordView = [[UIImageView alloc]init];       //密码输入框的icon
+    [_downView addSubview:_passwordView];
+    
+    _lineViewDown = [[UIView alloc] init];           //密码输入框下的线
+    [self.view addSubview:_lineViewDown];
+    
+    _loginButton = [[UIButton alloc] init];          //登入按钮
+    [self.view addSubview:_loginButton];
+    
+    _callBtn = [[UIButton alloc] init];              //联系我们
+    [self.view addSubview:_callBtn];
+}
+
+- (void)updateUI {
+    _BackgroundImage.frame = self.view.bounds;
+    _iconView.frame         = CGRectMake(h_center.x -h_iconViewWidth/2, h_iconViewTOP, h_iconViewWidth, h_iconViewHeight);
+    _phoneTF.frame          = CGRectMake(26, _iconView.frame.origin.y +_iconView.frame.size.height +h_iconViewTOP , h_size.width -26, h_phoneTFHeight);
+    _phoneView.frame        = CGRectMake(0, 13, 20 , 19);
+    _upView.frame           = CGRectMake(0, 0, 46, 50);
+    _lineViewUP.frame       = CGRectMake(0, _phoneTF.frame.origin.y +h_phoneTFHeight , h_size.width, 1);
+    _passwordTF.frame       = CGRectMake(26, _phoneTF.frame.origin.y +_phoneTF.frame.size.height+1 , h_size.width -26, h_phoneTFHeight);
+    _passwordView.frame     = CGRectMake(0, 13, 20 , 21);
+    _downView.frame         = CGRectMake(0, 0, 46, 50);
+    _lineViewDown.frame     = CGRectMake(0, _passwordTF.frame.origin.y +h_phoneTFHeight , h_size.width, 1);
+    _loginButton.frame      = CGRectMake(0, _passwordTF.frame.origin.y +_passwordTF.frame.size.height +h_loginBtnHeight, h_size.width , h_loginBtnHeight);
+    _callBtn.frame          = CGRectMake(0,0, 200, h_numLabelHeight);
+    _callBtn.center         = CGPointMake(h_center.x,  h_size.height -h_numLabelHeight);
+}
+
+- (void)configeUI {
+    _BackgroundImage.image = [UIImage imageNamed:@"bg_login"];
+    
+    _iconView.image = [UIImage imageNamed:@"icon120x110.png"];
     
     
-    _phoneTF = [[UITextField alloc] initWithFrame:CGRectMake(26, iconView.frame.origin.y +iconView.frame.size.height +h_iconViewTOP , h_size.width -26, h_phoneTFHeight)];
+    _phoneTF = [[UITextField alloc] initWithFrame:CGRectMake(26, _iconView.frame.origin.y +_iconView.frame.size.height +h_iconViewTOP , h_size.width -26, h_phoneTFHeight)];
     _phoneTF.placeholder = @"账号";
     _phoneTF.textColor = [self colorWithHexString:@"#fefefe"];
-    _phoneTF.text = @"15652305651";
     [_phoneTF setValue:[self colorWithHexString:@"#bfbfbf"] forKeyPath:@"_placeholderLabel.textColor"];
     [_phoneTF setValue:[UIFont systemFontOfSize:15] forKeyPath:@"_placeholderLabel.font"];
     _phoneTF.delegate = self;
-    
     _phoneTF.keyboardType = UIKeyboardTypeNumberPad;
-    [self.view addSubview:_phoneTF];
-    
-    UIImageView *phoneView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 13, 20 , 19)];
-    phoneView.image = [UIImage imageNamed:@"yh38x36.png"];
-    
-    UIView *upView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 46, 50)];
-    upView.backgroundColor = [UIColor clearColor];
-    [upView addSubview:phoneView];
-    
-    _phoneTF.leftView = upView;
+    _phoneTF.leftView = _upView;
     _phoneTF.leftViewMode = UITextFieldViewModeAlways;
     
-    UIView *lineViewUP = [[UIView alloc] initWithFrame:CGRectMake(0, _phoneTF.frame.origin.y +h_phoneTFHeight , h_size.width, 1)];
-    lineViewUP.backgroundColor = [UIColor whiteColor];
-    lineViewUP.alpha = 0.1;
-    [self.view addSubview:lineViewUP];
+    _phoneView.image = [UIImage imageNamed:@"yh38x36.png"];
     
-    _passwordTF = [[UITextField alloc] initWithFrame:CGRectMake(26, _phoneTF.frame.origin.y +_phoneTF.frame.size.height+1 , h_size.width -26, h_phoneTFHeight)];
+    _upView.backgroundColor = [UIColor clearColor];
+    
+    _lineViewUP.backgroundColor = [UIColor whiteColor];
+    _lineViewUP.alpha = 0.1;
+    
     _passwordTF.placeholder = @"密码";
     _passwordTF.textColor = [self colorWithHexString:@"#fefefe"];
-    _passwordTF.text = @"123456";
     [_passwordTF setValue:[self colorWithHexString:@"#bfbfbf"] forKeyPath:@"_placeholderLabel.textColor"];
     [_passwordTF setValue:[UIFont systemFontOfSize:15] forKeyPath:@"_placeholderLabel.font"];
     _passwordTF.delegate = self;
     _passwordTF.secureTextEntry = YES;
-    [self.view addSubview:_passwordTF];
-    
-    UIImageView *passwordView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 13, 20 , 21)];
-    passwordView.image = [UIImage imageNamed:@"mm38x36.png"];
-    
-    UIView *downView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 46, 50)];
-    downView.backgroundColor = [UIColor clearColor];
-    [downView addSubview:passwordView];
-    
-    _passwordTF.leftView = downView;
+    _passwordTF.leftView = _downView;
     _passwordTF.leftViewMode = UITextFieldViewModeAlways;
     
-    UIView *lineViewDown = [[UIView alloc] initWithFrame:CGRectMake(0, _passwordTF.frame.origin.y +h_phoneTFHeight , h_size.width, 1)];
-    lineViewDown.backgroundColor = [UIColor whiteColor];
-    lineViewDown.alpha = 0.1;
-    [self.view addSubview:lineViewDown];
+    _passwordView.image = [UIImage imageNamed:@"mm38x36.png"];
     
-    UIButton *loginButton = [[UIButton alloc] initWithFrame:CGRectMake(0, _passwordTF.frame.origin.y +_passwordTF.frame.size.height +h_loginBtnHeight, h_size.width , h_loginBtnHeight)];
-    loginButton.backgroundColor = [self colorWithHexString:@"#01E4B7"];
-    [loginButton setTitle:@"登入" forState:UIControlStateNormal];
-    loginButton.titleLabel.font = [UIFont systemFontOfSize:21];
-    [loginButton setTitleColor:[self colorWithHexString:@"#fefefe"] forState:UIControlStateNormal];
-    [loginButton addTarget:self action:@selector(buttonIsClick) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:loginButton];
+    _downView.backgroundColor = [UIColor clearColor];
     
-    UILabel *numberLb = [[UILabel alloc] initWithFrame:CGRectMake(0,0, 200, h_numLabelHeight)];
-    numberLb.text = @"联系客服";
-    numberLb.font = [UIFont italicSystemFontOfSize:12];
-    numberLb.textColor = [self colorWithHexString:@"#fefefe"];
-    [numberLb sizeToFit];
-    numberLb.center = CGPointMake(h_center.x,  h_size.height -h_numLabelHeight);
-    [self.view addSubview:numberLb];
+    _lineViewDown.backgroundColor = [UIColor whiteColor];
+    _lineViewDown.alpha = 0.1;
+    
+    _loginButton.backgroundColor = [self colorWithHexString:@"#01E4B7"];
+    [_loginButton setTitle:@"登入" forState:UIControlStateNormal];
+    _loginButton.titleLabel.font = [UIFont systemFontOfSize:21];
+    [_loginButton setTitleColor:[self colorWithHexString:@"#fefefe"] forState:UIControlStateNormal];
+    [_loginButton addTarget:self action:@selector(buttonIsClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    [_callBtn setTitle:@"联系客服:66666666666" forState:UIControlStateNormal];
+    _callBtn.backgroundColor = [UIColor redColor];
+    _callBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+    [_callBtn setTitleColor:[UIColor colorWithHexString:@"#fefefe"] forState:UIControlStateNormal];
+    [_callBtn addTarget:self action:@selector(callNum) forControlEvents:UIControlEventTouchUpInside];
+
 }
 
 - (void)layoutSubiews
@@ -166,6 +214,9 @@
     return [UIColor colorWithRed:((float) r / 255.0f) green:((float) g / 255.0f) blue:((float) b / 255.0f) alpha:1.0f];
 }
 
+#pragma mark - notify
+
+
 - (void)addNotify {
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     [nc addObserver:self selector:@selector(keybardWillShow:) name:UIKeyboardWillShowNotification object:nil];
@@ -179,7 +230,7 @@
     }];
     CGRect frame = self.view.bounds;
     frame.origin.y = h_iconViewTOP +h_iconViewHeight *3 ;
-    _iv.frame = frame;
+    _BackgroundImage.frame = frame;
 }
 
 -(void)keyboardWillHidden
@@ -190,8 +241,10 @@
         self.view.bounds = bounds;
     }];
     CGRect frame = self.view.bounds;
-    _iv.frame = frame;
+    _BackgroundImage.frame = frame;
 }
+
+#pragma mark - buttonClick
 
 - (void)buttonIsClick {
     
@@ -215,6 +268,11 @@
         ToastAlertView *toastView = [[ToastAlertView alloc] initWithTitle:@"网络连接失败"];
         [toastView show];
     }];
+
+}
+
+- (void)callNum {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel://666666666666666"]];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {

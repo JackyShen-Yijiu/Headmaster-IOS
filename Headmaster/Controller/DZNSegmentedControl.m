@@ -225,7 +225,7 @@
     
     if (!color) {
         switch (state) {
-            case UIControlStateNormal:              return RGB_Color(0x04, 0x7a, 0x64);
+            case UIControlStateNormal:              return RGB_Color(4, 122, 100);
             case UIControlStateHighlighted:         return self.tintColor;
             case UIControlStateDisabled:            return [UIColor lightGrayColor];
             case UIControlStateSelected:            return self.tintColor;

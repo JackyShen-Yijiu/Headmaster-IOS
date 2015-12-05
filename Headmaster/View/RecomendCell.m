@@ -9,14 +9,15 @@
 #import "RecomendCell.h"
 #import "PortraitView.h"
 #import "CWStarRateView.h"
-
+#import "HMSwitch.h"
 
 @interface RecomendCell()
 
 @property(nonatomic,assign)KRecomendCellType  cellType;
 
 @property(nonatomic,strong)CWStarRateView * rateView;
-//@property(nonatomic,strong)UILabel * courseType;
+@property(nonatomic,strong)HMSwitch * switchButton;
+@property(nonatomic,strong)UILabel * courseType;
 @property(nonatomic,strong)UILabel * courseName;
 @property(nonatomic,strong)UILabel * recomendContent;
 @property(nonatomic,strong)UILabel * recomendTime;
@@ -82,10 +83,11 @@
     return attr;
 }
 
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier cellType:(KRecomendCellType )type
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        self.cellType = type;
         [self initUI];
     }
     return self;
@@ -120,16 +122,22 @@
     self.coaName = [self getOnePropertyLabel];
     [self.contentView addSubview:self.coaName];
     
-    
-    self.rateView = [[CWStarRateView alloc] initWithFrame:CGRectMake(0, 0, 146, 23.f) numberOfStars:5];
-    [self.rateView setUserInteractionEnabled:NO];
-    self.rateView.scorePercent = (2.5 / 5.f);
-    [self.contentView addSubview:self.rateView];
-
-    
-//    self.courseType = [self getOnePropertyLabel];
-//    self.courseType.font = [UIFont systemFontOfSize:12.f];
-//    [self.contentView addSubview:self.courseType];
+    if (self.cellType == KRecomendCellTypeDefoult ) {
+        self.rateView = [[CWStarRateView alloc] initWithFrame:CGRectMake(0, 0, 146, 23.f) numberOfStars:5];
+        [self.rateView setUserInteractionEnabled:NO];
+        [self.contentView addSubview:self.rateView];
+    }else{
+        self.switchButton = [[HMSwitch alloc] init];
+        self.switchButton.backgroundColor = [UIColor clearColor];
+        [self.switchButton setOn:NO];
+        [self.switchButton addTarget:self action:@selector(switchButtonDidValueChanged:) forControlEvents:UIControlEventValueChanged];
+        [self.contentView addSubview:self.switchButton];
+        
+    }
+ 
+    self.courseType = [self getOnePropertyLabel];
+    self.courseType.font = [UIFont systemFontOfSize:12.f];
+    [self.contentView addSubview:self.courseType];
     
     self.courseName = [self getOnePropertyLabel];
     self.courseName.font = [UIFont systemFontOfSize:12.f];
@@ -144,8 +152,6 @@
     self.recomendTime.textColor = RGB_Color(0x99, 0x99, 0x99);
     [self.contentView addSubview:self.recomendTime];
     
-//    self.lineView = [self getOnelineView];
-//    [self.contentView addSubview:self.lineView];
     [self updateConstraints];
 }
 
@@ -180,23 +186,30 @@
         make.right.equalTo(self.coaPorView.mas_left).offset(14.f);
     }];
     
-    
-    [self.rateView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(@(146));
-        make.height.equalTo(@(23.f));
-        make.centerX.equalTo(self);
-        make.top.equalTo(self.stuPorView);
-    }];
-    
+    if (self.cellType == KRecomendCellTypeDefoult ) {
+        [self.rateView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.equalTo(@(146));
+            make.height.equalTo(@(23.f));
+            make.centerX.equalTo(self);
+            make.top.equalTo(self.stuPorView);
+        }];
+    }else{
+        [self.switchButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self);
+            make.top.equalTo(self.stuPorView);
+            make.size.mas_equalTo(CGSizeMake(35, 22));
+        }];
+    }
+
 //    [self.courseType mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.centerY.equalTo(self.coaButton);
 //        make.right.equalTo(self.courseName.mas_left).offset(-30);
 //    }];
 //
-    [self.courseName mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(self.coaButton);
-        make.centerX.equalTo(self);
-    }];
+//    [self.courseName mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.right.equalTo(self.courseName.mas_left).offset(-30);
+//        make.centerY.equalTo(self.coaButton);
+//    }];
     
     [self.stuName mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.stuPorView);
@@ -229,14 +242,14 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-//    [self.courseName sizeToFit];
-//    [self.courseType sizeToFit];
-//    CGFloat spacing = 10.f;
-//    CGFloat offsetX =( self.width - (self.courseType.width + self.courseName.width + spacing))/2.f;
-//    self.courseType.left = offsetX;
-//    self.courseType.centerY = self.coaButton.centerY;
-//    self.courseName.left = self.courseType.right + spacing;
-//    self.courseName.centerY = self.coaButton.centerY;
+    [self.courseName sizeToFit];
+    [self.courseType sizeToFit];
+    CGFloat spacing = 10.f;
+    CGFloat offsetX =( self.width - (self.courseType.width + self.courseName.width + spacing))/2.f;
+    self.courseType.left = offsetX;
+    self.courseType.centerY = self.coaButton.centerY;
+    self.courseName.left = self.courseType.right + spacing;
+    self.courseName.centerY = self.coaButton.centerY;
 }
 
 #pragma mark - Data
@@ -254,15 +267,29 @@
     if(_model.coaPortrait.originalpic)
         [self.stuPorView.imageView sd_setImageWithURL:[NSURL URLWithString:_model.coaPortrait.originalpic] placeholderImage:defaultImage];
     
+    
     self.stuName.text = _model.studendName;
     self.coaName.text = _model.coaName;
     
-//    self.courseType.text = _model.courseType;
+    self.courseType.text = _model.courseType;
     self.courseName.text = _model.courseName;
     
     self.recomendContent.attributedText = [[self class] addLineSpacing:_model.recomendContent];
     
     self.recomendTime.text = _model.recomendDate;
+
+    [self.rateView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(@(146));
+        make.height.equalTo(@(23.f));
+        make.centerX.equalTo(self);
+        make.top.equalTo(self.stuPorView);
+    }];
+
+    if ([model isKindOfClass:[HMRecomendModel class]]) {
+        self.rateView.scorePercent = (_model.rating / 5.f);
+    }else{
+        [self.switchButton setOn:[(HMComplainModel *)self.model isDealDone]];
+    }
 }
 
 #pragma mark - HightStatu
@@ -307,4 +334,17 @@
         }
     }
 }
+
+- (void)switchButtonDidValueChanged:(UISwitch *)switchbutton
+{
+    if ([self.model isKindOfClass:[HMComplainModel class]]) {
+        HMComplainModel * model = (HMComplainModel *)self.model;
+        if (model.isDealDone != switchbutton.isOn) {
+            if ([_delegate respondsToSelector:@selector(complainCell:DidSwithcButttonValueChanged:)]) {
+                [_delegate complainCell:self DidSwithcButttonValueChanged:switchbutton];
+            }
+        }
+    }
+}
+
 @end

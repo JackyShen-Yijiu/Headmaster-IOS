@@ -10,6 +10,7 @@
 #import "TeacherModel.h"
 #import "HMRecomendModel.h"
 #import "PublishDataModel.h"
+#import "HMComplainModel.h"
 
 @implementation BaseModelMethod
 
@@ -43,6 +44,23 @@
     }
     return [oArray copy];
 }
+
+
++ (NSArray *)getComplainListArrayFormDicInfo:(NSArray *)array
+{
+    if (![array isKindOfClass:[NSArray class]] || !array.count) {
+        return nil;
+    }
+    NSMutableArray * oArray = [NSMutableArray arrayWithCapacity:0];
+    for (NSDictionary * info in array) {
+        HMComplainModel * courseModel = [HMComplainModel converJsonDicToModel:info];
+        if (courseModel) {
+            [oArray addObject:courseModel];
+        }
+    }
+    return [oArray copy];
+}
+
 
 + (NSArray *)getPublishListArrayFormDicInfo:(NSArray *)array {
     if (![array isKindOfClass:[NSArray class]] || !array.count) {

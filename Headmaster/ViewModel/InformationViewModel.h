@@ -10,6 +10,12 @@
 
 @interface InformationViewModel : YBBaseViewModel
 
-@property (nonatomic, strong) NSArray *informationArray;
+@property (nonatomic, strong) NSMutableArray *informationArray;
+
+@property (nonatomic, copy) void (^tableViewNeedReLoad)(void);
+
+@property (nonatomic, copy) void (^showToast)(void);
+
+- (void)networkRequestNeedUpRefreshWithSeqindex:(NSInteger)seqindex;
 
 @end
