@@ -14,8 +14,9 @@
 #import "DataDatilViewController.h"
 #import "HomeDailyViewModel.h"
 #import "HomeWeeklyViewModel.h"
+#import <BaiduMapAPI_Location/BMKLocationComponent.h>
 
-@interface HomeController ()
+@interface HomeController () <BMKLocationServiceDelegate>
 
 @property (nonatomic, strong) HomeTopView *topView;
 
@@ -28,6 +29,8 @@
 @property (nonatomic, strong) HomeWeeklyViewModel *weeklyViewModel;
 
 @property (nonatomic, strong) HomeDailyViewModel *dailyViewModel;
+
+@property (nonatomic, strong) BMKLocationService *locService;
 
 @end
 
@@ -86,6 +89,9 @@
         
         
     }];
+    
+    // 加载地图用于定位,展示天气信息
+    [self addMap];
 }
 
 #pragma mark - action
@@ -155,14 +161,28 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+- (void)addMap
+{
+    //初始化BMKLocationService
+    _locService = [[BMKLocationService alloc]init];
+    _locService.delegate = self;
+    //启动LocationService
+    [_locService startUserLocationService];
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
 }
-*/
+
+#pragma maek --- 定位的代理方法
+//实现相关delegate 处理位置信息更新
+//处理方向变更信息
+- (void)didUpdateUserHeading:(BMKUserLocation *)userLocation
+{
+    //NSLog(@"heading is %@",userLocation.heading);
+}
+//处理位置坐标更新
+- (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
+{
+    NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
+    
+}
 
 @end

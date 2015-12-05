@@ -54,6 +54,26 @@
                       commentLevle:(KCommnetLevel)level
                            success:(NetworkSuccessBlock)success
                            failure:(NetworkFailureBlock)failure;
+/**
+ *  投诉
+ *  ====================================================================================================================================
+ */
+
++ (void)getComplainListWithUserid:(NSString *)userId
+                         SchoolId:(NSString *)schoolId
+                        pageIndex:(NSInteger)index
+                          success:(NetworkSuccessBlock)success
+                          failure:(NetworkFailureBlock)failure;
+
+
+/**
+ *  标示处理完成投诉
+ *
+ */
++ (void)markDealComplainWithComplainId:(NSString *)complainId
+                                 useID:(NSString *)userId
+                               Success:(NetworkSuccessBlock)success
+                               failure:(NetworkFailureBlock)failure;
 
 /**
  *  获取发布
@@ -80,5 +100,29 @@
                               count:(NSInteger) count
                             success:(NetworkSuccessBlock)success
                             failure:(NetworkFailureBlock)failure;
+/**
+ *    更多数据
+ *     @param   userid
+ *     @param   searchtype
+ *     @param  schoolid
+ *     @param  authorization
+ *
+ */
++ (void)moreDataDatilListWithuserid:(NSString *)userid
+                         searchtype:(NSInteger ) searchtype
+                           schoolid:(NSString *)schoolid
+                            success:(NetworkSuccessBlock)success
+                            failure:(NetworkFailureBlock)failure;
+
+
+/**
+ *   天气情况
+ *     @param   cityname
+  *
+ */
++ (void)weatherDataListWithcityname:(NSString *)cityname
+                            success:(NetworkSuccessBlock)success
+                            failure:(NetworkFailureBlock)failure;
+
 
 @end

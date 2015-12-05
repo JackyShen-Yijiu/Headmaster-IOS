@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		0605B7B81C1288CE00A575B4 /* UIBarButtonItem+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0605B7B71C1288CE00A575B4 /* UIBarButtonItem+Helper.m */; };
+		0605B7BB1C12CA3100A575B4 /* DataDatilViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0605B7BA1C12CA3100A575B4 /* DataDatilViewModel.m */; };
+		0605B7BE1C12D98A00A575B4 /* WeatherViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0605B7BD1C12D98A00A575B4 /* WeatherViewModel.m */; };
+		0605B7C01C12E0FF00A575B4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0605B7BF1C12E0FF00A575B4 /* CoreLocation.framework */; };
+		0605B7C21C12E11A00A575B4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0605B7C11C12E11A00A575B4 /* QuartzCore.framework */; };
+		0605B7C41C12E12B00A575B4 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0605B7C31C12E12B00A575B4 /* OpenGLES.framework */; };
+		0605B7C61C12E14200A575B4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0605B7C51C12E14200A575B4 /* SystemConfiguration.framework */; };
+		0605B7C81C12E15000A575B4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0605B7C71C12E15000A575B4 /* CoreGraphics.framework */; };
+		0605B7CA1C12E15D00A575B4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0605B7C91C12E15D00A575B4 /* Security.framework */; };
 		060BA87F1C10116C009AD55E /* InviteStudentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 060BA8761C10116C009AD55E /* InviteStudentView.m */; };
 		060BA8801C10116C009AD55E /* AppointmentCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = 060BA8781C10116C009AD55E /* AppointmentCourse.m */; };
 		060BA8811C10116C009AD55E /* CoachOfCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = 060BA87A1C10116C009AD55E /* CoachOfCourse.m */; };
@@ -309,6 +317,8 @@
 		B895A1A31C10448100FEDD78 /* RecomendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B895A1A21C10448100FEDD78 /* RecomendCell.m */; };
 		B8C7031B1C12AE23006035B1 /* SearchBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C7031A1C12AE23006035B1 /* SearchBarView.m */; };
 		B8C7031E1C12DD40006035B1 /* RecommendSegView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C7031D1C12DD40006035B1 /* RecommendSegView.m */; };
+		B8C703211C12F738006035B1 /* HMComplainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C703201C12F738006035B1 /* HMComplainModel.m */; };
+		B8C703271C13093C006035B1 /* HMSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C703261C13093C006035B1 /* HMSwitch.m */; };
 		D92296BC1C0FD29C00D0FFDF /* NetworkEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = D92296B81C0FD29C00D0FFDF /* NetworkEntity.m */; };
 		D92296BD1C0FD29C00D0FFDF /* NetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D92296BB1C0FD29C00D0FFDF /* NetworkTool.m */; };
 		D92296C81C0FD2FF00D0FFDF /* HomeEvaluateView.m in Sources */ = {isa = PBXBuildFile; fileRef = D92296BF1C0FD2FF00D0FFDF /* HomeEvaluateView.m */; };
@@ -371,6 +381,16 @@
 /* Begin PBXFileReference section */
 		0605B7B61C1288CE00A575B4 /* UIBarButtonItem+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Helper.h"; sourceTree = "<group>"; };
 		0605B7B71C1288CE00A575B4 /* UIBarButtonItem+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Helper.m"; sourceTree = "<group>"; };
+		0605B7B91C12CA3100A575B4 /* DataDatilViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataDatilViewModel.h; sourceTree = "<group>"; };
+		0605B7BA1C12CA3100A575B4 /* DataDatilViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataDatilViewModel.m; sourceTree = "<group>"; };
+		0605B7BC1C12D98A00A575B4 /* WeatherViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherViewModel.h; sourceTree = "<group>"; };
+		0605B7BD1C12D98A00A575B4 /* WeatherViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherViewModel.m; sourceTree = "<group>"; };
+		0605B7BF1C12E0FF00A575B4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		0605B7C11C12E11A00A575B4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		0605B7C31C12E12B00A575B4 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		0605B7C51C12E14200A575B4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		0605B7C71C12E15000A575B4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		0605B7C91C12E15D00A575B4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		060BA8751C10116C009AD55E /* InviteStudentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteStudentView.h; sourceTree = "<group>"; };
 		060BA8761C10116C009AD55E /* InviteStudentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteStudentView.m; sourceTree = "<group>"; };
 		060BA8771C10116C009AD55E /* AppointmentCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppointmentCourse.h; sourceTree = "<group>"; };
@@ -868,6 +888,10 @@
 		B8C7031A1C12AE23006035B1 /* SearchBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBarView.m; sourceTree = "<group>"; };
 		B8C7031C1C12DD40006035B1 /* RecommendSegView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendSegView.h; sourceTree = "<group>"; };
 		B8C7031D1C12DD40006035B1 /* RecommendSegView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendSegView.m; sourceTree = "<group>"; };
+		B8C7031F1C12F738006035B1 /* HMComplainModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMComplainModel.h; sourceTree = "<group>"; };
+		B8C703201C12F738006035B1 /* HMComplainModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMComplainModel.m; sourceTree = "<group>"; };
+		B8C703251C13093C006035B1 /* HMSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSwitch.h; sourceTree = "<group>"; };
+		B8C703261C13093C006035B1 /* HMSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSwitch.m; sourceTree = "<group>"; };
 		D92296B71C0FD29C00D0FFDF /* NetworkEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkEntity.h; sourceTree = "<group>"; };
 		D92296B81C0FD29C00D0FFDF /* NetworkEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkEntity.m; sourceTree = "<group>"; };
 		D92296B91C0FD29C00D0FFDF /* NetworkInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkInterface.h; sourceTree = "<group>"; };
@@ -994,6 +1018,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0605B7CA1C12E15D00A575B4 /* Security.framework in Frameworks */,
+				0605B7C81C12E15000A575B4 /* CoreGraphics.framework in Frameworks */,
+				0605B7C61C12E14200A575B4 /* SystemConfiguration.framework in Frameworks */,
+				0605B7C41C12E12B00A575B4 /* OpenGLES.framework in Frameworks */,
+				0605B7C21C12E11A00A575B4 /* QuartzCore.framework in Frameworks */,
+				0605B7C01C12E0FF00A575B4 /* CoreLocation.framework in Frameworks */,
 				B8771E321C098E6B0051DE9D /* libPushSDK-1.8.8.a in Frameworks */,
 				92A9E5D7EE3DDE4857910BA1 /* libPods.a in Frameworks */,
 				B8771D071C098DE40051DE9D /* libopencore-amrwb.a in Frameworks */,
@@ -1041,6 +1071,12 @@
 		145B830FCF45682C02C93D3C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0605B7C91C12E15D00A575B4 /* Security.framework */,
+				0605B7C71C12E15000A575B4 /* CoreGraphics.framework */,
+				0605B7C51C12E14200A575B4 /* SystemConfiguration.framework */,
+				0605B7C31C12E12B00A575B4 /* OpenGLES.framework */,
+				0605B7C11C12E11A00A575B4 /* QuartzCore.framework */,
+				0605B7BF1C12E0FF00A575B4 /* CoreLocation.framework */,
 				95191FB6D2020B2944026A70 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -2220,6 +2256,8 @@
 		B895A1971C1041BD00FEDD78 /* Recomond */ = {
 			isa = PBXGroup;
 			children = (
+				B8C703251C13093C006035B1 /* HMSwitch.h */,
+				B8C703261C13093C006035B1 /* HMSwitch.m */,
 				B895A1981C1041D100FEDD78 /* RecommendViewController.h */,
 				B895A1991C1041D100FEDD78 /* RecommendViewController.m */,
 				B895A19E1C10444200FEDD78 /* RecomendPieChartView.h */,
@@ -2450,6 +2488,8 @@
 				D9CEC9011C0E8CF7008DEE69 /* BaseModelMethod.m */,
 				D9CEC9021C0E8CF7008DEE69 /* HMPortraitInfoModel.h */,
 				D9CEC9031C0E8CF7008DEE69 /* HMPortraitInfoModel.m */,
+				B8C7031F1C12F738006035B1 /* HMComplainModel.h */,
+				B8C703201C12F738006035B1 /* HMComplainModel.m */,
 				D9CEC9041C0E8CF7008DEE69 /* HMRecomendModel.h */,
 				D9CEC9051C0E8CF7008DEE69 /* HMRecomendModel.m */,
 				D9CEC9061C0E8CF7008DEE69 /* TeacherModel.h */,
@@ -2509,6 +2549,10 @@
 				D95CE3C11C12BF5100EF6F75 /* HomeWeeklyViewModel.m */,
 				D95CE3C31C12BF6C00EF6F75 /* HomeDailyViewModel.h */,
 				D95CE3C41C12BF6C00EF6F75 /* HomeDailyViewModel.m */,
+				0605B7B91C12CA3100A575B4 /* DataDatilViewModel.h */,
+				0605B7BA1C12CA3100A575B4 /* DataDatilViewModel.m */,
+				0605B7BC1C12D98A00A575B4 /* WeatherViewModel.h */,
+				0605B7BD1C12D98A00A575B4 /* WeatherViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -2795,6 +2839,7 @@
 				B8771D081C098DE40051DE9D /* EMGifImage.m in Sources */,
 				B8771E351C098E6B0051DE9D /* YiRefreshHeader.m in Sources */,
 				B8771D1B1C098DE40051DE9D /* MWZoomingScrollView.m in Sources */,
+				B8C703271C13093C006035B1 /* HMSwitch.m in Sources */,
 				B8771DEC1C098DE40051DE9D /* EaseImageView.m in Sources */,
 				B8771D0B1C098DE40051DE9D /* MJRefreshFooter.m in Sources */,
 				B8771D021C098DE40051DE9D /* EMCDDeviceManagerBase.m in Sources */,
@@ -2806,6 +2851,7 @@
 				B8771D001C098DE40051DE9D /* EMCDDeviceManager+ProximitySensor.m in Sources */,
 				B8771DCB1C098DE40051DE9D /* EaseSDKHelper.m in Sources */,
 				D92296BC1C0FD29C00D0FFDF /* NetworkEntity.m in Sources */,
+				0605B7BE1C12D98A00A575B4 /* WeatherViewModel.m in Sources */,
 				B8771D321C098DE40051DE9D /* PSTCollectionViewFlowLayout.m in Sources */,
 				060BA8951C101197009AD55E /* TopButtonView.m in Sources */,
 				060BA8A31C10122C009AD55E /* CoachOfCoureDetailController.m in Sources */,
@@ -2858,6 +2904,7 @@
 				B8771D311C098DE40051DE9D /* PSTCollectionViewData.m in Sources */,
 				B8771DF01C098DE40051DE9D /* EaseChatBarMoreView.m in Sources */,
 				060BA8901C101197009AD55E /* TodayDataView.m in Sources */,
+				0605B7BB1C12CA3100A575B4 /* DataDatilViewModel.m in Sources */,
 				D95CE3BF1C12BDD700EF6F75 /* HomeDataModelWeeklyRootClass.m in Sources */,
 				D9CEC97C1C0ED643008DEE69 /* DVVDoubleRowToolBarView.m in Sources */,
 				060BA8821C10116C009AD55E /* JudgeView.m in Sources */,
@@ -2960,6 +3007,7 @@
 				55BA0F551C0EF6D300F83CD8 /* PublishController.m in Sources */,
 				B8771D3D1C098DE40051DE9D /* ChatViewController.m in Sources */,
 				D92296EB1C0FEE9500D0FFDF /* InformationDataModelRootClass.m in Sources */,
+				B8C703211C12F738006035B1 /* HMComplainModel.m in Sources */,
 				B8771DE41C098DE40051DE9D /* EaseBubbleView+Image.m in Sources */,
 				B8771E371C098E6B0051DE9D /* NSDictionary+StrDic.m in Sources */,
 				D92297471C10439200D0FFDF /* UUChartLabel.m in Sources */,

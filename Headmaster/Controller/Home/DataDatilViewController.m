@@ -18,6 +18,8 @@
 #import "YesterdayDataView.h"
 #import "WeekDataView.h"
 
+#import "DataDatilViewModel.h"
+
 
 # define ksystemH [UIScreen mainScreen].bounds.size.height
 # define ksystemW [UIScreen mainScreen].bounds.size.width
@@ -31,6 +33,8 @@
 @property (nonatomic,strong) MonthViewData *monthDataView;
 @property (nonatomic,strong) YearDataView *yearDataView;
 @property (nonatomic,strong) TopButtonView *topButtonView ;
+
+@property (nonatomic,strong) DataDatilViewModel *dataDatilViewModel;
 @end
 
 @implementation DataDatilViewController
@@ -46,14 +50,15 @@
        self.title = strArray[_tag];
     
     
+    
+    _dataDatilViewModel = [[DataDatilViewModel alloc] init];
+    [_dataDatilViewModel successRefreshBlock:^{
+        NSLog(@"我被回调了");
+    }];
+    [_dataDatilViewModel networkRequestRefresh];
+    
+    
     _todayDataView = self.todayDataView;
-//    UIImage*img =[UIImage imageNamed:@"bgg.png"];
-//    [self.view setBackgroundColor:[UIColor colorWithPatternImage:img]];
-    // 隐藏导航栏下面的线
-//    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
-//    self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
-    
-    
     _topButtonView = [[TopButtonView alloc] init];
     _topButtonView.frame = CGRectMake(25, 66 , self.view.frame.size.width -50, 36);
     _topButtonView.backgroundColor = [UIColor clearColor];
@@ -122,9 +127,59 @@
         CoachOfCoureDetailController *detailVC = [[CoachOfCoureDetailController alloc] init];
         [dataVC.navigationController pushViewController:detailVC animated:YES];
     };
-    
+    // 点击教练授课详情
+    self.yesterdayDataView.coacOfCourse.didClick = ^(UIButton *btn)
+    {
+        CoachOfCoureDetailController *detailVC = [[CoachOfCoureDetailController alloc] init];
+        [dataVC.navigationController pushViewController:detailVC animated:YES];
+    };
+    // 点击教练授课详情
+    self.weekDataView.coacOfCourse.didClick = ^(UIButton *btn)
+    {
+        CoachOfCoureDetailController *detailVC = [[CoachOfCoureDetailController alloc] init];
+        [dataVC.navigationController pushViewController:detailVC animated:YES];
+    };
+    // 点击教练授课详情
+    self.monthDataView.coacOfCourse.didClick = ^(UIButton *btn)
+    {
+        CoachOfCoureDetailController *detailVC = [[CoachOfCoureDetailController alloc] init];
+        [dataVC.navigationController pushViewController:detailVC animated:YES];
+    };
+    // 点击教练授课详情
+    self.yearDataView.coacOfCourse.didClick = ^(UIButton *btn)
+    {
+        CoachOfCoureDetailController *detailVC = [[CoachOfCoureDetailController alloc] init];
+        [dataVC.navigationController pushViewController:detailVC animated:YES];
+    };
+
     
     // 点击评价详情
+    self.todayDataView.judgeView.didClick = ^(UIButton *btn)
+    {
+        CoachOfCoureDetailController *detailVC = [[CoachOfCoureDetailController alloc] init];
+        [dataVC.navigationController pushViewController:detailVC animated:YES];
+    };
+    self.yesterdayDataView.judgeView.didClick = ^(UIButton *btn)
+    {
+        CoachOfCoureDetailController *detailVC = [[CoachOfCoureDetailController alloc] init];
+        [dataVC.navigationController pushViewController:detailVC animated:YES];
+    };
+    self.weekDataView.judgeView.didClick = ^(UIButton *btn)
+    {
+        CoachOfCoureDetailController *detailVC = [[CoachOfCoureDetailController alloc] init];
+        [dataVC.navigationController pushViewController:detailVC animated:YES];
+    };
+    self.monthDataView.judgeView.didClick = ^(UIButton *btn)
+    {
+        CoachOfCoureDetailController *detailVC = [[CoachOfCoureDetailController alloc] init];
+        [dataVC.navigationController pushViewController:detailVC animated:YES];
+    };
+    self.yearDataView.judgeView.didClick = ^(UIButton *btn)
+    {
+        CoachOfCoureDetailController *detailVC = [[CoachOfCoureDetailController alloc] init];
+        [dataVC.navigationController pushViewController:detailVC animated:YES];
+    };
+
     
 }
 

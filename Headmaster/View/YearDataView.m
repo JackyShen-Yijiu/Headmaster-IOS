@@ -34,7 +34,7 @@
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:strCell];
             cell.backgroundColor = [UIColor clearColor];
-
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         
         [cell addSubview:self.inviteStudentView];
@@ -45,7 +45,7 @@
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:strCell];
             cell.backgroundColor = [UIColor clearColor];
-
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         
         [cell addSubview:self.appintmentCoure];
@@ -57,7 +57,7 @@
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:strCell];
             cell.backgroundColor = [UIColor clearColor];
-
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         
         [cell addSubview:self.coacOfCourse];
@@ -70,7 +70,7 @@
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:strCell];
             cell.backgroundColor = [UIColor clearColor];
-
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         
         [cell addSubview:self.judgeView];
