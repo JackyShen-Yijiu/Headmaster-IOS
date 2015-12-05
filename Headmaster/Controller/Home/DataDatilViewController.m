@@ -49,10 +49,10 @@
     _todayDataView = self.todayDataView;
 //    UIImage*img =[UIImage imageNamed:@"bgg.png"];
 //    [self.view setBackgroundColor:[UIColor colorWithPatternImage:img]];
-    // 隐藏导航栏下面的线
+////     隐藏导航栏下面的线
 //    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
 //    self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
-    
+//    
     
     _topButtonView = [[TopButtonView alloc] init];
     _topButtonView.frame = CGRectMake(25, 66 , self.view.frame.size.width -50, 36);

@@ -29,4 +29,10 @@
 
 #define PUBLISHMESSAGE @"headmaster/userinfo/publishbulletin"
 
+/* 获得更多数据 */
+#define MoreData_List @"statistics/getmoredata"
+
+/*  获得天气数据 */
+#define WEATHERDATA @"info/getweather"
+
 #endif /* NetworkMacro_h */

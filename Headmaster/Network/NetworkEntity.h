@@ -59,5 +59,29 @@
                               count:(NSInteger) count
                             success:(NetworkSuccessBlock)success
                             failure:(NetworkFailureBlock)failure;
+/**
+ *    更多数据
+ *     @param   userid
+ *     @param   searchtype
+ *     @param  schoolid
+ *     @param  authorization
+ *
+ */
++ (void)moreDataDatilListWithuserid:(NSString *)userid
+                         searchtype:(NSInteger ) searchtype
+                           schoolid:(NSString *)schoolid
+                            success:(NetworkSuccessBlock)success
+                            failure:(NetworkFailureBlock)failure;
+
+
+/**
+ *   天气情况
+ *     @param   cityname
+  *
+ */
++ (void)weatherDataListWithcityname:(NSString *)cityname
+                            success:(NetworkSuccessBlock)success
+                            failure:(NetworkFailureBlock)failure;
+
 
 @end

@@ -123,7 +123,7 @@
                                        initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
                                        
                                        target:nil action:nil];
-    negativeSpacer.width = -12;
+    negativeSpacer.width = -0;
     return negativeSpacer;
 }
 

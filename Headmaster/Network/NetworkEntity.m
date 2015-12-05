@@ -87,5 +87,38 @@
                             @"count": [NSString stringWithFormat:@"%li", count] };
     [NetworkTool GET:INFORMATION_LIST params:dict success:success failure:failure];
 }
+/**
+ *
+ *
+ *  天气数据
+ *
+ *
+ */
+
++ (void)weatherDataListWithcityname:(NSString *)cityname
+                            success:(NetworkSuccessBlock)success
+                            failure:(NetworkFailureBlock)failure
+{
+    NSDictionary *dict = @{@"cityname":cityname};
+    [NetworkTool GET:WEATHERDATA params:dict success:success failure:failure];
+    
+}
+/**
+ *  更多数据
+ *  ====================================================================================================================================
+ */
++ (void)moreDataDatilListWithuserid:(NSString *)userid
+                         searchtype:(NSInteger ) searchtype
+                           schoolid:(NSString *)schoolid
+                            success:(NetworkSuccessBlock)success
+                            failure:(NetworkFailureBlock)failure
+{
+    NSDictionary *dict = @{@"userid":userid,
+                           @"seacrchtype":[NSString stringWithFormat:@"%li",searchtype],
+                           @"schoolid":schoolid
+                           };
+    [NetworkTool GET:MoreData_List params:dict success:success failure:failure];
+}
+
 
 @end
