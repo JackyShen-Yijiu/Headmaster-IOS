@@ -16,4 +16,7 @@
 #pragma mark 可以自由拉伸的图片
 + (UIImage *)resizedImage:(NSString *)imgName xPos:(CGFloat)xPos yPos:(CGFloat)yPos;
 
+#pragma mark 改变图片的大小
++ (UIImage *)resizeImage:(UIImage *)image newSize:(CGSize)newSize;
+
 @end

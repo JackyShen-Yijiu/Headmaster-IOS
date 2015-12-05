@@ -31,11 +31,11 @@
     [bar setBarTintColor:[UIColor colorWithHexString:@"303030"]];
     [bar setTintColor:[UIColor colorWithHexString:@"fefefe"]];
     // 标题字体颜色
-    [bar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont italicSystemFontOfSize:16]}];
+    [bar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont systemFontOfSize:16]}];
     
     UIBarButtonItem *item = [UIBarButtonItem appearance];
     
-    [item setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont boldSystemFontOfSize:16]} forState:UIControlStateNormal];
+    [item setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont systemFontOfSize:16]} forState:UIControlStateNormal];
 }
 
 - (void)viewWillAppear:(BOOL)animated

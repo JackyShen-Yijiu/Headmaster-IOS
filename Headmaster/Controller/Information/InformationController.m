@@ -22,8 +22,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-//    [self addBackgroundImage];
     [self addBackgroundImage];
     
     self.tableView.rowHeight = 80;
