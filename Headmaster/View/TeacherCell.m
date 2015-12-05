@@ -120,6 +120,16 @@
     }
 }
 
+
+#pragma mark - HightStatu
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated
+{
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+{
+}
+
 #pragma mark - Common
 - (UIView *)getOnelineView
 {

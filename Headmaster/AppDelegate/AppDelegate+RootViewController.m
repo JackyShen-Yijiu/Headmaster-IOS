@@ -34,6 +34,8 @@
         [tabBarVC addChildViewController:viewController];
     }
     
+    
+    return tabBarVC;
     //创建sideMenu
     SideMenuController * sideVC = [[SideMenuController alloc] init];
     
