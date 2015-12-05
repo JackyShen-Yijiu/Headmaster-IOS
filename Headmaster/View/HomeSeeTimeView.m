@@ -105,7 +105,7 @@
         [self setButtonState:_leftButton];
         [_leftButton setTitle:@"昨天" forState:UIControlStateNormal];
         
-        _leftButton.tag = 0;
+        _leftButton.tag = 1;
         [_leftButton addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _leftButton;
@@ -119,7 +119,7 @@
         [_middleButton setTitle:@"今天" forState:UIControlStateNormal];
         _middleButton.selected = YES;
         [self buttonSelectedState:_middleButton];
-        _middleButton.tag = 1;
+        _middleButton.tag = 0;
         [_middleButton addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _middleButton;
@@ -130,7 +130,7 @@
         _rightButton = [UIButton new];
         _rightButton.frame = CGRectMake(self.width - ButtonWidth, 0, ButtonWidth, ButtonWidth);
         [self setButtonState:_rightButton];
-        [_rightButton setTitle:@"明天" forState:UIControlStateNormal];
+        [_rightButton setTitle:@"本周" forState:UIControlStateNormal];
         
         _rightButton.tag = 2;
         [_rightButton addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];

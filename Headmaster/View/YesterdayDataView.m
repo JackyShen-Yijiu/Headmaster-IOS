@@ -37,9 +37,7 @@
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:strCell];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            UIImage *img =[UIImage imageNamed:@"bgg.png"];
-            [cell setBackgroundColor:[UIColor colorWithPatternImage:img]];
-
+            cell.backgroundColor = [UIColor clearColor];
         }
         
         [cell addSubview:self.inviteStudentView];
@@ -50,8 +48,7 @@
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:strCell];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            UIImage *img =[UIImage imageNamed:@"bgg.png"];
-            [cell setBackgroundColor:[UIColor colorWithPatternImage:img]];
+            cell.backgroundColor = [UIColor clearColor];
 
         }
         
@@ -64,8 +61,7 @@
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:strCell];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            UIImage *img =[UIImage imageNamed:@"bgg.png"];
-            [cell setBackgroundColor:[UIColor colorWithPatternImage:img]];
+            cell.backgroundColor = [UIColor clearColor];
 
         }
         
@@ -79,8 +75,7 @@
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:strCell];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            UIImage *img =[UIImage imageNamed:@"bgg.png"];
-            [cell setBackgroundColor:[UIColor colorWithPatternImage:img]];
+            cell.backgroundColor = [UIColor clearColor];
 
         }
         

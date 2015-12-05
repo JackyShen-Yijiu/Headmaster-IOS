@@ -30,7 +30,7 @@
 @property (nonatomic,strong) WeekDataView *weekDataView;
 @property (nonatomic,strong) MonthViewData *monthDataView;
 @property (nonatomic,strong) YearDataView *yearDataView;
-@property  (nonatomic,strong) TopButtonView *topButtonView ;
+@property (nonatomic,strong) TopButtonView *topButtonView ;
 @end
 
 @implementation DataDatilViewController
@@ -42,40 +42,47 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSArray *strArray = [NSArray arrayWithObjects:@"今天数据",@"昨天数据",@"本周数据",@"本月数据",@"本年数据", nil];
+       self.title = strArray[_tag];
+    
+    
     _todayDataView = self.todayDataView;
-    UIImage*img =[UIImage imageNamed:@"bgg.png"];
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:img]];
+//    UIImage*img =[UIImage imageNamed:@"bgg.png"];
+//    [self.view setBackgroundColor:[UIColor colorWithPatternImage:img]];
     // 隐藏导航栏下面的线
 //    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
 //    self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
     
-    self.title = @"改变";
+    
     _topButtonView = [[TopButtonView alloc] init];
     _topButtonView.frame = CGRectMake(25, 66 , self.view.frame.size.width -50, 36);
-    // 设置topButtonView的圆角
-//    topButtonView.layer.masksToBounds = YES;
-//    topButtonView.layer.cornerRadius = 6.0;
-//    topButtonView.layer.borderWidth = 1.0;
-//    topButtonView.layer.borderColor = [[UIColor grayColor] CGColor];
-//    topButtonView.backgroundColor = [UIColor whiteColor];
+    _topButtonView.backgroundColor = [UIColor clearColor];
+    [_topButtonView selectOneButton:_tag + 101];
     
-    // 添加button上面一条线
+     // 添加button上面一条线
     UIView *lineTopView = [[UIView alloc] initWithFrame:CGRectMake(7.5, 64, self.view.frame.size.width - 15, 2)];
     lineTopView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
-//    lineTopView.backgroundColor = [UIColor grayColor];
+
+    
     // 添加button下面一条线
     UIView *lineDownView = [[UIView alloc] initWithFrame:CGRectMake(7.5, 102, self.view.frame.size.width - 15, 2)];
     lineDownView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
-//    lineDownView.backgroundColor = [UIColor grayColor];
+    
+    // 添加背景图片
+    UIImage *image = [UIImage imageNamed:@"controllerBackground"];
+    self.view.layer.contents = (id)image.CGImage;
+
+    
     
     [self.view addSubview:lineTopView];
     [self.view addSubview:lineDownView];
     [self.view addSubview:_topButtonView];
+    
     // 点击button的回调
     __block DataDatilViewController *dataVC = self;
     _topButtonView.didClick = ^(UIButton *btn)
     {
-        NSArray *strArray = [NSArray arrayWithObjects:@"今天数据",@"昨天数据",@"本周数据",@"本月数据",@"本年数据", nil];
+        
          // 设置title的显示内容
         dataVC.title = strArray[btn.tag - 101];
         CGFloat contentOffsetX;
@@ -97,9 +104,10 @@
         contentOffsetX = width * 4;
         
         }
+        
         [UIView animateWithDuration:0.5 animations:^{
             
-            _scrollView.contentOffset = CGPointMake(contentOffsetX, 0);
+            dataVC.scrollView.contentOffset = CGPointMake(contentOffsetX, 0);
         }];
 
         
@@ -112,7 +120,7 @@
     self.todayDataView.coacOfCourse.didClick = ^(UIButton *btn)
     {
         CoachOfCoureDetailController *detailVC = [[CoachOfCoureDetailController alloc] init];
-        [self.navigationController pushViewController:detailVC animated:YES];
+        [dataVC.navigationController pushViewController:detailVC animated:YES];
     };
     
     
@@ -125,7 +133,8 @@
     _scrollView = [[UIScrollView alloc] init];
     _scrollView.delegate = self;
     _scrollView.frame = CGRectMake(0, 109, ksystemW, ksystemH - 109);
-    _scrollView.backgroundColor = [UIColor orangeColor];
+//    _scrollView.backgroundColor = [UIColor orangeColor];
+    _scrollView.backgroundColor = [UIColor clearColor];
     _scrollView.contentSize = CGSizeMake(ksystemW * 5, 0);
     _scrollView.pagingEnabled = YES;
     [self.view addSubview:_scrollView];
@@ -190,7 +199,7 @@
         CGSize selfSize = self.view.frame.size;
         _todayDataView = [TodayDataView new];
         _todayDataView.frame = CGRectMake(0,0, selfSize.width, selfSize.height - 109);
-//        _todayDataView.backgroundColor = [UIColor redColor];
+        _todayDataView.backgroundColor = [UIColor clearColor];
         [_scrollView addSubview:_todayDataView];
     }
     return _todayDataView;
@@ -203,7 +212,7 @@
         CGSize selfSize = self.view.frame.size;
         _yesterdayDataView = [YesterdayDataView new];
         _yesterdayDataView.frame = CGRectMake(selfSize.width, 0, selfSize.width, selfSize.height - 109);
-//        _yesterdayDataView.backgroundColor = [UIColor cyanColor];
+        _yesterdayDataView.backgroundColor = [UIColor clearColor];
         [_scrollView addSubview:_yesterdayDataView];
     }
     return _yesterdayDataView;
@@ -216,7 +225,7 @@
         CGSize selfSize = self.view.frame.size;
         _weekDataView = [WeekDataView new];
         _weekDataView.frame = CGRectMake(selfSize.width *2, 0, selfSize.width, selfSize.height - 109);
-//        _weekDataView.backgroundColor = [UIColor grayColor];
+        _weekDataView.backgroundColor = [UIColor clearColor];
         [_scrollView addSubview:_weekDataView];
     }
     return _weekDataView;
@@ -229,7 +238,8 @@
         CGSize selfSize = self.view.frame.size;
         _monthDataView = [MonthViewData new];
         _monthDataView.frame = CGRectMake(selfSize.width * 3, 0, selfSize.width, selfSize.height - 109);
-//        _monthDataView.backgroundColor = [UIColor greenColor];
+        _monthDataView.backgroundColor = [UIColor clearColor];
+
         [_scrollView addSubview:_monthDataView];
     }
     return _monthDataView;
@@ -241,7 +251,8 @@
         CGSize selfSize = self.view.frame.size;
         _yearDataView = [YearDataView new];
         _yearDataView.frame = CGRectMake(selfSize.width * 4, 0, selfSize.width, selfSize.height - 109);
-//        _yearDataView.backgroundColor = [UIColor greenColor];
+        _yearDataView.backgroundColor = [UIColor clearColor];
+
         [_scrollView addSubview:_yearDataView];
     }
     return _yearDataView;

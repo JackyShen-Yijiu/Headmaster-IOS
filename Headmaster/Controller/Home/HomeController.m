@@ -12,6 +12,8 @@
 #import "HomeSeeTimeView.h"
 #import "HomeDataListController.h"
 #import "DataDatilViewController.h"
+#import "HomeDailyViewModel.h"
+#import "HomeWeeklyViewModel.h"
 
 @interface HomeController ()
 
@@ -23,6 +25,9 @@
 
 @property (nonatomic, strong) HomeSeeTimeView *seeTimeView;
 
+@property (nonatomic, strong) HomeWeeklyViewModel *weeklyViewModel;
+
+@property (nonatomic, strong) HomeDailyViewModel *dailyViewModel;
 
 @end
 
@@ -64,6 +69,7 @@
     
     [self.seeTimeView itemClick:^(UIButton *button) {
         
+        self.tag = button.tag;
         NSLog(@"seeTimeView == %li",button.tag);
         
     }];
@@ -71,6 +77,15 @@
     // 刷新数据
     [self.topView refreshSubjectData:@[ @"23", @"57", @"2", @"567" ] sameDay:@"56"];
     [self.evaluateView refreshData:@[ @"23", @"57", @"2", @"567" ]];
+    
+    // viewModel call back
+    _dailyViewModel = [HomeDailyViewModel new];
+    _weeklyViewModel = [HomeWeeklyViewModel new];
+    
+    [_dailyViewModel successRefreshBlock:^{
+        
+        
+    }];
 }
 
 #pragma mark - action
@@ -78,6 +93,8 @@
 - (void)moreButtonAction {
     
     DataDatilViewController *dataListVC = [[DataDatilViewController alloc] init];
+    
+        dataListVC.tag = _tag;
     
 //    HomeDataListController *dataListVC = [HomeDataListController new];
     [self.navigationController pushViewController:dataListVC animated:YES];

@@ -24,7 +24,6 @@
     [bar setTintColor:[UIColor colorWithHexString:@"fefefe"]];
     // 标题字体颜色
     [bar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont italicSystemFontOfSize:16]}];
-    
     UIBarButtonItem *item = [UIBarButtonItem appearance];
     
     [item setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont boldSystemFontOfSize:16]} forState:UIControlStateNormal];
