@@ -40,6 +40,7 @@
     [manager.requestSerializer setValue:token forHTTPHeaderField:@"authorization"];
 }
 
+
 @end
 
 @implementation NetworkTool

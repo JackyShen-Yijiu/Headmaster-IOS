@@ -71,7 +71,7 @@
     self.bgView.image = [UIImage imageNamed:@"teacher_bg"];
     [self.view addSubview:self.bgView];
     
-    self.tableView = [[RefreshTableView alloc] initWithFrame:CGRectMake(0, 64, self.view.width, self.view.height - 64) style:UITableViewStylePlain];
+    self.tableView = [[RefreshTableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height) style:UITableViewStylePlain];
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -144,8 +144,8 @@
 - (SearchBarView *)searchBar
 {
     if (_searchBar == nil) {
-        _searchBar = [[SearchBarView alloc] initWithFrame: CGRectMake(0, 0, self.view.frame.size.width, 37)];
-        _searchBar.backgroundColor = [UIColor colorWithHexString:@"303030"];
+        _searchBar = [[SearchBarView alloc] initWithFrame: CGRectMake(0, 0, self.view.frame.size.width, 38)];
+        _searchBar.backgroundColor = [UIColor clearColor];
         _searchBar.searchBar.delegate = self;
     }
     return _searchBar;
