@@ -10,4 +10,19 @@
 
 @implementation HomeDailyViewModel
 
+- (void)networkRequestRefresh {
+    
+    [NetworkEntity getHomeDataWithSearchType:_searchType success:^(id responseObject) {
+        
+        if (_searchType == 1) {
+            
+        }
+        NSLog(@"============================%@", responseObject);
+        
+    } failure:^(NSError *failure) {
+        
+        
+    }];
+}
+
 @end

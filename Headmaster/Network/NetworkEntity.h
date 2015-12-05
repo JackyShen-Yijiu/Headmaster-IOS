@@ -59,5 +59,13 @@
                               count:(NSInteger) count
                             success:(NetworkSuccessBlock)success
                             failure:(NetworkFailureBlock)failure;
+/**
+ *  首页
+ *
+ *  @param searchType 查询的类型（昨天、今天、本周）
+ */
++ (void)getHomeDataWithSearchType:(NSInteger)searchType
+                          success:(NetworkSuccessBlock)success
+                          failure:(NetworkFailureBlock)failure;
 
 @end

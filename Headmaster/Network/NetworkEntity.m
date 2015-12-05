@@ -10,6 +10,7 @@
 #import "JSONKit.h"
 #import "NSString+MD5.h"
 #import "NetworkInterface.h"
+#import "UserInfoModel.h"
 
 @implementation NetworkEntity
 
@@ -86,6 +87,23 @@
     NSDictionary * dict = @{ @"seqindex": [NSString stringWithFormat:@"%li", seqindex],
                             @"count": [NSString stringWithFormat:@"%li", count] };
     [NetworkTool GET:INFORMATION_LIST params:dict success:success failure:failure];
+}
+
++ (void)getHomeDataWithSearchType:(NSInteger)searchType
+                          success:(NetworkSuccessBlock)success
+                          failure:(NetworkFailureBlock)failure {
+    
+//    NSDictionary *params = @{ @"userid": [UserInfoModel defaultUserInfo].userID,
+//                              @"searchtype": [NSString stringWithFormat:@"%li",searchType],
+//                              @"schoolid": [UserInfoModel defaultUserInfo].schoolId };
+    
+//    [[AFHttpClient sharedClient].requestSerializer setValue:[UserInfoModel defaultUserInfo].token forHTTPHeaderField:@"authorization"];
+    
+    NSDictionary *params = @{ @"userid": @"56582caf1fcf03d813f5fbfc",
+                              @"searchtype": @"1",
+                              @"schoolid": @"562dcc3ccb90f25c3bde40da" };
+        
+    [NetworkTool GET:HOME params:params success:success failure:failure];
 }
 
 @end
