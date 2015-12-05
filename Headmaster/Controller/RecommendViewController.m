@@ -22,7 +22,7 @@
 @property (nonatomic, strong) NSArray *menuItems;
 
 @property (nonatomic, strong) RecomendPieChartView * pieView;
-@property (nonatomic, strong) RecomendPieChartViewModel * pieModel;
+//@property (nonatomic, strong) RecomendPieChartViewModel * pieModel;
 
 @property (nonatomic, strong)RefreshTableView * tableView;
 @property (nonatomic, strong)NSMutableArray * dataModel;

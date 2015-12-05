@@ -33,13 +33,13 @@
 @implementation DataDatilViewModel
 - (void)networkRequestRefresh
 {
-    [NetworkEntity moreDataDatilListWithuserid:nil searchtype:0 schoolid:nil success:^(id responseObject) {
+    [NetworkEntity moreDataDatilListWithuserid:@"56582caf1fcf03d813f5fbfc" searchtype:1 schoolid:@"562dcc3ccb90f25c3bde40da" success:^(id responseObject) {
         // 数据请求成功
         NSLog(@"responeObject = %@",responseObject);
-        
+        [self successRefreshBlock];
         
     } failure:^(NSError *failure) {
-        NSLog(@" failure = %@",failure);
+        NSLog(@" -------------------------failure = %@",failure);
     }];
 }
 

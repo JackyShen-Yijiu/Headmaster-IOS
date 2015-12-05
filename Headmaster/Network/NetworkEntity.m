@@ -145,7 +145,7 @@
                             failure:(NetworkFailureBlock)failure
 {
     NSDictionary *dict = @{@"userid":userid,
-                           @"seacrchtype":[NSString stringWithFormat:@"%li",searchtype],
+                           @"searchtype":[NSString stringWithFormat:@"%li",searchtype],
                            @"schoolid":schoolid
                            };
     [NetworkTool GET:MoreData_List params:dict success:success failure:failure];
