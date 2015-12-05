@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate+RootViewController.h"
-#import "YBBaseNavigationController.h"
+#import "HMNagationController.h"
 #import "RESideMenu.h"
 #import "SideMenuController.h"
 #import "DVVTabBarController.h"
@@ -30,8 +30,8 @@
         Class vcClass = NSClassFromString(controllerArray[i]);
         UIViewController *viewController = [vcClass new];
         viewController.title = titleArray[i];
-        YBBaseNavigationController *naviVC = [[YBBaseNavigationController alloc] initWithRootViewController:viewController];
-        [tabBarVC addChildViewController:naviVC];
+//        HMNagationController *naviVC = [[HMNagationController alloc] initWithRootViewController:viewController];
+        [tabBarVC addChildViewController:viewController];
     }
     
     // 设置tabBar的item选中颜色

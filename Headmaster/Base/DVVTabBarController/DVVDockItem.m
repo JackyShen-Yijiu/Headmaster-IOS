@@ -39,7 +39,7 @@ static CGFloat kTitleRatio = 0.f;
     self.titleLabel.font = [UIFont systemFontOfSize:12];
     
     // 图片的内容模式
-    self.imageView.contentMode = UIViewContentModeCenter;
+    self.imageView.contentMode = UIViewContentModeScaleToFill;
 }
 
 #pragma mark 覆盖父类在highlighted时的所有操作

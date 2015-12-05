@@ -136,16 +136,15 @@ static BOOL loaded = false;
     
     //得到一个按钮的宽度
     CGFloat btnWidth = _coverView.bounds.size.width / _coverView.subviews.count;
-    
     for (UIButton *itemBtn in _coverView.subviews) {
         
         CGRect frameRect;
         //调整width,height
         frameRect.size.width = btnWidth;
-        frameRect.size.height = _coverView.bounds.size.height;
+        frameRect.size.height = _coverView.bounds.size.height - 2;
         //调整minX,ninY
         frameRect.origin.x = itemBtn.tag * btnWidth;
-        frameRect.origin.y = 0;
+        frameRect.origin.y = 2;
         
         //赋值坐标
         itemBtn.frame = frameRect;
@@ -161,8 +160,16 @@ static BOOL loaded = false;
     DVVDockItem *itemBtn = [DVVDockItem new];
     //设置tag值
     itemBtn.tag = tag;
-    
     itemBtn.backgroundColor = [UIColor clearColor];
+    if (tag == 0) {
+        itemBtn.backgroundColor = [UIColor redColor];
+    }
+    if (tag == 1) {
+        itemBtn.backgroundColor = [UIColor greenColor];
+    }
+    if (tag == 2) {
+        itemBtn.backgroundColor = [UIColor orangeColor];
+    }
     //取消高亮效果
     itemBtn.adjustsImageWhenHighlighted = NO;
     //设置图片
