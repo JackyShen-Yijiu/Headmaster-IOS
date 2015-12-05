@@ -33,8 +33,7 @@
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:strCell];
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:strCell];
-            UIImage *img =[UIImage imageNamed:@"bgg.png"];
-            [cell setBackgroundColor:[UIColor colorWithPatternImage:img]];
+            cell.backgroundColor = [UIColor clearColor];
 
         }
         
@@ -45,8 +44,7 @@
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:strCell];
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:strCell];
-            UIImage *img =[UIImage imageNamed:@"bgg.png"];
-            [cell setBackgroundColor:[UIColor colorWithPatternImage:img]];
+            cell.backgroundColor = [UIColor clearColor];
 
         }
         
@@ -58,8 +56,7 @@
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:strCell];
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:strCell];
-            UIImage *img =[UIImage imageNamed:@"bgg.png"];
-            [cell setBackgroundColor:[UIColor colorWithPatternImage:img]];
+            cell.backgroundColor = [UIColor clearColor];
 
         }
         
@@ -72,8 +69,7 @@
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:strCell];
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:strCell];
-            UIImage *img =[UIImage imageNamed:@"bgg.png"];
-            [cell setBackgroundColor:[UIColor colorWithPatternImage:img]];
+            cell.backgroundColor = [UIColor clearColor];
 
         }
         

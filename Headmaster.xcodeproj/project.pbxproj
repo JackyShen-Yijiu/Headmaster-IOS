@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0605B7B81C1288CE00A575B4 /* UIBarButtonItem+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0605B7B71C1288CE00A575B4 /* UIBarButtonItem+Helper.m */; };
 		060BA87F1C10116C009AD55E /* InviteStudentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 060BA8761C10116C009AD55E /* InviteStudentView.m */; };
 		060BA8801C10116C009AD55E /* AppointmentCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = 060BA8781C10116C009AD55E /* AppointmentCourse.m */; };
 		060BA8811C10116C009AD55E /* CoachOfCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = 060BA87A1C10116C009AD55E /* CoachOfCourse.m */; };
@@ -354,6 +355,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0605B7B61C1288CE00A575B4 /* UIBarButtonItem+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Helper.h"; sourceTree = "<group>"; };
+		0605B7B71C1288CE00A575B4 /* UIBarButtonItem+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Helper.m"; sourceTree = "<group>"; };
 		060BA8751C10116C009AD55E /* InviteStudentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteStudentView.h; sourceTree = "<group>"; };
 		060BA8761C10116C009AD55E /* InviteStudentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteStudentView.m; sourceTree = "<group>"; };
 		060BA8771C10116C009AD55E /* AppointmentCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppointmentCourse.h; sourceTree = "<group>"; };
@@ -2145,6 +2148,8 @@
 				D9CEC9721C0ED643008DEE69 /* UINavigationItem+BackItem.m */,
 				D9CEC9731C0ED643008DEE69 /* DVVDoubleRowToolBarView.h */,
 				D9CEC9741C0ED643008DEE69 /* DVVDoubleRowToolBarView.m */,
+				0605B7B61C1288CE00A575B4 /* UIBarButtonItem+Helper.h */,
+				0605B7B71C1288CE00A575B4 /* UIBarButtonItem+Helper.m */,
 				D9CEC9751C0ED643008DEE69 /* DVVToolBarView.h */,
 				D9CEC9761C0ED643008DEE69 /* DVVToolBarView.m */,
 				D922972D1C10439200D0FFDF /* YBChart */,
@@ -2788,6 +2793,7 @@
 				B8771D361C098DE40051DE9D /* PSTGridLayoutInfo.m in Sources */,
 				B8771E481C098F500051DE9D /* PortraitView.m in Sources */,
 				B8771D281C098DE40051DE9D /* UIImage+EMMultiFormat.m in Sources */,
+				0605B7B81C1288CE00A575B4 /* UIBarButtonItem+Helper.m in Sources */,
 				55FDE40A1C0FC5C700329F17 /* InformationDetailController.m in Sources */,
 				D9CEC9101C0E8CF7008DEE69 /* UITabBar+RedHot.m in Sources */,
 				B8771DEB1C098DE40051DE9D /* EaseChatToolbarItem.m in Sources */,

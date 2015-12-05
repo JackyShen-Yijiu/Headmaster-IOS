@@ -37,6 +37,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+//    UIBarButtonItem *item = [[UIBarButtonItem alloc] init];
+    
+    
+    
+    
+    
+    
+    
+     UIImage *image = [UIImage imageNamed:@"headerIcon"];
+    UIButton *buttonItem = [UIButton buttonWithType:UIButtonTypeSystem];
+    buttonItem.frame = CGRectMake(15, 15, 36, 30);
+    [buttonItem setBackgroundImage:image forState:UIControlStateNormal];
+//    self.navigationItem.leftBarButtonItem = buttonItem;
+//    UIBarButtonItem *buttonItem = [UIBarButtonItem itemWithNormalIcon:@"headerIcon" highlightedIcon:nil target:nil action:nil];
+//    self.navigationItem.leftBarButtonItem = buttonItem;
+    
     // 添加button上面一条线
     UIView *lineTopView = [[UIView alloc] initWithFrame:CGRectMake(7.5, 64, self.view.frame.size.width - 15, 2)];
     lineTopView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
@@ -64,6 +80,7 @@
     
     [self.seeTimeView itemClick:^(UIButton *button) {
         
+        self.tag = button.tag;
         NSLog(@"seeTimeView == %li",button.tag);
         
     }];
@@ -78,6 +95,8 @@
 - (void)moreButtonAction {
     
     DataDatilViewController *dataListVC = [[DataDatilViewController alloc] init];
+    
+        dataListVC.tag = _tag;
     
 //    HomeDataListController *dataListVC = [HomeDataListController new];
     [self.navigationController pushViewController:dataListVC animated:YES];

@@ -148,6 +148,7 @@
                     <constraint firstItem="GCV-A0-8IQ" firstAttribute="top" secondItem="c91-AX-Lda" secondAttribute="bottom" constant="13" id="y4U-DS-C4L"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="BottomLineLabel" destination="pcN-O8-TyA" id="eTN-Oc-xHc"/>
             </connections>
