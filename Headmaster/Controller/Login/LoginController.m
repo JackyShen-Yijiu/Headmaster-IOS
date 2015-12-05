@@ -41,8 +41,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-<<<<<<< HEAD
-    // Do any additional setup after loading the view.
+
     [self initUI];
     [self configeUI];
     [self updateUI];
@@ -52,7 +51,7 @@
 - (void)initUI {
     _BackgroundImage = [[UIImageView alloc] init];   //背景图片
     [self.view addSubview:_BackgroundImage];
-=======
+
     
     [self createUI];
     [self addNotify];
@@ -66,10 +65,9 @@
 
 - (void)createUI {
     
-    _iv = [[UIImageView alloc] initWithFrame:self.view.bounds];
-    _iv.image = [UIImage imageNamed:@"bg_login"];
-    [self.view addSubview:_iv];
->>>>>>> dd08fdb2bd74c9e181fe2499e4f282ecaa29aa28
+//    _iv = [[UIImageView alloc] initWithFrame:self.view.bounds];
+//    _iv.image = [UIImage imageNamed:@"bg_login"];
+//    [self.view addSubview:_iv];
     
     _iconView = [[UIImageView alloc] init];          //logo
     [self.view addSubview:_iconView];
@@ -126,11 +124,7 @@
     
     _iconView.image = [UIImage imageNamed:@"icon120x110.png"];
     
-<<<<<<< HEAD
-=======
-    
-    _phoneTF = [[UITextField alloc] initWithFrame:CGRectMake(26, iconView.frame.origin.y +iconView.frame.size.height +h_iconViewTOP , h_size.width -26, h_phoneTFHeight)];
->>>>>>> dd08fdb2bd74c9e181fe2499e4f282ecaa29aa28
+//    _phoneTF = [[UITextField alloc] initWithFrame:CGRectMake(26, iconView.frame.origin.y +iconView.frame.size.height +h_iconViewTOP , h_size.width -26, h_phoneTFHeight)];
     _phoneTF.placeholder = @"账号";
     _phoneTF.textColor = [self colorWithHexString:@"#fefefe"];
     [_phoneTF setValue:[self colorWithHexString:@"#bfbfbf"] forKeyPath:@"_placeholderLabel.textColor"];
@@ -273,11 +267,6 @@
         ToastAlertView *toastView = [[ToastAlertView alloc] initWithTitle:@"网络连接失败"];
         [toastView show];
     }];
-<<<<<<< HEAD
-//    UserInfoModel *uim = [UserInfoModel defaultUserInfo];
-//    [uim loginOut];
-=======
->>>>>>> dd08fdb2bd74c9e181fe2499e4f282ecaa29aa28
 }
 
 - (void)callNum {

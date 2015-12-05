@@ -20,14 +20,11 @@
 @property (nonatomic, strong) UIImageView * bgView;
 @property (nonatomic, strong) RecommendSegView *controlView;
 
-<<<<<<< HEAD
 @property (nonatomic, strong) RecomendPieChartView * pieView;
 //@property (nonatomic, strong) RecomendPieChartViewModel * pieModel;
-=======
->>>>>>> ef081d96f0897aa26556cbc511b18a7666cc99d8
 
 @property (nonatomic, strong)RefreshTableView * tableView;
-@property (nonatomic, strong) RecomendPieChartView * pieView;
+//@property (nonatomic, strong) RecomendPieChartView * pieView;
 
 @property (nonatomic, strong)NSMutableArray * recomendData;
 @property (nonatomic, strong)NSMutableArray * complainData;
