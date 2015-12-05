@@ -316,6 +316,8 @@
 		B895A1A31C10448100FEDD78 /* RecomendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B895A1A21C10448100FEDD78 /* RecomendCell.m */; };
 		B8C7031B1C12AE23006035B1 /* SearchBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C7031A1C12AE23006035B1 /* SearchBarView.m */; };
 		B8C7031E1C12DD40006035B1 /* RecommendSegView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C7031D1C12DD40006035B1 /* RecommendSegView.m */; };
+		B8C703211C12F738006035B1 /* HMComplainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C703201C12F738006035B1 /* HMComplainModel.m */; };
+		B8C703271C13093C006035B1 /* HMSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C703261C13093C006035B1 /* HMSwitch.m */; };
 		D92296BC1C0FD29C00D0FFDF /* NetworkEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = D92296B81C0FD29C00D0FFDF /* NetworkEntity.m */; };
 		D92296BD1C0FD29C00D0FFDF /* NetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D92296BB1C0FD29C00D0FFDF /* NetworkTool.m */; };
 		D92296C81C0FD2FF00D0FFDF /* HomeEvaluateView.m in Sources */ = {isa = PBXBuildFile; fileRef = D92296BF1C0FD2FF00D0FFDF /* HomeEvaluateView.m */; };
@@ -883,6 +885,10 @@
 		B8C7031A1C12AE23006035B1 /* SearchBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBarView.m; sourceTree = "<group>"; };
 		B8C7031C1C12DD40006035B1 /* RecommendSegView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendSegView.h; sourceTree = "<group>"; };
 		B8C7031D1C12DD40006035B1 /* RecommendSegView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendSegView.m; sourceTree = "<group>"; };
+		B8C7031F1C12F738006035B1 /* HMComplainModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMComplainModel.h; sourceTree = "<group>"; };
+		B8C703201C12F738006035B1 /* HMComplainModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMComplainModel.m; sourceTree = "<group>"; };
+		B8C703251C13093C006035B1 /* HMSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSwitch.h; sourceTree = "<group>"; };
+		B8C703261C13093C006035B1 /* HMSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSwitch.m; sourceTree = "<group>"; };
 		D92296B71C0FD29C00D0FFDF /* NetworkEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkEntity.h; sourceTree = "<group>"; };
 		D92296B81C0FD29C00D0FFDF /* NetworkEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkEntity.m; sourceTree = "<group>"; };
 		D92296B91C0FD29C00D0FFDF /* NetworkInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkInterface.h; sourceTree = "<group>"; };
@@ -2238,6 +2244,8 @@
 		B895A1971C1041BD00FEDD78 /* Recomond */ = {
 			isa = PBXGroup;
 			children = (
+				B8C703251C13093C006035B1 /* HMSwitch.h */,
+				B8C703261C13093C006035B1 /* HMSwitch.m */,
 				B895A1981C1041D100FEDD78 /* RecommendViewController.h */,
 				B895A1991C1041D100FEDD78 /* RecommendViewController.m */,
 				B895A19E1C10444200FEDD78 /* RecomendPieChartView.h */,
@@ -2373,6 +2381,7 @@
 				B895A1971C1041BD00FEDD78 /* Recomond */,
 				D9CEC8F31C0E8CF7008DEE69 /* Home */,
 				D9CEC8F41C0E8CF7008DEE69 /* Information */,
+				D9CEC8FE1C0E8CF7008DEE69 /* Welcome */,
 				D9CEC8F81C0E8CF7008DEE69 /* Message */,
 				D9CEC8F51C0E8CF7008DEE69 /* Login */,
 				D9CEC8FB1C0E8CF7008DEE69 /* Set */,
@@ -2411,7 +2420,6 @@
 		D9CEC8F51C0E8CF7008DEE69 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				D9CEC8FE1C0E8CF7008DEE69 /* Welcome */,
 				D9CEC9871C0EDBCD008DEE69 /* LoginController.h */,
 				D9CEC9881C0EDBCD008DEE69 /* LoginController.m */,
 			);
@@ -2464,8 +2472,7 @@
 				D9CEC94F1C0ECD35008DEE69 /* YBWelcomeController.h */,
 				D9CEC9501C0ECD35008DEE69 /* YBWelcomeController.m */,
 			);
-			name = Welcome;
-			path = ../Welcome;
+			path = Welcome;
 			sourceTree = "<group>";
 		};
 		D9CEC8FF1C0E8CF7008DEE69 /* DataModel */ = {
@@ -2476,6 +2483,8 @@
 				D9CEC9011C0E8CF7008DEE69 /* BaseModelMethod.m */,
 				D9CEC9021C0E8CF7008DEE69 /* HMPortraitInfoModel.h */,
 				D9CEC9031C0E8CF7008DEE69 /* HMPortraitInfoModel.m */,
+				B8C7031F1C12F738006035B1 /* HMComplainModel.h */,
+				B8C703201C12F738006035B1 /* HMComplainModel.m */,
 				D9CEC9041C0E8CF7008DEE69 /* HMRecomendModel.h */,
 				D9CEC9051C0E8CF7008DEE69 /* HMRecomendModel.m */,
 				D9CEC9061C0E8CF7008DEE69 /* TeacherModel.h */,
@@ -2825,6 +2834,7 @@
 				B8771D081C098DE40051DE9D /* EMGifImage.m in Sources */,
 				B8771E351C098E6B0051DE9D /* YiRefreshHeader.m in Sources */,
 				B8771D1B1C098DE40051DE9D /* MWZoomingScrollView.m in Sources */,
+				B8C703271C13093C006035B1 /* HMSwitch.m in Sources */,
 				B8771DEC1C098DE40051DE9D /* EaseImageView.m in Sources */,
 				B8771D0B1C098DE40051DE9D /* MJRefreshFooter.m in Sources */,
 				B8771D021C098DE40051DE9D /* EMCDDeviceManagerBase.m in Sources */,
@@ -2991,6 +3001,7 @@
 				55BA0F551C0EF6D300F83CD8 /* PublishController.m in Sources */,
 				B8771D3D1C098DE40051DE9D /* ChatViewController.m in Sources */,
 				D92296EB1C0FEE9500D0FFDF /* InformationDataModelRootClass.m in Sources */,
+				B8C703211C12F738006035B1 /* HMComplainModel.m in Sources */,
 				B8771DE41C098DE40051DE9D /* EaseBubbleView+Image.m in Sources */,
 				B8771E371C098E6B0051DE9D /* NSDictionary+StrDic.m in Sources */,
 				D92297471C10439200D0FFDF /* UUChartLabel.m in Sources */,

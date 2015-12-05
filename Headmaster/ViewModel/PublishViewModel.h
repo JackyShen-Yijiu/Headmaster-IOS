@@ -12,6 +12,8 @@
 
 @property (nonatomic, strong) NSMutableArray *publishData;
 
+@property (nonatomic, copy) void (^refreshBlock)(void);
+
 - (void)needPublishMessageWithContentStr:(NSString *)str WithType:(NSString *)type;
 
 @end

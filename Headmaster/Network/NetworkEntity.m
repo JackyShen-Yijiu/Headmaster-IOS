@@ -73,6 +73,42 @@
 }
 
 
++ (void)getComplainListWithUserid:(NSString *)userId
+                         SchoolId:(NSString *)schoolId
+                        pageIndex:(NSInteger)index
+                          success:(NetworkSuccessBlock)success
+                          failure:(NetworkFailureBlock)failure
+{
+    if (!userId || !schoolId) {
+        return [NetworkTool missParagramerCallBackFailure:failure];
+    };
+    NSString *urlStr = [NSString stringWithFormat:@"%@/%@",[NetworkTool domain],COMPLAINHMESSAGE];
+    NSDictionary * dic = @{
+                           @"userid":userId,
+                           @"schoolid":schoolId,
+                           @"index":@(index)
+                           };
+    [NetworkTool GET:urlStr params:dic success:success failure:failure];
+}
+
+
++ (void)markDealComplainWithComplainId:(NSString *)complainId
+                                 useID:(NSString *)userId
+                               Success:(NetworkSuccessBlock)success
+                               failure:(NetworkFailureBlock)failure
+{
+    if (!userId || !complainId) {
+        return [NetworkTool missParagramerCallBackFailure:failure];
+    }
+    
+    NSString *urlStr = [NSString stringWithFormat:@"%@/%@",[NetworkTool domain],DEALDONWHMESSAGE];
+    NSDictionary * dic  = @{
+                            @"userid":userId,
+                            @"reservationid":complainId
+                            };
+    [NetworkTool POST:urlStr params:dic success:success failure:failure];
+}
+
 + (void)getPublishListWithUseInfoModel:(UserInfoModel *)uim seqindex:(NSString *)index count:(NSString *)count
                                success:(void (^)(AFHTTPRequestOperation *, id))success
                                failure:(void (^)(AFHTTPRequestOperation *, id))failure {

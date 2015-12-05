@@ -40,7 +40,6 @@
     loginViewC.delegate = self;
     self.navController = [[HMNagationController alloc] initWithRootViewController:loginViewC];
     self.window.rootViewController =  self.navController;
-    
     if ([UserInfoModel isLogin]) {
         [self loginControllerDidLoginSucess:nil];
     }

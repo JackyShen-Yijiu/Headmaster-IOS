@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface RecomendPieChartView : UIView
-@property(nonatomic,assign)BOOL isExpand;
+@property(nonatomic,strong)UIButton * expandButton;
+
 - (void)updateUIWithCountInfo:(NSDictionary *)countInfo;
 @end

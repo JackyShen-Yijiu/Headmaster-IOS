@@ -89,14 +89,14 @@
     
 //    [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[[NSClassFromString(item.target) alloc]init] ]animated:YES];
     UIViewController *vc = [[NSClassFromString(item.target) alloc]init];
-    vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
     [self.sideMenuViewController.leftMenuViewController presentViewController:nav animated:YES completion:nil];
 //    [[UIApplication sharedApplication].keyWindow.rootViewController.navigationController pushViewController:[UIViewController new] animated:YES];
     
     // 隐藏侧滑菜单
-
     [self.sideMenuViewController hideMenuViewController];
+    
 }
 
 #pragma mark - lazy load

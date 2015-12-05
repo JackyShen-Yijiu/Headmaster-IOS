@@ -22,6 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.automaticallyAdjustsScrollViewInsets = NO;
     _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, h_size.width, h_size.height -49)];
     _webView.delegate = self;
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:_urlStr]];
@@ -39,6 +40,11 @@
     [[YBBaseViewModel new] successLoadMoreBlock:^{
         NSLog(@"加载成功");
     }];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [NetworkTool cancelAllRequest];
 }
 
 - (void)didReceiveMemoryWarning {

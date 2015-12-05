@@ -16,12 +16,31 @@
     [NetworkEntity informationListWithseqindex:0 count:10 success:^(id responseObject) {
         
         InformationDataModelRootClass *rootDataModel = [[InformationDataModelRootClass alloc] initWithJsonDict:responseObject];
-        _informationArray = rootDataModel.data;
-        
+        _informationArray = [[NSMutableArray alloc] initWithArray:rootDataModel.data];
         [self successRefreshBlock];
+        if (_tableViewNeedReLoad) {
+            _tableViewNeedReLoad();
+        }
         
     } failure:^(NSError *failure) {
-        
+        if (_showToast) {
+            _showToast();
+        }
+    }];
+}
+
+- (void)networkRequestNeedUpRefreshWithSeqindex:(NSInteger)seqindex {
+    [NetworkEntity informationListWithseqindex:seqindex count:10 success:^(id responseObject) {
+        InformationDataModelRootClass *rootDataModel = [[InformationDataModelRootClass alloc] initWithJsonDict:responseObject];
+        [_informationArray addObjectsFromArray:rootDataModel.data];
+        [self successRefreshBlock];
+        if (_tableViewNeedReLoad) {
+            _tableViewNeedReLoad();
+        }
+    } failure:^(NSError *failure) {
+        if (_showToast) {
+            _showToast();
+        }
     }];
 }
 

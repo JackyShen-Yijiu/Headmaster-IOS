@@ -36,7 +36,7 @@
     if (_control == nil) {
         
         [[DZNSegmentedControl appearance] setBackgroundColor:RGB_Color(0x54, 0x54, 0x54)];
-        [[DZNSegmentedControl appearance] setTintColor:RGB_Color(0x01, 0xe2, 0xb6)];
+        [[DZNSegmentedControl appearance] setTintColor:RGB_Color(1, 226, 182)];
         [[DZNSegmentedControl appearance] setHairlineColor:[UIColor clearColor]];
         
         [[DZNSegmentedControl appearance] setFont:[UIFont systemFontOfSize:15.f]];
