@@ -15,8 +15,8 @@
     [NetworkEntity getPublishListWithUseInfoModel:[UserInfoModel defaultUserInfo] seqindex:[NSString stringWithFormat:@"%d",0] count:[NSString stringWithFormat:@"%d",10] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
         PublishDataModelRootClass *rootDataModel = [[PublishDataModelRootClass alloc] initWithJsonDict:dataDic];
+        _publishData = nil;
         _publishData = [[NSMutableArray alloc] initWithArray:rootDataModel.data];
-        
         [self successRefreshBlock];
     } failure:^(AFHTTPRequestOperation *operation, id responseObject) {
         [self errorRefreshBlock];
@@ -25,14 +25,17 @@
 
 - (void)needPublishMessageWithContentStr:(NSString *)str WithType:(NSString *)type {
     [NetworkEntity postPublishMessageWithUseInfoModel:[UserInfoModel defaultUserInfo] textContent:str type:type success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"发表成功"];
+         NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
+        ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:[dataDic objectForKey:@"data"]];
         [alertView show];
+        if (_refreshBlock) {
+            _refreshBlock();
+        }
     } failure:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
         ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:[dataDic objectForKey:@"msg"]];
         [alertView show];
     }];
-    
 }
 
 @end

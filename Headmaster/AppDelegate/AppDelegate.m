@@ -51,6 +51,7 @@
     
     
     self.window.rootViewController = [self rootViewController];
+ 
 //    self.window.rootViewController = [LoginController new];
 //    self.window.rootViewController = [InformationController new];
 //    self.window.rootViewController = [PublishController new];

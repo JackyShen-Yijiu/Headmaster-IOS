@@ -2275,6 +2275,7 @@
 				B895A1971C1041BD00FEDD78 /* Recomond */,
 				D9CEC8F31C0E8CF7008DEE69 /* Home */,
 				D9CEC8F41C0E8CF7008DEE69 /* Information */,
+				D9CEC8FE1C0E8CF7008DEE69 /* Welcome */,
 				D9CEC8F81C0E8CF7008DEE69 /* Message */,
 				D9CEC8F51C0E8CF7008DEE69 /* Login */,
 				D9CEC8FB1C0E8CF7008DEE69 /* Set */,
@@ -2313,7 +2314,6 @@
 		D9CEC8F51C0E8CF7008DEE69 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				D9CEC8FE1C0E8CF7008DEE69 /* Welcome */,
 				D9CEC9871C0EDBCD008DEE69 /* LoginController.h */,
 				D9CEC9881C0EDBCD008DEE69 /* LoginController.m */,
 			);
@@ -2364,8 +2364,7 @@
 				D9CEC94F1C0ECD35008DEE69 /* YBWelcomeController.h */,
 				D9CEC9501C0ECD35008DEE69 /* YBWelcomeController.m */,
 			);
-			name = Welcome;
-			path = ../Welcome;
+			path = Welcome;
 			sourceTree = "<group>";
 		};
 		D9CEC8FF1C0E8CF7008DEE69 /* DataModel */ = {

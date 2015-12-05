@@ -33,7 +33,7 @@
         _descriptionString = [dictionary objectStringForKey:@"description"];
         _contenturl = [dictionary objectStringForKey:@"contenturl"];
         _createtime = [dictionary objectStringForKey:@"createtime"];
-        _seqindex = [dictionary objectStringForKey:@"seqindex"];
+        _seqindex = [NSString stringWithFormat:@"%@",[dictionary objectForKey:@"seqindex"]];
     }
     return self;
 }

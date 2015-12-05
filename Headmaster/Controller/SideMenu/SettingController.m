@@ -23,11 +23,12 @@
     [super viewWillAppear:animated];
     UIButton *pushBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
     [pushBtn setTitle:@"返回" forState:UIControlStateNormal];
-    [pushBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [pushBtn setTitleColor:[UIColor colorWithHexString:TEXT_NORMAL_COLOR] forState:UIControlStateNormal];
     [pushBtn addTarget:self action:@selector(pushBtnClick) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:pushBtn];
-    
     self.navigationItem.title = @"设置";
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor colorWithHexString:TEXT_NORMAL_COLOR],NSForegroundColorAttributeName,nil]];
+    
 }
 
 - (void)pushBtnClick {
@@ -37,6 +38,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self addBackgroundImage];
     [self isFirstLOad];
     [self createUI];
 }
@@ -68,7 +70,7 @@
 - (UITableView *)tableView {
     if (!_tableView) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height -64)];
-        _tableView.backgroundColor = [UIColor whiteColor];
+        _tableView.backgroundColor = [UIColor clearColor];
         _tableView.dataSource = self;
         _tableView.delegate = self;
         _tableView.separatorColor = [UIColor clearColor];
@@ -82,32 +84,54 @@
     return _dataArr.count;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 60;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"yy"];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:0 reuseIdentifier:@"yy"];
+        cell.backgroundColor = [UIColor clearColor];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(29, 42, 200, 15)];
+        label.textColor = [UIColor colorWithHexString:TEXT_NORMAL_COLOR];
+        [cell.contentView addSubview:label];
         if (indexPath.row <3) {
             NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+//            [ud removeObjectForKey:[NSString stringWithFormat:@"%zd",indexPath.row]];
             NSInteger btnX = [ud integerForKey:[NSString stringWithFormat:@"%zd",indexPath.row]];
-            //            [ud removeObjectForKey:[NSString stringWithFormat:@"%zd",indexPath.row]];
             if (!btnX) {
-                btnX = self.view.frame.size.width -80;
+                btnX = self.view.frame.size.width -70;
                 [ud setInteger:btnX forKey:[NSString stringWithFormat:@"%zd",indexPath.row]];
                 [ud synchronize];
             }
-            UIButton *switchBtn = [[UIButton alloc] initWithFrame:CGRectMake((int)btnX, 12, 20, 20)];
+            UIImageView *bgView = [[UIImageView alloc] initWithFrame:CGRectMake(self.view.frame.size.width -67, 45, 40, 9)];
+            bgView.image = [UIImage imageNamed:@"hd69x16"];
+            bgView.layer.cornerRadius = 10;
+            [cell.contentView addSubview:bgView];
+            
+            UIButton *switchBtn = [[UIButton alloc] initWithFrame:CGRectMake((int)btnX, 37, 25, 25)];
+            if ((int)btnX == self.view.frame.size.width -70) {
+                [switchBtn setImage:[UIImage imageNamed:@"an42x44"] forState:UIControlStateNormal];
+            }else {
+                [switchBtn setImage:[UIImage imageNamed:@"hm"] forState:UIControlStateNormal];
+            }
             switchBtn.tag = indexPath.row;
-            switchBtn.backgroundColor = [UIColor redColor];
             switchBtn.layer.cornerRadius = 10;
             [switchBtn addTarget:self action:@selector(switchBtnAction:) forControlEvents:UIControlEventTouchUpInside];
             [cell.contentView addSubview:switchBtn];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
     }
     if (indexPath.row == 3) {
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.backgroundColor = [UIColor clearColor];
     }
-    cell.textLabel.text = _dataArr[indexPath.row];
+    for (UILabel *subView in cell.contentView.subviews) {
+        if ([subView isKindOfClass:[UILabel class]]) {
+            subView.text = _dataArr[indexPath.row];
+        }
+    }
     return cell;
 }
 
@@ -115,10 +139,11 @@
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSInteger btnX = [ud integerForKey:[NSString stringWithFormat:@"%zd",sender.tag]];
     CGRect btnFrame = sender.frame;
-    if (btnX == self.view.frame.size.width -80) {
+    if (btnX == self.view.frame.size.width -70) {
         btnX += 20;
         btnFrame.origin.x = btnX;
         sender.frame = btnFrame;
+        [sender setImage:[UIImage imageNamed:@"hm"] forState:UIControlStateNormal];
         [ud removeObjectForKey:[NSString stringWithFormat:@"%zd",sender.tag]];
         [ud setInteger:btnX forKey:[NSString stringWithFormat:@"%zd",sender.tag]];
         [ud synchronize];
@@ -126,6 +151,7 @@
         btnX -= 20;
         btnFrame.origin.x = btnX;
         sender.frame = btnFrame;
+        [sender setImage:[UIImage imageNamed:@"an42x44"] forState:UIControlStateNormal];
         [ud removeObjectForKey:[NSString stringWithFormat:@"%zd",sender.tag]];
         [ud setInteger:btnX forKey:[NSString stringWithFormat:@"%zd",sender.tag]];
         [ud synchronize];

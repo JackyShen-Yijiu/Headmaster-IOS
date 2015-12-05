@@ -50,7 +50,6 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     self.navigationItem.rightBarButtonItem = self.publishBtn;
-    
     self.navigationItem.leftBarButtonItem = self.pushBtn;
     
 }
@@ -62,6 +61,10 @@
     _isCoachBtn = 2;
     [self createUI];
     _viewModel = [PublishViewModel new];
+    WS(ws);
+    _viewModel.refreshBlock = ^{
+        [ws.tableView.refreshHeader beginRefreshing];
+    };
     [_viewModel successRefreshBlock:^{
         NSLog(@"我被成功回调了哟！");
         PublishDataModel *dataModel = [_viewModel.publishData lastObject];
@@ -84,7 +87,7 @@
 
 #pragma mark - lazy load
 
-- (UITableView *)tableView {
+- (RefreshTableView *)tableView {
     if (!_tableView) {
         _tableView = [[RefreshTableView alloc] initWithFrame:CGRectMake(0, 64, self.view.width, self.view.height - 64) style:UITableViewStylePlain];
         _tableView.dataSource = self;
@@ -138,6 +141,7 @@
     return _tv;
 }
 
+
 - (UILabel *)placeholderLabel {
     if (!_placeholderLabel) {
         _placeholderLabel = [[UILabel alloc] init];
@@ -168,11 +172,15 @@
     return _pushBtn;
 }
 
+- (void)shuaxinlala {
+    [self.tableView.refreshHeader beginRefreshing];
+}
+
 #pragma mark - refresh
 
 - (void)dealErrorResponseWithTableView:(RefreshTableView *)tableview info:(NSDictionary *)dic
 {
-    [self showTotasViewWithMes:[dic objectForKey:@"msg"]];
+    [self showTotasViewWithMes:@"已经加载所有数据"];
     [tableview.refreshHeader endRefreshing];
     [tableview.refreshFooter endRefreshing];
 }
@@ -193,48 +201,49 @@
             NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
             NSInteger type = [[dataDic objectForKey:@"type"] integerValue];
             if (type == 1) {
-                viewModel.publishData = [[BaseModelMethod getPublishListArrayFormDicInfo:[dataDic objectArrayForKey:@"data"]] mutableCopy];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [ws.tableView.refreshHeader endRefreshing];
-                    [ws.tableView reloadData];
-                });
+                if ([[dataDic objectForKey:@"data"] isKindOfClass:[NSString class]]) {
+                    [ws showTotasViewWithMes:@"发布成功"];
+                } else {
+                    viewModel.publishData = [[BaseModelMethod getPublishListArrayFormDicInfo:[dataDic objectArrayForKey:@"data"]] mutableCopy];
+                }
+                [ws.tableView.refreshHeader endRefreshing];
+                [ws.tableView reloadData];
             }
         } failure:^(AFHTTPRequestOperation *operation, id responseObject) {
             [ws netErrorWithTableView:ws.tableView];
         }];
+        [ws.tableView reloadData];
     };
 
     self.tableView.refreshFooter.beginRefreshingBlock = ^(){
-        if (ws.seqindex) {
-            [NetworkEntity getPublishListWithUseInfoModel:[UserInfoModel defaultUserInfo] seqindex:[NSString stringWithFormat:@"%d",ws.seqindex] count:[NSString stringWithFormat:@"10"] success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
-                NSInteger type = [[dataDic objectForKey:@"type"] integerValue];
-                if (type == 1) {
-                    NSMutableArray * listArray = [[BaseModelMethod getPublishListArrayFormDicInfo:[dataDic objectArrayForKey:@"data"]] mutableCopy];
-                    PublishDataModel *dataModel = [listArray lastObject];
-                    
-                    ws.seqindex = [dataModel.seqindex intValue];
-                    
-                    if (listArray.count) {
-                        [viewModel.publishData addObjectsFromArray:listArray];
-                        [ws.tableView reloadData];
-                    }else{
-                        [ws showTotasViewWithMes:@"已经加载所有数据"];
-                    }
-                    [ws.tableView.refreshFooter endRefreshing];
-                    
-                }else{
-                    [ws dealErrorResponseWithTableView:ws.tableView info:responseObject];
-                }
+        [NetworkEntity getPublishListWithUseInfoModel:[UserInfoModel defaultUserInfo] seqindex:[NSString stringWithFormat:@"%d",ws.seqindex] count:[NSString stringWithFormat:@"10"] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
+            NSInteger type = [[dataDic objectForKey:@"type"] integerValue];
+            if (type == 1 && ws.seqindex != 0) {
+                NSMutableArray * listArray = [[BaseModelMethod getPublishListArrayFormDicInfo:[dataDic objectArrayForKey:@"data"]] mutableCopy];
+                PublishDataModel *dataModel = [listArray lastObject];
                 
-            } failure:^(AFHTTPRequestOperation *operation, id responseObject) {
-                [ws netErrorWithTableView:ws.tableView];
-            }];
-        }else {
-            [ws showTotasViewWithMes:@"已经加载所有数据"];
-            [ws.tableView.refreshFooter endRefreshing];
-        }
+                ws.seqindex = [dataModel.seqindex intValue];
+                
+                if (listArray.count) {
+                    [viewModel.publishData addObjectsFromArray:listArray];
+                    [ws.tableView reloadData];
+                }else{
+                    [ws showTotasViewWithMes:@"已经加载所有数据"];
+                }
+                dispatch_async(dispatch_get_main_queue(), ^{
 
+                    [ws.tableView.refreshFooter endRefreshing];
+                });
+                
+                
+            }else{
+                [ws dealErrorResponseWithTableView:ws.tableView info:dataDic];
+            }
+            
+        } failure:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [ws netErrorWithTableView:ws.tableView];
+        }];
     };
 }
 
@@ -253,7 +262,7 @@
         NSString *contentStr = dataModel.content;
 
         CGSize size = [contentStr boundingRectWithSize:CGSizeMake(h_size.width - 16 -1 , CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:[NSDictionary dictionaryWithObject:[UIFont systemFontOfSize:15] forKey:NSFontAttributeName] context:nil].size;
-        return 50+size.height;
+        return 45+size.height;
     }
 }
 
@@ -304,6 +313,10 @@
 
 #pragma mark ----textViewDelegate
 
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    self.placeholderLabel.hidden = YES;
+}
+
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
     if (![text isEqualToString:@""]) {
         self.placeholderLabel.hidden = YES;
@@ -347,10 +360,7 @@
 - (void)publishBtnClick {
     [_tv resignFirstResponder];
     [_viewModel needPublishMessageWithContentStr:_tv.text WithType:[NSString stringWithFormat:@"%d",_isCoachBtn]];
-    [_tableView reloadData];
     _tv.text = @"";
-    [self.tableView.refreshHeader beginRefreshing];
-    
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
