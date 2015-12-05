@@ -23,6 +23,9 @@
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    UIImage *image = [UIImage imageNamed:@"controllerBackground"];
+    self.tableView.layer.contents = (id)image.CGImage;
+
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_tableView];
 }
@@ -51,10 +54,10 @@
         cell.BottomLineLabel.layer.shadowOffset = CGSizeMake(0, 1);
         cell.BottomLineLabel.layer.shadowOpacity = 0.3;
         cell.BottomLineLabel.layer.shadowRadius = 1;
+        cell.backgroundColor = [UIColor clearColor];
         
-        
-               UIImage*img =[UIImage imageNamed:@"bgg.png"];
-        [cell setBackgroundColor:[UIColor colorWithPatternImage:img]];
+//               UIImage*img =[UIImage imageNamed:@"bgg.png"];
+//        [cell setBackgroundColor:[UIColor colorWithPatternImage:img]];
 
         
     

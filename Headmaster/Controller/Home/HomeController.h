@@ -10,4 +10,5 @@
 
 @interface HomeController : YBBaseController
 
+@property (nonatomic,assign) NSInteger tag;
 @end

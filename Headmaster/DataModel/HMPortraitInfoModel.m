@@ -16,7 +16,6 @@
     }
     HMPortraitInfoModel * model = [[HMPortraitInfoModel alloc] init];
     model.originalpic = [dic objectStringForKey:@"originalpic"];
-    model.originalpic = @"http://www.ld12.com/upimg358/allimg/c140923/141146256125540-1T5F.jpg";
     return model;
 }
 @end

@@ -54,16 +54,15 @@
     if ([YBWelcomeController isShowWelcome]) {
         [YBWelcomeController show];
     }
-    
     return YES;
 }
 
 #pragma mark - LoginDelegate
 - (void)loginControllerDidLoginSucess:(LoginController *)controller
 {
-    [self.navController setNavigationBarHidden:NO animated:controller ? YES : NO];
+    [self.navController setNavigationBarHidden:NO];
     UIViewController * viewController = [self rootViewController];
-    [self.navController pushViewController:viewController animated:YES];
+    [self.navController pushViewController:viewController animated:controller ? YES : NO];
 }
 
 #pragma mark - 系统配置
