@@ -161,15 +161,15 @@ static BOOL loaded = false;
     //设置tag值
     itemBtn.tag = tag;
     itemBtn.backgroundColor = [UIColor clearColor];
-    if (tag == 0) {
-        itemBtn.backgroundColor = [UIColor redColor];
-    }
-    if (tag == 1) {
-        itemBtn.backgroundColor = [UIColor greenColor];
-    }
-    if (tag == 2) {
-        itemBtn.backgroundColor = [UIColor orangeColor];
-    }
+//    if (tag == 0) {
+//        itemBtn.backgroundColor = [UIColor redColor];
+//    }
+//    if (tag == 1) {
+//        itemBtn.backgroundColor = [UIColor greenColor];
+//    }
+//    if (tag == 2) {
+//        itemBtn.backgroundColor = [UIColor orangeColor];
+//    }
     //取消高亮效果
     itemBtn.adjustsImageWhenHighlighted = NO;
     //设置图片

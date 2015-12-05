@@ -353,6 +353,7 @@
 		D9CEC98C1C0EDEC6008DEE69 /* YBBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC98B1C0EDEC6008DEE69 /* YBBaseNavigationController.m */; };
 		D9D375611C127457008C54FF /* DVVDockItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D3755E1C127457008C54FF /* DVVDockItem.m */; };
 		D9D375621C127457008C54FF /* DVVTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D375601C127457008C54FF /* DVVTabBarController.m */; };
+		D9E41AB61C129DD0007A2019 /* YBBaseTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E41AB51C129DD0007A2019 /* YBBaseTableCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -948,6 +949,8 @@
 		D9D3755E1C127457008C54FF /* DVVDockItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVVDockItem.m; sourceTree = "<group>"; };
 		D9D3755F1C127457008C54FF /* DVVTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVVTabBarController.h; sourceTree = "<group>"; };
 		D9D375601C127457008C54FF /* DVVTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVVTabBarController.m; sourceTree = "<group>"; };
+		D9E41AB41C129DD0007A2019 /* YBBaseTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBBaseTableCell.h; sourceTree = "<group>"; };
+		D9E41AB51C129DD0007A2019 /* YBBaseTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YBBaseTableCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2261,6 +2264,8 @@
 				D9CEC9471C0EC46F008DEE69 /* YBBaseTableController.m */,
 				D9CEC9491C0EC4FE008DEE69 /* YBBaseViewModel.h */,
 				D9CEC94A1C0EC4FE008DEE69 /* YBBaseViewModel.m */,
+				D9E41AB41C129DD0007A2019 /* YBBaseTableCell.h */,
+				D9E41AB51C129DD0007A2019 /* YBBaseTableCell.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -2716,6 +2721,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B895A1961C1032C000FEDD78 /* InformationViewModel.m in Sources */,
+				D9E41AB61C129DD0007A2019 /* YBBaseTableCell.m in Sources */,
 				B895A1951C10329F00FEDD78 /* InformationDataModel.m in Sources */,
 				B8771E361C098E6B0051DE9D /* RFSegmentView.m in Sources */,
 				060BA8831C10116C009AD55E /* ZTJudgeBottonSign.m in Sources */,
