@@ -34,18 +34,6 @@
         [tabBarVC addChildViewController:viewController];
     }
     
-    // 设置tabBar的item选中颜色
-    tabBarVC.tabBar.tintColor = [UIColor orangeColor];
-    
-    // 设置选中的item，从0开始
-    tabBarVC.selectedIndex = 0;
-    
-    // 设置tabBar的背景颜色
-    tabBarVC.tabBar.barTintColor = [UIColor colorWithHexString:@"303030"];
-    
-    // 设置tabBar的背景图片
-    //    [tabBarVC.tabBar setBackgroundImage:[UIImage imageNamed:@""]];
-    
     //创建sideMenu
     SideMenuController * sideVC = [[SideMenuController alloc] init];
     
