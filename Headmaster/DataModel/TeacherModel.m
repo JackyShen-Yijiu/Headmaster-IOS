@@ -15,7 +15,7 @@
     model.userId = [dic objectStringForKey:@"coachid"];
     model.userName = [dic objectStringForKey:@"name"];
     model.porInfo = [HMPortraitInfoModel converJsonDicToModel:[dic objectInfoForKey:@"headportrait"]];
-    model.raring = 4.5f;
+    model.raring = [[dic objectForKey:@"starlevel"] floatValue];
     return model;
 }
 @end

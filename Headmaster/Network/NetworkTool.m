@@ -9,7 +9,7 @@
 #import "NetworkTool.h"
 #import "AFNetworking.h"
 
-#define  HOST_TEST_DAMIAN  @"http://101.200.204.240:8181/api/headmaster"
+#define  HOST_TEST_DAMIAN  @"http://101.200.204.240:8181/api/"
 
 #define  HOST_LINE_DOMAIN  @"http://123.57.63.15:8181/api/v1"
 
@@ -29,6 +29,15 @@
     });
     
     return _sharedClient;
+}
+
++ (void)addCommonValueInHead:(AFHTTPRequestOperationManager *)manager
+{
+    NSString *   token = [[UserInfoModel defaultUserInfo] token];
+    manager.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    [manager.requestSerializer setValue:token forHTTPHeaderField:@"authorization"];
 }
 
 @end

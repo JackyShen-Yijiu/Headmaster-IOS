@@ -194,25 +194,18 @@
 }
 
 - (void)buttonIsClick {
+    
     [self.view endEditing:YES];
-    NSLog(@"%@",_phoneTF.text);
-    NSLog(@"%@",_passwordTF.text);
+    
     [NetworkEntity loginWithPhotoNumber:_phoneTF.text password:_passwordTF.text success:^(id responseObject) {
         NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
         if (type == 1) {
             
-            UserInfoModel *uim = [UserInfoModel defaultUserInfo];
             NSMutableDictionary * loginInfo = [responseObject mutableCopy];
             [loginInfo setValue:[_passwordTF.text MD5Digest]forKey:@"md5Pass"];
-            BOOL isLogin = [uim loginViewDic:responseObject];
-            if (isLogin) {
-                if ([_delegate respondsToSelector:@selector(loginControllerDidLoginSucess:)]) {
-                    [_delegate loginControllerDidLoginSucess:self];
-                }
-            }
-            NSLog(@"%@",[responseObject objectForKey:@"msg"]);
-            if (isLogin) {
-                NSLog(@"==================%@",uim.name);
+            [[UserInfoModel defaultUserInfo] loginViewDic:loginInfo];
+            if ([_delegate respondsToSelector:@selector(loginControllerDidLoginSucess:)]) {
+                [_delegate loginControllerDidLoginSucess:self];
             }
         }else {
             ToastAlertView *toastView = [[ToastAlertView alloc] initWithTitle:[responseObject objectForKey:@"msg"]];
@@ -222,10 +215,6 @@
         ToastAlertView *toastView = [[ToastAlertView alloc] initWithTitle:@"网络连接失败"];
         [toastView show];
     }];
-    
-
-//    UserInfoModel *uim = [UserInfoModel defaultUserInfo];
-//    [uim loginOut];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {

@@ -305,6 +305,7 @@
 		B895A19D1C1042DB00FEDD78 /* DZNSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B895A19C1C1042DB00FEDD78 /* DZNSegmentedControl.m */; };
 		B895A1A01C10444200FEDD78 /* RecomendPieChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = B895A19F1C10444200FEDD78 /* RecomendPieChartView.m */; };
 		B895A1A31C10448100FEDD78 /* RecomendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B895A1A21C10448100FEDD78 /* RecomendCell.m */; };
+		B8C7031B1C12AE23006035B1 /* SearchBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C7031A1C12AE23006035B1 /* SearchBarView.m */; };
 		D92296BC1C0FD29C00D0FFDF /* NetworkEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = D92296B81C0FD29C00D0FFDF /* NetworkEntity.m */; };
 		D92296BD1C0FD29C00D0FFDF /* NetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D92296BB1C0FD29C00D0FFDF /* NetworkTool.m */; };
 		D92296C81C0FD2FF00D0FFDF /* HomeEvaluateView.m in Sources */ = {isa = PBXBuildFile; fileRef = D92296BF1C0FD2FF00D0FFDF /* HomeEvaluateView.m */; };
@@ -848,6 +849,8 @@
 		B895A19F1C10444200FEDD78 /* RecomendPieChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecomendPieChartView.m; sourceTree = "<group>"; };
 		B895A1A11C10448100FEDD78 /* RecomendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecomendCell.h; path = ../View/RecomendCell.h; sourceTree = "<group>"; };
 		B895A1A21C10448100FEDD78 /* RecomendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecomendCell.m; path = ../View/RecomendCell.m; sourceTree = "<group>"; };
+		B8C703191C12AE23006035B1 /* SearchBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBarView.h; sourceTree = "<group>"; };
+		B8C7031A1C12AE23006035B1 /* SearchBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBarView.m; sourceTree = "<group>"; };
 		D92296B71C0FD29C00D0FFDF /* NetworkEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkEntity.h; sourceTree = "<group>"; };
 		D92296B81C0FD29C00D0FFDF /* NetworkEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkEntity.m; sourceTree = "<group>"; };
 		D92296B91C0FD29C00D0FFDF /* NetworkInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkInterface.h; sourceTree = "<group>"; };
@@ -2337,6 +2340,8 @@
 			children = (
 				55BA0F4D1C0EF19A00F83CD8 /* TeacherController.h */,
 				55BA0F4E1C0EF19A00F83CD8 /* TeacherController.m */,
+				B8C703191C12AE23006035B1 /* SearchBarView.h */,
+				B8C7031A1C12AE23006035B1 /* SearchBarView.m */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -2904,6 +2909,7 @@
 				B8771DDD1C098DE40051DE9D /* EaseConversationListViewController.m in Sources */,
 				B8771D031C098DE40051DE9D /* amrFileCodec.mm in Sources */,
 				060BA8981C1011D7009AD55E /* UILabel+LabelAdjustBig.m in Sources */,
+				B8C7031B1C12AE23006035B1 /* SearchBarView.m in Sources */,
 				B8771D231C098DE40051DE9D /* EMSDWebImagePrefetcher.m in Sources */,
 				B8771DEE1C098DE40051DE9D /* EaseFaceView.m in Sources */,
 				B8771D351C098DE40051DE9D /* PSTCollectionViewUpdateItem.m in Sources */,
