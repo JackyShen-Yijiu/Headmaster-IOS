@@ -28,14 +28,10 @@
     [super viewDidLoad];
     
     UINavigationBar *bar = [UINavigationBar appearance];
-    [bar setBarTintColor:[UIColor colorWithHexString:@"303030"]];
-    [bar setTintColor:[UIColor colorWithHexString:@"fefefe"]];
-    // 标题字体颜色
-    [bar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont systemFontOfSize:16]}];
-    
-    UIBarButtonItem *item = [UIBarButtonItem appearance];
-    
-    [item setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont systemFontOfSize:16]} forState:UIControlStateNormal];
+    [bar setBackgroundImage:[[UIImage imageNamed:@"nav_bar"] stretchableImageWithLeftCapWidth:10 topCapHeight:10] forBarMetrics:UIBarMetricsDefault];
+    [bar setShadowImage:[UIImage new]];
+    // 标题字体颜
+    [bar setTitleTextAttributes:@{NSForegroundColorAttributeName:RGB_Color(0xbf, 0xbf, 0xbf),NSFontAttributeName:[UIFont systemFontOfSize:16]}];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -58,7 +54,6 @@
         {
             viewController.navigationItem.leftBarButtonItems = @[[self barSpaingItem],[self createBackButton]];
         }
-        
     }
     @catch (NSException *exception) {
         

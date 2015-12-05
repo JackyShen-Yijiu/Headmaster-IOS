@@ -13,7 +13,7 @@
 @property(nonatomic,strong)NSString * recomendId;
 @property(nonatomic,strong)NSString * recomendContent;
 @property(nonatomic,strong)NSString * recomendDate;
-@property(nonatomic,strong)NSString * courseType;
+//@property(nonatomic,strong)NSString * courseType;
 @property(nonatomic,strong)NSString * courseName;
 @property(nonatomic,assign)CGFloat rating;
 

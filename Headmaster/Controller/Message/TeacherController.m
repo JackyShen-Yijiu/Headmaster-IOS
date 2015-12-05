@@ -22,7 +22,7 @@
 @property(nonatomic,strong)NSMutableArray * dataSource;
 @property(nonatomic,assign)BOOL isNeedRefresh;
 
-
+@property(nonatomic,strong)NSString * searchKey;
 @end
 
 @implementation TeacherController
@@ -61,7 +61,6 @@
 - (void)initNavBar
 {
     [self resetNavBar];
-//    [[[self myNavController] navigationBar] setBarTintColor:[UIColor clearColor]];
     self.myNavigationItem.title = @"我的教练";
 }
 
@@ -71,7 +70,7 @@
     self.bgView.image = [UIImage imageNamed:@"teacher_bg"];
     [self.view addSubview:self.bgView];
     
-    self.tableView = [[RefreshTableView alloc] initWithFrame:CGRectMake(0, 64, self.view.width, self.view.height - 64) style:UITableViewStylePlain];
+    self.tableView = [[RefreshTableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height) style:UITableViewStylePlain];
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -101,8 +100,8 @@
     WS(ws);
     self.tableView.refreshHeader.beginRefreshingBlock = ^(){
         
-        [NetworkEntity getTeacherListWithSchoolId:[[UserInfoModel defaultUserInfo] schoolId] pageIndex:1 success:^(id responseObject) {
-            
+        [NetworkEntity getTeacherListWithSchoolId:[[UserInfoModel defaultUserInfo] schoolId] searchName:ws.searchKey pageIndex:1 success:^(id responseObject) {
+            ws.searchKey = nil;
             NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
             if (type == 1) {
                 ws.dataSource = [[BaseModelMethod getTeacherListArrayFormDicInfo:[responseObject objectArrayForKey:@"data"]] mutableCopy];
@@ -117,7 +116,7 @@
     };
     
     self.tableView.refreshFooter.beginRefreshingBlock = ^(){
-        [NetworkEntity getTeacherListWithSchoolId:@"56163c376816a9741248b7f9" pageIndex:ws.dataSource.count / RELOADDATACOUNT + 1 success:^(id responseObject) {
+        [NetworkEntity getTeacherListWithSchoolId:[[UserInfoModel defaultUserInfo] schoolId] searchName:ws.searchKey pageIndex:ws.dataSource.count / RELOADDATACOUNT + 1 success:^(id responseObject) {
             NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
             
             if (type == 1) {
@@ -144,8 +143,8 @@
 - (SearchBarView *)searchBar
 {
     if (_searchBar == nil) {
-        _searchBar = [[SearchBarView alloc] initWithFrame: CGRectMake(0, 0, self.view.frame.size.width, 37)];
-        _searchBar.backgroundColor = [UIColor colorWithHexString:@"303030"];
+        _searchBar = [[SearchBarView alloc] initWithFrame: CGRectMake(0, 0, self.view.frame.size.width, 38)];
+        _searchBar.backgroundColor = [UIColor clearColor];
         _searchBar.searchBar.delegate = self;
     }
     return _searchBar;
@@ -155,11 +154,6 @@
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
 {
     [searchBar setShowsCancelButton:YES animated:YES];
-    return YES;
-}
-
-- (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar
-{
     return YES;
 }
 
@@ -177,6 +171,8 @@
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
 {
+    self.searchKey = [searchBar.text copy];
+    [self.tableView.refreshHeader beginRefreshing];
     searchBar.text = @"";
     [searchBar resignFirstResponder];
     [searchBar setShowsCancelButton:NO animated:YES];

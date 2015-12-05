@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "NetworkTool.h"
 #import "AFNetworking.h"
+#import "NetworkInterface.h"
 
 @class UserInfoModel;
 
@@ -29,11 +30,31 @@
 + (void)loginWithPhotoNumber:(NSString *)photoNumber password:(NSString *)password success:(NetworkSuccessBlock)success failure:(NetworkFailureBlock)failure;
 
 /**
- *  教练信息
+ *  获取教练列表
  */
-+ (void)getTeacherListWithSchoolId:(NSString *)schoolId pageIndex:(NSInteger)index
++ (void)getTeacherListWithSchoolId:(NSString *)schoolId
+                        searchName:(NSString *)name
+                         pageIndex:(NSInteger)index
                            success:(NetworkSuccessBlock)success
                            failure:(NetworkFailureBlock)failure;
+
+/**
+ *  获取评论列表
+ *
+ *  @param userId   校长id
+ *  @param schoolId 学校id
+ *  @param index    起始页面（从1开始）
+ *  @param type     查询时间类型：1 今天 2昨天 3 一周 4 本月 5 本年
+ *  @param level    评论等级 1：差评 2中评 3 好评
+ */
++ (void)getRecommendListWithUserid:(NSString *)userId
+                          SchoolId:(NSString *)schoolId
+                         pageIndex:(NSInteger)index
+                        searchType:(kDateSearchType)type
+                      commentLevle:(KCommnetLevel)level
+                           success:(NetworkSuccessBlock)success
+                           failure:(NetworkFailureBlock)failure;
+
 /**
  *  获取发布
  */
