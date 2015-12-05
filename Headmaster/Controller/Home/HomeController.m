@@ -12,8 +12,7 @@
 #import "HomeSeeTimeView.h"
 #import "HomeDataListController.h"
 #import "DataDatilViewController.h"
-#import "HomeDailyViewModel.h"
-#import "HomeWeeklyViewModel.h"
+#import "HomeViewModel.h"
 #import "RESideMenu.h"
 
 @interface HomeController ()
@@ -26,9 +25,7 @@
 
 @property (nonatomic, strong) HomeSeeTimeView *seeTimeView;
 
-@property (nonatomic, strong) HomeWeeklyViewModel *weeklyViewModel;
-
-@property (nonatomic, strong) HomeDailyViewModel *dailyViewModel;
+@property (nonatomic, strong) HomeViewModel *viewModel;
 
 @end
 
@@ -74,24 +71,34 @@
     [self.seeTimeView itemClick:^(UIButton *button) {
         
         self.tag = button.tag;
-        NSLog(@"seeTimeView == %li",button.tag);
-        
-        [_dailyViewModel networkRequestRefresh];
-        
+        if (button.tag == 2) {
+            _viewModel.searchType = kDateSearchTypeWeek;
+            [_viewModel networkRequestRefresh];
+            
+        }else {
+            if(button.tag == 1) {
+                _viewModel.searchType = kDateSearchTypeToday;
+            }else if(button.tag == 2) {
+                _viewModel.searchType = kDateSearchTypeYesterday;
+            }
+            [_viewModel networkRequestRefresh];
+        }
     }];
     
+    _viewModel = [HomeViewModel new];
     // 刷新数据
-    [self.topView refreshSubjectData:@[ @"23", @"57", @"2", @"567" ] sameDay:@"56"];
-    [self.evaluateView refreshData:@[ @"23", @"57", @"2", @"567" ]];
-    
-    // viewModel call back
-    _dailyViewModel = [HomeDailyViewModel new];
-    [_dailyViewModel successRefreshBlock:^{
+    [_viewModel successRefreshBlock:^{
         
-        
+        if (_viewModel.searchType == kDateSearchTypeWeek) {
+            
+            [self.evaluateView refreshData:_viewModel.evaluateArray];
+        }else {
+            [self.topView refreshSubjectData:_viewModel.subjectArray sameDay:_viewModel.applyCount];
+            [self.evaluateView refreshData:_viewModel.evaluateArray];
+        }
     }];
-    
-    [_dailyViewModel networkRequestRefresh];
+    _viewModel.searchType = 1;
+    [_viewModel networkRequestRefresh];
 }
 
 #pragma mark - action

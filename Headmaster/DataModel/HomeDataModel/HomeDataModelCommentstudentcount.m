@@ -21,15 +21,15 @@
 {
 	self = [super init];
 	if(![dictionary[@"badcomment"] isKindOfClass:[NSNull class]]){
-		self.badcomment = [dictionary[@"badcomment"] integerValue];
+		self.badcomment = [NSString stringWithFormat:@"%@",dictionary[@"badcomment"]];
 	}
 
 	if(![dictionary[@"generalcomment"] isKindOfClass:[NSNull class]]){
-		self.generalcomment = [dictionary[@"generalcomment"] integerValue];
+		self.generalcomment = [NSString stringWithFormat:@"%@",dictionary[@"generalcomment"]];
 	}
 
 	if(![dictionary[@"goodcommnent"] isKindOfClass:[NSNull class]]){
-		self.goodcommnent = dictionary[@"goodcommnent"];
+		self.goodcommnent = [NSString stringWithFormat:@"%@",dictionary[@"goodcommnent"]];
 	}	
 	return self;
 }
@@ -41,8 +41,8 @@
 -(NSDictionary *)toDictionary
 {
 	NSMutableDictionary * dictionary = [NSMutableDictionary dictionary];
-	dictionary[@"badcomment"] = @(self.badcomment);
-	dictionary[@"generalcomment"] = @(self.generalcomment);
+	dictionary[@"badcomment"] = self.badcomment;
+	dictionary[@"generalcomment"] = self.generalcomment;
 	if(self.goodcommnent != nil){
 		dictionary[@"goodcommnent"] = self.goodcommnent;
 	}
@@ -58,7 +58,7 @@
  */
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
-	[aCoder encodeObject:@(self.badcomment) forKey:@"badcomment"];	[aCoder encodeObject:@(self.generalcomment) forKey:@"generalcomment"];	if(self.goodcommnent != nil){
+	[aCoder encodeObject:self.badcomment forKey:@"badcomment"];	[aCoder encodeObject:self.generalcomment forKey:@"generalcomment"];	if(self.goodcommnent != nil){
 		[aCoder encodeObject:self.goodcommnent forKey:@"goodcommnent"];
 	}
 
@@ -70,8 +70,8 @@
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
 	self = [super init];
-	self.badcomment = [[aDecoder decodeObjectForKey:@"badcomment"] integerValue];
-	self.generalcomment = [[aDecoder decodeObjectForKey:@"generalcomment"] integerValue];
+	self.badcomment = [aDecoder decodeObjectForKey:@"badcomment"];
+	self.generalcomment = [aDecoder decodeObjectForKey:@"generalcomment"];
 	self.goodcommnent = [aDecoder decodeObjectForKey:@"goodcommnent"];
 	return self;
 
