@@ -12,6 +12,8 @@
 #import "HomeSeeTimeView.h"
 #import "HomeDataListController.h"
 #import "DataDatilViewController.h"
+#import "HomeDailyViewModel.h"
+#import "HomeWeeklyViewModel.h"
 
 @interface HomeController ()
 
@@ -23,6 +25,9 @@
 
 @property (nonatomic, strong) HomeSeeTimeView *seeTimeView;
 
+@property (nonatomic, strong) HomeWeeklyViewModel *weeklyViewModel;
+
+@property (nonatomic, strong) HomeDailyViewModel *dailyViewModel;
 
 @end
 
@@ -36,6 +41,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // 添加侧边栏按钮
+//    UIBarButtonItem *menuBarButton = [UIBarButtonItem]
     
     // 添加button上面一条线
     UIView *lineTopView = [[UIView alloc] initWithFrame:CGRectMake(7.5, 64, self.view.frame.size.width - 15, 2)];
@@ -71,6 +79,15 @@
     // 刷新数据
     [self.topView refreshSubjectData:@[ @"23", @"57", @"2", @"567" ] sameDay:@"56"];
     [self.evaluateView refreshData:@[ @"23", @"57", @"2", @"567" ]];
+    
+    // viewModel call back
+    _dailyViewModel = [HomeDailyViewModel new];
+    _weeklyViewModel = [HomeWeeklyViewModel new];
+    
+    [_dailyViewModel successRefreshBlock:^{
+        
+        
+    }];
 }
 
 #pragma mark - action
