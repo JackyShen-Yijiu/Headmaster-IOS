@@ -6,8 +6,8 @@
 //  Copyright © 2015年 ke. All rights reserved.
 //
 
-#import "YBBaseTableController.h"
+#import "YBBaseController.h"
 
-@interface InformationController : YBBaseTableController
+@interface InformationController : YBBaseController
 
 @end
