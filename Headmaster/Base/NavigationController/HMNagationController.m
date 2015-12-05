@@ -32,10 +32,6 @@
     [bar setShadowImage:[UIImage new]];
     // 标题字体颜
     [bar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont systemFontOfSize:16]}];
-    
-    UIBarButtonItem *item = [UIBarButtonItem appearance];
-    
-    [item setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont systemFontOfSize:16]} forState:UIControlStateNormal];
 }
 
 - (void)viewWillAppear:(BOOL)animated

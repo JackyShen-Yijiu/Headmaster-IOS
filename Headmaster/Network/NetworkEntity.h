@@ -29,9 +29,10 @@
 + (void)loginWithPhotoNumber:(NSString *)photoNumber password:(NSString *)password success:(NetworkSuccessBlock)success failure:(NetworkFailureBlock)failure;
 
 /**
- *  教练信息
+ *  教练List
  */
-+ (void)getTeacherListWithSchoolId:(NSString *)schoolId pageIndex:(NSInteger)index
++ (void)getTeacherListWithSchoolId:(NSString *)schoolId searchName:(NSString *)name
+                         pageIndex:(NSInteger)index
                            success:(NetworkSuccessBlock)success
                            failure:(NetworkFailureBlock)failure;
 /**

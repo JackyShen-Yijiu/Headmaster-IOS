@@ -22,7 +22,7 @@
 @property(nonatomic,strong)NSMutableArray * dataSource;
 @property(nonatomic,assign)BOOL isNeedRefresh;
 
-
+@property(nonatomic,strong)NSString * searchKey;
 @end
 
 @implementation TeacherController
@@ -61,7 +61,6 @@
 - (void)initNavBar
 {
     [self resetNavBar];
-//    [[[self myNavController] navigationBar] setBarTintColor:[UIColor clearColor]];
     self.myNavigationItem.title = @"我的教练";
 }
 
@@ -101,8 +100,8 @@
     WS(ws);
     self.tableView.refreshHeader.beginRefreshingBlock = ^(){
         
-        [NetworkEntity getTeacherListWithSchoolId:[[UserInfoModel defaultUserInfo] schoolId] pageIndex:1 success:^(id responseObject) {
-            
+        [NetworkEntity getTeacherListWithSchoolId:[[UserInfoModel defaultUserInfo] schoolId] searchName:ws.searchKey pageIndex:1 success:^(id responseObject) {
+            ws.searchKey = nil;
             NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
             if (type == 1) {
                 ws.dataSource = [[BaseModelMethod getTeacherListArrayFormDicInfo:[responseObject objectArrayForKey:@"data"]] mutableCopy];
@@ -117,7 +116,7 @@
     };
     
     self.tableView.refreshFooter.beginRefreshingBlock = ^(){
-        [NetworkEntity getTeacherListWithSchoolId:@"56163c376816a9741248b7f9" pageIndex:ws.dataSource.count / RELOADDATACOUNT + 1 success:^(id responseObject) {
+        [NetworkEntity getTeacherListWithSchoolId:@"56163c376816a9741248b7f9"   searchName:ws.searchKey pageIndex:ws.dataSource.count / RELOADDATACOUNT + 1 success:^(id responseObject) {
             NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
             
             if (type == 1) {
@@ -158,11 +157,6 @@
     return YES;
 }
 
-- (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar
-{
-    return YES;
-}
-
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     [searchBar resignFirstResponder];
@@ -177,6 +171,8 @@
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
 {
+    self.searchKey = [searchBar.text copy];
+    [self.tableView.refreshHeader beginRefreshing];
     searchBar.text = @"";
     [searchBar resignFirstResponder];
     [searchBar setShowsCancelButton:NO animated:YES];
