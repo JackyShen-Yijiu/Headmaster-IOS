@@ -29,10 +29,9 @@
     model.studendName = [stuInfo objectStringForKey:@"name"];
     model.stuPortrait = [HMPortraitInfoModel converJsonDicToModel:[stuInfo objectInfoForKey:@"headportrait"]];;
     
- 
-    model.courseName = [[stuInfo objectInfoForKey:@"classtype"] objectStringForKey:@"name"];
-//    model.courseType = [[stuInfo objectInfoForKey:@"classtype"] objectStringForKey:@"name"];
-    
+    model.courseType = [[stuInfo objectInfoForKey:@"classtype"] objectStringForKey:@"name"];
+    model.courseName = [[dic objectInfoForKey:@"subject"] objectStringForKey:@"name"];
+        
     return model;
 }
 

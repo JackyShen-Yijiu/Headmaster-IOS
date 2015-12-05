@@ -16,7 +16,7 @@
 @property(nonatomic,assign)KRecomendCellType  cellType;
 
 @property(nonatomic,strong)CWStarRateView * rateView;
-//@property(nonatomic,strong)UILabel * courseType;
+@property(nonatomic,strong)UILabel * courseType;
 @property(nonatomic,strong)UILabel * courseName;
 @property(nonatomic,strong)UILabel * recomendContent;
 @property(nonatomic,strong)UILabel * recomendTime;
@@ -123,13 +123,12 @@
     
     self.rateView = [[CWStarRateView alloc] initWithFrame:CGRectMake(0, 0, 146, 23.f) numberOfStars:5];
     [self.rateView setUserInteractionEnabled:NO];
-    self.rateView.scorePercent = (2.5 / 5.f);
     [self.contentView addSubview:self.rateView];
 
     
-//    self.courseType = [self getOnePropertyLabel];
-//    self.courseType.font = [UIFont systemFontOfSize:12.f];
-//    [self.contentView addSubview:self.courseType];
+    self.courseType = [self getOnePropertyLabel];
+    self.courseType.font = [UIFont systemFontOfSize:12.f];
+    [self.contentView addSubview:self.courseType];
     
     self.courseName = [self getOnePropertyLabel];
     self.courseName.font = [UIFont systemFontOfSize:12.f];
@@ -193,10 +192,10 @@
 //        make.right.equalTo(self.courseName.mas_left).offset(-30);
 //    }];
 //
-    [self.courseName mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(self.coaButton);
-        make.centerX.equalTo(self);
-    }];
+//    [self.courseName mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.right.equalTo(self.courseName.mas_left).offset(-30);
+//        make.centerY.equalTo(self.coaButton);
+//    }];
     
     [self.stuName mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.stuPorView);
@@ -229,14 +228,14 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-//    [self.courseName sizeToFit];
-//    [self.courseType sizeToFit];
-//    CGFloat spacing = 10.f;
-//    CGFloat offsetX =( self.width - (self.courseType.width + self.courseName.width + spacing))/2.f;
-//    self.courseType.left = offsetX;
-//    self.courseType.centerY = self.coaButton.centerY;
-//    self.courseName.left = self.courseType.right + spacing;
-//    self.courseName.centerY = self.coaButton.centerY;
+    [self.courseName sizeToFit];
+    [self.courseType sizeToFit];
+    CGFloat spacing = 10.f;
+    CGFloat offsetX =( self.width - (self.courseType.width + self.courseName.width + spacing))/2.f;
+    self.courseType.left = offsetX;
+    self.courseType.centerY = self.coaButton.centerY;
+    self.courseName.left = self.courseType.right + spacing;
+    self.courseName.centerY = self.coaButton.centerY;
 }
 
 #pragma mark - Data
@@ -254,10 +253,12 @@
     if(_model.coaPortrait.originalpic)
         [self.stuPorView.imageView sd_setImageWithURL:[NSURL URLWithString:_model.coaPortrait.originalpic] placeholderImage:defaultImage];
     
+    self.rateView.scorePercent = (_model.rating / 5.f);
+    
     self.stuName.text = _model.studendName;
     self.coaName.text = _model.coaName;
     
-//    self.courseType.text = _model.courseType;
+    self.courseType.text = _model.courseType;
     self.courseName.text = _model.courseName;
     
     self.recomendContent.attributedText = [[self class] addLineSpacing:_model.recomendContent];

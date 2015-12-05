@@ -22,7 +22,6 @@
 @property (nonatomic, strong) NSArray *menuItems;
 
 @property (nonatomic, strong) RecomendPieChartView * pieView;
-@property (nonatomic, strong) RecomendPieChartViewModel * pieModel;
 
 @property (nonatomic, strong)RefreshTableView * tableView;
 @property (nonatomic, strong)NSMutableArray * dataModel;
@@ -134,24 +133,27 @@
         
         if (self.controlView.control.selectedSegmentIndex == 3) {
             //投诉
-            
+            ws.tableView.tableHeaderView = nil;
         }else{
             //评论
+            ws.tableView.tableHeaderView = ws.pieView;
             [NetworkEntity getRecommendListWithUserid:[[UserInfoModel defaultUserInfo] userID]
                                              SchoolId:[[UserInfoModel defaultUserInfo] schoolId]
                                             pageIndex:1
                                            searchType:ws.searchType
                                          commentLevle:ws.controlView.control.selectedSegmentIndex + 1
                                               success:^(id responseObject) {
+                                                
                                                   
                                                   NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
                                                   if (type == 1) {
                                                       NSDictionary * data = [responseObject objectInfoForKey:@"data"];
                                                       ws.dataModel = [[BaseModelMethod getRecomendListArrayFormDicInfo:[data objectArrayForKey:@"commentlist"]] mutableCopy];
-                                                                      
+                                                      [ws.pieView updateUIWithCountInfo:[data objectInfoForKey:@"commentcount"]];
+                                                      
                                                       [ws.tableView.refreshHeader endRefreshing];
                                                       [ws.tableView reloadData];
-                                                  }
+                                                  } 
                                                   
                                                   
                                               } failure:^(NSError *failure) {
@@ -164,8 +166,10 @@
     self.tableView.refreshFooter.beginRefreshingBlock = ^(){
         if (self.controlView.control.selectedSegmentIndex == 3) {
             //投诉
+            ws.tableView.tableHeaderView = nil;
         }else{
             //评论
+            ws.tableView.tableHeaderView = ws.pieView;
             [NetworkEntity getRecommendListWithUserid:[[UserInfoModel defaultUserInfo] userID]
                                              SchoolId:[[UserInfoModel defaultUserInfo] schoolId]
                                             pageIndex:1
@@ -196,6 +200,15 @@
         }
 
     };
+}
+
+#pragma mark - PieChatView
+- (RecomendPieChartView *)pieView
+{
+    if (!_pieView) {
+        _pieView = [[RecomendPieChartView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 210)];
+    }
+    return _pieView;
 }
 
 #pragma mark -  DZNSegmentedControl
