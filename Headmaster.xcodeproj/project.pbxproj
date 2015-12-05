@@ -24,6 +24,7 @@
 		060BA89D1C1011F8009AD55E /* CoachOfCoureDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 060BA89B1C1011F8009AD55E /* CoachOfCoureDetailCell.xib */; };
 		060BA8A01C10121F009AD55E /* DataDatilViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 060BA89F1C10121F009AD55E /* DataDatilViewController.m */; };
 		060BA8A31C10122C009AD55E /* CoachOfCoureDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 060BA8A21C10122C009AD55E /* CoachOfCoureDetailController.m */; };
+		5543A6341C130D710063F7EE /* UserCenterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5543A6331C130D710063F7EE /* UserCenterController.m */; };
 		556D3CEA1C1128CF0012C2D5 /* PublishDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 556D3CE91C1128CF0012C2D5 /* PublishDataModel.m */; };
 		556D3CED1C112A240012C2D5 /* PublishDataModelRootClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 556D3CEC1C112A240012C2D5 /* PublishDataModelRootClass.m */; };
 		556D3CF01C112A870012C2D5 /* PublishViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 556D3CEF1C112A870012C2D5 /* PublishViewModel.m */; };
@@ -401,6 +402,8 @@
 		060BA89F1C10121F009AD55E /* DataDatilViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataDatilViewController.m; sourceTree = "<group>"; };
 		060BA8A11C10122C009AD55E /* CoachOfCoureDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoachOfCoureDetailController.h; sourceTree = "<group>"; };
 		060BA8A21C10122C009AD55E /* CoachOfCoureDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoachOfCoureDetailController.m; sourceTree = "<group>"; };
+		5543A6321C130D710063F7EE /* UserCenterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterController.h; sourceTree = "<group>"; };
+		5543A6331C130D710063F7EE /* UserCenterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterController.m; sourceTree = "<group>"; };
 		556D3CE81C1128CF0012C2D5 /* PublishDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishDataModel.h; sourceTree = "<group>"; };
 		556D3CE91C1128CF0012C2D5 /* PublishDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishDataModel.m; sourceTree = "<group>"; };
 		556D3CEB1C112A240012C2D5 /* PublishDataModelRootClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishDataModelRootClass.h; sourceTree = "<group>"; };
@@ -1050,6 +1053,15 @@
 				948A09C6A9F41BA727FBB910 /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		5543A6311C130D5E0063F7EE /* UserCenter */ = {
+			isa = PBXGroup;
+			children = (
+				5543A6321C130D710063F7EE /* UserCenterController.h */,
+				5543A6331C130D710063F7EE /* UserCenterController.m */,
+			);
+			path = UserCenter;
 			sourceTree = "<group>";
 		};
 		B8771AEC1C09761F0051DE9D = {
@@ -2348,7 +2360,7 @@
 				D9CEC8F51C0E8CF7008DEE69 /* Login */,
 				D9CEC8FB1C0E8CF7008DEE69 /* Set */,
 				D9CEC8FC1C0E8CF7008DEE69 /* SideMenu */,
-				D9CEC8FD1C0E8CF7008DEE69 /* UserCenter */,
+				5543A6311C130D5E0063F7EE /* UserCenter */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2419,13 +2431,6 @@
 				55BA0F541C0EF6D300F83CD8 /* PublishController.m */,
 			);
 			path = SideMenu;
-			sourceTree = "<group>";
-		};
-		D9CEC8FD1C0E8CF7008DEE69 /* UserCenter */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = UserCenter;
 			sourceTree = "<group>";
 		};
 		D9CEC8FE1C0E8CF7008DEE69 /* Welcome */ = {
@@ -2873,6 +2878,7 @@
 				B8771CFD1C098DE40051DE9D /* EMAudioRecorderUtil.m in Sources */,
 				B8771E551C0991570051DE9D /* UIViewController+Method.m in Sources */,
 				060BA8921C101197009AD55E /* WeekDataView.m in Sources */,
+				5543A6341C130D710063F7EE /* UserCenterController.m in Sources */,
 				B8771DD31C098DE40051DE9D /* UIViewController+DismissKeyboard.m in Sources */,
 				B8771DDC1C098DE40051DE9D /* ConversationListController.m in Sources */,
 				B8771D051C098DE40051DE9D /* EMVoiceConverter.mm in Sources */,

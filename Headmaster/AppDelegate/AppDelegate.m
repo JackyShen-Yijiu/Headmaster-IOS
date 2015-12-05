@@ -41,19 +41,10 @@
     self.navController = [[HMNagationController alloc] initWithRootViewController:loginViewC];
     self.window.rootViewController =  self.navController;
     
-<<<<<<< HEAD
-    self.window.rootViewController = [self rootViewController];
- 
-//    self.window.rootViewController = [LoginController new];
-//    self.window.rootViewController = [InformationController new];
-//    self.window.rootViewController = [PublishController new];
 
-    [self.window makeKeyAndVisible];
-=======
     if ([UserInfoModel isLogin]) {
         [self loginControllerDidLoginSucess:nil];
     }
->>>>>>> dd08fdb2bd74c9e181fe2499e4f282ecaa29aa28
     
     if([self isReciveFromHunaxin:launchOptions]){
         [self.navController jumpToMessageList];
