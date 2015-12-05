@@ -54,6 +54,26 @@
                       commentLevle:(KCommnetLevel)level
                            success:(NetworkSuccessBlock)success
                            failure:(NetworkFailureBlock)failure;
+/**
+ *  投诉
+ *  ====================================================================================================================================
+ */
+
++ (void)getComplainListWithUserid:(NSString *)userId
+                         SchoolId:(NSString *)schoolId
+                        pageIndex:(NSInteger)index
+                          success:(NetworkSuccessBlock)success
+                          failure:(NetworkFailureBlock)failure;
+
+
+/**
+ *  标示处理完成投诉
+ *
+ */
++ (void)markDealComplainWithComplainId:(NSString *)complainId
+                                 useID:(NSString *)userId
+                               Success:(NetworkSuccessBlock)success
+                               failure:(NetworkFailureBlock)failure;
 
 /**
  *  获取发布

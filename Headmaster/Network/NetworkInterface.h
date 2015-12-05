@@ -13,24 +13,28 @@
 
 /* 用户相关 */
 // 登录
-#define USER_LOGIN @"headmaster/userinfo/userlogin"
+#define USER_LOGIN                  @"headmaster/userinfo/userlogin"
 
 /* 资讯相关 */
-#define INFORMATION_LIST @"headmaster/info/getnews"
+#define INFORMATION_LIST            @"headmaster/info/getnews"
 
 /* 教练相关 */
-#define SCHOOLCOACH @"v1/getschoolcoach"
+#define SCHOOLCOACH                 @"v1/getschoolcoach"
 
 /* 获取公告 */
 
-#define GETPUBLISH @"headmaster/userinfo/getbulletin"
+#define GETPUBLISH                  @"headmaster/userinfo/getbulletin"
 
 /* 发布公告 */
 
-#define PUBLISHMESSAGE @"headmaster/userinfo/publishbulletin"
+#define PUBLISHMESSAGE              @"headmaster/userinfo/publishbulletin"
 
 /*获取评论*/
-#define RECOMENDHMESSAGE @"headmaster/statistics/commentdetails"
+#define RECOMENDHMESSAGE            @"headmaster/statistics/commentdetails"
+
+/*投诉*/
+#define COMPLAINHMESSAGE            @"headmaster/statistics/complaintdetails"
+#define DEALDONWHMESSAGE            @"headmaster/statistics/handlecomplaint"
 
 #endif /* NetworkMacro_h */
 
