@@ -29,7 +29,7 @@
 {
     self = [super init];
     if (self) {
-        self.backgroundColor = [UIColor whiteColor];
+//        self.backgroundColor = [UIColor whiteColor];
         //调用初始化属性
         [self chuShiHuaShuXing];
     }
@@ -128,7 +128,7 @@
         
         [self addSubview:itemButton];
     }
-    _followBarLabel = [UILabel new];
+//    _followBarLabel = [UILabel new];
     //添加跟随的按钮
     CGFloat locationFloat = _selectButtonInteger * buttonSize.width;
     if (_followBarLocation) {
@@ -176,7 +176,7 @@
     //字体
     upButton.titleLabel.font = _downTitleFont;
     //显示文字颜色
-    [upButton setTitleColor:_titleNormalColor forState:UIControlStateNormal];
+    [upButton setTitleColor:[UIColor colorWithHexString:@"19f9cc"] forState:UIControlStateNormal];
     [upButton setTitleColor:_titleSelectColor forState:UIControlStateSelected];
     
     UIButton *downButton = [UIButton new];
@@ -184,7 +184,7 @@
     downButton.frame = CGRectMake(0, size.height / 2.0, size.width, size.height / 2.0);
     [downButton setTitle:downTitle forState:UIControlStateNormal];
     downButton.titleLabel.font = _downTitleFont;
-    [downButton setTitleColor:_titleNormalColor forState:UIControlStateNormal];
+    [downButton setTitleColor:[UIColor colorWithHexString:@"009577"] forState:UIControlStateNormal];
     [downButton setTitleColor:_titleSelectColor forState:UIControlStateSelected];
     
     upButton.userInteractionEnabled = NO;

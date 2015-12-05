@@ -52,7 +52,7 @@
         button.frame = CGRectMake (i * buttonW , 0, buttonW, buttonH);
         [button setTitle:_titleArray[i] forState:UIControlStateNormal];
 //        button.backgroundColor = [UIColor whiteColor];
-        [button setTintColor:[UIColor grayColor]];
+        [button setTintColor:[UIColor colorWithHexString:@"047a64"]];
         [button addTarget:self action:@selector(didClickButton:) forControlEvents:UIControlEventTouchUpInside];
         button.tag = 101 + i;
         [self addSubview:button];
@@ -62,7 +62,7 @@
     CGFloat followLabelH = 1.f;
     CGFloat followLabel = (_selectButtonInteger - 101) * buttonW;
     _followLabel.frame = CGRectMake(followLabel, buttonH - followLabelH , buttonW, followLabelH);
-    _followLabel.backgroundColor = [UIColor orangeColor];
+    _followLabel.backgroundColor = [UIColor colorWithHexString:@"01e2b6"];
     _followLabel.tag = 2000;
     [self addSubview:_followLabel];
     
@@ -85,7 +85,7 @@
         // 设置按钮恢复状态
         for (UIButton *childButton in btn.superview.subviews) {
             if (childButton.tag == _selectButtonInteger) {
-               [childButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+               [childButton setTitleColor:[UIColor colorWithHexString:@"047a64"] forState:UIControlStateNormal];
             }
         }
         
@@ -107,7 +107,7 @@
     for (int i = 0; i < array.count; i++) {
 //        if ([array[i] isKindOfClass:[UIButton class]]) {
             if ([array[i] tag] == tag) {
-                [array[i] setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+                [array[i] setTitleColor:[UIColor colorWithHexString:@"01e2b6"] forState:UIControlStateNormal];
                 
                 // 获得button的frame
                 CGRect rect = [array[i] frame];

@@ -16,24 +16,46 @@
     // Initialization code
 }
 - (IBAction)buttonClick:(UIButton *)sender {
-    sender.tag = 1;
     if (_deleteCell) {
         _deleteCell();
     }
 }
 
 - (void)adaptHeightWithString:(NSString *)str {
-    
-    /*
-     //计算一个字符串完整展示出来，所需要的size
-     //第一个参数是计算结果的限制，一般都只限制宽度
-     //第二个参数固定写法
-     //第三个参数是字符串在计算占用size时，所采用的属性，比如：字体大小
-     CGSize size = [tm.body boundingRectWithSize:CGSizeMake(k_width - 90 -1 , CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:[NSDictionary dictionaryWithObject:cell.bodyLabel.font forKey:NSFontAttributeName] context:nil].size;
-     */
     CGSize size = [str boundingRectWithSize:CGSizeMake(h_size.width - 16 -1 , CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:[NSDictionary dictionaryWithObject:_contentLabel.font forKey:NSFontAttributeName] context:nil].size;
     
-    _lableHeightConstraint.constant = size.height+5;
+    _lableHeightConstraint.constant = size.height+1;
+}
+
+/*@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+ 
+ @property (nonatomic, copy) void(^deleteCell)();
+ @property (weak, nonatomic) IBOutlet UILabel *whichPersonLabel;
+ @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+ @property (weak, nonatomic) IBOutlet UILabel *dateLabel;*/
+
+- (void)refreshData:(PublishDataModel *)dataModel {
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    self.contentLabel.text = dataModel.content;
+    self.contentLabel.textColor = [UIColor colorWithHexString:TEXT_HIGHLIGHT_COLOR];
+    [self adaptHeightWithString:dataModel.content];
+    self.whichPersonLabel.textColor = [UIColor colorWithHexString:DARK_COLOR];
+    if ([dataModel.bulletobject isEqualToString:@"1"]) {
+        self.whichPersonLabel.text = @"学员";
+    }else {
+        self.whichPersonLabel.text = @"教练";
+    }
+    NSRange rangeTime = NSMakeRange(0, 10);
+    NSRange rangeData = NSMakeRange(11, 5);
+    self.dateLabel.text = [dataModel.createtime substringWithRange:rangeTime];
+    self.timeLabel.text = [dataModel.createtime substringWithRange:rangeData];
+    self.timeLabel.textColor = [UIColor colorWithHexString:TEXT_NORMAL_COLOR];
+    self.dateLabel.textColor = [UIColor colorWithHexString:TEXT_NORMAL_COLOR];
+    self.lineBtn.layer.shadowColor = [UIColor whiteColor].CGColor;
+    self.lineBtn.layer.shadowOffset = CGSizeMake(0, 1);
+    self.lineBtn.layer.shadowOpacity = 0.2;
+    self.lineBtn.layer.shadowRadius = 0.5;
+    self.lineBtn.alpha = 0.7;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

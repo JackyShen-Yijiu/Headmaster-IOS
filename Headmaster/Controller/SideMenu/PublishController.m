@@ -9,19 +9,19 @@
 #import "PublishController.h"
 #import "PublishCell.h"
 #import "RefreshTableView.h"
-#import "NetworkInterface.h"
+#import "PublishViewModel.h"
+#import "BaseModelMethod.h"
 
-#define USERINFO_IDENTIFY       @"USERINFO_IDENTIFY"
 #define h_size [UIScreen mainScreen].bounds.size
 
 @interface PublishController () <UITableViewDataSource,UITableViewDelegate,UITextViewDelegate> {
     NSMutableArray *_dataArr;
     UITextView *_tv;
-    UILabel *_placeholderLabel;
+
     int _isCoachBtn;   //1表示学员 2表示教练
 }
 
-@property (nonatomic, strong) UITableView        *tableView;
+@property (nonatomic, strong) RefreshTableView   *tableView;
 
 @property (nonatomic, strong) NSMutableArray     *dataArr;
 
@@ -33,6 +33,13 @@
 
 @property (nonatomic, strong) UIButton           *studentBtn;
 
+@property (nonatomic, strong) PublishViewModel   *viewModel;
+
+@property (nonatomic, assign) int                seqindex;
+
+@property (nonatomic, strong) UILabel            *placeholderLabel;
+
+@property (nonatomic, strong) UITextView         *tv;
 
 @end
 
@@ -40,6 +47,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
     self.navigationItem.rightBarButtonItem = self.publishBtn;
     
@@ -47,62 +55,41 @@
     
 }
 
-- (void)pushBtnClick {
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)publishBtnClick {
-    [_tv resignFirstResponder];
-    [NetworkEntity postPublishMessageWithUseInfoModel:[UserInfoModel defaultUserInfo] textContent:_tv.text type:[NSString stringWithFormat:@"%d",_isCoachBtn] success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"++++++++++%@",responseObject);
-        NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
-        NSLog(@"%@",[dataDic objectForKey:@"msg"]);
-        ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"发表成功"];
-        [alertView show];
-    } failure:^(AFHTTPRequestOperation *operation, id responseObject) {
-        ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"发表失败"];
-        [alertView show];
-    }];
-    
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor blackColor];
-    _isCoachBtn = 1;
+    [self addBackgroundImage];
+    _isCoachBtn = 2;
     [self createUI];
-    [self startConnection];
+    _viewModel = [PublishViewModel new];
+    [_viewModel successRefreshBlock:^{
+        NSLog(@"我被成功回调了哟！");
+        PublishDataModel *dataModel = [_viewModel.publishData lastObject];
+        self.seqindex = [dataModel.seqindex intValue];
+        [self.tableView reloadData];
+    }];
+    [_viewModel errorLoadMoreBlock:^{
+        [self netErrorWithTableView:_tableView];
+    }];
+    [_viewModel networkRequestRefresh];
+    [self initRefreshView];
 }
 
 - (void)createUI {
-    _dataArr = [[NSMutableArray alloc] initWithObjects:@"如果你无法简洁的表达你的想法，那只说明你还不够了解它，阿尔伯特。爱因斯坦你无法简洁的表达你的想法，那只说明你还不够了解它，阿尔伯特。爱因斯坦爱因斯坦爱因斯坦如果你无法简洁的表达你的想法，那只说明你还不够了解它，阿尔伯特。爱因斯坦你无法简洁的表达你的想法，那只说明你还不够了解它，阿尔伯特。爱因斯坦爱因斯坦爱因",@"如果你无法简洁的表达你的想法，那只爱因斯坦爱因斯坦爱因爱因斯坦爱因斯坦爱因说明你还不够了解它，阿尔伯爱因斯坦爱因斯坦爱因爱因斯坦爱因斯坦爱因爱因斯坦爱因斯坦爱因特。爱因斯坦爱因斯坦爱因斯坦爱因",@"如果你无法简洁的爱因斯坦爱因斯坦爱因表达你的表达你的想法，那只说明你还不够了解它，阿尔伯特。爱因斯坦", nil];
-    
     [self.view addSubview:self.tableView];
     [_tableView registerNib:[UINib nibWithNibName:@"PublishCell" bundle:nil] forCellReuseIdentifier:@"yy"];
     UIView *view = [[UIView alloc] init];
     _tableView.tableFooterView = view;
-    
-//    [self initRefreshView];
-}
-
-- (void)startConnection {
-    
-    [NetworkEntity getPublishListWithUseInfoModel:[UserInfoModel defaultUserInfo] seqindex:[NSString stringWithFormat:@"%d",0] count:[NSString stringWithFormat:@"%d",10] success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
-        NSLog(@"__________%@",dataDic);
-    } failure:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"网络连接失败");
-    }];
 }
 
 #pragma mark - lazy load
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, h_size.width, h_size.height)];
+        _tableView = [[RefreshTableView alloc] initWithFrame:CGRectMake(0, 64, self.view.width, self.view.height - 64) style:UITableViewStylePlain];
         _tableView.dataSource = self;
         _tableView.delegate = self;
+        _tableView.backgroundColor = [UIColor clearColor];
     }
     return _tableView;
 }
@@ -114,11 +101,56 @@
     return _dataArr;
 }
 
+- (UIButton *)coachBtn {
+    if (!_coachBtn) {
+        _coachBtn = [[UIButton alloc] init];
+        self.coachBtn.frame = CGRectMake(32, 10, 60, 19);
+        [self.coachBtn setTitle:@"教练" forState:UIControlStateNormal];
+        [_coachBtn setTitleColor:[UIColor colorWithHexString:DARK_COLOR] forState:UIControlStateNormal];
+        [_coachBtn setImage:[[UIImage imageNamed:@"x42x43"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ] forState:UIControlStateNormal];
+        _coachBtn.imageEdgeInsets = UIEdgeInsetsMake(0,0,0,41);
+        _coachBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -25,0 , 0);
+    }
+    return _coachBtn;
+}
+
+- (UIButton *)studentBtn {
+    if (!_studentBtn) {
+        _studentBtn = [[UIButton alloc] init];
+        self.studentBtn.frame = CGRectMake(120, 10, 60, 19);
+        [self.studentBtn setTitle:@"学员" forState:UIControlStateNormal];
+        [_studentBtn setTitleColor:[UIColor colorWithHexString:@"047a64"] forState:UIControlStateNormal];
+        [_studentBtn setImage:[[UIImage imageNamed:@"m42x43"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ] forState:UIControlStateNormal];
+        _studentBtn.imageEdgeInsets = UIEdgeInsetsMake(0,0,0,41);
+        _studentBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -25,0, 0);
+        _studentBtn.backgroundColor = [UIColor clearColor];
+    }
+    return _studentBtn;
+}
+
+- (UITextView *)tv {
+    if (!_tv) {
+        _tv = [[UITextView alloc] init];
+        _tv.backgroundColor = [UIColor blackColor];
+        _tv.alpha = 0.5;
+        _tv.textColor = [UIColor colorWithHexString:TEXT_HIGHLIGHT_COLOR];
+    }
+    return _tv;
+}
+
+- (UILabel *)placeholderLabel {
+    if (!_placeholderLabel) {
+        _placeholderLabel = [[UILabel alloc] init];
+        _placeholderLabel.backgroundColor = [UIColor clearColor];
+    }
+    return _placeholderLabel;
+}
+
 - (UIBarButtonItem *)publishBtn {
     if (!_publishBtn) {
         UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
         [button setTitle:@"发布" forState:UIControlStateNormal];
-        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor colorWithHexString:TEXT_HIGHLIGHT_COLOR] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(publishBtnClick) forControlEvents:UIControlEventTouchUpInside];
         _publishBtn = [[UIBarButtonItem alloc] initWithCustomView:button];
     }
@@ -129,65 +161,81 @@
     if (!_pushBtn) {
         UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
         [button setTitle:@"返回" forState:UIControlStateNormal];
-        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor colorWithHexString:TEXT_HIGHLIGHT_COLOR] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(pushBtnClick) forControlEvents:UIControlEventTouchUpInside];
         _pushBtn = [[UIBarButtonItem alloc] initWithCustomView:button];
     }
     return _pushBtn;
 }
-     
-
 
 #pragma mark - refresh
 
+- (void)dealErrorResponseWithTableView:(RefreshTableView *)tableview info:(NSDictionary *)dic
+{
+    [self showTotasViewWithMes:[dic objectForKey:@"msg"]];
+    [tableview.refreshHeader endRefreshing];
+    [tableview.refreshFooter endRefreshing];
+}
+
+- (void)netErrorWithTableView:(RefreshTableView*)tableView
+{
+    [self showTotasViewWithMes:@"网络异常，稍后重试"];
+    [tableView.refreshHeader endRefreshing];
+    [tableView.refreshFooter endRefreshing];
+}
+
 - (void)initRefreshView
 {
+    WS(ws);
+    __weak typeof(_viewModel) viewModel = _viewModel;
+    self.tableView.refreshHeader.beginRefreshingBlock = ^(){
+        [NetworkEntity getPublishListWithUseInfoModel:[UserInfoModel defaultUserInfo] seqindex:[NSString stringWithFormat:@"0"] count:[NSString stringWithFormat:@"10"] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
+            NSInteger type = [[dataDic objectForKey:@"type"] integerValue];
+            if (type == 1) {
+                viewModel.publishData = [[BaseModelMethod getPublishListArrayFormDicInfo:[dataDic objectArrayForKey:@"data"]] mutableCopy];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [ws.tableView.refreshHeader endRefreshing];
+                    [ws.tableView reloadData];
+                });
+            }
+        } failure:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [ws netErrorWithTableView:ws.tableView];
+        }];
+    };
 
-//    WS(ws);
-//    self.tableView.refreshHeader.beginRefreshingBlock = ^(){
-//        
-//        
-//        NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
-//        [NetWorkEntiry getTeacherListWithSchoolId:type pageIndex:1 success:^(id responseObject) {
-//            
-//            if (type == 1) {
-//                ws.tableViewData = [[BaseModelMethod getTeacherListArrayFormDicInfo:[responseObject objectArrayForKey:@"data"]] mutableCopy];
-//                dispatch_async(dispatch_get_main_queue(), ^{
-//                    [ws.tableView.refreshHeader endRefreshing];
-//                    [ws.tableView reloadData];
-//                });
-//            }
-//            
-//        } failure:^(NSError *failure) {
-//            [ws netErrorWithTableView:ws.tableView];
-//        }];
-//        
-//    };
-//    
-//    self.tableView.refreshFooter.beginRefreshingBlock = ^(){
-//        
-//        
-//        [NetWorkEntiry getTeacherListWithSchoolId:@"56163c376816a9741248b7f9" pageIndex:ws.tableViewData.count / RELOADDATACOUNT + 1 success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//            NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
-//            
-//            if (type == 1) {
-//                NSArray * listArray = [[BaseModelMethod getTeacherListArrayFormDicInfo:[responseObject objectArrayForKey:@"data"]] mutableCopy];
-//                if (listArray.count) {
-//                    [ws.tableViewData addObjectsFromArray:listArray];
-//                    [ws.tableView reloadData];
-//                }else{
-//                    [ws showTotasViewWithMes:@"已经加载所有数据"];
-//                }
-//                [ws.tableView.refreshFooter endRefreshing];
-//            }else{
-//                [ws dealErrorResponseWithTableView:ws.tableView info:responseObject];
-//            }
-//            
-//        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//            [ws netErrorWithTableView:ws.tableView];
-//        }];
-//        
-//    };
+    self.tableView.refreshFooter.beginRefreshingBlock = ^(){
+        if (ws.seqindex) {
+            [NetworkEntity getPublishListWithUseInfoModel:[UserInfoModel defaultUserInfo] seqindex:[NSString stringWithFormat:@"%d",ws.seqindex] count:[NSString stringWithFormat:@"10"] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
+                NSInteger type = [[dataDic objectForKey:@"type"] integerValue];
+                if (type == 1) {
+                    NSMutableArray * listArray = [[BaseModelMethod getPublishListArrayFormDicInfo:[dataDic objectArrayForKey:@"data"]] mutableCopy];
+                    PublishDataModel *dataModel = [listArray lastObject];
+                    
+                    ws.seqindex = [dataModel.seqindex intValue];
+                    
+                    if (listArray.count) {
+                        [viewModel.publishData addObjectsFromArray:listArray];
+                        [ws.tableView reloadData];
+                    }else{
+                        [ws showTotasViewWithMes:@"已经加载所有数据"];
+                    }
+                    [ws.tableView.refreshFooter endRefreshing];
+                    
+                }else{
+                    [ws dealErrorResponseWithTableView:ws.tableView info:responseObject];
+                }
+                
+            } failure:^(AFHTTPRequestOperation *operation, id responseObject) {
+                [ws netErrorWithTableView:ws.tableView];
+            }];
+        }else {
+            [ws showTotasViewWithMes:@"已经加载所有数据"];
+            [ws.tableView.refreshFooter endRefreshing];
+        }
+
+    };
 }
 
 
@@ -201,15 +249,16 @@
     if (indexPath.row == 0) {
         return 200;
     }else {
-        NSString *str = _dataArr[indexPath.row -1
-                                 ];
-        CGSize size = [str boundingRectWithSize:CGSizeMake(h_size.width - 16 -1 , CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:[NSDictionary dictionaryWithObject:[UIFont systemFontOfSize:15] forKey:NSFontAttributeName] context:nil].size;
+        PublishDataModel *dataModel = _viewModel.publishData[indexPath.row-1];
+        NSString *contentStr = dataModel.content;
+
+        CGSize size = [contentStr boundingRectWithSize:CGSizeMake(h_size.width - 16 -1 , CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:[NSDictionary dictionaryWithObject:[UIFont systemFontOfSize:15] forKey:NSFontAttributeName] context:nil].size;
         return 50+size.height;
     }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _dataArr.count +1;
+    return _viewModel.publishData.count +1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -217,44 +266,38 @@
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"dy"];
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:0 reuseIdentifier:@"dy"];
+            cell.backgroundColor = [UIColor clearColor];
         }
-        UIButton *coachBtn = [[UIButton alloc] initWithFrame:CGRectMake(20, 5, 60, 30)];
-        [coachBtn setTitle:@"教练" forState:UIControlStateNormal];
-        [coachBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [cell.contentView addSubview:coachBtn];
+        [self.coachBtn addTarget:self action:@selector(coachBtnIsClick) forControlEvents:UIControlEventTouchUpInside];
+        [cell.contentView addSubview:self.coachBtn];
         
-        UIButton *studentBtn = [[UIButton alloc] initWithFrame:CGRectMake(100, 5, 60, 30)];
-        [studentBtn setTitle:@"学员" forState:UIControlStateNormal];
-        [studentBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [cell.contentView addSubview:studentBtn];
+        [self.studentBtn addTarget:self action:@selector(sutdentBtnIsClick) forControlEvents:UIControlEventTouchUpInside];
+        [cell.contentView addSubview:self.studentBtn];
         
-        _placeholderLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 40, 200, 30)];
-        _placeholderLabel.text = @"最多输入300字";
-        _placeholderLabel.font = [UIFont systemFontOfSize:15];
+        self.placeholderLabel.frame = CGRectMake(20, 40, 200, 30);
+        self.placeholderLabel.text = @"最多输入300字";
+        self.placeholderLabel.font = [UIFont systemFontOfSize:15];
         
-        _placeholderLabel.textColor = [UIColor grayColor];
-        [cell.contentView addSubview:_placeholderLabel];
+        self.placeholderLabel.textColor = [UIColor grayColor];
+        [cell.contentView addSubview:self.placeholderLabel];
         
-        _tv = [[UITextView alloc] initWithFrame:CGRectMake(10, 40, h_size.width-20, 150)];
-        _tv.backgroundColor = [UIColor clearColor];
-        _tv.delegate = self;
-        _tv.layer.borderColor = [UIColor blackColor].CGColor;
-        _tv.layer.borderWidth = 1;
-        [cell.contentView addSubview:_tv];
-        
+        self.tv.frame = CGRectMake(10, 40, h_size.width-20, 150);
+        self.tv.delegate = self;
+        self.tv.layer.borderColor = [UIColor blackColor].CGColor;
+        self.tv.layer.borderWidth = 1;
+        [cell.contentView addSubview:self.tv];
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }else {
         PublishCell *cell = [tableView dequeueReusableCellWithIdentifier:@"yy"];
-        
+        cell.backgroundColor = [UIColor clearColor];
         cell.deleteCell = ^{
-            [_dataArr removeObjectAtIndex:indexPath.row-1];
+            [_viewModel.publishData removeObjectAtIndex:indexPath.row-1];
             [tableView reloadData];
         };
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.contentLabel.text = _dataArr[indexPath.row-1];
-        [cell adaptHeightWithString:_dataArr[indexPath.row-1]];
+        PublishDataModel *dataModel = _viewModel.publishData[indexPath.row-1];
+        [cell refreshData:dataModel];
         return cell;
     }
 }
@@ -263,11 +306,11 @@
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
     if (![text isEqualToString:@""]) {
-        _placeholderLabel.hidden = YES;
+        self.placeholderLabel.hidden = YES;
         
     }
     if ([text isEqualToString:@""] && range.location == 0 && range.length == 1) {
-        _placeholderLabel.hidden = NO;
+        self.placeholderLabel.hidden = NO;
     }
     if (range.location>=300) {
         return NO;
@@ -275,11 +318,48 @@
     return YES;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma marl - buttonClick
+
+- (void)coachBtnIsClick {
+    _isCoachBtn = 2;
+    [self changePNG];
 }
 
+- (void)sutdentBtnIsClick {
+    _isCoachBtn = 1;
+    [self changePNG];
+}
+
+- (void)changePNG {
+    if (_isCoachBtn == 2) {
+        [_coachBtn setImage:[[UIImage imageNamed:@"x42x43"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ] forState:UIControlStateNormal];
+        [_studentBtn setImage:[[UIImage imageNamed:@"m42x43"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ] forState:UIControlStateNormal];
+    }else {
+        [_coachBtn setImage:[[UIImage imageNamed:@"m42x43"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ] forState:UIControlStateNormal];
+        [_studentBtn setImage:[[UIImage imageNamed:@"x42x43"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ] forState:UIControlStateNormal];
+    }
+}
+
+- (void)pushBtnClick {
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)publishBtnClick {
+    [_tv resignFirstResponder];
+    [_viewModel needPublishMessageWithContentStr:_tv.text WithType:[NSString stringWithFormat:@"%d",_isCoachBtn]];
+    [_tableView reloadData];
+    _tv.text = @"";
+    [self.tableView.refreshHeader beginRefreshing];
+    
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    [_tv resignFirstResponder];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [NetworkTool cancelAllRequest];
+}
 /*
 #pragma mark - Navigation
 

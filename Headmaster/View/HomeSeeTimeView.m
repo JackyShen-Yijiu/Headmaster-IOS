@@ -9,6 +9,7 @@
 #import "HomeSeeTimeView.h"
 #define ButtonWidth self.size.height
 
+
 @interface HomeSeeTimeView()
 
 @property (nonatomic, strong) UIButton *leftButton;
@@ -16,6 +17,10 @@
 @property (nonatomic, strong) UIButton *middleButton;
 
 @property (nonatomic, strong) UIButton *rightButton;
+
+@property (nonatomic,strong) UIImageView *leftImageview;
+
+@property (nonatomic,strong) UIImageView *rightImageView;
 
 @property (nonatomic, copy) ButtonClickBlock itemClick;
 
@@ -33,6 +38,9 @@
     [self addSubview:self.leftButton];
     [self addSubview:self.middleButton];
     [self addSubview:self.rightButton];
+    
+//    [self addSubview:self.leftImageview];
+//    [self addSubview:self.rightImageView];
 }
 
 // 按钮的点击事件
@@ -41,7 +49,6 @@
     if (self.itemClick) {
         self.itemClick(sender);
     }
-    
     for (UIButton *itemButton in self.subviews) {
         if (itemButton.tag != sender.tag) {
             itemButton.selected = NO;
@@ -55,13 +62,24 @@
 // 按钮的按下状态
 - (void)buttonSelectedState:(UIButton *)sender {
     
-    [sender.layer setBorderColor:[UIColor redColor].CGColor];
+    [sender.layer setBorderColor:[UIColor colorWithHexString:@"19f9cc"].CGColor];
+//    if (sender.tag == 1) {
+//        _leftImageview.image = [UIImage imageNamed:@"x1"];
+//        _rightImageView.image = [UIImage imageNamed:@"x2"];
+//    }else if (sender == 0) {
+//        _leftImageview.image = [UIImage imageNamed:@"x2"];
+//        _rightImageView.image = [UIImage imageNamed:@"x3"];
+//    }else if (sender.tag == 2)
+//    {
+//        _leftImageview.image = [UIImage imageNamed:@"x3"];
+//        _rightImageView.image = [UIImage imageNamed:@"x2"];
+//    }
 }
 
 // 按钮的正常状态
 - (void)buttonNormalState:(UIButton *)sender {
     
-    [sender.layer setBorderColor:[UIColor blackColor].CGColor];
+    [sender.layer setBorderColor:[UIColor colorWithHexString:@"009577"].CGColor];
 }
 
 // 设置按钮的状态
@@ -69,13 +87,13 @@
     
     [button.layer setMasksToBounds:YES];
     [button.layer setCornerRadius:ButtonWidth / 2.0];
-    [button.layer setBorderColor:[UIColor redColor].CGColor];
+    [button.layer setBorderColor:[UIColor colorWithHexString:@"19f9cc"].CGColor];
     [button.layer setBorderWidth:1];
     button.titleLabel.font = [UIFont italicSystemFontOfSize:20];
     [self buttonNormalState:button];
     
-    [button setTitleColor:[UIColor cyanColor] forState:UIControlStateSelected];
-    [button setTitleColor:[UIColor magentaColor] forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor colorWithHexString:@"19f9cc"] forState:UIControlStateSelected];
+    [button setTitleColor:[UIColor colorWithHexString:@"009577"] forState:UIControlStateNormal];
 }
 
 #pragma mark - lazy load
@@ -119,6 +137,26 @@
     }
     return _rightButton;
 }
+- (UIImageView *)leftImageview
+{
+    if (!_leftImageview) {
+        _leftImageview = [[UIImageView alloc] init];
+        _leftImageview.frame = CGRectMake(ButtonWidth, self.height / 2, (self.width - ButtonWidth) / 2 - ButtonWidth , 1);
+//        _leftImageview.backgroundColor = [UIColor redColor];
+    }
+    return _leftImageview;
+}
+- (UIImageView *)rightImageView
+{
+    if (!_rightImageView) {
+        _rightImageView = [[UIImageView alloc] init];
+        _rightImageView.frame = CGRectMake((self.width - ButtonWidth) / 2 + ButtonWidth, self.height / 2, (self.width - ButtonWidth) / 2 - ButtonWidth , 1);
+//        _rightImageView.backgroundColor = [UIColor redColor];
+    }
+
+    return _rightImageView;
+}
+
 
 /*
 // Only override drawRect: if you perform custom drawing.

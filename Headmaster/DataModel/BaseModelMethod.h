@@ -11,5 +11,6 @@
 @interface BaseModelMethod : NSObject
 + (NSArray *)getTeacherListArrayFormDicInfo:(NSArray *)array;
 + (NSArray *)getRecomendListArrayFormDicInfo:(NSArray *)array;
++ (NSArray *)getPublishListArrayFormDicInfo:(NSArray *)array;
 
 @end

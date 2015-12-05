@@ -36,6 +36,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // 添加button上面一条线
+    UIView *lineTopView = [[UIView alloc] initWithFrame:CGRectMake(7.5, 64, self.view.frame.size.width - 15, 2)];
+    lineTopView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
+    // 添加button下面一条线
+    UIView *lineDownView = [[UIView alloc] initWithFrame:CGRectMake(7.5, 127, self.view.frame.size.width - 15, 2)];
+    lineDownView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
+    
+    [self.view addSubview:lineTopView];
+    [self.view addSubview:lineDownView];
+    [self.view addSubview:lineDownView];
+    [self.view addSubview:lineTopView];
+
     // Do any additional setup after loading the view.
     [self addBackgroundImage];
     
@@ -76,7 +89,7 @@
     if (!_topView) {
         _topView = [HomeTopView new];
         _topView.frame = CGRectMake(0, 64, self.view.width, 60);
-        _topView.backgroundColor = [UIColor redColor];
+//        _topView.backgroundColor = [UIColor redColor];
     }
     return _topView;
 }
@@ -99,7 +112,7 @@
 - (HomeEvaluateView *)evaluateView {
     if (!_evaluateView) {
         _evaluateView = [HomeEvaluateView new];
-        _evaluateView.backgroundColor = [UIColor redColor];
+//        _evaluateView.backgroundColor = [UIColor redColor];
         _evaluateView.frame = CGRectMake(40,
                                          self.seeTimeView.top - self.seeTimeView.height - 30,
                                          self.view.width - 80,
@@ -115,7 +128,7 @@
                                         self.view.height - 115,
                                         self.view.width - 80,
                                         50);
-        _seeTimeView.backgroundColor = [UIColor orangeColor];
+//        _seeTimeView.backgroundColor = [UIColor orangeColor];
     }
     return _seeTimeView;
 }

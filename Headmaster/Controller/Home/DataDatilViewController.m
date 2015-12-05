@@ -42,6 +42,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _todayDataView = self.todayDataView;
     UIImage*img =[UIImage imageNamed:@"bgg.png"];
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:img]];
     // 隐藏导航栏下面的线
@@ -60,28 +61,25 @@
     
     // 添加button上面一条线
     UIView *lineTopView = [[UIView alloc] initWithFrame:CGRectMake(7.5, 64, self.view.frame.size.width - 15, 2)];
-    lineTopView.backgroundColor = [UIColor grayColor];
+    lineTopView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
+//    lineTopView.backgroundColor = [UIColor grayColor];
     // 添加button下面一条线
     UIView *lineDownView = [[UIView alloc] initWithFrame:CGRectMake(7.5, 102, self.view.frame.size.width - 15, 2)];
-    lineDownView.backgroundColor = [UIColor grayColor];
+    lineDownView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
+//    lineDownView.backgroundColor = [UIColor grayColor];
     
     [self.view addSubview:lineTopView];
     [self.view addSubview:lineDownView];
     [self.view addSubview:_topButtonView];
     // 点击button的回调
+    __block DataDatilViewController *dataVC = self;
     _topButtonView.didClick = ^(UIButton *btn)
     {
+        NSArray *strArray = [NSArray arrayWithObjects:@"今天数据",@"昨天数据",@"本周数据",@"本月数据",@"本年数据", nil];
          // 设置title的显示内容
-        if (btn.tag == 101) {
-            self.title = @"改变";
-        }else
-        {
-            self.title = @"计划";
-            
-        }
-        
+        dataVC.title = strArray[btn.tag - 101];
         CGFloat contentOffsetX;
-        CGFloat width = self.view.frame.size.width;
+        CGFloat width = dataVC.view.frame.size.width;
         if (btn.tag == 101) {
             
             contentOffsetX = 0;
@@ -144,36 +142,40 @@
         
         [_topButtonView selectedItem:101];
     }
-    if (scrollView.contentOffset.x == selfSize.width) {
-        
-        [_topButtonView selectedItem:102];
+    if ( 0 < scrollView.contentOffset.x <= selfSize.width) {
         if (!_yesterdayDataView) {
             
             [_scrollView addSubview:self.yesterdayDataView];
+        }if (scrollView.contentOffset.x == selfSize.width) {
+            [_topButtonView selectedItem:102];
         }
     }
-    if (scrollView.contentOffset.x == selfSize.width * 2) {
+    if (selfSize.width < scrollView.contentOffset.x <= selfSize.width * 2) {
         
-        [_topButtonView selectedItem:103];
         if (!_weekDataView) {
             
             [_scrollView addSubview:self.weekDataView];
         }
+        if (scrollView.contentOffset.x == selfSize.width * 2) {
+            [_topButtonView selectedItem:103];
+        }
     }
-    if (scrollView.contentOffset.x == selfSize.width * 3) {
-        
-        [_topButtonView selectedItem:104];
+    if (selfSize.width * 2 < scrollView.contentOffset.x <= selfSize.width * 3) {
         if (!_monthDataView) {
             
             [_scrollView addSubview:self.monthDataView];
         }
+        if (scrollView.contentOffset.x == selfSize.width * 3) {
+            [_topButtonView selectedItem:104];
+        }
     }
-    if (scrollView.contentOffset.x == selfSize.width * 4) {
-        
-        [_topButtonView selectedItem:105];
+    if (selfSize.width * 3 < scrollView.contentOffset.x <= selfSize.width * 4) {
         if (!_yearDataView) {
             
             [_scrollView addSubview:self.yearDataView];
+        }
+        if (scrollView.contentOffset.x == selfSize.width * 4) {
+             [_topButtonView selectedItem:105];
         }
     }
 

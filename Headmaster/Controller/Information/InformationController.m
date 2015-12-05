@@ -1,4 +1,4 @@
-//
+ //
 //  InformationController.m
 //  Headmaster
 //
@@ -9,6 +9,8 @@
 #import "InformationController.h"
 #import "InformationViewModel.h"
 #import "InformationListCell.h"
+#import "YiRefreshHeader.h"
+#import "YiRefreshFooter.h"
 
 @interface InformationController ()
 
@@ -25,6 +27,9 @@
     [self addBackgroundImage];
     
     self.tableView.rowHeight = 80;
+    self.tableView.backgroundColor = [UIColor clearColor];
+    
+    [self setRefresh];
     
     _viewModel = [InformationViewModel new];
     [_viewModel successRefreshBlock:^{
@@ -32,6 +37,10 @@
         [self.tableView reloadData];
     }];
     [_viewModel networkRequestRefresh];
+}
+
+- (void)setRefresh {
+
 }
 
 #pragma mark - tableView data source
@@ -47,8 +56,8 @@
     InformationListCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (!cell) {
         cell = [[InformationListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        cell.backgroundColor = [UIColor clearColor];
     }
-    
     InformationDataModel *dataModel = _viewModel.informationArray[indexPath.row];
     [cell refreshData:dataModel];
     
@@ -63,8 +72,8 @@
 //    [self.navigationController pushViewController:detailsVC animated:YES];
     
     // 取消cell的选中状态
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+  
 }
 
 - (void)didReceiveMemoryWarning {

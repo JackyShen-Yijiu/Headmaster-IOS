@@ -26,7 +26,6 @@
     };
     NSDictionary * dic = @{@"mobile":photoNumber,
                            @"password":md5Pass,
-                           @"usertype":@"2"
                            };
     
     [NetworkTool POST:USER_LOGIN params:dic success:success failure:failure];
@@ -52,6 +51,7 @@
                             @"userid":uim.userID,
                             @"schoolid":uim.schoolId
                             };
+    
     NSString *urlStr = [NSString stringWithFormat:@"%@/%@",[NetworkTool domain],GETPUBLISH];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
