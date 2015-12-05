@@ -21,5 +21,17 @@
     return [image stretchableImageWithLeftCapWidth:image.size.width * xPos topCapHeight:image.size.height * yPos];
 }
 
+#pragma mark 改变图片的大小
++ (UIImage *)resizeImage:(UIImage *)image newSize:(CGSize)newSize {
+    
+    UIGraphicsBeginImageContext(newSize);
+    CGRect rect;
+    rect.origin = CGPointMake(0, 0);
+    rect.size = newSize;
+    [image drawInRect:rect];
+    UIImage *reSizeImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return reSizeImage;
+}
 
 @end

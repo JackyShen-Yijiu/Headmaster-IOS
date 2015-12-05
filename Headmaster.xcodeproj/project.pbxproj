@@ -306,6 +306,7 @@
 		B895A19D1C1042DB00FEDD78 /* DZNSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B895A19C1C1042DB00FEDD78 /* DZNSegmentedControl.m */; };
 		B895A1A01C10444200FEDD78 /* RecomendPieChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = B895A19F1C10444200FEDD78 /* RecomendPieChartView.m */; };
 		B895A1A31C10448100FEDD78 /* RecomendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B895A1A21C10448100FEDD78 /* RecomendCell.m */; };
+		B8C7031B1C12AE23006035B1 /* SearchBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C7031A1C12AE23006035B1 /* SearchBarView.m */; };
 		D92296BC1C0FD29C00D0FFDF /* NetworkEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = D92296B81C0FD29C00D0FFDF /* NetworkEntity.m */; };
 		D92296BD1C0FD29C00D0FFDF /* NetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D92296BB1C0FD29C00D0FFDF /* NetworkTool.m */; };
 		D92296C81C0FD2FF00D0FFDF /* HomeEvaluateView.m in Sources */ = {isa = PBXBuildFile; fileRef = D92296BF1C0FD2FF00D0FFDF /* HomeEvaluateView.m */; };
@@ -352,6 +353,9 @@
 		D9CEC9861C0ED7D8008DEE69 /* SideMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9841C0ED7D8008DEE69 /* SideMenuItem.m */; };
 		D9CEC9891C0EDBCD008DEE69 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9881C0EDBCD008DEE69 /* LoginController.m */; };
 		D9CEC98C1C0EDEC6008DEE69 /* YBBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC98B1C0EDEC6008DEE69 /* YBBaseNavigationController.m */; };
+		D9D375611C127457008C54FF /* DVVDockItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D3755E1C127457008C54FF /* DVVDockItem.m */; };
+		D9D375621C127457008C54FF /* DVVTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D375601C127457008C54FF /* DVVTabBarController.m */; };
+		D9E41AB61C129DD0007A2019 /* YBBaseTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E41AB51C129DD0007A2019 /* YBBaseTableCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -848,6 +852,8 @@
 		B895A19F1C10444200FEDD78 /* RecomendPieChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecomendPieChartView.m; sourceTree = "<group>"; };
 		B895A1A11C10448100FEDD78 /* RecomendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecomendCell.h; path = ../View/RecomendCell.h; sourceTree = "<group>"; };
 		B895A1A21C10448100FEDD78 /* RecomendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecomendCell.m; path = ../View/RecomendCell.m; sourceTree = "<group>"; };
+		B8C703191C12AE23006035B1 /* SearchBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBarView.h; sourceTree = "<group>"; };
+		B8C7031A1C12AE23006035B1 /* SearchBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBarView.m; sourceTree = "<group>"; };
 		D92296B71C0FD29C00D0FFDF /* NetworkEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkEntity.h; sourceTree = "<group>"; };
 		D92296B81C0FD29C00D0FFDF /* NetworkEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkEntity.m; sourceTree = "<group>"; };
 		D92296B91C0FD29C00D0FFDF /* NetworkInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkInterface.h; sourceTree = "<group>"; };
@@ -945,6 +951,12 @@
 		D9CEC9881C0EDBCD008DEE69 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
 		D9CEC98A1C0EDEC6008DEE69 /* YBBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBBaseNavigationController.h; sourceTree = "<group>"; };
 		D9CEC98B1C0EDEC6008DEE69 /* YBBaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YBBaseNavigationController.m; sourceTree = "<group>"; };
+		D9D3755D1C127457008C54FF /* DVVDockItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVVDockItem.h; sourceTree = "<group>"; };
+		D9D3755E1C127457008C54FF /* DVVDockItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVVDockItem.m; sourceTree = "<group>"; };
+		D9D3755F1C127457008C54FF /* DVVTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVVTabBarController.h; sourceTree = "<group>"; };
+		D9D375601C127457008C54FF /* DVVTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVVTabBarController.m; sourceTree = "<group>"; };
+		D9E41AB41C129DD0007A2019 /* YBBaseTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBBaseTableCell.h; sourceTree = "<group>"; };
+		D9E41AB51C129DD0007A2019 /* YBBaseTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YBBaseTableCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2251,6 +2263,7 @@
 			isa = PBXGroup;
 			children = (
 				D9CEC8ED1C0E8CF7008DEE69 /* NavigationController */,
+				D9D3755C1C127457008C54FF /* DVVTabBarController */,
 				D9CEC98A1C0EDEC6008DEE69 /* YBBaseNavigationController.h */,
 				D9CEC98B1C0EDEC6008DEE69 /* YBBaseNavigationController.m */,
 				D9CEC9431C0EC432008DEE69 /* YBBaseController.h */,
@@ -2259,6 +2272,8 @@
 				D9CEC9471C0EC46F008DEE69 /* YBBaseTableController.m */,
 				D9CEC9491C0EC4FE008DEE69 /* YBBaseViewModel.h */,
 				D9CEC94A1C0EC4FE008DEE69 /* YBBaseViewModel.m */,
+				D9E41AB41C129DD0007A2019 /* YBBaseTableCell.h */,
+				D9E41AB51C129DD0007A2019 /* YBBaseTableCell.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -2330,6 +2345,8 @@
 			children = (
 				55BA0F4D1C0EF19A00F83CD8 /* TeacherController.h */,
 				55BA0F4E1C0EF19A00F83CD8 /* TeacherController.m */,
+				B8C703191C12AE23006035B1 /* SearchBarView.h */,
+				B8C7031A1C12AE23006035B1 /* SearchBarView.m */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -2437,6 +2454,17 @@
 				556D3CEF1C112A870012C2D5 /* PublishViewModel.m */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D9D3755C1C127457008C54FF /* DVVTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				D9D3755D1C127457008C54FF /* DVVDockItem.h */,
+				D9D3755E1C127457008C54FF /* DVVDockItem.m */,
+				D9D3755F1C127457008C54FF /* DVVTabBarController.h */,
+				D9D375601C127457008C54FF /* DVVTabBarController.m */,
+			);
+			path = DVVTabBarController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2703,6 +2731,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B895A1961C1032C000FEDD78 /* InformationViewModel.m in Sources */,
+				D9E41AB61C129DD0007A2019 /* YBBaseTableCell.m in Sources */,
 				B895A1951C10329F00FEDD78 /* InformationDataModel.m in Sources */,
 				B8771E361C098E6B0051DE9D /* RFSegmentView.m in Sources */,
 				060BA8831C10116C009AD55E /* ZTJudgeBottonSign.m in Sources */,
@@ -2749,6 +2778,7 @@
 				D9CEC9151C0E8CF7008DEE69 /* HMRecomendModel.m in Sources */,
 				B8771D151C098DE40051DE9D /* MWGridCell.m in Sources */,
 				B8771E391C098E6B0051DE9D /* UIView+Sizes.m in Sources */,
+				D9D375621C127457008C54FF /* DVVTabBarController.m in Sources */,
 				B8771D111C098DE40051DE9D /* UIScrollView+MJExtension.m in Sources */,
 				B8771D391C098DE40051DE9D /* PSTGridLayoutSection.m in Sources */,
 				B8771D251C098DE40051DE9D /* NSData+EMImageContentType.m in Sources */,
@@ -2774,6 +2804,7 @@
 				B8771DF11C098DE40051DE9D /* EaseRecordView.m in Sources */,
 				B8771D371C098DE40051DE9D /* PSTGridLayoutItem.m in Sources */,
 				D9CEC94B1C0EC4FE008DEE69 /* YBBaseViewModel.m in Sources */,
+				D9D375611C127457008C54FF /* DVVDockItem.m in Sources */,
 				B8771D301C098DE40051DE9D /* PSTCollectionViewController.m in Sources */,
 				D92297461C10439200D0FFDF /* UUChart.m in Sources */,
 				B8771D0C1C098DE40051DE9D /* MJRefreshGifFooter.m in Sources */,
@@ -2884,6 +2915,7 @@
 				B8771DDD1C098DE40051DE9D /* EaseConversationListViewController.m in Sources */,
 				B8771D031C098DE40051DE9D /* amrFileCodec.mm in Sources */,
 				060BA8981C1011D7009AD55E /* UILabel+LabelAdjustBig.m in Sources */,
+				B8C7031B1C12AE23006035B1 /* SearchBarView.m in Sources */,
 				B8771D231C098DE40051DE9D /* EMSDWebImagePrefetcher.m in Sources */,
 				B8771DEE1C098DE40051DE9D /* EaseFaceView.m in Sources */,
 				B8771D351C098DE40051DE9D /* PSTCollectionViewUpdateItem.m in Sources */,

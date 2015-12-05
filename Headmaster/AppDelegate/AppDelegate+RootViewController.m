@@ -7,9 +7,10 @@
 //
 
 #import "AppDelegate+RootViewController.h"
-#import "YBBaseNavigationController.h"
+#import "HMNagationController.h"
 #import "RESideMenu.h"
 #import "SideMenuController.h"
+#import "DVVTabBarController.h"
 
 @implementation AppDelegate (RootViewController)
 
@@ -21,30 +22,17 @@
     
     NSArray *titleArray = @[ @"数据概览", @"资讯", @"消息" ];
     
-    UITabBarController *tabBarVC = [UITabBarController new];
+    DVVTabBarController *tabBarVC = [DVVTabBarController new];
     
     // 循环创建Controller
     for (NSInteger i = 0; i < controllerArray.count; i++) {
         
         Class vcClass = NSClassFromString(controllerArray[i]);
         UIViewController *viewController = [vcClass new];
-        viewController.view.backgroundColor = [UIColor whiteColor];
         viewController.title = titleArray[i];
-        YBBaseNavigationController *naviVC = [[YBBaseNavigationController alloc] initWithRootViewController:viewController];
-        [tabBarVC addChildViewController:naviVC];
+//        HMNagationController *naviVC = [[HMNagationController alloc] initWithRootViewController:viewController];
+        [tabBarVC addChildViewController:viewController];
     }
-    
-    // 设置tabBar的item选中颜色
-    tabBarVC.tabBar.tintColor = [UIColor orangeColor];
-    
-    // 设置选中的item，从0开始
-    tabBarVC.selectedIndex = 0;
-    
-    // 设置tabBar的背景颜色
-    tabBarVC.tabBar.barTintColor = [UIColor colorWithHexString:@"303030"];
-    
-    // 设置tabBar的背景图片
-    //    [tabBarVC.tabBar setBackgroundImage:[UIImage imageNamed:@""]];
     
     //创建sideMenu
     SideMenuController * sideVC = [[SideMenuController alloc] init];

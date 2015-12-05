@@ -8,6 +8,11 @@
 
 #import "YBBaseController.h"
 
-@interface LoginController : YBBaseController
+@class LoginController;
+@protocol LoginControllerDelegate <NSObject>
+- (void)loginControllerDidLoginSucess:(LoginController *)controller;
+@end
 
+@interface LoginController : YBBaseController
+@property(nonatomic,weak)id<LoginControllerDelegate>delegate;
 @end

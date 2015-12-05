@@ -7,6 +7,8 @@
 //
 
 #import "LoginController.h"
+#import "NSString+MD5.h"
+
 
 #define h_center self.view.center
 #define h_size [UIScreen mainScreen].bounds.size
@@ -29,12 +31,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
     [self createUI];
     [self addNotify];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.myNavController setNavigationBarHidden:YES];
+}
+
 - (void)createUI {
+    
     _iv = [[UIImageView alloc] initWithFrame:self.view.bounds];
     _iv.image = [UIImage imageNamed:@"bg_login"];
     [self.view addSubview:_iv];
@@ -42,6 +51,7 @@
     UIImageView *iconView = [[UIImageView alloc] initWithFrame:CGRectMake(h_center.x -h_iconViewWidth/2, h_iconViewTOP, h_iconViewWidth, h_iconViewHeight)];
     iconView.image = [UIImage imageNamed:@"icon120x110.png"];
     [self.view addSubview:iconView];
+    
     
     _phoneTF = [[UITextField alloc] initWithFrame:CGRectMake(26, iconView.frame.origin.y +iconView.frame.size.height +h_iconViewTOP , h_size.width -26, h_phoneTFHeight)];
     _phoneTF.placeholder = @"账号";
@@ -109,6 +119,11 @@
     [numberLb sizeToFit];
     numberLb.center = CGPointMake(h_center.x,  h_size.height -h_numLabelHeight);
     [self.view addSubview:numberLb];
+}
+
+- (void)layoutSubiews
+{
+    
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
@@ -179,17 +194,18 @@
 }
 
 - (void)buttonIsClick {
+    
     [self.view endEditing:YES];
-    NSLog(@"%@",_phoneTF.text);
-    NSLog(@"%@",_passwordTF.text);
+    
     [NetworkEntity loginWithPhotoNumber:_phoneTF.text password:_passwordTF.text success:^(id responseObject) {
         NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
         if (type == 1) {
-            UserInfoModel *uim = [UserInfoModel defaultUserInfo];
-            BOOL isLogin = [uim loginViewDic:responseObject];
-            NSLog(@"%@",[responseObject objectForKey:@"msg"]);
-            if (isLogin) {
-                NSLog(@"==================%@",uim.name);
+            
+            NSMutableDictionary * loginInfo = [responseObject mutableCopy];
+            [loginInfo setValue:[_passwordTF.text MD5Digest]forKey:@"md5Pass"];
+            [[UserInfoModel defaultUserInfo] loginViewDic:loginInfo];
+            if ([_delegate respondsToSelector:@selector(loginControllerDidLoginSucess:)]) {
+                [_delegate loginControllerDidLoginSucess:self];
             }
         }else {
             ToastAlertView *toastView = [[ToastAlertView alloc] initWithTitle:[responseObject objectForKey:@"msg"]];
@@ -199,10 +215,6 @@
         ToastAlertView *toastView = [[ToastAlertView alloc] initWithTitle:@"网络连接失败"];
         [toastView show];
     }];
-    
-
-//    UserInfoModel *uim = [UserInfoModel defaultUserInfo];
-//    [uim loginOut];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
