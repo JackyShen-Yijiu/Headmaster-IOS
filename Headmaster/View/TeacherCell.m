@@ -101,8 +101,11 @@
     _model = model;
     UIImage * defaultImage = [UIImage imageNamed:@"defoult_por"];
     NSString * imageStr = _model.porInfo.originalpic;
+    self.porView.imageView.image = defaultImage;
     if(imageStr)
-        [self.porView.imageView sd_setImageWithURL:[NSURL URLWithString:imageStr] placeholderImage:defaultImage];
+        [self.porView.imageView sd_setImageWithURL:[NSURL URLWithString:imageStr] placeholderImage:defaultImage completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            
+        }];
     
     self.titleLabel.text = _model.userName;
     self.rateView.scorePercent = _model.raring  / 5.f;
@@ -115,6 +118,16 @@
     if ([_delegate respondsToSelector:@selector(teacherCell:didClickMessageButton:)]) {
         [_delegate teacherCell:self didClickMessageButton:button];
     }
+}
+
+
+#pragma mark - HightStatu
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated
+{
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+{
 }
 
 #pragma mark - Common

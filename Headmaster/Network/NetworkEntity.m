@@ -31,7 +31,9 @@
     [NetworkTool POST:USER_LOGIN params:dic success:success failure:failure];
 }
 
-+ (void)getTeacherListWithSchoolId:(NSString *)schoolId pageIndex:(NSInteger)index
++ (void)getTeacherListWithSchoolId:(NSString *)schoolId
+                        searchName:(NSString *)name
+                         pageIndex:(NSInteger)index
                            success:(NetworkSuccessBlock)success
                            failure:(NetworkFailureBlock)failure
 {
@@ -39,8 +41,37 @@
         return [NetworkTool missParagramerCallBackFailure:failure];
     };
     NSString * urlStr = [NSString stringWithFormat:@"%@/%@/%ld",SCHOOLCOACH,schoolId,(long)index];
-    [NetworkTool GET:urlStr params:nil success:success failure:failure];
+    NSDictionary * dic = nil;
+    if (name) {
+        dic = @{
+                @"name":name
+                };
+    }
+    [NetworkTool GET:urlStr params:dic success:success failure:failure];
 }
+
++ (void)getRecommendListWithUserid:(NSString *)userId
+                          SchoolId:(NSString *)schoolId
+                         pageIndex:(NSInteger)index
+                        searchType:(kDateSearchType)type
+                      commentLevle:(KCommnetLevel)level
+                           success:(NetworkSuccessBlock)success
+                           failure:(NetworkFailureBlock)failure
+{
+    if (!userId || !schoolId) {
+        return [NetworkTool missParagramerCallBackFailure:failure];
+    };
+    NSString *urlStr = [NSString stringWithFormat:@"%@/%@",[NetworkTool domain],RECOMENDHMESSAGE];
+    NSDictionary * dic = @{
+                           @"userid":userId,
+                           @"schoolid":schoolId,
+                           @"index":@(index),
+                           @"searchtype":@(type),
+                           @"commentlevel":@(level)
+                           };
+    [NetworkTool GET:urlStr params:dic success:success failure:failure];
+}
+
 
 + (void)getPublishListWithUseInfoModel:(UserInfoModel *)uim seqindex:(NSString *)index count:(NSString *)count
                                success:(void (^)(AFHTTPRequestOperation *, id))success

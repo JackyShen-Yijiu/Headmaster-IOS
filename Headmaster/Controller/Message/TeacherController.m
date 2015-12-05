@@ -12,16 +12,17 @@
 #import "BaseModelMethod.h"
 #import "ChatViewController.h"
 #import "NetworkEntity.h"
+#import "SearchBarView.h"
 
 @interface TeacherController ()<UITableViewDelegate,UITableViewDataSource,TeacherCellDelegate,UISearchBarDelegate,UISearchDisplayDelegate>
 @property(nonatomic,strong)UIImageView * bgView;
 @property(nonatomic,strong)RefreshTableView * tableView;
-@property (strong, nonatomic) UISearchBar *searchBar;
+@property (strong, nonatomic) SearchBarView *searchBar;
 
-@property(nonatomic,strong)NSMutableArray * tableViewData;
+@property(nonatomic,strong)NSMutableArray * dataSource;
 @property(nonatomic,assign)BOOL isNeedRefresh;
 
-
+@property(nonatomic,strong)NSString * searchKey;
 @end
 
 @implementation TeacherController
@@ -60,7 +61,6 @@
 - (void)initNavBar
 {
     [self resetNavBar];
-//    [[[self myNavController] navigationBar] setBarTintColor:[UIColor clearColor]];
     self.myNavigationItem.title = @"我的教练";
 }
 
@@ -70,7 +70,7 @@
     self.bgView.image = [UIImage imageNamed:@"teacher_bg"];
     [self.view addSubview:self.bgView];
     
-    self.tableView = [[RefreshTableView alloc] initWithFrame:CGRectMake(0, 64, self.view.width, self.view.height - 64) style:UITableViewStylePlain];
+    self.tableView = [[RefreshTableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height) style:UITableViewStylePlain];
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -100,11 +100,11 @@
     WS(ws);
     self.tableView.refreshHeader.beginRefreshingBlock = ^(){
         
-        [NetworkEntity getTeacherListWithSchoolId:@"56163c376816a9741248b7f9" pageIndex:1 success:^(id responseObject) {
-            
+        [NetworkEntity getTeacherListWithSchoolId:[[UserInfoModel defaultUserInfo] schoolId] searchName:ws.searchKey pageIndex:1 success:^(id responseObject) {
+            ws.searchKey = nil;
             NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
             if (type == 1) {
-                ws.tableViewData = [[BaseModelMethod getTeacherListArrayFormDicInfo:[responseObject objectArrayForKey:@"data"]] mutableCopy];
+                ws.dataSource = [[BaseModelMethod getTeacherListArrayFormDicInfo:[responseObject objectArrayForKey:@"data"]] mutableCopy];
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [ws.tableView.refreshHeader endRefreshing];
                     [ws.tableView reloadData];
@@ -116,13 +116,13 @@
     };
     
     self.tableView.refreshFooter.beginRefreshingBlock = ^(){
-        [NetworkEntity getTeacherListWithSchoolId:@"56163c376816a9741248b7f9" pageIndex:ws.tableViewData.count / RELOADDATACOUNT + 1 success:^(id responseObject) {
+        [NetworkEntity getTeacherListWithSchoolId:[[UserInfoModel defaultUserInfo] schoolId] searchName:ws.searchKey pageIndex:ws.dataSource.count / RELOADDATACOUNT + 1 success:^(id responseObject) {
             NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
             
             if (type == 1) {
                 NSArray * listArray = [[BaseModelMethod getTeacherListArrayFormDicInfo:[responseObject objectArrayForKey:@"data"]] mutableCopy];
                 if (listArray.count) {
-                    [ws.tableViewData addObjectsFromArray:listArray];
+                    [ws.dataSource addObjectsFromArray:listArray];
                     [ws.tableView reloadData];
                 }else{
                     [ws showTotasViewWithMes:@"已经加载所有数据"];
@@ -140,15 +140,13 @@
 }
 
 #pragma mark - SearchBar
-- (UISearchBar *)searchBar
+- (SearchBarView *)searchBar
 {
     if (_searchBar == nil) {
-        _searchBar = [[UISearchBar alloc] initWithFrame: CGRectMake(0, 0, self.view.frame.size.width, 44)];
-        _searchBar.delegate = self;
-        _searchBar.placeholder = NSLocalizedString(@"search", @"Search");
-        _searchBar.backgroundColor = [UIColor colorWithRed:0.747 green:0.756 blue:0.751 alpha:1.000];
+        _searchBar = [[SearchBarView alloc] initWithFrame: CGRectMake(0, 0, self.view.frame.size.width, 38)];
+        _searchBar.backgroundColor = [UIColor clearColor];
+        _searchBar.searchBar.delegate = self;
     }
-    
     return _searchBar;
 }
 
@@ -156,11 +154,6 @@
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
 {
     [searchBar setShowsCancelButton:YES animated:YES];
-    return YES;
-}
-
-- (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar
-{
     return YES;
 }
 
@@ -178,6 +171,8 @@
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
 {
+    self.searchKey = [searchBar.text copy];
+    [self.tableView.refreshHeader beginRefreshing];
     searchBar.text = @"";
     [searchBar resignFirstResponder];
     [searchBar setShowsCancelButton:NO animated:YES];
@@ -186,8 +181,7 @@
 #pragma mark - DataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 20;
-    return self.tableViewData.count;
+    return self.dataSource.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -207,6 +201,8 @@
         cell = [[TeacherCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CELL"];
         cell.delegate = self;
     }
+    TeacherModel * model = [self.dataSource objectAtIndex:indexPath.row];
+    cell.model = model;
     return cell;
 }
 

@@ -96,12 +96,6 @@
     self.myNavigationItem.titleView = nil;
     self.myNavigationItem.rightBarButtonItem = nil;
     self.myNavigationItem.rightBarButtonItems = nil;
-    
-    [[[self myNavController] navigationBar] setBarTintColor:RGB_Color(31, 124, 235)];
-    NSDictionary *textAttributes1 = @{NSFontAttributeName: [UIFont systemFontOfSize:16.f],
-                                      NSForegroundColorAttributeName: [UIColor whiteColor]
-                                      };    
-    [[[self myNavController] navigationBar]  setTitleTextAttributes:textAttributes1];
 }
 
 

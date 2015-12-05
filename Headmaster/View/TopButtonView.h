@@ -17,4 +17,7 @@ typedef void(^didClick)(UIButton *btn);
 
 //模拟点击一项的方法
 - (void)selectedItem:(NSInteger)tag;
+
+- (void)selectOneButton:(NSInteger)tag;
+
 @end

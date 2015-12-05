@@ -14,28 +14,24 @@
 {
     HMRecomendModel * model = [[HMRecomendModel alloc] init];
     
-    model.recomendId = [dic objectStringForKey:@"_id"];
-    model.recomendContent = [[dic objectInfoForKey:@"coachcomment"] objectStringForKey:@"commentcontent"];
-    model.recomendDate = [[dic objectInfoForKey:@"coachcomment"] objectStringForKey:@"commenttime"];
-    model.rating = 3.5f;
+    model.recomendId = [dic objectStringForKey:@"reservationid"];
+    model.recomendContent = [dic  objectStringForKey:@"commentcontent"];
+    model.recomendDate = [dic objectStringForKey:@"commenttime"];
+    model.rating = [[dic objectForKey:@"commentstarlevel"] floatValue];
     
-    NSDictionary* coachInfo = [dic objectInfoForKey:@"coachid"];
+    NSDictionary* coachInfo = [dic objectInfoForKey:@"coachinfo"];
     model.coaName = [coachInfo objectStringForKey:@"name"];
-    model.coaId = [coachInfo objectStringForKey:@"_id"];
+    model.coaId = [coachInfo objectStringForKey:@"coachid"];
     model.coaPortrait = [HMPortraitInfoModel converJsonDicToModel:[coachInfo objectInfoForKey:@"headportrait"]];
 
-    model.studentid = @"sss";
-    model.studendName = @"sss";
-    model.stuPortrait = [HMPortraitInfoModel converJsonDicToModel:[coachInfo objectInfoForKey:@"headportrait"]];;
+    NSDictionary * stuInfo = [dic objectInfoForKey:@"studentinfo"];
+    model.studentid = [stuInfo objectStringForKey:@"userid"];
+    model.studendName = [stuInfo objectStringForKey:@"name"];
+    model.stuPortrait = [HMPortraitInfoModel converJsonDicToModel:[stuInfo objectInfoForKey:@"headportrait"]];;
     
-    model.recomendContent = @"教课非常帮,教课非常帮,教课非常帮,教课非常帮,教课非常帮";
-    model.recomendDate = @"2013-2-05";
-    model.courseName = @"科目2";
-    model.courseType = @"经济班";
-    
-    model.coaName = @"教练2";
-    model.studendName = @"学生1";
-    
+    model.courseType = [[stuInfo objectInfoForKey:@"classtype"] objectStringForKey:@"name"];
+    model.courseName = [[dic objectInfoForKey:@"subject"] objectStringForKey:@"name"];
+        
     return model;
 }
 

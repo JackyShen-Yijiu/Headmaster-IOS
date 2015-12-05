@@ -21,10 +21,8 @@
 #import "PublishController.h"
 
 
-@interface AppDelegate ()
-
-//@property(nonatomic,strong)HMNagationController * navController;
-
+@interface AppDelegate ()<LoginControllerDelegate>
+@property(nonatomic,strong)HMNagationController * navController;
 @end
 
 @implementation AppDelegate
@@ -36,20 +34,14 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
     
-//    LoginController * loginViewC = [[LoginController alloc] init];
-//    self.navController = [[HMNagationController alloc] initWithRootViewController:loginViewC];
-//    self.window.rootViewController =  self.navController;
-//    [self.window makeKeyAndVisible];
-//    if ([UserInfoModel isLogin]) {
-//        [self loginViewControllerdidLoginSucess:nil];
-//    }
-//    if([self isReciveFromHunaxin:launchOptions]){
-//        [self.navController jumpToMessageList];
-//    }
-//    [self.navController pushViewController:[self rootViewController] animated:YES];
+    LoginController * loginViewC = [[LoginController alloc] init];
+    loginViewC.delegate = self;
+    self.navController = [[HMNagationController alloc] initWithRootViewController:loginViewC];
+    self.window.rootViewController =  self.navController;
     
-    
+<<<<<<< HEAD
     self.window.rootViewController = [self rootViewController];
  
 //    self.window.rootViewController = [LoginController new];
@@ -57,16 +49,30 @@
 //    self.window.rootViewController = [PublishController new];
 
     [self.window makeKeyAndVisible];
+=======
+    if ([UserInfoModel isLogin]) {
+        [self loginControllerDidLoginSucess:nil];
+    }
+>>>>>>> dd08fdb2bd74c9e181fe2499e4f282ecaa29aa28
     
-    [self sysConfigWithApplication:application LaunchOptions:launchOptions];
+    if([self isReciveFromHunaxin:launchOptions]){
+        [self.navController jumpToMessageList];
+    }
     
     // 添加引导页
 //    [YBWelcomeController removeSavedVersion]; // 测试引导页时打开注释
     if ([YBWelcomeController isShowWelcome]) {
         [YBWelcomeController show];
     }
-    
     return YES;
+}
+
+#pragma mark - LoginDelegate
+- (void)loginControllerDidLoginSucess:(LoginController *)controller
+{
+    [self.navController setNavigationBarHidden:NO];
+    UIViewController * viewController = [self rootViewController];
+    [self.navController pushViewController:viewController animated:controller ? YES : NO];
 }
 
 #pragma mark - 系统配置

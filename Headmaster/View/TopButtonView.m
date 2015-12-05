@@ -37,21 +37,11 @@
     CGFloat buttonW = ([UIScreen mainScreen].bounds.size.width - 50) / 5;
     CGFloat buttonH = 36;
     
-//    CGFloat lineViewW = 0;
-//    CGFloat lineViewH = buttonH;
     for (int i = 0; i < 5; i++) {
-        // 添加button的分割线
-//        if (i != 4) {
-//            UIView * lineView = [[UIView alloc] initWithFrame:CGRectMake((i + 1) * buttonW + (i * lineViewW), 0, lineViewW, lineViewH)];
-//            lineView.backgroundColor = [UIColor grayColor];
-////            [self addSubview:lineView];
-//            
-//        }
         // 设置button的基本属性
         UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
         button.frame = CGRectMake (i * buttonW , 0, buttonW, buttonH);
         [button setTitle:_titleArray[i] forState:UIControlStateNormal];
-//        button.backgroundColor = [UIColor whiteColor];
         [button setTintColor:[UIColor colorWithHexString:@"047a64"]];
         [button addTarget:self action:@selector(didClickButton:) forControlEvents:UIControlEventTouchUpInside];
         button.tag = 101 + i;
@@ -65,11 +55,8 @@
     _followLabel.backgroundColor = [UIColor colorWithHexString:@"01e2b6"];
     _followLabel.tag = 2000;
     [self addSubview:_followLabel];
-    
-    
-    
     //默认选中第一个按钮
-    [self selectOneButton:_selectButtonInteger];
+//    [self selectOneButton:_selectButtonInteger];
 }
 /**
  *

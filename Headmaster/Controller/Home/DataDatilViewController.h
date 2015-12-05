@@ -10,4 +10,5 @@
 
 @interface DataDatilViewController : UIViewController
 
+@property (nonatomic,assign) NSInteger tag;
 @end

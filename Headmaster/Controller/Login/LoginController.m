@@ -7,6 +7,8 @@
 //
 
 #import "LoginController.h"
+#import "NSString+MD5.h"
+
 
 #define h_center self.view.center
 #define h_size [UIScreen mainScreen].bounds.size
@@ -39,6 +41,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+<<<<<<< HEAD
     // Do any additional setup after loading the view.
     [self initUI];
     [self configeUI];
@@ -49,6 +52,24 @@
 - (void)initUI {
     _BackgroundImage = [[UIImageView alloc] init];   //背景图片
     [self.view addSubview:_BackgroundImage];
+=======
+    
+    [self createUI];
+    [self addNotify];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.myNavController setNavigationBarHidden:YES];
+}
+
+- (void)createUI {
+    
+    _iv = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    _iv.image = [UIImage imageNamed:@"bg_login"];
+    [self.view addSubview:_iv];
+>>>>>>> dd08fdb2bd74c9e181fe2499e4f282ecaa29aa28
     
     _iconView = [[UIImageView alloc] init];          //logo
     [self.view addSubview:_iconView];
@@ -105,6 +126,11 @@
     
     _iconView.image = [UIImage imageNamed:@"icon120x110.png"];
     
+<<<<<<< HEAD
+=======
+    
+    _phoneTF = [[UITextField alloc] initWithFrame:CGRectMake(26, iconView.frame.origin.y +iconView.frame.size.height +h_iconViewTOP , h_size.width -26, h_phoneTFHeight)];
+>>>>>>> dd08fdb2bd74c9e181fe2499e4f282ecaa29aa28
     _phoneTF.placeholder = @"账号";
     _phoneTF.textColor = [self colorWithHexString:@"#fefefe"];
     [_phoneTF setValue:[self colorWithHexString:@"#bfbfbf"] forKeyPath:@"_placeholderLabel.textColor"];
@@ -149,6 +175,11 @@
     [_callBtn setTitleColor:[UIColor colorWithHexString:@"#fefefe"] forState:UIControlStateNormal];
     [_callBtn addTarget:self action:@selector(callNum) forControlEvents:UIControlEventTouchUpInside];
 
+}
+
+- (void)layoutSubiews
+{
+    
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
@@ -221,17 +252,18 @@
 #pragma mark - buttonClick
 
 - (void)buttonIsClick {
+    
     [self.view endEditing:YES];
-    NSLog(@"%@",_phoneTF.text);
-    NSLog(@"%@",_passwordTF.text);
+    
     [NetworkEntity loginWithPhotoNumber:_phoneTF.text password:_passwordTF.text success:^(id responseObject) {
         NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
         if (type == 1) {
-            UserInfoModel *uim = [UserInfoModel defaultUserInfo];
-            BOOL isLogin = [uim loginViewDic:responseObject];
-            NSLog(@"%@",[responseObject objectForKey:@"msg"]);
-            if (isLogin) {
-                NSLog(@"==================%@",uim.name);
+            
+            NSMutableDictionary * loginInfo = [responseObject mutableCopy];
+            [loginInfo setValue:[_passwordTF.text MD5Digest]forKey:@"md5Pass"];
+            [[UserInfoModel defaultUserInfo] loginViewDic:loginInfo];
+            if ([_delegate respondsToSelector:@selector(loginControllerDidLoginSucess:)]) {
+                [_delegate loginControllerDidLoginSucess:self];
             }
         }else {
             ToastAlertView *toastView = [[ToastAlertView alloc] initWithTitle:[responseObject objectForKey:@"msg"]];
@@ -241,8 +273,11 @@
         ToastAlertView *toastView = [[ToastAlertView alloc] initWithTitle:@"网络连接失败"];
         [toastView show];
     }];
+<<<<<<< HEAD
 //    UserInfoModel *uim = [UserInfoModel defaultUserInfo];
 //    [uim loginOut];
+=======
+>>>>>>> dd08fdb2bd74c9e181fe2499e4f282ecaa29aa28
 }
 
 - (void)callNum {

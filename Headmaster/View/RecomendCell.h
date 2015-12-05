@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "HMRecomendModel.h"
+#import "YBBaseTableCell.h"
 
 typedef NS_ENUM(NSInteger,KRecomendCellType) {
     KRecomendCellTypeDefoult,
@@ -19,7 +20,7 @@ typedef NS_ENUM(NSInteger,KRecomendCellType) {
 - (void)recomendCell:(RecomendCell *)cell DidCoaImessageButton:(UIButton *)button;
 - (void)recomendCell:(RecomendCell *)cell DidStuImessageButton:(UIButton *)button;
 @end
-@interface RecomendCell : UITableViewCell
+@interface RecomendCell : YBBaseTableCell
 @property(nonatomic,strong)HMRecomendModel * model;
 @property(nonatomic,weak)id<RecomendCellDelegate> delegate;
 

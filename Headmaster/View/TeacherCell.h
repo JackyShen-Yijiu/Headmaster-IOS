@@ -9,12 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "PortraitView.h"
 #import "TeacherModel.h"
+#import "YBBaseTableCell.h"
 
 @class TeacherCell;
 @protocol TeacherCellDelegate <NSObject>
 - (void)teacherCell:(TeacherCell *)cell didClickMessageButton:(UIButton *)button;
 @end
-@interface TeacherCell : UITableViewCell
+@interface TeacherCell : YBBaseTableCell
 @property(nonatomic,strong)TeacherModel * model;
 @property(nonatomic,weak)id<TeacherCellDelegate>delegate;
 + (CGFloat)cellHigth;

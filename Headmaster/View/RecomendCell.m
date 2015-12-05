@@ -123,7 +123,6 @@
     
     self.rateView = [[CWStarRateView alloc] initWithFrame:CGRectMake(0, 0, 146, 23.f) numberOfStars:5];
     [self.rateView setUserInteractionEnabled:NO];
-    self.rateView.scorePercent = (2.5 / 5.f);
     [self.contentView addSubview:self.rateView];
 
     
@@ -247,10 +246,14 @@
     }
     _model = model;
     UIImage * defaultImage = [UIImage imageNamed:@"defoult_por"];
+    self.stuPorView.imageView.image = defaultImage;
+    self.coaPorView.imageView.image = defaultImage;
     if(_model.stuPortrait.originalpic)
         [self.stuPorView.imageView sd_setImageWithURL:[NSURL URLWithString:_model.stuPortrait.originalpic] placeholderImage:defaultImage];
     if(_model.coaPortrait.originalpic)
         [self.stuPorView.imageView sd_setImageWithURL:[NSURL URLWithString:_model.coaPortrait.originalpic] placeholderImage:defaultImage];
+    
+    self.rateView.scorePercent = (_model.rating / 5.f);
     
     self.stuName.text = _model.studendName;
     self.coaName.text = _model.coaName;
