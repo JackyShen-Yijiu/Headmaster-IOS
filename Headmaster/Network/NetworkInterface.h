@@ -29,4 +29,39 @@
 
 #define PUBLISHMESSAGE @"headmaster/userinfo/publishbulletin"
 
+/*获取评论*/
+#define RECOMENDHMESSAGE @"headmaster/statistics/commentdetails"
+
 #endif /* NetworkMacro_h */
+
+/**
+ *  制定时间类型
+ */
+typedef NS_ENUM(NSInteger,kDateSearchType) {
+    /**
+     *  今天
+     */
+    kDateSearchTypeToday = 1,
+    /**
+     *  昨天
+     */
+    kDateSearchTypeYesterday,
+    /**
+     *  本周
+     */
+    kDateSearchTypeWeek,
+    /**
+     *  本月
+     */
+    kDateSearchTypeMonth,
+    /**
+     *  本年
+     */
+    kDateSearchTypeYear
+};
+
+typedef NS_ENUM(NSInteger,KCommnetLevel) {
+    KCommnetLevelPoorRating = 1,
+    KCommnetLevelMidRating,
+    KCommnetLevelHighRating
+};

@@ -116,7 +116,7 @@
     };
     
     self.tableView.refreshFooter.beginRefreshingBlock = ^(){
-        [NetworkEntity getTeacherListWithSchoolId:@"56163c376816a9741248b7f9" searchName:ws.searchKey pageIndex:ws.dataSource.count / RELOADDATACOUNT + 1 success:^(id responseObject) {
+        [NetworkEntity getTeacherListWithSchoolId:[[UserInfoModel defaultUserInfo] schoolId] searchName:ws.searchKey pageIndex:ws.dataSource.count / RELOADDATACOUNT + 1 success:^(id responseObject) {
             NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
             
             if (type == 1) {
