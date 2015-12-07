@@ -64,7 +64,7 @@
         _doubleRowView.downTitleFont = [UIFont systemFontOfSize:14];
         _doubleRowView.followBarHidden = 1;
         _doubleRowView.upTitleOffSetY = 5;
-        _doubleRowView.upTitleArray = @[ @"44", @"25", @"5", @"46" ];
+        _doubleRowView.upTitleArray = @[ @"", @"", @"", @"" ];
         _doubleRowView.downTitleArray = @[ @"科一", @"科二", @"科三", @"科四" ];
     }
     return _doubleRowView;
@@ -78,7 +78,7 @@
         UILabel *upLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 5, rightBtnWidth, rightBtnHeight - downLabelHeight)];
         upLabel.tag = 1;
         upLabel.textAlignment = 1;
-        upLabel.text = @"34";
+        upLabel.text = @"";
         upLabel.font = [UIFont italicSystemFontOfSize:22];
         upLabel.textColor = [UIColor colorWithHexString:@"19f9cc"];
         UILabel *downLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, upLabel.height, rightBtnWidth, downLabelHeight)];

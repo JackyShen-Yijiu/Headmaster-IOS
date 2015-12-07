@@ -12,9 +12,14 @@
 #import "HomeSeeTimeView.h"
 #import "HomeDataListController.h"
 #import "DataDatilViewController.h"
+<<<<<<< HEAD
+#import "HomeViewModel.h"
+#import "RESideMenu.h"
+=======
 #import "HomeDailyViewModel.h"
 #import "HomeWeeklyViewModel.h"
 #import <BaiduMapAPI_Location/BMKLocationComponent.h>
+>>>>>>> c04354b85f28606fc9f842593cbf621e2dab89d9
 
 @interface HomeController () <BMKLocationServiceDelegate>
 
@@ -26,9 +31,7 @@
 
 @property (nonatomic, strong) HomeSeeTimeView *seeTimeView;
 
-@property (nonatomic, strong) HomeWeeklyViewModel *weeklyViewModel;
-
-@property (nonatomic, strong) HomeDailyViewModel *dailyViewModel;
+@property (nonatomic, strong) HomeViewModel *viewModel;
 
 @property (nonatomic, strong) BMKLocationService *locService;
 
@@ -45,11 +48,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.view.frame = CGRectMake(0, 0, self.view.width, self.view.height - 64 - 49);
+    
+    [self.view addSubview:self.topView];
+    
     // 添加button上面一条线
-    UIView *lineTopView = [[UIView alloc] initWithFrame:CGRectMake(7.5, 64, self.view.frame.size.width - 15, 2)];
+    UIView *lineTopView = [[UIView alloc] initWithFrame:CGRectMake(7.5, 0, self.view.bounds.size.width - 15, 2)];
     lineTopView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
     // 添加button下面一条线
-    UIView *lineDownView = [[UIView alloc] initWithFrame:CGRectMake(7.5, 127, self.view.frame.size.width - 15, 2)];
+    UIView *lineDownView = [[UIView alloc] initWithFrame:CGRectMake(7.5, 62, self.view.bounds.size.width - 15, 2)];
     lineDownView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
     
     [self.view addSubview:lineTopView];
@@ -60,7 +67,6 @@
     // Do any additional setup after loading the view.
     [self addBackgroundImage];
     
-    [self.view addSubview:self.topView];
     [self.view addSubview:self.moreButton];
     [self.view addSubview:self.evaluateView];
     [self.view addSubview:self.seeTimeView];
@@ -73,25 +79,40 @@
     [self.seeTimeView itemClick:^(UIButton *button) {
         
         self.tag = button.tag;
-        NSLog(@"seeTimeView == %li",button.tag);
-        
+        if (button.tag == 2) {
+            _viewModel.searchType = kDateSearchTypeWeek;
+            [_viewModel networkRequestRefresh];
+            
+        }else {
+            if(button.tag == 1) {
+                _viewModel.searchType = kDateSearchTypeToday;
+            }else if(button.tag == 2) {
+                _viewModel.searchType = kDateSearchTypeYesterday;
+            }
+            [_viewModel networkRequestRefresh];
+        }
     }];
     
+    _viewModel = [HomeViewModel new];
     // 刷新数据
-    [self.topView refreshSubjectData:@[ @"23", @"57", @"2", @"567" ] sameDay:@"56"];
-    [self.evaluateView refreshData:@[ @"23", @"57", @"2", @"567" ]];
-    
-    // viewModel call back
-    _dailyViewModel = [HomeDailyViewModel new];
-    _weeklyViewModel = [HomeWeeklyViewModel new];
-    
-    [_dailyViewModel successRefreshBlock:^{
+    [_viewModel successRefreshBlock:^{
         
-        
+        if (_viewModel.searchType == kDateSearchTypeWeek) {
+            
+            [self.evaluateView refreshData:_viewModel.evaluateArray];
+        }else {
+            [self.topView refreshSubjectData:_viewModel.subjectArray sameDay:_viewModel.applyCount];
+            [self.evaluateView refreshData:_viewModel.evaluateArray];
+        }
     }];
+<<<<<<< HEAD
+    _viewModel.searchType = 1;
+    [_viewModel networkRequestRefresh];
+=======
     
     // 加载地图用于定位,展示天气信息
     [self addMap];
+>>>>>>> c04354b85f28606fc9f842593cbf621e2dab89d9
 }
 
 #pragma mark - action
@@ -102,8 +123,13 @@
     
         dataListVC.tag = _tag + 101;
     
-//    HomeDataListController *dataListVC = [HomeDataListController new];
     [self.navigationController pushViewController:dataListVC animated:YES];
+}
+
+#pragma mark 打开侧栏
+- (void)openSideMenu {
+    
+    [self.sideMenuViewController presentLeftMenuViewController];
 }
 
 #pragma mark - lazy load
@@ -111,7 +137,7 @@
 - (HomeTopView *)topView {
     if (!_topView) {
         _topView = [HomeTopView new];
-        _topView.frame = CGRectMake(0, 64, self.view.width, 60);
+        _topView.frame = CGRectMake(0, 0, self.view.width, 60);
 //        _topView.backgroundColor = [UIColor redColor];
     }
     return _topView;
@@ -137,7 +163,7 @@
         _evaluateView = [HomeEvaluateView new];
 //        _evaluateView.backgroundColor = [UIColor redColor];
         _evaluateView.frame = CGRectMake(40,
-                                         self.seeTimeView.top - self.seeTimeView.height - 30,
+                                         self.seeTimeView.top - self.seeTimeView.height - 20,
                                          self.view.width - 80,
                                          60);
     }
@@ -148,7 +174,7 @@
     if (!_seeTimeView) {
         _seeTimeView = [HomeSeeTimeView new];
         _seeTimeView.frame = CGRectMake(40,
-                                        self.view.height - 115,
+                                        self.view.height - 70,
                                         self.view.width - 80,
                                         50);
 //        _seeTimeView.backgroundColor = [UIColor orangeColor];

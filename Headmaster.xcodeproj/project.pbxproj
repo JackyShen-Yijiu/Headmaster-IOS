@@ -32,6 +32,7 @@
 		060BA89D1C1011F8009AD55E /* CoachOfCoureDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 060BA89B1C1011F8009AD55E /* CoachOfCoureDetailCell.xib */; };
 		060BA8A01C10121F009AD55E /* DataDatilViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 060BA89F1C10121F009AD55E /* DataDatilViewController.m */; };
 		060BA8A31C10122C009AD55E /* CoachOfCoureDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 060BA8A21C10122C009AD55E /* CoachOfCoureDetailController.m */; };
+<<<<<<< HEAD
 		0666FF971C140E9A009FA71F /* HomeDataDatailModelRootClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 0666FF961C140E9A009FA71F /* HomeDataDatailModelRootClass.m */; };
 		0666FFA41C141C8D009FA71F /* ApplyStuentListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0666FFA31C141C8D009FA71F /* ApplyStuentListModel.m */; };
 		0666FFA71C141CA5009FA71F /* ReservationStudentListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0666FFA61C141CA5009FA71F /* ReservationStudentListModel.m */; };
@@ -40,6 +41,9 @@
 		0666FFB01C141D13009FA71F /* BadCommentListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0666FFAF1C141D13009FA71F /* BadCommentListModel.m */; };
 		0666FFB31C141D43009FA71F /* GeneralCommentListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0666FFB21C141D43009FA71F /* GeneralCommentListModel.m */; };
 		0666FFB91C141D74009FA71F /* ComplaintListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0666FFB81C141D74009FA71F /* ComplaintListModel.m */; };
+=======
+		5543A6341C130D710063F7EE /* UserCenterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5543A6331C130D710063F7EE /* UserCenterController.m */; };
+>>>>>>> 4eabb0b37f50d31bfb7875a720dbb702a3166867
 		556D3CEA1C1128CF0012C2D5 /* PublishDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 556D3CE91C1128CF0012C2D5 /* PublishDataModel.m */; };
 		556D3CED1C112A240012C2D5 /* PublishDataModelRootClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 556D3CEC1C112A240012C2D5 /* PublishDataModelRootClass.m */; };
 		556D3CF01C112A870012C2D5 /* PublishViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 556D3CEF1C112A870012C2D5 /* PublishViewModel.m */; };
@@ -350,8 +354,7 @@
 		D95CE3B91C12BD3600EF6F75 /* HomeDataModelSchoolstudentcount.m in Sources */ = {isa = PBXBuildFile; fileRef = D95CE3B51C12BD3600EF6F75 /* HomeDataModelSchoolstudentcount.m */; };
 		D95CE3BE1C12BDD700EF6F75 /* HomeDataModelWeeklyData.m in Sources */ = {isa = PBXBuildFile; fileRef = D95CE3BB1C12BDD700EF6F75 /* HomeDataModelWeeklyData.m */; };
 		D95CE3BF1C12BDD700EF6F75 /* HomeDataModelWeeklyRootClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D95CE3BD1C12BDD700EF6F75 /* HomeDataModelWeeklyRootClass.m */; };
-		D95CE3C21C12BF5100EF6F75 /* HomeWeeklyViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D95CE3C11C12BF5100EF6F75 /* HomeWeeklyViewModel.m */; };
-		D95CE3C51C12BF6C00EF6F75 /* HomeDailyViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D95CE3C41C12BF6C00EF6F75 /* HomeDailyViewModel.m */; };
+		D95CE4461C12EB2A00EF6F75 /* HomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D95CE4451C12EB2A00EF6F75 /* HomeViewModel.m */; };
 		D9CEC8EB1C0E8C83008DEE69 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC8EA1C0E8C83008DEE69 /* AppDelegate.m */; };
 		D9CEC90F1C0E8CF7008DEE69 /* HMNagationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC8EF1C0E8CF7008DEE69 /* HMNagationController.m */; };
 		D9CEC9101C0E8CF7008DEE69 /* UITabBar+RedHot.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC8F11C0E8CF7008DEE69 /* UITabBar+RedHot.m */; };
@@ -429,6 +432,7 @@
 		060BA89F1C10121F009AD55E /* DataDatilViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataDatilViewController.m; sourceTree = "<group>"; };
 		060BA8A11C10122C009AD55E /* CoachOfCoureDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoachOfCoureDetailController.h; sourceTree = "<group>"; };
 		060BA8A21C10122C009AD55E /* CoachOfCoureDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoachOfCoureDetailController.m; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		0666FF951C140E9A009FA71F /* HomeDataDatailModelRootClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeDataDatailModelRootClass.h; sourceTree = "<group>"; };
 		0666FF961C140E9A009FA71F /* HomeDataDatailModelRootClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeDataDatailModelRootClass.m; sourceTree = "<group>"; };
 		0666FFA21C141C8D009FA71F /* ApplyStuentListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyStuentListModel.h; sourceTree = "<group>"; };
@@ -445,6 +449,10 @@
 		0666FFB21C141D43009FA71F /* GeneralCommentListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralCommentListModel.m; sourceTree = "<group>"; };
 		0666FFB71C141D74009FA71F /* ComplaintListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComplaintListModel.h; sourceTree = "<group>"; };
 		0666FFB81C141D74009FA71F /* ComplaintListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComplaintListModel.m; sourceTree = "<group>"; };
+=======
+		5543A6321C130D710063F7EE /* UserCenterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterController.h; sourceTree = "<group>"; };
+		5543A6331C130D710063F7EE /* UserCenterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterController.m; sourceTree = "<group>"; };
+>>>>>>> 4eabb0b37f50d31bfb7875a720dbb702a3166867
 		556D3CE81C1128CF0012C2D5 /* PublishDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishDataModel.h; sourceTree = "<group>"; };
 		556D3CE91C1128CF0012C2D5 /* PublishDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishDataModel.m; sourceTree = "<group>"; };
 		556D3CEB1C112A240012C2D5 /* PublishDataModelRootClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishDataModelRootClass.h; sourceTree = "<group>"; };
@@ -965,10 +973,8 @@
 		D95CE3BB1C12BDD700EF6F75 /* HomeDataModelWeeklyData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeDataModelWeeklyData.m; sourceTree = "<group>"; };
 		D95CE3BC1C12BDD700EF6F75 /* HomeDataModelWeeklyRootClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeDataModelWeeklyRootClass.h; sourceTree = "<group>"; };
 		D95CE3BD1C12BDD700EF6F75 /* HomeDataModelWeeklyRootClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeDataModelWeeklyRootClass.m; sourceTree = "<group>"; };
-		D95CE3C01C12BF5100EF6F75 /* HomeWeeklyViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeWeeklyViewModel.h; sourceTree = "<group>"; };
-		D95CE3C11C12BF5100EF6F75 /* HomeWeeklyViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeWeeklyViewModel.m; sourceTree = "<group>"; };
-		D95CE3C31C12BF6C00EF6F75 /* HomeDailyViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeDailyViewModel.h; sourceTree = "<group>"; };
-		D95CE3C41C12BF6C00EF6F75 /* HomeDailyViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeDailyViewModel.m; sourceTree = "<group>"; };
+		D95CE4441C12EB2A00EF6F75 /* HomeViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewModel.h; sourceTree = "<group>"; };
+		D95CE4451C12EB2A00EF6F75 /* HomeViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewModel.m; sourceTree = "<group>"; };
 		D9CEC8E91C0E8C83008DEE69 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D9CEC8EA1C0E8C83008DEE69 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D9CEC8EE1C0E8CF7008DEE69 /* HMNagationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMNagationController.h; sourceTree = "<group>"; };
@@ -1142,6 +1148,15 @@
 				948A09C6A9F41BA727FBB910 /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		5543A6311C130D5E0063F7EE /* UserCenter */ = {
+			isa = PBXGroup;
+			children = (
+				5543A6321C130D710063F7EE /* UserCenterController.h */,
+				5543A6331C130D710063F7EE /* UserCenterController.m */,
+			);
+			path = UserCenter;
 			sourceTree = "<group>";
 		};
 		B8771AEC1C09761F0051DE9D = {
@@ -2442,7 +2457,7 @@
 				D9CEC8F51C0E8CF7008DEE69 /* Login */,
 				D9CEC8FB1C0E8CF7008DEE69 /* Set */,
 				D9CEC8FC1C0E8CF7008DEE69 /* SideMenu */,
-				D9CEC8FD1C0E8CF7008DEE69 /* UserCenter */,
+				5543A6311C130D5E0063F7EE /* UserCenter */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2513,13 +2528,6 @@
 				55BA0F541C0EF6D300F83CD8 /* PublishController.m */,
 			);
 			path = SideMenu;
-			sourceTree = "<group>";
-		};
-		D9CEC8FD1C0E8CF7008DEE69 /* UserCenter */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = UserCenter;
 			sourceTree = "<group>";
 		};
 		D9CEC8FE1C0E8CF7008DEE69 /* Welcome */ = {
@@ -2598,12 +2606,17 @@
 				D92296E41C0FDCC500D0FFDF /* InformationViewModel.m */,
 				556D3CEE1C112A870012C2D5 /* PublishViewModel.h */,
 				556D3CEF1C112A870012C2D5 /* PublishViewModel.m */,
+<<<<<<< HEAD
+				D95CE4441C12EB2A00EF6F75 /* HomeViewModel.h */,
+				D95CE4451C12EB2A00EF6F75 /* HomeViewModel.m */,
+=======
 				D95CE3C01C12BF5100EF6F75 /* HomeWeeklyViewModel.h */,
 				D95CE3C11C12BF5100EF6F75 /* HomeWeeklyViewModel.m */,
 				D95CE3C31C12BF6C00EF6F75 /* HomeDailyViewModel.h */,
 				D95CE3C41C12BF6C00EF6F75 /* HomeDailyViewModel.m */,
 				0605B7BC1C12D98A00A575B4 /* WeatherViewModel.h */,
 				0605B7BD1C12D98A00A575B4 /* WeatherViewModel.m */,
+>>>>>>> c04354b85f28606fc9f842593cbf621e2dab89d9
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -2980,11 +2993,13 @@
 				B8771CFD1C098DE40051DE9D /* EMAudioRecorderUtil.m in Sources */,
 				B8771E551C0991570051DE9D /* UIViewController+Method.m in Sources */,
 				060BA8921C101197009AD55E /* WeekDataView.m in Sources */,
+				5543A6341C130D710063F7EE /* UserCenterController.m in Sources */,
 				B8771DD31C098DE40051DE9D /* UIViewController+DismissKeyboard.m in Sources */,
 				B8771DDC1C098DE40051DE9D /* ConversationListController.m in Sources */,
 				B8771D051C098DE40051DE9D /* EMVoiceConverter.mm in Sources */,
 				B8771D361C098DE40051DE9D /* PSTGridLayoutInfo.m in Sources */,
 				B8771E481C098F500051DE9D /* PortraitView.m in Sources */,
+				D95CE4461C12EB2A00EF6F75 /* HomeViewModel.m in Sources */,
 				B8771D281C098DE40051DE9D /* UIImage+EMMultiFormat.m in Sources */,
 				0605B7B81C1288CE00A575B4 /* UIBarButtonItem+Helper.m in Sources */,
 				55FDE40A1C0FC5C700329F17 /* InformationDetailController.m in Sources */,
@@ -3047,7 +3062,6 @@
 				B8771D141C098DE40051DE9D /* MWCaptionView.m in Sources */,
 				0666FFB31C141D43009FA71F /* GeneralCommentListModel.m in Sources */,
 				D9CEC8EB1C0E8C83008DEE69 /* AppDelegate.m in Sources */,
-				D95CE3C51C12BF6C00EF6F75 /* HomeDailyViewModel.m in Sources */,
 				D9CEC9851C0ED7D8008DEE69 /* SideMenuController.m in Sources */,
 				B8771D121C098DE40051DE9D /* UIScrollView+MJRefresh.m in Sources */,
 				B8771E521C0990980051DE9D /* UserInfoModel.m in Sources */,
@@ -3057,7 +3071,6 @@
 				D92297441C10439200D0FFDF /* UUBar.m in Sources */,
 				B8771DDB1C098DE40051DE9D /* EaseEmotionManager.m in Sources */,
 				B8771D161C098DE40051DE9D /* MWGridViewController.m in Sources */,
-				D95CE3C21C12BF5100EF6F75 /* HomeWeeklyViewModel.m in Sources */,
 				B8771D1D1C098DE40051DE9D /* EMSDImageCache.m in Sources */,
 				B895A1A01C10444200FEDD78 /* RecomendPieChartView.m in Sources */,
 				B8771DD71C098DE40051DE9D /* EaseMessageReadManager.m in Sources */,

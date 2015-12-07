@@ -41,7 +41,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    // Do any additional setup after loading the view.
     [self initUI];
     [self configeUI];
     [self updateUI];
@@ -49,9 +49,8 @@
 }
 
 - (void)initUI {
-    _BackgroundImage = [[UIImageView alloc] init];   //背景图片
-    [self.view addSubview:_BackgroundImage];
-
+    
+    
     
     [self createUI];
     [self addNotify];
@@ -64,10 +63,8 @@
 }
 
 - (void)createUI {
-    
-//    _iv = [[UIImageView alloc] initWithFrame:self.view.bounds];
-//    _iv.image = [UIImage imageNamed:@"bg_login"];
-//    [self.view addSubview:_iv];
+    _BackgroundImage = [[UIImageView alloc] init];    //背景图片
+    [self.view addSubview:_BackgroundImage];
     
     _iconView = [[UIImageView alloc] init];          //logo
     [self.view addSubview:_iconView];
@@ -124,7 +121,8 @@
     
     _iconView.image = [UIImage imageNamed:@"icon120x110.png"];
     
-//    _phoneTF = [[UITextField alloc] initWithFrame:CGRectMake(26, iconView.frame.origin.y +iconView.frame.size.height +h_iconViewTOP , h_size.width -26, h_phoneTFHeight)];
+    
+    _phoneTF = [[UITextField alloc] initWithFrame:CGRectMake(26, _iconView.frame.origin.y +_iconView.frame.size.height +h_iconViewTOP , h_size.width -26, h_phoneTFHeight)];
     _phoneTF.placeholder = @"账号";
     _phoneTF.textColor = [self colorWithHexString:@"#fefefe"];
     [_phoneTF setValue:[self colorWithHexString:@"#bfbfbf"] forKeyPath:@"_placeholderLabel.textColor"];
@@ -216,6 +214,9 @@
     return [UIColor colorWithRed:((float) r / 255.0f) green:((float) g / 255.0f) blue:((float) b / 255.0f) alpha:1.0f];
 }
 
+#pragma mark - notify
+
+
 - (void)addNotify {
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     [nc addObserver:self selector:@selector(keybardWillShow:) name:UIKeyboardWillShowNotification object:nil];
@@ -267,6 +268,7 @@
         ToastAlertView *toastView = [[ToastAlertView alloc] initWithTitle:@"网络连接失败"];
         [toastView show];
     }];
+
 }
 
 - (void)callNum {

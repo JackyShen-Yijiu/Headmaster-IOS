@@ -24,12 +24,18 @@
     dispatch_once(&onceToken, ^{
         _sharedClient = [[AFHttpClient alloc] initWithBaseURL:[NSURL URLWithString:[NetworkTool domain]]];
         _sharedClient.responseSerializer = [AFJSONResponseSerializer serializer];
-        _sharedClient.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/html", @"text/json", @"text/javascript",@"application/x-javascript",@"text/plain",@"image/gif", nil];
+        _sharedClient.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/html", @"text/json", @"text/javascript",@"application/x-javascript",@"text/plain",@"image/gif", nil];
         _sharedClient.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
+<<<<<<< HEAD
+=======
 
 //        [_sharedClient.requestSerializer setValue:[[UserInfoModel defaultUserInfo] token] forHTTPHeaderField:@"authorization"];
         [_sharedClient.requestSerializer setValue:@"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiI1NjU4MmNhZjFmY2YwM2Q4MTNmNWZiZmMiLCJ0aW1lc3RhbXAiOiIyMDE1LTExLTI5VDA1OjI2OjM3LjAxNFoiLCJhdWQiOiJibGFja2NhdGUiLCJpYXQiOjE0NDg3NzQ3OTd9.FkiYdCgKMWFpYV2Bymbg8hAGrmutMTEHpfcOsAMnT-8" forHTTPHeaderField:@"authorization"];
+>>>>>>> c04354b85f28606fc9f842593cbf621e2dab89d9
 
+        [_sharedClient.requestSerializer setValue:@"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiI1NjU4MmNhZjFmY2YwM2Q4MTNmNWZiZmMiLCJ0aW1lc3RhbXAiOiIyMDE1LTExLTI5VDA1OjI2OjM3LjAxNFoiLCJhdWQiOiJibGFja2NhdGUiLCJpYXQiOjE0NDg3NzQ3OTd9.FkiYdCgKMWFpYV2Bymbg8hAGrmutMTEHpfcOsAMnT-8" forHTTPHeaderField:@"authorization"];
+        
+//        [_sharedClient.requestSerializer setValue:[[UserInfoModel defaultUserInfo] token] forHTTPHeaderField:@"authorization"];
     });
     
     return _sharedClient;

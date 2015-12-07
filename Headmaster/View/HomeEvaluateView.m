@@ -31,7 +31,7 @@
     for (UIButton *itemButton in self.subviews) {
         for (UILabel *label in itemButton.subviews) {
             if (label.tag != 0) {
-                label.text = array[label.tag - 1];
+                label.text = [array objectAtIndex:label.tag - 1];
             }
         }
     }
@@ -73,7 +73,7 @@
         label.textAlignment = 1;
         label.textColor = [UIColor colorWithHexString:@"19f9cc"];
         label.font = [UIFont italicSystemFontOfSize:14];
-        label.text = @"23";
+        label.text = @"";
         
         CGFloat imageViewWidth = 20;
         UIImageView *imageView = [UIImageView new];
