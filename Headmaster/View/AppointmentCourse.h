@@ -7,7 +7,29 @@
 //   约课图表
 
 #import <UIKit/UIKit.h>
+#import "YBLineChartView.h"
 
-@interface AppointmentCourse : UIView
+@interface AppointmentCourse : UITableViewCell
+@property (nonatomic,assign) CGFloat resuleW;
+/**
+ *
+ * 约课
+ *
+ */
+@property(nonatomic,strong) UILabel *appintmentCoureLabel;
+/**
+ *
+ * 预课总人数
+ *
+ */
+@property (nonatomic,strong) UILabel *allPeopelNumberLabel;
+/**
+ *
+ *  约课的表格视图
+ *
+ */
+//@property (nonatomic,strong) UIView *appintmentChartView;
+@property (nonatomic,strong) YBLineChartView *appintmentChartView;
+
 
 @end

@@ -21,7 +21,7 @@
 {
 	self = [super init];
 	if(![dictionary[@"applystudentcount"] isKindOfClass:[NSNull class]]){
-		self.applystudentcount = dictionary[@"applystudentcount"];
+		self.applystudentcount = [NSString stringWithFormat:@"%@",dictionary[@"applystudentcount"]];
 	}	
 	if(![dictionary[@"coachcoursenow"] isKindOfClass:[NSNull class]]){
 		self.coachcoursenow = dictionary[@"coachcoursenow"];
@@ -34,7 +34,7 @@
 	}
 
 	if(![dictionary[@"complaintstudentcount"] isKindOfClass:[NSNull class]]){
-		self.complaintstudentcount = dictionary[@"complaintstudentcount"];
+		self.complaintstudentcount = [NSString stringWithFormat:@"%@",dictionary[@"complaintstudentcount"]];
 	}	
 	if(![dictionary[@"coursestudentnow"] isKindOfClass:[NSNull class]]){
 		self.coursestudentnow = dictionary[@"coursestudentnow"];

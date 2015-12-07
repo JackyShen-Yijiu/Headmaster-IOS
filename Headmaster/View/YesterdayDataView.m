@@ -18,6 +18,7 @@
     if (self) {
         self.delegate = self;
         self.dataSource = self;
+         self.separatorStyle = UITableViewCellSeparatorStyleNone;
         
     }
     return self;
@@ -33,53 +34,83 @@
     
     if (indexPath.row == 0) {
         static  NSString *strCell = @"myCell";
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:strCell];
+        InviteStudentView *cell = [tableView dequeueReusableCellWithIdentifier:strCell];
         if (!cell) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:strCell];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell = [[InviteStudentView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:strCell];
             cell.backgroundColor = [UIColor clearColor];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            // 招生人数
+            cell.chartView.xTitleArray = @[ @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日", @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日" ];
+            cell.chartView.valueArray =@[@[@"23",@"42",@"25",@"15",@"30",@"42",@"32",@"40",@"42",@"25",@"33"]];
+            cell.chartView.frame = CGRectMake(0, 16, self.frame.size.width - 32, 200);
+            [cell.chartView refreshUI];
+            
         }
-        
-        [cell addSubview:self.inviteStudentView];
         return cell;
+        
     }else if (indexPath.row == 1)
     {static  NSString *strCell = @"myCell1";
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:strCell];
+        AppointmentCourse *cell = [tableView dequeueReusableCellWithIdentifier:strCell];
         if (!cell) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:strCell];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell = [[AppointmentCourse alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:strCell];
             cell.backgroundColor = [UIColor clearColor];
-
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            // 约课人数赋值
+            cell.appintmentChartView.xTitleArray = @[ @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日", @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日" ];
+            ;
+            cell.appintmentChartView.valueArray = @[@[@"23",@"42",@"25",@"15",@"30",@"42",@"32",@"40",@"42",@"25",@"33"]];
+            cell.appintmentChartView.frame = CGRectMake(0, 16, self.frame.size.width - 32, 200);
+            [cell.appintmentChartView refreshUI];
         }
         
-        [cell addSubview:self.appintmentCoure];
+        //        [cell addSubview:self.appintmentCoure];
         return cell;
+        // 教练授课情况
         
     }else if (indexPath.row == 2)
     {static  NSString *strCell = @"myCell2";
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:strCell];
+        CoachOfCourse *cell = [tableView dequeueReusableCellWithIdentifier:strCell];
         if (!cell) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:strCell];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell = [[CoachOfCourse alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:strCell];
             cell.backgroundColor = [UIColor clearColor];
-
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            
+            cell.coachOfCourseChart.xTitleArray = @[ @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日", @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日" ];
+            cell.coachOfCourseChart.valueArray = @[@[@"23",@"42",@"25",@"15",@"30",@"42",@"32",@"40",@"42",@"25",@"33"]];
+            
+            cell.coachOfCourseChart.frame = CGRectMake(0, 16, self.frame.size.width - 32, 200);
+            
+            
+            
+            
+            
+            
+            
+            [cell.coachOfCourseChart refreshUI];
         }
         
-        [cell addSubview:self.coacOfCourse];
+        //        [cell addSubview:self.coacOfCourse];
         return cell;
         
     }else if (indexPath.row == 3)
         
     {static  NSString *strCell = @"myCell3";
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:strCell];
+        JudgeView *cell = [tableView dequeueReusableCellWithIdentifier:strCell];
         if (!cell) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:strCell];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell = [[JudgeView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:strCell];
             cell.backgroundColor = [UIColor clearColor];
-
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            // 评价情况
+            cell.judgeChart.xTitleArray = @[ @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日", @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日" ];
+            
+            cell.judgeChart.valueArray = @[@[@"23",@"42",@"25",@"15",@"30",@"42",@"32",@"40",@"42",@"25",@"33"]];
+            cell.judgeChart.frame = CGRectMake(0, 16, self.frame.size.width - 32, 200);
+            [cell.judgeChart refreshUI];
+            
+            
+            
         }
         
-        [cell addSubview:self.judgeView];
         return cell;
         
     }
@@ -88,41 +119,41 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 270;
 }
-- (InviteStudentView *)inviteStudentView{
-    
-    
-    if (_inviteStudentView == nil) {
-        _inviteStudentView = [[InviteStudentView alloc] init];
-        _inviteStudentView.frame = CGRectMake(0, 0,ksystemW , 200);
-    }
-    return _inviteStudentView;
-}
-- (AppointmentCourse *)appintmentCoure{
-    
-    
-    if (_appintmentCoure == nil) {
-        _appintmentCoure = [[AppointmentCourse alloc] init];
-        _appintmentCoure.frame = CGRectMake(0, 0,ksystemW , 200);
-    }
-    return _appintmentCoure;
-}
-- (CoachOfCourse *)coacOfCourse{
-    
-    
-    if (_coacOfCourse == nil) {
-        _coacOfCourse = [[CoachOfCourse alloc] init];
-        _coacOfCourse.frame = CGRectMake(0, 0,ksystemW , 200);
-    }
-    return _coacOfCourse;
-}
-- (JudgeView *)judgeView{ 
-    
-    
-    if (_judgeView == nil) {
-        _judgeView = [[JudgeView alloc] init];
-        _judgeView.frame = CGRectMake(0, 0,ksystemW , 200);
-    }
-    return _judgeView;
-}
+//- (InviteStudentView *)inviteStudentView{
+//    
+//    
+//    if (_inviteStudentView == nil) {
+//        _inviteStudentView = [[InviteStudentView alloc] init];
+//        _inviteStudentView.frame = CGRectMake(0, 0,ksystemW , 200);
+//    }
+//    return _inviteStudentView;
+//}
+//- (AppointmentCourse *)appintmentCoure{
+//    
+//    
+//    if (_appintmentCoure == nil) {
+//        _appintmentCoure = [[AppointmentCourse alloc] init];
+//        _appintmentCoure.frame = CGRectMake(0, 0,ksystemW , 200);
+//    }
+//    return _appintmentCoure;
+//}
+//- (CoachOfCourse *)coacOfCourse{
+//    
+//    
+//    if (_coacOfCourse == nil) {
+//        _coacOfCourse = [[CoachOfCourse alloc] init];
+//        _coacOfCourse.frame = CGRectMake(0, 0,ksystemW , 200);
+//    }
+//    return _coacOfCourse;
+//}
+//- (JudgeView *)judgeView{ 
+//    
+//    
+//    if (_judgeView == nil) {
+//        _judgeView = [[JudgeView alloc] init];
+//        _judgeView.frame = CGRectMake(0, 0,ksystemW , 200);
+//    }
+//    return _judgeView;
+//}
 
 @end

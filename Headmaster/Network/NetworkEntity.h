@@ -101,13 +101,21 @@
                             success:(NetworkSuccessBlock)success
                             failure:(NetworkFailureBlock)failure;
 /**
+ *  首页
+ *
+ *  @param searchType 查询的类型（昨天、今天、本周）
+ */
++ (void)getHomeDataWithSearchType:(NSInteger)searchType
+                          success:(NetworkSuccessBlock)success
+                          failure:(NetworkFailureBlock)failure;
+/**
  *    更多数据
  *     @param   userid
  *     @param   searchtype
  *     @param  schoolid
  *     @param  authorization
  *
- */
+*/
 + (void)moreDataDatilListWithuserid:(NSString *)userid
                          searchtype:(NSInteger ) searchtype
                            schoolid:(NSString *)schoolid

@@ -9,45 +9,18 @@
 #import "CoachOfCourse.h"
 #import <Masonry/Masonry.h>
 
-#import "YBBarChartView.h"
-
 #define kSystemW [UIScreen mainScreen].bounds.size.width
 #define kSystemH [UIScreen mainScreen].bounds.size.height
 
-@interface CoachOfCourse ()
-/**
- *
- *  教练授课
- *
- */
-@property (nonatomic,strong) UILabel *coachOfCourseLabel;
-/**
- *
- *  详情
- *
- */
-@property (nonatomic,strong) UIButton *coachOfCourseButton;
-
-/**
- *
- * 教练授课图表
- *
- */
-//@property (nonatomic,strong) UIView *coachOfCourseChart;
-@property (nonatomic,strong) YBBarChartView *coachOfCourseChart;
-
-@end
 
 @implementation CoachOfCourse
-
-- (instancetype)initWithFrame:(CGRect)frame
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
-    self = [super initWithFrame:frame];
-    if (self) {
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         [self addSubview:self.coachOfCourseLabel];
         [self addSubview:self.coachOfCourseButton];
         [self addSubview:self.coachOfCourseChart];
-        
+
     }
     return self;
 }
@@ -59,8 +32,6 @@
         _coachOfCourseLabel.text = @"教练授课";
         _coachOfCourseLabel.font = [UIFont systemFontOfSize:16.0];
         _coachOfCourseLabel.textColor = [UIColor colorWithHexString:@"01e2b6"];
-        
-        
     }
     
     return _coachOfCourseLabel;
@@ -118,7 +89,7 @@
     if (_coachOfCourseChart == nil) {
         _coachOfCourseChart = [[YBBarChartView alloc] init];
         [_coachOfCourseChart refreshUI];
-//        _coachOfCourseChart.backgroundColor = [UIColor grayColor];
+        _coachOfCourseChart.backgroundColor = [UIColor redColor];
     }
     return _coachOfCourseChart;
 }
@@ -161,6 +132,8 @@
         make.top.mas_equalTo(_coachOfCourseLabel.mas_bottom).with.offset(10);
         make.height.mas_equalTo(150);
     }];
+//    self.coachOfCourseChart.frame = CGRectMake(0, 0, 200, 200);
+    
     
 }
 

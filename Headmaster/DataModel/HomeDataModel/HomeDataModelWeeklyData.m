@@ -21,25 +21,25 @@
 {
 	self = [super init];
 	if(![dictionary[@"applystudentcount"] isKindOfClass:[NSNull class]]){
-		self.applystudentcount = dictionary[@"applystudentcount"];
+		self.applystudentcount = [NSString stringWithFormat:@"%@",dictionary[@"applystudentcount"]];
 	}	
 	if(![dictionary[@"badcommentcount"] isKindOfClass:[NSNull class]]){
-		self.badcommentcount = dictionary[@"badcommentcount"];
+		self.badcommentcount = [NSString stringWithFormat:@"%@",dictionary[@"badcommentcount"]];
 	}	
 	if(![dictionary[@"coachstotalcoursecount"] isKindOfClass:[NSNull class]]){
-		self.coachstotalcoursecount = dictionary[@"coachstotalcoursecount"];
+		self.coachstotalcoursecount = [NSString stringWithFormat:@"%@",dictionary[@"coachstotalcoursecount"]];
 	}	
 	if(![dictionary[@"complaintstudentcount"] isKindOfClass:[NSNull class]]){
-		self.complaintstudentcount = dictionary[@"complaintstudentcount"];
+		self.complaintstudentcount = [NSString stringWithFormat:@"%@",dictionary[@"complaintstudentcount"]];
 	}	
 	if(![dictionary[@"generalcomment"] isKindOfClass:[NSNull class]]){
-		self.generalcomment = dictionary[@"generalcomment"];
+		self.generalcomment = [NSString stringWithFormat:@"%@",dictionary[@"generalcomment"]];
 	}	
 	if(![dictionary[@"goodcommentcount"] isKindOfClass:[NSNull class]]){
-		self.goodcommentcount = dictionary[@"goodcommentcount"];
+		self.goodcommentcount = [NSString stringWithFormat:@"%@",dictionary[@"goodcommentcount"]];
 	}	
 	if(![dictionary[@"reservationcoursecountday"] isKindOfClass:[NSNull class]]){
-		self.reservationcoursecountday = dictionary[@"reservationcoursecountday"];
+		self.reservationcoursecountday = [NSString stringWithFormat:@"%@",dictionary[@"reservationcoursecountday"]];
 	}	
 	return self;
 }
