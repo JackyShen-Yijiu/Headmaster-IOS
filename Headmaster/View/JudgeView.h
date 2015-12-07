@@ -11,8 +11,7 @@
 #import "ZTJudgeBottonSign.h"
 typedef void(^didClick)(UIButton *btn);
 
-@interface JudgeView : UIView
-
+@interface JudgeView : UITableViewCell
 @property (nonatomic,strong) didClick didClick;
 /**
  *

@@ -10,7 +10,7 @@
 #import "YBBarChartView.h"
 typedef void(^didClick)(UIButton *btn);
 
-@interface CoachOfCourse : UIView
+@interface CoachOfCourse : UITableViewCell
 
 @property (nonatomic,strong) didClick didClick;
 

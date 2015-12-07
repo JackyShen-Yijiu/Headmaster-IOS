@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "YBLineChartView.h"
 
-@interface AppointmentCourse : UIView
+@interface AppointmentCourse : UITableViewCell
 @property (nonatomic,assign) CGFloat resuleW;
 /**
  *

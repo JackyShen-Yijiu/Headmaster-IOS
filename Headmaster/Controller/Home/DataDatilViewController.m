@@ -40,8 +40,10 @@
 @implementation DataDatilViewController
 - (void)viewWillAppear:(BOOL)animated
 {
+    
     // 隐藏下面的导航栏
     self.tabBarController.tabBar.hidden = YES;
+//    self.view.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - 64);
 }
 
 - (void)viewDidLoad {
@@ -61,17 +63,17 @@
     
     _todayDataView = self.todayDataView;
     _topButtonView = [[TopButtonView alloc] init];
-    _topButtonView.frame = CGRectMake(25, 66 , self.view.frame.size.width -50, 36);
+    _topButtonView.frame = CGRectMake(25, 0 , self.view.frame.size.width -50, 36);
     _topButtonView.backgroundColor = [UIColor clearColor];
     [_topButtonView selectOneButton:_tag + 101];
     
      // 添加button上面一条线
-    UIView *lineTopView = [[UIView alloc] initWithFrame:CGRectMake(7.5, 64, self.view.frame.size.width - 15, 2)];
+    UIView *lineTopView = [[UIView alloc] initWithFrame:CGRectMake(7.5,0, self.view.frame.size.width - 15, 2)];
     lineTopView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
 
     
     // 添加button下面一条线
-    UIView *lineDownView = [[UIView alloc] initWithFrame:CGRectMake(7.5, 102, self.view.frame.size.width - 15, 2)];
+    UIView *lineDownView = [[UIView alloc] initWithFrame:CGRectMake(7.5, 38, self.view.frame.size.width - 15, 2)];
     lineDownView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
     
     // 添加背景图片
@@ -188,19 +190,19 @@
 {
     _scrollView = [[UIScrollView alloc] init];
     _scrollView.delegate = self;
-    _scrollView.frame = CGRectMake(0, 109, ksystemW, ksystemH - 109);
+    _scrollView.frame = CGRectMake(0,38, ksystemW, ksystemH - 38);
 //    _scrollView.backgroundColor = [UIColor orangeColor];
     _scrollView.backgroundColor = [UIColor clearColor];
     _scrollView.contentSize = CGSizeMake(ksystemW * 5, 0);
     _scrollView.pagingEnabled = YES;
     [self.view addSubview:_scrollView];
-    if (_tag == 0) {
+    if (_tag == 101) {
         [_scrollView addSubview:self.todayDataView];
-    }else if(_tag == 1)
+    }else if(_tag == 102)
     {
-        [_scrollView addSubview:self.yearDataView];
+        [_scrollView addSubview:self.yesterdayDataView];
 
-    }else if (_tag == 2)
+    }else if (_tag == 103)
     
     {
       [_scrollView addSubview:self.weekDataView];
@@ -264,7 +266,7 @@
         
         CGSize selfSize = self.view.frame.size;
         _todayDataView = [TodayDataView new];
-        _todayDataView.frame = CGRectMake(0,0, selfSize.width, selfSize.height - 109);
+        _todayDataView.frame = CGRectMake(0,0, selfSize.width, selfSize.height - 45);
         _todayDataView.backgroundColor = [UIColor clearColor];
         [_scrollView addSubview:_todayDataView];
     }
@@ -274,17 +276,9 @@
 - (YesterdayDataView *)yesterdayDataView {
     
     if (!_yesterdayDataView) {
-    
-        
-        
-        
-        
-        
-        
-        
         CGSize selfSize = self.view.frame.size;
         _yesterdayDataView = [YesterdayDataView new];
-        _yesterdayDataView.frame = CGRectMake(selfSize.width, 0, selfSize.width, selfSize.height - 109);
+        _yesterdayDataView.frame = CGRectMake(selfSize.width, 0, selfSize.width, selfSize.height - 45);
         _yesterdayDataView.backgroundColor = [UIColor clearColor];
         [_scrollView addSubview:_yesterdayDataView];
     }
@@ -297,7 +291,7 @@
         
         CGSize selfSize = self.view.frame.size;
         _weekDataView = [WeekDataView new];
-        _weekDataView.frame = CGRectMake(selfSize.width *2, 0, selfSize.width, selfSize.height - 109);
+        _weekDataView.frame = CGRectMake(selfSize.width *2, 0, selfSize.width, selfSize.height - 45);
         _weekDataView.backgroundColor = [UIColor clearColor];
         [_scrollView addSubview:_weekDataView];
     }
@@ -310,7 +304,7 @@
         
         CGSize selfSize = self.view.frame.size;
         _monthDataView = [MonthViewData new];
-        _monthDataView.frame = CGRectMake(selfSize.width * 3, 0, selfSize.width, selfSize.height - 109);
+        _monthDataView.frame = CGRectMake(selfSize.width * 3, 0, selfSize.width, selfSize.height - 38);
         _monthDataView.backgroundColor = [UIColor clearColor];
 
         [_scrollView addSubview:_monthDataView];
@@ -331,34 +325,8 @@
         
         CGSize selfSize = self.view.frame.size;
         _yearDataView = [YearDataView new];
-        _yearDataView.frame = CGRectMake(selfSize.width * 4, 0, selfSize.width, selfSize.height - 109);
+        _yearDataView.frame = CGRectMake(selfSize.width * 4, 0, selfSize.width, selfSize.height - 38);
         _yearDataView.backgroundColor = [UIColor clearColor];
-        
-        
-        // 招生人数
-        _yearDataView.inviteStudentView.chartView.xTitleArray = @[ @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日", @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日" ];
-        _yearDataView.inviteStudentView.chartView.valueArray =@[@[@"23",@"42",@"25",@"15",@"30",@"42",@"32",@"40",@"42",@"25",@"33"]];
-       
-        // 约课人数赋值
-        _yearDataView.appintmentCoure.appintmentChartView.xTitleArray = @[ @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日", @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日" ];
-;
-        _yearDataView.appintmentCoure.appintmentChartView.valueArray = @[@[@"23",@"42",@"25",@"15",@"30",@"42",@"32",@"40",@"42",@"25",@"33"]];
-        
-        // 教练授课情况
-        _yearDataView.coacOfCourse.coachOfCourseChart.xTitleArray = @[ @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日", @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日" ];
-         _yearDataView.coacOfCourse.coachOfCourseChart.valueArray = @[@[@"23",@"42",@"25",@"15",@"30",@"42",@"32",@"40",@"42",@"25",@"33"]];
-        
-        // 评价情况
-        _yearDataView.judgeView.judgeChart.xTitleArray = @[ @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日", @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日" ];
-        
-        _yearDataView.judgeView.judgeChart.valueArray = @[@[@"23",@"42",@"25",@"15",@"30",@"42",@"32",@"40",@"42",@"25",@"33"]];
-        [ _yearDataView.appintmentCoure.appintmentChartView refreshUI];
-        [_yearDataView.coacOfCourse.coachOfCourseChart refreshUI];
-        [_yearDataView.judgeView.judgeChart refreshUI];
-        [_yearDataView.inviteStudentView.chartView refreshUI];
-        
-      
-        
 
         [_scrollView addSubview:_yearDataView];
     }

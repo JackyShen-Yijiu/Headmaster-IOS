@@ -18,18 +18,20 @@
 @end
 
 @implementation JudgeView
-- (instancetype)initWithFrame:(CGRect)frame
+
+
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
-    self = [super initWithFrame:frame];
-    if (self) {
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         [self addSubview:self.judgeLabel];
         [self addSubview:self.judgeButton];
         [self addSubview:self.judgeChart];
         [self addSubview:self.signView];
+
     }
     return self;
 }
-
 - (UILabel *)judgeLabel
 {
     if (_judgeLabel == nil) {
@@ -151,7 +153,7 @@
         make.left.mas_equalTo(self.mas_left).with.offset(16);
         make.right.mas_equalTo(self.mas_right).with.offset(-16);
         make.top.mas_equalTo(_judgeLabel.mas_bottom).with.offset(10);
-        make.height.mas_equalTo(120);
+        make.height.mas_equalTo(150);
     }];
     [self.signView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.mas_left).with.offset(40);
