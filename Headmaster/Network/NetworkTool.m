@@ -28,7 +28,7 @@
         _sharedClient.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
 
 //        [_sharedClient.requestSerializer setValue:[[UserInfoModel defaultUserInfo] token] forHTTPHeaderField:@"authorization"];
-        [_sharedClient.requestSerializer setValue:@"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiI1NjU4MmNhZjFmY2YwM2Q4MTNmNWZiZmMiLCJ0aW1lc3RhbXAiOiIyMDE1LTExLTI5VDA1OjI2OjM3LjAxNFoiLCJhdWQiOiJibGFja2NhdGUiLCJpYXQiOjE0NDg3NzQ3OTd9.FkiYdCgKMWFpYV2Bymbg8hAGrmutMTEHpfcOsAMnT-8" forHTTPHeaderField:@"authorization"];
+//        [_sharedClient.requestSerializer setValue:@"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiI1NjU4MmNhZjFmY2YwM2Q4MTNmNWZiZmMiLCJ0aW1lc3RhbXAiOiIyMDE1LTExLTI5VDA1OjI2OjM3LjAxNFoiLCJhdWQiOiJibGFja2NhdGUiLCJpYXQiOjE0NDg3NzQ3OTd9.FkiYdCgKMWFpYV2Bymbg8hAGrmutMTEHpfcOsAMnT-8" forHTTPHeaderField:@"authorization"];
 
         [_sharedClient.requestSerializer setValue:@"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiI1NjU4MmNhZjFmY2YwM2Q4MTNmNWZiZmMiLCJ0aW1lc3RhbXAiOiIyMDE1LTExLTI5VDA1OjI2OjM3LjAxNFoiLCJhdWQiOiJibGFja2NhdGUiLCJpYXQiOjE0NDg3NzQ3OTd9.FkiYdCgKMWFpYV2Bymbg8hAGrmutMTEHpfcOsAMnT-8" forHTTPHeaderField:@"authorization"];
         

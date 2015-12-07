@@ -52,13 +52,13 @@
        self.title = strArray[_tag - 101];
     
     
-//    // 加载数据
-//    _dataDatilViewModel = [[DataDatilViewModel alloc] init];
-//    [_dataDatilViewModel successRefreshBlock:^{
-//        NSLog(@"我被回调了");
-//        NSLog(@"%@",_dataDatilViewModel.coachCoureX);
-//    }];
-//    [_dataDatilViewModel networkRequestRefreshWith:1];
+    // 加载数据
+    _dataDatilViewModel = [[DataDatilViewModel alloc] init];
+    [_dataDatilViewModel successRefreshBlock:^{
+    
+        NSLog(@"%@",_dataDatilViewModel.coachCoureX);
+    }];
+    [_dataDatilViewModel networkRequestRefreshWith:1];
     
     
     _todayDataView = self.todayDataView;
@@ -127,6 +127,8 @@
     // 点击教练授课详情
     self.todayDataView.coacOfCourse.didClick = ^(UIButton *btn)
     {
+        
+        NSLog(@"我被回调了!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         CoachOfCoureDetailController *detailVC = [[CoachOfCoureDetailController alloc] init];
         [dataVC.navigationController pushViewController:detailVC animated:YES];
     };

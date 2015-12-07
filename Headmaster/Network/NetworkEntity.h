@@ -133,4 +133,19 @@
                             success:(NetworkSuccessBlock)success
                             failure:(NetworkFailureBlock)failure;
 
+/*
+ *
+ *  教练授课详情
+ *
+ */
++ (void)getCoachCourseListWithuserid:(NSString *)userid
+                          searchtype:(NSInteger)searchtype
+                            schoolid:(NSString *)schoolid
+                               count:(NSInteger) count
+                               index:(NSInteger) index
+                             success:(NetworkSuccessBlock)success
+                             failure:(NetworkFailureBlock)failure;
+
+
+
 @end

@@ -100,7 +100,7 @@
 {
     if (_judgeChart == nil) {
         _judgeChart = [[YBLineChartView alloc] init];
-        [_judgeChart refreshUI];
+//        [_judgeChart refreshUI];
 //        _judgeChart.backgroundColor = [UIColor grayColor];
     }
     return _judgeChart;

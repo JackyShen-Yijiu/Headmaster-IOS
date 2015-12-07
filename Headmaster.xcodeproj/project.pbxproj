@@ -32,7 +32,6 @@
 		060BA89D1C1011F8009AD55E /* CoachOfCoureDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 060BA89B1C1011F8009AD55E /* CoachOfCoureDetailCell.xib */; };
 		060BA8A01C10121F009AD55E /* DataDatilViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 060BA89F1C10121F009AD55E /* DataDatilViewController.m */; };
 		060BA8A31C10122C009AD55E /* CoachOfCoureDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 060BA8A21C10122C009AD55E /* CoachOfCoureDetailController.m */; };
-
 		0666FF971C140E9A009FA71F /* HomeDataDatailModelRootClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 0666FF961C140E9A009FA71F /* HomeDataDatailModelRootClass.m */; };
 		0666FFA41C141C8D009FA71F /* ApplyStuentListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0666FFA31C141C8D009FA71F /* ApplyStuentListModel.m */; };
 		0666FFA71C141CA5009FA71F /* ReservationStudentListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0666FFA61C141CA5009FA71F /* ReservationStudentListModel.m */; };
@@ -41,6 +40,9 @@
 		0666FFB01C141D13009FA71F /* BadCommentListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0666FFAF1C141D13009FA71F /* BadCommentListModel.m */; };
 		0666FFB31C141D43009FA71F /* GeneralCommentListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0666FFB21C141D43009FA71F /* GeneralCommentListModel.m */; };
 		0666FFB91C141D74009FA71F /* ComplaintListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0666FFB81C141D74009FA71F /* ComplaintListModel.m */; };
+		0699E5E01C1566E50079CABF /* CoachCourseDatailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0699E5DF1C1566E50079CABF /* CoachCourseDatailViewModel.m */; };
+		0699E5E31C15811A0079CABF /* CoachCoureDatailModelRootClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 0699E5E21C15811A0079CABF /* CoachCoureDatailModelRootClass.m */; };
+		0699E5E61C1581360079CABF /* CoachCoureDatilModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0699E5E51C1581360079CABF /* CoachCoureDatilModel.m */; };
 		5543A6341C130D710063F7EE /* UserCenterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5543A6331C130D710063F7EE /* UserCenterController.m */; };
 		556D3CEA1C1128CF0012C2D5 /* PublishDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 556D3CE91C1128CF0012C2D5 /* PublishDataModel.m */; };
 		556D3CED1C112A240012C2D5 /* PublishDataModelRootClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 556D3CEC1C112A240012C2D5 /* PublishDataModelRootClass.m */; };
@@ -446,6 +448,12 @@
 		0666FFB21C141D43009FA71F /* GeneralCommentListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralCommentListModel.m; sourceTree = "<group>"; };
 		0666FFB71C141D74009FA71F /* ComplaintListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComplaintListModel.h; sourceTree = "<group>"; };
 		0666FFB81C141D74009FA71F /* ComplaintListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComplaintListModel.m; sourceTree = "<group>"; };
+		0699E5DE1C1566E50079CABF /* CoachCourseDatailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoachCourseDatailViewModel.h; sourceTree = "<group>"; };
+		0699E5DF1C1566E50079CABF /* CoachCourseDatailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoachCourseDatailViewModel.m; sourceTree = "<group>"; };
+		0699E5E11C15811A0079CABF /* CoachCoureDatailModelRootClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoachCoureDatailModelRootClass.h; sourceTree = "<group>"; };
+		0699E5E21C15811A0079CABF /* CoachCoureDatailModelRootClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoachCoureDatailModelRootClass.m; sourceTree = "<group>"; };
+		0699E5E41C1581360079CABF /* CoachCoureDatilModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoachCoureDatilModel.h; sourceTree = "<group>"; };
+		0699E5E51C1581360079CABF /* CoachCoureDatilModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoachCoureDatilModel.m; sourceTree = "<group>"; };
 		5543A6321C130D710063F7EE /* UserCenterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterController.h; sourceTree = "<group>"; };
 		5543A6331C130D710063F7EE /* UserCenterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterController.m; sourceTree = "<group>"; };
 		556D3CE81C1128CF0012C2D5 /* PublishDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishDataModel.h; sourceTree = "<group>"; };
@@ -1118,6 +1126,8 @@
 			children = (
 				0605B7B91C12CA3100A575B4 /* DataDatilViewModel.h */,
 				0605B7BA1C12CA3100A575B4 /* DataDatilViewModel.m */,
+				0699E5DE1C1566E50079CABF /* CoachCourseDatailViewModel.h */,
+				0699E5DF1C1566E50079CABF /* CoachCourseDatailViewModel.m */,
 			);
 			name = DataDatailViewModel;
 			sourceTree = "<group>";
@@ -2396,6 +2406,10 @@
 				D95CE3BB1C12BDD700EF6F75 /* HomeDataModelWeeklyData.m */,
 				D95CE3BC1C12BDD700EF6F75 /* HomeDataModelWeeklyRootClass.h */,
 				D95CE3BD1C12BDD700EF6F75 /* HomeDataModelWeeklyRootClass.m */,
+				0699E5E11C15811A0079CABF /* CoachCoureDatailModelRootClass.h */,
+				0699E5E21C15811A0079CABF /* CoachCoureDatailModelRootClass.m */,
+				0699E5E41C1581360079CABF /* CoachCoureDatilModel.h */,
+				0699E5E51C1581360079CABF /* CoachCoureDatilModel.m */,
 			);
 			path = HomeDataModel;
 			sourceTree = "<group>";
@@ -2603,10 +2617,6 @@
 				556D3CEF1C112A870012C2D5 /* PublishViewModel.m */,
 				D95CE4441C12EB2A00EF6F75 /* HomeViewModel.h */,
 				D95CE4451C12EB2A00EF6F75 /* HomeViewModel.m */,
-				D95CE3C01C12BF5100EF6F75 /* HomeWeeklyViewModel.h */,
-				D95CE3C11C12BF5100EF6F75 /* HomeWeeklyViewModel.m */,
-				D95CE3C31C12BF6C00EF6F75 /* HomeDailyViewModel.h */,
-				D95CE3C41C12BF6C00EF6F75 /* HomeDailyViewModel.m */,
 				0605B7BC1C12D98A00A575B4 /* WeatherViewModel.h */,
 				0605B7BD1C12D98A00A575B4 /* WeatherViewModel.m */,
 			);
@@ -2984,6 +2994,7 @@
 				556D3CF01C112A870012C2D5 /* PublishViewModel.m in Sources */,
 				B8771CFD1C098DE40051DE9D /* EMAudioRecorderUtil.m in Sources */,
 				B8771E551C0991570051DE9D /* UIViewController+Method.m in Sources */,
+				0699E5E01C1566E50079CABF /* CoachCourseDatailViewModel.m in Sources */,
 				060BA8921C101197009AD55E /* WeekDataView.m in Sources */,
 				5543A6341C130D710063F7EE /* UserCenterController.m in Sources */,
 				B8771DD31C098DE40051DE9D /* UIViewController+DismissKeyboard.m in Sources */,
@@ -2998,6 +3009,7 @@
 				B8C7031E1C12DD40006035B1 /* RecommendSegView.m in Sources */,
 				D9CEC9101C0E8CF7008DEE69 /* UITabBar+RedHot.m in Sources */,
 				B8771DEB1C098DE40051DE9D /* EaseChatToolbarItem.m in Sources */,
+				0699E5E61C1581360079CABF /* CoachCoureDatilModel.m in Sources */,
 				B8771D191C098DE40051DE9D /* MWTapDetectingImageView.m in Sources */,
 				D9CEC9791C0ED643008DEE69 /* UIImage+Helper.m in Sources */,
 				B8771D291C098DE40051DE9D /* UIImage+EMWebP.m in Sources */,
@@ -3080,6 +3092,7 @@
 				B8771DD51C098DE40051DE9D /* EaseChineseToPinyin.m in Sources */,
 				B8771D1C1C098DE40051DE9D /* DACircularProgressView.m in Sources */,
 				B8771E381C098E6B0051DE9D /* ToastAlertView.m in Sources */,
+				0699E5E31C15811A0079CABF /* CoachCoureDatailModelRootClass.m in Sources */,
 				D92296CA1C0FD2FF00D0FFDF /* HomeTopView.m in Sources */,
 				B8771E491C098F500051DE9D /* RefreshTableView.m in Sources */,
 				B8771D201C098DE40051DE9D /* EMSDWebImageDownloader.m in Sources */,

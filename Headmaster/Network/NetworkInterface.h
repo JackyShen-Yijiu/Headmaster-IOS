@@ -45,6 +45,8 @@
 #define COMPLAINHMESSAGE            @"headmaster/statistics/complaintdetails"
 #define DEALDONWHMESSAGE            @"headmaster/statistics/handlecomplaint"
 
+/* 教练授课详情 */
+#define COACHCOURSEDATAIL            @"headmaster/statistics/coachcoursedetails"
 
 #endif /* NetworkMacro_h */
 
