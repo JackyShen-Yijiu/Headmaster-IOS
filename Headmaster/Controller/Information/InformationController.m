@@ -84,6 +84,9 @@
         _tableView.delegate = self;
         _tableView.dataSource = self;
         [_tableView registerNib:[UINib nibWithNibName:@"InformationListCell" bundle:nil] forCellReuseIdentifier:@"cellID"];
+        UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 6)];
+        headView.backgroundColor = [UIColor clearColor];
+        _tableView.tableHeaderView = headView;
     }
     return _tableView;
 }
@@ -95,7 +98,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 80;
+    return 90;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -106,6 +109,7 @@
         cell = [[InformationListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
         
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.backgroundColor = [UIColor clearColor];
     InformationDataModel *dataModel = _viewModel.informationArray[indexPath.row];
     [cell refreshData:dataModel];

@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "InformationDataModel.h"
+#import "YBBaseTableCell.h"
 
-@interface InformationListCell : UITableViewCell
+@interface InformationListCell : YBBaseTableCell
 
 @property (nonatomic, strong) NSString *detailsId;
 

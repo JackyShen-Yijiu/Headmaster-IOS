@@ -81,6 +81,10 @@
     self.token = [[info objectForKey:@"data"] objectForKey:@"token"];
     self.schoolId = [[[info objectForKey:@"data"] objectForKey:@"driveschool"] objectForKey:@"schoolid"];
     self.schoolName = [[[info objectForKey:@"data"] objectForKey:@"driveschool"] objectForKey:@"name"];
+    self.complaintreminder = [[[[info objectForKey:@"data"] objectForKey:@"usersetting"] objectForKey:@"complaintreminder"] stringValue];
+    self.newmessagereminder = [[[[info objectForKey:@"data"] objectForKey:@"usersetting"] objectForKey:@"newmessagereminder"] stringValue];
+    self.applyreminder = [[[[info objectForKey:@"data"] objectForKey:@"usersetting"] objectForKey:@"applyreminder"] stringValue];
+    
 
     NSString * mds = [info objectForKey:@"md5Pass"];
     //IM登陆注册

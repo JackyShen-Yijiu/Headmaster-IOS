@@ -42,6 +42,10 @@
 #define COMPLAINHMESSAGE            @"headmaster/statistics/complaintdetails"
 #define DEALDONWHMESSAGE            @"headmaster/statistics/handlecomplaint"
 
+/*修改个人信息*/
+
+#define PERSONALSETTING             @"headmaster/userinfo/personalsetting"
+
 
 #endif /* NetworkMacro_h */
 

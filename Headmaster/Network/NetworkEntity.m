@@ -134,7 +134,6 @@
                             @"userid":uim.userID,
                             @"schoolid":uim.schoolId
                             };
-    NSLog(@"params = %@",params);
     NSString *urlStr = [NSString stringWithFormat:@"%@/%@",[NetworkTool domain],PUBLISHMESSAGE];
     
     AFHTTPRequestOperationManager * manager = [AFHTTPRequestOperationManager manager];
@@ -185,6 +184,26 @@
                            @"schoolid":schoolid
                            };
     [NetworkTool GET:MoreData_List params:dict success:success failure:failure];
+}
+
+/**
+ *   修改个人信息
+ */
+
++ (void)changeUserMessageWithUseInfoModel:(UserInfoModel *)uim complaintReminder:(NSString *)complaintreminder applyreminder:(NSString *)applyreminder newmessagereminder:(NSString *)newmessagereminder success:(void (^)(AFHTTPRequestOperation *, id))success failure:(void (^)(AFHTTPRequestOperation *, id))failure {
+    NSDictionary *params =@{
+                            @"userid":uim.userID,
+                            @"complaintreminder":complaintreminder,
+                            @"applyreminder":applyreminder,
+                            @"newmessagereminder":newmessagereminder
+                            };
+    NSString *urlStr = [NSString stringWithFormat:@"%@/%@",[NetworkTool domain],PERSONALSETTING];
+    
+    AFHTTPRequestOperationManager * manager = [AFHTTPRequestOperationManager manager];
+    [manager.requestSerializer setValue:uim.token forHTTPHeaderField:@"authorization"];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [manager POST:urlStr parameters:params success:success failure:failure];
 }
 
 

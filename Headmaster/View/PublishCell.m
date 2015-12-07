@@ -58,6 +58,10 @@
     self.lineBtn.alpha = 0.7;
 }
 
+- (void)amOrpm:(NSString *)str {
+    
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

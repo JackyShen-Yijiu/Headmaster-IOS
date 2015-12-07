@@ -33,6 +33,10 @@
 		060BA8A01C10121F009AD55E /* DataDatilViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 060BA89F1C10121F009AD55E /* DataDatilViewController.m */; };
 		060BA8A31C10122C009AD55E /* CoachOfCoureDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 060BA8A21C10122C009AD55E /* CoachOfCoureDetailController.m */; };
 		5543A6341C130D710063F7EE /* UserCenterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5543A6331C130D710063F7EE /* UserCenterController.m */; };
+		5545DE5E1C14134F00F41506 /* AboutUsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5545DE5D1C14134F00F41506 /* AboutUsController.m */; };
+		5545DE611C14228C00F41506 /* NewStudentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5545DE601C14228C00F41506 /* NewStudentController.m */; };
+		5545DE641C14261400F41506 /* FeedbackController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5545DE631C14261400F41506 /* FeedbackController.m */; };
+		5562F30D1C15386D002E5313 /* MenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5562F30C1C15386D002E5313 /* MenuController.m */; };
 		556D3CEA1C1128CF0012C2D5 /* PublishDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 556D3CE91C1128CF0012C2D5 /* PublishDataModel.m */; };
 		556D3CED1C112A240012C2D5 /* PublishDataModelRootClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 556D3CEC1C112A240012C2D5 /* PublishDataModelRootClass.m */; };
 		556D3CF01C112A870012C2D5 /* PublishViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 556D3CEF1C112A870012C2D5 /* PublishViewModel.m */; };
@@ -424,6 +428,14 @@
 		060BA8A21C10122C009AD55E /* CoachOfCoureDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoachOfCoureDetailController.m; sourceTree = "<group>"; };
 		5543A6321C130D710063F7EE /* UserCenterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterController.h; sourceTree = "<group>"; };
 		5543A6331C130D710063F7EE /* UserCenterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterController.m; sourceTree = "<group>"; };
+		5545DE5C1C14134F00F41506 /* AboutUsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutUsController.h; path = Headmaster/Controller/UserCenter/AboutUsController.h; sourceTree = SOURCE_ROOT; };
+		5545DE5D1C14134F00F41506 /* AboutUsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutUsController.m; path = Headmaster/Controller/UserCenter/AboutUsController.m; sourceTree = SOURCE_ROOT; };
+		5545DE5F1C14228C00F41506 /* NewStudentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewStudentController.h; path = Headmaster/Controller/UserCenter/NewStudentController.h; sourceTree = SOURCE_ROOT; };
+		5545DE601C14228C00F41506 /* NewStudentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewStudentController.m; path = Headmaster/Controller/UserCenter/NewStudentController.m; sourceTree = SOURCE_ROOT; };
+		5545DE621C14261400F41506 /* FeedbackController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedbackController.h; path = Headmaster/Controller/UserCenter/FeedbackController.h; sourceTree = SOURCE_ROOT; };
+		5545DE631C14261400F41506 /* FeedbackController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedbackController.m; path = Headmaster/Controller/UserCenter/FeedbackController.m; sourceTree = SOURCE_ROOT; };
+		5562F30B1C15386D002E5313 /* MenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuController.h; sourceTree = "<group>"; };
+		5562F30C1C15386D002E5313 /* MenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuController.m; sourceTree = "<group>"; };
 		556D3CE81C1128CF0012C2D5 /* PublishDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishDataModel.h; sourceTree = "<group>"; };
 		556D3CE91C1128CF0012C2D5 /* PublishDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishDataModel.m; sourceTree = "<group>"; };
 		556D3CEB1C112A240012C2D5 /* PublishDataModelRootClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishDataModelRootClass.h; sourceTree = "<group>"; };
@@ -2454,6 +2466,12 @@
 			children = (
 				55BA0F561C0EF6FA00F83CD8 /* SettingController.h */,
 				55BA0F571C0EF6FA00F83CD8 /* SettingController.m */,
+				5545DE5C1C14134F00F41506 /* AboutUsController.h */,
+				5545DE5D1C14134F00F41506 /* AboutUsController.m */,
+				5545DE5F1C14228C00F41506 /* NewStudentController.h */,
+				5545DE601C14228C00F41506 /* NewStudentController.m */,
+				5545DE621C14261400F41506 /* FeedbackController.h */,
+				5545DE631C14261400F41506 /* FeedbackController.m */,
 			);
 			path = Set;
 			sourceTree = "<group>";
@@ -2467,6 +2485,8 @@
 				D9CEC9841C0ED7D8008DEE69 /* SideMenuItem.m */,
 				55BA0F531C0EF6D300F83CD8 /* PublishController.h */,
 				55BA0F541C0EF6D300F83CD8 /* PublishController.m */,
+				5562F30B1C15386D002E5313 /* MenuController.h */,
+				5562F30C1C15386D002E5313 /* MenuController.m */,
 			);
 			path = SideMenu;
 			sourceTree = "<group>";
@@ -2858,6 +2878,7 @@
 				060BA8801C10116C009AD55E /* AppointmentCourse.m in Sources */,
 				B8771CFF1C098DE40051DE9D /* EMCDDeviceManager+Microphone.m in Sources */,
 				556D3CED1C112A240012C2D5 /* PublishDataModelRootClass.m in Sources */,
+				5545DE611C14228C00F41506 /* NewStudentController.m in Sources */,
 				B8771E3A1C098E6B0051DE9D /* UIView+TKCategory.m in Sources */,
 				D9CEC9181C0E8CF7008DEE69 /* TeacherCell.m in Sources */,
 				060BA8941C101197009AD55E /* YearDataView.m in Sources */,
@@ -2884,6 +2905,7 @@
 				B8771D151C098DE40051DE9D /* MWGridCell.m in Sources */,
 				B8771E391C098E6B0051DE9D /* UIView+Sizes.m in Sources */,
 				D9D375621C127457008C54FF /* DVVTabBarController.m in Sources */,
+				5545DE5E1C14134F00F41506 /* AboutUsController.m in Sources */,
 				B8771D111C098DE40051DE9D /* UIScrollView+MJExtension.m in Sources */,
 				B8771D391C098DE40051DE9D /* PSTGridLayoutSection.m in Sources */,
 				B8771D251C098DE40051DE9D /* NSData+EMImageContentType.m in Sources */,
@@ -2951,6 +2973,7 @@
 				B8771DDA1C098DE40051DE9D /* EaseEmotionEscape.m in Sources */,
 				D9CEC9681C0ED46A008DEE69 /* HomeDataListController.m in Sources */,
 				D9CEC9571C0ED27E008DEE69 /* HomeController.m in Sources */,
+				5562F30D1C15386D002E5313 /* MenuController.m in Sources */,
 				B8771DD21C098DE40051DE9D /* NSString+Valid.m in Sources */,
 				B8771DE21C098DE40051DE9D /* EaseMessageTimeCell.m in Sources */,
 				B8771DCE1C098DE40051DE9D /* EaseUserModel.m in Sources */,
@@ -2985,6 +3008,7 @@
 				D9CEC9771C0ED643008DEE69 /* NSString+Helper.m in Sources */,
 				D9CEC9131C0E8CF7008DEE69 /* BaseModelMethod.m in Sources */,
 				D9CEC98C1C0EDEC6008DEE69 /* YBBaseNavigationController.m in Sources */,
+				5545DE641C14261400F41506 /* FeedbackController.m in Sources */,
 				B8771DE61C098DE40051DE9D /* EaseBubbleView+Text.m in Sources */,
 				B8771DCA1C098DE40051DE9D /* EaseViewController.m in Sources */,
 				B8771D271C098DE40051DE9D /* UIImage+EMGIF.m in Sources */,

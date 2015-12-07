@@ -16,6 +16,10 @@
 @property(nonatomic,strong)NSString * token;
 @property(nonatomic,strong)NSString * schoolId;
 @property(nonatomic,strong)NSString * schoolName;
+@property(nonatomic,strong)NSString * complaintreminder;
+@property(nonatomic,strong)NSString * newmessagereminder;
+@property(nonatomic,strong)NSString * applyreminder;
+
 
 + (UserInfoModel *)defaultUserInfo;
 

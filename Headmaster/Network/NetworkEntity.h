@@ -124,5 +124,13 @@
                             success:(NetworkSuccessBlock)success
                             failure:(NetworkFailureBlock)failure;
 
+/**
+ * 修改个人信息设置
+ */
+
++ (void)changeUserMessageWithUseInfoModel:(UserInfoModel *)uim complaintReminder:(NSString *)complaintreminder applyreminder:(NSString *)applyreminder newmessagereminder:(NSString *)newmessagereminder
+                                  success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+                                  failure:(void (^)(AFHTTPRequestOperation *operation, id responseObject))failure;
+
 
 @end
