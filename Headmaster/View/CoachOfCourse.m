@@ -9,34 +9,9 @@
 #import "CoachOfCourse.h"
 #import <Masonry/Masonry.h>
 
-#import "YBBarChartView.h"
-
 #define kSystemW [UIScreen mainScreen].bounds.size.width
 #define kSystemH [UIScreen mainScreen].bounds.size.height
 
-@interface CoachOfCourse ()
-/**
- *
- *  教练授课
- *
- */
-@property (nonatomic,strong) UILabel *coachOfCourseLabel;
-/**
- *
- *  详情
- *
- */
-@property (nonatomic,strong) UIButton *coachOfCourseButton;
-
-/**
- *
- * 教练授课图表
- *
- */
-//@property (nonatomic,strong) UIView *coachOfCourseChart;
-@property (nonatomic,strong) YBBarChartView *coachOfCourseChart;
-
-@end
 
 @implementation CoachOfCourse
 
@@ -118,7 +93,7 @@
     if (_coachOfCourseChart == nil) {
         _coachOfCourseChart = [[YBBarChartView alloc] init];
         [_coachOfCourseChart refreshUI];
-//        _coachOfCourseChart.backgroundColor = [UIColor grayColor];
+        _coachOfCourseChart.backgroundColor = [UIColor redColor];
     }
     return _coachOfCourseChart;
 }
@@ -155,12 +130,14 @@
         make.top.mas_equalTo(self.mas_top).with.offset(10);
     }];
     
-    [self.coachOfCourseChart mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self.mas_left).with.offset(16);
-        make.right.mas_equalTo(self.mas_right).with.offset(-16);
-        make.top.mas_equalTo(_coachOfCourseLabel.mas_bottom).with.offset(10);
-        make.height.mas_equalTo(150);
-    }];
+//    [self.coachOfCourseChart mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.mas_equalTo(self.mas_left).with.offset(16);
+//        make.right.mas_equalTo(self.mas_right).with.offset(-16);
+//        make.top.mas_equalTo(_coachOfCourseLabel.mas_bottom).with.offset(10);
+//        make.height.mas_equalTo(150);
+//    }];
+    self.coachOfCourseChart.frame = CGRectMake(0, 0, 200, 200);
+    
     
 }
 

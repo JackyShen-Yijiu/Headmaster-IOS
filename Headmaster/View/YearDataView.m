@@ -105,7 +105,7 @@
     
     if (_coacOfCourse == nil) {
         _coacOfCourse = [[CoachOfCourse alloc] init];
-        _coacOfCourse.frame = CGRectMake(0, 0,ksystemW , 200);
+        _coacOfCourse.frame = CGRectMake(0, 0,400 , 400);
     }
     return _coacOfCourse;
 }

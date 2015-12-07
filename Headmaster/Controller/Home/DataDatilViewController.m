@@ -47,15 +47,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSArray *strArray = [NSArray arrayWithObjects:@"今天数据",@"昨天数据",@"本周数据",@"本月数据",@"本年数据", nil];
-       self.title = strArray[_tag];
+       self.title = strArray[_tag - 101];
     
     
-    
-    _dataDatilViewModel = [[DataDatilViewModel alloc] init];
-    [_dataDatilViewModel successRefreshBlock:^{
-        NSLog(@"我被回调了");
-    }];
-    [_dataDatilViewModel networkRequestRefresh];
+//    // 加载数据
+//    _dataDatilViewModel = [[DataDatilViewModel alloc] init];
+//    [_dataDatilViewModel successRefreshBlock:^{
+//        NSLog(@"我被回调了");
+//        NSLog(@"%@",_dataDatilViewModel.coachCoureX);
+//    }];
+//    [_dataDatilViewModel networkRequestRefreshWith:1];
     
     
     _todayDataView = self.todayDataView;
@@ -193,7 +194,17 @@
     _scrollView.contentSize = CGSizeMake(ksystemW * 5, 0);
     _scrollView.pagingEnabled = YES;
     [self.view addSubview:_scrollView];
-    [_scrollView addSubview:self.todayDataView];
+    if (_tag == 0) {
+        [_scrollView addSubview:self.todayDataView];
+    }else if(_tag == 1)
+    {
+        [_scrollView addSubview:self.yearDataView];
+
+    }else if (_tag == 2)
+    
+    {
+      [_scrollView addSubview:self.weekDataView];
+    }
 }
 
 #pragma mark - UIScrollViewDelegate method
@@ -263,6 +274,13 @@
 - (YesterdayDataView *)yesterdayDataView {
     
     if (!_yesterdayDataView) {
+    
+        
+        
+        
+        
+        
+        
         
         CGSize selfSize = self.view.frame.size;
         _yesterdayDataView = [YesterdayDataView new];
@@ -302,11 +320,45 @@
 - (YearDataView *)yearDataView {
     
     if (!_yearDataView) {
+        // 加载数据
+        _dataDatilViewModel = [[DataDatilViewModel alloc] init];
+        [_dataDatilViewModel successRefreshBlock:^{
+            NSLog(@"我被回调了");
+            NSLog(@"%@",_dataDatilViewModel.coachCoureX);
+            [_yesterdayDataView reloadData];
+        }];
+        [_dataDatilViewModel networkRequestRefreshWith:1];
         
         CGSize selfSize = self.view.frame.size;
         _yearDataView = [YearDataView new];
         _yearDataView.frame = CGRectMake(selfSize.width * 4, 0, selfSize.width, selfSize.height - 109);
         _yearDataView.backgroundColor = [UIColor clearColor];
+        
+        
+        // 招生人数
+        _yearDataView.inviteStudentView.chartView.xTitleArray = @[ @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日", @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日" ];
+        _yearDataView.inviteStudentView.chartView.valueArray =@[@[@"23",@"42",@"25",@"15",@"30",@"42",@"32",@"40",@"42",@"25",@"33"]];
+       
+        // 约课人数赋值
+        _yearDataView.appintmentCoure.appintmentChartView.xTitleArray = @[ @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日", @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日" ];
+;
+        _yearDataView.appintmentCoure.appintmentChartView.valueArray = @[@[@"23",@"42",@"25",@"15",@"30",@"42",@"32",@"40",@"42",@"25",@"33"]];
+        
+        // 教练授课情况
+        _yearDataView.coacOfCourse.coachOfCourseChart.xTitleArray = @[ @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日", @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日" ];
+         _yearDataView.coacOfCourse.coachOfCourseChart.valueArray = @[@[@"23",@"42",@"25",@"15",@"30",@"42",@"32",@"40",@"42",@"25",@"33"]];
+        
+        // 评价情况
+        _yearDataView.judgeView.judgeChart.xTitleArray = @[ @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日", @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日" ];
+        
+        _yearDataView.judgeView.judgeChart.valueArray = @[@[@"23",@"42",@"25",@"15",@"30",@"42",@"32",@"40",@"42",@"25",@"33"]];
+        [ _yearDataView.appintmentCoure.appintmentChartView refreshUI];
+        [_yearDataView.coacOfCourse.coachOfCourseChart refreshUI];
+        [_yearDataView.judgeView.judgeChart refreshUI];
+        [_yearDataView.inviteStudentView.chartView refreshUI];
+        
+      
+        
 
         [_scrollView addSubview:_yearDataView];
     }

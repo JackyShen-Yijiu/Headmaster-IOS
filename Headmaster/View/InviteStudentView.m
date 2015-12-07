@@ -10,38 +10,10 @@
 #import <Masonry/Masonry.h>
 #import "UILabel+LabelAdjustBig.h"
 
-#import "YBLineChartView.h"
-
-
 #define kSystemW [UIScreen mainScreen].bounds.size.width
 #define kSystemH [UIScreen mainScreen].bounds.size.height
 
 @interface InviteStudentView ()
-@property (nonatomic,assign) CGFloat resuleW;
-/**
- *
- * 招生
- *
- */
-@property (nonatomic,strong) UILabel *inviteStudentLabel;
-/**
- *
- * 招生总数
- *
- */
-
-@property (nonatomic,strong) UILabel *inviteStudentNumberLabel;
-/**
- *
- * 表格视图
- *
- */
-
-//@property (nonatomic,strong) UIView *chartView;
-
-@property (nonatomic,strong) YBLineChartView *chartView;
-
-//@property (nonatomic,strong) YBLineChartView *lineChartView;
 
 @end
 

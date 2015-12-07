@@ -100,7 +100,7 @@
     
     DataDatilViewController *dataListVC = [[DataDatilViewController alloc] init];
     
-        dataListVC.tag = _tag;
+        dataListVC.tag = _tag + 101;
     
 //    HomeDataListController *dataListVC = [HomeDataListController new];
     [self.navigationController pushViewController:dataListVC animated:YES];

@@ -7,39 +7,14 @@
 //
 
 #import "JudgeView.h"
-#import "ZTJudgeBottonSign.h"
+
 #import <Masonry/Masonry.h>
 
-#import "YBLineChartView.h"
+
 # define ksystemH [UIScreen mainScreen].bounds.size.height
 # define ksystemW [UIScreen mainScreen].bounds.size.width
 @interface JudgeView()
-/**
- *
- *  评价
- *
- */
-@property (nonatomic,strong) UILabel *judgeLabel;
-/**
- *
- *  详情
- *
- */
-@property (nonatomic,strong) UIButton *judgeButton;
 
-/**
- *
- * 评价图表
- *
- */
-@property (nonatomic,strong) YBLineChartView *judgeChart;
-//@property (nonatomic,strong) UIView *judgeChart;
-/**
- *
- *  底部标示图
- *
- */
-@property (nonatomic,strong) ZTJudgeBottonSign *signView;
 @end
 
 @implementation JudgeView
