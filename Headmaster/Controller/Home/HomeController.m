@@ -12,14 +12,12 @@
 #import "HomeSeeTimeView.h"
 #import "HomeDataListController.h"
 #import "DataDatilViewController.h"
-<<<<<<< HEAD
 #import "HomeViewModel.h"
 #import "RESideMenu.h"
-=======
-#import "HomeDailyViewModel.h"
-#import "HomeWeeklyViewModel.h"
+//#import "HomeDailyViewModel.h"
+//#import "HomeWeeklyViewModel.h"
 #import <BaiduMapAPI_Location/BMKLocationComponent.h>
->>>>>>> c04354b85f28606fc9f842593cbf621e2dab89d9
+
 
 @interface HomeController () <BMKLocationServiceDelegate>
 
@@ -105,14 +103,11 @@
             [self.evaluateView refreshData:_viewModel.evaluateArray];
         }
     }];
-<<<<<<< HEAD
     _viewModel.searchType = 1;
     [_viewModel networkRequestRefresh];
-=======
     
     // 加载地图用于定位,展示天气信息
     [self addMap];
->>>>>>> c04354b85f28606fc9f842593cbf621e2dab89d9
 }
 
 #pragma mark - action
@@ -198,6 +193,7 @@
 }
 
 #pragma maek --- 定位的代理方法
+
 //实现相关delegate 处理位置信息更新
 //处理方向变更信息
 - (void)didUpdateUserHeading:(BMKUserLocation *)userLocation

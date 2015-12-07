@@ -109,14 +109,14 @@
 + (void)getHomeDataWithSearchType:(NSInteger)searchType
                           success:(NetworkSuccessBlock)success
                           failure:(NetworkFailureBlock)failure;
-=======
+/*
  *    更多数据
  *     @param   userid
  *     @param   searchtype
  *     @param  schoolid
  *     @param  authorization
  *
- */
+*/
 + (void)moreDataDatilListWithuserid:(NSString *)userid
                          searchtype:(NSInteger ) searchtype
                            schoolid:(NSString *)schoolid
@@ -132,7 +132,5 @@
 + (void)weatherDataListWithcityname:(NSString *)cityname
                             success:(NetworkSuccessBlock)success
                             failure:(NetworkFailureBlock)failure;
-
->>>>>>> c04354b85f28606fc9f842593cbf621e2dab89d9
 
 @end
