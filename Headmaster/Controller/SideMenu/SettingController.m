@@ -7,6 +7,8 @@
 //
 
 #import "SettingController.h"
+#import "AboutUsController.h"
+#import "FeedbackController.h"
 
 @interface SettingController () <UITableViewDataSource,UITableViewDelegate> {
     BOOL isFirstLoad;
@@ -103,7 +105,15 @@
 //            [ud removeObjectForKey:[NSString stringWithFormat:@"%zd",indexPath.row]];
             NSInteger btnX = [ud integerForKey:[NSString stringWithFormat:@"%zd",indexPath.row]];
             if (!btnX) {
-                btnX = self.view.frame.size.width -70;
+                if (indexPath.row == 0 && ![UserInfoModel defaultUserInfo].newmessagereminder) {
+                    btnX += 20;
+                }
+                if (indexPath.row == 1 && ![UserInfoModel defaultUserInfo].newmessagereminder) {
+                    btnX += 20;
+                }
+                if (indexPath.row == 2 && ![UserInfoModel defaultUserInfo].newmessagereminder) {
+                    btnX += 20;
+                }
                 [ud setInteger:btnX forKey:[NSString stringWithFormat:@"%zd",indexPath.row]];
                 [ud synchronize];
             }
@@ -135,6 +145,22 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 4) {
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:[AboutUsController new]];
+        [self presentViewController:nav animated:YES completion:nil];
+    }else if (indexPath.row == 5) {
+        NSString *appid = @"";
+        NSString* url = [NSString stringWithFormat: @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%@", appid];
+        [[UIApplication sharedApplication] openURL: [NSURL URLWithString: url]];
+    }else if (indexPath.row == 6) {
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:[FeedbackController new]];
+        [self presentViewController:nav animated:YES completion:nil];
+    }
+    
+}
+
+
 - (void)switchBtnAction:(UIButton *)sender {
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSInteger btnX = [ud integerForKey:[NSString stringWithFormat:@"%zd",sender.tag]];
@@ -147,6 +173,7 @@
         [ud removeObjectForKey:[NSString stringWithFormat:@"%zd",sender.tag]];
         [ud setInteger:btnX forKey:[NSString stringWithFormat:@"%zd",sender.tag]];
         [ud synchronize];
+        [self changeUseMessage:ud button:sender goRight:YES];
     }else {
         btnX -= 20;
         btnFrame.origin.x = btnX;
@@ -155,8 +182,52 @@
         [ud removeObjectForKey:[NSString stringWithFormat:@"%zd",sender.tag]];
         [ud setInteger:btnX forKey:[NSString stringWithFormat:@"%zd",sender.tag]];
         [ud synchronize];
+        [self changeUseMessage:ud button:sender goRight:NO];
     }
     
+}
+
+- (void)changeUseMessage:(NSUserDefaults *)ud button:(UIButton *)btn goRight:(BOOL)goright {
+    NSString *complaintreminder =  [ud integerForKey:@"1"] == self.view.frame.size.width -70?@"1":@"0";
+    NSString *applyreminder =      [ud integerForKey:@"2"] == self.view.frame.size.width -70?@"1":@"0";
+    NSString *newmessagereminder = [ud integerForKey:@"0"] == self.view.frame.size.width -70?@"1":@"0";
+    [NetworkEntity changeUserMessageWithUseInfoModel:[UserInfoModel defaultUserInfo] complaintReminder:complaintreminder applyreminder:applyreminder newmessagereminder:newmessagereminder success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
+        if ([[dataDic objectForKey:@"data"] isEqualToString:@"success"]) {
+
+        }else {
+            ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"同步失败，请检查网络连接"];
+            [alertView show];
+            if (goright) {
+                CGRect frame = btn.frame;
+                frame.origin.x -= 20 ;
+                btn.frame = frame;
+            }else {
+                CGRect frame = btn.frame;
+                frame.origin.x += 20 ;
+                btn.frame = frame;
+            }
+            
+        }
+            } failure:^(AFHTTPRequestOperation *operation, id responseObject) {
+                ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"同步失败，请检查网络连接"];
+                [alertView show];
+        if (goright) {
+            CGRect frame = btn.frame;
+            frame.origin.x -= 20 ;
+            btn.frame = frame;
+        }else {
+            CGRect frame = btn.frame;
+            frame.origin.x += 20 ;
+            btn.frame = frame;
+        }
+    }];
+}
+
+
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
 }
 
 - (void)didReceiveMemoryWarning {

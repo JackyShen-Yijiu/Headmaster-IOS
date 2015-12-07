@@ -3,19 +3,22 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="InformationListCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="89.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="11-06-07" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8kU-Po-zbF">
-                        <rect key="frame" x="230" y="62" width="69" height="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11-06-07" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8kU-Po-zbF">
+                        <rect key="frame" x="239.5" y="64" width="59.5" height="20"/>
                         <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="zqS-Ph-ii2"/>
@@ -25,16 +28,15 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iPA-Yw-Iik">
-                        <rect key="frame" x="10" y="12" width="70" height="70"/>
+                        <rect key="frame" x="10" y="6" width="77.5" height="77.5"/>
                         <animations/>
                         <color key="backgroundColor" red="0.57660590277777779" green="0.5583972953216374" blue="0.5583972953216374" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="70" id="Qn9-J7-ZIY"/>
-                            <constraint firstAttribute="width" constant="70" id="gP9-Ub-0Es"/>
+                            <constraint firstAttribute="width" secondItem="iPA-Yw-Iik" secondAttribute="height" multiplier="1:1" id="nQ8-rZ-KWp"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OAJ-q0-BZ2">
-                        <rect key="frame" x="92" y="18" width="207" height="42"/>
+                        <rect key="frame" x="99.5" y="16" width="199.5" height="42"/>
                         <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="42" id="zuk-vk-C77"/>
@@ -46,13 +48,14 @@
                 </subviews>
                 <animations/>
                 <constraints>
+                    <constraint firstItem="iPA-Yw-Iik" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="AcH-5b-CNS"/>
                     <constraint firstAttribute="trailing" secondItem="8kU-Po-zbF" secondAttribute="trailing" constant="21" id="Ahl-h2-xox"/>
                     <constraint firstAttribute="trailing" secondItem="OAJ-q0-BZ2" secondAttribute="trailing" constant="21" id="Ed4-Me-vNy"/>
-                    <constraint firstItem="iPA-Yw-Iik" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="Fbm-y6-kHV"/>
-                    <constraint firstItem="OAJ-q0-BZ2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="18" id="K9d-xZ-hI6"/>
-                    <constraint firstItem="OAJ-q0-BZ2" firstAttribute="leading" secondItem="iPA-Yw-Iik" secondAttribute="trailing" constant="12" id="SWB-HU-uIi"/>
+                    <constraint firstItem="OAJ-q0-BZ2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="K9d-xZ-hI6"/>
+                    <constraint firstItem="OAJ-q0-BZ2" firstAttribute="leading" secondItem="iPA-Yw-Iik" secondAttribute="trailing" constant="12" id="NDX-G4-hdi"/>
                     <constraint firstAttribute="bottom" secondItem="8kU-Po-zbF" secondAttribute="bottom" constant="5.5" id="ZS0-Pc-YlI"/>
-                    <constraint firstItem="iPA-Yw-Iik" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="diM-CG-iKF"/>
+                    <constraint firstItem="iPA-Yw-Iik" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="e2G-kT-0ch"/>
+                    <constraint firstAttribute="bottom" secondItem="iPA-Yw-Iik" secondAttribute="bottom" constant="6" id="l2G-0f-JPk"/>
                 </constraints>
             </tableViewCellContentView>
             <animations/>

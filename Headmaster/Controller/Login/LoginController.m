@@ -73,7 +73,7 @@
     [self.view addSubview:_phoneTF];
     
     _upView = [[UIView alloc] init];                 //账号输入框左侧的父视图
-    [self.view addSubview:_upView];
+    _phoneTF.leftView = _upView;
     
     _phoneView = [[UIImageView alloc]init];          //账号输入框的icon
     [_upView addSubview:_phoneView];
@@ -85,7 +85,7 @@
     [self.view addSubview:_passwordTF];
     
     _downView = [[UIView alloc] init];               //密码输入框左侧的父视图
-    [self.view addSubview:_downView];
+    _passwordTF.leftView = _downView;
     
     _passwordView = [[UIImageView alloc]init];       //密码输入框的icon
     [_downView addSubview:_passwordView];
@@ -104,6 +104,7 @@
     _BackgroundImage.frame = self.view.bounds;
     _iconView.frame         = CGRectMake(h_center.x -h_iconViewWidth/2, h_iconViewTOP, h_iconViewWidth, h_iconViewHeight);
     _phoneTF.frame          = CGRectMake(26, _iconView.frame.origin.y +_iconView.frame.size.height +h_iconViewTOP , h_size.width -26, h_phoneTFHeight);
+    
     _phoneView.frame        = CGRectMake(0, 13, 20 , 19);
     _upView.frame           = CGRectMake(0, 0, 46, 50);
     _lineViewUP.frame       = CGRectMake(0, _phoneTF.frame.origin.y +h_phoneTFHeight , h_size.width, 1);
@@ -121,15 +122,12 @@
     
     _iconView.image = [UIImage imageNamed:@"icon120x110.png"];
     
-    
-    _phoneTF = [[UITextField alloc] initWithFrame:CGRectMake(26, _iconView.frame.origin.y +_iconView.frame.size.height +h_iconViewTOP , h_size.width -26, h_phoneTFHeight)];
     _phoneTF.placeholder = @"账号";
-    _phoneTF.textColor = [self colorWithHexString:@"#fefefe"];
-    [_phoneTF setValue:[self colorWithHexString:@"#bfbfbf"] forKeyPath:@"_placeholderLabel.textColor"];
+    _phoneTF.textColor = [UIColor colorWithHexString:@"#fefefe"];
+    [_phoneTF setValue:[UIColor colorWithHexString:@"#bfbfbf"] forKeyPath:@"_placeholderLabel.textColor"];
     [_phoneTF setValue:[UIFont systemFontOfSize:15] forKeyPath:@"_placeholderLabel.font"];
     _phoneTF.delegate = self;
     _phoneTF.keyboardType = UIKeyboardTypeNumberPad;
-    _phoneTF.leftView = _upView;
     _phoneTF.leftViewMode = UITextFieldViewModeAlways;
     
     _phoneView.image = [UIImage imageNamed:@"yh38x36.png"];
@@ -140,12 +138,11 @@
     _lineViewUP.alpha = 0.1;
     
     _passwordTF.placeholder = @"密码";
-    _passwordTF.textColor = [self colorWithHexString:@"#fefefe"];
-    [_passwordTF setValue:[self colorWithHexString:@"#bfbfbf"] forKeyPath:@"_placeholderLabel.textColor"];
+    _passwordTF.textColor = [UIColor colorWithHexString:@"#fefefe"];
+    [_passwordTF setValue:[UIColor colorWithHexString:@"#bfbfbf"] forKeyPath:@"_placeholderLabel.textColor"];
     [_passwordTF setValue:[UIFont systemFontOfSize:15] forKeyPath:@"_placeholderLabel.font"];
     _passwordTF.delegate = self;
     _passwordTF.secureTextEntry = YES;
-    _passwordTF.leftView = _downView;
     _passwordTF.leftViewMode = UITextFieldViewModeAlways;
     
     _passwordView.image = [UIImage imageNamed:@"mm38x36.png"];
@@ -155,23 +152,17 @@
     _lineViewDown.backgroundColor = [UIColor whiteColor];
     _lineViewDown.alpha = 0.1;
     
-    _loginButton.backgroundColor = [self colorWithHexString:@"#01E4B7"];
+    _loginButton.backgroundColor = [UIColor colorWithHexString:@"#01E4B7"];
     [_loginButton setTitle:@"登入" forState:UIControlStateNormal];
     _loginButton.titleLabel.font = [UIFont systemFontOfSize:21];
-    [_loginButton setTitleColor:[self colorWithHexString:@"#fefefe"] forState:UIControlStateNormal];
+    [_loginButton setTitleColor:[UIColor colorWithHexString:@"#fefefe"] forState:UIControlStateNormal];
     [_loginButton addTarget:self action:@selector(buttonIsClick) forControlEvents:UIControlEventTouchUpInside];
     
     [_callBtn setTitle:@"联系客服:66666666666" forState:UIControlStateNormal];
-    _callBtn.backgroundColor = [UIColor redColor];
     _callBtn.titleLabel.font = [UIFont systemFontOfSize:12];
     [_callBtn setTitleColor:[UIColor colorWithHexString:@"#fefefe"] forState:UIControlStateNormal];
     [_callBtn addTarget:self action:@selector(callNum) forControlEvents:UIControlEventTouchUpInside];
 
-}
-
-- (void)layoutSubiews
-{
-    
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
@@ -185,33 +176,6 @@
     if ([_phoneTF.text isEqualToString:@""]) {
         _phoneTF.placeholder = @"账号";
     }
-}
-
-- (UIColor *) colorWithHexString: (NSString *)color
-{
-    NSString *cString = [[color stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
-    if ([cString length] < 6) {
-        return [UIColor clearColor];
-    }
-    if ([cString hasPrefix:@"0X"])
-        cString = [cString substringFromIndex:2];
-    if ([cString hasPrefix:@"#"])
-        cString = [cString substringFromIndex:1];
-    if ([cString length] != 6)
-        return [UIColor clearColor];
-    NSRange range;
-    range.location = 0;
-    range.length = 2;
-    NSString *rString = [cString substringWithRange:range];
-    range.location = 2;
-    NSString *gString = [cString substringWithRange:range];
-    range.location = 4;
-    NSString *bString = [cString substringWithRange:range];
-    unsigned int r, g, b;
-    [[NSScanner scannerWithString:rString] scanHexInt:&r];
-    [[NSScanner scannerWithString:gString] scanHexInt:&g];
-    [[NSScanner scannerWithString:bString] scanHexInt:&b];
-    return [UIColor colorWithRed:((float) r / 255.0f) green:((float) g / 255.0f) blue:((float) b / 255.0f) alpha:1.0f];
 }
 
 #pragma mark - notify
@@ -257,6 +221,9 @@
             NSMutableDictionary * loginInfo = [responseObject mutableCopy];
             [loginInfo setValue:[_passwordTF.text MD5Digest]forKey:@"md5Pass"];
             [[UserInfoModel defaultUserInfo] loginViewDic:loginInfo];
+            if ([UserInfoModel defaultUserInfo].complaintreminder) {
+                NSLog(@"-------------------%@",[UserInfoModel defaultUserInfo].complaintreminder);
+            }
             if ([_delegate respondsToSelector:@selector(loginControllerDidLoginSucess:)]) {
                 [_delegate loginControllerDidLoginSucess:self];
             }

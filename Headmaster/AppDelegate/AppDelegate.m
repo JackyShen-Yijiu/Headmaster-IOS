@@ -17,8 +17,6 @@
 #import "YBWelcomeController.h"
 #import "AppDelegate+RootViewController.h"
 #import "LoginController.h"
-#import "InformationController.h"
-#import "PublishController.h"
 
 
 @interface AppDelegate ()<LoginControllerDelegate>
@@ -41,6 +39,7 @@
     loginViewC.delegate = self;
     self.navController = [[HMNagationController alloc] initWithRootViewController:loginViewC];
     self.window.rootViewController =  self.navController;
+    
     
 
     if ([UserInfoModel isLogin]) {
@@ -92,7 +91,7 @@
                                        apnsCertName:apnsCertName
                                         otherConfig:@{kSDKConfigEnableConsoleLogger:[NSNumber numberWithBool:YES]}];
     
-    //极光推送
+    //极光推送
     [APService
      registerForRemoteNotificationTypes:(UIUserNotificationTypeBadge |
                                          UIUserNotificationTypeSound |

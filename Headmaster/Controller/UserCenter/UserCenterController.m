@@ -17,6 +17,7 @@
 @implementation UserCenterController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"个人信息";
@@ -36,6 +37,10 @@
 - (void)UserWillLoginOut {
     UserInfoModel *uim = [UserInfoModel defaultUserInfo];
     [uim loginOut];
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    [ud removeObjectForKey:@"0"];
+    [ud removeObjectForKey:@"1"];
+    [ud removeObjectForKey:@"2"];
 //    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 

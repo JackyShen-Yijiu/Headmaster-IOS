@@ -47,6 +47,10 @@
 
 /* 教练授课详情 */
 #define COACHCOURSEDATAIL            @"headmaster/statistics/coachcoursedetails"
+/*修改个人信息*/
+
+#define PERSONALSETTING             @"headmaster/userinfo/personalsetting"
+
 
 #endif /* NetworkMacro_h */
 

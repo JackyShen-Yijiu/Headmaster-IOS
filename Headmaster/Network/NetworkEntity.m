@@ -214,6 +214,26 @@
 
 
 
+/**
+ *   修改个人信息
+ */
+
++ (void)changeUserMessageWithUseInfoModel:(UserInfoModel *)uim complaintReminder:(NSString *)complaintreminder applyreminder:(NSString *)applyreminder newmessagereminder:(NSString *)newmessagereminder success:(void (^)(AFHTTPRequestOperation *, id))success failure:(void (^)(AFHTTPRequestOperation *, id))failure {
+    NSDictionary *params =@{
+                            @"userid":uim.userID,
+                            @"complaintreminder":complaintreminder,
+                            @"applyreminder":applyreminder,
+                            @"newmessagereminder":newmessagereminder
+                            };
+    NSString *urlStr = [NSString stringWithFormat:@"%@/%@",[NetworkTool domain],PERSONALSETTING];
+    
+    AFHTTPRequestOperationManager * manager = [AFHTTPRequestOperationManager manager];
+    [manager.requestSerializer setValue:uim.token forHTTPHeaderField:@"authorization"];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [manager POST:urlStr parameters:params success:success failure:failure];
+}
+
 
 + (void)getHomeDataWithSearchType:(NSInteger)searchType
                           success:(NetworkSuccessBlock)success

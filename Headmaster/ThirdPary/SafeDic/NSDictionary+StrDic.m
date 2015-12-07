@@ -25,7 +25,7 @@
     if (value && [value isKindOfClass:[NSArray class]] && value.count) {
         return value;
     }
-    return @[];
+    return nil;
 }
 
 - (NSDictionary *)objectInfoForKey:(NSString *)key
@@ -34,7 +34,7 @@
     if (dic && [dic isKindOfClass:[NSDictionary class]]) {
         return dic;
     }
-    return @{};
+    return nil;
 }
 
 

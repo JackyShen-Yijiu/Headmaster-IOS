@@ -20,17 +20,12 @@
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
 	self = [super init];
-	if(![dictionary[@"data"] isKindOfClass:[NSNull class]]){
-		self.data = [[HomeDataModelData alloc] initWithDictionary:dictionary[@"data"]];
-	}
+    if (self) {
+        self.data = [[HomeDataModelData alloc] initWithDictionary:[dictionary objectInfoForKey:@"data"]];
+        self.msg =  [dictionary objectStringForKey:@"msg"];
+        self.type = [dictionary[@"type"] integerValue];
 
-	if(![dictionary[@"msg"] isKindOfClass:[NSNull class]]){
-		self.msg = dictionary[@"msg"];
-	}	
-	if(![dictionary[@"type"] isKindOfClass:[NSNull class]]){
-		self.type = [dictionary[@"type"] integerValue];
-	}
-
+    }
 	return self;
 }
 
