@@ -14,6 +14,7 @@
 #import "DataDatilViewController.h"
 #import "HomeViewModel.h"
 #import "RESideMenu.h"
+
 #import <BaiduMapAPI_Location/BMKLocationComponent.h>
 
 
@@ -191,6 +192,7 @@
 }
 
 #pragma maek --- 定位的代理方法
+
 //实现相关delegate 处理位置信息更新
 //处理方向变更信息
 - (void)didUpdateUserHeading:(BMKUserLocation *)userLocation

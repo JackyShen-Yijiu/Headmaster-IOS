@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "YBLineChartView.h"
 
-@interface InviteStudentView : UIView
+@interface InviteStudentView : UITableViewCell
 
 @property (nonatomic,assign) CGFloat resuleW;
 /**

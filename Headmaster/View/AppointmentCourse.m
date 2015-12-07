@@ -18,17 +18,27 @@
 @end
 
 @implementation AppointmentCourse
-
-- (instancetype)initWithFrame:(CGRect)frame
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
-    self = [super initWithFrame:frame];
-    if (self) {
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         [self addSubview:self.appintmentCoureLabel];
         [self addSubview:self.allPeopelNumberLabel];
         [self addSubview:self.appintmentChartView];
+
     }
     return self;
 }
+
+//- (instancetype)initWithFrame:(CGRect)frame
+//{
+//    self = [super initWithFrame:frame];
+//    if (self) {
+//        [self addSubview:self.appintmentCoureLabel];
+//        [self addSubview:self.allPeopelNumberLabel];
+//        [self addSubview:self.appintmentChartView];
+//    }
+//    return self;
+//}
 
 - (UILabel *)appintmentCoureLabel
 {

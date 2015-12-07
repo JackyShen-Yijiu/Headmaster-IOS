@@ -14,15 +14,13 @@
 
 
 @implementation CoachOfCourse
-
-- (instancetype)initWithFrame:(CGRect)frame
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
-    self = [super initWithFrame:frame];
-    if (self) {
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         [self addSubview:self.coachOfCourseLabel];
         [self addSubview:self.coachOfCourseButton];
         [self addSubview:self.coachOfCourseChart];
-        
+
     }
     return self;
 }
@@ -34,8 +32,6 @@
         _coachOfCourseLabel.text = @"教练授课";
         _coachOfCourseLabel.font = [UIFont systemFontOfSize:16.0];
         _coachOfCourseLabel.textColor = [UIColor colorWithHexString:@"01e2b6"];
-        
-        
     }
     
     return _coachOfCourseLabel;
@@ -130,13 +126,13 @@
         make.top.mas_equalTo(self.mas_top).with.offset(10);
     }];
     
-//    [self.coachOfCourseChart mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.mas_equalTo(self.mas_left).with.offset(16);
-//        make.right.mas_equalTo(self.mas_right).with.offset(-16);
-//        make.top.mas_equalTo(_coachOfCourseLabel.mas_bottom).with.offset(10);
-//        make.height.mas_equalTo(150);
-//    }];
-    self.coachOfCourseChart.frame = CGRectMake(0, 0, 200, 200);
+    [self.coachOfCourseChart mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self.mas_left).with.offset(16);
+        make.right.mas_equalTo(self.mas_right).with.offset(-16);
+        make.top.mas_equalTo(_coachOfCourseLabel.mas_bottom).with.offset(10);
+        make.height.mas_equalTo(150);
+    }];
+//    self.coachOfCourseChart.frame = CGRectMake(0, 0, 200, 200);
     
     
 }
