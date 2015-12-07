@@ -16,7 +16,7 @@
 #define USER_LOGIN                  @"headmaster/userinfo/userlogin"
 
 /* 首页 */
-#define HOME @"headmaster/statistics/getmainpagedata"
+#define HOME                        @"headmaster/statistics/getmainpagedata"
 
 /* 资讯相关 */
 #define INFORMATION_LIST            @"headmaster/info/getnews"

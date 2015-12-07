@@ -101,7 +101,6 @@
                             success:(NetworkSuccessBlock)success
                             failure:(NetworkFailureBlock)failure;
 /**
-<<<<<<< HEAD
  *  首页
  *
  *  @param searchType 查询的类型（昨天、今天、本周）
@@ -109,7 +108,7 @@
 + (void)getHomeDataWithSearchType:(NSInteger)searchType
                           success:(NetworkSuccessBlock)success
                           failure:(NetworkFailureBlock)failure;
-=======
+/**
  *    更多数据
  *     @param   userid
  *     @param   searchtype
@@ -132,7 +131,5 @@
 + (void)weatherDataListWithcityname:(NSString *)cityname
                             success:(NetworkSuccessBlock)success
                             failure:(NetworkFailureBlock)failure;
-
->>>>>>> c04354b85f28606fc9f842593cbf621e2dab89d9
 
 @end
