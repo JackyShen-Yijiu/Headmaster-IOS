@@ -365,11 +365,9 @@
 		D95CE3BF1C12BDD700EF6F75 /* HomeDataModelWeeklyRootClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D95CE3BD1C12BDD700EF6F75 /* HomeDataModelWeeklyRootClass.m */; };
 		D95CE4461C12EB2A00EF6F75 /* HomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D95CE4451C12EB2A00EF6F75 /* HomeViewModel.m */; };
 		D9CEC8EB1C0E8C83008DEE69 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC8EA1C0E8C83008DEE69 /* AppDelegate.mm */; };
-=======
 		D9C3F4561C167322006D22BC /* DVVProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C3F4551C167322006D22BC /* DVVProgressView.m */; };
 		D9C3F4591C167365006D22BC /* HomeProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C3F4581C167365006D22BC /* HomeProgressView.m */; };
 		D9CEC8EB1C0E8C83008DEE69 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC8EA1C0E8C83008DEE69 /* AppDelegate.m */; };
->>>>>>> 9f0f98f7bbb2d3b4df5f5d3a685956790ee1b0bf
 		D9CEC90F1C0E8CF7008DEE69 /* HMNagationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC8EF1C0E8CF7008DEE69 /* HMNagationController.m */; };
 		D9CEC9101C0E8CF7008DEE69 /* UITabBar+RedHot.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC8F11C0E8CF7008DEE69 /* UITabBar+RedHot.m */; };
 		D9CEC9131C0E8CF7008DEE69 /* BaseModelMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9011C0E8CF7008DEE69 /* BaseModelMethod.m */; };
