@@ -57,9 +57,9 @@
         _doubleRowView = [DVVDoubleRowToolBarView new];
 //        _doubleRowView.backgroundColor = [UIColor lightGrayColor];
         
-        _doubleRowView.upTitleFont = [UIFont fontWithName:@"HiraKakuProN-W3" size:18];
+        _doubleRowView.upTitleFont = [UIFont fontWithName:@"HiraKakuProN-W3" size:24];
         
-        _doubleRowView.downTitleFont = [UIFont fontWithName:@"HiraKakuProN-W3" size:12];
+        _doubleRowView.downTitleFont = [UIFont fontWithName:@"HiraKakuProN-W3" size:16];
         _doubleRowView.followBarHidden = 1;
         _doubleRowView.upTitleOffSetY = 5;
         _doubleRowView.upTitleArray = @[ @"", @"", @"", @"" ];
@@ -77,12 +77,12 @@
         upLabel.tag = 1;
         upLabel.textAlignment = 1;
         upLabel.text = @"";
-        upLabel.font = [UIFont fontWithName:@"HiraKakuProN-W3" size:22];
+        upLabel.font = [UIFont fontWithName:@"HiraKakuProN-W3" size:28];
         upLabel.textColor = [UIColor colorWithHexString:@"19f9cc"];
         UILabel *downLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, upLabel.height, rightBtnWidth, downLabelHeight)];
         downLabel.textAlignment = 1;
         downLabel.text = @"当天报名";
-        downLabel.font = [UIFont fontWithName:@"HiraKakuProN-W3" size:12];
+        downLabel.font = [UIFont fontWithName:@"HiraKakuProN-W3" size:14];
         downLabel.textColor = [UIColor colorWithHexString:@"009577"];
         
         // 添加分割线

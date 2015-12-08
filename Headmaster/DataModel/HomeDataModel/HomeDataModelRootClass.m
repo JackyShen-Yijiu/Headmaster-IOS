@@ -29,24 +29,6 @@
 	return self;
 }
 
-
-/**
- * Returns all the available property values in the form of NSDictionary object where the key is the approperiate json key and the value is the value of the corresponding property
- */
--(NSDictionary *)toDictionary
-{
-	NSMutableDictionary * dictionary = [NSMutableDictionary dictionary];
-	if(self.data != nil){
-		dictionary[@"data"] = [self.data toDictionary];
-	}
-	if(self.msg != nil){
-		dictionary[@"msg"] = self.msg;
-	}
-	dictionary[@"type"] = @(self.type);
-	return dictionary;
-
-}
-
 /**
  * Implementation of NSCoding encoding method
  */

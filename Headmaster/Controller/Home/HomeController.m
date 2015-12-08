@@ -21,8 +21,11 @@
 #import <BaiduMapAPI_Search/BMKGeocodeSearch.h>
 #import <BaiduMapAPI_Search/BMKGeocodeType.h>
 
+#import "WeatherViewModel.h"
+#import "HomeWeatherModel.h"
 
-
+#import "HomeProgressView.h"
+#import "RecommendViewController.h"
 
 
 @interface HomeController () <BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate>
@@ -33,11 +36,24 @@
 
 @property (nonatomic, strong) HomeEvaluateView *evaluateView;
 
+@property (nonatomic, strong) HomeProgressView *progressView;
+
 @property (nonatomic, strong) HomeSeeTimeView *seeTimeView;
 
 @property (nonatomic, strong) HomeViewModel *viewModel;
 
 @property (nonatomic, strong) BMKLocationService *locService;
+
+@property (nonatomic,strong) UILabel *temperatureLabel;
+
+@property (nonatomic,strong) UIImageView *WeatherimageViewWeather;
+
+@property (nonatomic,strong) WeatherViewModel *weatherViewModel;
+
+@property (nonatomic,strong) NSString *temperatureStr;
+
+@property (nonatomic,strong) NSString *weatherUrl;
+
 
 @end
 
@@ -48,12 +64,14 @@
     // 显示下面的导航栏
     self.tabBarController.tabBar.hidden = NO;
     self.myNavigationItem.title = @"数据概述";
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [self addSideMenuButton];
+//    [self addWeatherImage];
     self.view.frame = CGRectMake(0, 0, self.view.width, self.view.height - 64 - 49);
     
     [self.view addSubview:self.topView];
@@ -72,30 +90,57 @@
     // 加载地图用于定位,展示天气信息
     [self addMap];
 
-
+    // 加载天气数据
+    [self addWeatherData];
+    
+    
+    
+    
+    
     // Do any additional setup after loading the view.
     [self addBackgroundImage];
     
+    [self.view addSubview:self.progressView];
     [self.view addSubview:self.moreButton];
     [self.view addSubview:self.evaluateView];
     [self.view addSubview:self.seeTimeView];
     
     [self.evaluateView itemClick:^(UIButton *button) {
         
-        NSLog(@"seeTimeView == %li",button.tag);
+        NSInteger searchType = 1;
+//        NSLog(@"seeTimeView == %li",button.tag);
+        switch (self.tag) {
+            case 0:
+                searchType = kDateSearchTypeToday;
+                break;
+            case 1:
+                searchType = kDateSearchTypeYesterday;
+                break;
+            case 2:
+                searchType = kDateSearchTypeWeek;
+                break;
+            default:
+                break;
+        }
+        RecommendViewController *recommendVC = [RecommendViewController new];
+        recommendVC.searchType = searchType;
+        [self.myNavController pushViewController:recommendVC animated:YES];
     }];
     
     [self.seeTimeView itemClick:^(UIButton *button) {
         
+        if (button.tag == self.tag) {
+            return;
+        }
         self.tag = button.tag;
         if (button.tag == 2) {
             _viewModel.searchType = kDateSearchTypeWeek;
             [_viewModel networkRequestRefresh];
             
         }else {
-            if(button.tag == 1) {
+            if(button.tag == 0) {
                 _viewModel.searchType = kDateSearchTypeToday;
-            }else if(button.tag == 2) {
+            }else if(button.tag == 1 ) {
                 _viewModel.searchType = kDateSearchTypeYesterday;
             }
             [_viewModel networkRequestRefresh];
@@ -107,17 +152,46 @@
     [_viewModel successRefreshBlock:^{
         
         if (_viewModel.searchType == kDateSearchTypeWeek) {
-            
+            [self.progressView refreshData:@[ @(0.7), @(0.3), @(1), @(0.72) ]];
             [self.evaluateView refreshData:_viewModel.evaluateArray];
         }else {
             [self.topView refreshSubjectData:_viewModel.subjectArray sameDay:_viewModel.applyCount];
+            [self.progressView refreshData:_viewModel.progressArray];
             [self.evaluateView refreshData:_viewModel.evaluateArray];
         }
     }];
     _viewModel.searchType = 1;
     [_viewModel networkRequestRefresh];
     
-    }
+    [self.progressView refreshData:@[ @(0.7), @(0.3), @(1), @(0.72) ]];
+}
+
+#pragma mark ----- 加载天气数据
+- (void)addWeatherData
+{
+    _weatherViewModel = [[WeatherViewModel alloc] init];
+    [_weatherViewModel networkRequestNeedUpRefreshWithCityName:@"北京市"];
+    [_weatherViewModel successRefreshBlock:^{
+        HomeWeatherModel *homeModel = [_weatherViewModel.weatherArray lastObject];
+        
+        NSLog(@"_temperatureStr = %@",homeModel.temperature);
+        NSLog(@"_weatherUrl = %@",homeModel.weather_pic);
+        
+        self.temperatureLabel.text = homeModel.temperature;
+        self.temperatureLabel.textAlignment = NSTextAlignmentRight ;
+        self.temperatureLabel.font = [UIFont systemFontOfSize:16];
+        self.temperatureLabel.textColor = [UIColor whiteColor];
+        [self.WeatherimageViewWeather downloadImage:homeModel.weather_pic];
+    }];
+    
+}
+
+
+
+
+
+
+
 
 #pragma mark - action
 #pragma mark 更多按钮
@@ -143,6 +217,19 @@
     [btn setBackgroundImage:[UIImage imageNamed:@"headerIcon"] forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(openSideMenu) forControlEvents:UIControlEventTouchUpInside];
     self.myNavigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
+    
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 120, 37, 80, 31)];
+    [view addSubview:self.temperatureLabel];
+    [view addSubview:self.WeatherimageViewWeather];
+    
+    self.myNavigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:view];
+    
+    
+    
+    
+    
+    
 }
 
 #pragma mark 打开侧栏
@@ -162,16 +249,25 @@
     return _topView;
 }
 
+- (HomeProgressView *)progressView {
+    if (!_progressView) {
+        _progressView = [HomeProgressView new];
+        _progressView.frame = CGRectMake(0, 0, self.view.bounds.size.width - 100, self.view.bounds.size.width - 100);
+        _progressView.center = CGPointMake(self.view.bounds.size.width / 2.f, self.view.bounds.size.height / 2.f);
+        _progressView.backgroundColor = [UIColor clearColor];
+    }
+    return _progressView;
+}
+
 - (UIButton *)moreButton {
     if (!_moreButton) {
         _moreButton = [UIButton new];
-        _moreButton.frame = CGRectMake(0, 0, 150, 150);
+        _moreButton.frame = CGRectMake(0, 0, self.view.bounds.size.width - 100, self.view.bounds.size.width - 100);
+        _moreButton.center = CGPointMake(self.view.bounds.size.width / 2.f, self.view.bounds.size.height / 2.f);
         [_moreButton.layer setMasksToBounds:YES];
-        [_moreButton.layer setCornerRadius:75];
+        [_moreButton.layer setCornerRadius:_moreButton.bounds.size.width / 2];
         _moreButton.center = CGPointMake(self.view.centerX, self.view.centerY);
-        _moreButton.backgroundColor = [UIColor redColor];
-        _moreButton.titleLabel.font = [UIFont systemFontOfSize:64];
-        [_moreButton setTitle:@"69%" forState:UIControlStateNormal];
+//        _moreButton.backgroundColor = [UIColor redColor];
         [_moreButton addTarget:self action:@selector(moreButtonAction) forControlEvents:UIControlEventTouchUpInside];
     }
     return _moreButton;
@@ -192,14 +288,43 @@
 - (HomeSeeTimeView *)seeTimeView {
     if (!_seeTimeView) {
         _seeTimeView = [HomeSeeTimeView new];
-        _seeTimeView.frame = CGRectMake(40,
+        _seeTimeView.frame = CGRectMake(60,
                                         self.view.height - 70,
-                                        self.view.width - 80,
+                                        self.view.width - 120,
                                         50);
 //        _seeTimeView.backgroundColor = [UIColor orangeColor];
     }
     return _seeTimeView;
 }
+- (UILabel *)temperatureLabel
+{
+    if (!_temperatureLabel) {
+        _temperatureLabel = [[UILabel alloc] init];
+        _temperatureLabel.frame = CGRectMake(0, 0, 50, 30);
+//        _temperatureLabel.backgroundColor = [UIColor redColor];
+        
+    }
+    return _temperatureLabel;
+}
+
+- (UIImageView *)WeatherimageViewWeather
+{
+    if (!_WeatherimageViewWeather) {
+        _WeatherimageViewWeather = [[UIImageView alloc] init];
+        _WeatherimageViewWeather.frame = CGRectMake(50, 0, 30, 30);
+//        _WeatherimageViewWeather.backgroundColor = [UIColor orangeColor];
+    }
+    return _WeatherimageViewWeather;
+}
+
+
+
+
+
+
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -230,6 +355,24 @@
 - (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
 {
     NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
+    
+    NSString *str = [NSString stringWithFormat:@"http://api.map.baidu.com/geocoder/v2/?ak=2T3GAuxuKLNpqrsKT8NjAAgk&callback=renderReverse&location=%f,%f&output=json&pois=1",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude];
+//    NSURL *url = [NSURL URLWithString:str];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:str parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+    NSArray *keyStr = [responseObject allObjects];
+        for (NSString *key  in keyStr) {
+            if ([key isEqualToString:@"addressComponent"]) {
+                NSDictionary *dic = [responseObject objectForKey:key];
+                _cityName = [dic objectForKey:@"city"];
+            
+            }
+        }
+
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+    
     
     
 }

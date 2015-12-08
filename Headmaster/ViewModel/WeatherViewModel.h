@@ -10,4 +10,14 @@
 
 @interface WeatherViewModel : YBBaseViewModel
 
+
+
+@property (nonatomic, strong) NSMutableArray *weatherArray;
+
+@property (nonatomic, copy) void (^tableViewNeedReLoad)(void);
+
+@property (nonatomic, copy) void (^showToast)(void);
+
+- (void)networkRequestNeedUpRefreshWithCityName:(NSString *)cityName;
+
 @end

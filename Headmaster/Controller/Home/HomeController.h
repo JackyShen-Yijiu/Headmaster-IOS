@@ -11,5 +11,6 @@
 @interface HomeController : YBBaseController
 
 @property (nonatomic,assign) NSInteger tag;
+@property (nonatomic,strong) NSString *cityName;
 
 @end

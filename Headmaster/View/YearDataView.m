@@ -60,7 +60,7 @@
             ;
         cell.appintmentChartView.valueArray = @[@[@"23",@"42",@"25",@"15",@"30",@"42",@"32",@"40",@"42",@"25",@"33"]];
             cell.appintmentChartView.frame = CGRectMake(0, 16, self.frame.size.width - 32, 200);
-            cell.userInteractionEnabled = YES;
+            
 
             [cell.appintmentChartView refreshUI];
         }
@@ -82,6 +82,7 @@
             
             cell.coachOfCourseChart.frame = CGRectMake(0, 16, self.frame.size.width - 32, 200);
             [cell.coachOfCourseChart refreshUI];
+            cell.userInteractionEnabled = YES;
         }
         
 //        [cell addSubview:self.coacOfCourse];
