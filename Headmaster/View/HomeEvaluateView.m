@@ -75,7 +75,7 @@
         label.font = [UIFont fontWithName:@"HiraKakuProN-W3" size:14];
         label.text = @"";
         
-        CGFloat imageViewWidth = 20;
+        CGFloat imageViewWidth = 24;
         UIImageView *imageView = [UIImageView new];
         if (i == 3) {
             imageView.frame = CGRectMake(btnWidth / 2.0 - imageViewWidth / 2.0, labelViewHeight, imageViewWidth, imageViewWidth);

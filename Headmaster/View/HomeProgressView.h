@@ -10,4 +10,6 @@
 
 @interface HomeProgressView : UIView
 
+- (void)refreshData:(NSArray *)array;
+
 @end

@@ -24,8 +24,8 @@
 #import "WeatherViewModel.h"
 #import "HomeWeatherModel.h"
 
-
-
+#import "HomeProgressView.h"
+#import "RecommendViewController.h"
 
 
 @interface HomeController () <BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate>
@@ -35,6 +35,8 @@
 @property (nonatomic, strong) UIButton *moreButton;
 
 @property (nonatomic, strong) HomeEvaluateView *evaluateView;
+
+@property (nonatomic, strong) HomeProgressView *progressView;
 
 @property (nonatomic, strong) HomeSeeTimeView *seeTimeView;
 
@@ -98,17 +100,35 @@
     // Do any additional setup after loading the view.
     [self addBackgroundImage];
     
+    [self.view addSubview:self.progressView];
     [self.view addSubview:self.moreButton];
     [self.view addSubview:self.evaluateView];
     [self.view addSubview:self.seeTimeView];
     
     [self.evaluateView itemClick:^(UIButton *button) {
         
-        NSLog(@"seeTimeView == %li",button.tag);
+        NSInteger searchType = 1;
+//        NSLog(@"seeTimeView == %li",button.tag);
+        switch (self.tag) {
+            case 0:
+                searchType = kDateSearchTypeToday;
+                break;
+            case 1:
+                searchType = kDateSearchTypeYesterday;
+                break;
+            case 2:
+                searchType = kDateSearchTypeWeek;
+                break;
+            default:
+                break;
+        }
+        RecommendViewController *recommendVC = [RecommendViewController new];
+        recommendVC.searchType = searchType;
+        [self.myNavController pushViewController:recommendVC animated:YES];
     }];
     
     [self.seeTimeView itemClick:^(UIButton *button) {
-        
+        [self.progressView refreshData:@[ @(0.7), @(0.3), @(1), @(0.72) ]];
         self.tag = button.tag;
         if (button.tag == 2) {
             _viewModel.searchType = kDateSearchTypeWeek;
@@ -139,7 +159,8 @@
     _viewModel.searchType = 1;
     [_viewModel networkRequestRefresh];
     
-    }
+    [self.progressView refreshData:@[ @(0.7), @(0.3), @(1), @(0.72) ]];
+}
 
 #pragma mark ----- 加载天气数据
 - (void)addWeatherData
@@ -224,16 +245,25 @@
     return _topView;
 }
 
+- (HomeProgressView *)progressView {
+    if (!_progressView) {
+        _progressView = [HomeProgressView new];
+        _progressView.frame = CGRectMake(0, 0, self.view.bounds.size.width - 100, self.view.bounds.size.width - 100);
+        _progressView.center = CGPointMake(self.view.bounds.size.width / 2.f, self.view.bounds.size.height / 2.f);
+        _progressView.backgroundColor = [UIColor clearColor];
+    }
+    return _progressView;
+}
+
 - (UIButton *)moreButton {
     if (!_moreButton) {
         _moreButton = [UIButton new];
-        _moreButton.frame = CGRectMake(0, 0, 150, 150);
+        _moreButton.frame = CGRectMake(0, 0, self.view.bounds.size.width - 100, self.view.bounds.size.width - 100);
+        _moreButton.center = CGPointMake(self.view.bounds.size.width / 2.f, self.view.bounds.size.height / 2.f);
         [_moreButton.layer setMasksToBounds:YES];
-        [_moreButton.layer setCornerRadius:75];
+        [_moreButton.layer setCornerRadius:_moreButton.bounds.size.width / 2];
         _moreButton.center = CGPointMake(self.view.centerX, self.view.centerY);
-        _moreButton.backgroundColor = [UIColor redColor];
-        _moreButton.titleLabel.font = [UIFont systemFontOfSize:64];
-        [_moreButton setTitle:@"69%" forState:UIControlStateNormal];
+//        _moreButton.backgroundColor = [UIColor redColor];
         [_moreButton addTarget:self action:@selector(moreButtonAction) forControlEvents:UIControlEventTouchUpInside];
     }
     return _moreButton;
@@ -254,9 +284,9 @@
 - (HomeSeeTimeView *)seeTimeView {
     if (!_seeTimeView) {
         _seeTimeView = [HomeSeeTimeView new];
-        _seeTimeView.frame = CGRectMake(40,
+        _seeTimeView.frame = CGRectMake(60,
                                         self.view.height - 70,
-                                        self.view.width - 80,
+                                        self.view.width - 120,
                                         50);
 //        _seeTimeView.backgroundColor = [UIColor orangeColor];
     }
