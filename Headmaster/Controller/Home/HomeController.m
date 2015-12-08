@@ -224,4 +224,10 @@
     
 }
 
+- (void)didFailToLocateUserWithError:(NSError *)error
+{
+    
+}
+
+
 @end
