@@ -9,7 +9,7 @@
 #import "AppDelegate+RootViewController.h"
 #import "HMNagationController.h"
 #import "RESideMenu.h"
-#import "SideMenuController.h"
+#import "MenuController.h"
 #import "DVVTabBarController.h"
 #import "RecommendViewController.h"
 
@@ -42,7 +42,7 @@
 - (UIViewController *)sideControllerWithContentController:(UINavigationController *)naviController {
     
     //创建sideMenu
-    SideMenuController * sideVC = [[SideMenuController alloc] init];
+    MenuController * sideVC = [[MenuController alloc] init];
     
     //创建抽屉
     static RESideMenu *sideViewController = nil;
