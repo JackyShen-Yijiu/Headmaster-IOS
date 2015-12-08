@@ -20,8 +20,14 @@
 #import "CoachCourseDatailViewModel.h"
 #import <BaiduMapAPI_Location/BMKLocationComponent.h>
 
+#import <BaiduMapAPI_Search/BMKGeocodeSearch.h>
+#import <BaiduMapAPI_Search/BMKGeocodeType.h>
 
-@interface HomeController () <BMKLocationServiceDelegate>
+
+
+
+
+@interface HomeController () <BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate>
 
 @property (nonatomic, strong) HomeTopView *topView;
 
@@ -63,6 +69,9 @@
     [self.view addSubview:lineDownView];
     [self.view addSubview:lineDownView];
     [self.view addSubview:lineTopView];
+    // 加载地图用于定位,展示天气信息
+    [self addMap];
+
 
     // Do any additional setup after loading the view.
     [self addBackgroundImage];
@@ -108,9 +117,7 @@
     _viewModel.searchType = 1;
     [_viewModel networkRequestRefresh];
     
-    // 加载地图用于定位,展示天气信息
-    [self addMap];
-}
+    }
 
 #pragma mark - action
 #pragma mark 更多按钮
@@ -188,6 +195,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+
 - (void)addMap
 {
     //初始化BMKLocationService
@@ -210,6 +219,7 @@
 - (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
 {
     NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
+    
     
 }
 
