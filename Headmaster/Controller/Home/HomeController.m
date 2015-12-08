@@ -135,7 +135,7 @@
 //    btn.backgroundColor = [UIColor redColor];
     [btn setBackgroundImage:[UIImage imageNamed:@"headerIcon"] forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(openSideMenu) forControlEvents:UIControlEventTouchUpInside];
-    [self.myNavController.navigationBar addSubview:btn];
+    self.myNavigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
 }
 
 #pragma mark 打开侧栏

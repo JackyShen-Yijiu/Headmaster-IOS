@@ -7,6 +7,20 @@
 //
 
 #import "HomeProgressView.h"
+#import "DVVProgressView.h"
+
+@interface HomeProgressView()
+
+@property (nonatomic, strong) DVVProgressView *outSideBgView;
+
+@property (nonatomic, strong) DVVProgressView *outSideFgView;
+
+@property (nonatomic, strong) DVVProgressView *inSideBgView;
+
+@property (nonatomic, strong) DVVProgressView inSidefgView;
+
+
+@end
 
 @implementation HomeProgressView
 
