@@ -17,7 +17,7 @@
 
 @property (nonatomic, strong) DVVProgressView *inSideBgView;
 
-@property (nonatomic, strong) DVVProgressView inSidefgView;
+@property (nonatomic, strong) DVVProgressView *inSideFgView;
 
 
 @end
