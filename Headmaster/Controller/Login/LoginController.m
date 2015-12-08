@@ -226,6 +226,8 @@
             }
             if ([_delegate respondsToSelector:@selector(loginControllerDidLoginSucess:)]) {
                 [_delegate loginControllerDidLoginSucess:self];
+            }else {
+                [self dismissViewControllerAnimated:YES completion:nil];
             }
         }else {
             ToastAlertView *toastView = [[ToastAlertView alloc] initWithTitle:[responseObject objectForKey:@"msg"]];

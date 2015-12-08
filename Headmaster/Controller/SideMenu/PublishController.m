@@ -137,7 +137,8 @@
         _tv = [[UITextView alloc] init];
         _tv.backgroundColor = [UIColor blackColor];
         _tv.alpha = 0.5;
-        _tv.textColor = [UIColor colorWithHexString:TEXT_HIGHLIGHT_COLOR];
+//        _tv.textColor = [UIColor colorWithHexString:@"#fcfcfc"];
+        _tv.textColor = [UIColor whiteColor];
     }
     return _tv;
 }
