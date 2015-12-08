@@ -9,7 +9,7 @@
 #import "AppDelegate+RootViewController.h"
 #import "HMNagationController.h"
 #import "RESideMenu.h"
-#import "SideMenuController.h"
+#import "MenuController.h"
 #import "DVVTabBarController.h"
 #import "RecommendViewController.h"
 
@@ -37,12 +37,16 @@
     
     
     return tabBarVC;
+}
+
+- (UIViewController *)sideControllerWithContentController:(UINavigationController *)naviController {
+    
     //创建sideMenu
-    SideMenuController * sideVC = [[SideMenuController alloc] init];
+    MenuController * sideVC = [[MenuController alloc] init];
     
     //创建抽屉
     static RESideMenu *sideViewController = nil;
-    sideViewController = [[RESideMenu alloc] initWithContentViewController:tabBarVC leftMenuViewController:sideVC rightMenuViewController:nil];
+    sideViewController = [[RESideMenu alloc] initWithContentViewController:naviController leftMenuViewController:sideVC rightMenuViewController:nil];
     sideViewController.backgroundImage = [UIImage imageNamed:@""];
     sideViewController.menuPreferredStatusBarStyle = 1;
     
@@ -67,6 +71,7 @@
     
     //RESideMenu默认设置的状态栏颜色总是黑色的，修改其中的preferredStatusBarStyle方法，使其返回白色状态栏
     return sideViewController;
+
 }
 
 @end

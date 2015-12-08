@@ -7,6 +7,7 @@
 //
 
 #import "UserCenterController.h"
+#import "LoginController.h"
 
 @interface UserCenterController () <UITableViewDataSource,UITableViewDelegate>
 
@@ -20,15 +21,30 @@
     
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = @"个人信息";
-    [self addBackgroundImage];
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    [self setNavBar];
+//    [self addBackgroundImage];
     [self initUI];
+}
+
+- (void)setNavBar {
+    self.navigationItem.title = @"个人信息";
+    UIButton *pushBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
+    [pushBtn setTitle:@"返回" forState:UIControlStateNormal];
+    [pushBtn setTitleColor:[UIColor colorWithHexString:TEXT_NORMAL_COLOR] forState:UIControlStateNormal];
+    [pushBtn addTarget:self action:@selector(pushBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithCustomView:pushBtn];
+    self.navigationItem.leftBarButtonItem = barButton;
+}
+
+- (void)pushBtnClick {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)initUI {
     [self.view addSubview:_tableView];
     
-    UIButton *loginOutBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 50)];
+    UIButton *loginOutBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, 50)];
     [loginOutBtn setTitle:@"退出登入" forState:UIControlStateNormal];
     [loginOutBtn addTarget:self action:@selector(UserWillLoginOut) forControlEvents:UIControlEventTouchUpInside];
     self.tableView.tableFooterView = loginOutBtn;
@@ -41,7 +57,8 @@
     [ud removeObjectForKey:@"0"];
     [ud removeObjectForKey:@"1"];
     [ud removeObjectForKey:@"2"];
-//    [self.navigationController popToRootViewControllerAnimated:YES];
+    [self presentViewController:[LoginController new] animated:YES completion:nil];
+    
 }
 
 #pragma mark - lazy load
@@ -51,7 +68,7 @@
         _tableView = [[UITableView alloc] init];
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        _tableView.backgroundColor = [UIColor clearColor];
+        _tableView.backgroundColor = [UIColor redColor];
     }
     return _tableView;
 }
@@ -66,7 +83,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"yy"];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"yy"];
-        cell.backgroundColor = [UIColor clearColor];
+        cell.backgroundColor = [UIColor redColor];
     }
     cell.textLabel.text = [UserInfoModel defaultUserInfo].name;
 //    cell.imageView.image = [UIImage imageNamed:@""];

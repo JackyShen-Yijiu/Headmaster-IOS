@@ -200,6 +200,7 @@
 
 - (void)chuShiHuaShuXing {
     
+    
     //当前选中的按钮
     _selectButtonInteger = 0;
     

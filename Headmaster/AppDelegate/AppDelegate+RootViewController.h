@@ -12,4 +12,6 @@
 
 - (UIViewController *)rootViewController;
 
+- (UIViewController *)sideControllerWithContentController:(UINavigationController *)naviController;
+
 @end

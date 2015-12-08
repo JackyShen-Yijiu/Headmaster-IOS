@@ -365,6 +365,11 @@
 		D95CE3BF1C12BDD700EF6F75 /* HomeDataModelWeeklyRootClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D95CE3BD1C12BDD700EF6F75 /* HomeDataModelWeeklyRootClass.m */; };
 		D95CE4461C12EB2A00EF6F75 /* HomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D95CE4451C12EB2A00EF6F75 /* HomeViewModel.m */; };
 		D9CEC8EB1C0E8C83008DEE69 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC8EA1C0E8C83008DEE69 /* AppDelegate.mm */; };
+=======
+		D9C3F4561C167322006D22BC /* DVVProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C3F4551C167322006D22BC /* DVVProgressView.m */; };
+		D9C3F4591C167365006D22BC /* HomeProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C3F4581C167365006D22BC /* HomeProgressView.m */; };
+		D9CEC8EB1C0E8C83008DEE69 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC8EA1C0E8C83008DEE69 /* AppDelegate.m */; };
+>>>>>>> 9f0f98f7bbb2d3b4df5f5d3a685956790ee1b0bf
 		D9CEC90F1C0E8CF7008DEE69 /* HMNagationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC8EF1C0E8CF7008DEE69 /* HMNagationController.m */; };
 		D9CEC9101C0E8CF7008DEE69 /* UITabBar+RedHot.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC8F11C0E8CF7008DEE69 /* UITabBar+RedHot.m */; };
 		D9CEC9131C0E8CF7008DEE69 /* BaseModelMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9011C0E8CF7008DEE69 /* BaseModelMethod.m */; };
@@ -1000,6 +1005,10 @@
 		D95CE3BD1C12BDD700EF6F75 /* HomeDataModelWeeklyRootClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeDataModelWeeklyRootClass.m; sourceTree = "<group>"; };
 		D95CE4441C12EB2A00EF6F75 /* HomeViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewModel.h; sourceTree = "<group>"; };
 		D95CE4451C12EB2A00EF6F75 /* HomeViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewModel.m; sourceTree = "<group>"; };
+		D9C3F4541C167322006D22BC /* DVVProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVVProgressView.h; sourceTree = "<group>"; };
+		D9C3F4551C167322006D22BC /* DVVProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVVProgressView.m; sourceTree = "<group>"; };
+		D9C3F4571C167365006D22BC /* HomeProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeProgressView.h; sourceTree = "<group>"; };
+		D9C3F4581C167365006D22BC /* HomeProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeProgressView.m; sourceTree = "<group>"; };
 		D9CEC8E91C0E8C83008DEE69 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D9CEC8EA1C0E8C83008DEE69 /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		D9CEC8EE1C0E8CF7008DEE69 /* HMNagationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMNagationController.h; sourceTree = "<group>"; };
@@ -2633,6 +2642,10 @@
 				D92296C11C0FD2FF00D0FFDF /* HomeSeeTimeView.m */,
 				D92296C21C0FD2FF00D0FFDF /* HomeTopView.h */,
 				D92296C31C0FD2FF00D0FFDF /* HomeTopView.m */,
+				D9C3F4571C167365006D22BC /* HomeProgressView.h */,
+				D9C3F4581C167365006D22BC /* HomeProgressView.m */,
+				D9C3F4541C167322006D22BC /* DVVProgressView.h */,
+				D9C3F4551C167322006D22BC /* DVVProgressView.m */,
 				D92296C51C0FD2FF00D0FFDF /* InformationListCell.h */,
 				D92296C61C0FD2FF00D0FFDF /* InformationListCell.m */,
 				D92296C71C0FD2FF00D0FFDF /* InformationListCell.xib */,
@@ -2989,6 +3002,7 @@
 				B8771D0D1C098DE40051DE9D /* MJRefreshGifHeader.m in Sources */,
 				B8771D181C098DE40051DE9D /* MWPhotoBrowser.m in Sources */,
 				D9CEC9541C0ED044008DEE69 /* AppDelegate+RootViewController.m in Sources */,
+				D9C3F4561C167322006D22BC /* DVVProgressView.m in Sources */,
 				B8771DDF1C098DE40051DE9D /* EaseUserCell.m in Sources */,
 				D9CEC9151C0E8CF7008DEE69 /* HMRecomendModel.m in Sources */,
 				B8771D151C098DE40051DE9D /* MWGridCell.m in Sources */,
@@ -3143,6 +3157,7 @@
 				060BA87F1C10116C009AD55E /* InviteStudentView.m in Sources */,
 				B8771D1E1C098DE40051DE9D /* EMSDWebImageCompat.m in Sources */,
 				B895A19A1C1041D100FEDD78 /* RecommendViewController.m in Sources */,
+				D9C3F4591C167365006D22BC /* HomeProgressView.m in Sources */,
 				B8771AFA1C0976200051DE9D /* main.m in Sources */,
 				D92296CC1C0FD2FF00D0FFDF /* InformationListCell.m in Sources */,
 				B8771DDD1C098DE40051DE9D /* EaseConversationListViewController.m in Sources */,

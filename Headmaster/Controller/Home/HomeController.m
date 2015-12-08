@@ -14,8 +14,6 @@
 #import "DataDatilViewController.h"
 #import "HomeViewModel.h"
 #import "RESideMenu.h"
-//#import "HomeDailyViewModel.h"
-//#import "HomeWeeklyViewModel.h"
 #import "CoachOfCoureDetailController.h"
 #import "CoachCourseDatailViewModel.h"
 #import <BaiduMapAPI_Location/BMKLocationComponent.h>
@@ -49,11 +47,13 @@
 {
     // 显示下面的导航栏
     self.tabBarController.tabBar.hidden = NO;
+    self.myNavigationItem.title = @"数据概述";
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self addSideMenuButton];
     self.view.frame = CGRectMake(0, 0, self.view.width, self.view.height - 64 - 49);
     
     [self.view addSubview:self.topView];
@@ -132,6 +132,17 @@
 //    CoachOfCoureDetailController *detailVC = [[CoachOfCoureDetailController alloc] init];
 //    [self.navigationController pushViewController:detailVC animated:YES];
     
+}
+
+#pragma mark 侧栏按钮
+- (void)addSideMenuButton {
+    
+    UIButton *btn = [UIButton new];
+    btn.frame = CGRectMake(15, 7, 36, 30);
+//    btn.backgroundColor = [UIColor redColor];
+    [btn setBackgroundImage:[UIImage imageNamed:@"headerIcon"] forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(openSideMenu) forControlEvents:UIControlEventTouchUpInside];
+    [self.myNavController.navigationBar addSubview:btn];
 }
 
 #pragma mark 打开侧栏

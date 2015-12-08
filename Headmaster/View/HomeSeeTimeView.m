@@ -39,8 +39,8 @@
     [self addSubview:self.middleButton];
     [self addSubview:self.rightButton];
     
-//    [self addSubview:self.leftImageview];
-//    [self addSubview:self.rightImageView];
+    [self addSubview:self.leftImageview];
+    [self addSubview:self.rightImageView];
 }
 
 // 按钮的点击事件
@@ -50,7 +50,7 @@
         self.itemClick(sender);
     }
     for (UIButton *itemButton in self.subviews) {
-        if (itemButton.tag != sender.tag) {
+        if (itemButton.tag != sender.tag && [itemButton isKindOfClass:[UIButton class]]) {
             itemButton.selected = NO;
             [self buttonNormalState:itemButton];
         }
@@ -63,17 +63,17 @@
 - (void)buttonSelectedState:(UIButton *)sender {
     
     [sender.layer setBorderColor:[UIColor colorWithHexString:@"19f9cc"].CGColor];
-//    if (sender.tag == 1) {
-//        _leftImageview.image = [UIImage imageNamed:@"x1"];
-//        _rightImageView.image = [UIImage imageNamed:@"x2"];
-//    }else if (sender == 0) {
-//        _leftImageview.image = [UIImage imageNamed:@"x2"];
-//        _rightImageView.image = [UIImage imageNamed:@"x3"];
-//    }else if (sender.tag == 2)
-//    {
-//        _leftImageview.image = [UIImage imageNamed:@"x3"];
-//        _rightImageView.image = [UIImage imageNamed:@"x2"];
-//    }
+    if (sender.tag == 1) {
+        _leftImageview.image = [UIImage imageNamed:@"x1"];
+        _rightImageView.image = [UIImage imageNamed:@"x2"];
+    }else if (sender == 0) {
+        _leftImageview.image = [UIImage imageNamed:@"x2"];
+        _rightImageView.image = [UIImage imageNamed:@"x3"];
+    }else if (sender.tag == 2)
+    {
+        _leftImageview.image = [UIImage imageNamed:@"x3"];
+        _rightImageView.image = [UIImage imageNamed:@"x2"];
+    }
 }
 
 // 按钮的正常状态
