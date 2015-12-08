@@ -43,7 +43,7 @@
     
     self.LeftItemArray = @[ item1,item2,item3 ];
     
-    self.LeftIconArray = @[ @"imessageButton",@"imessageButton",@"imessageButton" ];
+    self.LeftIconArray = @[ @"1",@"2",@"3" ];
     self.tableView.tableHeaderView = self.headView;
 }
 
@@ -53,7 +53,7 @@
         _headView.backgroundColor = [UIColor clearColor];
         UIImageView * imgView = [[UIImageView alloc] initWithFrame:CGRectMake(97, 82, 78, 78)];
         imgView.userInteractionEnabled = YES;
-        imgView.image = [UIImage imageNamed:@"imessageButton"];
+        imgView.image = [UIImage imageNamed:@"tou"];
         imgView.layer.masksToBounds = YES;
         imgView.layer.cornerRadius = 39;
         [_headView addSubview:imgView];
@@ -64,6 +64,7 @@
 }
 
 - (void)iconViewIsClick {
+//    [self.sideMenuViewController hideMenuViewController];
     UserCenterController *ucc = [[UserCenterController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:ucc];
     [self presentViewController:nav animated:YES completion:nil];
@@ -82,19 +83,19 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:cellId];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.backgroundColor = [UIColor clearColor];
-        UIImageView *cellIconView = [[UIImageView alloc] initWithFrame:CGRectMake(37, 15, 15, 15)];
+        UIImageView *cellIconView = [[UIImageView alloc] initWithFrame:CGRectMake(37, 15, 16, 16)];
         cellIconView.tag = 10 +indexPath.row;
         [cell.contentView addSubview:cellIconView];
         UILabel *lb = [[UILabel alloc] initWithFrame:CGRectMake(67, 15, 100, 16)];
-        lb.textColor = [UIColor colorWithHexString:@"#bfbfbf"];
+        lb.textColor = [UIColor colorWithHexString:@"#fcfcfc"];
         lb.tag = 100 +indexPath.row;
         lb.font = [UIFont systemFontOfSize:16];
         [cell.contentView addSubview:lb];
     }
     UIImageView *cellIconView = (id)[cell.contentView viewWithTag:10 +indexPath.row];
     cellIconView.image = [UIImage imageNamed:[self.LeftIconArray objectAtIndex:indexPath.row]];
-    
     SideMenuItem *item = [self.LeftItemArray objectAtIndex:indexPath.row];
     UILabel *lb = (id)[cell.contentView viewWithTag:100 +indexPath.row];
     lb.text = [NSString stringWithFormat:@"%@",item.title];
@@ -104,8 +105,6 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
     SideMenuItem * item = self.LeftItemArray[indexPath.row];
     UIViewController *vc = [[NSClassFromString(item.target) alloc]init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];

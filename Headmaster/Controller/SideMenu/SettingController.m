@@ -105,13 +105,14 @@
 //            [ud removeObjectForKey:[NSString stringWithFormat:@"%zd",indexPath.row]];
             NSInteger btnX = [ud integerForKey:[NSString stringWithFormat:@"%zd",indexPath.row]];
             if (!btnX) {
-                if (indexPath.row == 0 && ![UserInfoModel defaultUserInfo].newmessagereminder) {
+                btnX = self.view.frame.size.width -70;
+                if (indexPath.row == 0 && [[UserInfoModel defaultUserInfo].newmessagereminder isEqualToString:@"0"]) {
                     btnX += 20;
                 }
-                if (indexPath.row == 1 && ![UserInfoModel defaultUserInfo].newmessagereminder) {
+                if (indexPath.row == 1 && [[UserInfoModel defaultUserInfo].complaintreminder isEqualToString:@"0"]) {
                     btnX += 20;
                 }
-                if (indexPath.row == 2 && ![UserInfoModel defaultUserInfo].newmessagereminder) {
+                if (indexPath.row == 2 && [[UserInfoModel defaultUserInfo].applyreminder isEqualToString:@"0"]) {
                     btnX += 20;
                 }
                 [ud setInteger:btnX forKey:[NSString stringWithFormat:@"%zd",indexPath.row]];
@@ -147,15 +148,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 4) {
-        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:[AboutUsController new]];
-        [self presentViewController:nav animated:YES completion:nil];
+        NSLog(@"444");
+        [self.navigationController pushViewController:[AboutUsController new] animated:NO];
     }else if (indexPath.row == 5) {
+        NSLog(@"555");
         NSString *appid = @"";
         NSString* url = [NSString stringWithFormat: @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%@", appid];
         [[UIApplication sharedApplication] openURL: [NSURL URLWithString: url]];
     }else if (indexPath.row == 6) {
-        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:[FeedbackController new]];
-        [self presentViewController:nav animated:YES completion:nil];
+        NSLog(@"666");
+        [self.navigationController pushViewController:[FeedbackController new] animated:NO];
     }
     
 }

@@ -24,6 +24,7 @@
 #import "UIColor+Extension.h"
 #import "UIBarButtonItem+Helper.h"
 #import "HMNagationController.h"
+#import "RESideMenu.h"
 
 
 #import "AppMacro.h"

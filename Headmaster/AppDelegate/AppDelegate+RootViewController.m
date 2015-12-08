@@ -51,11 +51,11 @@
     sideViewController.menuPreferredStatusBarStyle = 1;
     
     //阴影颜色
-    sideViewController.contentViewShadowColor = [UIColor grayColor];
+    sideViewController.contentViewShadowColor = [UIColor blackColor];
     //阴影偏移量
-    sideViewController.contentViewShadowOffset = CGSizeMake(50, 20);
+    sideViewController.contentViewShadowOffset = CGSizeMake(-5, 0);
     //阴影不透明度
-    sideViewController.contentViewShadowOpacity = 0.6;
+    sideViewController.contentViewShadowOpacity = 0.5;
     //阴影半径范围
     sideViewController.contentViewShadowRadius = 12;
     //是否启用阴影

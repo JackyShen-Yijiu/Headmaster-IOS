@@ -125,9 +125,6 @@
     InformationDataModel *informationDataModel = _viewModel.informationArray[indexPath.row];
     detailsVC.urlStr = informationDataModel.contenturl;
     [self.navigationController pushViewController:detailsVC animated:YES];
-    
-    // 取消cell的选中状态
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
   
 }
 

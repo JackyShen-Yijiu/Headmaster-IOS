@@ -34,9 +34,9 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    
     LoginController * loginViewC = [[LoginController alloc] init];
     loginViewC.delegate = self;
+    
     self.navController = [[HMNagationController alloc] initWithRootViewController:loginViewC];
     self.window.rootViewController = [self sideControllerWithContentController:self.navController];
 
