@@ -23,6 +23,7 @@
 #import "UserInfoModel.h"
 #import "UIColor+Extension.h"
 #import "UIBarButtonItem+Helper.h"
+#import "HMNagationController.h"
 
 
 #import "AppMacro.h"
