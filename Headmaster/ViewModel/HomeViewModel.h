@@ -18,4 +18,6 @@
 
 @property (nonatomic, strong) NSArray *evaluateArray;
 
+@property (nonatomic, strong) NSArray *progressArray;
+
 @end
