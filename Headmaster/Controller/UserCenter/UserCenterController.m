@@ -7,6 +7,7 @@
 //
 
 #import "UserCenterController.h"
+#import "LoginController.h"
 
 @interface UserCenterController () <UITableViewDataSource,UITableViewDelegate>
 
@@ -41,7 +42,8 @@
     [ud removeObjectForKey:@"0"];
     [ud removeObjectForKey:@"1"];
     [ud removeObjectForKey:@"2"];
-//    [self.navigationController popToRootViewControllerAnimated:YES];
+    [self presentViewController:[LoginController new] animated:YES completion:nil];
+    
 }
 
 #pragma mark - lazy load
