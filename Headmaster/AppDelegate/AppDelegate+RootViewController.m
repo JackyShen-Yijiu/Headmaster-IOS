@@ -37,12 +37,16 @@
     
     
     return tabBarVC;
+}
+
+- (UIViewController *)sideControllerWithContentController:(UINavigationController *)naviController {
+    
     //创建sideMenu
     SideMenuController * sideVC = [[SideMenuController alloc] init];
     
     //创建抽屉
     static RESideMenu *sideViewController = nil;
-    sideViewController = [[RESideMenu alloc] initWithContentViewController:tabBarVC leftMenuViewController:sideVC rightMenuViewController:nil];
+    sideViewController = [[RESideMenu alloc] initWithContentViewController:naviController leftMenuViewController:sideVC rightMenuViewController:nil];
     sideViewController.backgroundImage = [UIImage imageNamed:@""];
     sideViewController.menuPreferredStatusBarStyle = 1;
     
