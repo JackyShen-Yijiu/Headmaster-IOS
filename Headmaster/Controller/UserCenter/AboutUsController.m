@@ -7,6 +7,7 @@
 //
 
 #import "AboutUsController.h"
+#import "InformationDetailController.h"
 
 @interface AboutUsController () {
     UIImageView *_iconView;
@@ -24,6 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self addBackgroundImage];
     [self initUI];
     [self configeUI];
     [self updataUI];
@@ -31,6 +33,13 @@
 
 - (void)initUI {
     self.navigationItem.title = @"关于我们";
+    
+    CGRect backframe= CGRectMake(0, 0, 16, 16);
+    UIButton* backButton= [UIButton buttonWithType:UIButtonTypeCustom];
+    backButton.frame = backframe;
+    [backButton setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    [backButton addTarget:self action:@selector(pushBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
     
     _iconView = [[UIImageView alloc] init];
     [self.view addSubview:_iconView];
@@ -51,23 +60,40 @@
     [self.view addSubview:_buttomLabel];
 }
 
+- (void)pushBtnClick {
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
 - (void)configeUI {
-//    _iconView.image = [UIImage imageNamed:];
+    _iconView.image = [UIImage imageNamed:@"jietu"];
+    _iconView.layer.cornerRadius = 10;
+    _iconView.clipsToBounds = YES;
     
     _iconNameLabel.text = @"一步学车";
+    _iconNameLabel.textColor = [UIColor colorWithHexString:@"#fcfcfc"];
     _iconNameLabel.font = [UIFont systemFontOfSize:14];
     
     _descriptionLabel.text = @"做有态度的驾校培训";
+    _descriptionLabel.textColor = [UIColor colorWithHexString:@"#fcfcfc"];
     _descriptionLabel.font = [UIFont systemFontOfSize:15];
     
     _versionLabel.text = @"v1.0.0";
+    _versionLabel.textColor = [UIColor colorWithHexString:@"#fcfcfc"];
     _versionLabel.font = [UIFont systemFontOfSize:15];
     
     [_LicenseServiceAgreementBtn setTitle:@"许可服务协议" forState:UIControlStateNormal];
     [_LicenseServiceAgreementBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     _LicenseServiceAgreementBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    [_LicenseServiceAgreementBtn addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
     
     _buttomLabel.text = @"Copyright All Right Resrved";
+    _buttomLabel.textColor = [UIColor colorWithHexString:@"#fcfcfc"];
+}
+
+- (void)btnClick {
+    InformationDetailController *imdc = [[InformationDetailController alloc] init];
+    imdc.urlStr = @"http://www.ifanying.com/userAgreement.html";
+    [self.navigationController pushViewController:imdc animated:YES];
 }
 
 - (void)updataUI {

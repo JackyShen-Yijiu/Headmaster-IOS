@@ -62,6 +62,17 @@
 {
     [self resetNavBar];
     self.myNavigationItem.title = @"我的教练";
+    
+    CGRect backframe= CGRectMake(0, 0, 16, 16);
+    UIButton* backButton= [UIButton buttonWithType:UIButtonTypeCustom];
+    backButton.frame = backframe;
+    [backButton setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    [backButton addTarget:self action:@selector(pushBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    self.myNavigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+}
+
+- (void)pushBtnClick {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)initUI

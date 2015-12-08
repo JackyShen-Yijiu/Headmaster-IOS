@@ -135,7 +135,6 @@
                             @"userid":uim.userID,
                             @"schoolid":uim.schoolId
                             };
-    NSLog(@"params = %@",params);
     NSString *urlStr = [NSString stringWithFormat:@"%@/%@",[NetworkTool domain],PUBLISHMESSAGE];
     
     AFHTTPRequestOperationManager * manager = [AFHTTPRequestOperationManager manager];
@@ -250,6 +249,17 @@
                               @"schoolid": @"562dcc3ccb90f25c3bde40da" };
         
     [NetworkTool GET:HOME params:params success:success failure:failure];
+}
+
++ (void)postFeedbackWithparams:(NSDictionary *)params
+                                   success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+                                   failure:(void (^)(AFHTTPRequestOperation *operation, id responseObject))failure {
+    NSString *urlStr = @"http://101.200.204.240:8181/api/v1/userfeedback";
+    
+    AFHTTPRequestOperationManager * manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [manager POST:urlStr parameters:params success:success failure:failure];
 }
 
 @end

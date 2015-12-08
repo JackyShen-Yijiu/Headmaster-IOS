@@ -66,7 +66,7 @@
 - (void)iconViewIsClick {
 //    [self.sideMenuViewController hideMenuViewController];
     UserCenterController *ucc = [[UserCenterController alloc] init];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:ucc];
+    HMNagationController *nav = [[HMNagationController alloc] initWithRootViewController:ucc];
     [self presentViewController:nav animated:YES completion:nil];
 }
 
@@ -107,7 +107,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     SideMenuItem * item = self.LeftItemArray[indexPath.row];
     UIViewController *vc = [[NSClassFromString(item.target) alloc]init];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    HMNagationController *nav = [[HMNagationController alloc] initWithRootViewController:vc];
     [self presentViewController:nav animated:YES completion:nil];
 }
 

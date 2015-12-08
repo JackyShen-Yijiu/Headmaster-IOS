@@ -48,6 +48,10 @@
     [self addNotify];
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
 - (void)initUI {
     
     

@@ -29,14 +29,13 @@
 
 - (void)setNavBar {
     self.navigationItem.title = @"个人信息";
-    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor colorWithHexString:TEXT_NORMAL_COLOR],NSForegroundColorAttributeName,nil]];
-    UIButton *pushBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
-    [pushBtn setTitle:@"返回" forState:UIControlStateNormal];
-    pushBtn.titleLabel.font = [UIFont systemFontOfSize:16];
-    [pushBtn setTitleColor:[UIColor colorWithHexString:@"BFBFBF"] forState:UIControlStateNormal];
-    [pushBtn addTarget:self action:@selector(pushBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithCustomView:pushBtn];
-    self.navigationItem.leftBarButtonItem = barButton;
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor colorWithHexString:@"#fcfcfc"],NSForegroundColorAttributeName,nil]];
+    CGRect backframe= CGRectMake(0, 0, 16, 16);
+    UIButton* backButton= [UIButton buttonWithType:UIButtonTypeCustom];
+    backButton.frame = backframe;
+    [backButton setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    [backButton addTarget:self action:@selector(pushBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
 }
 
 - (void)pushBtnClick {
@@ -45,14 +44,17 @@
 
 - (void)initUI {
     [self.view addSubview:self.tableView];
-    
-    UIButton *loginOutBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, 50)];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 50)];
+    view.backgroundColor = [UIColor clearColor];
+    UIButton *loginOutBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 10, self.view.frame.size.width, 40)];
     [loginOutBtn setTitle:@"退出登入" forState:UIControlStateNormal];
     [loginOutBtn setTitleColor:[UIColor colorWithHexString:@"#bfbfbf"] forState:UIControlStateNormal];
     loginOutBtn.titleLabel.font = [UIFont systemFontOfSize:16];
-    loginOutBtn.backgroundColor = [UIColor clearColor];
+    loginOutBtn.backgroundColor = [UIColor darkGrayColor];
     [loginOutBtn addTarget:self action:@selector(UserWillLoginOut) forControlEvents:UIControlEventTouchUpInside];
-    self.tableView.tableFooterView = loginOutBtn;
+    [view addSubview:loginOutBtn];
+    
+    self.tableView.tableFooterView = view;
 }
 
 - (void)UserWillLoginOut {
@@ -70,7 +72,7 @@
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 100)    ];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 100)];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.backgroundColor = [UIColor clearColor];
@@ -84,6 +86,10 @@
     return 1;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 50;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"yy"];
     if (!cell) {
@@ -93,7 +99,7 @@
     }
     cell.textLabel.text = [UserInfoModel defaultUserInfo].name;
     cell.textLabel.textColor = [UIColor colorWithHexString:@"#BFBFBF"];
-//    cell.imageView.image = [UIImage imageNamed:@""];
+    cell.imageView.image = [UIImage imageNamed:@"tou"];
     return cell;
 }
 
