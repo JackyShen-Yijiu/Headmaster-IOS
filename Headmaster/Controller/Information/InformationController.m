@@ -79,7 +79,7 @@
 
 - (RefreshTableView *)tableView {
     if (!_tableView) {
-        _tableView = [[RefreshTableView alloc] initWithFrame:CGRectMake(0, 64, self.view.width, self.view.height - 64 -49) style:UITableViewStylePlain];
+        _tableView = [[RefreshTableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height - 64 -49) style:UITableViewStylePlain];
         _tableView.backgroundColor = [UIColor clearColor];
         _tableView.delegate = self;
         _tableView.dataSource = self;

@@ -71,6 +71,7 @@
     
     //RESideMenu默认设置的状态栏颜色总是黑色的，修改其中的preferredStatusBarStyle方法，使其返回白色状态栏
     return sideViewController;
+
 }
 
 @end
