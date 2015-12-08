@@ -72,7 +72,7 @@
         label.frame = CGRectMake(0, 0, btnWidth, labelViewHeight);
         label.textAlignment = 1;
         label.textColor = [UIColor colorWithHexString:@"19f9cc"];
-        label.font = [UIFont italicSystemFontOfSize:14];
+        label.font = [UIFont fontWithName:@"HiraKakuProN-W3" size:14];
         label.text = @"";
         
         CGFloat imageViewWidth = 20;

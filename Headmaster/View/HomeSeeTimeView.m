@@ -64,15 +64,15 @@
     
     [sender.layer setBorderColor:[UIColor colorWithHexString:@"19f9cc"].CGColor];
     if (sender.tag == 1) {
-        _leftImageview.image = [UIImage imageNamed:@"x1"];
-        _rightImageView.image = [UIImage imageNamed:@"x2"];
-    }else if (sender == 0) {
         _leftImageview.image = [UIImage imageNamed:@"x2"];
         _rightImageView.image = [UIImage imageNamed:@"x3"];
+    }else if (sender.tag == 0) {
+        _leftImageview.image = [UIImage imageNamed:@"x1"];
+        _rightImageView.image = [UIImage imageNamed:@"x2"];
     }else if (sender.tag == 2)
     {
         _leftImageview.image = [UIImage imageNamed:@"x3"];
-        _rightImageView.image = [UIImage imageNamed:@"x2"];
+        _rightImageView.image = [UIImage imageNamed:@"x1"];
     }
 }
 
@@ -142,6 +142,7 @@
     if (!_leftImageview) {
         _leftImageview = [[UIImageView alloc] init];
         _leftImageview.frame = CGRectMake(ButtonWidth, self.height / 2, (self.width - ButtonWidth) / 2 - ButtonWidth , 1);
+        _leftImageview.image = [UIImage imageNamed:@"x1"];
 //        _leftImageview.backgroundColor = [UIColor redColor];
     }
     return _leftImageview;
@@ -151,6 +152,7 @@
     if (!_rightImageView) {
         _rightImageView = [[UIImageView alloc] init];
         _rightImageView.frame = CGRectMake((self.width - ButtonWidth) / 2 + ButtonWidth, self.height / 2, (self.width - ButtonWidth) / 2 - ButtonWidth , 1);
+        _rightImageView.image = [UIImage imageNamed:@"x2"];
 //        _rightImageView.backgroundColor = [UIColor redColor];
     }
 
