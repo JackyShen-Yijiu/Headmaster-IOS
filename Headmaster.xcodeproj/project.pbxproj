@@ -43,6 +43,11 @@
 		0699E5E01C1566E50079CABF /* CoachCourseDatailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0699E5DF1C1566E50079CABF /* CoachCourseDatailViewModel.m */; };
 		0699E5E31C15811A0079CABF /* CoachCoureDatailModelRootClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 0699E5E21C15811A0079CABF /* CoachCoureDatailModelRootClass.m */; };
 		0699E5E61C1581360079CABF /* CoachCoureDatilModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0699E5E51C1581360079CABF /* CoachCoureDatilModel.m */; };
+		0699E5E91C15C1E40079CABF /* BaiduMapAPI_Base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0699E5E71C15C1E40079CABF /* BaiduMapAPI_Base.framework */; };
+		0699E5EA1C15C1E40079CABF /* BaiduMapAPI_Location.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0699E5E81C15C1E40079CABF /* BaiduMapAPI_Location.framework */; };
+		0699E5EC1C15C33E0079CABF /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0699E5EB1C15C33E0079CABF /* libstdc++.6.0.9.tbd */; };
+		0699E5EE1C15C3630079CABF /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0699E5ED1C15C3630079CABF /* CoreTelephony.framework */; };
+		0699E5F01C15C3760079CABF /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0699E5EF1C15C3760079CABF /* libsqlite3.0.tbd */; };
 		5543A6341C130D710063F7EE /* UserCenterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5543A6331C130D710063F7EE /* UserCenterController.m */; };
 		5545DE5E1C14134F00F41506 /* AboutUsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5545DE5D1C14134F00F41506 /* AboutUsController.m */; };
 		5545DE611C14228C00F41506 /* NewStudentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5545DE601C14228C00F41506 /* NewStudentController.m */; };
@@ -359,6 +364,7 @@
 		D95CE3BE1C12BDD700EF6F75 /* HomeDataModelWeeklyData.m in Sources */ = {isa = PBXBuildFile; fileRef = D95CE3BB1C12BDD700EF6F75 /* HomeDataModelWeeklyData.m */; };
 		D95CE3BF1C12BDD700EF6F75 /* HomeDataModelWeeklyRootClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D95CE3BD1C12BDD700EF6F75 /* HomeDataModelWeeklyRootClass.m */; };
 		D95CE4461C12EB2A00EF6F75 /* HomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D95CE4451C12EB2A00EF6F75 /* HomeViewModel.m */; };
+		D9CEC8EB1C0E8C83008DEE69 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC8EA1C0E8C83008DEE69 /* AppDelegate.mm */; };
 		D9C3F4561C167322006D22BC /* DVVProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C3F4551C167322006D22BC /* DVVProgressView.m */; };
 		D9C3F4591C167365006D22BC /* HomeProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C3F4581C167365006D22BC /* HomeProgressView.m */; };
 		D9CEC8EB1C0E8C83008DEE69 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC8EA1C0E8C83008DEE69 /* AppDelegate.m */; };
@@ -460,6 +466,11 @@
 		0699E5E21C15811A0079CABF /* CoachCoureDatailModelRootClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoachCoureDatailModelRootClass.m; sourceTree = "<group>"; };
 		0699E5E41C1581360079CABF /* CoachCoureDatilModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoachCoureDatilModel.h; sourceTree = "<group>"; };
 		0699E5E51C1581360079CABF /* CoachCoureDatilModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoachCoureDatilModel.m; sourceTree = "<group>"; };
+		0699E5E71C15C1E40079CABF /* BaiduMapAPI_Base.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Base.framework; sourceTree = "<group>"; };
+		0699E5E81C15C1E40079CABF /* BaiduMapAPI_Location.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Location.framework; sourceTree = "<group>"; };
+		0699E5EB1C15C33E0079CABF /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		0699E5ED1C15C3630079CABF /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		0699E5EF1C15C3760079CABF /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		5543A6321C130D710063F7EE /* UserCenterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterController.h; sourceTree = "<group>"; };
 		5543A6331C130D710063F7EE /* UserCenterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterController.m; sourceTree = "<group>"; };
 		5545DE5C1C14134F00F41506 /* AboutUsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutUsController.h; path = Headmaster/Controller/UserCenter/AboutUsController.h; sourceTree = SOURCE_ROOT; };
@@ -997,7 +1008,7 @@
 		D9C3F4571C167365006D22BC /* HomeProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeProgressView.h; sourceTree = "<group>"; };
 		D9C3F4581C167365006D22BC /* HomeProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeProgressView.m; sourceTree = "<group>"; };
 		D9CEC8E91C0E8C83008DEE69 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		D9CEC8EA1C0E8C83008DEE69 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D9CEC8EA1C0E8C83008DEE69 /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		D9CEC8EE1C0E8CF7008DEE69 /* HMNagationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMNagationController.h; sourceTree = "<group>"; };
 		D9CEC8EF1C0E8CF7008DEE69 /* HMNagationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMNagationController.m; sourceTree = "<group>"; };
 		D9CEC8F01C0E8CF7008DEE69 /* UITabBar+RedHot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+RedHot.h"; sourceTree = "<group>"; };
@@ -1066,12 +1077,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0699E5F01C15C3760079CABF /* libsqlite3.0.tbd in Frameworks */,
+				0699E5EE1C15C3630079CABF /* CoreTelephony.framework in Frameworks */,
+				0699E5EC1C15C33E0079CABF /* libstdc++.6.0.9.tbd in Frameworks */,
 				0605B7CA1C12E15D00A575B4 /* Security.framework in Frameworks */,
 				0605B7C81C12E15000A575B4 /* CoreGraphics.framework in Frameworks */,
 				0605B7C61C12E14200A575B4 /* SystemConfiguration.framework in Frameworks */,
 				0605B7C41C12E12B00A575B4 /* OpenGLES.framework in Frameworks */,
 				0605B7C21C12E11A00A575B4 /* QuartzCore.framework in Frameworks */,
 				0605B7C01C12E0FF00A575B4 /* CoreLocation.framework in Frameworks */,
+				0699E5E91C15C1E40079CABF /* BaiduMapAPI_Base.framework in Frameworks */,
+				0699E5EA1C15C1E40079CABF /* BaiduMapAPI_Location.framework in Frameworks */,
 				B8771E321C098E6B0051DE9D /* libPushSDK-1.8.8.a in Frameworks */,
 				92A9E5D7EE3DDE4857910BA1 /* libPods.a in Frameworks */,
 				B8771D071C098DE40051DE9D /* libopencore-amrwb.a in Frameworks */,
@@ -1153,6 +1169,9 @@
 		145B830FCF45682C02C93D3C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0699E5EF1C15C3760079CABF /* libsqlite3.0.tbd */,
+				0699E5ED1C15C3630079CABF /* CoreTelephony.framework */,
+				0699E5EB1C15C33E0079CABF /* libstdc++.6.0.9.tbd */,
 				0605B7C91C12E15D00A575B4 /* Security.framework */,
 				0605B7C71C12E15000A575B4 /* CoreGraphics.framework */,
 				0605B7C51C12E14200A575B4 /* SystemConfiguration.framework */,
@@ -1185,6 +1204,8 @@
 		B8771AEC1C09761F0051DE9D = {
 			isa = PBXGroup;
 			children = (
+				0699E5E71C15C1E40079CABF /* BaiduMapAPI_Base.framework */,
+				0699E5E81C15C1E40079CABF /* BaiduMapAPI_Location.framework */,
 				B8771AF71C0976200051DE9D /* Headmaster */,
 				B8771AF61C0976200051DE9D /* Products */,
 				2AA71D16F938CD75CFE5D2DA /* Pods */,
@@ -2436,7 +2457,7 @@
 			isa = PBXGroup;
 			children = (
 				D9CEC8E91C0E8C83008DEE69 /* AppDelegate.h */,
-				D9CEC8EA1C0E8C83008DEE69 /* AppDelegate.m */,
+				D9CEC8EA1C0E8C83008DEE69 /* AppDelegate.mm */,
 				D9CEC9521C0ED044008DEE69 /* AppDelegate+RootViewController.h */,
 				D9CEC9531C0ED044008DEE69 /* AppDelegate+RootViewController.m */,
 			);
@@ -3100,7 +3121,7 @@
 				B8771D271C098DE40051DE9D /* UIImage+EMGIF.m in Sources */,
 				B8771D141C098DE40051DE9D /* MWCaptionView.m in Sources */,
 				0666FFB31C141D43009FA71F /* GeneralCommentListModel.m in Sources */,
-				D9CEC8EB1C0E8C83008DEE69 /* AppDelegate.m in Sources */,
+				D9CEC8EB1C0E8C83008DEE69 /* AppDelegate.mm in Sources */,
 				D9CEC9851C0ED7D8008DEE69 /* SideMenuController.m in Sources */,
 				B8771D121C098DE40051DE9D /* UIScrollView+MJRefresh.m in Sources */,
 				B8771E521C0990980051DE9D /* UserInfoModel.m in Sources */,
@@ -3253,6 +3274,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Headmaster/PrefixHeader.pch";
 				INFOPLIST_FILE = Headmaster/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -3278,6 +3303,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Headmaster/PrefixHeader.pch";
 				INFOPLIST_FILE = Headmaster/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
