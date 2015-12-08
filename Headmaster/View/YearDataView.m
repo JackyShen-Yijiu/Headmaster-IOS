@@ -7,6 +7,7 @@
 //
 
 #import "YearDataView.h"
+#import "CoachOfCoureDetailController.h"
 # define ksystemH [UIScreen mainScreen].bounds.size.height
 # define ksystemW [UIScreen mainScreen].bounds.size.width
 @implementation YearDataView
@@ -43,7 +44,7 @@
             cell.chartView.valueArray =@[@[@"23",@"42",@"25",@"15",@"30",@"42",@"32",@"40",@"42",@"25",@"33"]];
             cell.chartView.frame = CGRectMake(0, 16, self.frame.size.width - 32, 200);
             [cell.chartView refreshUI];
-
+            
         }
         return cell;
         
@@ -59,6 +60,8 @@
             ;
         cell.appintmentChartView.valueArray = @[@[@"23",@"42",@"25",@"15",@"30",@"42",@"32",@"40",@"42",@"25",@"33"]];
             cell.appintmentChartView.frame = CGRectMake(0, 16, self.frame.size.width - 32, 200);
+            cell.userInteractionEnabled = YES;
+
             [cell.appintmentChartView refreshUI];
         }
         
@@ -78,13 +81,6 @@
             cell.coachOfCourseChart.valueArray = @[@[@"23",@"42",@"25",@"15",@"30",@"42",@"32",@"40",@"42",@"25",@"33"]];
             
             cell.coachOfCourseChart.frame = CGRectMake(0, 16, self.frame.size.width - 32, 200);
-
-            
-
-            
-            
-            
-            
             [cell.coachOfCourseChart refreshUI];
         }
         

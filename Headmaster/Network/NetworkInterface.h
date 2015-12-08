@@ -16,7 +16,7 @@
 #define USER_LOGIN                  @"headmaster/userinfo/userlogin"
 
 /* 首页 */
-#define HOME                        @"headmaster/statistics/getmainpagedata"
+#define HOME @"headmaster/statistics/getmainpagedata"
 
 /* 资讯相关 */
 #define INFORMATION_LIST            @"headmaster/info/getnews"
@@ -45,6 +45,8 @@
 #define COMPLAINHMESSAGE            @"headmaster/statistics/complaintdetails"
 #define DEALDONWHMESSAGE            @"headmaster/statistics/handlecomplaint"
 
+/* 教练授课详情 */
+#define COACHCOURSEDATAIL            @"headmaster/statistics/coachcoursedetails"
 /*修改个人信息*/
 
 #define PERSONALSETTING             @"headmaster/userinfo/personalsetting"

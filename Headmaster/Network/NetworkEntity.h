@@ -101,6 +101,7 @@
                             success:(NetworkSuccessBlock)success
                             failure:(NetworkFailureBlock)failure;
 /**
+<<<<<<< HEAD
  *  首页
  *
  *  @param searchType 查询的类型（昨天、今天、本周）
@@ -131,6 +132,19 @@
 + (void)weatherDataListWithcityname:(NSString *)cityname
                             success:(NetworkSuccessBlock)success
                             failure:(NetworkFailureBlock)failure;
+
+/*
+ *
+ *  教练授课详情
+ *
+ */
++ (void)getCoachCourseListWithuserid:(NSString *)userid
+                          searchtype:(NSInteger)searchtype
+                            schoolid:(NSString *)schoolid
+                               count:(NSInteger) count
+                               index:(NSInteger) index
+                             success:(NetworkSuccessBlock)success
+                             failure:(NetworkFailureBlock)failure;
 
 /**
  * 修改个人信息设置

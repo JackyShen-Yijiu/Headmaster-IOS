@@ -135,6 +135,7 @@
                             @"userid":uim.userID,
                             @"schoolid":uim.schoolId
                             };
+    NSLog(@"params = %@",params);
     NSString *urlStr = [NSString stringWithFormat:@"%@/%@",[NetworkTool domain],PUBLISHMESSAGE];
     
     AFHTTPRequestOperationManager * manager = [AFHTTPRequestOperationManager manager];
@@ -186,6 +187,32 @@
                            };
     [NetworkTool GET:MoreData_List params:dict success:success failure:failure];
 }
+
+/***
+ *
+ *  获得教练授课详情
+ *
+ */
++ (void)getCoachCourseListWithuserid:(NSString *)userid
+                          searchtype:(NSInteger)searchtype
+                            schoolid:(NSString *)schoolid
+                               count:(NSInteger) count
+                               index:(NSInteger) index
+                             success:(NetworkSuccessBlock)success
+                             failure:(NetworkFailureBlock)failure
+{
+    NSDictionary *params = @{@"userid":userid,
+                             @"searchtype":[NSString stringWithFormat:@"%li",searchtype],
+                             @"schoolid":schoolid,
+                             @"count":[NSString stringWithFormat:@"%li",count],
+                             @"index":[NSString stringWithFormat:@"%li",index]};
+    [NetworkTool GET:COACHCOURSEDATAIL params:params success:success failure:failure];
+    
+    
+}
+
+
+
 
 /**
  *   修改个人信息

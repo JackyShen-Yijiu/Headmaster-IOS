@@ -6,9 +6,9 @@
 //  Copyright © 2015年 ytzhang. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "CoachOfCoureDetailCell.h"
 
-@interface CoachOfCoureDetailController : UIViewController <UITableViewDataSource,UITableViewDelegate>
+#import "YBBaseController.h"
+#import "CoachOfCoureDetailCell.h"
+@interface CoachOfCoureDetailController : YBBaseController
 
 @end

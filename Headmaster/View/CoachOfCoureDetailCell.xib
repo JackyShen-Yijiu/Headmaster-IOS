@@ -39,14 +39,6 @@
                         <color key="textColor" red="0.74901960784313726" green="0.74901960784313726" blue="0.74901960784313726" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundStar" translatesAutoresizingMaskIntoConstraints="NO" id="wEq-rk-ZNf">
-                        <rect key="frame" x="84" y="43" width="146" height="23"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="146" id="BdO-Eh-vPJ"/>
-                            <constraint firstAttribute="height" constant="23" id="lFr-PI-c5T"/>
-                        </constraints>
-                    </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c91-AX-Lda">
                         <rect key="frame" x="84" y="43" width="146" height="23"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -116,7 +108,7 @@
                             <constraint firstAttribute="height" constant="2" id="tKv-tc-XD1"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -126,7 +118,6 @@
                     <constraint firstItem="07s-ha-rcf" firstAttribute="leading" secondItem="SEc-FG-GFo" secondAttribute="trailing" constant="50" id="3Z2-hC-8DP"/>
                     <constraint firstAttribute="trailing" secondItem="h2X-IB-scG" secondAttribute="trailing" constant="15" id="5ZW-BO-Pw4"/>
                     <constraint firstItem="VEt-OG-tGs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="39" id="7iL-cl-Ulz"/>
-                    <constraint firstItem="wEq-rk-ZNf" firstAttribute="leading" secondItem="iuF-Pn-b0I" secondAttribute="trailing" constant="30" id="8fb-tq-hb0"/>
                     <constraint firstItem="c91-AX-Lda" firstAttribute="top" secondItem="Lfr-Bx-UTr" secondAttribute="bottom" constant="7" id="AaA-XX-FJf"/>
                     <constraint firstItem="h2X-IB-scG" firstAttribute="top" secondItem="c91-AX-Lda" secondAttribute="bottom" constant="13" id="BW7-WK-6XM"/>
                     <constraint firstAttribute="trailing" secondItem="pcN-O8-TyA" secondAttribute="trailing" constant="566" id="G0a-cj-cJU"/>
@@ -139,7 +130,6 @@
                     <constraint firstItem="SEc-FG-GFo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="UeL-gN-hB5"/>
                     <constraint firstItem="g9U-30-IPR" firstAttribute="leading" secondItem="Sp5-fU-uPN" secondAttribute="trailing" constant="1" id="Wdm-an-OJN"/>
                     <constraint firstItem="iuF-Pn-b0I" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="ZUq-fv-pUJ"/>
-                    <constraint firstItem="wEq-rk-ZNf" firstAttribute="top" secondItem="Lfr-Bx-UTr" secondAttribute="bottom" constant="7" id="at2-CR-sHK"/>
                     <constraint firstItem="Lfr-Bx-UTr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="beT-W2-miA"/>
                     <constraint firstAttribute="bottom" secondItem="pcN-O8-TyA" secondAttribute="bottom" constant="5" id="ceP-kC-wIn"/>
                     <constraint firstItem="iuF-Pn-b0I" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="g6T-9J-Wa2"/>
@@ -151,12 +141,18 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="BottomLineLabel" destination="pcN-O8-TyA" id="eTN-Oc-xHc"/>
+                <outlet property="badCommondLabel" destination="GCV-A0-8IQ" id="FoW-EH-CtX"/>
+                <outlet property="complainCommondLabel" destination="h2X-IB-scG" id="Bb5-Gz-BIi"/>
+                <outlet property="courseHourLabel" destination="Sp5-fU-uPN" id="X8G-Ym-nKT"/>
+                <outlet property="goodCommondLabel" destination="SEc-FG-GFo" id="0Q7-b0-5Xp"/>
+                <outlet property="iconImageView" destination="iuF-Pn-b0I" id="swP-Us-g5u"/>
+                <outlet property="mightCommondLabel" destination="07s-ha-rcf" id="1tQ-iz-74h"/>
+                <outlet property="starLevelImageView" destination="c91-AX-Lda" id="Ipi-2b-Pmq"/>
             </connections>
             <point key="canvasLocation" x="55.5" y="233"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="backgroundStar" width="146" height="23"/>
         <image name="defoult_por" width="70" height="70"/>
         <image name="imessageButton" width="30" height="30"/>
     </resources>

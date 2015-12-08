@@ -89,7 +89,7 @@
     if (_coachOfCourseChart == nil) {
         _coachOfCourseChart = [[YBBarChartView alloc] init];
         [_coachOfCourseChart refreshUI];
-        _coachOfCourseChart.backgroundColor = [UIColor redColor];
+//        _coachOfCourseChart.backgroundColor = [UIColor redColor];
     }
     return _coachOfCourseChart;
 }

@@ -12,6 +12,7 @@ typedef void(^didClick)(UIButton *btn);
 
 @interface CoachOfCourse : UITableViewCell
 
+
 @property (nonatomic,strong) didClick didClick;
 
 /**
@@ -36,3 +37,5 @@ typedef void(^didClick)(UIButton *btn);
 @property (nonatomic,strong) YBBarChartView *coachOfCourseChart;
 
 @end
+
+

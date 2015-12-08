@@ -14,7 +14,10 @@
 #import "DataDatilViewController.h"
 #import "HomeViewModel.h"
 #import "RESideMenu.h"
-
+//#import "HomeDailyViewModel.h"
+//#import "HomeWeeklyViewModel.h"
+#import "CoachOfCoureDetailController.h"
+#import "CoachCourseDatailViewModel.h"
 #import <BaiduMapAPI_Location/BMKLocationComponent.h>
 
 
@@ -118,6 +121,10 @@
         dataListVC.tag = _tag + 101;
     
     [self.navigationController pushViewController:dataListVC animated:YES];
+    
+//    CoachOfCoureDetailController *detailVC = [[CoachOfCoureDetailController alloc] init];
+//    [self.navigationController pushViewController:detailVC animated:YES];
+    
 }
 
 #pragma mark 打开侧栏

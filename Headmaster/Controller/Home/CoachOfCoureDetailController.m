@@ -7,27 +7,46 @@
 //
 
 #import "CoachOfCoureDetailController.h"
+#import "CoachCourseDatailViewModel.h"
+#import "RefreshTableView.h"
+#import "CoachCoureDatilModel.h"
 
 
-@interface CoachOfCoureDetailController ()
-
-@property (nonatomic,retain) UITableView *tableView;
-
+@interface CoachOfCoureDetailController () <UITableViewDataSource,UITableViewDelegate>
+@property (nonatomic, strong) RefreshTableView       *tableView;
+@property (nonatomic, strong) CoachCourseDatailViewModel *coachCoureDatailViewModel;
 @end
 
 @implementation CoachOfCoureDetailController
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"今天教练详情";
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    _tableView.delegate = self;
-    _tableView.dataSource = self;
-    UIImage *image = [UIImage imageNamed:@"controllerBackground"];
-    self.tableView.layer.contents = (id)image.CGImage;
+    
+    [self addBackgroundImage];
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    [self.view addSubview:self.tableView];
 
-    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self.view addSubview:_tableView];
+    self.title = @"今天教练详情";
+    // 数据请求
+    _coachCoureDatailViewModel = [[CoachCourseDatailViewModel alloc] init];
+    WS(ws);
+    _coachCoureDatailViewModel.tableViewNeedReLoad = ^ {
+        [ws.tableView reloadData];
+        [ws.tableView.refreshHeader endRefreshing];
+        [ws.tableView.refreshFooter endRefreshing];
+    };
+    _coachCoureDatailViewModel.showToast = ^ {
+        ToastAlertView *tav = [[ToastAlertView alloc] initWithTitle:@"网络连接失败，请检查网络连接"];
+        [tav show];
+    };
+    [_coachCoureDatailViewModel successRefreshBlock:^{
+        NSLog(@"我被成功回调了哟！");
+//        InformationDataModel *dataModel = [_viewModel.informationArray lastObject];
+//        self.seqindex = [dataModel.seqindex intValue];
+        [ws.tableView.refreshHeader endRefreshing];
+        [ws.tableView.refreshFooter endRefreshing];
+        [self.tableView reloadData];
+    }];
+    [_coachCoureDatailViewModel networkRequestNeedUpRefreshWithCoachCourseListWithuserid:@"56582caf1fcf03d813f5fbfc" searchtype:1 schoolid:@"562dcc3ccb90f25c3bde40da" count:10];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,35 +55,34 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return [_coachCoureDatailViewModel.coachArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    
-    static NSString *strCell = @"myCell";
-    CoachOfCoureDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:strCell];
+    static NSString *cellID = @"cellID";
+    CoachOfCoureDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (!cell) {
-        NSArray *xib = [[NSBundle mainBundle] loadNibNamed:@"CoachOfCoureDetailCell" owner:nil options:nil];
-        cell = [xib lastObject];
-        cell.BottomLineLabel.backgroundColor = [UIColor blackColor];
+        cell = [[CoachOfCoureDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
         
-        cell.BottomLineLabel.layer.shadowColor = [UIColor whiteColor].CGColor;
-        cell.BottomLineLabel.layer.shadowOffset = CGSizeMake(0, 1);
-        cell.BottomLineLabel.layer.shadowOpacity = 0.3;
-        cell.BottomLineLabel.layer.shadowRadius = 1;
-        cell.backgroundColor = [UIColor clearColor];
-        
-//               UIImage*img =[UIImage imageNamed:@"bgg.png"];
-//        [cell setBackgroundColor:[UIColor colorWithPatternImage:img]];
-
-        
-    
     }
+        cell.backgroundColor = [UIColor clearColor];
+        CoachCoureDatilModel *dataModel = _coachCoureDatailViewModel.coachArray[indexPath.row];
+        [cell refreshData:dataModel];
     return cell;
-    
-    
+}
+#pragma mark - lazy load
+
+- (RefreshTableView *)tableView {
+    if (!_tableView) {
+        _tableView = [[RefreshTableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height - 64 -49) style:UITableViewStylePlain];
+        _tableView.backgroundColor = [UIColor clearColor];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        [_tableView registerNib:[UINib nibWithNibName:@"CoachOfCoureDetailCell" bundle:nil] forCellReuseIdentifier:@"cellID"];
+    }
+    return _tableView;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
