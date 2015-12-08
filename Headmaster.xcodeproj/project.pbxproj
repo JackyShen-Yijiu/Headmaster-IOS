@@ -32,6 +32,8 @@
 		060BA89D1C1011F8009AD55E /* CoachOfCoureDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 060BA89B1C1011F8009AD55E /* CoachOfCoureDetailCell.xib */; };
 		060BA8A01C10121F009AD55E /* DataDatilViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 060BA89F1C10121F009AD55E /* DataDatilViewController.m */; };
 		060BA8A31C10122C009AD55E /* CoachOfCoureDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 060BA8A21C10122C009AD55E /* CoachOfCoureDetailController.m */; };
+		062BB6ED1C1694A5006D5BEE /* HomeWeatherModelRootClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 062BB6EC1C1694A5006D5BEE /* HomeWeatherModelRootClass.m */; };
+		062BB6F01C1694BE006D5BEE /* HomeWeatherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 062BB6EF1C1694BE006D5BEE /* HomeWeatherModel.m */; };
 		0666FF971C140E9A009FA71F /* HomeDataDatailModelRootClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 0666FF961C140E9A009FA71F /* HomeDataDatailModelRootClass.m */; };
 		0666FFA41C141C8D009FA71F /* ApplyStuentListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0666FFA31C141C8D009FA71F /* ApplyStuentListModel.m */; };
 		0666FFA71C141CA5009FA71F /* ReservationStudentListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0666FFA61C141CA5009FA71F /* ReservationStudentListModel.m */; };
@@ -364,10 +366,9 @@
 		D95CE3BE1C12BDD700EF6F75 /* HomeDataModelWeeklyData.m in Sources */ = {isa = PBXBuildFile; fileRef = D95CE3BB1C12BDD700EF6F75 /* HomeDataModelWeeklyData.m */; };
 		D95CE3BF1C12BDD700EF6F75 /* HomeDataModelWeeklyRootClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D95CE3BD1C12BDD700EF6F75 /* HomeDataModelWeeklyRootClass.m */; };
 		D95CE4461C12EB2A00EF6F75 /* HomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D95CE4451C12EB2A00EF6F75 /* HomeViewModel.m */; };
-		D9CEC8EB1C0E8C83008DEE69 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC8EA1C0E8C83008DEE69 /* AppDelegate.mm */; };
 		D9C3F4561C167322006D22BC /* DVVProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C3F4551C167322006D22BC /* DVVProgressView.m */; };
 		D9C3F4591C167365006D22BC /* HomeProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C3F4581C167365006D22BC /* HomeProgressView.m */; };
-		D9CEC8EB1C0E8C83008DEE69 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC8EA1C0E8C83008DEE69 /* AppDelegate.m */; };
+		D9CEC8EB1C0E8C83008DEE69 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC8EA1C0E8C83008DEE69 /* AppDelegate.mm */; };
 		D9CEC90F1C0E8CF7008DEE69 /* HMNagationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC8EF1C0E8CF7008DEE69 /* HMNagationController.m */; };
 		D9CEC9101C0E8CF7008DEE69 /* UITabBar+RedHot.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC8F11C0E8CF7008DEE69 /* UITabBar+RedHot.m */; };
 		D9CEC9131C0E8CF7008DEE69 /* BaseModelMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9011C0E8CF7008DEE69 /* BaseModelMethod.m */; };
@@ -444,6 +445,10 @@
 		060BA89F1C10121F009AD55E /* DataDatilViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataDatilViewController.m; sourceTree = "<group>"; };
 		060BA8A11C10122C009AD55E /* CoachOfCoureDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoachOfCoureDetailController.h; sourceTree = "<group>"; };
 		060BA8A21C10122C009AD55E /* CoachOfCoureDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoachOfCoureDetailController.m; sourceTree = "<group>"; };
+		062BB6EB1C1694A5006D5BEE /* HomeWeatherModelRootClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeWeatherModelRootClass.h; sourceTree = "<group>"; };
+		062BB6EC1C1694A5006D5BEE /* HomeWeatherModelRootClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeWeatherModelRootClass.m; sourceTree = "<group>"; };
+		062BB6EE1C1694BE006D5BEE /* HomeWeatherModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeWeatherModel.h; sourceTree = "<group>"; };
+		062BB6EF1C1694BE006D5BEE /* HomeWeatherModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeWeatherModel.m; sourceTree = "<group>"; };
 		0666FF951C140E9A009FA71F /* HomeDataDatailModelRootClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeDataDatailModelRootClass.h; sourceTree = "<group>"; };
 		0666FF961C140E9A009FA71F /* HomeDataDatailModelRootClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeDataDatailModelRootClass.m; sourceTree = "<group>"; };
 		0666FFA21C141C8D009FA71F /* ApplyStuentListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyStuentListModel.h; sourceTree = "<group>"; };
@@ -2449,6 +2454,10 @@
 				0699E5E21C15811A0079CABF /* CoachCoureDatailModelRootClass.m */,
 				0699E5E41C1581360079CABF /* CoachCoureDatilModel.h */,
 				0699E5E51C1581360079CABF /* CoachCoureDatilModel.m */,
+				062BB6EB1C1694A5006D5BEE /* HomeWeatherModelRootClass.h */,
+				062BB6EC1C1694A5006D5BEE /* HomeWeatherModelRootClass.m */,
+				062BB6EE1C1694BE006D5BEE /* HomeWeatherModel.h */,
+				062BB6EF1C1694BE006D5BEE /* HomeWeatherModel.m */,
 			);
 			path = HomeDataModel;
 			sourceTree = "<group>";
@@ -3048,6 +3057,7 @@
 				556D3CF01C112A870012C2D5 /* PublishViewModel.m in Sources */,
 				B8771CFD1C098DE40051DE9D /* EMAudioRecorderUtil.m in Sources */,
 				B8771E551C0991570051DE9D /* UIViewController+Method.m in Sources */,
+				062BB6F01C1694BE006D5BEE /* HomeWeatherModel.m in Sources */,
 				0699E5E01C1566E50079CABF /* CoachCourseDatailViewModel.m in Sources */,
 				060BA8921C101197009AD55E /* WeekDataView.m in Sources */,
 				5543A6341C130D710063F7EE /* UserCenterController.m in Sources */,
@@ -3166,6 +3176,7 @@
 				B8771DEE1C098DE40051DE9D /* EaseFaceView.m in Sources */,
 				B8771D351C098DE40051DE9D /* PSTCollectionViewUpdateItem.m in Sources */,
 				D922974C1C10439200D0FFDF /* YBLineChartView.m in Sources */,
+				062BB6ED1C1694A5006D5BEE /* HomeWeatherModelRootClass.m in Sources */,
 				B8771D2C1C098DE40051DE9D /* UIView+EMWebCacheOperation.m in Sources */,
 				D9CEC9891C0EDBCD008DEE69 /* LoginController.m in Sources */,
 				B8771D0A1C098DE40051DE9D /* MJRefreshConst.m in Sources */,
