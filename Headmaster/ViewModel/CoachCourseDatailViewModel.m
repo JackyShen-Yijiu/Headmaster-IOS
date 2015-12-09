@@ -18,6 +18,7 @@
 {
     _coachArray = [NSMutableArray array];
    [NetworkEntity getCoachCourseListWithuserid:userid searchtype:searchtype schoolid:schoolid count:10 index:1  success:^(id responseObject) {
+       NSLog(@"%@",responseObject);
        CoachCoureDatailModelRootClass *rootCoachDatail = [[CoachCoureDatailModelRootClass alloc]initWithJsonDict:responseObject];
        [_coachArray addObjectsFromArray:rootCoachDatail.data];
        [self successRefreshBlock];

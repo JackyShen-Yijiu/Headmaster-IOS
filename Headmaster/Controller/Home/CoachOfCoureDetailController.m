@@ -64,8 +64,6 @@
         [ws.tableView.refreshFooter endRefreshing];
         [self.tableView reloadData];
     }];
-    // @"56582caf1fcf03d813f5fbfc" ,,,,  @"562dcc3ccb90f25c3bde40da"
-    NSLog(@"________________________________________________%@,%@,%ld",[[UserInfoModel defaultUserInfo] userID],[[UserInfoModel defaultUserInfo] schoolId],_searchType);
     [_coachCoureDatailViewModel networkRequestNeedUpRefreshWithCoachCourseListWithuserid:[[UserInfoModel defaultUserInfo] userID] searchtype:_searchType schoolid:[[UserInfoModel defaultUserInfo] schoolId] count:10];
 }
 

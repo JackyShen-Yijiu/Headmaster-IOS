@@ -244,9 +244,9 @@
     
 //    [[AFHttpClient sharedClient].requestSerializer setValue:[UserInfoModel defaultUserInfo].token forHTTPHeaderField:@"authorization"];
     
-    NSDictionary *params = @{ @"userid": @"56582caf1fcf03d813f5fbfc",
+    NSDictionary *params = @{ @"userid": [[UserInfoModel defaultUserInfo] userID],
                               @"searchtype": [NSString stringWithFormat:@"%li",searchType],
-                              @"schoolid": @"562dcc3ccb90f25c3bde40da" };
+                              @"schoolid": [[UserInfoModel defaultUserInfo] schoolId] };
         
     [NetworkTool GET:HOME params:params success:success failure:failure];
 }

@@ -42,6 +42,7 @@
         
         for (UIButton *btn in itemButton.subviews) {
             if (btn.tag != 0) {
+                
                 [btn setTitle:array[btn.tag - 1] forState:UIControlStateNormal];
             }
         }
