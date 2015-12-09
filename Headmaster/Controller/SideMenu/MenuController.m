@@ -66,6 +66,9 @@
 - (void)iconViewIsClick {
 //    [self.sideMenuViewController hideMenuViewController];
     UserCenterController *ucc = [[UserCenterController alloc] init];
+    ucc.hideMenu = ^ {
+        [self.sideMenuViewController hideMenuViewController];
+    };
     HMNagationController *nav = [[HMNagationController alloc] initWithRootViewController:ucc];
     [self presentViewController:nav animated:YES completion:nil];
 }

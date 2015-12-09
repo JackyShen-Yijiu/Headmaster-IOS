@@ -10,4 +10,6 @@
 
 @interface UserCenterController : YBBaseController
 
+@property (nonatomic, copy) void (^hideMenu)(void);
+
 @end

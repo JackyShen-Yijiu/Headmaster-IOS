@@ -9,6 +9,7 @@
 #import "SettingController.h"
 #import "AboutUsController.h"
 #import "FeedbackController.h"
+#import "EaseSDKHelper.h"
 
 @interface SettingController () <UITableViewDataSource,UITableViewDelegate> {
     BOOL isFirstLoad;
@@ -165,8 +166,10 @@
     NSInteger btnX = [ud integerForKey:[NSString stringWithFormat:@"%zd",sender.tag]];
     
     if (btnX == self.view.frame.size.width -70) {
+       
         [self changeUseMessage:ud button:sender goRight:YES];
     }else {
+       
         [self changeUseMessage:ud button:sender goRight:NO];
     }
     
@@ -189,6 +192,12 @@
                 [ud removeObjectForKey:[NSString stringWithFormat:@"%zd",btn.tag]];
                 [ud setInteger:btnX forKey:[NSString stringWithFormat:@"%zd",btn.tag]];
                 [ud synchronize];
+                //环信消息开启免打扰模式
+                if (btn.tag == 0) {
+                    EMPushNotificationOptions *options = [[EaseMob sharedInstance].chatManager pushNotificationOptions];
+                    options.noDisturbStatus = ePushNotificationNoDisturbStatusDay;
+                    [[EaseMob sharedInstance].chatManager asyncUpdatePushOptions:options];
+                }
             }else {
                 btnX -= 20;
                 btnFrame.origin.x = btnX;
@@ -197,6 +206,12 @@
                 [ud removeObjectForKey:[NSString stringWithFormat:@"%zd",btn.tag]];
                 [ud setInteger:btnX forKey:[NSString stringWithFormat:@"%zd",btn.tag]];
                 [ud synchronize];
+                //环信消息关闭免打扰模式
+                if (btn.tag == 0) {
+                    EMPushNotificationOptions *options = [[EaseMob sharedInstance].chatManager pushNotificationOptions];
+                    options.noDisturbStatus = ePushNotificationNoDisturbStatusClose;
+                    [[EaseMob sharedInstance].chatManager asyncUpdatePushOptions:options];
+                }
             }
 
         }else {

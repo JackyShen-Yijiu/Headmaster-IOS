@@ -64,8 +64,14 @@
     [ud removeObjectForKey:@"0"];
     [ud removeObjectForKey:@"1"];
     [ud removeObjectForKey:@"2"];
-    [self presentViewController:[LoginController new] animated:YES completion:nil];
-    
+    LoginController *lc = [LoginController new];
+    lc.dismissController = ^ {
+        [self dismissViewControllerAnimated:YES completion:nil];
+        if (_hideMenu) {
+            _hideMenu();
+        }
+    };
+    [self.navigationController pushViewController:lc animated:YES];
 }
 
 #pragma mark - lazy load
