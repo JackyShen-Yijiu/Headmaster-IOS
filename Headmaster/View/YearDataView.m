@@ -18,7 +18,7 @@
         self.delegate = self;
         self.dataSource = self;
 //        self.tableHeaderView = [[UIView alloc] init];
-//        self.separatorStyle = UITableViewCellSeparatorStyleNone;
+        self.separatorStyle = UITableViewCellSeparatorStyleNone;
 
     }
     return self;
