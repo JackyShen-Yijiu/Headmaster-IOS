@@ -301,7 +301,6 @@
 
 - (BOOL)isShowRecomend
 {
-//    return self.controlView.control.selectedSegmentIndex != 3;
     return (self.toolView.selectButtonInteger - 101) != 3;
 }
 #pragma mark - DataSource
@@ -312,7 +311,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    HMRecomendModel * model  =  self.recomendData[indexPath.row];
+    HMRecomendModel * model  =   [self isShowRecomend] ? self.recomendData[indexPath.row] : self.complainData[indexPath.row];
     return [RecomendCell cellHigthWithModel:model];
 }
 

@@ -196,11 +196,6 @@
     
     self.myNavigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:view];
     
-    
-    
-    
-    
-    
 }
 
 #pragma mark 打开侧栏
