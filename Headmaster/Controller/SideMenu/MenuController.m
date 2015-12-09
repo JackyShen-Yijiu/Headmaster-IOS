@@ -28,6 +28,7 @@
     self.view.layer.contents = (id)image.CGImage;
     
     self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.scrollEnabled = NO;
     
     SideMenuItem * item1 = [[SideMenuItem alloc] init];
     item1.title = @"发布公告";

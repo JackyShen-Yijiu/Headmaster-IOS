@@ -30,6 +30,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setNavBar];
+    
     [self addBackgroundImage];
     [self isFirstLOad];
     [self createUI];
@@ -103,7 +104,6 @@
         [cell.contentView addSubview:label];
         if (indexPath.row <3) {
             NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-//            [ud removeObjectForKey:[NSString stringWithFormat:@"%zd",indexPath.row]];
             NSInteger btnX = [ud integerForKey:[NSString stringWithFormat:@"%zd",indexPath.row]];
             if (!btnX) {
                 btnX = self.view.frame.size.width -70;
@@ -176,9 +176,16 @@
 }
 
 - (void)changeUseMessage:(NSUserDefaults *)ud button:(UIButton *)btn goRight:(BOOL)goright {
-    NSString *complaintreminder =  [ud integerForKey:@"1"] == self.view.frame.size.width -70?@"1":@"0";
-    NSString *applyreminder =      [ud integerForKey:@"2"] == self.view.frame.size.width -70?@"1":@"0";
     NSString *newmessagereminder = [ud integerForKey:@"0"] == self.view.frame.size.width -70?@"1":@"0";
+    NSString *complaintreminder  = [ud integerForKey:@"1"] == self.view.frame.size.width -70?@"1":@"0";
+    NSString *applyreminder      = [ud integerForKey:@"2"] == self.view.frame.size.width -70?@"1":@"0";
+    if (btn.tag == 0) {
+        newmessagereminder = [ud integerForKey:@"0"] == self.view.frame.size.width -70?@"0":@"1";
+    }else if (btn.tag == 1) {
+        complaintreminder  = [ud integerForKey:@"1"] == self.view.frame.size.width -70?@"0":@"1";
+    }else {
+        applyreminder      = [ud integerForKey:@"2"] == self.view.frame.size.width -70?@"0":@"1";
+    }
     [NetworkEntity changeUserMessageWithUseInfoModel:[UserInfoModel defaultUserInfo] complaintReminder:complaintreminder applyreminder:applyreminder newmessagereminder:newmessagereminder success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
         CGRect btnFrame = btn.frame;
