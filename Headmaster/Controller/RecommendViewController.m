@@ -43,7 +43,6 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.isNeedRefresh = YES;
-//    self.searchType = kDateSearchTypeYear;
     [self initUI];
 }
 
