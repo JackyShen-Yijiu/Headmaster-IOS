@@ -3281,9 +3281,9 @@
 					"$(PROJECT_DIR)/Headmaster/EaseMobEntity/3rdparty/DeviceHelper/VoiceConvert/opencore-amrwb",
 					"$(PROJECT_DIR)/Headmaster/ThirdPary/JGPush",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yibukeji.Headmaster;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yibuxuechexiaozhangduan;
 				PRODUCT_NAME = "一步校长";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "904c963e-c613-49b8-a546-8e26f44ac347";
 			};
 			name = Debug;
 		};
@@ -3293,8 +3293,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Wei Ai Chi Kuang Tech Co. Ltd (MC3VUBEH8X)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Wei Ai Chi Kuang Tech Co. Ltd (MC3VUBEH8X)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3310,9 +3310,9 @@
 					"$(PROJECT_DIR)/Headmaster/EaseMobEntity/3rdparty/DeviceHelper/VoiceConvert/opencore-amrwb",
 					"$(PROJECT_DIR)/Headmaster/ThirdPary/JGPush",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yibukeji.Headmaster;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yibuxuechexiaozhangduan;
 				PRODUCT_NAME = "一步校长";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "904c963e-c613-49b8-a546-8e26f44ac347";
 			};
 			name = Release;
 		};
