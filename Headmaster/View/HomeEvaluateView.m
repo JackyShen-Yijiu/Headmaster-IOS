@@ -71,21 +71,22 @@
         label.tag = i + 1;
         label.frame = CGRectMake(0, 0, btnWidth, labelViewHeight);
         label.textAlignment = 1;
-        label.textColor = [UIColor colorWithHexString:@"19f9cc"];
-        label.font = [UIFont fontWithName:@"HiraKakuProN-W3" size:14];
+        label.font = [UIFont fontWithName:@"HiraKakuProN-W3" size:16];
         label.text = @"";
         
         CGFloat imageViewWidth = 24;
         UIImageView *imageView = [UIImageView new];
         if (i == 3) {
+            imageView.frame = CGRectMake(btnWidth / 2.0 - imageViewWidth / 2.0, labelViewHeight + 3, imageViewWidth, imageViewWidth);
+            imageView.image = [UIImage imageNamed:imageArray[i]];
+            [button addSubview:imageView];
+            label.textColor = [UIColor colorWithHexString:@"DA0808"];
+        }else
+        {
             imageView.frame = CGRectMake(btnWidth / 2.0 - imageViewWidth / 2.0, labelViewHeight, imageViewWidth, imageViewWidth);
             imageView.image = [UIImage imageNamed:imageArray[i]];
             [button addSubview:imageView];
-        }else
-        {
-            imageView.frame = CGRectMake(btnWidth / 2.0 - imageViewWidth / 2.0, labelViewHeight - 5, imageViewWidth, imageViewWidth);
-            imageView.image = [UIImage imageNamed:imageArray[i]];
-            [button addSubview:imageView];
+            label.textColor = [UIColor colorWithHexString:@"19f9cc"];
         }
         [button addSubview:label];
         [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];

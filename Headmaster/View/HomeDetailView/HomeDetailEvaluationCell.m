@@ -22,6 +22,7 @@
     if (self) {
         [self.contentView addSubview:self.bottomView];
         self.bottomView.frame = CGRectMake(15, [super defaultHeight], width, 40);
+//        self.bottomView.backgroundColor = [UIColor lightGrayColor];
     }
     return self;
 }

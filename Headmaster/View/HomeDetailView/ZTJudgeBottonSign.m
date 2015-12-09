@@ -32,10 +32,10 @@
     
     NSArray *strArray = @[@"好评",@"中评",@"差评",@"投诉"];
     NSArray *colorArray = @[@"ff00f0",@"00ffcc",@"f3ad54",@"ff663a"];
-    CGFloat smallGap = 3.f;
+//    CGFloat smallGap = 3.f;
 //    CGFloat bigCap = 5.0f;
-    CGFloat bigCap = (ksystemW - 4 * 63 - 80) / 3;
-    CGFloat bottonH = self.bounds.size.height;
+//    CGFloat bigCap = (ksystemW - 4 * 63 - 80) / 3;
+//    CGFloat bottonH = self.bounds.size.height;
     /*
      userhead.layer.borderWidth = 1.0;
      userhead.layer.borderColor = [[UIColor whiteColor] CGColor];
@@ -55,7 +55,7 @@
         signLabel.textColor = [UIColor colorWithHexString:colorArray[i]];
         
         UIView *oneView = [UIView new];
-        oneView.frame = CGRectMake(margin / 2.f + 60 * i, 0, 60, 40);
+        oneView.frame = CGRectMake(30 + margin * i, 0, 60, 40);
         [oneView addSubview:view];
         [oneView addSubview:signLabel];
         [self addSubview:oneView];

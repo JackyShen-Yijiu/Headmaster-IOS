@@ -211,7 +211,7 @@
 - (UIScrollView *)scrollView {
     if (!_scrollView) {
         _scrollView = [UIScrollView new];
-        _scrollView.frame = CGRectMake(0, self.topButtonView.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height - self.topButtonView.bounds.size.height);
+        _scrollView.frame = CGRectMake(0, self.topButtonView.bounds.size.height + 25, self.view.bounds.size.width, self.view.bounds.size.height - self.topButtonView.bounds.size.height);
         _scrollView.contentSize = CGSizeMake(self.view.bounds.size.width * 5, 0);
         _scrollView.pagingEnabled = YES;
         _scrollView.delegate = self;

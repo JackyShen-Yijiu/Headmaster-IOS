@@ -224,7 +224,7 @@
     if (!_progressView) {
         _progressView = [HomeProgressView new];
         _progressView.frame = CGRectMake(0, 0, self.view.bounds.size.width - 100, self.view.bounds.size.width - 100);
-        _progressView.center = CGPointMake(self.view.bounds.size.width / 2.f, self.view.bounds.size.height / 2.f);
+        _progressView.center = CGPointMake(self.view.bounds.size.width / 2.f, self.view.bounds.size.height / 2.f - 15);
         _progressView.backgroundColor = [UIColor clearColor];
     }
     return _progressView;
@@ -258,10 +258,14 @@
 
 - (HomeSeeTimeView *)seeTimeView {
     if (!_seeTimeView) {
+        CGFloat margin = 52.f;
+        if (SCREEN_WIDTH > 320) {
+            margin = 60;
+        }
         _seeTimeView = [HomeSeeTimeView new];
-        _seeTimeView.frame = CGRectMake(60,
+        _seeTimeView.frame = CGRectMake(margin,
                                         self.view.height - 70,
-                                        self.view.width - 120,
+                                        self.view.width - margin * 2,
                                         50);
 //        _seeTimeView.backgroundColor = [UIColor orangeColor];
     }
