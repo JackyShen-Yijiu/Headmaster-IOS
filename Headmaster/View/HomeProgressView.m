@@ -201,9 +201,15 @@
     _secondMarkLabel.textAlignment = 1;
     _secondMarkLabel.textColor = [UIColor colorWithHexString:@"F955D2"];
     
-    _progressLabel.font = [UIFont fontWithName:@"HiraKakuProN-W3" size:64];
-    _firstMarkLabel.font = [UIFont systemFontOfSize:20];
-    _secondMarkLabel.font = [UIFont systemFontOfSize:20];
+    if (SCREEN_WIDTH > 320) {
+        _progressLabel.font = [UIFont fontWithName:@"HiraKakuProN-W3" size:64];
+        _firstMarkLabel.font = [UIFont systemFontOfSize:20];
+        _secondMarkLabel.font = [UIFont systemFontOfSize:20];
+    }else {
+        _progressLabel.font = [UIFont fontWithName:@"HiraKakuProN-W3" size:52];
+        _firstMarkLabel.font = [UIFont systemFontOfSize:17];
+        _secondMarkLabel.font = [UIFont systemFontOfSize:17];
+    }
     
     [self addSubview:_progressLabel];
     [self addSubview:_firstMarkLabel];
