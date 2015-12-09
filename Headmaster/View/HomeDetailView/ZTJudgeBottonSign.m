@@ -16,10 +16,14 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self addBottonView];
 //        self.backgroundColor = [UIColor redColor];
     }
     return self;
+}
+
+- (void)layoutSubviews {
+    
+    [self addBottonView];
 }
 
 
@@ -31,34 +35,30 @@
     CGFloat smallGap = 3.f;
 //    CGFloat bigCap = 5.0f;
     CGFloat bigCap = (ksystemW - 4 * 63 - 80) / 3;
-//    CGFloat bottomW = self.bounds.size.width;
     CGFloat bottonH = self.bounds.size.height;
-    CGSize viewSize = CGSizeMake(10, 10);
-    CGSize labelSize = CGSizeMake(50, 50);
     /*
      userhead.layer.borderWidth = 1.0;
      userhead.layer.borderColor = [[UIColor whiteColor] CGColor];
      */
-    
+    CGFloat margin = self.bounds.size.width / 4.f;
     for (int i = 0; i < strArray.count; i++) {
         UIView *view = [[UIView alloc] init];
-        view.frame = CGRectMake(i * (viewSize.width + labelSize.width + smallGap + bigCap), (bottonH - viewSize.height) / 2, viewSize.width, viewSize.height);
+        view.frame = CGRectMake(0, 15, 10, 10);
         view.backgroundColor = [UIColor colorWithHexString:colorArray[i]];
         view.layer.masksToBounds = YES;
-        view.layer.cornerRadius  =  viewSize.height / 2;
-        
-        
+        view.layer.cornerRadius  =  10 / 2;
         
         UILabel *signLabel = [[UILabel alloc]init];
-        signLabel.frame = CGRectMake((i + 1) * (viewSize.width + smallGap) +   i * (bigCap + labelSize.width), (bottonH - labelSize.height) / 2, labelSize.width, labelSize.height);
+        signLabel.frame = CGRectMake(10, 0, 50, 40);
         signLabel.font = [UIFont systemFontOfSize:12.f];
         signLabel.text = strArray[i];
         signLabel.textColor = [UIColor colorWithHexString:colorArray[i]];
-        [self addSubview:view];
-        [self addSubview:signLabel];
         
-        
-        
+        UIView *oneView = [UIView new];
+        oneView.frame = CGRectMake(margin / 2.f + 60 * i, 0, 60, 40);
+        [oneView addSubview:view];
+        [oneView addSubview:signLabel];
+        [self addSubview:oneView];
     }
 }
 @end

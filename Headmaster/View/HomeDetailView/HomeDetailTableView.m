@@ -11,7 +11,7 @@
 #import "HomeDetailNormalLineChartCell.h"
 #import "HomeDetailCanClickLineChartCell.h"
 #import "HomeDetailCanClickBarChartCell.h"
-#import "ZTJudgeBottonSign.h"
+#import "HomeDetailEvaluationCell.h"
 
 @interface HomeDetailTableView()<UITableViewDataSource, UITableViewDelegate>
 
@@ -64,8 +64,15 @@
         normalLineChartCell.valueArray = @[ ary_1, ary_2 ];
         normalLineChartCell.xTitleMarkWordString = @"周";
         normalLineChartCell.yTitleMarkWordString = @"年";
-        normalLineChartCell.titleLabel.text = @"约课";
-        normalLineChartCell.markLabel.text = @"共33333人";
+        if (indexPath.row == 0) {
+            normalLineChartCell.titleLabel.text = @"招生";
+            normalLineChartCell.markLabel.text = @"共33333人";
+        }else
+        {
+            normalLineChartCell.titleLabel.text = @"约课";
+            normalLineChartCell.markLabel.text = @"共33333人";
+        }
+        
         [normalLineChartCell refreshUI];
         
         return normalLineChartCell;
@@ -87,7 +94,7 @@
         canClickBarChartCell.valueArray = @[ ary_1 ];
         canClickBarChartCell.xTitleMarkWordString = @"周";
         canClickBarChartCell.yTitleMarkWordString = @"年";
-        canClickBarChartCell.titleLabel.text = @"约课";
+        canClickBarChartCell.titleLabel.text = @"教练授课";
         canClickBarChartCell.markLabel.text = @"详情";
         canClickBarChartCell.markImageView.image = [UIImage imageNamed:@"xq"];
         canClickBarChartCell.tag = indexPath.row;
@@ -95,9 +102,9 @@
         return canClickBarChartCell;
     }else {
         static NSString *kCanClickLineChartCellId = @"lineCanClickCell";
-        HomeDetailCanClickLineChartCell *canClickLineChartCell = [tableView dequeueReusableCellWithIdentifier:kCanClickLineChartCellId];
+        HomeDetailEvaluationCell *canClickLineChartCell = [tableView dequeueReusableCellWithIdentifier:kCanClickLineChartCellId];
         if (!canClickLineChartCell) {
-            canClickLineChartCell = [[HomeDetailCanClickLineChartCell alloc] initWithWidth:self.bounds.size.width - 30 Style:UITableViewCellStyleDefault reuseIdentifier:kCanClickLineChartCellId];
+            canClickLineChartCell = [[HomeDetailEvaluationCell alloc] initWithWidth:self.bounds.size.width - 30 Style:UITableViewCellStyleDefault reuseIdentifier:kCanClickLineChartCellId];
             
             [canClickLineChartCell setClickBlock:^(NSInteger tag) {
                 if (_evaluationBlock) {
@@ -113,7 +120,7 @@
         canClickLineChartCell.valueArray = @[ ary_1, ary_2 ];
         canClickLineChartCell.xTitleMarkWordString = @"周";
         canClickLineChartCell.yTitleMarkWordString = @"年";
-        canClickLineChartCell.titleLabel.text = @"约课";
+        canClickLineChartCell.titleLabel.text = @"评价";
         canClickLineChartCell.markLabel.text = @"详情";
         canClickLineChartCell.markImageView.image = [UIImage imageNamed:@"xq"];
         canClickLineChartCell.tag = indexPath.row;
@@ -123,7 +130,11 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 3) {
+        return [HomeDetailEvaluationCell new].defaultHeight;
+    }
     return [HomeDetailNormalLineChartCell new].defaultHeight;
+    
 }
 
 /*

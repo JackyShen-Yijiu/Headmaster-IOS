@@ -391,6 +391,7 @@
 		D9D2DF941C17FDE1005DB212 /* ZTJudgeBottonSign.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D2DF931C17FDE1005DB212 /* ZTJudgeBottonSign.m */; };
 		D9D2DF981C17FF77005DB212 /* CoachOfCoureDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D2DF961C17FF77005DB212 /* CoachOfCoureDetailCell.m */; };
 		D9D2DF991C17FF77005DB212 /* CoachOfCoureDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9D2DF971C17FF77005DB212 /* CoachOfCoureDetailCell.xib */; };
+		D9D2DFA21C1808A7005DB212 /* HomeDetailEvaluationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D2DFA11C1808A7005DB212 /* HomeDetailEvaluationCell.m */; };
 		D9D375611C127457008C54FF /* DVVDockItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D3755E1C127457008C54FF /* DVVDockItem.m */; };
 		D9D375621C127457008C54FF /* DVVTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D375601C127457008C54FF /* DVVTabBarController.m */; };
 		D9E41AB61C129DD0007A2019 /* YBBaseTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E41AB51C129DD0007A2019 /* YBBaseTableCell.m */; };
@@ -1054,6 +1055,8 @@
 		D9D2DF951C17FF77005DB212 /* CoachOfCoureDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoachOfCoureDetailCell.h; sourceTree = "<group>"; };
 		D9D2DF961C17FF77005DB212 /* CoachOfCoureDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoachOfCoureDetailCell.m; sourceTree = "<group>"; };
 		D9D2DF971C17FF77005DB212 /* CoachOfCoureDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoachOfCoureDetailCell.xib; sourceTree = "<group>"; };
+		D9D2DFA01C1808A7005DB212 /* HomeDetailEvaluationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeDetailEvaluationCell.h; sourceTree = "<group>"; };
+		D9D2DFA11C1808A7005DB212 /* HomeDetailEvaluationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeDetailEvaluationCell.m; sourceTree = "<group>"; };
 		D9D3755D1C127457008C54FF /* DVVDockItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVVDockItem.h; sourceTree = "<group>"; };
 		D9D3755E1C127457008C54FF /* DVVDockItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVVDockItem.m; sourceTree = "<group>"; };
 		D9D3755F1C127457008C54FF /* DVVTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVVTabBarController.h; sourceTree = "<group>"; };
@@ -2652,6 +2655,8 @@
 				D9D2DF7B1C17D619005DB212 /* HomeDetailCanClickLineChartCell.m */,
 				D9D2DF801C17D619005DB212 /* HomeDetailNormalLineChartCell.h */,
 				D9D2DF811C17D619005DB212 /* HomeDetailNormalLineChartCell.m */,
+				D9D2DFA01C1808A7005DB212 /* HomeDetailEvaluationCell.h */,
+				D9D2DFA11C1808A7005DB212 /* HomeDetailEvaluationCell.m */,
 				D9D2DF821C17D619005DB212 /* HomeDetailTableView.h */,
 				D9D2DF831C17D619005DB212 /* HomeDetailTableView.m */,
 			);
@@ -3012,6 +3017,7 @@
 				B8771D311C098DE40051DE9D /* PSTCollectionViewData.m in Sources */,
 				B8771DF01C098DE40051DE9D /* EaseChatBarMoreView.m in Sources */,
 				0605B7BB1C12CA3100A575B4 /* DataDatilViewModel.m in Sources */,
+				D9D2DFA21C1808A7005DB212 /* HomeDetailEvaluationCell.m in Sources */,
 				D95CE3BF1C12BDD700EF6F75 /* HomeDataModelWeeklyRootClass.m in Sources */,
 				D9CEC97C1C0ED643008DEE69 /* DVVDoubleRowToolBarView.m in Sources */,
 				B8771DF11C098DE40051DE9D /* EaseRecordView.m in Sources */,
