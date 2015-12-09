@@ -60,11 +60,21 @@
         NSLog(@"我被成功回调了哟！");
 //        InformationDataModel *dataModel = [_viewModel.informationArray lastObject];
 //        self.seqindex = [dataModel.seqindex intValue];
+        
         [ws.tableView.refreshHeader endRefreshing];
         [ws.tableView.refreshFooter endRefreshing];
         [self.tableView reloadData];
     }];
     [_coachCoureDatailViewModel networkRequestNeedUpRefreshWithCoachCourseListWithuserid:[[UserInfoModel defaultUserInfo] userID] searchtype:_searchType schoolid:[[UserInfoModel defaultUserInfo] schoolId] count:10];
+    [self setRefresh];
+}
+
+- (void)setRefresh {
+    WS(ws);
+    __weak typeof(_coachCoureDatailViewModel) viewModel = _coachCoureDatailViewModel;
+    self.tableView.refreshHeader.beginRefreshingBlock = ^(){
+        [viewModel networkRequestNeedUpRefreshWithCoachCourseListWithuserid:[[UserInfoModel defaultUserInfo] userID] searchtype:ws.searchType schoolid:[[UserInfoModel defaultUserInfo] schoolId] count:10];    };
+
 }
 
 - (void)didReceiveMemoryWarning {
