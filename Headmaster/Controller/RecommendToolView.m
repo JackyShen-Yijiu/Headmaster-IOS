@@ -44,7 +44,7 @@
         button.frame = CGRectMake (i * buttonW , 0, buttonW, buttonH);
         [button setTitle:_titleArray[i] forState:UIControlStateNormal];
         [button setTintColor:[UIColor colorWithHexString:@"047a64"]];
-        [button addTarget:self action:@selector(didClickButton:) forControlEvents:UIControlEventTouchUpInside];
+        [button addTarget:self action:@selector(didClickButton:) forControlEvents:UIControlEventTouchDown];
         button.tag = 101 + i;
         [self addSubview:button];
     }

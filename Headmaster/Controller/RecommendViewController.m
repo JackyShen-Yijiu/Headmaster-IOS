@@ -43,7 +43,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.isNeedRefresh = YES;
-    self.searchType = kDateSearchTypeYear;
+//    self.searchType = kDateSearchTypeYear;
     [self initUI];
 }
 
@@ -302,7 +302,7 @@
 - (BOOL)isShowRecomend
 {
 //    return self.controlView.control.selectedSegmentIndex != 3;
-    return self.toolView.selectButtonInteger - 101 != 3;
+    return (self.toolView.selectButtonInteger - 101) != 3;
 }
 #pragma mark - DataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
