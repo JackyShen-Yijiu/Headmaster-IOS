@@ -33,8 +33,8 @@
     CGRect rect = self.bounds;
     self.titleLabel.frame = CGRectMake(0, 0, rect.size.width, self.titleDefaultHeight);
     CGFloat markLabelWidth = 100;
-    CGFloat markImageWidth = 8;
-    CGFloat markImageHeight = 12;
+    CGFloat markImageWidth = 4;
+    CGFloat markImageHeight = 6;
     CGFloat rightMargin = 15;
     self.markLabel.frame = CGRectMake(rect.size.width - markLabelWidth - markImageWidth - rightMargin - 3, 0, markLabelWidth, self.titleDefaultHeight);
     self.markImageView.frame = CGRectMake(rect.size.width - markImageWidth - rightMargin, self.titleDefaultHeight / 2.f - markImageHeight / 2.f, markImageWidth, markImageHeight);
