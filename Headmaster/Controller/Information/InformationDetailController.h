@@ -11,5 +11,6 @@
 @interface InformationDetailController : YBBaseController
 
 @property (nonatomic, strong)NSString *urlStr;
+@property (nonatomic, strong)NSString *navTitle;
 
 @end

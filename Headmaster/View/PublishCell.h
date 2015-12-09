@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "PublishDataModel.h"
+#import "YBBaseTableCell.h"
 
-@interface PublishCell : UITableViewCell
+@interface PublishCell : YBBaseTableCell
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *lableHeightConstraint;
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
@@ -19,7 +20,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UIButton *deleteBtn;
-@property (weak, nonatomic) IBOutlet UIButton *lineBtn;
 
 - (void)adaptHeightWithString:(NSString *)str;
 

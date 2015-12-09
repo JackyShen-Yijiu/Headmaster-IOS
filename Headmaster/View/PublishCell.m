@@ -27,13 +27,6 @@
     _lableHeightConstraint.constant = size.height+1;
 }
 
-/*@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
- 
- @property (nonatomic, copy) void(^deleteCell)();
- @property (weak, nonatomic) IBOutlet UILabel *whichPersonLabel;
- @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
- @property (weak, nonatomic) IBOutlet UILabel *dateLabel;*/
-
 - (void)refreshData:(PublishDataModel *)dataModel {
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.contentLabel.text = dataModel.content;
@@ -51,11 +44,6 @@
     self.timeLabel.text = [dataModel.createtime substringWithRange:rangeData];
     self.timeLabel.textColor = [UIColor colorWithHexString:TEXT_NORMAL_COLOR];
     self.dateLabel.textColor = [UIColor colorWithHexString:TEXT_NORMAL_COLOR];
-    self.lineBtn.layer.shadowColor = [UIColor whiteColor].CGColor;
-    self.lineBtn.layer.shadowOffset = CGSizeMake(0, 1);
-    self.lineBtn.layer.shadowOpacity = 0.2;
-    self.lineBtn.layer.shadowRadius = 0.5;
-    self.lineBtn.alpha = 0.7;
 }
 
 - (void)amOrpm:(NSString *)str {

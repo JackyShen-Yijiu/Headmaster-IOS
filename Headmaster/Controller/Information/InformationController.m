@@ -26,7 +26,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
+    self.myNavigationItem.title = @"行业资讯";
 }
 
 - (void)viewDidLoad {
@@ -34,6 +34,7 @@
     // Do any additional setup after loading the view.
     [self addBackgroundImage];
     self.automaticallyAdjustsScrollViewInsets = NO;
+    
     [self.view addSubview:self.tableView];
     _viewModel = [InformationViewModel new];
     WS(ws);
@@ -124,6 +125,7 @@
     InformationDetailController *detailsVC = [InformationDetailController new];
     InformationDataModel *informationDataModel = _viewModel.informationArray[indexPath.row];
     detailsVC.urlStr = informationDataModel.contenturl;
+    detailsVC.navTitle = informationDataModel.title;
     [self.navigationController pushViewController:detailsVC animated:YES];
   
 }

@@ -41,6 +41,8 @@
 
 @property (nonatomic, strong) UITextView         *tv;
 
+@property (nonatomic, strong) UIImageView        *showderView;
+
 @end
 
 @implementation PublishController
@@ -138,10 +140,9 @@
 - (UITextView *)tv {
     if (!_tv) {
         _tv = [[UITextView alloc] init];
-        _tv.backgroundColor = [UIColor blackColor];
-        _tv.alpha = 0.5;
-//        _tv.textColor = [UIColor colorWithHexString:@"#fcfcfc"];
-        _tv.textColor = [UIColor whiteColor];
+        _tv.backgroundColor = [UIColor clearColor];
+        _tv.font = [UIFont systemFontOfSize:16];
+        _tv.textColor = [UIColor colorWithHexString:TEXT_HIGHLIGHT_COLOR];
     }
     return _tv;
 }
@@ -150,9 +151,19 @@
 - (UILabel *)placeholderLabel {
     if (!_placeholderLabel) {
         _placeholderLabel = [[UILabel alloc] init];
+        _placeholderLabel.font = [UIFont systemFontOfSize:16];
         _placeholderLabel.backgroundColor = [UIColor clearColor];
     }
     return _placeholderLabel;
+}
+
+- (UIImageView *)showderView {
+    if (!_showderView) {
+        _showderView = [[UIImageView alloc] init];
+        _showderView.alpha = 0.5;
+        _showderView.backgroundColor = [UIColor blackColor];
+    }
+    return _showderView;
 }
 
 - (UIBarButtonItem *)publishBtn {
@@ -290,7 +301,14 @@
         [self.studentBtn addTarget:self action:@selector(sutdentBtnIsClick) forControlEvents:UIControlEventTouchUpInside];
         [cell.contentView addSubview:self.studentBtn];
         
-        self.placeholderLabel.frame = CGRectMake(20, 40, 200, 30);
+        self.showderView.frame = CGRectMake(10, 40, h_size.width-20, 150);
+        self.showderView.layer.shadowColor = [UIColor whiteColor].CGColor;
+        self.showderView.layer.shadowOffset = CGSizeMake(0, 1);
+        self.showderView.layer.shadowOpacity = 0.3;
+        self.showderView.layer.shadowRadius = 0;
+        [cell.contentView addSubview:self.showderView];
+        
+        self.placeholderLabel.frame = CGRectMake(20, 42, 200, 30);
         self.placeholderLabel.text = @"最多输入300字";
         self.placeholderLabel.font = [UIFont systemFontOfSize:15];
         
@@ -331,6 +349,8 @@
     }
     if ([text isEqualToString:@""] && range.location == 0 && range.length == 1) {
         self.placeholderLabel.hidden = NO;
+    }else {
+        self.placeholderLabel.hidden = YES;
     }
     if (range.location>=300) {
         return NO;
