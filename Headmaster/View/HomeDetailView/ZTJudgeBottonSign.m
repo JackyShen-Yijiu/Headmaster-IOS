@@ -31,7 +31,7 @@
     CGFloat smallGap = 3.f;
 //    CGFloat bigCap = 5.0f;
     CGFloat bigCap = (ksystemW - 4 * 63 - 80) / 3;
-    CGFloat bottomW = self.bounds.size.width;
+//    CGFloat bottomW = self.bounds.size.width;
     CGFloat bottonH = self.bounds.size.height;
     CGSize viewSize = CGSizeMake(10, 10);
     CGSize labelSize = CGSizeMake(50, 50);
