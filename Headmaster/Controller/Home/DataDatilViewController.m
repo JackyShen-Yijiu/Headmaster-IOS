@@ -125,20 +125,6 @@
     };
     [self addScrollView];
     
-//    //  点击教练授课详情
-//    self.todayDataView.coacOfCourse.didClick = ^(UIButton *btn)
-//    {
-//        NSLog(@"我被回调了!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-//        CoachOfCoureDetailController *detailVC = [[CoachOfCoureDetailController alloc] init];
-//        [dataVC.navigationController pushViewController:detailVC animated:YES];
-//    };
-//    
-//    self.yesterdayDataView.coacOfCourse.didClick = ^(UIButton *btn)
-//    {
-//        CoachOfCoureDetailController *detailVC = [[CoachOfCoureDetailController alloc] init];
-//        [dataVC.navigationController pushViewController:detailVC animated:YES];
-//    };
-    
 }
 
 - (void)addScrollView
@@ -197,7 +183,7 @@
             [dataDatilVC.navigationController pushViewController:recommendVC animated:YES];
         };
         
-
+[_topButtonView selectedItem:101];
     
  
     
