@@ -45,6 +45,9 @@
 
 -(void)setYLabels:(NSArray *)yLabels
 {
+    if (!yLabels.count) {
+        return;
+    }
     NSInteger max = 0;
     NSInteger min = 1000000000;
     for (NSArray * ary in yLabels) {
@@ -90,6 +93,9 @@
 
 -(void)setXLabels:(NSArray *)xLabels
 {
+    if (!xLabels.count) {
+        return;
+    }
     if( !_chartLabelsForX ){
         _chartLabelsForX = [NSHashTable weakObjectsHashTable];
     }
@@ -171,6 +177,9 @@
 
 -(void)strokeChart
 {
+//    if (!_xLabels.count) {
+//        return;
+//    }
     _markView = [UIView new];
     
     _markView.backgroundColor = [UIColor clearColor];

@@ -47,6 +47,9 @@
 
 -(void)setYLabels:(NSArray *)yLabels
 {
+    if (!yLabels.count) {
+        return;
+    }
     NSInteger max = 0;
     NSInteger min = 1000000000;
 
@@ -103,6 +106,9 @@
 
 -(void)setXLabels:(NSArray *)xLabels
 {
+    if (!xLabels.count) {
+        return;
+    }
     if( !_chartLabelsForX ){
         _chartLabelsForX = [NSHashTable weakObjectsHashTable];
     }
@@ -192,6 +198,9 @@
 
 -(void)strokeChart
 {
+    if (!_xLabels.count) {
+        return;
+    }
     for (int i=0; i<_yValues.count; i++) {
         NSArray *childAry = _yValues[i];
         if (childAry.count==0) {

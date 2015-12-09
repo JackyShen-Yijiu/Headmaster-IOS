@@ -115,9 +115,11 @@
         }
         NSArray *ary_1 = @[@"22",@"44",@"15",@"40",@"42",@"25",@"15",@"30",@"42",@"32",@"40"];
         NSArray *ary_2 = @[@"23",@"42",@"25",@"15",@"30",@"42",@"32",@"40",@"42",@"25",@"33"];
+        NSArray *ary_3 = @[@"42",@"32",@"40",@"42",@"44",@"15",@"40",@"42",@"25",@"15",@"30",@"42"];
+        NSArray *ary_4 = @[@"25",@"15",@"30",@"25",@"15",@"30",@"42",@"44",@"15",@"40"];
         
         canClickLineChartCell.xTitleArray = @[ @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日", @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日" ];
-        canClickLineChartCell.valueArray = @[ ary_1, ary_2 ];
+        canClickLineChartCell.valueArray = @[ ary_1, ary_2, ary_3, ary_4 ];
         canClickLineChartCell.xTitleMarkWordString = @"周";
         canClickLineChartCell.yTitleMarkWordString = @"年";
         canClickLineChartCell.titleLabel.text = @"评价";
