@@ -12,9 +12,9 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    [self.iconImageView setUserInteractionEnabled:YES];
+    [self.buttonIcon setUserInteractionEnabled:YES];
     UITapGestureRecognizer * ges = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(iconTap:)];
-    [self.iconImageView addGestureRecognizer:ges];
+    [self.buttonIcon addGestureRecognizer:ges];
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -34,7 +34,8 @@
 - (void)refreshData:(CoachCoureDatilModel *)dataModel
 {
     self.model = dataModel;
-    [self.iconImageView downloadImage:dataModel.originalpic];
+//    [self.iconImageView downloadImage:dataModel.originalpic];
+    [self.iconImageView downloadImage:dataModel.originalpic place:[UIImage imageNamed:@"defoult_por"]];
     self.courseHourLabel.text =  [NSString stringWithFormat:@"%lu",dataModel.coursecount];
     self.goodCommondLabel.text = [NSString stringWithFormat:@"好评%lu",dataModel.goodcommentcount];
     self.badCommondLabel.text = [NSString stringWithFormat:@"差评%lu",dataModel.badcommentcount];
