@@ -93,8 +93,8 @@
     CoachOfCoureDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (!cell) {
         cell = [[CoachOfCoureDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
-        cell.delegate = self;
     }
+    cell.delegate = self;
     cell.backgroundColor = [UIColor clearColor];
     CoachCoureDatilModel *dataModel = _coachCoureDatailViewModel.coachArray[indexPath.row];
     [cell refreshData:dataModel];
@@ -107,11 +107,6 @@
     chatController.userName = cell.model.name;
     [self.navigationController pushViewController:chatController animated:YES];
 
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
 }
 
 #pragma mark - lazy load
