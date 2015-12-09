@@ -127,16 +127,19 @@
     }];
     
     [self.seeTimeView itemClick:^(UIButton *button) {
-        [self.progressView refreshData:@[ @(0.7), @(0.3), @(1), @(0.72) ]];
+        
+        if (button.tag == self.tag) {
+            return;
+        }
         self.tag = button.tag;
         if (button.tag == 2) {
             _viewModel.searchType = kDateSearchTypeWeek;
             [_viewModel networkRequestRefresh];
             
         }else {
-            if(button.tag == 1) {
+            if(button.tag == 0) {
                 _viewModel.searchType = kDateSearchTypeToday;
-            }else if(button.tag == 2) {
+            }else if(button.tag == 1 ) {
                 _viewModel.searchType = kDateSearchTypeYesterday;
             }
             [_viewModel networkRequestRefresh];
@@ -148,10 +151,11 @@
     [_viewModel successRefreshBlock:^{
         
         if (_viewModel.searchType == kDateSearchTypeWeek) {
-            
+            [self.progressView refreshData:@[ @(0.7), @(0.3), @(1), @(0.72) ]];
             [self.evaluateView refreshData:_viewModel.evaluateArray];
         }else {
             [self.topView refreshSubjectData:_viewModel.subjectArray sameDay:_viewModel.applyCount];
+            [self.progressView refreshData:_viewModel.progressArray];
             [self.evaluateView refreshData:_viewModel.evaluateArray];
         }
     }];

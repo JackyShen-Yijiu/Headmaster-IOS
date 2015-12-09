@@ -130,4 +130,8 @@
     self.isAnimaiton = NO;
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
 @end

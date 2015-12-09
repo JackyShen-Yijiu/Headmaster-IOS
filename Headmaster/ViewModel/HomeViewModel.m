@@ -43,6 +43,20 @@
                                 dailyData.data.commentstudentcount.generalcomment,
                                 dailyData.data.commentstudentcount.badcomment,
                                 dailyData.data.complaintstudentcount ];
+            
+            // 进度数据
+            CGFloat value_1 = 0;
+            CGFloat value_2 = 0;
+            CGFloat value_4 = 0;
+            
+            if (dailyData.data.coachstotalcoursecount) {
+                value_1 = dailyData.data.reservationcoursecountday / dailyData.data.coachstotalcoursecount;
+                value_2 = dailyData.data.finishreservationnow / dailyData.data.coachstotalcoursecount;
+            }
+            if (dailyData.data.coachcoursenow) {
+                value_4 = dailyData.data.coursestudentnow / dailyData.data.coachcoursenow;
+            }
+            _progressArray = @[ @(value_1), @(value_2), @(1), @(value_4) ];
         }
         
         [self successRefreshBlock];

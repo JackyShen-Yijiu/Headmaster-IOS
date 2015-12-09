@@ -52,6 +52,9 @@
     self.navigationItem.rightBarButtonItem = self.publishBtn;
     self.navigationItem.leftBarButtonItem = self.pushBtn;
     
+    self.navigationItem.title = @"发布公告";
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor colorWithHexString:@"#fcfcfc"],NSForegroundColorAttributeName,nil]];
+    
 }
 
 - (void)viewDidLoad {
@@ -108,7 +111,7 @@
 - (UIButton *)coachBtn {
     if (!_coachBtn) {
         _coachBtn = [[UIButton alloc] init];
-        self.coachBtn.frame = CGRectMake(32, 10, 60, 19);
+        self.coachBtn.frame = CGRectMake(12, 10, 60, 19);
         [self.coachBtn setTitle:@"教练" forState:UIControlStateNormal];
         [_coachBtn setTitleColor:[UIColor colorWithHexString:DARK_COLOR] forState:UIControlStateNormal];
         [_coachBtn setImage:[[UIImage imageNamed:@"x42x43"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ] forState:UIControlStateNormal];
@@ -121,7 +124,7 @@
 - (UIButton *)studentBtn {
     if (!_studentBtn) {
         _studentBtn = [[UIButton alloc] init];
-        self.studentBtn.frame = CGRectMake(120, 10, 60, 19);
+        self.studentBtn.frame = CGRectMake(100, 10, 60, 19);
         [self.studentBtn setTitle:@"学员" forState:UIControlStateNormal];
         [_studentBtn setTitleColor:[UIColor colorWithHexString:@"047a64"] forState:UIControlStateNormal];
         [_studentBtn setImage:[[UIImage imageNamed:@"m42x43"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ] forState:UIControlStateNormal];
@@ -156,7 +159,8 @@
     if (!_publishBtn) {
         UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
         [button setTitle:@"发布" forState:UIControlStateNormal];
-        [button setTitleColor:[UIColor colorWithHexString:TEXT_HIGHLIGHT_COLOR] forState:UIControlStateNormal];
+        button.titleLabel.font = [UIFont boldSystemFontOfSize:17];
+        [button setTitleColor:[UIColor colorWithHexString:@"#fcfcfc"] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(publishBtnClick) forControlEvents:UIControlEventTouchUpInside];
         _publishBtn = [[UIBarButtonItem alloc] initWithCustomView:button];
     }
@@ -165,11 +169,12 @@
 
 - (UIBarButtonItem *)pushBtn {
     if (!_pushBtn) {
-        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
-        [button setTitle:@"返回" forState:UIControlStateNormal];
-        [button setTitleColor:[UIColor colorWithHexString:TEXT_HIGHLIGHT_COLOR] forState:UIControlStateNormal];
-        [button addTarget:self action:@selector(pushBtnClick) forControlEvents:UIControlEventTouchUpInside];
-        _pushBtn = [[UIBarButtonItem alloc] initWithCustomView:button];
+        CGRect backframe= CGRectMake(0, 0, 16, 16);
+        UIButton* backButton= [UIButton buttonWithType:UIButtonTypeCustom];
+        backButton.frame = backframe;
+        [backButton setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+        [backButton addTarget:self action:@selector(pushBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        _pushBtn = [[UIBarButtonItem alloc] initWithCustomView:backButton];
     }
     return _pushBtn;
 }

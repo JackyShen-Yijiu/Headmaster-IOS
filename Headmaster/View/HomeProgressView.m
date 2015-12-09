@@ -11,6 +11,8 @@
 
 @interface HomeProgressView()
 
+@property (nonatomic, strong) UIImageView *backgroundImage;
+
 @property (nonatomic, strong) DVVProgressView *outSide;
 @property (nonatomic, strong) DVVProgressView *inSide;
 
@@ -46,7 +48,6 @@
 {
     self = [super init];
     if (self) {
-        
         [self createObject];
     }
     return self;
@@ -79,11 +80,11 @@
 }
 
 - (void)loadShowTextWithProgress:(CGFloat)progress {
-    NSLog(@"%f,%f",progress,self.progress);
+//    NSLog(@"%f,%f",progress,self.progress);
     _currentValue = 0;
     _maxValue =  self.progress * 100;
-    _incremental = _maxValue / 20;
-    _timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(timerAction) userInfo:nil repeats:YES];
+    _incremental = _maxValue / 500;
+    _timer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(timerAction) userInfo:nil repeats:YES];
     
 }
 
@@ -114,10 +115,12 @@
     CGFloat viewWidth = self.bounds.size.width;
     CGFloat viewHeight = self.bounds.size.height;
     
+    _backgroundImage.frame = CGRectMake(20, 20, viewWidth - 40, viewHeight - 40);
+    
     _outSideBgView.frame = CGRectMake(1, 1, viewWidth - 2, viewHeight - 2);
     _outSideFgView.frame = _outSideBgView.frame;
     _outSide.frame = _outSideBgView.frame;
-    CGFloat margin = 40;
+    CGFloat margin = 35;
     
     CGFloat insideWidth = viewHeight - margin * 2;
     _inSideBgView.frame = CGRectMake(margin, margin, insideWidth, insideWidth);
@@ -137,6 +140,11 @@
 }
 
 - (void)createObject {
+    
+    _backgroundImage = [UIImageView new];
+    _backgroundImage.backgroundColor = [UIColor clearColor];
+    _backgroundImage.image = [UIImage imageNamed:@"home_progress_bg"];
+    [self addSubview:_backgroundImage];
     
     _outSide = [DVVProgressView new];
     _inSide = [DVVProgressView new];

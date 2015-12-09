@@ -154,5 +154,11 @@
                                   success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
                                   failure:(void (^)(AFHTTPRequestOperation *operation, id responseObject))failure;
 
+/**
+ * 提交反馈信息
+ */
++ (void)postFeedbackWithparams:(NSDictionary *)params
+success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+failure:(void (^)(AFHTTPRequestOperation *operation, id responseObject))failure;
 
 @end

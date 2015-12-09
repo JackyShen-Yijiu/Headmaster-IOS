@@ -9,6 +9,7 @@
 #import "SettingController.h"
 #import "AboutUsController.h"
 #import "FeedbackController.h"
+#import "EaseSDKHelper.h"
 
 @interface SettingController () <UITableViewDataSource,UITableViewDelegate> {
     BOOL isFirstLoad;
@@ -21,18 +22,6 @@
 
 @implementation SettingController
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    UIButton *pushBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
-    [pushBtn setTitle:@"返回" forState:UIControlStateNormal];
-    [pushBtn setTitleColor:[UIColor colorWithHexString:TEXT_NORMAL_COLOR] forState:UIControlStateNormal];
-    [pushBtn addTarget:self action:@selector(pushBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:pushBtn];
-    self.navigationItem.title = @"设置";
-    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor colorWithHexString:TEXT_NORMAL_COLOR],NSForegroundColorAttributeName,nil]];
-    
-}
-
 - (void)pushBtnClick {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -40,9 +29,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self setNavBar];
     [self addBackgroundImage];
     [self isFirstLOad];
     [self createUI];
+}
+
+- (void)setNavBar {
+    CGRect backframe= CGRectMake(0, 0, 16, 16);
+    UIButton* backButton= [UIButton buttonWithType:UIButtonTypeCustom];
+    backButton.frame = backframe;
+    [backButton setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    [backButton addTarget:self action:@selector(pushBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+    self.navigationItem.title = @"设置";
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor colorWithHexString:@"#fcfcfc"],NSForegroundColorAttributeName,nil]];
 }
 
 - (void)isFirstLOad {
@@ -148,15 +149,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 4) {
-        NSLog(@"444");
         [self.navigationController pushViewController:[AboutUsController new] animated:NO];
     }else if (indexPath.row == 5) {
-        NSLog(@"555");
         NSString *appid = @"";
         NSString* url = [NSString stringWithFormat: @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%@", appid];
         [[UIApplication sharedApplication] openURL: [NSURL URLWithString: url]];
     }else if (indexPath.row == 6) {
-        NSLog(@"666");
         [self.navigationController pushViewController:[FeedbackController new] animated:NO];
     }
     
@@ -166,24 +164,12 @@
 - (void)switchBtnAction:(UIButton *)sender {
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSInteger btnX = [ud integerForKey:[NSString stringWithFormat:@"%zd",sender.tag]];
-    CGRect btnFrame = sender.frame;
+    
     if (btnX == self.view.frame.size.width -70) {
-        btnX += 20;
-        btnFrame.origin.x = btnX;
-        sender.frame = btnFrame;
-        [sender setImage:[UIImage imageNamed:@"hm"] forState:UIControlStateNormal];
-        [ud removeObjectForKey:[NSString stringWithFormat:@"%zd",sender.tag]];
-        [ud setInteger:btnX forKey:[NSString stringWithFormat:@"%zd",sender.tag]];
-        [ud synchronize];
+       
         [self changeUseMessage:ud button:sender goRight:YES];
     }else {
-        btnX -= 20;
-        btnFrame.origin.x = btnX;
-        sender.frame = btnFrame;
-        [sender setImage:[UIImage imageNamed:@"an42x44"] forState:UIControlStateNormal];
-        [ud removeObjectForKey:[NSString stringWithFormat:@"%zd",sender.tag]];
-        [ud setInteger:btnX forKey:[NSString stringWithFormat:@"%zd",sender.tag]];
-        [ud synchronize];
+       
         [self changeUseMessage:ud button:sender goRight:NO];
     }
     
@@ -195,34 +181,47 @@
     NSString *newmessagereminder = [ud integerForKey:@"0"] == self.view.frame.size.width -70?@"1":@"0";
     [NetworkEntity changeUserMessageWithUseInfoModel:[UserInfoModel defaultUserInfo] complaintReminder:complaintreminder applyreminder:applyreminder newmessagereminder:newmessagereminder success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
+        CGRect btnFrame = btn.frame;
         if ([[dataDic objectForKey:@"data"] isEqualToString:@"success"]) {
+            NSInteger btnX = [ud integerForKey:[NSString stringWithFormat:@"%zd",btn.tag]];
+            if (btnX == self.view.frame.size.width -70) {
+                btnX += 20;
+                btnFrame.origin.x = btnX;
+                btn.frame = btnFrame;
+                [btn setImage:[UIImage imageNamed:@"hm"] forState:UIControlStateNormal];
+                [ud removeObjectForKey:[NSString stringWithFormat:@"%zd",btn.tag]];
+                [ud setInteger:btnX forKey:[NSString stringWithFormat:@"%zd",btn.tag]];
+                [ud synchronize];
+                //环信消息开启免打扰模式
+                if (btn.tag == 0) {
+                    EMPushNotificationOptions *options = [[EaseMob sharedInstance].chatManager pushNotificationOptions];
+                    options.noDisturbStatus = ePushNotificationNoDisturbStatusDay;
+                    [[EaseMob sharedInstance].chatManager asyncUpdatePushOptions:options];
+                }
+            }else {
+                btnX -= 20;
+                btnFrame.origin.x = btnX;
+                btn.frame = btnFrame;
+                [btn setImage:[UIImage imageNamed:@"an42x44"] forState:UIControlStateNormal];
+                [ud removeObjectForKey:[NSString stringWithFormat:@"%zd",btn.tag]];
+                [ud setInteger:btnX forKey:[NSString stringWithFormat:@"%zd",btn.tag]];
+                [ud synchronize];
+                //环信消息关闭免打扰模式
+                if (btn.tag == 0) {
+                    EMPushNotificationOptions *options = [[EaseMob sharedInstance].chatManager pushNotificationOptions];
+                    options.noDisturbStatus = ePushNotificationNoDisturbStatusClose;
+                    [[EaseMob sharedInstance].chatManager asyncUpdatePushOptions:options];
+                }
+            }
 
         }else {
             ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"同步失败，请检查网络连接"];
             [alertView show];
-            if (goright) {
-                CGRect frame = btn.frame;
-                frame.origin.x -= 20 ;
-                btn.frame = frame;
-            }else {
-                CGRect frame = btn.frame;
-                frame.origin.x += 20 ;
-                btn.frame = frame;
-            }
             
         }
-            } failure:^(AFHTTPRequestOperation *operation, id responseObject) {
-                ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"同步失败，请检查网络连接"];
-                [alertView show];
-        if (goright) {
-            CGRect frame = btn.frame;
-            frame.origin.x -= 20 ;
-            btn.frame = frame;
-        }else {
-            CGRect frame = btn.frame;
-            frame.origin.x += 20 ;
-            btn.frame = frame;
-        }
+    } failure:^(AFHTTPRequestOperation *operation, id responseObject) {
+        ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"同步失败，请检查网络连接"];
+        [alertView show];
     }];
 }
 

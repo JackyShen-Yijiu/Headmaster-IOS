@@ -8,6 +8,9 @@
 
 #import "LoginController.h"
 #import "NSString+MD5.h"
+#import "DVVTabBarController.h"
+#import "MenuController.h"
+#import "UserCenterController.h"
 
 
 #define h_center self.view.center
@@ -46,6 +49,10 @@
     [self configeUI];
     [self updateUI];
     [self addNotify];
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 - (void)initUI {
@@ -123,6 +130,7 @@
     _iconView.image = [UIImage imageNamed:@"icon120x110.png"];
     
     _phoneTF.placeholder = @"账号";
+    _phoneTF.text = @"15652305651";
     _phoneTF.textColor = [UIColor colorWithHexString:@"#fefefe"];
     [_phoneTF setValue:[UIColor colorWithHexString:@"#bfbfbf"] forKeyPath:@"_placeholderLabel.textColor"];
     [_phoneTF setValue:[UIFont systemFontOfSize:15] forKeyPath:@"_placeholderLabel.font"];
@@ -138,6 +146,7 @@
     _lineViewUP.alpha = 0.1;
     
     _passwordTF.placeholder = @"密码";
+    _passwordTF.text = @"123456";
     _passwordTF.textColor = [UIColor colorWithHexString:@"#fefefe"];
     [_passwordTF setValue:[UIColor colorWithHexString:@"#bfbfbf"] forKeyPath:@"_placeholderLabel.textColor"];
     [_passwordTF setValue:[UIFont systemFontOfSize:15] forKeyPath:@"_placeholderLabel.font"];
@@ -227,7 +236,12 @@
             if ([_delegate respondsToSelector:@selector(loginControllerDidLoginSucess:)]) {
                 [_delegate loginControllerDidLoginSucess:self];
             }else {
-                [self dismissViewControllerAnimated:YES completion:nil];
+                UserCenterController *ucc = [UserCenterController new];
+                if (_dismissController) {
+                    _dismissController();
+                }
+                [self.navigationController popToViewController:ucc animated:YES];
+                [self.navigationController setNavigationBarHidden:NO];
             }
         }else {
             ToastAlertView *toastView = [[ToastAlertView alloc] initWithTitle:[responseObject objectForKey:@"msg"]];
@@ -246,6 +260,30 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:YES];
+}
+
+- (UIViewController *)rootViewController {
+    
+    NSArray *controllerArray = @[ @"HomeController",
+                                  @"InformationController",
+                                  @"RecommendViewController" ];
+    
+    NSArray *titleArray = @[ @"数据概览", @"资讯", @"消息" ];
+    
+    DVVTabBarController *tabBarVC = [DVVTabBarController new];
+    
+    // 循环创建Controller
+    for (NSInteger i = 0; i < controllerArray.count; i++) {
+        
+        Class vcClass = NSClassFromString(controllerArray[i]);
+        UIViewController *viewController = [vcClass new];
+        viewController.title = titleArray[i];
+        //        HMNagationController *naviVC = [[HMNagationController alloc] initWithRootViewController:viewController];
+        [tabBarVC addChildViewController:viewController];
+    }
+    
+    
+    return tabBarVC;
 }
 
 #pragma mark -----UITextFieldDelegate

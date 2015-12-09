@@ -17,13 +17,24 @@
 
 @implementation FeedbackController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self addBackgroundImage];
     [self initUI];
 }
 
 - (void)initUI {
+    self.navigationItem.title = @"反馈";
+    
+    CGRect backframe= CGRectMake(0, 0, 16, 16);
+    UIButton* backButton= [UIButton buttonWithType:UIButtonTypeCustom];
+    backButton.frame = backframe;
+    [backButton setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    [backButton addTarget:self action:@selector(pushBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+
     _placeholderLabel = [[UILabel alloc] init];
     _placeholderLabel.backgroundColor = [UIColor clearColor];
     _placeholderLabel.frame = CGRectMake(2, 6, 200, 30);
@@ -43,17 +54,83 @@
     
     UIButton *submitBtn = [[UIButton alloc] initWithFrame:CGRectMake(10, 111, self.view.frame.size.width-20, 40)];
     [submitBtn setTitle:@"提交" forState:UIControlStateNormal];
-    submitBtn.backgroundColor = [UIColor orangeColor];
+    submitBtn.backgroundColor = [UIColor darkGrayColor];
     [submitBtn addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:submitBtn];
 }
 
+- (void)pushBtnClick {
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
 - (void)btnClick {
     [_textview resignFirstResponder];
+    //手机版本
+    NSString* phoneVersion = [[UIDevice currentDevice] systemVersion];
+    //分辨率为宽高*scale
+    CGRect rect_screen = [[UIScreen mainScreen] bounds];
+    CGSize size_screen = rect_screen.size;
+    CGFloat scale_screen = [UIScreen mainScreen].scale;
+    //当前版本信息
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+     NSString *appCurVersion = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+    
+    NSDictionary *params =@{
+                            @"userid":[UserInfoModel defaultUserInfo].userID,
+                            @"feedbackmessage": _textview.text,
+                            @"mobileversion":[NSString stringWithFormat:@"IOS %@",phoneVersion],
+                            @"network":[self networktype],
+                            @"resolution":[NSString stringWithFormat:@"%f*%f",size_screen.width*scale_screen,size_screen.height*scale_screen],
+                            @"appversion":[NSString stringWithFormat:@"IOS %@",appCurVersion]
+                            };
+    NSLog(@"%@",params);
+    [NetworkEntity postFeedbackWithparams:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"您的反馈我们已收到"];
+        [alertView show];
+    } failure:^(AFHTTPRequestOperation *operation, id responseObject) {
+        ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"反馈失败，请检查网络连接"];
+        [alertView show];
+    }];
+    _textview.text = @"";
+}
+
+//当前网络状态
+-(NSString *)networktype{
+    NSArray *subviews = [[[[UIApplication sharedApplication] valueForKey:@"statusBar"] valueForKey:@"foregroundView"]subviews];
+    NSNumber *dataNetworkItemView = nil;
+    
+    for (id subview in subviews) {
+        if([subview isKindOfClass:[NSClassFromString(@"UIStatusBarDataNetworkItemView") class]]) {
+            dataNetworkItemView = subview;
+            break;
+        }
+    }
+
+    if ([[dataNetworkItemView valueForKey:@"dataNetworkType"]integerValue] == 0) {
+        return @"无服务";
+    }else if ([[dataNetworkItemView valueForKey:@"dataNetworkType"]integerValue] == 1) {
+        return @"2G";
+    }else if ([[dataNetworkItemView valueForKey:@"dataNetworkType"]integerValue] == 2) {
+        return @"3G";
+    }else if ([[dataNetworkItemView valueForKey:@"dataNetworkType"]integerValue] == 3) {
+        return @"4G";
+    }else if ([[dataNetworkItemView valueForKey:@"dataNetworkType"]integerValue] == 4) {
+        return @"LTE";
+    }else if ([[dataNetworkItemView valueForKey:@"dataNetworkType"]integerValue] == 5) {
+        return @"Wifi";
+    }else {
+        return @"";
+    }
 }
 
 - (void)textViewDidBeginEditing:(UITextView *)textView {
     _placeholderLabel.hidden = YES;
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    if ([_textview.text isEqualToString:@""]) {
+        _placeholderLabel.hidden = NO;
+    }
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
