@@ -50,7 +50,7 @@
     if (!_titleLabel) {
         _titleLabel = [UILabel new];
         _titleLabel.textAlignment = 1;
-        _titleLabel.font = [UIFont systemFontOfSize:18];
+        _titleLabel.font = [UIFont systemFontOfSize:16];
         _titleLabel.textColor = [UIColor colorWithHexString:HIGHLIGHT_COLOR];
     }
     return _titleLabel;
@@ -59,7 +59,7 @@
 - (UILabel *)markLabel {
     if (!_markLabel) {
         _markLabel = [UILabel new];
-        _markLabel.font = [UIFont systemFontOfSize:18];
+        _markLabel.font = [UIFont systemFontOfSize:12];
         _markLabel.textAlignment = 2;
         _markLabel.textColor = [UIColor colorWithHexString:HIGHLIGHT_COLOR];
     }

@@ -175,7 +175,7 @@
 
 - (HomeDetailTableView *)todayTableView {
     if (!_todayTableView) {
-        _todayTableView = [[HomeDetailTableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.scrollView.bounds.size.height) style:UITableViewStylePlain];
+        _todayTableView = [[HomeDetailTableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.scrollView.bounds.size.height - 20) style:UITableViewStylePlain];
     }
     return _todayTableView;
 }

@@ -24,8 +24,26 @@
     [self addBackgroundImage];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.view addSubview:self.tableView];
-
-    self.title = @"今天教练详情";
+    switch (_searchType) {
+        case 1:
+            self.title = @"今天教练详情";
+            break;
+            case 2:
+            self.title = @"昨天教练详情";
+            break;
+            case 3:
+            self.title = @"本周教练详情";
+            break;
+            case 4:
+            self.title = @"本月教练详情";
+            break;
+            case 5:
+            self.title = @"本年教练详情";
+            break;
+            
+        default:
+            break;
+    }
     // 数据请求
     _coachCoureDatailViewModel = [[CoachCourseDatailViewModel alloc] init];
     WS(ws);
@@ -46,7 +64,9 @@
         [ws.tableView.refreshFooter endRefreshing];
         [self.tableView reloadData];
     }];
-    [_coachCoureDatailViewModel networkRequestNeedUpRefreshWithCoachCourseListWithuserid:@"56582caf1fcf03d813f5fbfc" searchtype:1 schoolid:@"562dcc3ccb90f25c3bde40da" count:10];
+    // @"56582caf1fcf03d813f5fbfc" ,,,,  @"562dcc3ccb90f25c3bde40da"
+    NSLog(@"________________________________________________%@,%@,%ld",[[UserInfoModel defaultUserInfo] userID],[[UserInfoModel defaultUserInfo] schoolId],_searchType);
+    [_coachCoureDatailViewModel networkRequestNeedUpRefreshWithCoachCourseListWithuserid:[[UserInfoModel defaultUserInfo] userID] searchtype:_searchType schoolid:[[UserInfoModel defaultUserInfo] schoolId] count:10];
 }
 
 - (void)didReceiveMemoryWarning {
