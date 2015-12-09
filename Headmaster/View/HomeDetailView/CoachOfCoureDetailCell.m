@@ -11,8 +11,13 @@
 @implementation CoachOfCoureDetailCell
 
 - (void)awakeFromNib {
-    
+    [super awakeFromNib];
+    self.selectionStyle = UITableViewCellSelectionStyleDefault;
+    [self.iconImageView setUserInteractionEnabled:YES];
+    UITapGestureRecognizer * ges = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(iconTap:)];
+    [self.iconImageView addGestureRecognizer:ges];
 }
+
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -22,17 +27,14 @@
             self = array.lastObject;
         }
         self.backgroundColor = [UIColor clearColor];
+
     }
     return self;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-    
-}
 - (void)refreshData:(CoachCoureDatilModel *)dataModel
 {
-   
+    self.model = dataModel;
     [self.iconImageView downloadImage:dataModel.originalpic];
     self.courseHourLabel.text =  [NSString stringWithFormat:@"%lu",dataModel.coursecount];
     self.goodCommondLabel.text = [NSString stringWithFormat:@"好评%lu",dataModel.goodcommentcount];
@@ -43,5 +45,21 @@
 //    [self.starLevelImageView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"starBlack"]]];
     
 
+}
+
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated
+{
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+{
+}
+
+#pragma mark - Action
+- (void)iconTap:(UITapGestureRecognizer *)ges
+{
+    if ([_delegate respondsToSelector:@selector(coachOfCoureDetailCell:DidImessageButton:)]) {
+        [_delegate coachOfCoureDetailCell:self DidImessageButton:nil];
+    }
 }
 @end

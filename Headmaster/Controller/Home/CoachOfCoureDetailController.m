@@ -10,9 +10,9 @@
 #import "CoachCourseDatailViewModel.h"
 #import "RefreshTableView.h"
 #import "CoachCoureDatilModel.h"
+#import "ChatViewController.h"
 
-
-@interface CoachOfCoureDetailController () <UITableViewDataSource,UITableViewDelegate>
+@interface CoachOfCoureDetailController () <UITableViewDataSource,UITableViewDelegate,CoachOfCoureDetailCellDelegate>
 @property (nonatomic, strong) RefreshTableView       *tableView;
 @property (nonatomic, strong) CoachCourseDatailViewModel *coachCoureDatailViewModel;
 @end
@@ -93,13 +93,27 @@
     CoachOfCoureDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (!cell) {
         cell = [[CoachOfCoureDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
-        
+        cell.delegate = self;
     }
-        cell.backgroundColor = [UIColor clearColor];
-        CoachCoureDatilModel *dataModel = _coachCoureDatailViewModel.coachArray[indexPath.row];
-        [cell refreshData:dataModel];
+    cell.backgroundColor = [UIColor clearColor];
+    CoachCoureDatilModel *dataModel = _coachCoureDatailViewModel.coachArray[indexPath.row];
+    [cell refreshData:dataModel];
     return cell;
 }
+
+- (void)coachOfCoureDetailCell:(CoachOfCoureDetailCell *)cell DidImessageButton:(UIButton *)button
+{
+    ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:cell.model.coachid conversationType:eConversationTypeChat];
+    chatController.userName = cell.model.name;
+    [self.navigationController pushViewController:chatController animated:YES];
+
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
+
 #pragma mark - lazy load
 
 - (RefreshTableView *)tableView {
@@ -117,5 +131,7 @@
 {
     return 109;
 }
+
+
 
 @end
