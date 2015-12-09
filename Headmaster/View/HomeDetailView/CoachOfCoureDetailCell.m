@@ -12,9 +12,9 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    [self.iconImageView setUserInteractionEnabled:YES];
+    [self.buttonIcon setUserInteractionEnabled:YES];
     UITapGestureRecognizer * ges = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(iconTap:)];
-    [self.iconImageView addGestureRecognizer:ges];
+    [self.buttonIcon addGestureRecognizer:ges];
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier

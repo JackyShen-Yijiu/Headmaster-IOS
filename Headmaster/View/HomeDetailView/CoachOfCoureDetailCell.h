@@ -20,6 +20,7 @@
 @interface CoachOfCoureDetailCell : YBBaseTableCell
 @property (nonatomic,weak) id<CoachOfCoureDetailCellDelegate>delegate;
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *buttonIcon;
 @property (weak, nonatomic) IBOutlet UILabel *courseHourLabel;
 @property (weak, nonatomic) IBOutlet UILabel *goodCommondLabel;
 @property (weak, nonatomic) IBOutlet UILabel *mightCommondLabel;
