@@ -93,6 +93,7 @@
 - (void)btnClick {
     InformationDetailController *imdc = [[InformationDetailController alloc] init];
     imdc.urlStr = @"http://www.ifanying.com/userAgreement.html";
+    imdc.navTitle = @"许可服务协议";
     [self.navigationController pushViewController:imdc animated:YES];
 }
 
