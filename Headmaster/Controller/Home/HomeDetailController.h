@@ -1,16 +1,15 @@
 //
-//  HomeController.h
+//  HomeDetailController.h
 //  Headmaster
 //
-//  Created by 大威 on 15/12/2.
+//  Created by 大威 on 15/12/9.
 //  Copyright © 2015年 ke. All rights reserved.
 //
 
 #import "YBBaseController.h"
 
-@interface HomeController : YBBaseController
+@interface HomeDetailController : YBBaseController
 
 @property (nonatomic,assign) kDateSearchType searchType;
-@property (nonatomic,strong) NSString *cityName;
 
 @end

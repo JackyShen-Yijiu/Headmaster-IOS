@@ -10,7 +10,7 @@
 #import "HomeTopView.h"
 #import "HomeEvaluateView.h"
 #import "HomeSeeTimeView.h"
-#import "DataDatilViewController.h"
+#import "HomeDetailController.h"
 #import "HomeViewModel.h"
 #import "RESideMenu.h"
 #import "CoachOfCoureDetailController.h"
@@ -93,11 +93,10 @@
     [self addWeatherData];
     
     
-    
-    
-    
     // Do any additional setup after loading the view.
     [self addBackgroundImage];
+    
+    self.searchType = kDateSearchTypeToday;
     
     [self.view addSubview:self.progressView];
     [self.view addSubview:self.moreButton];
@@ -106,32 +105,17 @@
     
     [self.evaluateView itemClick:^(UIButton *button) {
         
-        NSInteger searchType = 1;
-//        NSLog(@"seeTimeView == %li",button.tag);
-        switch (self.tag) {
-            case 0:
-                searchType = kDateSearchTypeToday;
-                break;
-            case 1:
-                searchType = kDateSearchTypeYesterday;
-                break;
-            case 2:
-                searchType = kDateSearchTypeWeek;
-                break;
-            default:
-                break;
-        }
         RecommendViewController *recommendVC = [RecommendViewController new];
-        recommendVC.searchType = searchType;
+        recommendVC.searchType = self.searchType;
         [self.myNavController pushViewController:recommendVC animated:YES];
     }];
     
     [self.seeTimeView itemClick:^(UIButton *button) {
         
-        if (button.tag == self.tag) {
+        if (button.tag + 1 == self.searchType) {
             return;
         }
-        self.tag = button.tag;
+        self.searchType = button.tag + 1;
         if (button.tag == 2) {
             _viewModel.searchType = kDateSearchTypeWeek;
             [_viewModel networkRequestRefresh];
@@ -185,26 +169,14 @@
     
 }
 
-
-
-
-
-
-
-
 #pragma mark - action
 #pragma mark 更多按钮
 - (void)moreButtonAction {
     
-    DataDatilViewController *dataListVC = [[DataDatilViewController alloc] init];
+    HomeDetailController *detailVC = [HomeDetailController new];
+    detailVC.searchType = self.searchType;
     
-        dataListVC.tag = _tag + 101;
-    
-    [self.navigationController pushViewController:dataListVC animated:YES];
-    
-//    CoachOfCoureDetailController *detailVC = [[CoachOfCoureDetailController alloc] init];
-//    [self.navigationController pushViewController:detailVC animated:YES];
-    
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 #pragma mark 侧栏按钮

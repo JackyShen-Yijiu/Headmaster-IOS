@@ -80,8 +80,9 @@
         [self selectOneButton:btn.tag];
         
     }
-    
-    _didClick(btn);
+    if (_didClick) {
+        _didClick(btn);
+    }
 }
 /**
  *

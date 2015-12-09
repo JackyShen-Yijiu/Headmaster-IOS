@@ -48,6 +48,7 @@
     [headerView addSubview:headerLabel];
     headerLabel.textAlignment=NSTextAlignmentCenter;
     headerLabel.text=@"下拉可刷新";
+    headerLabel.textColor = [UIColor whiteColor];
     headerLabel.font=[UIFont systemFontOfSize:14];
     
     
@@ -58,6 +59,7 @@
    
     activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     activityView.frame=CGRectMake((scrollWidth-labelWidth)/2-imageWidth, 0, imageWidth, imageHeight);
+    activityView.color = [UIColor whiteColor];
     [headerView addSubview:activityView];
     
     

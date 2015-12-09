@@ -11,4 +11,6 @@
 #import "CoachOfCoureDetailCell.h"
 @interface CoachOfCoureDetailController : YBBaseController
 
+@property (nonatomic, assign) kDateSearchType searchType;
+
 @end
