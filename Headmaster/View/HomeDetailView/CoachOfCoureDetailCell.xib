@@ -17,7 +17,6 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defoult_por" translatesAutoresizingMaskIntoConstraints="NO" id="iuF-Pn-b0I">
                         <rect key="frame" x="15" y="15" width="39" height="39"/>
                         <animations/>
-                        <color key="backgroundColor" red="0.62685011729999995" green="1" blue="0.22676281370000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="39" id="Qo8-m1-cyc"/>
                             <constraint firstAttribute="width" constant="39" id="gZU-kL-1kD"/>
