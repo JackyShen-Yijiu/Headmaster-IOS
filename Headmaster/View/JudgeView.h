@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "YBLineChartView.h"
 #import "ZTJudgeBottonSign.h"
-typedef void(^didClick)(UIButton *btn);
+//typedef void(^didClick)(UIButton *btn);
 
 @interface JudgeView : UITableViewCell
-@property (nonatomic,strong) didClick didClick;
+//@property (nonatomic,strong) didClick didClick;
 /**
  *
  *  评价

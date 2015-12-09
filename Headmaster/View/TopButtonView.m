@@ -54,9 +54,9 @@
     _followLabel.frame = CGRectMake(followLabel, buttonH - followLabelH , buttonW, followLabelH);
     _followLabel.backgroundColor = [UIColor colorWithHexString:@"01e2b6"];
     _followLabel.tag = 2000;
+//    _selectButtonInteger = 101;
     [self addSubview:_followLabel];
-    //默认选中第一个按钮
-//    [self selectOneButton:_selectButtonInteger];
+    
 }
 /**
  *
@@ -66,6 +66,7 @@
 
 - (void)didClickButton:(UIButton *)btn
 {
+    NSLog(@"%ld",btn.tag);
     // 当点击时设置button的字体颜色
     if (btn.tag != _selectButtonInteger) {
         
@@ -127,6 +128,8 @@
             [self didClickButton:itemBtn];
         }
     }
+    _selectButtonInteger = tag;
+    NSLog(@"%ld",_selectButtonInteger);
 }
 
 @end

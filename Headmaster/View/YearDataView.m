@@ -76,6 +76,7 @@
             cell = [[CoachOfCourse alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:strCell];
             cell.backgroundColor = [UIColor clearColor];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            [cell.coachOfCourseButton addTarget:self action:@selector(didClickButton:) forControlEvents:UIControlEventTouchUpInside];
             
             cell.coachOfCourseChart.xTitleArray = @[ @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日", @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日" ];
             cell.coachOfCourseChart.valueArray = @[@[@"23",@"42",@"25",@"15",@"30",@"42",@"32",@"40",@"42",@"25",@"33"]];
@@ -96,6 +97,7 @@
             cell = [[JudgeView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:strCell];
             cell.backgroundColor = [UIColor clearColor];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            [cell.judgeButton addTarget:self action:@selector(didJudge:) forControlEvents:UIControlEventTouchUpInside];
             // 评价情况
             cell.judgeChart.xTitleArray = @[ @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日", @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日" ];
             
@@ -112,44 +114,24 @@
     }
     return nil;
 }
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 220;
-}
-//- (InviteStudentView *)inviteStudentView{
-//    
-//    
-//    if (_inviteStudentView == nil) {
-//        _inviteStudentView = [[InviteStudentView alloc] init];
-//        _inviteStudentView.frame = CGRectMake(0, 0,ksystemW , 200);
-//    }
-//    return _inviteStudentView;
-//}
-//- (AppointmentCourse *)appintmentCoure{
-//    
-//    
-//    if (_appintmentCoure == nil) {
-//        _appintmentCoure = [[AppointmentCourse alloc] init];
-//        _appintmentCoure.frame = CGRectMake(0, 0,ksystemW , 200);
-//    }
-//    return _appintmentCoure;
-//}
-//- (CoachOfCourse *)coacOfCourse{
-//    
-//    
-//    if (_coacOfCourse == nil) {
-//        _coacOfCourse = [[CoachOfCourse alloc] init];
-//        _coacOfCourse.frame = CGRectMake(0, 0,ksystemW , 200);
-//    }
-//    return _coacOfCourse;
-//}
-//- (JudgeView *)judgeView{
-//    
-//    
-//    if (_judgeView == nil) {
-//        _judgeView = [[JudgeView alloc] init];
-//        _judgeView.frame = CGRectMake(0, 0,ksystemW , 200);
-//    }
-//    return _judgeView;
-//}
 
+- (void)didClickButton:(UIButton *)btn
+{
+    if (_didClickdid) {
+        _didClickdid(btn);
+    }
+}
+
+// 评价详情的回调
+- (void)didJudge:(UIButton *)btn
+{
+    if (_didJugeBlock) {
+        _didJugeBlock(btn);
+    }
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 270;
+}
 @end

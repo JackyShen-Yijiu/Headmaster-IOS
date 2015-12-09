@@ -11,6 +11,8 @@
 #import "AppointmentCourse.h"
 #import "CoachOfCourse.h"
 #import "JudgeView.h"
+typedef void(^didClickBlock)(UIButton *btn);
+typedef void(^didJudgeBlock)(UIButton *btn);
 @interface MonthViewData : UITableView <UITableViewDelegate,UITableViewDataSource>
 
 /**
@@ -38,4 +40,6 @@
  */
 @property (nonatomic,strong) JudgeView *judgeView;
 
+@property (nonatomic,strong) didClickBlock didClickdid;
+@property (nonatomic,strong) didJudgeBlock  didJugeBlock;
 @end

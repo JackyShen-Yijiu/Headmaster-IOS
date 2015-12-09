@@ -8,12 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "YBBarChartView.h"
-typedef void(^didClick)(UIButton *btn);
+
+
+
+
+//typedef void(^didClickBlock)(UIButton *btn);
 
 @interface CoachOfCourse : UITableViewCell
 
 
-@property (nonatomic,strong) didClick didClick;
+//@property (nonatomic,strong) didClickBlock didClick;
 
 /**
  *

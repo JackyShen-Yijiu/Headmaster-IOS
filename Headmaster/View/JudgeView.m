@@ -91,7 +91,8 @@
         _judgeButton.titleEdgeInsets = UIEdgeInsetsMake(5, -17, 5, 1);
         
         [_judgeButton setImage:[UIImage imageNamed:@"xq.png"] forState:UIControlStateNormal];
-        _judgeButton.imageEdgeInsets = UIEdgeInsetsMake(0,26,0,0);           [_judgeButton addTarget:self action:@selector(didClick:) forControlEvents:UIControlEventTouchUpInside];
+        _judgeButton.imageEdgeInsets = UIEdgeInsetsMake(0,26,0,0);
+//        [_judgeButton addTarget:self action:@selector(didClick:) forControlEvents:UIControlEventTouchUpInside];
     }
     
     return _judgeButton;
@@ -117,14 +118,14 @@
     return _signView;
 }
 
-- (void)didClick:(UIButton *)btn
-{
-    if (_didClick) {
-        _didClick(btn);
-    }
-    NSLog(@"----");
-    
-}
+//- (void)didClick:(UIButton *)btn
+//{
+//    if (_didClick) {
+//        _didClick(btn);
+//    }
+//    NSLog(@"----");
+//    
+//}
 
 /**
  *

@@ -10,7 +10,6 @@
 #import "HomeTopView.h"
 #import "HomeEvaluateView.h"
 #import "HomeSeeTimeView.h"
-#import "HomeDataListController.h"
 #import "DataDatilViewController.h"
 #import "HomeViewModel.h"
 #import "RESideMenu.h"
@@ -172,8 +171,8 @@
         
         NSLog(@"_temperatureStr = %@",homeModel.temperature);
         NSLog(@"_weatherUrl = %@",homeModel.weather_pic);
-        
-        self.temperatureLabel.text = homeModel.temperature;
+        NSString *str = [NSString stringWithFormat:@"%@℃",homeModel.temperature];
+        self.temperatureLabel.text = str;
         self.temperatureLabel.textAlignment = NSTextAlignmentRight ;
         self.temperatureLabel.font = [UIFont systemFontOfSize:16];
         self.temperatureLabel.textColor = [UIColor whiteColor];

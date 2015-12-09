@@ -19,6 +19,7 @@
 #import "WeekDataView.h"
 
 #import "DataDatilViewModel.h"
+#import "RecommendViewController.h"
 
 
 # define ksystemH [UIScreen mainScreen].bounds.size.height
@@ -48,6 +49,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     NSArray *strArray = [NSArray arrayWithObjects:@"今天数据",@"昨天数据",@"本周数据",@"本月数据",@"本年数据", nil];
        self.title = strArray[_tag - 101];
     
@@ -123,68 +125,19 @@
     };
     [self addScrollView];
     
-    
-    // 点击教练授课详情
-    self.todayDataView.coacOfCourse.didClick = ^(UIButton *btn)
-    {
-        
-        NSLog(@"我被回调了!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-        CoachOfCoureDetailController *detailVC = [[CoachOfCoureDetailController alloc] init];
-        [dataVC.navigationController pushViewController:detailVC animated:YES];
-    };
-    // 点击教练授课详情
-    self.yesterdayDataView.coacOfCourse.didClick = ^(UIButton *btn)
-    {
-        CoachOfCoureDetailController *detailVC = [[CoachOfCoureDetailController alloc] init];
-        [dataVC.navigationController pushViewController:detailVC animated:YES];
-    };
-    // 点击教练授课详情
-    self.weekDataView.coacOfCourse.didClick = ^(UIButton *btn)
-    {
-        CoachOfCoureDetailController *detailVC = [[CoachOfCoureDetailController alloc] init];
-        [dataVC.navigationController pushViewController:detailVC animated:YES];
-    };
-    // 点击教练授课详情
-    self.monthDataView.coacOfCourse.didClick = ^(UIButton *btn)
-    {
-        CoachOfCoureDetailController *detailVC = [[CoachOfCoureDetailController alloc] init];
-        [dataVC.navigationController pushViewController:detailVC animated:YES];
-    };
-    // 点击教练授课详情
-    self.yearDataView.coacOfCourse.didClick = ^(UIButton *btn)
-    {
-        CoachOfCoureDetailController *detailVC = [[CoachOfCoureDetailController alloc] init];
-        [dataVC.navigationController pushViewController:detailVC animated:YES];
-    };
-
-    
-    // 点击评价详情
-    self.todayDataView.judgeView.didClick = ^(UIButton *btn)
-    {
-        CoachOfCoureDetailController *detailVC = [[CoachOfCoureDetailController alloc] init];
-        [dataVC.navigationController pushViewController:detailVC animated:YES];
-    };
-    self.yesterdayDataView.judgeView.didClick = ^(UIButton *btn)
-    {
-        CoachOfCoureDetailController *detailVC = [[CoachOfCoureDetailController alloc] init];
-        [dataVC.navigationController pushViewController:detailVC animated:YES];
-    };
-    self.weekDataView.judgeView.didClick = ^(UIButton *btn)
-    {
-        CoachOfCoureDetailController *detailVC = [[CoachOfCoureDetailController alloc] init];
-        [dataVC.navigationController pushViewController:detailVC animated:YES];
-    };
-    self.monthDataView.judgeView.didClick = ^(UIButton *btn)
-    {
-        CoachOfCoureDetailController *detailVC = [[CoachOfCoureDetailController alloc] init];
-        [dataVC.navigationController pushViewController:detailVC animated:YES];
-    };
-    self.yearDataView.judgeView.didClick = ^(UIButton *btn)
-    {
-        CoachOfCoureDetailController *detailVC = [[CoachOfCoureDetailController alloc] init];
-        [dataVC.navigationController pushViewController:detailVC animated:YES];
-    };
-
+//    //  点击教练授课详情
+//    self.todayDataView.coacOfCourse.didClick = ^(UIButton *btn)
+//    {
+//        NSLog(@"我被回调了!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+//        CoachOfCoureDetailController *detailVC = [[CoachOfCoureDetailController alloc] init];
+//        [dataVC.navigationController pushViewController:detailVC animated:YES];
+//    };
+//    
+//    self.yesterdayDataView.coacOfCourse.didClick = ^(UIButton *btn)
+//    {
+//        CoachOfCoureDetailController *detailVC = [[CoachOfCoureDetailController alloc] init];
+//        [dataVC.navigationController pushViewController:detailVC animated:YES];
+//    };
     
 }
 
@@ -193,22 +146,31 @@
     _scrollView = [[UIScrollView alloc] init];
     _scrollView.delegate = self;
     _scrollView.frame = CGRectMake(0,38, ksystemW, ksystemH - 38);
-//    _scrollView.backgroundColor = [UIColor orangeColor];
     _scrollView.backgroundColor = [UIColor clearColor];
     _scrollView.contentSize = CGSizeMake(ksystemW * 5, 0);
     _scrollView.pagingEnabled = YES;
-    [self.view addSubview:_scrollView];
+    
     if (_tag == 101) {
+        [_topButtonView selectedItem:101];
         [_scrollView addSubview:self.todayDataView];
     }else if(_tag == 102)
     {
+        [_topButtonView selectedItem:102];
         [_scrollView addSubview:self.yesterdayDataView];
 
     }else if (_tag == 103)
     
     {
+        [_topButtonView selectedItem:103];
       [_scrollView addSubview:self.weekDataView];
     }
+    [self.view addSubview:_scrollView];
+}
+- (void)didClick
+{
+    CoachOfCoureDetailController *detailVC = [[CoachOfCoureDetailController alloc] init];
+    [self.navigationController pushViewController:detailVC animated:YES];
+
 }
 
 #pragma mark - UIScrollViewDelegate method
@@ -219,12 +181,49 @@
     
     if (scrollView.contentOffset.x == 0) {
         
-        [_topButtonView selectedItem:101];
+        [_scrollView addSubview:self.todayDataView];
+        // 点击是推出详页
+        __block DataDatilViewController *dataDatilVC = self;
+        _todayDataView.didClickdid = ^(UIButton *btn)
+        {
+            CoachOfCoureDetailController *detailVC = [[CoachOfCoureDetailController alloc] init];
+            [dataDatilVC.navigationController pushViewController:detailVC animated:YES];
+            
+        };
+        // 点击评价推出详情
+        _todayDataView.didJugeBlock = ^(UIButton *btn)
+        {
+            RecommendViewController *recommendVC = [[RecommendViewController alloc] init];
+            [dataDatilVC.navigationController pushViewController:recommendVC animated:YES];
+        };
+        
+
+    
+ 
+    
     }
     if ( 0 < scrollView.contentOffset.x <= selfSize.width) {
         if (!_yesterdayDataView) {
             
             [_scrollView addSubview:self.yesterdayDataView];
+            // 点击是推出详页
+            __block DataDatilViewController *dataDatilVC = self;
+            _yesterdayDataView.didClickdid = ^(UIButton *btn)
+            {
+                CoachOfCoureDetailController *detailVC = [[CoachOfCoureDetailController alloc] init];
+                [dataDatilVC.navigationController pushViewController:detailVC animated:YES];
+                
+            };
+            // 点击评价推出详情
+            _yesterdayDataView.didJugeBlock = ^(UIButton *btn)
+            {
+                RecommendViewController *recommendVC = [[RecommendViewController alloc] init];
+                [dataDatilVC.navigationController pushViewController:recommendVC animated:YES];
+            };
+            
+
+        
+
         }if (scrollView.contentOffset.x == selfSize.width) {
             [_topButtonView selectedItem:102];
         }
@@ -234,16 +233,54 @@
         if (!_weekDataView) {
             
             [_scrollView addSubview:self.weekDataView];
+            // 点击是推出详页
+            __block DataDatilViewController *dataDatilVC = self;
+            _weekDataView.didClickdid = ^(UIButton *btn)
+            {
+                CoachOfCoureDetailController *detailVC = [[CoachOfCoureDetailController alloc] init];
+                [dataDatilVC.navigationController pushViewController:detailVC animated:YES];
+                
+            };
+            // 点击评价推出详情
+            _weekDataView.didJugeBlock = ^(UIButton *btn)
+            {
+                RecommendViewController *recommendVC = [[RecommendViewController alloc] init];
+                [dataDatilVC.navigationController pushViewController:recommendVC animated:YES];
+            };
+            
+
         }
+
+        
         if (scrollView.contentOffset.x == selfSize.width * 2) {
             [_topButtonView selectedItem:103];
         }
     }
-    if (selfSize.width * 2 < scrollView.contentOffset.x <= selfSize.width * 3) {
-        if (!_monthDataView) {
+    if (selfSize.width * 2 < scrollView.contentOffset.x <= selfSize.width * 3)
+    {
+        if (!_monthDataView)
+        {
             
             [_scrollView addSubview:self.monthDataView];
+            // 点击是推出详页
+            __block DataDatilViewController *dataDatilVC = self;
+        _monthDataView.didClickdid = ^(UIButton *btn)
+            {
+                CoachOfCoureDetailController *detailVC = [[CoachOfCoureDetailController alloc] init];
+                [dataDatilVC.navigationController pushViewController:detailVC animated:YES];
+                
+            };
+            // 点击评价推出详情
+            _monthDataView.didJugeBlock = ^(UIButton *btn)
+            {
+                RecommendViewController *recommendVC = [[RecommendViewController alloc] init];
+                [dataDatilVC.navigationController pushViewController:recommendVC animated:YES];
+            };
+            
+
         }
+
+        
         if (scrollView.contentOffset.x == selfSize.width * 3) {
             [_topButtonView selectedItem:104];
         }
@@ -252,6 +289,26 @@
         if (!_yearDataView) {
             
             [_scrollView addSubview:self.yearDataView];
+            
+            // 点击是推出详页
+            __block DataDatilViewController *dataDatilVC = self;
+            _yearDataView.didClickdid = ^(UIButton *btn)
+            {
+                CoachOfCoureDetailController *detailVC = [[CoachOfCoureDetailController alloc] init];
+                        [dataDatilVC.navigationController pushViewController:detailVC animated:YES];
+
+            };
+            
+            // 点击评价推出详情
+            _yearDataView.didJugeBlock = ^(UIButton *btn)
+            {
+                RecommendViewController *recommendVC = [[RecommendViewController alloc] init];
+                [dataDatilVC.navigationController pushViewController:recommendVC animated:YES];
+            };
+            
+            
+            
+            
         }
         if (scrollView.contentOffset.x == selfSize.width * 4) {
              [_topButtonView selectedItem:105];
@@ -268,7 +325,7 @@
         
         CGSize selfSize = self.view.frame.size;
         _todayDataView = [TodayDataView new];
-        _todayDataView.frame = CGRectMake(0,0, selfSize.width, selfSize.height - 45);
+        _todayDataView.frame = CGRectMake(0,0, selfSize.width, selfSize.height - 38);
         _todayDataView.backgroundColor = [UIColor clearColor];
         [_scrollView addSubview:_todayDataView];
     }
@@ -280,7 +337,7 @@
     if (!_yesterdayDataView) {
         CGSize selfSize = self.view.frame.size;
         _yesterdayDataView = [YesterdayDataView new];
-        _yesterdayDataView.frame = CGRectMake(selfSize.width, 0, selfSize.width, selfSize.height - 45);
+        _yesterdayDataView.frame = CGRectMake(selfSize.width, 0, selfSize.width, selfSize.height - 38);
         _yesterdayDataView.backgroundColor = [UIColor clearColor];
         [_scrollView addSubview:_yesterdayDataView];
     }
@@ -293,7 +350,7 @@
         
         CGSize selfSize = self.view.frame.size;
         _weekDataView = [WeekDataView new];
-        _weekDataView.frame = CGRectMake(selfSize.width *2, 0, selfSize.width, selfSize.height - 45);
+        _weekDataView.frame = CGRectMake(selfSize.width *2, 0, selfSize.width, selfSize.height - 38);
         _weekDataView.backgroundColor = [UIColor clearColor];
         [_scrollView addSubview:_weekDataView];
     }

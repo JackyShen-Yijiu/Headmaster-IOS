@@ -383,7 +383,6 @@
 		D9CEC9511C0ECD35008DEE69 /* YBWelcomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9501C0ECD35008DEE69 /* YBWelcomeController.m */; };
 		D9CEC9541C0ED044008DEE69 /* AppDelegate+RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9531C0ED044008DEE69 /* AppDelegate+RootViewController.m */; };
 		D9CEC9571C0ED27E008DEE69 /* HomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9561C0ED27E008DEE69 /* HomeController.m */; };
-		D9CEC9681C0ED46A008DEE69 /* HomeDataListController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC9671C0ED46A008DEE69 /* HomeDataListController.m */; };
 		D9CEC9771C0ED643008DEE69 /* NSString+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC96A1C0ED643008DEE69 /* NSString+Helper.m */; };
 		D9CEC9781C0ED643008DEE69 /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC96C1C0ED643008DEE69 /* UIColor+Extension.m */; };
 		D9CEC9791C0ED643008DEE69 /* UIImage+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC96E1C0ED643008DEE69 /* UIImage+Helper.m */; };
@@ -1043,8 +1042,6 @@
 		D9CEC9531C0ED044008DEE69 /* AppDelegate+RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+RootViewController.m"; sourceTree = "<group>"; };
 		D9CEC9551C0ED27E008DEE69 /* HomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeController.h; sourceTree = "<group>"; };
 		D9CEC9561C0ED27E008DEE69 /* HomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeController.m; sourceTree = "<group>"; };
-		D9CEC9661C0ED46A008DEE69 /* HomeDataListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeDataListController.h; sourceTree = "<group>"; };
-		D9CEC9671C0ED46A008DEE69 /* HomeDataListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeDataListController.m; sourceTree = "<group>"; };
 		D9CEC9691C0ED643008DEE69 /* NSString+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Helper.h"; sourceTree = "<group>"; };
 		D9CEC96A1C0ED643008DEE69 /* NSString+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Helper.m"; sourceTree = "<group>"; };
 		D9CEC96B1C0ED643008DEE69 /* UIColor+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
@@ -2524,8 +2521,6 @@
 			children = (
 				D9CEC9551C0ED27E008DEE69 /* HomeController.h */,
 				D9CEC9561C0ED27E008DEE69 /* HomeController.m */,
-				D9CEC9661C0ED46A008DEE69 /* HomeDataListController.h */,
-				D9CEC9671C0ED46A008DEE69 /* HomeDataListController.m */,
 				060BA89E1C10121F009AD55E /* DataDatilViewController.h */,
 				060BA89F1C10121F009AD55E /* DataDatilViewController.m */,
 				060BA8A11C10122C009AD55E /* CoachOfCoureDetailController.h */,
@@ -3087,7 +3082,6 @@
 				B8771DE31C098DE40051DE9D /* EaseBubbleView+File.m in Sources */,
 				D9CEC97D1C0ED643008DEE69 /* DVVToolBarView.m in Sources */,
 				B8771DDA1C098DE40051DE9D /* EaseEmotionEscape.m in Sources */,
-				D9CEC9681C0ED46A008DEE69 /* HomeDataListController.m in Sources */,
 				D9CEC9571C0ED27E008DEE69 /* HomeController.m in Sources */,
 				5562F30D1C15386D002E5313 /* MenuController.m in Sources */,
 				B8771DD21C098DE40051DE9D /* NSString+Valid.m in Sources */,
