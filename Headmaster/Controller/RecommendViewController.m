@@ -13,12 +13,14 @@
 #import "RecomendCell.h"
 #import "ChatViewController.h"
 #import "BaseModelMethod.h"
-#import "RecommendSegView.h"
+//#import "RecommendSegView.h"
+#import "RecommendToolView.h"
 
 @interface RecommendViewController ()<UITableViewDelegate,UITableViewDataSource,RecomendCellDelegate>
 
 @property (nonatomic, strong) UIImageView * bgView;
-@property (nonatomic, strong) RecommendSegView *controlView;
+//@property (nonatomic, strong) RecommendSegView *controlView;
+@property (nonatomic, strong) RecommendToolView *toolView;
 
 @property (nonatomic, strong) RecomendPieChartView * pieView;
 //@property (nonatomic, strong) RecomendPieChartViewModel * pieModel;
@@ -41,7 +43,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.isNeedRefresh = YES;
-    self.searchType = kDateSearchTypeYear;
+//    self.searchType = kDateSearchTypeYear;
     [self initUI];
 }
 
@@ -102,11 +104,24 @@
     self.bgView.image = [UIImage imageNamed:@"teacher_bg"];
     [self.view addSubview:self.bgView];
     
-    self.controlView.frame = CGRectMake(0, 0, self.view.width, 38);
-    self.controlView.backgroundColor = [UIColor clearColor];
-    [self.view addSubview:self.controlView];
+//    self.controlView.frame = CGRectMake(0, 0, self.view.width, 38);
+//    self.controlView.backgroundColor = [UIColor clearColor];
+//    [self.view addSubview:self.controlView];
+    // 添加button下面一条线
+    UIView *lineDownView = [[UIView alloc] initWithFrame:CGRectMake(7.5, 35, self.view.frame.size.width - 15, 2)];
+    lineDownView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
+    [self.view addSubview:lineDownView];
     
-    self.tableView = [[RefreshTableView alloc] initWithFrame:CGRectMake(0, self.controlView.bottom, self.view.width, self.view.height - self.controlView.bottom) style:UITableViewStylePlain];
+    self.toolView.frame = CGRectMake(25, 0, self.view.bounds.size.width -50, 36);
+    self.toolView.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:self.toolView];
+    
+    // 添加button上面一条线
+    UIView *lineTopView = [[UIView alloc] initWithFrame:CGRectMake(7.5,0, self.view.frame.size.width - 15, 2)];
+    lineTopView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
+    [self.view addSubview:lineTopView];
+    
+    self.tableView = [[RefreshTableView alloc] initWithFrame:CGRectMake(0, self.toolView.bottom, self.view.width, self.view.height - self.toolView.bottom) style:UITableViewStylePlain];
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -162,7 +177,7 @@
                                              SchoolId:[[UserInfoModel defaultUserInfo] schoolId]
                                             pageIndex:1
                                            searchType:ws.searchType
-                                         commentLevle:ws.controlView.control.selectedSegmentIndex + 1
+                                         commentLevle:ws.toolView.selectButtonInteger - 100
                                               success:^(id responseObject) {
                                                 
                                                   
@@ -258,25 +273,36 @@
 }
 
 #pragma mark -  DZNSegmentedControl
-- (RecommendSegView *)controlView
-{
-    if (!_controlView)
-    {
-        _controlView = [[RecommendSegView alloc] init];
-        [_controlView.control addTarget:self action:@selector(selectedSegment:) forControlEvents:UIControlEventValueChanged];
+//- (RecommendSegView *)controlView
+//{
+//    if (!_controlView)
+//    {
+//        _controlView = [[RecommendSegView alloc] init];
+//        [_controlView.control addTarget:self action:@selector(selectedSegment:) forControlEvents:UIControlEventValueChanged];
+//    }
+//    return _controlView;
+//}
+- (RecommendToolView *)toolView {
+    if (!_toolView) {
+        _toolView = [RecommendToolView new];
+        WS(ws)
+        _toolView.itemClickBlock = ^(UIButton *btn) {
+            [ws.tableView.refreshHeader beginRefreshing];
+        };
     }
-    return _controlView;
+    return _toolView;
 }
 
 
-- (void)selectedSegment:(DZNSegmentedControl *)control
-{
-    [self.tableView.refreshHeader beginRefreshing];
-}
+//- (void)selectedSegment:(DZNSegmentedControl *)control
+//{
+//    [self.tableView.refreshHeader beginRefreshing];
+//}
 
 - (BOOL)isShowRecomend
 {
-    return self.controlView.control.selectedSegmentIndex != 3;
+//    return self.controlView.control.selectedSegmentIndex != 3;
+    return (self.toolView.selectButtonInteger - 101) != 3;
 }
 #pragma mark - DataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

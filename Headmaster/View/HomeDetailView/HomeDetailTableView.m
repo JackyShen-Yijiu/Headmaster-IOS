@@ -133,7 +133,7 @@
     if (indexPath.row == 3) {
         return [HomeDetailEvaluationCell new].defaultHeight;
     }
-    return [HomeDetailNormalLineChartCell new].defaultHeight;
+    return [HomeDetailNormalLineChartCell new].defaultHeight + 20;
     
 }
 

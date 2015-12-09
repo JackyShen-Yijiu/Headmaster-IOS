@@ -129,10 +129,16 @@
     
     _progressLabel.frame = CGRectMake(0, 0, insideWidth, insideWidth);
     _progressLabel.center = CGPointMake(viewWidth / 2.f, viewHeight / 2.f - 10);
-    _firstMarkLabel.frame = CGRectMake(0, 0, viewWidth, 30);
-    _firstMarkLabel.center = CGPointMake(viewWidth / 2.f, viewHeight / 2.f + 50);
-    _secondMarkLabel.frame = _firstMarkLabel.frame;
-    _secondMarkLabel.center = CGPointMake(_firstMarkLabel.center.x, viewHeight / 2.f + 80);
+    
+    if (SCREEN_WIDTH > 320) {
+        _firstMarkLabel.frame = CGRectMake(0, viewHeight - 30 - 60, viewWidth, 30);
+        //    _firstMarkLabel.center = CGPointMake(viewWidth / 2.f, viewHeight / 2.f + 50);
+        _secondMarkLabel.frame = CGRectMake(0, viewHeight - 60, viewWidth, 30);;
+        //    _secondMarkLabel.center = CGPointMake(_firstMarkLabel.center.x, viewHeight / 2.f + 80);
+    }else {
+        _firstMarkLabel.frame = CGRectMake(0, viewHeight - 30 - 50, viewWidth, 30);
+        _secondMarkLabel.frame = CGRectMake(0, viewHeight - 50, viewWidth, 30);;
+    }
     
     _progressLabel.text = @"";
     _firstMarkLabel.text = @"实时负荷";

@@ -392,6 +392,7 @@
 		D9D2DF981C17FF77005DB212 /* CoachOfCoureDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D2DF961C17FF77005DB212 /* CoachOfCoureDetailCell.m */; };
 		D9D2DF991C17FF77005DB212 /* CoachOfCoureDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9D2DF971C17FF77005DB212 /* CoachOfCoureDetailCell.xib */; };
 		D9D2DFA21C1808A7005DB212 /* HomeDetailEvaluationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D2DFA11C1808A7005DB212 /* HomeDetailEvaluationCell.m */; };
+		D9D2DFA51C182F2D005DB212 /* RecommendToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D2DFA41C182F2D005DB212 /* RecommendToolView.m */; };
 		D9D375611C127457008C54FF /* DVVDockItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D3755E1C127457008C54FF /* DVVDockItem.m */; };
 		D9D375621C127457008C54FF /* DVVTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D375601C127457008C54FF /* DVVTabBarController.m */; };
 		D9E41AB61C129DD0007A2019 /* YBBaseTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E41AB51C129DD0007A2019 /* YBBaseTableCell.m */; };
@@ -1057,6 +1058,8 @@
 		D9D2DF971C17FF77005DB212 /* CoachOfCoureDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoachOfCoureDetailCell.xib; sourceTree = "<group>"; };
 		D9D2DFA01C1808A7005DB212 /* HomeDetailEvaluationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeDetailEvaluationCell.h; sourceTree = "<group>"; };
 		D9D2DFA11C1808A7005DB212 /* HomeDetailEvaluationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeDetailEvaluationCell.m; sourceTree = "<group>"; };
+		D9D2DFA31C182F2D005DB212 /* RecommendToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendToolView.h; sourceTree = "<group>"; };
+		D9D2DFA41C182F2D005DB212 /* RecommendToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendToolView.m; sourceTree = "<group>"; };
 		D9D3755D1C127457008C54FF /* DVVDockItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVVDockItem.h; sourceTree = "<group>"; };
 		D9D3755E1C127457008C54FF /* DVVDockItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVVDockItem.m; sourceTree = "<group>"; };
 		D9D3755F1C127457008C54FF /* DVVTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVVTabBarController.h; sourceTree = "<group>"; };
@@ -2320,6 +2323,8 @@
 			children = (
 				B8C703251C13093C006035B1 /* HMSwitch.h */,
 				B8C703261C13093C006035B1 /* HMSwitch.m */,
+				D9D2DFA31C182F2D005DB212 /* RecommendToolView.h */,
+				D9D2DFA41C182F2D005DB212 /* RecommendToolView.m */,
 				B895A1981C1041D100FEDD78 /* RecommendViewController.h */,
 				B895A1991C1041D100FEDD78 /* RecommendViewController.m */,
 				B895A19E1C10444200FEDD78 /* RecomendPieChartView.h */,
@@ -3132,6 +3137,7 @@
 				0666FFB91C141D74009FA71F /* ComplaintListModel.m in Sources */,
 				B8771DE41C098DE40051DE9D /* EaseBubbleView+Image.m in Sources */,
 				B8771E371C098E6B0051DE9D /* NSDictionary+StrDic.m in Sources */,
+				D9D2DFA51C182F2D005DB212 /* RecommendToolView.m in Sources */,
 				D92297471C10439200D0FFDF /* UUChartLabel.m in Sources */,
 				B8771D0E1C098DE40051DE9D /* MJRefreshHeader.m in Sources */,
 				B8771DEA1C098DE40051DE9D /* EaseChatToolbar.m in Sources */,
