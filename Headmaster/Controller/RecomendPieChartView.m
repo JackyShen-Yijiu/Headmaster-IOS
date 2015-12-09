@@ -184,6 +184,9 @@
 - (NSArray *)percentageArrayWithGoodsRemcondCount:(NSInteger)goodsRemcondCount mediaCount:(NSInteger)mediaRemcondCount poorCount:(NSInteger)poorRemcondCount
 {
     CGFloat totalCount = goodsRemcondCount + mediaRemcondCount + poorRemcondCount;
+    if (totalCount == 0) {
+        return  @[@(1),@(0),@(0)];
+    }
     NSMutableArray * array = [NSMutableArray arrayWithCapacity:0];
     if (goodsRemcondCount) {
         [array addObject:[NSNumber numberWithFloat:(goodsRemcondCount / totalCount)]];

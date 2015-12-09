@@ -16,6 +16,8 @@
 
 @property (nonatomic, copy) void (^showToast)(void);
 
+@property (nonatomic,  assign) int index;
+
 - (void)networkRequestNeedUpRefreshWithCoachCourseListWithuserid:(NSString *)userid
                                      searchtype:(NSInteger)searchtype
                                        schoolid:(NSString *)schoolid

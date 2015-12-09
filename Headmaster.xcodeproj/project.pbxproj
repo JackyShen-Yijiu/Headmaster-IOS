@@ -474,7 +474,7 @@
 		948A09C6A9F41BA727FBB910 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		95191FB6D2020B2944026A70 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3E14DCC66DCDB782D0DD66F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		B8771AF51C0976200051DE9D /* Headmaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Headmaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8771AF51C0976200051DE9D /* 一步校长.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "一步校长.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8771AF91C0976200051DE9D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B8771B0A1C0976200051DE9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8771B0F1C0976200051DE9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1178,7 +1178,7 @@
 		B8771AF61C0976200051DE9D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B8771AF51C0976200051DE9D /* Headmaster.app */,
+				B8771AF51C0976200051DE9D /* 一步校长.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2699,7 +2699,7 @@
 			);
 			name = Headmaster;
 			productName = Headmaster;
-			productReference = B8771AF51C0976200051DE9D /* Headmaster.app */;
+			productReference = B8771AF51C0976200051DE9D /* 一步校长.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -3282,7 +3282,7 @@
 					"$(PROJECT_DIR)/Headmaster/ThirdPary/JGPush",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yibukeji.Headmaster;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "一步校长";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -3311,7 +3311,7 @@
 					"$(PROJECT_DIR)/Headmaster/ThirdPary/JGPush",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yibukeji.Headmaster;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "一步校长";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;

@@ -66,11 +66,11 @@
         normalLineChartCell.yTitleMarkWordString = @"年";
         if (indexPath.row == 0) {
             normalLineChartCell.titleLabel.text = @"招生";
-            normalLineChartCell.markLabel.text = @"共33333人";
+            normalLineChartCell.markLabel.text = @"共8人";
         }else
         {
             normalLineChartCell.titleLabel.text = @"约课";
-            normalLineChartCell.markLabel.text = @"共33333人";
+            normalLineChartCell.markLabel.text = @"共10人";
         }
         
         [normalLineChartCell refreshUI];

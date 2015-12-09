@@ -8,7 +8,7 @@
 
 #import "HMNagationController.h"
 
-@interface HMNagationController()<UINavigationControllerDelegate>
+@interface HMNagationController()<UINavigationControllerDelegate,UIGestureRecognizerDelegate>
 @property(nonatomic,assign)BOOL isAnimaiton;
 @end
 
@@ -19,6 +19,7 @@
     self = [super initWithRootViewController:rootViewController];
     if (self) {
         self.delegate = self;
+        self.interactivePopGestureRecognizer.delegate = self;
         self.isAnimaiton = NO;
     }
     return self;
@@ -132,6 +133,11 @@
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
+}
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+    return self.childViewControllers.count > 2;
 }
 
 @end
