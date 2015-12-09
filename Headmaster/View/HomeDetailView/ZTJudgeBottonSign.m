@@ -31,7 +31,7 @@
 {
     
     NSArray *strArray = @[@"好评",@"中评",@"差评",@"投诉"];
-    NSArray *colorArray = @[@"ff00f0",@"00ffcc",@"f3ad54",@"ff663a"];
+    NSArray *colorArray = @[@"00FFCC",@"F3AD54",@"FF663A",@"ED1C24"];
 //    CGFloat smallGap = 3.f;
 //    CGFloat bigCap = 5.0f;
 //    CGFloat bigCap = (ksystemW - 4 * 63 - 80) / 3;

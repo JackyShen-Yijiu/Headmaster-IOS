@@ -58,10 +58,10 @@
             normalLineChartCell = [[HomeDetailNormalLineChartCell alloc] initWithWidth:self.bounds.size.width - 30 Style:UITableViewCellStyleDefault reuseIdentifier:kNormalLineChartCellId];
         }
         NSArray *ary_1 = @[@"22",@"44",@"15",@"40",@"42",@"25",@"15",@"30",@"42",@"32",@"40"];
-        NSArray *ary_2 = @[@"23",@"42",@"25",@"15",@"30",@"42",@"32",@"40",@"42",@"25",@"33"];
+//        NSArray *ary_2 = @[@"23",@"42",@"25",@"15",@"30",@"42",@"32",@"40",@"42",@"25",@"33"];
         
         normalLineChartCell.xTitleArray = @[ @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日", @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日" ];
-        normalLineChartCell.valueArray = @[ ary_1, ary_2 ];
+        normalLineChartCell.valueArray = @[ ary_1 ];
         normalLineChartCell.xTitleMarkWordString = @"周";
         normalLineChartCell.yTitleMarkWordString = @"年";
         if (indexPath.row == 0) {
@@ -114,10 +114,14 @@
             }];
         }
         NSArray *ary_1 = @[@"22",@"44",@"15",@"40",@"42",@"25",@"15",@"30",@"42",@"32",@"40"];
-        NSArray *ary_2 = @[@"23",@"42",@"25",@"15",@"30",@"42",@"32",@"40",@"42",@"25",@"33"];
+        NSArray *ary_2 = @[@"23",@"0",@"5",@"5",@"0",@"4",@"3",@"0",@"4",@"5",@"7"];
+        NSArray *ary_3 = @[@"0",@"0",@"2",@"0",@"0",@"0",@"0",@"0",@"0",@"0",@"0",@"0",@"0" ];
+//        NSArray *ary_4 = @[@"0",@"5",@"3",@"7",@"2",@"9",@"0",@"15",@"5",@"4"];
+        NSArray *ary_4 = @[@"0",@"0",@"0",@"0",@"0",@"1",@"0",@"0",@"0",@"0"];
+
         
         canClickLineChartCell.xTitleArray = @[ @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日", @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日" ];
-        canClickLineChartCell.valueArray = @[ ary_1, ary_2 ];
+        canClickLineChartCell.valueArray = @[ ary_1, ary_2, ary_3, ary_4 ];
         canClickLineChartCell.xTitleMarkWordString = @"周";
         canClickLineChartCell.yTitleMarkWordString = @"年";
         canClickLineChartCell.titleLabel.text = @"评价";
@@ -131,7 +135,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 3) {
-        return [HomeDetailEvaluationCell new].defaultHeight;
+        return [HomeDetailEvaluationCell new].defaultHeight + 20;
     }
     return [HomeDetailNormalLineChartCell new].defaultHeight + 20;
     

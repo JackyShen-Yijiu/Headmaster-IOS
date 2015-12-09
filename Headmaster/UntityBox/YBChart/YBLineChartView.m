@@ -58,7 +58,10 @@
     if (_colorArray) {
         return _colorArray;
     }
-    return @[UUGreen,UURed,UUBrown];
+    return @[[UIColor colorWithHexString: @"00FFCC"],
+             [UIColor colorWithHexString: @"F3AD54"],
+             [UIColor colorWithHexString: @"FF663A"],
+             [UIColor colorWithHexString: @"ED1C24"]];
 }
 
 #pragma mark 折线图专享功能

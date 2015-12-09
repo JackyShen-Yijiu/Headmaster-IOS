@@ -59,7 +59,10 @@
     if (_colorArray) {
         return _colorArray;
     }
-    return @[[UIColor colorWithHexString: @"01E2B6"],UURed,UUBrown];
+    return @[[UIColor colorWithHexString: @"00FFCC"],
+             [UIColor colorWithHexString: @"F3AD54"],
+             [UIColor colorWithHexString: @"FF663A"],
+             [UIColor colorWithHexString: @"ED1C24"]];
 }
 
 - (CGFloat)defaultHeight {
