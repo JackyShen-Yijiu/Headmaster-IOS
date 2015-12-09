@@ -46,11 +46,13 @@
     [self.self.footerView addSubview:headerLabel];
     headerLabel.textAlignment=NSTextAlignmentCenter;
     headerLabel.text=@"加载更多...";
+    headerLabel.textColor = [UIColor whiteColor];
     headerLabel.font=[UIFont systemFontOfSize:14];
     
     
     activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     activityView.frame=CGRectMake(headerLabel.right - 5, 0, imageWidth, imageHeight);
+    activityView.color = [UIColor whiteColor];
     [self.footerView addSubview:activityView];
     
     activityView.hidden=YES;
