@@ -157,14 +157,60 @@
     [_weatherViewModel successRefreshBlock:^{
         HomeWeatherModel *homeModel = [_weatherViewModel.weatherArray lastObject];
         
-        NSLog(@"_temperatureStr = %@",homeModel.temperature);
-        NSLog(@"_weatherUrl = %@",homeModel.weather_pic);
         NSString *str = [NSString stringWithFormat:@"%@℃",homeModel.temperature];
         self.temperatureLabel.text = str;
         self.temperatureLabel.textAlignment = NSTextAlignmentRight ;
         self.temperatureLabel.font = [UIFont systemFontOfSize:16];
         self.temperatureLabel.textColor = [UIColor whiteColor];
-        [self.WeatherimageViewWeather downloadImage:homeModel.weather_pic];
+        // 显示自定义的天气图片
+        if ([homeModel.weather isEqualToString:@"大雪"]) {
+            self.WeatherimageViewWeather.image = [UIImage imageNamed:@"大雪"];
+        }
+        else if ([homeModel.weather isEqualToString:@"大雨"])
+        {
+           self.WeatherimageViewWeather.image = [UIImage imageNamed:@"大雨"];
+        }
+        else if ([homeModel.weather isEqualToString:@"多云"])
+        {
+            self.WeatherimageViewWeather.image = [UIImage imageNamed:@"多云"];
+            
+        }
+        else if ([homeModel.weather isEqualToString:@"晴"])
+        {
+            self.WeatherimageViewWeather.image = [UIImage imageNamed:@"晴"];
+        }
+        else if ([homeModel.weather isEqualToString:@"晴转多云"])
+        {
+            self.WeatherimageViewWeather.image = [UIImage imageNamed:@"晴转多云"];
+        }
+        else if ([homeModel.weather isEqualToString:@"小雪"])
+        {
+            self.WeatherimageViewWeather.image = [UIImage imageNamed:@"小雪"];
+        }
+        else if ([homeModel.weather isEqualToString:@"小雨"])
+        {
+            self.WeatherimageViewWeather.image = [UIImage imageNamed:@"小雨"];
+        }
+        else if ([homeModel.weather isEqualToString:@"雪"])
+        {
+            self.WeatherimageViewWeather.image = [UIImage imageNamed:@"雪"];
+        }
+        else if ([homeModel.weather isEqualToString:@"中雨"])
+        {
+            self.WeatherimageViewWeather.image = [UIImage imageNamed:@"中雨"];
+        }
+        else if ([homeModel.weather isEqualToString:@"雾"])
+        {
+            self.WeatherimageViewWeather.image = [UIImage imageNamed:@"雾"];
+        }
+        else if ([homeModel.weather isEqualToString:@"霾"])
+        {
+            self.WeatherimageViewWeather.image = [UIImage imageNamed:@"霾"];
+        }
+
+
+        
+//        [self.WeatherimageViewWeather downloadImage:homeModel.weather_pic];
     }];
     
 }
@@ -262,7 +308,6 @@
                                         self.view.height - 70,
                                         self.view.width - margin * 2,
                                         50);
-//        _seeTimeView.backgroundColor = [UIColor orangeColor];
     }
     return _seeTimeView;
 }
@@ -281,7 +326,7 @@
 {
     if (!_WeatherimageViewWeather) {
         _WeatherimageViewWeather = [[UIImageView alloc] init];
-        _WeatherimageViewWeather.frame = CGRectMake(50, 0, 30, 30);
+        _WeatherimageViewWeather.frame = CGRectMake(56, 2, 22, 22);
 //        _WeatherimageViewWeather.backgroundColor = [UIColor orangeColor];
     }
     return _WeatherimageViewWeather;
