@@ -255,6 +255,8 @@
 - (void)openSideMenu {
     
     [self.sideMenuViewController presentLeftMenuViewController];
+    
+    //
 }
 
 #pragma mark - lazy load
