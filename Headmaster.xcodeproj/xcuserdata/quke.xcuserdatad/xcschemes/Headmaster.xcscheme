@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B8771AF41C0976200051DE9D"
-               BuildableName = "Headmaster.app"
+               BuildableName = "&#x4e00;&#x6b65;&#x6821;&#x957f;.app"
                BlueprintName = "Headmaster"
                ReferencedContainer = "container:Headmaster.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B8771AF41C0976200051DE9D"
-            BuildableName = "Headmaster.app"
+            BuildableName = "&#x4e00;&#x6b65;&#x6821;&#x957f;.app"
             BlueprintName = "Headmaster"
             ReferencedContainer = "container:Headmaster.xcodeproj">
          </BuildableReference>
@@ -56,7 +56,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B8771AF41C0976200051DE9D"
-            BuildableName = "Headmaster.app"
+            BuildableName = "&#x4e00;&#x6b65;&#x6821;&#x957f;.app"
             BlueprintName = "Headmaster"
             ReferencedContainer = "container:Headmaster.xcodeproj">
          </BuildableReference>
@@ -75,7 +75,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B8771AF41C0976200051DE9D"
-            BuildableName = "Headmaster.app"
+            BuildableName = "&#x4e00;&#x6b65;&#x6821;&#x957f;.app"
             BlueprintName = "Headmaster"
             ReferencedContainer = "container:Headmaster.xcodeproj">
          </BuildableReference>
