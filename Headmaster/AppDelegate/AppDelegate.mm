@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "MobClick.h"
 #import "EaseSDKHelper.h"
 #import "AFNetworkActivityLogger.h"
 #import "APService.h"
@@ -69,6 +68,9 @@
 {
     //umeng统计
     [MobClick startWithAppkey:@"5667f8a467e58e8aca001142" reportPolicy:BATCH   channelId:nil];
+    NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    [MobClick setAppVersion:version];
+    [MobClick setLogEnabled:YES];
     
     //AFNet log显示
     AFNetworkReachabilityManager *  manager = [AFNetworkReachabilityManager sharedManager];

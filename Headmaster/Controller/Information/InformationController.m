@@ -27,6 +27,15 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.myNavigationItem.title = @"行业资讯";
+
+    [MobClick beginLogPageView:NSStringFromClass([self class])];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:NSStringFromClass([self class])];
+    [NetworkTool cancelAllRequest];
 }
 
 - (void)viewDidLoad {
@@ -128,11 +137,6 @@
     detailsVC.navTitle = informationDataModel.title;
     [self.navigationController pushViewController:detailsVC animated:YES];
   
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    [NetworkTool cancelAllRequest];
 }
 
 - (void)didReceiveMemoryWarning {

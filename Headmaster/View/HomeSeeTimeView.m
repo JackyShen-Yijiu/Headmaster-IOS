@@ -66,11 +66,15 @@
     if (sender.tag == 1) {
         _leftImageview.image = [UIImage imageNamed:@"x2"];
         _rightImageView.image = [UIImage imageNamed:@"x3"];
+        //友盟点击事件计数
+        [MobClick event:@"yesterday"];
     }else if (sender.tag == 0) {
+        [MobClick event:@"today"];
         _leftImageview.image = [UIImage imageNamed:@"x1"];
         _rightImageView.image = [UIImage imageNamed:@"x2"];
     }else if (sender.tag == 2)
     {
+        [MobClick event:@"week"];
         _leftImageview.image = [UIImage imageNamed:@"x3"];
         _rightImageView.image = [UIImage imageNamed:@"x1"];
     }

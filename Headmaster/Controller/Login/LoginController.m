@@ -63,10 +63,19 @@
     [self addNotify];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [MobClick beginLogPageView:NSStringFromClass([self class])];
     [self.myNavController setNavigationBarHidden:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:NSStringFromClass([self class])];
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [nc removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
 
 - (void)createUI {
@@ -230,9 +239,10 @@
             NSMutableDictionary * loginInfo = [responseObject mutableCopy];
             [loginInfo setValue:[_passwordTF.text MD5Digest]forKey:@"md5Pass"];
             [[UserInfoModel defaultUserInfo] loginViewDic:loginInfo];
-            if ([UserInfoModel defaultUserInfo].complaintreminder) {
-                NSLog(@"-------------------%@",[UserInfoModel defaultUserInfo].complaintreminder);
-            }
+            
+            //友盟账号统计
+            [MobClick profileSignInWithPUID:_phoneTF.text];
+            
             if ([_delegate respondsToSelector:@selector(loginControllerDidLoginSucess:)]) {
                 [_delegate loginControllerDidLoginSucess:self];
             }else {
@@ -300,14 +310,6 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;
-    
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-    [nc removeObserver:self name:UIKeyboardWillShowNotification object:nil];
-    [nc removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
 
 - (void)didReceiveMemoryWarning {

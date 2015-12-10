@@ -57,6 +57,14 @@
     self.navigationItem.title = @"发布公告";
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor colorWithHexString:@"#fcfcfc"],NSForegroundColorAttributeName,nil]];
     
+    [MobClick beginLogPageView:NSStringFromClass([self class])];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:NSStringFromClass([self class])];
+    [NetworkTool cancelAllRequest];
 }
 
 - (void)viewDidLoad {
@@ -394,9 +402,7 @@
     [_tv resignFirstResponder];
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [NetworkTool cancelAllRequest];
-}
+
 /*
 #pragma mark - Navigation
 
