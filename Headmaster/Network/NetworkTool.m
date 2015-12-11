@@ -58,6 +58,12 @@
 #endif
 }
 
+#pragma mark - 设置请求头
++ (void)setHTTPHeaderField:(NSString *)string {
+    
+    [[AFHttpClient sharedClient].requestSerializer setValue:string forHTTPHeaderField:@"authorization"];
+}
+
 #pragma mark - AFN网络请求
 #pragma mark POST请求
 + (void)POST:(NSString *)path

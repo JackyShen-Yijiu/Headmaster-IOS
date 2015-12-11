@@ -19,6 +19,9 @@
         if (_searchType == kDateSearchTypeWeek) {
             
             HomeDataModelWeeklyRootClass *weekData = [[HomeDataModelWeeklyRootClass alloc] initWithDictionary:responseObject];
+            if (weekData.type == 0) {
+                return ;
+            }
             
             _evaluateArray = @[ weekData.data.goodcommentcount,
                                     weekData.data.generalcomment,
@@ -27,6 +30,10 @@
             
         } else {
             HomeDataModelRootClass *dailyData = [[HomeDataModelRootClass alloc] initWithDictionary:responseObject];
+            
+            if (dailyData.type == 0) {
+                return ;
+            }
             
             NSMutableArray *marr = [NSMutableArray array];
             for (NSInteger i = 0; i < dailyData.data.schoolstudentcount.count; i++) {

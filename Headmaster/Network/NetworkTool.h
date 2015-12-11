@@ -24,6 +24,11 @@ typedef void (^NetworkFailureBlock) (NSError *failure);
 + (NSString *)domain;
 
 /**
+ *  设置请求头
+ */
++ (void)setHTTPHeaderField:(NSString *)string;
+
+/**
  *  AFN get请求
  *
  *  @param path URL地址
