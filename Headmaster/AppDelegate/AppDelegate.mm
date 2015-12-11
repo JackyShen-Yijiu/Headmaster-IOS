@@ -101,6 +101,7 @@
     [APService setupWithOption:launchOptions];
 }
 
+
 #pragma mark - Nofitication
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     [APService registerDeviceToken:deviceToken];
