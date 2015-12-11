@@ -35,7 +35,9 @@
 
 - (void)refreshSubjectData:(NSArray *)array
                    sameDay:(NSString *)sameDay {
-    
+    if (!array.count) {
+        return;
+    }
     [self.doubleRowView refreshUpTitle:array];
     
     for (UILabel *label in self.rightButton.subviews) {

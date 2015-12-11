@@ -70,7 +70,7 @@
     [MobClick startWithAppkey:@"5667f8a467e58e8aca001142" reportPolicy:BATCH   channelId:nil];
     NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     [MobClick setAppVersion:version];
-    [MobClick setLogEnabled:YES];
+    [MobClick setLogEnabled:NO];
     
     //AFNet log显示
     AFNetworkReachabilityManager *  manager = [AFNetworkReachabilityManager sharedManager];
@@ -105,6 +105,11 @@
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     [APService registerDeviceToken:deviceToken];
     [[EaseMob sharedInstance] application:application didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
+    NSString *token = [NSString stringWithFormat:@"%@",deviceToken];
+    token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
+    token = [token substringFromIndex:1];
+    token = [token substringToIndex:token.length -1];
+    NSLog(@"%@",token);
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error

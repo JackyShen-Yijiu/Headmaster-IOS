@@ -19,6 +19,9 @@
         if (_searchType == kDateSearchTypeWeek) {
             
             HomeDataModelWeeklyRootClass *weekData = [[HomeDataModelWeeklyRootClass alloc] initWithDictionary:responseObject];
+            if (weekData.type == 0) {
+                return ;
+            }
             
             _evaluateArray = @[ weekData.data.goodcommentcount,
                                     weekData.data.generalcomment,
@@ -27,6 +30,10 @@
             
         } else {
             HomeDataModelRootClass *dailyData = [[HomeDataModelRootClass alloc] initWithDictionary:responseObject];
+            
+            if (dailyData.type == 0) {
+                return ;
+            }
             
             NSMutableArray *marr = [NSMutableArray array];
             for (NSInteger i = 0; i < dailyData.data.schoolstudentcount.count; i++) {
@@ -49,7 +56,7 @@
             CGFloat value_2 = 0;
             CGFloat value_4 = 0;
             
-            if (dailyData.data.coachstotalcoursecount) {
+            if (dailyData.data.coachstotalcoursecount) {           
                 value_1 = dailyData.data.reservationcoursecountday / dailyData.data.coachstotalcoursecount;
                 value_2 = dailyData.data.finishreservationnow / dailyData.data.coachstotalcoursecount;
             }

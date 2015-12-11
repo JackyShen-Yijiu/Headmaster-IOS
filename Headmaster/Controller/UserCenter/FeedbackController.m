@@ -103,6 +103,7 @@
         [alertView show];
     }];
     _textview.text = @"";
+    _placeholderLabel.hidden = NO;
 }
 
 //当前网络状态
