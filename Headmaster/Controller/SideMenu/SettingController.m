@@ -26,6 +26,17 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:NSStringFromClass([self class])];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:NSStringFromClass([self class])];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -99,36 +110,36 @@
         cell.backgroundColor = [UIColor clearColor];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(29, 42, 200, 15)];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(29, 35, 200, 15)];
         label.textColor = [UIColor colorWithHexString:TEXT_NORMAL_COLOR];
         [cell.contentView addSubview:label];
         if (indexPath.row <3) {
             NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
             NSInteger btnX = [ud integerForKey:[NSString stringWithFormat:@"%zd",indexPath.row]];
             if (!btnX) {
-                btnX = self.view.frame.size.width -70;
+                btnX = self.view.frame.size.width -80;
                 if (indexPath.row == 0 && [[UserInfoModel defaultUserInfo].newmessagereminder isEqualToString:@"0"]) {
-                    btnX += 20;
+                    btnX += 30;
                 }
                 if (indexPath.row == 1 && [[UserInfoModel defaultUserInfo].complaintreminder isEqualToString:@"0"]) {
-                    btnX += 20;
+                    btnX += 30;
                 }
                 if (indexPath.row == 2 && [[UserInfoModel defaultUserInfo].applyreminder isEqualToString:@"0"]) {
-                    btnX += 20;
+                    btnX += 30;
                 }
                 [ud setInteger:btnX forKey:[NSString stringWithFormat:@"%zd",indexPath.row]];
                 [ud synchronize];
             }
-            UIImageView *bgView = [[UIImageView alloc] initWithFrame:CGRectMake(self.view.frame.size.width -67, 45, 40, 9)];
+            UIImageView *bgView = [[UIImageView alloc] initWithFrame:CGRectMake(self.view.frame.size.width -65, 40, 40, 9)];
             bgView.image = [UIImage imageNamed:@"hd69x16"];
             bgView.layer.cornerRadius = 10;
             [cell.contentView addSubview:bgView];
             
-            UIButton *switchBtn = [[UIButton alloc] initWithFrame:CGRectMake((int)btnX, 37, 25, 25)];
-            if ((int)btnX == self.view.frame.size.width -70) {
-                [switchBtn setImage:[UIImage imageNamed:@"an42x44"] forState:UIControlStateNormal];
+            UIButton *switchBtn = [[UIButton alloc] initWithFrame:CGRectMake((int)btnX, 30, 42, 30)];
+            if ((int)btnX == self.view.frame.size.width -80) {
+                [switchBtn setImage:[UIImage imageNamed:@"an84x60"] forState:UIControlStateNormal];
             }else {
-                [switchBtn setImage:[UIImage imageNamed:@"hm"] forState:UIControlStateNormal];
+                [switchBtn setImage:[UIImage imageNamed:@"hm82x60"] forState:UIControlStateNormal];
             }
             switchBtn.tag = indexPath.row;
             switchBtn.layer.cornerRadius = 10;
@@ -165,7 +176,7 @@
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSInteger btnX = [ud integerForKey:[NSString stringWithFormat:@"%zd",sender.tag]];
     
-    if (btnX == self.view.frame.size.width -70) {
+    if (btnX == self.view.frame.size.width -80) {
        
         [self changeUseMessage:ud button:sender goRight:YES];
     }else {
@@ -176,26 +187,26 @@
 }
 
 - (void)changeUseMessage:(NSUserDefaults *)ud button:(UIButton *)btn goRight:(BOOL)goright {
-    NSString *newmessagereminder = [ud integerForKey:@"0"] == self.view.frame.size.width -70?@"1":@"0";
-    NSString *complaintreminder  = [ud integerForKey:@"1"] == self.view.frame.size.width -70?@"1":@"0";
-    NSString *applyreminder      = [ud integerForKey:@"2"] == self.view.frame.size.width -70?@"1":@"0";
+    NSString *newmessagereminder = [ud integerForKey:@"0"] == self.view.frame.size.width -80?@"1":@"0";
+    NSString *complaintreminder  = [ud integerForKey:@"1"] == self.view.frame.size.width -80?@"1":@"0";
+    NSString *applyreminder      = [ud integerForKey:@"2"] == self.view.frame.size.width -80?@"1":@"0";
     if (btn.tag == 0) {
-        newmessagereminder = [ud integerForKey:@"0"] == self.view.frame.size.width -70?@"0":@"1";
+        newmessagereminder = [ud integerForKey:@"0"] == self.view.frame.size.width -80?@"0":@"1";
     }else if (btn.tag == 1) {
-        complaintreminder  = [ud integerForKey:@"1"] == self.view.frame.size.width -70?@"0":@"1";
+        complaintreminder  = [ud integerForKey:@"1"] == self.view.frame.size.width -80?@"0":@"1";
     }else {
-        applyreminder      = [ud integerForKey:@"2"] == self.view.frame.size.width -70?@"0":@"1";
+        applyreminder      = [ud integerForKey:@"2"] == self.view.frame.size.width -80?@"0":@"1";
     }
     [NetworkEntity changeUserMessageWithUseInfoModel:[UserInfoModel defaultUserInfo] complaintReminder:complaintreminder applyreminder:applyreminder newmessagereminder:newmessagereminder success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
         CGRect btnFrame = btn.frame;
         if ([[dataDic objectForKey:@"data"] isEqualToString:@"success"]) {
             NSInteger btnX = [ud integerForKey:[NSString stringWithFormat:@"%zd",btn.tag]];
-            if (btnX == self.view.frame.size.width -70) {
-                btnX += 20;
+            if (btnX == self.view.frame.size.width -80) {
+                btnX += 30;
                 btnFrame.origin.x = btnX;
                 btn.frame = btnFrame;
-                [btn setImage:[UIImage imageNamed:@"hm"] forState:UIControlStateNormal];
+                [btn setImage:[UIImage imageNamed:@"hm82x60"] forState:UIControlStateNormal];
                 [ud removeObjectForKey:[NSString stringWithFormat:@"%zd",btn.tag]];
                 [ud setInteger:btnX forKey:[NSString stringWithFormat:@"%zd",btn.tag]];
                 [ud synchronize];
@@ -206,10 +217,10 @@
                     [[EaseMob sharedInstance].chatManager asyncUpdatePushOptions:options];
                 }
             }else {
-                btnX -= 20;
+                btnX -= 30;
                 btnFrame.origin.x = btnX;
                 btn.frame = btnFrame;
-                [btn setImage:[UIImage imageNamed:@"an42x44"] forState:UIControlStateNormal];
+                [btn setImage:[UIImage imageNamed:@"an84x60"] forState:UIControlStateNormal];
                 [ud removeObjectForKey:[NSString stringWithFormat:@"%zd",btn.tag]];
                 [ud setInteger:btnX forKey:[NSString stringWithFormat:@"%zd",btn.tag]];
                 [ud synchronize];
@@ -230,12 +241,6 @@
         ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"同步失败，请检查网络连接"];
         [alertView show];
     }];
-}
-
-
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
 }
 
 - (void)didReceiveMemoryWarning {

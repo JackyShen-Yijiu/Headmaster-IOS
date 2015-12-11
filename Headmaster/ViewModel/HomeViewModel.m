@@ -49,7 +49,7 @@
             CGFloat value_2 = 0;
             CGFloat value_4 = 0;
             
-            if (dailyData.data.coachstotalcoursecount) {
+            if (dailyData.data.coachstotalcoursecount) {           
                 value_1 = dailyData.data.reservationcoursecountday / dailyData.data.coachstotalcoursecount;
                 value_2 = dailyData.data.finishreservationnow / dailyData.data.coachstotalcoursecount;
             }

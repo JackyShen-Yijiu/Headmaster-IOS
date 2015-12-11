@@ -21,8 +21,18 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [MobClick beginLogPageView:NSStringFromClass([self class])];
     self.myNavigationItem.title = _navTitle;
 }
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:NSStringFromClass([self class])];
+    [NetworkTool cancelAllRequest];
+}
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -45,11 +55,6 @@
     [[YBBaseViewModel new] successLoadMoreBlock:^{
         NSLog(@"加载成功");
     }];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    [NetworkTool cancelAllRequest];
 }
 
 - (void)didReceiveMemoryWarning {

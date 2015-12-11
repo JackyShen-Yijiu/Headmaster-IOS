@@ -45,6 +45,8 @@
         [self.tableView.refreshHeader beginRefreshing];
     }
     self.isNeedRefresh = NO;
+    
+    [MobClick beginLogPageView:NSStringFromClass([self class])];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -54,6 +56,7 @@
         [self.tableView.refreshHeader beginRefreshing];
     }
     self.isNeedRefresh = NO;
+    [MobClick endLogPageView:NSStringFromClass([self class])];
 }
 
 #pragma mark - initUI

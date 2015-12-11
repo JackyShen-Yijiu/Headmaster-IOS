@@ -58,6 +58,7 @@
         
         _temperature = [dictionary objectForKey:@"temperature"];
         _weather_pic = [dictionary objectForKey:@"weather_pic"];
+        _weather = [dictionary objectForKey:@"weather"];
     
     }
     return self;

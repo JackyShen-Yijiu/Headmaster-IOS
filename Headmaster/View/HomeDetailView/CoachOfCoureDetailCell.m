@@ -15,6 +15,9 @@
     [self.buttonIcon setUserInteractionEnabled:YES];
     UITapGestureRecognizer * ges = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(iconTap:)];
     [self.buttonIcon addGestureRecognizer:ges];
+    self.rateView = [[CWStarRateView alloc]initWithFrame:CGRectMake(0, 0, 146, 23) numberOfStars:5];
+    [_starLevelImageView addSubview:_rateView];
+
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -26,7 +29,8 @@
             self = array.lastObject;
         }
         self.backgroundColor = [UIColor clearColor];
-
+        
+       
     }
     return self;
 }
@@ -34,7 +38,6 @@
 - (void)refreshData:(CoachCoureDatilModel *)dataModel
 {
     self.model = dataModel;
-//    [self.iconImageView downloadImage:dataModel.originalpic];
     [self.iconImageView downloadImage:dataModel.originalpic place:[UIImage imageNamed:@"defoult_por"]];
     self.courseHourLabel.text =  [NSString stringWithFormat:@"%lu",dataModel.coursecount];
     self.goodCommondLabel.text = [NSString stringWithFormat:@"好评%lu",dataModel.goodcommentcount];
@@ -42,9 +45,8 @@
     self.mightCommondLabel.text = [NSString stringWithFormat:@"中评%lu",dataModel.generalcommentcount];
     self.complainCommondLabel.text = [NSString stringWithFormat:@"投诉%lu",dataModel.complaintcount];
     self.starLevelImageView.image = [UIImage imageNamed:@"starBlack"];
-//    [self.starLevelImageView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"starBlack"]]];
+    _rateView.scorePercent = (dataModel.starlevel / 5.f);
     
-
 }
 
 - (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated

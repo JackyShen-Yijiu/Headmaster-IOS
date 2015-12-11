@@ -10,8 +10,12 @@
 
 
 @interface HomeWeatherModel : NSObject
+
 @property (nonatomic,strong) NSString *temperature; // 温度
+
 @property (nonatomic,strong) NSString *weather_pic; // 天气图标
+
+@property (nonatomic,strong) NSString *weather; // 天气
 
 - (instancetype)initWithDictionary:(id)dictionary;
 @end
