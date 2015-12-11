@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CoachCoureDatilModel.h"
+#import "CWStarRateView.h"
 
 #import "YBBaseTableCell.h"
 
@@ -29,6 +30,7 @@
 @property (nonatomic,strong)CoachCoureDatilModel * model;
 @property (weak, nonatomic) IBOutlet UILabel *BottomLineLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *starLevelImageView;
+@property (nonatomic, strong) CWStarRateView *rateView;
 
 - (void)refreshData:(CoachCoureDatilModel *)dataModel;
 @end
