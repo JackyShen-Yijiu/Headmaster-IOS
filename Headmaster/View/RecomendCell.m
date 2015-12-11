@@ -69,7 +69,7 @@
     label.textAlignment = NSTextAlignmentLeft;
     label.numberOfLines = 0;
     label.lineBreakMode = NSLineBreakByCharWrapping;
-    label.textColor = RGB_Color(0x99, 0x99, 0x99);
+    label.textColor = RGB_Color(0xbf, 0xbf, 0xbf);
     return label;
 
 }
@@ -149,7 +149,8 @@
     
     
     self.recomendTime = [self getOnePropertyLabel];
-    self.recomendTime.textColor = RGB_Color(0x99, 0x99, 0x99);
+//    self.recomendTime.textColor = RGB_Color(0x99, 0x99, 0x99);
+    self.recomendTime.textColor = RGB_Color(0xbf, 0xbf, 0xbf);
     [self.contentView addSubview:self.recomendTime];
     
     [self updateConstraints];
@@ -276,7 +277,10 @@
     
     self.recomendContent.attributedText = [[self class] addLineSpacing:_model.recomendContent];
     
-    self.recomendTime.text = _model.recomendDate;
+    
+    NSArray *array = [_model.recomendDate componentsSeparatedByString:@"T"];
+    self.recomendTime.text = array[0];    
+//    self.recomendTime.text = _model.recomendDate;
 
     [self.rateView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(@(146));
