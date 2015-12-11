@@ -235,8 +235,8 @@
     [NetworkEntity loginWithPhotoNumber:_phoneTF.text password:_passwordTF.text success:^(id responseObject) {
         NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
         if (type == 1) {
-            
             NSMutableDictionary * loginInfo = [responseObject mutableCopy];
+            [NetworkTool setHTTPHeaderField:[[loginInfo objectForKey:@"data"] objectForKey:@"token"]];
             [loginInfo setValue:[_passwordTF.text MD5Digest]forKey:@"md5Pass"];
             [[UserInfoModel defaultUserInfo] loginViewDic:loginInfo];
             
