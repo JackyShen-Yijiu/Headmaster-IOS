@@ -38,10 +38,13 @@
 
 - (void)refreshUpTitle:(NSArray *)array {
     
+    if (!array.count) {
+        return;
+    }
     for (UIButton *itemButton in self.subviews) {
         
         for (UIButton *btn in itemButton.subviews) {
-            if (btn.tag != 0) {
+            if (btn.tag != 0 && [btn isKindOfClass:[UIButton class]]) {
                 
                 [btn setTitle:array[btn.tag - 1] forState:UIControlStateNormal];
             }

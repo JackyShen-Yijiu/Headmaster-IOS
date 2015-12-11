@@ -28,9 +28,12 @@
 // 刷新数据
 - (void)refreshData:(NSArray *)array {
     
+    if (!array.count) {
+        return;
+    }
     for (UIButton *itemButton in self.subviews) {
         for (UILabel *label in itemButton.subviews) {
-            if (label.tag != 0) {
+            if (label.tag != 0 && ![[array objectAtIndex:label.tag - 1] isKindOfClass:[NSNull class]]) {
                 label.text = [array objectAtIndex:label.tag - 1];
             }
         }
@@ -72,7 +75,7 @@
         label.frame = CGRectMake(0, 0, btnWidth, labelViewHeight);
         label.textAlignment = 1;
         label.font = [UIFont fontWithName:@"HiraKakuProN-W3" size:16];
-        label.text = @"";
+        label.text = @" ";
         
         CGFloat imageViewWidth = 24;
         UIImageView *imageView = [UIImageView new];
