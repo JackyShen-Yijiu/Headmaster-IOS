@@ -397,8 +397,6 @@
 }
 
 
-
-
 - (void)didFailToLocateUserWithError:(NSError *)error
 {
     
