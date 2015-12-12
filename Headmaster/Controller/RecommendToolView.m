@@ -110,7 +110,7 @@
             [UIView animateWithDuration:0.3 animations:^{
                 _followLabel.frame= followNew;
                 
-                
+
             }];
             
             _selectButtonInteger = tag;

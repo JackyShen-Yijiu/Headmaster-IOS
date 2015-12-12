@@ -3306,6 +3306,7 @@
 					"$(PROJECT_DIR)/Headmaster/ThirdPary/JGPush",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.zyt.zyt.zyt;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yibuxuechexiaozhangduan;
 				PRODUCT_NAME = "一步校长";
 				PROVISIONING_PROFILE = "";
 			};
@@ -3335,6 +3336,7 @@
 					"$(PROJECT_DIR)/Headmaster/ThirdPary/JGPush",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.zyt.zyt.zyt;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yibuxuechexiaozhangduan;
 				PRODUCT_NAME = "一步校长";
 				PROVISIONING_PROFILE = "";
 			};
