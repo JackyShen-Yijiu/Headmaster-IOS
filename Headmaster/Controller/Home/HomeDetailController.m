@@ -170,6 +170,30 @@
     NSInteger showIndex = scrollView.contentOffset.x / self.view.bounds.size.width;
     self.myNavigationItem.title = titleArray[showIndex];
     [self.topButtonView selectedItem:[[NSString stringWithFormat:@"10%li",showIndex] integerValue] + 1];
+    
+    [self loadNetworkData];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self loadNetworkData];
+}
+
+- (void)loadNetworkData {
+    
+    CGFloat offSetX = self.scrollView.contentOffset.x;
+    CGFloat width = self.scrollView.width;
+    
+    if (offSetX >= 0 && offSetX < self.scrollView.width) {
+        [self.todayTableView networkRequest];
+    }else if (offSetX >= width && offSetX < width * 2) {
+        [self.yesterdayTableView networkRequest];
+    }else if (offSetX >= width * 2 && offSetX < width * 3) {
+        [self.weekTableView networkRequest];
+    }else if (offSetX >= width * 3 && offSetX < width * 4) {
+        [self.monthTableView networkRequest];
+    }else if (offSetX >= width * 4) {
+        [self.yearTableView networkRequest];
+    }
 }
 
 - (void)checkSearchType {
@@ -177,18 +201,22 @@
         [self.topButtonView selectedItem:102];
         self.scrollView.contentOffset = CGPointMake(self.view.bounds.size.width, 0);
         self.myNavigationItem.title = @"昨天数据";
+        [self.yesterdayTableView networkRequest];
     }else if(self.searchType == kDateSearchTypeWeek) {
         [self.topButtonView selectedItem:103];
         self.scrollView.contentOffset = CGPointMake(self.view.bounds.size.width * 2, 0);
         self.myNavigationItem.title = @"本周数据";
+        [self.weekTableView networkRequest];
     }else if(self.searchType == kDateSearchTypeToday) {
         self.myNavigationItem.title = @"今天数据";
+        [self.todayTableView networkRequest];
     }
 }
 
 - (HomeDetailTableView *)todayTableView {
     if (!_todayTableView) {
         _todayTableView = [[HomeDetailTableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.scrollView.bounds.size.height) style:UITableViewStylePlain];
+        _todayTableView.searchType = kDateSearchTypeToday;
     }
     return _todayTableView;
 }
@@ -196,6 +224,7 @@
 - (HomeDetailTableView *)yesterdayTableView {
     if (!_yesterdayTableView) {
         _yesterdayTableView = [[HomeDetailTableView alloc] initWithFrame:CGRectMake(self.view.bounds.size.width * 1, 0, self.view.bounds.size.width, self.scrollView.bounds.size.height) style:UITableViewStylePlain];
+        _yesterdayTableView.searchType = kDateSearchTypeYesterday;
     }
     return _yesterdayTableView;
 }
@@ -203,6 +232,7 @@
 - (HomeDetailTableView *)weekTableView {
     if (!_weekTableView) {
         _weekTableView = [[HomeDetailTableView alloc] initWithFrame:CGRectMake(self.view.bounds.size.width * 2, 0, self.view.bounds.size.width, self.scrollView.bounds.size.height) style:UITableViewStylePlain];
+        _weekTableView.searchType = kDateSearchTypeWeek;
     }
     return _weekTableView;
 }
@@ -210,6 +240,7 @@
 - (HomeDetailTableView *)monthTableView {
     if (!_monthTableView) {
         _monthTableView = [[HomeDetailTableView alloc] initWithFrame:CGRectMake(self.view.bounds.size.width * 3, 0, self.view.bounds.size.width, self.scrollView.bounds.size.height) style:UITableViewStylePlain];
+        _monthTableView.searchType = kDateSearchTypeMonth;
     }
     return _monthTableView;
 }
@@ -217,6 +248,7 @@
 - (HomeDetailTableView *)yearTableView {
     if (!_yearTableView) {
         _yearTableView = [[HomeDetailTableView alloc] initWithFrame:CGRectMake(self.view.bounds.size.width * 4, 0, self.view.bounds.size.width, self.scrollView.bounds.size.height) style:UITableViewStylePlain];
+        _yearTableView.searchType = kDateSearchTypeYear;
     }
     return _yearTableView;
 }

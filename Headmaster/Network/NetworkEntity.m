@@ -175,16 +175,20 @@
  *  ====================================================================================================================================
  */
 + (void)moreDataDatilListWithuserid:(NSString *)userid
-                         searchtype:(NSInteger ) searchtype
+                         searchtype:(kDateSearchType ) searchtype
                            schoolid:(NSString *)schoolid
                             success:(NetworkSuccessBlock)success
                             failure:(NetworkFailureBlock)failure
 {
+//    NSDictionary *dict = @{@"userid":userid,
+//                           @"searchtype":[NSString stringWithFormat:@"%li",searchtype],
+//                           @"schoolid":schoolid
+//                           };
     NSDictionary *dict = @{@"userid":userid,
                            @"searchtype":[NSString stringWithFormat:@"%li",searchtype],
                            @"schoolid":schoolid
                            };
-    [NetworkTool GET:MoreData_List params:dict success:success failure:failure];
+    [NetworkTool GET:HOME_DATA_DETAIL params:dict success:success failure:failure];
 }
 
 /***
