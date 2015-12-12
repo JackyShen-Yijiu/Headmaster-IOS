@@ -96,10 +96,6 @@
     // 加载地图用于定位,展示天气信息
     [self addMap];
 
-    // 加载天气数据
-    [self addWeatherData];
-    
-    
     // Do any additional setup after loading the view.
     [self addBackgroundImage];
     
@@ -160,7 +156,6 @@
 - (void)addWeatherData
 {
     _weatherViewModel = [[WeatherViewModel alloc] init];
-    [_weatherViewModel networkRequestNeedUpRefreshWithCityName:@"北京市"];
     [_weatherViewModel successRefreshBlock:^{
         HomeWeatherModel *homeModel = [_weatherViewModel.weatherArray lastObject];
         
@@ -214,10 +209,6 @@
         {
             self.WeatherimageViewWeather.image = [UIImage imageNamed:@"霾"];
         }
-
-
-        
-//        [self.WeatherimageViewWeather downloadImage:homeModel.weather_pic];
     }];
     
 }
@@ -340,16 +331,6 @@
     }
     return _WeatherimageViewWeather;
 }
-
-
-
-
-
-
-
-
-
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
