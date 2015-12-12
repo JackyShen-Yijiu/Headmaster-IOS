@@ -52,7 +52,6 @@
 
 @property (nonatomic,strong) NSString *weatherUrl;
 
-
 @end
 
 @implementation HomeController
@@ -149,12 +148,14 @@
     [_viewModel networkRequestRefresh];
     
     [self.progressView refreshData:@[ @(0.7), @(0.3), @(1), @(0.72) ]];
+    
 }
 
 #pragma mark ----- 加载天气数据
 - (void)addWeatherData
 {
     _weatherViewModel = [[WeatherViewModel alloc] init];
+    [_weatherViewModel networkRequestNeedUpRefreshWithCityName:_cityName];
     [_weatherViewModel successRefreshBlock:^{
         HomeWeatherModel *homeModel = [_weatherViewModel.weatherArray lastObject];
         
@@ -367,13 +368,12 @@
     NSString *str = [NSString stringWithFormat:@"http://api.map.baidu.com/geocoder/v2/?ak=2T3GAuxuKLNpqrsKT8NjAAgk&location=%f,%f&output=json&pois=1",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:str parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-        
         NSDictionary *result = [responseObject objectInfoForKey:@"result"];
         NSDictionary *addressComponent = [result objectInfoForKey:@"addressComponent"];
         _cityName = [addressComponent objectStringForKey:@"city"];
-
+        [self addWeatherData];
+       
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
-        NSLog(@"%@",error);
     }];
 }
 
