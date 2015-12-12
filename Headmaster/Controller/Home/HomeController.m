@@ -26,7 +26,6 @@
 #import "HomeProgressView.h"
 #import "RecommendViewController.h"
 
-
 @interface HomeController () <BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate>
 
 @property (nonatomic, strong) HomeTopView *topView;
@@ -359,28 +358,25 @@
 //处理位置坐标更新
 - (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
 {
+    
+    if (_cityName.length) {
+        return;
+    }
     NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
     
-    NSString *str = [NSString stringWithFormat:@"http://api.map.baidu.com/geocoder/v2/?ak=2T3GAuxuKLNpqrsKT8NjAAgk&callback=renderReverse&location=%f,%f&output=json&pois=1",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude];
-//    NSURL *url = [NSURL URLWithString:str];
+    NSString *str = [NSString stringWithFormat:@"http://api.map.baidu.com/geocoder/v2/?ak=2T3GAuxuKLNpqrsKT8NjAAgk&location=%f,%f&output=json&pois=1",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:str parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-    NSArray *keyStr = [responseObject allObjects];
-        for (NSString *key  in keyStr) {
-            if ([key isEqualToString:@"addressComponent"]) {
-                NSDictionary *dic = [responseObject objectForKey:key];
-                _cityName = [dic objectForKey:@"city"];
-            
-            }
-        }
+        
+        NSDictionary *result = [responseObject objectInfoForKey:@"result"];
+        NSDictionary *addressComponent = [result objectInfoForKey:@"addressComponent"];
+        _cityName = [addressComponent objectStringForKey:@"city"];
 
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
-    
-    
-    
 }
+
 
 - (void)didFailToLocateUserWithError:(NSError *)error
 {
