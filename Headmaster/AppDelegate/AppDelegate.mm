@@ -80,11 +80,17 @@
     
     //环信
     NSString *apnsCertName = nil;
-    //#if DEBUG
-    //    apnsCertName = @"modoujiaxiaoPushDev";
-    //#else
-    //    apnsCertName = @"modoujiaxiaoPushDis";
-    //#endif
+    
+    
+    
+//    #if DEBUG
+//        apnsCertName = @developXZPush";
+//    #else
+//        apnsCertName = @"pordXZPush";
+//    #endif
+    
+    
+    
     apnsCertName = @"dis_apns";
     [[EaseSDKHelper shareHelper] easemobApplication:application
                       didFinishLaunchingWithOptions:launchOptions
