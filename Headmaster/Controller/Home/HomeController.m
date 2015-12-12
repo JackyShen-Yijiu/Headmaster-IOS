@@ -142,7 +142,7 @@
     [_viewModel successRefreshBlock:^{
         
         if (_viewModel.searchType == kDateSearchTypeWeek) {
-            [self.progressView refreshData:@[ @(0.7), @(0.3), @(1), @(0.72) ]];
+//            [self.progressView refreshData:@[ @(0.7), @(0.3), @(1), @(0.72) ]];
             [self.evaluateView refreshData:_viewModel.evaluateArray];
         }else {
             [self.topView refreshSubjectData:_viewModel.subjectArray sameDay:_viewModel.applyCount];
@@ -152,8 +152,6 @@
     }];
     _viewModel.searchType = 1;
     [_viewModel networkRequestRefresh];
-    
-    [self.progressView refreshData:@[ @(0.7), @(0.3), @(1), @(0.72) ]];
 }
 
 #pragma mark ----- 加载天气数据

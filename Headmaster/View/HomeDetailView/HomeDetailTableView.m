@@ -12,12 +12,17 @@
 #import "HomeDetailCanClickLineChartCell.h"
 #import "HomeDetailCanClickBarChartCell.h"
 #import "HomeDetailEvaluationCell.h"
+#import "HomeDataDetailViewModel.h"
 
 @interface HomeDetailTableView()<UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, copy) ClickBlock coachTeacherBlock;
 
 @property (nonatomic, copy) ClickBlock evaluationBlock;
+
+@property (nonatomic, strong) HomeDataDetailViewModel *viewModel;
+
+@property (nonatomic, assign) BOOL successRequest;
 
 @end
 
@@ -30,6 +35,13 @@
         self.delegate = self;
         self.separatorStyle = UITableViewCellSeparatorStyleNone;
         self.backgroundColor = [UIColor clearColor];
+        
+        self.viewModel = [HomeDataDetailViewModel new];
+        [self.viewModel successRefreshBlock:^{
+            self.dataModel = self.viewModel.dataModel;
+            [self refreshUI];
+            self.successRequest = 1;
+        }];
     }
     return self;
 }
@@ -42,11 +54,34 @@
     _evaluationBlock = handle;
 }
 
+#pragma mark - 刷新数据
+- (void)refreshUI {
+    
+    [self reloadData];
+}
+
+#pragma mark - 刷新数据
+- (void)networkRequest {
+    if (self.successRequest) {
+        [self refreshUI];
+        return;
+    }
+    [self.viewModel networkRequestRefresh];
+}
+
+- (void)setSearchType:(kDateSearchType)searchType {
+    _searchType = searchType;
+    self.viewModel.searchType = searchType;
+}
+
 #pragma mark - tableView data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 4;
+    if (self.dataModel.applyXTitleArray.count && self.dataModel.reservationXTitleArray.count && self.dataModel.coachCourseXTitleArray && self.dataModel.evaluateXTitleArray) {
+        return 4;
+    }
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -57,20 +92,30 @@
         if (!normalLineChartCell) {
             normalLineChartCell = [[HomeDetailNormalLineChartCell alloc] initWithWidth:self.bounds.size.width - 30 Style:UITableViewCellStyleDefault reuseIdentifier:kNormalLineChartCellId];
         }
-        NSArray *ary_1 = @[@"22",@"44",@"15",@"40",@"42",@"25",@"15",@"30",@"42",@"32",@"40"];
-//        NSArray *ary_2 = @[@"23",@"42",@"25",@"15",@"30",@"42",@"32",@"40",@"42",@"25",@"33"];
+//        NSArray *ary_1 = @[@"22",@"44",@"15",@"40",@"42",@"25",@"15",@"30",@"42",@"32",@"40"];
+//        
+//        normalLineChartCell.xTitleArray = @[ @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日", @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日" ];
+//        normalLineChartCell.valueArray = @[ ary_1 ];
         
-        normalLineChartCell.xTitleArray = @[ @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日", @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日" ];
-        normalLineChartCell.valueArray = @[ ary_1 ];
-        normalLineChartCell.xTitleMarkWordString = @"周";
-        normalLineChartCell.yTitleMarkWordString = @"年";
         if (indexPath.row == 0) {
             normalLineChartCell.titleLabel.text = @"招生";
-            normalLineChartCell.markLabel.text = @"共8人";
-        }else
-        {
+            normalLineChartCell.markLabel.text = [NSString stringWithFormat:@"共%li人",self.dataModel.appleStudentCount];;
+            normalLineChartCell.xTitleMarkWordString = @"天";
+            normalLineChartCell.yTitleMarkWordString = @"人";
+            
+            normalLineChartCell.xTitleArray = self.dataModel.applyXTitleArray;
+            normalLineChartCell.valueArray = self.dataModel.applyValueArray;
+            
+            
+        }else {
             normalLineChartCell.titleLabel.text = @"约课";
-            normalLineChartCell.markLabel.text = @"共10人";
+            normalLineChartCell.markLabel.text = [NSString stringWithFormat:@"共%li人",self.dataModel.reservationStudentCount];;
+            normalLineChartCell.xTitleMarkWordString = @"时";
+            normalLineChartCell.yTitleMarkWordString = @"人";
+            
+            normalLineChartCell.xTitleArray = self.dataModel.reservationXTitleArray;
+            normalLineChartCell.valueArray = self.dataModel.reservationValueArray;
+            
         }
         
         [normalLineChartCell refreshUI];
@@ -88,15 +133,20 @@
 //                NSLog(@"---%li",tag);
             }];
         }
-        NSArray *ary_1 = @[@"22",@"44",@"15",@"40",@"42",@"25",@"15",@"30",@"42",@"32",@"40"];
+//        NSArray *ary_1 = @[@"22",@"44",@"15",@"40",@"42",@"25",@"15",@"30",@"42",@"32",@"40"];
+//        
+//        canClickBarChartCell.xTitleArray = @[ @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日", @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日" ];
+//        canClickBarChartCell.valueArray = @[ ary_1 ];
         
-        canClickBarChartCell.xTitleArray = @[ @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日", @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日" ];
-        canClickBarChartCell.valueArray = @[ ary_1 ];
-        canClickBarChartCell.xTitleMarkWordString = @"周";
-        canClickBarChartCell.yTitleMarkWordString = @"年";
         canClickBarChartCell.titleLabel.text = @"教练授课";
         canClickBarChartCell.markLabel.text = @"详情";
         canClickBarChartCell.markImageView.image = [UIImage imageNamed:@"xq"];
+        canClickBarChartCell.xTitleMarkWordString = @"人";
+        canClickBarChartCell.yTitleMarkWordString = @"课";
+        
+        canClickBarChartCell.xTitleArray = self.dataModel.coachCourseXTitleArray;
+        canClickBarChartCell.valueArray = self.dataModel.coachCourseValueArray;
+        
         canClickBarChartCell.tag = indexPath.row;
         [canClickBarChartCell refreshUI];
         return canClickBarChartCell;
@@ -113,19 +163,28 @@
 //                NSLog(@"%li",tag);
             }];
         }
-        NSArray *ary_1 = @[@"22",@"44",@"15",@"40",@"42",@"25",@"15",@"30",@"42",@"32",@"40"];
-        NSArray *ary_2 = @[@"23",@"0",@"5",@"5",@"0",@"4",@"3",@"0",@"4",@"5",@"7"];
-        NSArray *ary_3 = @[@"0",@"0",@"2",@"0",@"0",@"0",@"0",@"0",@"0",@"0",@"0",@"0",@"0" ];
-//        NSArray *ary_4 = @[@"0",@"5",@"3",@"7",@"2",@"9",@"0",@"15",@"5",@"4"];
-        NSArray *ary_4 = @[@"0",@"0",@"0",@"0",@"0",@"1",@"0",@"0",@"0",@"0"];
+//        NSArray *ary_1 = @[@"22",@"44",@"15",@"40",@"42",@"25",@"15",@"30",@"42",@"32",@"40"];
+//        NSArray *ary_2 = @[@"23",@"0",@"5",@"5",@"0",@"4",@"3",@"0",@"4",@"5",@"7"];
+//        NSArray *ary_3 = @[@"0",@"0",@"2",@"0",@"0",@"0",@"0",@"0",@"0",@"0",@"0",@"0",@"0" ];
+////        NSArray *ary_4 = @[@"0",@"5",@"3",@"7",@"2",@"9",@"0",@"15",@"5",@"4"];
+//        NSArray *ary_4 = @[@"0",@"0",@"0",@"0",@"0",@"1",@"0",@"0",@"0",@"0"];
         
-        canClickLineChartCell.xTitleArray = @[ @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日", @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日" ];
-        canClickLineChartCell.valueArray = @[ ary_1, ary_2, ary_3, ary_4 ];
-        canClickLineChartCell.xTitleMarkWordString = @"周";
-        canClickLineChartCell.yTitleMarkWordString = @"年";
+//        canClickLineChartCell.xTitleArray = @[ @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日", @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日" ];
+//        canClickLineChartCell.valueArray = @[ ary_1, ary_2, ary_3, ary_4 ];
+        
         canClickLineChartCell.titleLabel.text = @"评价";
         canClickLineChartCell.markLabel.text = @"详情";
         canClickLineChartCell.markImageView.image = [UIImage imageNamed:@"xq"];
+        
+        canClickLineChartCell.xTitleMarkWordString = @"周";
+        canClickLineChartCell.yTitleMarkWordString = @"个";
+        
+        canClickLineChartCell.xTitleArray = self.dataModel.evaluateXTitleArray;
+        canClickLineChartCell.valueArray = @[ self.dataModel.goodValueArray,
+                                               self.dataModel.generalValueArray,
+                                               self.dataModel.badValueArray,
+                                              self.dataModel.complaintValueArray ];
+        
         canClickLineChartCell.tag = indexPath.row;
         [canClickLineChartCell refreshUI];
         return canClickLineChartCell;

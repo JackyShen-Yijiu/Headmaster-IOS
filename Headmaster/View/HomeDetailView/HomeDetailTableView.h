@@ -7,13 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HomeDetailTableViewDataModel.h"
 
 @interface HomeDetailTableView : UITableView
 
 @property (nonatomic, assign) kDateSearchType searchType;
 
+// 存储显示的数据列表
+@property (nonatomic, strong) HomeDetailTableViewDataModel *dataModel;
+
 - (void)setCoachTeacherClickBlock:(void(^)(NSInteger tag))handle;
 
 - (void)setEvaluationClickBlock:(void(^)(NSInteger tag))handle;
+
+// 刷新数据的方法
+- (void)refreshUI;
+
+// 请求网络数据的方法
+- (void)networkRequest;
 
 @end

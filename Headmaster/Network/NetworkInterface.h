@@ -18,6 +18,9 @@
 /* 首页 */
 #define HOME @"headmaster/statistics/getmainpagedata"
 
+/* 首页更多数据 */
+#define HOME_DATA_DETAIL @"headmaster/statistics/getmoredata"
+
 /* 资讯相关 */
 #define INFORMATION_LIST            @"headmaster/info/getnews"
 
@@ -31,9 +34,6 @@
 /* 发布公告 */
 
 #define PUBLISHMESSAGE              @"headmaster/userinfo/publishbulletin"
-
-/* 获得更多数据 */
-#define MoreData_List @"headmaster/statistics/getmoredata"
 
 /*  获得天气数据 */
 #define WEATHERDATA @"headmaster/info/getweather"

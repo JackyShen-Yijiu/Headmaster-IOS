@@ -101,7 +101,6 @@
                             success:(NetworkSuccessBlock)success
                             failure:(NetworkFailureBlock)failure;
 /**
-<<<<<<< HEAD
  *  首页
  *
  *  @param searchType 查询的类型（昨天、今天、本周）
@@ -118,7 +117,7 @@
  *
 */
 + (void)moreDataDatilListWithuserid:(NSString *)userid
-                         searchtype:(NSInteger ) searchtype
+                         searchtype:(kDateSearchType ) searchtype
                            schoolid:(NSString *)schoolid
                             success:(NetworkSuccessBlock)success
                             failure:(NetworkFailureBlock)failure;
