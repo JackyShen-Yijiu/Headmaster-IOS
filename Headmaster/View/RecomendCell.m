@@ -248,9 +248,12 @@
     CGFloat spacing = 10.f;
     CGFloat offsetX =( self.width - (self.courseType.width + self.courseName.width + spacing))/2.f;
     self.courseType.left = offsetX;
-    self.courseType.centerY = self.coaButton.centerY;
+//    self.courseType.centerY = self.coaButton.centerY;
+    self.courseType.top = 50;
     self.courseName.left = self.courseType.right + spacing;
-    self.courseName.centerY = self.coaButton.centerY;
+//    self.courseName.centerY = self.coaButton.centerY;
+    self.courseName.top = 50
+    ;
 }
 
 #pragma mark - Data
