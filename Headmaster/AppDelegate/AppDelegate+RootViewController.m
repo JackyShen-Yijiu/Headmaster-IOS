@@ -12,6 +12,7 @@
 #import "MenuController.h"
 #import "DVVTabBarController.h"
 #import "RecommendViewController.h"
+#import "RecommendViewController.h"
 
 @implementation AppDelegate (RootViewController)
 
@@ -19,7 +20,7 @@
     
     NSArray *controllerArray = @[ @"HomeController",
                                   @"InformationController",
-                                  @"RecommendViewController" ];
+                                  @"RecommendViewController"];
     
     NSArray *titleArray = @[ @"数据概览", @"资讯", @"消息" ];
     
