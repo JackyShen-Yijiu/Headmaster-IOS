@@ -16,9 +16,11 @@
     // Initialization code
 }
 - (IBAction)buttonClick:(UIButton *)sender {
-    if (_deleteCell) {
-        _deleteCell();
-    }
+    ToastAlertView *tav = [[ToastAlertView alloc] initWithTitle:@"暂未开放此功能"];
+    [tav show];
+//    if (_deleteCell) {
+//        _deleteCell();
+//    }
 }
 
 - (void)adaptHeightWithString:(NSString *)str {

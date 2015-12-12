@@ -50,7 +50,8 @@
     // 添加引导页
 //    [YBWelcomeController removeSavedVersion]; // 测试引导页时打开注释
     if ([YBWelcomeController isShowWelcome]) {
-        [YBWelcomeController show];
+        // 当需要引导页时打开注释
+//        [YBWelcomeController show];
     }
     return YES;
 }

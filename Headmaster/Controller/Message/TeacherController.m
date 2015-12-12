@@ -119,6 +119,11 @@
             NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
             if (type == 1) {
                 ws.dataSource = [[BaseModelMethod getTeacherListArrayFormDicInfo:[responseObject objectArrayForKey:@"data"]] mutableCopy];
+                if (ws.dataSource.count == 0) {
+                    ToastAlertView *tav = [[ToastAlertView alloc] initWithTitle:@"无此教练"];
+                    [tav show];
+                    
+                }
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [ws.tableView.refreshHeader endRefreshing];
                     [ws.tableView reloadData];
@@ -175,6 +180,7 @@
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     [searchBar resignFirstResponder];
+    [self.tableView.refreshHeader beginRefreshing];
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
@@ -187,7 +193,7 @@
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
 {
     self.searchKey = [searchBar.text copy];
-    [self.tableView.refreshHeader beginRefreshing];
+    
     searchBar.text = @"";
     [searchBar resignFirstResponder];
     [searchBar setShowsCancelButton:NO animated:YES];

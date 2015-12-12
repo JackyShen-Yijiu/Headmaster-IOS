@@ -19,6 +19,9 @@
         
         NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:dictionary];
         NSDictionary *dic  = [dict objectForKey:@"data"];
+        if ([dic count] == 0 ) {
+            return nil;
+        }
         NSArray *keyArray = [dic allKeys];
         NSMutableArray *marray = [NSMutableArray array];
         for (NSString *key  in keyArray)
