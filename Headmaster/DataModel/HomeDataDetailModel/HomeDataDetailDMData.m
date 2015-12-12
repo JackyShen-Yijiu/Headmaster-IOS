@@ -1,3 +1,4 @@
+
 //
 //	HomeDataDetailDMData.m
 //	Model file Generated using JSONExport: https://github.com/Ahmed-Ali/JSONExport
@@ -20,6 +21,7 @@
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
 	self = [super init];
+    NSLog(@"---%@",dictionary);
 	if([dictionary objectArrayForKey:@"applystuentlist"]){
 		NSArray * applystuentlistDictionaries = dictionary[@"applystuentlist"];
 		NSMutableArray * applystuentlistItems = [NSMutableArray array];
@@ -74,7 +76,7 @@
 		}
 		self.goodcommentlist = goodcommentlistItems;
 	}
-	if([dictionary objectArrayForKey:@"goodcommentlist"]){
+	if([dictionary objectArrayForKey:@"reservationstudentlist"]){
 		NSArray * reservationstudentlistDictionaries = dictionary[@"reservationstudentlist"];
 		NSMutableArray * reservationstudentlistItems = [NSMutableArray array];
 		for(NSDictionary * reservationstudentlistDictionary in reservationstudentlistDictionaries){

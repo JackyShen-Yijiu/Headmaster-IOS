@@ -70,7 +70,8 @@
         
     } failure:^(NSError *failure) {
         
-        
+        ToastAlertView *toastView = [[ToastAlertView alloc] initWithTitle:@"网络错误!"];
+        [toastView show];
     }];
 }
 

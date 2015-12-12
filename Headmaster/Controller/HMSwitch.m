@@ -58,7 +58,7 @@
 
 - (void)handleTapTapGestureRecognizerEvent:(UITapGestureRecognizer *)recognizer
 {
-    if (self.isOn) {
+    if (!self.isOn) {
         return;
     }
     if (recognizer.state == UIGestureRecognizerStateEnded) {

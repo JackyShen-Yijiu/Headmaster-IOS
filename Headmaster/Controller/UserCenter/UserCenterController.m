@@ -8,6 +8,7 @@
 
 #import "UserCenterController.h"
 #import "LoginController.h"
+#import "APService.h"
 
 @interface UserCenterController () <UITableViewDataSource,UITableViewDelegate>
 
@@ -82,9 +83,18 @@
             _hideMenu();
         }
     };
+    //极光推送设置alias
+    [APService setAlias:[UserInfoModel defaultUserInfo].userID callbackSelector:@selector(tagsAliasCallback:tags:alias:) object:nil];
     //友盟统计账号登出
     [MobClick profileSignOff];
     [self.navigationController pushViewController:lc animated:YES];
+}
+
+-(void)tagsAliasCallback:(int)iResCode
+                    tags:(NSSet*)tags
+                   alias:(NSString*)alias
+{
+    NSLog(@"rescode: %d, \ntags: %@, \nalias: %@\n", iResCode, tags , alias);
 }
 
 #pragma mark - lazy load

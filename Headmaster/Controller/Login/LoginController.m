@@ -11,6 +11,7 @@
 #import "DVVTabBarController.h"
 #import "MenuController.h"
 #import "UserCenterController.h"
+#import "APService.h"
 
 
 #define h_center self.view.center
@@ -240,6 +241,9 @@
             [loginInfo setValue:[_passwordTF.text MD5Digest]forKey:@"md5Pass"];
             [[UserInfoModel defaultUserInfo] loginViewDic:loginInfo];
             
+            //极光推送设置alias
+            [APService setAlias:[UserInfoModel defaultUserInfo].userID callbackSelector:@selector(tagsAliasCallback:tags:alias:) object:nil];
+            
             //友盟账号统计
             [MobClick profileSignInWithPUID:_phoneTF.text];
             
@@ -262,6 +266,13 @@
         [toastView show];
     }];
 
+}
+
+-(void)tagsAliasCallback:(int)iResCode
+                    tags:(NSSet*)tags
+                   alias:(NSString*)alias
+{
+    NSLog(@"rescode: %d, \ntags: %@, \nalias: %@\n", iResCode, tags , alias);
 }
 
 - (void)callNum {

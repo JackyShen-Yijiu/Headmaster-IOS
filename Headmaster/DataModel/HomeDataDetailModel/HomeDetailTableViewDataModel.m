@@ -113,9 +113,9 @@
             }
             
             // 投诉
-            for (HomeDataDetailDMBadcommentlist *item in detailRootClass.data.complaintlist) {
+            for (HomeDataDetailDMComplaintlist *item in detailRootClass.data.complaintlist) {
                 [complaintXtitleArray addObject:@(item.hour)];
-                [complaintArray addObject:@(item.commnetcount)];
+                [complaintArray addObject:@(item.complaintcount)];
 //                [complaintDic setObject:@(item.commnetcount) forKey:@(item.hour)];
             }
             
@@ -133,7 +133,11 @@
                 [tempDict setObject:@1 forKey:complaintXtitleArray[i]];
             }
             
+//            for (NSString *itemKey in tempDict.allKeys) {
+//                NSLog(@"===%@",itemKey);
+//            }
             self.evaluateXTitleArray = tempDict.allKeys;
+//            self.evaluateXTitleArray = @[ @"ssa", @"df" ];
             self.goodValueArray = goodArray;
             self.generalValueArray = generalArray;
             self.badValueArray = badArray;

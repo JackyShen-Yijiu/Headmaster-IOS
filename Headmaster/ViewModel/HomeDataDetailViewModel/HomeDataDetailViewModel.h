@@ -13,6 +13,6 @@
 
 @property (nonatomic, assign) kDateSearchType searchType;
 
-@property (nonatomic, strong) HomeDetailTableViewDataModel *dataModel;
+@property (atomic, strong) HomeDetailTableViewDataModel *dataModel;
 
 @end

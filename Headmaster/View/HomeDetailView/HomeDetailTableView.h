@@ -13,9 +13,6 @@
 
 @property (nonatomic, assign) kDateSearchType searchType;
 
-// 存储显示的数据列表
-@property (nonatomic, strong) HomeDetailTableViewDataModel *dataModel;
-
 - (void)setCoachTeacherClickBlock:(void(^)(NSInteger tag))handle;
 
 - (void)setEvaluationClickBlock:(void(^)(NSInteger tag))handle;

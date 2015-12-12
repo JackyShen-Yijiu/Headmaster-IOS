@@ -89,8 +89,6 @@
 //        apnsCertName = @"pordXZPush";
 //    #endif
     
-    
-    
     apnsCertName = @"dis_apns";
     [[EaseSDKHelper shareHelper] easemobApplication:application
                       didFinishLaunchingWithOptions:launchOptions
@@ -111,6 +109,7 @@
 
 #pragma mark - Nofitication
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    NSLog(@"%@",deviceToken);
     [APService registerDeviceToken:deviceToken];
     [[EaseMob sharedInstance] application:application didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
     NSString *token = [NSString stringWithFormat:@"%@",deviceToken];

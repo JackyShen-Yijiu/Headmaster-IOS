@@ -344,6 +344,7 @@
 
 - (void)switchButtonDidValueChanged:(UISwitch *)switchbutton
 {
+    
     if ([self.model isKindOfClass:[HMComplainModel class]]) {
         HMComplainModel * model = (HMComplainModel *)self.model;
         if (model.isDealDone != switchbutton.isOn) {

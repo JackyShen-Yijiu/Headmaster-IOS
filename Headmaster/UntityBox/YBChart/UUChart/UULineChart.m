@@ -204,7 +204,7 @@
     for (int i=0; i<_yValues.count; i++) {
         NSArray *childAry = _yValues[i];
         if (childAry.count==0) {
-            return;
+            continue ;
         }
         //获取最大最小位置
         CGFloat max = [childAry[0] floatValue];

@@ -11,6 +11,7 @@
 #import "RefreshTableView.h"
 #import "PublishViewModel.h"
 #import "BaseModelMethod.h"
+#import "NSString+Helper.h"
 
 #define h_size [UIScreen mainScreen].bounds.size
 
@@ -403,6 +404,11 @@
 }
 
 - (void)publishBtnClick {
+    if ([[_tv.text trimString] isEqualToString:@""]) {
+        ToastAlertView *toastView = [[ToastAlertView alloc] initWithTitle:@"请输入内容!"];
+        [toastView show];
+        return ;
+    }
     [_tv resignFirstResponder];
     [_viewModel needPublishMessageWithContentStr:_tv.text WithType:[NSString stringWithFormat:@"%d",_isCoachBtn]];
     _tv.text = @"";

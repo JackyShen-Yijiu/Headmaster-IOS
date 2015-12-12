@@ -38,7 +38,6 @@
         
         self.viewModel = [HomeDataDetailViewModel new];
         [self.viewModel successRefreshBlock:^{
-            self.dataModel = self.viewModel.dataModel;
             [self refreshUI];
             self.successRequest = 1;
         }];
@@ -78,10 +77,10 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    if (self.dataModel.applyXTitleArray.count && self.dataModel.reservationXTitleArray.count && self.dataModel.coachCourseXTitleArray && self.dataModel.evaluateXTitleArray) {
-        return 4;
-    }
-    return 0;
+//    if (self.dataModel.applyXTitleArray.count && self.dataModel.reservationXTitleArray.count && self.dataModel.coachCourseXTitleArray && self.dataModel.evaluateXTitleArray) {
+//        return 4;
+//    }
+    return 4;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -99,27 +98,30 @@
         
         if (indexPath.row == 0) {
             normalLineChartCell.titleLabel.text = @"招生";
-            normalLineChartCell.markLabel.text = [NSString stringWithFormat:@"共%li人",self.dataModel.appleStudentCount];;
             normalLineChartCell.xTitleMarkWordString = @"天";
             normalLineChartCell.yTitleMarkWordString = @"人";
             
-            normalLineChartCell.xTitleArray = self.dataModel.applyXTitleArray;
-            normalLineChartCell.valueArray = self.dataModel.applyValueArray;
+            if (self.viewModel.dataModel.applyXTitleArray.count) {
+                normalLineChartCell.markLabel.text = [NSString stringWithFormat:@"共%li人",self.viewModel.dataModel.appleStudentCount];;
+                normalLineChartCell.xTitleArray = self.viewModel.dataModel.applyXTitleArray;
+                normalLineChartCell.valueArray = @[ self.viewModel.dataModel.applyValueArray ];
+                [normalLineChartCell refreshUI];
+            }
             
             
         }else {
             normalLineChartCell.titleLabel.text = @"约课";
-            normalLineChartCell.markLabel.text = [NSString stringWithFormat:@"共%li人",self.dataModel.reservationStudentCount];;
             normalLineChartCell.xTitleMarkWordString = @"时";
             normalLineChartCell.yTitleMarkWordString = @"人";
             
-            normalLineChartCell.xTitleArray = self.dataModel.reservationXTitleArray;
-            normalLineChartCell.valueArray = self.dataModel.reservationValueArray;
+            if (self.viewModel.dataModel.reservationXTitleArray.count) {
+                normalLineChartCell.markLabel.text = [NSString stringWithFormat:@"共%li人",self.viewModel.dataModel.reservationStudentCount];
+                normalLineChartCell.xTitleArray = self.viewModel.dataModel.reservationXTitleArray;
+                normalLineChartCell.valueArray = @[ self.viewModel.dataModel.reservationValueArray ];
+                [normalLineChartCell refreshUI];
+            }
             
         }
-        
-        [normalLineChartCell refreshUI];
-        
         return normalLineChartCell;
     } else if(indexPath.row == 2){
         static NSString *kCanClickBarChartCellId = @"lineCanClickCell";
@@ -133,10 +135,6 @@
 //                NSLog(@"---%li",tag);
             }];
         }
-//        NSArray *ary_1 = @[@"22",@"44",@"15",@"40",@"42",@"25",@"15",@"30",@"42",@"32",@"40"];
-//        
-//        canClickBarChartCell.xTitleArray = @[ @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日", @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日" ];
-//        canClickBarChartCell.valueArray = @[ ary_1 ];
         
         canClickBarChartCell.titleLabel.text = @"教练授课";
         canClickBarChartCell.markLabel.text = @"详情";
@@ -144,11 +142,12 @@
         canClickBarChartCell.xTitleMarkWordString = @"人";
         canClickBarChartCell.yTitleMarkWordString = @"课";
         
-        canClickBarChartCell.xTitleArray = self.dataModel.coachCourseXTitleArray;
-        canClickBarChartCell.valueArray = self.dataModel.coachCourseValueArray;
-        
+        if (self.viewModel.dataModel.coachCourseXTitleArray.count) {
+            canClickBarChartCell.xTitleArray = self.viewModel.dataModel.coachCourseXTitleArray;
+            canClickBarChartCell.valueArray = @[ self.viewModel.dataModel.coachCourseValueArray ];
+            [canClickBarChartCell refreshUI];
+        }
         canClickBarChartCell.tag = indexPath.row;
-        [canClickBarChartCell refreshUI];
         return canClickBarChartCell;
     }else {
         static NSString *kCanClickLineChartCellId = @"lineCanClickCell";
@@ -179,14 +178,20 @@
         canClickLineChartCell.xTitleMarkWordString = @"周";
         canClickLineChartCell.yTitleMarkWordString = @"个";
         
-        canClickLineChartCell.xTitleArray = self.dataModel.evaluateXTitleArray;
-        canClickLineChartCell.valueArray = @[ self.dataModel.goodValueArray,
-                                               self.dataModel.generalValueArray,
-                                               self.dataModel.badValueArray,
-                                              self.dataModel.complaintValueArray ];
+        if (self.viewModel.dataModel.evaluateXTitleArray.count) {
+            
+//            canClickLineChartCell.xTitleArray = self.viewModel.dataModel.evaluateXTitleArray;
+            canClickLineChartCell.xTitleArray = @[ @"16",@"2" ];
+
+            canClickLineChartCell.valueArray = @[ self.viewModel.dataModel.goodValueArray,
+                                                  self.viewModel.dataModel.generalValueArray,
+                                                  self.viewModel.dataModel.badValueArray,
+                                                  self.viewModel.dataModel.complaintValueArray ];
+//            canClickLineChartCell.valueArray = @[ @[@"1"],@[@"6"],@[@"3"]];
+            [canClickLineChartCell refreshUI];
+        }
         
         canClickLineChartCell.tag = indexPath.row;
-        [canClickLineChartCell refreshUI];
         return canClickLineChartCell;
     }
 }
