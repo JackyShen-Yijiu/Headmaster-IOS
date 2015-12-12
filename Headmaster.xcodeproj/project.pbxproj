@@ -50,6 +50,8 @@
 		55BA0F5D1C0EFA8100F83CD8 /* PublishCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55BA0F5B1C0EFA8100F83CD8 /* PublishCell.xib */; };
 		55FDE40A1C0FC5C700329F17 /* InformationDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FDE4091C0FC5C700329F17 /* InformationDetailController.m */; };
 		92A9E5D7EE3DDE4857910BA1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95191FB6D2020B2944026A70 /* libPods.a */; };
+		B838C24B1C1B0AB800493360 /* ProjectGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = B838C24A1C1B0AB800493360 /* ProjectGuideView.m */; };
+		B838C24E1C1B0B1B00493360 /* SMPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B838C24D1C1B0B1B00493360 /* SMPageControl.m */; };
 		B8771AFA1C0976200051DE9D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B8771AF91C0976200051DE9D /* main.m */; };
 		B8771B0B1C0976200051DE9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8771B0A1C0976200051DE9D /* Assets.xcassets */; };
 		B8771CFC1C098DE40051DE9D /* EMAudioPlayerUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = B8771B4C1C098DE30051DE9D /* EMAudioPlayerUtil.m */; };
@@ -474,6 +476,10 @@
 		948A09C6A9F41BA727FBB910 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		95191FB6D2020B2944026A70 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3E14DCC66DCDB782D0DD66F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		B838C2491C1B0AB800493360 /* ProjectGuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectGuideView.h; sourceTree = "<group>"; };
+		B838C24A1C1B0AB800493360 /* ProjectGuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectGuideView.m; sourceTree = "<group>"; };
+		B838C24C1C1B0B1B00493360 /* SMPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPageControl.h; sourceTree = "<group>"; };
+		B838C24D1C1B0B1B00493360 /* SMPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPageControl.m; sourceTree = "<group>"; };
 		B8771AF51C0976200051DE9D /* 一步校长.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "一步校长.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8771AF91C0976200051DE9D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B8771B0A1C0976200051DE9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -1163,6 +1169,17 @@
 			path = UserCenter;
 			sourceTree = "<group>";
 		};
+		B838C2481C1B0AB800493360 /* FunctionGuide */ = {
+			isa = PBXGroup;
+			children = (
+				B838C2491C1B0AB800493360 /* ProjectGuideView.h */,
+				B838C24A1C1B0AB800493360 /* ProjectGuideView.m */,
+				B838C24C1C1B0B1B00493360 /* SMPageControl.h */,
+				B838C24D1C1B0B1B00493360 /* SMPageControl.m */,
+			);
+			path = FunctionGuide;
+			sourceTree = "<group>";
+		};
 		B8771AEC1C09761F0051DE9D = {
 			isa = PBXGroup;
 			children = (
@@ -1187,6 +1204,7 @@
 			isa = PBXGroup;
 			children = (
 				D9CEC8E81C0E8C83008DEE69 /* AppDelegate */,
+				B838C2481C1B0AB800493360 /* FunctionGuide */,
 				D9CEC8FF1C0E8CF7008DEE69 /* DataModel */,
 				D9CEC9091C0E8CF7008DEE69 /* View */,
 				D9CEC8F21C0E8CF7008DEE69 /* Controller */,
@@ -3095,12 +3113,14 @@
 				D9CEC9801C0ED6A6008DEE69 /* InformationController.m in Sources */,
 				B8771DC91C098DE40051DE9D /* EaseMessageViewController.m in Sources */,
 				D92297481C10439200D0FFDF /* UUColor.m in Sources */,
+				B838C24B1C1B0AB800493360 /* ProjectGuideView.m in Sources */,
 				D9CEC97A1C0ED643008DEE69 /* UIImageView+SDWedImage.m in Sources */,
 				D9D2DF8B1C17D619005DB212 /* HomeDetailTableView.m in Sources */,
 				B8771DD11C098DE40051DE9D /* NSObject+EaseMob.m in Sources */,
 				B8771DE51C098DE40051DE9D /* EaseBubbleView+Location.m in Sources */,
 				B8771DCC1C098DE40051DE9D /* EaseConversationModel.m in Sources */,
 				B8771DE81C098DE40051DE9D /* EaseBubbleView+Voice.m in Sources */,
+				B838C24E1C1B0B1B00493360 /* SMPageControl.m in Sources */,
 				B8771D2B1C098DE40051DE9D /* UIImageView+EMWebCache.m in Sources */,
 				D92296C91C0FD2FF00D0FFDF /* HomeSeeTimeView.m in Sources */,
 				D922974D1C10439200D0FFDF /* YBPieChartView.m in Sources */,
