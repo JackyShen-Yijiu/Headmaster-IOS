@@ -167,6 +167,7 @@
 
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
 {
+    searchBar.placeholder = @"";
     [searchBar setShowsCancelButton:YES animated:YES];
     return YES;
 }
@@ -190,6 +191,9 @@
     searchBar.text = @"";
     [searchBar resignFirstResponder];
     [searchBar setShowsCancelButton:NO animated:YES];
+    if ([searchBar.text isEqualToString:@""]) {
+        searchBar.placeholder = @"搜索";
+    }
 }
 
 #pragma mark - DataSource

@@ -344,6 +344,10 @@
     }
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [_tv resignFirstResponder];
+}
+
 #pragma mark ----textViewDelegate
 
 - (void)textViewDidBeginEditing:(UITextView *)textView {

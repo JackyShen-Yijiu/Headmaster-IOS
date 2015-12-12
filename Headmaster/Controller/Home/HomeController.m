@@ -26,7 +26,6 @@
 #import "HomeProgressView.h"
 #import "RecommendViewController.h"
 
-
 @interface HomeController () <BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate>
 
 @property (nonatomic, strong) HomeTopView *topView;
@@ -52,7 +51,6 @@
 @property (nonatomic,strong) NSString *temperatureStr;
 
 @property (nonatomic,strong) NSString *weatherUrl;
-
 
 @end
 
@@ -96,10 +94,6 @@
     // 加载地图用于定位,展示天气信息
     [self addMap];
 
-    // 加载天气数据
-    [self addWeatherData];
-    
-    
     // Do any additional setup after loading the view.
     [self addBackgroundImage];
     
@@ -158,7 +152,7 @@
 - (void)addWeatherData
 {
     _weatherViewModel = [[WeatherViewModel alloc] init];
-    [_weatherViewModel networkRequestNeedUpRefreshWithCityName:@"北京市"];
+    [_weatherViewModel networkRequestNeedUpRefreshWithCityName:_cityName];
     [_weatherViewModel successRefreshBlock:^{
         HomeWeatherModel *homeModel = [_weatherViewModel.weatherArray lastObject];
         
@@ -212,10 +206,6 @@
         {
             self.WeatherimageViewWeather.image = [UIImage imageNamed:@"霾"];
         }
-
-
-        
-//        [self.WeatherimageViewWeather downloadImage:homeModel.weather_pic];
     }];
     
 }
@@ -338,16 +328,6 @@
     }
     return _WeatherimageViewWeather;
 }
-
-
-
-
-
-
-
-
-
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -376,28 +356,24 @@
 //处理位置坐标更新
 - (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
 {
+    
+    if (_cityName.length) {
+        return;
+    }
     NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
     
-    NSString *str = [NSString stringWithFormat:@"http://api.map.baidu.com/geocoder/v2/?ak=2T3GAuxuKLNpqrsKT8NjAAgk&callback=renderReverse&location=%f,%f&output=json&pois=1",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude];
-//    NSURL *url = [NSURL URLWithString:str];
+    NSString *str = [NSString stringWithFormat:@"http://api.map.baidu.com/geocoder/v2/?ak=2T3GAuxuKLNpqrsKT8NjAAgk&location=%f,%f&output=json&pois=1",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:str parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-    NSArray *keyStr = [responseObject allObjects];
-        for (NSString *key  in keyStr) {
-            if ([key isEqualToString:@"addressComponent"]) {
-                NSDictionary *dic = [responseObject objectForKey:key];
-                _cityName = [dic objectForKey:@"city"];
-            
-            }
-        }
-
+        NSDictionary *result = [responseObject objectInfoForKey:@"result"];
+        NSDictionary *addressComponent = [result objectInfoForKey:@"addressComponent"];
+        _cityName = [addressComponent objectStringForKey:@"city"];
+        [self addWeatherData];
+       
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
-        NSLog(@"%@",error);
     }];
-    
-    
-    
 }
+
 
 - (void)didFailToLocateUserWithError:(NSError *)error
 {

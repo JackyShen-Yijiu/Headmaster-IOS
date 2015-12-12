@@ -16,7 +16,7 @@
 #import "YBWelcomeController.h"
 #import "AppDelegate+RootViewController.h"
 #import "LoginController.h"
-
+#import "ProjectGuideView.h"
 
 @interface AppDelegate ()<LoginControllerDelegate>
 @property(nonatomic,strong)HMNagationController * navController;
@@ -100,6 +100,7 @@
     
     [APService setupWithOption:launchOptions];
 }
+
 
 #pragma mark - Nofitication
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {

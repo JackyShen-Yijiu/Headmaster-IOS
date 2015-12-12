@@ -14,6 +14,9 @@
 - (void)networkRequestNeedUpRefreshWithCityName:(NSString *)cityName {
     
     [NetworkEntity weatherDataListWithcityname:cityName success:^(id responseObject) {
+        if (!responseObject) {
+            return ;
+        }
         HomeWeatherModelRootClass *rootDataModel = [[HomeWeatherModelRootClass alloc] initWithJsonDict:responseObject];
         _weatherArray = [[NSMutableArray alloc] initWithArray:rootDataModel.data];
          [self successRefreshBlock];

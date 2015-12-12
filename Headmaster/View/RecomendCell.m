@@ -69,7 +69,7 @@
     label.textAlignment = NSTextAlignmentLeft;
     label.numberOfLines = 0;
     label.lineBreakMode = NSLineBreakByCharWrapping;
-    label.textColor = RGB_Color(0x99, 0x99, 0x99);
+    label.textColor = RGB_Color(0xbf, 0xbf, 0xbf);
     return label;
 
 }
@@ -149,7 +149,8 @@
     
     
     self.recomendTime = [self getOnePropertyLabel];
-    self.recomendTime.textColor = RGB_Color(0x99, 0x99, 0x99);
+//    self.recomendTime.textColor = RGB_Color(0x99, 0x99, 0x99);
+    self.recomendTime.textColor = RGB_Color(0xbf, 0xbf, 0xbf);
     [self.contentView addSubview:self.recomendTime];
     
     [self updateConstraints];
@@ -247,9 +248,12 @@
     CGFloat spacing = 10.f;
     CGFloat offsetX =( self.width - (self.courseType.width + self.courseName.width + spacing))/2.f;
     self.courseType.left = offsetX;
-    self.courseType.centerY = self.coaButton.centerY;
+//    self.courseType.centerY = self.coaButton.centerY;
+    self.courseType.top = 50;
     self.courseName.left = self.courseType.right + spacing;
-    self.courseName.centerY = self.coaButton.centerY;
+//    self.courseName.centerY = self.coaButton.centerY;
+    self.courseName.top = 50
+    ;
 }
 
 #pragma mark - Data
@@ -276,7 +280,10 @@
     
     self.recomendContent.attributedText = [[self class] addLineSpacing:_model.recomendContent];
     
-    self.recomendTime.text = _model.recomendDate;
+    
+    NSArray *array = [_model.recomendDate componentsSeparatedByString:@"T"];
+    self.recomendTime.text = array[0];    
+//    self.recomendTime.text = _model.recomendDate;
 
     [self.rateView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(@(146));

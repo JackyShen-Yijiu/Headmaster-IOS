@@ -10,6 +10,8 @@
 
 #import "YBPieChartView.h"
 
+#define ADAPTERWIDTH [UIScreen mainScreen].bounds.size.width/375
+
 @interface IconLabel : UIView
 @property(nonatomic,strong)UILabel * label;
 @property(nonatomic,strong)UIImageView * icon;
@@ -121,19 +123,19 @@
     
     
     [self.charView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self).offset(47);
+        make.left.equalTo(self).offset(47*ADAPTERWIDTH);
         make.top.equalTo(self).offset(66);
         make.size.mas_equalTo(CGSizeMake(128, 128));
     }];
     
     [self.midRecomend mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self).offset(-70.f);
+        make.right.equalTo(self).offset(-70.f*ADAPTERWIDTH);
         make.size.mas_equalTo(CGSizeMake(75, 23.f));
         make.centerY.equalTo(self.charView);
     }];
     
     [self.higRecomend mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self).offset(-70.f);
+        make.right.equalTo(self).offset(-70.f*ADAPTERWIDTH);
         make.size.equalTo(self.midRecomend);
         make.bottom.equalTo(self.midRecomend.mas_top).offset(-18.f);
     }];
