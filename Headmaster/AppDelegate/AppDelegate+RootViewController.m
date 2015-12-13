@@ -51,7 +51,7 @@
     sideViewController = [[RESideMenu alloc] initWithContentViewController:naviController leftMenuViewController:sideVC rightMenuViewController:nil];
     sideViewController.backgroundImage = [UIImage imageNamed:@""];
     sideViewController.menuPreferredStatusBarStyle = 1;
-    
+    sideViewController.parallaxEnabled = NO;
     //阴影颜色
     sideViewController.contentViewShadowColor = [UIColor blackColor];
     //阴影偏移量
