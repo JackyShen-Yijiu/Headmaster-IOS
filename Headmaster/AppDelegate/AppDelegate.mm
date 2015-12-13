@@ -112,11 +112,6 @@
     NSLog(@"%@",deviceToken);
     [APService registerDeviceToken:deviceToken];
     [[EaseMob sharedInstance] application:application didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
-    NSString *token = [NSString stringWithFormat:@"%@",deviceToken];
-    token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
-    token = [token substringFromIndex:1];
-    token = [token substringToIndex:token.length -1];
-    NSLog(@"%@",token);
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
@@ -127,7 +122,7 @@
 //接受通知
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     if ([self isReciveFromHunaxin:userInfo]) {
-//        [self.navController jumpToMessageList];
+        [self.navController jumpToMessageList];
     }else{
         [APService handleRemoteNotification:userInfo];
     }

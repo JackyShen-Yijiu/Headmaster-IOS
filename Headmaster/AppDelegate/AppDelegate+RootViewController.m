@@ -13,14 +13,15 @@
 #import "DVVTabBarController.h"
 #import "RecommendViewController.h"
 #import "RecommendViewController.h"
+#import "ConversationListController.h"
 
 @implementation AppDelegate (RootViewController)
 
 - (UIViewController *)rootViewController {
-    
+
     NSArray *controllerArray = @[ @"HomeController",
                                   @"InformationController",
-                                  @"RecommendViewController"];
+                                  @"ConversationListController"];
     
     NSArray *titleArray = @[ @"数据概览", @"资讯", @"消息" ];
     

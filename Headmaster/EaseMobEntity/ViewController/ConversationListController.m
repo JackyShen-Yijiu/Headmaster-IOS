@@ -47,7 +47,7 @@ static NSString *kGroupName = @"GroupName";
     self.showRefreshHeader = YES;
     self.delegate = self;
     self.dataSource = self;
-    
+    self.tableView.backgroundColor = [UIColor clearColor];
     [self tableViewDidTriggerHeaderRefresh];
     [self networkStateView];
     [self removeEmptyConversationsFromDB];

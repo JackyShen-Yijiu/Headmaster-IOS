@@ -115,6 +115,11 @@
     }
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(nonnull UITableViewCell *)cell forRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+    cell.backgroundColor = [UIColor clearColor];
+}
+
 #pragma mark - data
 - (void)tableViewDidTriggerHeaderRefresh
 {
