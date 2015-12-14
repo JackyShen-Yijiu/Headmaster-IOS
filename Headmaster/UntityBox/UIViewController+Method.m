@@ -179,3 +179,10 @@
     }
 }
 @end
+
+@implementation UIViewController(sideMenu)
+- (RESideMenu *)slideMenu
+{
+    return (RESideMenu *)[[[[UIApplication sharedApplication] delegate] window] rootViewController];
+}
+@end

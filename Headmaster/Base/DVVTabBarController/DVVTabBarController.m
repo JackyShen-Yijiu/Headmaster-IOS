@@ -9,9 +9,9 @@
 #import "DVVTabBarController.h"
 #import "DVVDockItem.h"
 
-static BOOL loaded = false;
-
 @interface DVVTabBarController ()
+
+@property (nonatomic, assign) BOOL loaded;
 
 // 所有项的图片名字（正常）
 @property (nonatomic, strong) NSArray *iconNormalArray;
@@ -66,7 +66,7 @@ static BOOL loaded = false;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    if (loaded) {
+    if (_loaded) {
         return;
     }
     
@@ -110,7 +110,7 @@ static BOOL loaded = false;
         [self addOneItemWithTitle:_titleArray[i] tag:i];
     }
     
-    loaded = true;
+    _loaded = true;
 }
 
 #pragma mark - 选中一项 method

@@ -9,6 +9,7 @@
 #import "UserCenterController.h"
 #import "LoginController.h"
 #import "APService.h"
+#import "AppDelegate.h"
 
 @interface UserCenterController () <UITableViewDataSource,UITableViewDelegate>
 
@@ -76,18 +77,23 @@
     [ud removeObjectForKey:@"0"];
     [ud removeObjectForKey:@"1"];
     [ud removeObjectForKey:@"2"];
-    LoginController *lc = [LoginController new];
-    lc.dismissController = ^ {
-        [self dismissViewControllerAnimated:YES completion:nil];
-        if (_hideMenu) {
-            _hideMenu();
-        }
-    };
+//    LoginController *lc = [LoginController new];
+//    lc.dismissController = ^ {
+//        [self dismissViewControllerAnimated:YES completion:nil];
+//        if (_hideMenu) {
+//            _hideMenu();
+//        }
+//    };
     //极光推送设置alias
     [APService setAlias:[UserInfoModel defaultUserInfo].userID callbackSelector:@selector(tagsAliasCallback:tags:alias:) object:self];
     //友盟统计账号登出
     [MobClick profileSignOff];
-    [self.navigationController pushViewController:lc animated:YES];
+//    [self.navigationController pushViewController:lc animated:YES];
+    [self dismissViewControllerAnimated:NO completion:^{
+        [[self slideMenu] hideMenuViewController];
+        [[(AppDelegate *)[[UIApplication sharedApplication] delegate] navController] popToRootViewControllerAnimated:NO];
+        
+    }];
 }
 
 -(void)tagsAliasCallback:(int)iResCode

@@ -105,9 +105,8 @@
                 normalLineChartCell.markLabel.text = [NSString stringWithFormat:@"共%li人",self.viewModel.dataModel.appleStudentCount];;
                 normalLineChartCell.xTitleArray = self.viewModel.dataModel.applyXTitleArray;
                 normalLineChartCell.valueArray = @[ self.viewModel.dataModel.applyValueArray ];
-                [normalLineChartCell refreshUI];
             }
-            
+            [normalLineChartCell refreshUI];
             
         }else {
             normalLineChartCell.titleLabel.text = @"约课";
@@ -118,8 +117,8 @@
                 normalLineChartCell.markLabel.text = [NSString stringWithFormat:@"共%li人",self.viewModel.dataModel.reservationStudentCount];
                 normalLineChartCell.xTitleArray = self.viewModel.dataModel.reservationXTitleArray;
                 normalLineChartCell.valueArray = @[ self.viewModel.dataModel.reservationValueArray ];
-                [normalLineChartCell refreshUI];
             }
+            [normalLineChartCell refreshUI];
             
         }
         return normalLineChartCell;
@@ -145,8 +144,9 @@
         if (self.viewModel.dataModel.coachCourseXTitleArray.count) {
             canClickBarChartCell.xTitleArray = self.viewModel.dataModel.coachCourseXTitleArray;
             canClickBarChartCell.valueArray = @[ self.viewModel.dataModel.coachCourseValueArray ];
-            [canClickBarChartCell refreshUI];
         }
+        [canClickBarChartCell refreshUI];
+        
         canClickBarChartCell.tag = indexPath.row;
         return canClickBarChartCell;
     }else {
@@ -188,8 +188,8 @@
                                                   self.viewModel.dataModel.badValueArray,
                                                   self.viewModel.dataModel.complaintValueArray ];
 //            canClickLineChartCell.valueArray = @[ @[@"1"],@[@"6"],@[@"3"]];
-            [canClickLineChartCell refreshUI];
         }
+        [canClickLineChartCell refreshUI];
         
         canClickLineChartCell.tag = indexPath.row;
         return canClickLineChartCell;
