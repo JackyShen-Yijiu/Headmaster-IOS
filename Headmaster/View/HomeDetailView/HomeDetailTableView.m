@@ -98,7 +98,7 @@
         
         if (indexPath.row == 0) {
             normalLineChartCell.titleLabel.text = @"招生";
-            normalLineChartCell.xTitleMarkWordString = @"天";
+            normalLineChartCell.xTitleMarkWordString = @"时";
             normalLineChartCell.yTitleMarkWordString = @"人";
             
             if (self.viewModel.dataModel.applyXTitleArray.count) {
@@ -175,13 +175,13 @@
         canClickLineChartCell.markLabel.text = @"详情";
         canClickLineChartCell.markImageView.image = [UIImage imageNamed:@"xq"];
         
-        canClickLineChartCell.xTitleMarkWordString = @"周";
+        canClickLineChartCell.xTitleMarkWordString = @"时";
         canClickLineChartCell.yTitleMarkWordString = @"个";
         
         if (self.viewModel.dataModel.evaluateXTitleArray.count) {
             
-//            canClickLineChartCell.xTitleArray = self.viewModel.dataModel.evaluateXTitleArray;
-            canClickLineChartCell.xTitleArray = @[ @"16",@"2" ];
+            canClickLineChartCell.xTitleArray = self.viewModel.dataModel.evaluateXTitleArray;
+//            canClickLineChartCell.xTitleArray = @[ @"16",@"2" ];
 
             canClickLineChartCell.valueArray = @[ self.viewModel.dataModel.goodValueArray,
                                                   self.viewModel.dataModel.generalValueArray,

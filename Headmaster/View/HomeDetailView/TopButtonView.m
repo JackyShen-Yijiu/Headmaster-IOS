@@ -34,7 +34,7 @@
 - (void)addTopViewtitle:(NSArray *)titleArray
 {
     CGFloat buttonW = ([UIScreen mainScreen].bounds.size.width - 50) / 5;
-    CGFloat buttonH = 36;
+    CGFloat buttonH = 40;
     
     for (int i = 0; i < 5; i++) {
         // 设置button的基本属性
