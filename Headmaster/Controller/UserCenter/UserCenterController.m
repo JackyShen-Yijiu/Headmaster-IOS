@@ -85,7 +85,7 @@
 //        }
 //    };
     //极光推送设置alias
-    [APService setAlias:[UserInfoModel defaultUserInfo].userID callbackSelector:@selector(tagsAliasCallback:tags:alias:) object:nil];
+    [APService setAlias:[UserInfoModel defaultUserInfo].userID callbackSelector:@selector(tagsAliasCallback:tags:alias:) object:self];
     //友盟统计账号登出
     [MobClick profileSignOff];
 //    [self.navigationController pushViewController:lc animated:YES];

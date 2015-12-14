@@ -242,7 +242,7 @@
             [[UserInfoModel defaultUserInfo] loginViewDic:loginInfo];
             
             //极光推送设置alias
-            [APService setAlias:[UserInfoModel defaultUserInfo].userID callbackSelector:@selector(tagsAliasCallback:tags:alias:) object:nil];
+            [APService setAlias:[UserInfoModel defaultUserInfo].userID callbackSelector:@selector(tagsAliasCallback:tags:alias:) object:self];
             
             //友盟账号统计
             [MobClick profileSignInWithPUID:_phoneTF.text];
