@@ -79,8 +79,20 @@
 - (void)initNavBar
 {
     [self resetNavBar];
-    self.myNavigationItem.title = [NSString stringWithFormat:@"%@评价详情",[self searchTypeString]];
-}
+    if (_commentTag == 0) {
+        self.myNavigationItem.title = [NSString stringWithFormat:@"%@好评详情",[self searchTypeString]];
+    }else if (_commentTag == 1)
+    {
+        self.myNavigationItem.title = [NSString stringWithFormat:@"%@中评详情",[self searchTypeString]];
+    }else if (_commentTag == 2)
+    {
+        self.myNavigationItem.title = [NSString stringWithFormat:@"%@差评详情",[self searchTypeString]];
+    }else if (_commentTag == 3)
+    {
+        self.myNavigationItem.title = [NSString stringWithFormat:@"%@投诉详情",[self searchTypeString]];
+    }
+    
+    }
 
 - (NSString *)searchTypeString
 {
@@ -121,6 +133,7 @@
     
     self.toolView.frame = CGRectMake(25, 0, self.view.bounds.size.width -50, 36);
     self.toolView.backgroundColor = [UIColor clearColor];
+    [_toolView selectedItem:_commentTag + 101];
     [self.view addSubview:self.toolView];
     
     // 添加button上面一条线

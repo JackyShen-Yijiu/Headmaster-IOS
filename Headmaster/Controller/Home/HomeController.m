@@ -108,6 +108,7 @@
         
         RecommendViewController *recommendVC = [RecommendViewController new];
         recommendVC.searchType = self.searchType;
+        recommendVC.commentTag = button.tag;
         [self.myNavController pushViewController:recommendVC animated:YES];
     }];
     
