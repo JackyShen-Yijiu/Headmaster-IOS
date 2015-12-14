@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15A4310" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,7 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="635" height="218"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="635" height="217.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="635" height="217"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defoult_por" translatesAutoresizingMaskIntoConstraints="NO" id="iuF-Pn-b0I">
@@ -111,16 +111,6 @@
                         <color key="textColor" red="0.74901960784313726" green="0.74901960784313726" blue="0.74901960784313726" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pcN-O8-TyA">
-                        <rect key="frame" x="0.0" y="210" width="69" height="2"/>
-                        <animations/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="2" id="tKv-tc-XD1"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
                 <animations/>
                 <constraints>
@@ -131,18 +121,15 @@
                     <constraint firstItem="VEt-OG-tGs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="39" id="7iL-cl-Ulz"/>
                     <constraint firstItem="c91-AX-Lda" firstAttribute="top" secondItem="Lfr-Bx-UTr" secondAttribute="bottom" constant="7" id="AaA-XX-FJf"/>
                     <constraint firstItem="h2X-IB-scG" firstAttribute="top" secondItem="c91-AX-Lda" secondAttribute="bottom" constant="13" id="BW7-WK-6XM"/>
-                    <constraint firstAttribute="trailing" secondItem="pcN-O8-TyA" secondAttribute="trailing" constant="566" id="G0a-cj-cJU"/>
                     <constraint firstItem="g9U-30-IPR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="27" id="G9u-LB-Mq1"/>
                     <constraint firstItem="Sp5-fU-uPN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="Odo-Cv-msl"/>
                     <constraint firstItem="VEt-OG-tGs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="39" id="Orq-Gx-kKv"/>
-                    <constraint firstItem="pcN-O8-TyA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Poa-0D-uvY"/>
                     <constraint firstItem="07s-ha-rcf" firstAttribute="top" secondItem="c91-AX-Lda" secondAttribute="bottom" constant="13" id="QxQ-Rc-ywe"/>
                     <constraint firstAttribute="trailing" secondItem="g9U-30-IPR" secondAttribute="trailing" constant="15" id="S1L-zU-J6w"/>
                     <constraint firstItem="SEc-FG-GFo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="UeL-gN-hB5"/>
                     <constraint firstItem="g9U-30-IPR" firstAttribute="leading" secondItem="Sp5-fU-uPN" secondAttribute="trailing" constant="1" id="Wdm-an-OJN"/>
                     <constraint firstItem="iuF-Pn-b0I" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="ZUq-fv-pUJ"/>
                     <constraint firstItem="Lfr-Bx-UTr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="beT-W2-miA"/>
-                    <constraint firstAttribute="bottom" secondItem="pcN-O8-TyA" secondAttribute="bottom" constant="5" id="ceP-kC-wIn"/>
                     <constraint firstItem="iuF-Pn-b0I" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="g6T-9J-Wa2"/>
                     <constraint firstItem="SEc-FG-GFo" firstAttribute="top" secondItem="VEt-OG-tGs" secondAttribute="bottom" constant="10" id="hhU-rM-PCj"/>
                     <constraint firstItem="Lfr-Bx-UTr" firstAttribute="leading" secondItem="iuF-Pn-b0I" secondAttribute="trailing" constant="30" id="uYe-yV-nDm"/>
@@ -152,7 +139,6 @@
             <animations/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
-                <outlet property="BottomLineLabel" destination="pcN-O8-TyA" id="eTN-Oc-xHc"/>
                 <outlet property="badCommondLabel" destination="GCV-A0-8IQ" id="FoW-EH-CtX"/>
                 <outlet property="buttonIcon" destination="VEt-OG-tGs" id="j1E-WB-Flb"/>
                 <outlet property="complainCommondLabel" destination="h2X-IB-scG" id="Bb5-Gz-BIi"/>
