@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface RecommendViewController : UIViewController
+
+@property (nonatomic,assign) NSInteger commentTag;
 @property(nonatomic,assign)kDateSearchType searchType;
 @end
