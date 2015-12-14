@@ -70,7 +70,7 @@
 - (void)createUI {
     [self.view addSubview:self.tableView];
     self.dataArr = [NSMutableArray arrayWithObjects:@"聊天消息提醒",@"投诉消息提醒",@"新学员报名提醒",@""
-                    ,@"关于我们",@"去评分",@"反馈", nil];
+                    ,@"关于我们",@"反馈", nil];
 }
 
 #pragma mark ----lazy load 
@@ -162,10 +162,6 @@
     if (indexPath.row == 4) {
         [self.navigationController pushViewController:[AboutUsController new] animated:NO];
     }else if (indexPath.row == 5) {
-        NSString *appid = @"";
-        NSString* url = [NSString stringWithFormat: @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%@", appid];
-        [[UIApplication sharedApplication] openURL: [NSURL URLWithString: url]];
-    }else if (indexPath.row == 6) {
         [self.navigationController pushViewController:[FeedbackController new] animated:NO];
     }
     
