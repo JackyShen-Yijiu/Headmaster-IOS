@@ -158,7 +158,7 @@
             xTitleItemString = [NSString stringWithFormat:@"%li:00",value];
             break;
         case kDateSearchTypeWeek:
-            xTitleItemString = [NSString stringWithFormat:@"周%li",value];
+            xTitleItemString = [self getWeekStringWithValue:value];
             break;
         case kDateSearchTypeMonth:
             xTitleItemString = [NSString stringWithFormat:@"第%li周",value];
@@ -170,6 +170,36 @@
             break;
     }
     return xTitleItemString;
+}
+
+- (NSString *)getWeekStringWithValue:(NSUInteger)value {
+    switch (value) {
+        case 1:
+            return @"周一";
+            break;
+        case 2:
+            return @"周二";
+            break;
+        case 3:
+            return @"周三";
+            break;
+        case 4:
+            return @"周四";
+            break;
+        case 5:
+            return @"周五";
+            break;
+        case 6:
+            return @"周六";
+            break;
+        case 7:
+            return @"周日";
+            break;
+            
+        default:
+            return @"";
+            break;
+    }
 }
 
 @end
