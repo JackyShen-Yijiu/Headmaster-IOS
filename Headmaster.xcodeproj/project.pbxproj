@@ -364,6 +364,18 @@
 		D95CE3BE1C12BDD700EF6F75 /* HomeDataModelWeeklyData.m in Sources */ = {isa = PBXBuildFile; fileRef = D95CE3BB1C12BDD700EF6F75 /* HomeDataModelWeeklyData.m */; };
 		D95CE3BF1C12BDD700EF6F75 /* HomeDataModelWeeklyRootClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D95CE3BD1C12BDD700EF6F75 /* HomeDataModelWeeklyRootClass.m */; };
 		D95CE4461C12EB2A00EF6F75 /* HomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D95CE4451C12EB2A00EF6F75 /* HomeViewModel.m */; };
+		D972447C1C1EC3D1002B3FDE /* DataDetailDMMonthCoursedata.m in Sources */ = {isa = PBXBuildFile; fileRef = D97244751C1EC3D1002B3FDE /* DataDetailDMMonthCoursedata.m */; };
+		D972447D1C1EC3D1002B3FDE /* DataDetailDMMonthData.m in Sources */ = {isa = PBXBuildFile; fileRef = D97244771C1EC3D1002B3FDE /* DataDetailDMMonthData.m */; };
+		D972447E1C1EC3D1002B3FDE /* DataDetailDMMonthDatalist.m in Sources */ = {isa = PBXBuildFile; fileRef = D97244791C1EC3D1002B3FDE /* DataDetailDMMonthDatalist.m */; };
+		D972447F1C1EC3D1002B3FDE /* DataDetailDMMonthRootClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D972447B1C1EC3D1002B3FDE /* DataDetailDMMonthRootClass.m */; };
+		D97244881C1EC3E5002B3FDE /* DataDetailDMWeekCoursedata.m in Sources */ = {isa = PBXBuildFile; fileRef = D97244811C1EC3E5002B3FDE /* DataDetailDMWeekCoursedata.m */; };
+		D97244891C1EC3E5002B3FDE /* DataDetailDMWeekData.m in Sources */ = {isa = PBXBuildFile; fileRef = D97244831C1EC3E5002B3FDE /* DataDetailDMWeekData.m */; };
+		D972448A1C1EC3E5002B3FDE /* DataDetailDMWeekDatalist.m in Sources */ = {isa = PBXBuildFile; fileRef = D97244851C1EC3E5002B3FDE /* DataDetailDMWeekDatalist.m */; };
+		D972448B1C1EC3E5002B3FDE /* DataDetailDMWeekRootClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D97244871C1EC3E5002B3FDE /* DataDetailDMWeekRootClass.m */; };
+		D97244AC1C1ED0BD002B3FDE /* DataDetailDMYearCoursedata.m in Sources */ = {isa = PBXBuildFile; fileRef = D97244A51C1ED0BD002B3FDE /* DataDetailDMYearCoursedata.m */; };
+		D97244AD1C1ED0BD002B3FDE /* DataDetailDMYearData.m in Sources */ = {isa = PBXBuildFile; fileRef = D97244A71C1ED0BD002B3FDE /* DataDetailDMYearData.m */; };
+		D97244AE1C1ED0BD002B3FDE /* DataDetailDMYearDatalist.m in Sources */ = {isa = PBXBuildFile; fileRef = D97244A91C1ED0BD002B3FDE /* DataDetailDMYearDatalist.m */; };
+		D97244AF1C1ED0BD002B3FDE /* DataDetailDMYearRootClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D97244AB1C1ED0BD002B3FDE /* DataDetailDMYearRootClass.m */; };
 		D9C3F4561C167322006D22BC /* DVVProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C3F4551C167322006D22BC /* DVVProgressView.m */; };
 		D9C3F4591C167365006D22BC /* HomeProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C3F4581C167365006D22BC /* HomeProgressView.m */; };
 		D9CEC8EB1C0E8C83008DEE69 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC8EA1C0E8C83008DEE69 /* AppDelegate.mm */; };
@@ -1013,6 +1025,30 @@
 		D95CE3BD1C12BDD700EF6F75 /* HomeDataModelWeeklyRootClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeDataModelWeeklyRootClass.m; sourceTree = "<group>"; };
 		D95CE4441C12EB2A00EF6F75 /* HomeViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewModel.h; sourceTree = "<group>"; };
 		D95CE4451C12EB2A00EF6F75 /* HomeViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewModel.m; sourceTree = "<group>"; };
+		D97244741C1EC3D1002B3FDE /* DataDetailDMMonthCoursedata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataDetailDMMonthCoursedata.h; sourceTree = "<group>"; };
+		D97244751C1EC3D1002B3FDE /* DataDetailDMMonthCoursedata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataDetailDMMonthCoursedata.m; sourceTree = "<group>"; };
+		D97244761C1EC3D1002B3FDE /* DataDetailDMMonthData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataDetailDMMonthData.h; sourceTree = "<group>"; };
+		D97244771C1EC3D1002B3FDE /* DataDetailDMMonthData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataDetailDMMonthData.m; sourceTree = "<group>"; };
+		D97244781C1EC3D1002B3FDE /* DataDetailDMMonthDatalist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataDetailDMMonthDatalist.h; sourceTree = "<group>"; };
+		D97244791C1EC3D1002B3FDE /* DataDetailDMMonthDatalist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataDetailDMMonthDatalist.m; sourceTree = "<group>"; };
+		D972447A1C1EC3D1002B3FDE /* DataDetailDMMonthRootClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataDetailDMMonthRootClass.h; sourceTree = "<group>"; };
+		D972447B1C1EC3D1002B3FDE /* DataDetailDMMonthRootClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataDetailDMMonthRootClass.m; sourceTree = "<group>"; };
+		D97244801C1EC3E5002B3FDE /* DataDetailDMWeekCoursedata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataDetailDMWeekCoursedata.h; sourceTree = "<group>"; };
+		D97244811C1EC3E5002B3FDE /* DataDetailDMWeekCoursedata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataDetailDMWeekCoursedata.m; sourceTree = "<group>"; };
+		D97244821C1EC3E5002B3FDE /* DataDetailDMWeekData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataDetailDMWeekData.h; sourceTree = "<group>"; };
+		D97244831C1EC3E5002B3FDE /* DataDetailDMWeekData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataDetailDMWeekData.m; sourceTree = "<group>"; };
+		D97244841C1EC3E5002B3FDE /* DataDetailDMWeekDatalist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataDetailDMWeekDatalist.h; sourceTree = "<group>"; };
+		D97244851C1EC3E5002B3FDE /* DataDetailDMWeekDatalist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataDetailDMWeekDatalist.m; sourceTree = "<group>"; };
+		D97244861C1EC3E5002B3FDE /* DataDetailDMWeekRootClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataDetailDMWeekRootClass.h; sourceTree = "<group>"; };
+		D97244871C1EC3E5002B3FDE /* DataDetailDMWeekRootClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataDetailDMWeekRootClass.m; sourceTree = "<group>"; };
+		D97244A41C1ED0BD002B3FDE /* DataDetailDMYearCoursedata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataDetailDMYearCoursedata.h; sourceTree = "<group>"; };
+		D97244A51C1ED0BD002B3FDE /* DataDetailDMYearCoursedata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataDetailDMYearCoursedata.m; sourceTree = "<group>"; };
+		D97244A61C1ED0BD002B3FDE /* DataDetailDMYearData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataDetailDMYearData.h; sourceTree = "<group>"; };
+		D97244A71C1ED0BD002B3FDE /* DataDetailDMYearData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataDetailDMYearData.m; sourceTree = "<group>"; };
+		D97244A81C1ED0BD002B3FDE /* DataDetailDMYearDatalist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataDetailDMYearDatalist.h; sourceTree = "<group>"; };
+		D97244A91C1ED0BD002B3FDE /* DataDetailDMYearDatalist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataDetailDMYearDatalist.m; sourceTree = "<group>"; };
+		D97244AA1C1ED0BD002B3FDE /* DataDetailDMYearRootClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataDetailDMYearRootClass.h; sourceTree = "<group>"; };
+		D97244AB1C1ED0BD002B3FDE /* DataDetailDMYearRootClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataDetailDMYearRootClass.m; sourceTree = "<group>"; };
 		D9C3F4541C167322006D22BC /* DVVProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVVProgressView.h; sourceTree = "<group>"; };
 		D9C3F4551C167322006D22BC /* DVVProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVVProgressView.m; sourceTree = "<group>"; };
 		D9C3F4571C167365006D22BC /* HomeProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeProgressView.h; sourceTree = "<group>"; };
@@ -2456,6 +2492,9 @@
 				0613DC0C1C1C51E200580C32 /* HomeDataDetailDMReservationstudentlist.m */,
 				0613DC0D1C1C51E200580C32 /* HomeDataDetailDMRootClass.h */,
 				0613DC0E1C1C51E200580C32 /* HomeDataDetailDMRootClass.m */,
+				D9723A2A1C1EBD5D002B3FDE /* Month */,
+				D9723A2B1C1EBD5D002B3FDE /* Week */,
+				D9723A2C1C1EBD5D002B3FDE /* Year */,
 				0613DC0F1C1C51E200580C32 /* HomeDetailTableViewDataModel.h */,
 				0613DC101C1C51E200580C32 /* HomeDetailTableViewDataModel.m */,
 			);
@@ -2496,6 +2535,51 @@
 				0613DC201C1C528F00580C32 /* HomeDataDetailViewModel.m */,
 			);
 			path = HomeDataDetailViewModel;
+			sourceTree = "<group>";
+		};
+		D9723A2A1C1EBD5D002B3FDE /* Month */ = {
+			isa = PBXGroup;
+			children = (
+				D97244741C1EC3D1002B3FDE /* DataDetailDMMonthCoursedata.h */,
+				D97244751C1EC3D1002B3FDE /* DataDetailDMMonthCoursedata.m */,
+				D97244761C1EC3D1002B3FDE /* DataDetailDMMonthData.h */,
+				D97244771C1EC3D1002B3FDE /* DataDetailDMMonthData.m */,
+				D97244781C1EC3D1002B3FDE /* DataDetailDMMonthDatalist.h */,
+				D97244791C1EC3D1002B3FDE /* DataDetailDMMonthDatalist.m */,
+				D972447A1C1EC3D1002B3FDE /* DataDetailDMMonthRootClass.h */,
+				D972447B1C1EC3D1002B3FDE /* DataDetailDMMonthRootClass.m */,
+			);
+			path = Month;
+			sourceTree = "<group>";
+		};
+		D9723A2B1C1EBD5D002B3FDE /* Week */ = {
+			isa = PBXGroup;
+			children = (
+				D97244801C1EC3E5002B3FDE /* DataDetailDMWeekCoursedata.h */,
+				D97244811C1EC3E5002B3FDE /* DataDetailDMWeekCoursedata.m */,
+				D97244821C1EC3E5002B3FDE /* DataDetailDMWeekData.h */,
+				D97244831C1EC3E5002B3FDE /* DataDetailDMWeekData.m */,
+				D97244841C1EC3E5002B3FDE /* DataDetailDMWeekDatalist.h */,
+				D97244851C1EC3E5002B3FDE /* DataDetailDMWeekDatalist.m */,
+				D97244861C1EC3E5002B3FDE /* DataDetailDMWeekRootClass.h */,
+				D97244871C1EC3E5002B3FDE /* DataDetailDMWeekRootClass.m */,
+			);
+			path = Week;
+			sourceTree = "<group>";
+		};
+		D9723A2C1C1EBD5D002B3FDE /* Year */ = {
+			isa = PBXGroup;
+			children = (
+				D97244A41C1ED0BD002B3FDE /* DataDetailDMYearCoursedata.h */,
+				D97244A51C1ED0BD002B3FDE /* DataDetailDMYearCoursedata.m */,
+				D97244A61C1ED0BD002B3FDE /* DataDetailDMYearData.h */,
+				D97244A71C1ED0BD002B3FDE /* DataDetailDMYearData.m */,
+				D97244A81C1ED0BD002B3FDE /* DataDetailDMYearDatalist.h */,
+				D97244A91C1ED0BD002B3FDE /* DataDetailDMYearDatalist.m */,
+				D97244AA1C1ED0BD002B3FDE /* DataDetailDMYearRootClass.h */,
+				D97244AB1C1ED0BD002B3FDE /* DataDetailDMYearRootClass.m */,
+			);
+			path = Year;
 			sourceTree = "<group>";
 		};
 		D9CEC8E81C0E8C83008DEE69 /* AppDelegate */ = {
@@ -3023,6 +3107,7 @@
 			files = (
 				B895A1961C1032C000FEDD78 /* InformationViewModel.m in Sources */,
 				D9E41AB61C129DD0007A2019 /* YBBaseTableCell.m in Sources */,
+				D97244881C1EC3E5002B3FDE /* DataDetailDMWeekCoursedata.m in Sources */,
 				B895A1951C10329F00FEDD78 /* InformationDataModel.m in Sources */,
 				B8771E361C098E6B0051DE9D /* RFSegmentView.m in Sources */,
 				B8771D081C098DE40051DE9D /* EMGifImage.m in Sources */,
@@ -3041,21 +3126,25 @@
 				0613DC161C1C51E200580C32 /* HomeDataDetailDMReservationstudentlist.m in Sources */,
 				D92297451C10439200D0FFDF /* UUBarChart.m in Sources */,
 				B8771D001C098DE40051DE9D /* EMCDDeviceManager+ProximitySensor.m in Sources */,
+				D97244AF1C1ED0BD002B3FDE /* DataDetailDMYearRootClass.m in Sources */,
 				B8771DCB1C098DE40051DE9D /* EaseSDKHelper.m in Sources */,
 				D92296BC1C0FD29C00D0FFDF /* NetworkEntity.m in Sources */,
 				D9D2DF851C17D619005DB212 /* HomeDetailBaseNormalCell.m in Sources */,
 				0605B7BE1C12D98A00A575B4 /* WeatherViewModel.m in Sources */,
 				B8771D321C098DE40051DE9D /* PSTCollectionViewFlowLayout.m in Sources */,
 				0666FFAD1C141CEF009FA71F /* GoodCommentListModel.m in Sources */,
+				D972447D1C1EC3D1002B3FDE /* DataDetailDMMonthData.m in Sources */,
 				060BA8A31C10122C009AD55E /* CoachOfCoureDetailController.m in Sources */,
 				B8771CFF1C098DE40051DE9D /* EMCDDeviceManager+Microphone.m in Sources */,
 				556D3CED1C112A240012C2D5 /* PublishDataModelRootClass.m in Sources */,
 				5545DE611C14228C00F41506 /* NewStudentController.m in Sources */,
 				B8771E3A1C098E6B0051DE9D /* UIView+TKCategory.m in Sources */,
 				D9CEC9181C0E8CF7008DEE69 /* TeacherCell.m in Sources */,
+				D97244AE1C1ED0BD002B3FDE /* DataDetailDMYearDatalist.m in Sources */,
 				B8771DE71C098DE40051DE9D /* EaseBubbleView+Video.m in Sources */,
 				B8771DE11C098DE40051DE9D /* EaseMessageCell.m in Sources */,
 				B8771D091C098DE40051DE9D /* MJRefreshComponent.m in Sources */,
+				D972448A1C1EC3E5002B3FDE /* DataDetailDMWeekDatalist.m in Sources */,
 				D92296C81C0FD2FF00D0FFDF /* HomeEvaluateView.m in Sources */,
 				B8771D0F1C098DE40051DE9D /* MJRefreshLegendFooter.m in Sources */,
 				D9CEC9141C0E8CF7008DEE69 /* HMPortraitInfoModel.m in Sources */,
@@ -3094,6 +3183,7 @@
 				B8771DCF1C098DE40051DE9D /* NSDate+Category.m in Sources */,
 				D9D2DF871C17D619005DB212 /* HomeDetailCanClickLineChartCell.m in Sources */,
 				D9CEC97B1C0ED643008DEE69 /* UINavigationItem+BackItem.m in Sources */,
+				D97244AD1C1ED0BD002B3FDE /* DataDetailDMYearData.m in Sources */,
 				D922974B1C10439200D0FFDF /* YBBarChartView.m in Sources */,
 				B8771D011C098DE40051DE9D /* EMCDDeviceManager+Remind.m in Sources */,
 				D9D2DF841C17D619005DB212 /* HomeDetailBaseCanClickCell.m in Sources */,
@@ -3135,6 +3225,7 @@
 				B8771D361C098DE40051DE9D /* PSTGridLayoutInfo.m in Sources */,
 				B8771E481C098F500051DE9D /* PortraitView.m in Sources */,
 				D95CE4461C12EB2A00EF6F75 /* HomeViewModel.m in Sources */,
+				D972448B1C1EC3E5002B3FDE /* DataDetailDMWeekRootClass.m in Sources */,
 				B8771D281C098DE40051DE9D /* UIImage+EMMultiFormat.m in Sources */,
 				0605B7B81C1288CE00A575B4 /* UIBarButtonItem+Helper.m in Sources */,
 				55FDE40A1C0FC5C700329F17 /* InformationDetailController.m in Sources */,
@@ -3169,6 +3260,7 @@
 				0613DC1E1C1C524800580C32 /* HomeDetailController.m in Sources */,
 				D9CEC9451C0EC432008DEE69 /* YBBaseController.m in Sources */,
 				55BA0F581C0EF6FA00F83CD8 /* SettingController.m in Sources */,
+				D972447F1C1EC3D1002B3FDE /* DataDetailDMMonthRootClass.m in Sources */,
 				B895A1A31C10448100FEDD78 /* RecomendCell.m in Sources */,
 				B8771D261C098DE40051DE9D /* UIButton+EMWebCache.m in Sources */,
 				B8771DD41C098DE40051DE9D /* UIViewController+HUD.m in Sources */,
@@ -3178,6 +3270,7 @@
 				B8771DC81C098DE40051DE9D /* EaseLocationViewController.m in Sources */,
 				D9CEC9801C0ED6A6008DEE69 /* InformationController.m in Sources */,
 				B8771DC91C098DE40051DE9D /* EaseMessageViewController.m in Sources */,
+				D972447C1C1EC3D1002B3FDE /* DataDetailDMMonthCoursedata.m in Sources */,
 				D92297481C10439200D0FFDF /* UUColor.m in Sources */,
 				0613DC1B1C1C521C00580C32 /* HomeDetailTableView.m in Sources */,
 				B838C24B1C1B0AB800493360 /* ProjectGuideView.m in Sources */,
@@ -3196,6 +3289,7 @@
 				B8771DD91C098DE40051DE9D /* EaseEmojiEmoticons.m in Sources */,
 				B8771D101C098DE40051DE9D /* MJRefreshLegendHeader.m in Sources */,
 				D9CEC9771C0ED643008DEE69 /* NSString+Helper.m in Sources */,
+				D97244AC1C1ED0BD002B3FDE /* DataDetailDMYearCoursedata.m in Sources */,
 				D9CEC9131C0E8CF7008DEE69 /* BaseModelMethod.m in Sources */,
 				D9CEC98C1C0EDEC6008DEE69 /* YBBaseNavigationController.m in Sources */,
 				5545DE641C14261400F41506 /* FeedbackController.m in Sources */,
@@ -3207,6 +3301,7 @@
 				D9CEC8EB1C0E8C83008DEE69 /* AppDelegate.mm in Sources */,
 				D9CEC9851C0ED7D8008DEE69 /* SideMenuController.m in Sources */,
 				B8771D121C098DE40051DE9D /* UIScrollView+MJRefresh.m in Sources */,
+				D97244891C1EC3E5002B3FDE /* DataDetailDMWeekData.m in Sources */,
 				B8771E521C0990980051DE9D /* UserInfoModel.m in Sources */,
 				B8771D2A1C098DE40051DE9D /* UIImageView+EMHighlightedWebCache.m in Sources */,
 				D9CEC9161C0E8CF7008DEE69 /* TeacherModel.m in Sources */,
@@ -3255,6 +3350,7 @@
 				D9CEC9891C0EDBCD008DEE69 /* LoginController.m in Sources */,
 				B8771D0A1C098DE40051DE9D /* MJRefreshConst.m in Sources */,
 				B8771D1A1C098DE40051DE9D /* MWTapDetectingView.m in Sources */,
+				D972447E1C1EC3D1002B3FDE /* DataDetailDMMonthDatalist.m in Sources */,
 				B8771DEF1C098DE40051DE9D /* EaseFacialView.m in Sources */,
 				D95CE3B71C12BD3600EF6F75 /* HomeDataModelData.m in Sources */,
 				D922974A1C10439200D0FFDF /* XYPieChart.m in Sources */,
@@ -3358,13 +3454,26 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Wei Ai Chi Kuang Tech Co. Ltd (MC3VUBEH8X)";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Guobin Shen (69F6W58BNP)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Guobin Shen (69F6W58BNP)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS",
+					"$(PROJECT_DIR)/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS",
+					"$(PROJECT_DIR)/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS",
+					"$(PROJECT_DIR)/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS",
+					"$(PROJECT_DIR)/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS",
+					"$(PROJECT_DIR)/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS",
+					"$(PROJECT_DIR)/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS",
+					"$(PROJECT_DIR)/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS",
+					"$(PROJECT_DIR)/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS",
+					"$(PROJECT_DIR)/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS",
+					"$(PROJECT_DIR)/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS",
+					"$(PROJECT_DIR)/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS",
+					"$(PROJECT_DIR)/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS",
+					"$(PROJECT_DIR)/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Headmaster/PrefixHeader.pch";
 				INFOPLIST_FILE = Headmaster/Info.plist;
@@ -3394,6 +3503,20 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS",
+					"$(PROJECT_DIR)/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS",
+					"$(PROJECT_DIR)/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS",
+					"$(PROJECT_DIR)/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS",
+					"$(PROJECT_DIR)/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS",
+					"$(PROJECT_DIR)/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS",
+					"$(PROJECT_DIR)/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS",
+					"$(PROJECT_DIR)/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS",
+					"$(PROJECT_DIR)/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS",
+					"$(PROJECT_DIR)/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS",
+					"$(PROJECT_DIR)/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS",
+					"$(PROJECT_DIR)/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS",
+					"$(PROJECT_DIR)/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS",
+					"$(PROJECT_DIR)/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS/Headmaster/DataModel/HomeDataDetailModel/Month/Headmaster-iOS",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Headmaster/PrefixHeader.pch";
 				INFOPLIST_FILE = Headmaster/Info.plist;
