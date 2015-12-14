@@ -33,6 +33,8 @@
         // Initialization code
         [self addSubview:self.myScrollView];
         self.backgroundColor = [UIColor clearColor];
+        _xLabelWidth = 30;
+        [self drawLine];
     }
     return self;
 }
@@ -77,7 +79,7 @@
     }
 
     float level = (_yValueMax-_yValueMin) /4.0;
-    CGFloat chartCavanHeight = self.frame.size.height - UULabelHeight*3;
+    CGFloat chartCavanHeight = self.bounds.size.height - UULabelHeight*3;
     CGFloat levelHeight = chartCavanHeight /4.0;
     
     for (int i=0; i<5; i++) {
@@ -112,10 +114,10 @@
     
     // xLabel的宽度
     _xLabelWidth = 30; // 默认值
-    CGFloat newWidth = self.myScrollView.bounds.size.width/num;
-    if (newWidth > _xLabelWidth) {
-        _xLabelWidth = newWidth;
-    }
+//    CGFloat newWidth = self.myScrollView.bounds.size.width/num;
+//    if (newWidth > _xLabelWidth) {
+//        _xLabelWidth = newWidth;
+//    }
     
     //画竖线
     for (int i=0; i<xLabels.count + 1; i++) {
@@ -128,7 +130,7 @@
         [path addLineToPoint:CGPointMake(i*_xLabelWidth,self.frame.size.height-2*UULabelHeight)];
         [path closePath];
         shapeLayer.path = path.CGPath;
-        shapeLayer.strokeColor = [[[UIColor colorWithHexString:@"EEEEEE"] colorWithAlphaComponent:0.1] CGColor];
+        shapeLayer.strokeColor = [[[UIColor colorWithHexString:@"444444"] colorWithAlphaComponent:1] CGColor];
 //        shapeLayer.fillColor = [[UIColor grayColor] CGColor];
         shapeLayer.lineWidth = 1;
         [_myScrollView.layer addSublayer:shapeLayer];
@@ -145,7 +147,7 @@
             [path addLineToPoint:CGPointMake(_xLabelWidth + _xLabelWidth * _xLabels.count,UULabelHeight+i*levelHeight)];
             [path closePath];
             shapeLayer.path = path.CGPath;
-            shapeLayer.strokeColor = [[[UIColor colorWithHexString:@"EEEEEE"] colorWithAlphaComponent:0.1] CGColor];
+            shapeLayer.strokeColor = [[[UIColor colorWithHexString:@"444444"] colorWithAlphaComponent:1] CGColor];
             shapeLayer.fillColor = [[UIColor blackColor] CGColor];
             shapeLayer.lineWidth = 1;
             [_myScrollView.layer addSublayer:shapeLayer];
@@ -177,9 +179,9 @@
 
 -(void)strokeChart
 {
-//    if (!_xLabels.count) {
-//        return;
-//    }
+    if (!_xLabels.count) {
+        return;
+    }
     _markView = [UIView new];
     
     _markView.backgroundColor = [UIColor clearColor];
@@ -229,6 +231,44 @@
             [_myScrollView addSubview:bar];
             
         }
+    }
+}
+
+- (void)drawLine {
+    
+    NSInteger num = self.bounds.size.width / 30;
+    //画竖线
+    for (int i=0; i<num + 1; i++) {
+        if (i == 0 ) {
+            continue;
+        }
+        CAShapeLayer *shapeLayer = [CAShapeLayer layer];
+        UIBezierPath *path = [UIBezierPath bezierPath];
+        [path moveToPoint:CGPointMake(i*_xLabelWidth,UULabelHeight)];
+        [path addLineToPoint:CGPointMake(i*_xLabelWidth,self.frame.size.height-2*UULabelHeight)];
+        [path closePath];
+        shapeLayer.path = path.CGPath;
+        shapeLayer.strokeColor = [[[UIColor colorWithHexString:@"444444"] colorWithAlphaComponent:1] CGColor];
+        //        shapeLayer.fillColor = [[UIColor grayColor] CGColor];
+        shapeLayer.lineWidth = 1;
+        [_myScrollView.layer addSublayer:shapeLayer];
+    }
+    
+    CGFloat chartCavanHeight = self.frame.size.height - UULabelHeight*3;
+    CGFloat levelHeight = chartCavanHeight /4.0;
+    //画横线
+    for (int i=0; i<5; i++) {
+        
+        CAShapeLayer *shapeLayer = [CAShapeLayer layer];
+        UIBezierPath *path = [UIBezierPath bezierPath];
+        [path moveToPoint:CGPointMake(0,UULabelHeight+i*levelHeight)];
+        [path addLineToPoint:CGPointMake(_xLabelWidth + _xLabelWidth * num,UULabelHeight+i*levelHeight)];
+        [path closePath];
+        shapeLayer.path = path.CGPath;
+        shapeLayer.strokeColor = [[[UIColor colorWithHexString:@"444444"] colorWithAlphaComponent:1] CGColor];
+        shapeLayer.fillColor = [[UIColor blackColor] CGColor];
+        shapeLayer.lineWidth = 1;
+        [_myScrollView.layer addSublayer:shapeLayer];
     }
 }
 

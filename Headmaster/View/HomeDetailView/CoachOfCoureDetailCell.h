@@ -28,7 +28,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *badCommondLabel;
 @property (weak, nonatomic) IBOutlet UILabel *complainCommondLabel;
 @property (nonatomic,strong)CoachCoureDatilModel * model;
-@property (weak, nonatomic) IBOutlet UILabel *BottomLineLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *starLevelImageView;
 @property (nonatomic, strong) CWStarRateView *rateView;
 
