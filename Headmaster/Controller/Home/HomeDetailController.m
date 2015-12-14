@@ -53,7 +53,7 @@
     [self.scrollView addSubview:self.yearTableView];
     
     // 添加button下面一条线
-    UIView *lineDownView = [[UIView alloc] initWithFrame:CGRectMake(7.5, 35, self.view.frame.size.width - 15, 2)];
+    UIView *lineDownView = [[UIView alloc] initWithFrame:CGRectMake(7.5, 39, self.view.frame.size.width - 15, 2)];
     lineDownView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
     [self.view addSubview:lineDownView];
     
