@@ -352,6 +352,7 @@
 {
     ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:cell.model.coaId conversationType:eConversationTypeChat];
     chatController.userName = cell.model.coaName;
+    chatController.mobile = cell.model.coaMobile;
     [self.navigationController pushViewController:chatController animated:YES];
 }
 
@@ -359,6 +360,7 @@
 {
     ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:cell.model.studentid conversationType:eConversationTypeChat];
     chatController.userName = cell.model.studendName;
+        chatController.mobile = cell.model.stuMobile;
     [self.navigationController pushViewController:chatController animated:YES];
 
 }

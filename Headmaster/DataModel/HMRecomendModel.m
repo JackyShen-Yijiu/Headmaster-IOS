@@ -23,11 +23,14 @@
     model.coaName = [coachInfo objectStringForKey:@"name"];
     model.coaId = [coachInfo objectStringForKey:@"coachid"];
     model.coaPortrait = [HMPortraitInfoModel converJsonDicToModel:[coachInfo objectInfoForKey:@"headportrait"]];
+    model.coaMobile = [coachInfo objectStringForKey:@"mobile"];
 
+    
     NSDictionary * stuInfo = [dic objectInfoForKey:@"studentinfo"];
     model.studentid = [stuInfo objectStringForKey:@"userid"];
     model.studendName = [stuInfo objectStringForKey:@"name"];
     model.stuPortrait = [HMPortraitInfoModel converJsonDicToModel:[stuInfo objectInfoForKey:@"headportrait"]];;
+    model.stuMobile = [stuInfo objectStringForKey:@"mobile"];
     
     model.courseType = [[stuInfo objectInfoForKey:@"classtype"] objectStringForKey:@"name"];
     model.courseName = [[dic objectInfoForKey:@"subject"] objectStringForKey:@"name"];

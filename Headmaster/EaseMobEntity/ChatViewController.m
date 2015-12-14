@@ -69,6 +69,24 @@
             self.title = [self.conversation.ext objectForKey:@"groupSubject"];
         }
     }
+    
+    if(self.mobile){
+        UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.frame = CGRectMake(0, 0, 25, 25);
+        [button setImage:[UIImage imageNamed:@"telNum"] forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(telButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem * item = [[UIBarButtonItem alloc] initWithCustomView:button];
+        self.myNavigationItem.rightBarButtonItems = @[[self barSpaingItem],item];
+    }else{
+        self.myNavigationItem.rightBarButtonItems = @[];
+    }
+  
+}
+
+- (void)telButtonClick:(UIButton *)button
+{
+    NSString * str = [NSString stringWithFormat:@"telprompt://%@",self.mobile];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
 }
 
 #pragma mark - setup subviews
