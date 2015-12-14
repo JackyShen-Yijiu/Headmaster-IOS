@@ -43,11 +43,11 @@ static NSString *kGroupName = @"GroupName";
     [super viewDidLoad];
     
     [self registerNotifications];
-    [[EaseMob sharedInstance].chatManager loadAllConversationsFromDatabaseWithAppend2Chat:NO];
+    [[EaseMob sharedInstance].chatManager loadAllConversationsFromDatabaseWithAppend2Chat:YES];
     self.showRefreshHeader = YES;
     self.delegate = self;
     self.dataSource = self;
-    
+    self.tableView.backgroundColor = [UIColor clearColor];
     [self tableViewDidTriggerHeaderRefresh];
     [self networkStateView];
     [self removeEmptyConversationsFromDB];
@@ -191,18 +191,18 @@ static NSString *kGroupName = @"GroupName";
     return latestMessageTitle;
 }
 
-- (NSString *)conversationListViewController:(EaseConversationListViewController *)conversationListViewController
-       latestMessageTimeForConversationModel:(id<IConversationModel>)conversationModel
-{
-    NSString *latestMessageTime = @"";
-    EMMessage *lastMessage = [conversationModel.conversation latestMessage];;
-    if (lastMessage) {
-        latestMessageTime = [NSDate formattedTimeFromTimeInterval:lastMessage.timestamp];
-    }
-
-    
-    return latestMessageTime;
-}
+//- (NSString *)conversationListViewController:(EaseConversationListViewController *)conversationListViewController
+//       latestMessageTimeForConversationModel:(id<IConversationModel>)conversationModel
+//{
+//    NSString *latestMessageTime = @"";
+//    EMMessage *lastMessage = [conversationModel.conversation latestMessage];;
+//    if (lastMessage) {
+//        latestMessageTime = [NSDate formattedTimeFromTimeInterval:lastMessage.timestamp];
+//    }
+//
+//    
+//    return latestMessageTime;
+//}
 
 #pragma mark - public
 -(void)refreshDataSource

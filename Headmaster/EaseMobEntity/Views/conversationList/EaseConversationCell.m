@@ -23,6 +23,7 @@ CGFloat const EaseConversationCellPadding = 10;
 
 @property (nonatomic) NSLayoutConstraint *detailWithoutAvatarLeftConstraint;
 
+@property(nonatomic,strong)UIView * lineView;
 @end
 
 @implementation EaseConversationCell
@@ -31,11 +32,11 @@ CGFloat const EaseConversationCellPadding = 10;
 {
     // UIAppearance Proxy Defaults
     EaseConversationCell *cell = [self appearance];
-    cell.titleLabelColor = [UIColor blackColor];
+    cell.titleLabelColor = RGBA_Color(0xfe, 0xfe, 0xff, 1);
     cell.titleLabelFont = [UIFont systemFontOfSize:17];
-    cell.detailLabelColor = [UIColor lightGrayColor];
+    cell.detailLabelColor = RGBA_Color(0x75, 0x75, 0x75, 1);
     cell.detailLabelFont = [UIFont systemFontOfSize:15];
-    cell.timeLabelColor = [UIColor blackColor];
+    cell.timeLabelColor = RGBA_Color(0x75, 0x75, 0x75, 1);
     cell.timeLabelFont = [UIFont systemFontOfSize:13];
 }
 
@@ -82,6 +83,10 @@ CGFloat const EaseConversationCellPadding = 10;
     _detailLabel.textColor = _detailLabelColor;
     [self.contentView addSubview:_detailLabel];
     
+    self.lineView = [[UIView alloc] init];
+    self.lineView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
+    [self.contentView addSubview:self.lineView];
+  
     [self _setupAvatarViewConstraints];
     [self _setupTimeLabelConstraints];
     [self _setupTitleLabelConstraints];
@@ -89,6 +94,12 @@ CGFloat const EaseConversationCellPadding = 10;
 }
 
 #pragma mark - Setup Constraints
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    self.lineView.frame = CGRectMake(0, self.height - 1, self.width, 1);
+}
+
 
 - (void)_setupAvatarViewConstraints
 {
@@ -231,14 +242,14 @@ CGFloat const EaseConversationCellPadding = 10;
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
-    [super setSelected:selected animated:animated];
+//    [super setSelected:selected animated:animated];
     if (_avatarView.badge) {
         _avatarView.badgeBackgroudColor = [UIColor redColor];
     }
 }
 
 -(void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated{
-    [super setHighlighted:highlighted animated:animated];
+//    [super setHighlighted:highlighted animated:animated];
     if (_avatarView.badge) {
         _avatarView.badgeBackgroudColor = [UIColor redColor];
     }

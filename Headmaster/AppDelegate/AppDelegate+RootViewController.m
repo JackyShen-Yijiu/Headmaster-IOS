@@ -13,14 +13,15 @@
 #import "DVVTabBarController.h"
 #import "RecommendViewController.h"
 #import "RecommendViewController.h"
+#import "ConversationListController.h"
 
 @implementation AppDelegate (RootViewController)
 
 - (UIViewController *)rootViewController {
-    
+
     NSArray *controllerArray = @[ @"HomeController",
                                   @"InformationController",
-                                  @"RecommendViewController"];
+                                  @"ConversationListController"];
     
     NSArray *titleArray = @[ @"数据概览", @"资讯", @"消息" ];
     
@@ -50,7 +51,7 @@
     sideViewController = [[RESideMenu alloc] initWithContentViewController:naviController leftMenuViewController:sideVC rightMenuViewController:nil];
     sideViewController.backgroundImage = [UIImage imageNamed:@""];
     sideViewController.menuPreferredStatusBarStyle = 1;
-    
+    sideViewController.parallaxEnabled = NO;
     //阴影颜色
     sideViewController.contentViewShadowColor = [UIColor blackColor];
     //阴影偏移量

@@ -38,7 +38,18 @@
         self.edgesForExtendedLayout =  UIRectEdgeNone;
     }
     
+    UIImageView * imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    imageView.image = [UIImage imageNamed:@"teacher_bg"];
+    [self.view addSubview:imageView];
+    
+    // 添加button下面一条线
+    UIView *lineDownView = [[UIView alloc] initWithFrame:CGRectMake(7.5, 0, self.view.frame.size.width - 15, 2)];
+    lineDownView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
+    [self.view addSubview:lineDownView];
+
+    
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:self.style];
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     _tableView.delegate = self;
     _tableView.dataSource = self;
