@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MBProgressHUD.h"
 #import "AppDelegate.h"
+#import "RESideMenu.h"
 
 #define WRITEIMAGE @"WriteImage"
 
@@ -32,6 +33,12 @@
 @interface UIViewController(MesList)
 - (UITabBarController *)myTabBarcontroller;
 - (void)jumpToMessageList;
+@end
+
+
+
+@interface UIViewController(sideMenu)
+- (RESideMenu *)slideMenu;
 @end
 
 

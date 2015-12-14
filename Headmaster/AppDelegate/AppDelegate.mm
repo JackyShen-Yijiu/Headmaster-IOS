@@ -19,7 +19,6 @@
 #import "ProjectGuideView.h"
 
 @interface AppDelegate ()<LoginControllerDelegate>
-@property(nonatomic,strong)HMNagationController * navController;
 @end
 
 
