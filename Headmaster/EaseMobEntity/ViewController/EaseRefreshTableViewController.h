@@ -27,6 +27,9 @@
 @property (nonatomic) BOOL showRefreshFooter;//是否支持上拉加载
 @property (nonatomic) BOOL showTableBlankView;//是否显示无数据时默认背景
 
+@property (nonatomic,strong)UIImageView * bgView;
+@property (nonatomic,strong)UIView * lineView;
+
 - (instancetype)initWithStyle:(UITableViewStyle)style;
 
 - (void)tableViewDidTriggerHeaderRefresh;//下拉刷新事件
