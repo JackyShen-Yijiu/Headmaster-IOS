@@ -150,12 +150,12 @@ static NSString *kGroupName = @"GroupName";
 {
     NSString * fromId = [messModel from];
     convModel.ext = [[messModel ext] copy];
-    
-    if (![fromId isEqualToString:[[UserInfoModel defaultUserInfo] userID]]) {
-        convModel.ext = [[UserInfoModel defaultUserInfo] messageExt];
-    }else{
-        convModel.ext = [[messModel ext] copy];
-    }
+//    
+//    if (![fromId isEqualToString:[[UserInfoModel defaultUserInfo] userID]]) {
+//        convModel.ext = [[UserInfoModel defaultUserInfo] messageExt];
+//    }else{
+//        convModel.ext = [[messModel ext] copy];
+//    }
 }
 
 - (NSString *)conversationListViewController:(EaseConversationListViewController *)conversationListViewController
