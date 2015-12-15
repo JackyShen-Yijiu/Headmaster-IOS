@@ -18,6 +18,9 @@
 
 + (BOOL)isShowGuide;
 
+// 显示视图的方法
++ (void)show;
+
 + (void)testGuide;
 
 @end

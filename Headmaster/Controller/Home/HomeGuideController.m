@@ -47,6 +47,17 @@
     return YES;
 }
 
+#pragma mark 显示视图的方法
++ (void)show {
+    // 不使用静态修饰，在ARC中可能会提前释放
+    static UIWindow *window = nil;
+    window = [UIWindow new];
+    window.windowLevel = UIWindowLevelAlert;
+    window.backgroundColor = [UIColor clearColor];
+    window.rootViewController = [self new];
+    [window makeKeyAndVisible];
+}
+
 + (void)testGuide {
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:kHomeGuideIsShow];
 }
@@ -82,7 +93,8 @@
 }
 
 - (void)closeView {
-    [self dismissViewControllerAnimated:NO completion:nil];
+    [self.view.window resignKeyWindow];
+    self.view.window.hidden = YES;
 }
 
 - (BOOL)prefersStatusBarHidden {

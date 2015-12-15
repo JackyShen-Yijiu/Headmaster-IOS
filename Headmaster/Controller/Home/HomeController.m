@@ -85,8 +85,7 @@
     
 //    [HomeGuideController testGuide];
     if ([HomeGuideController isShowGuide]) {
-        HomeGuideController *guideVC = [HomeGuideController new];
-        [self presentViewController:guideVC animated:NO completion:nil];
+        [HomeGuideController show];
     }
     
     [self addSideMenuButton];
