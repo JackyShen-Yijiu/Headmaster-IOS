@@ -172,13 +172,13 @@ CGFloat const EaseConversationCellPadding = 10;
         self.titleLabel.text = title;
     }
     
-    if (self.showAvatar) {
-        if ([ava length] > 0){
-            [self.avatarView.imageView sd_setImageWithURL:[NSURL URLWithString:_model.avatarURLPath] placeholderImage:[UIImage imageNamed:@"defoult_por"]];
-        } else {
-            self.avatarView.image = [UIImage imageNamed:@"defoult_por"];
-        }
+//    if (self.showAvatar) {
+    if ([ava length] > 0){
+        [self.avatarView.imageView sd_setImageWithURL:[NSURL URLWithString:_model.avatarURLPath] placeholderImage:[UIImage imageNamed:@"defoult_por"]];
+    } else {
+        self.avatarView.image = [UIImage imageNamed:@"defoult_por"];
     }
+//    }
     
     if (_model.conversation.unreadMessagesCount == 0) {
         _avatarView.showBadge = NO;
