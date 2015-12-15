@@ -63,12 +63,17 @@
     self.myNavigationItem.title = @"数据概述";
     [MobClick beginLogPageView:NSStringFromClass([self class])];
     
+    // 加载天气信息
+    [self.locService startUserLocationService];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     [MobClick endLogPageView:NSStringFromClass([self class])];
+    
+    // 停止天气服务
+    [self.locService stopUserLocationService];
 }
 
 - (void)viewDidLoad {
