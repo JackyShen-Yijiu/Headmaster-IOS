@@ -119,9 +119,11 @@ static NSString *kGroupName = @"GroupName";
     if (conversationModel) {
         EMConversation *conversation = conversationModel.conversation;
         if (conversation) {
-            
-            ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:conversation.chatter conversationType:conversation.conversationType];
-            chatController.title = conversationModel.title;
+            NSDictionary * extDic = [conversation ext];
+            NSString * name = [extDic objectStringForKey:@"toNickName"];
+            NSString * ava = [extDic objectStringForKey:@"toAva"];
+            NSString * mobile = [extDic objectStringForKey:@"toMobile"];
+            ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:conversation.chatter conversationType:conversation.conversationType Name:name ava:ava mobile:mobile];
             [self.myNavController pushViewController:chatController animated:YES];
             
         }

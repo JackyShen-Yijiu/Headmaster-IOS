@@ -86,7 +86,6 @@
 //            self.title = [self.conversation.ext objectForKey:@"groupSubject"];
         }
     }
-    self.myNavigationItem.title = self.title;
     
     if(self.mobile){
         UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -172,6 +171,7 @@
         NSString *CellIdentifier = [CustomMessageCell cellIdentifierWithModel:model];
         //发送cell
         CustomMessageCell *sendCell = (CustomMessageCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        
         // Configure the cell...
         if (sendCell == nil) {
             sendCell = [[CustomMessageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier model:model];
@@ -286,12 +286,9 @@
         model.avatarURLPath = [[UserInfoModel defaultUserInfo] portrait];
         model.nickname = [[UserInfoModel defaultUserInfo] name];
         if([[UserInfoModel defaultUserInfo] messageExt]){
-            NSMutableDictionary * dic = [[NSMutableDictionary alloc] initWithDictionary:[[UserInfoModel defaultUserInfo] messageExt]];
-            if (self.userName)
-                [dic setValue:self.userName forKey:@"toNickName"];
-            if (self.avator)
-                [dic setValue:self.avator forKey:@"toAva"];
-            [model message].ext = dic;
+            
+            [model message].ext = [self ext];
+            
         }
         
     }else{
@@ -318,7 +315,9 @@
             [dic setValue:self.userName forKey:@"toNickName"];
         if (self.avator)
             [dic setValue:self.avator forKey:@"toAva"];
-        
+        if (self.mobile) {
+            [dic setValue:self.mobile forKey:@"toMobile"];
+        }
         return dic;
     }
     return nil;

@@ -33,7 +33,7 @@
         // Initialization code
         [self addSubview:self.myScrollView];
         self.backgroundColor = [UIColor clearColor];
-        _xLabelWidth = 30;
+        _xLabelWidth = 50;
         [self drawLine];
     }
     return self;
@@ -119,7 +119,7 @@
 //    }
     
     // xLabel的宽度
-    _xLabelWidth = 30; // 默认值
+    
 //    CGFloat newWidth = self.myScrollView.bounds.size.width/num;
 //    if (newWidth > _xLabelWidth) {
 //        _xLabelWidth = newWidth;
@@ -201,16 +201,16 @@
     
     _xTitleMarkLabel = [UILabel new];
     _xTitleMarkLabel.textColor = [UIColor colorWithHexString:@"047A64"];
-    _xTitleMarkLabel.frame = CGRectMake(0, 10, 25, 10);
+    _xTitleMarkLabel.frame = CGRectMake(1, 10, 25, 10);
     _xTitleMarkLabel.textAlignment = 2;
-    _xTitleMarkLabel.font = [UIFont systemFontOfSize:9];
+    _xTitleMarkLabel.font = [UIFont systemFontOfSize:12];
     [_markView addSubview:_xTitleMarkLabel];
     
     _yTitleMarkLabel = [UILabel new];
     _yTitleMarkLabel.textColor = [UIColor colorWithHexString:@"047A64"];
-    _yTitleMarkLabel.frame = CGRectMake(0, 0, 30, 15);
+    _yTitleMarkLabel.frame = CGRectMake(-3, 0, 30, 15);
     _yTitleMarkLabel.textAlignment = 0;
-    _yTitleMarkLabel.font = [UIFont systemFontOfSize:9];
+    _yTitleMarkLabel.font = [UIFont systemFontOfSize:12];
     [_markView addSubview:_yTitleMarkLabel];
     
     if (_xTitleMarkWordString) {

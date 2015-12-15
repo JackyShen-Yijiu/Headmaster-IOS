@@ -14,7 +14,10 @@
     [super awakeFromNib];
     [self.buttonIcon setUserInteractionEnabled:YES];
     UITapGestureRecognizer * ges = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(iconTap:)];
+    
+    UITapGestureRecognizer * ges1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(iconTap:)];
     [self.buttonIcon addGestureRecognizer:ges];
+    [self.iconImageView addGestureRecognizer:ges1];
     self.rateView = [[CWStarRateView alloc]initWithFrame:CGRectMake(0, 0, 146, 23) numberOfStars:5];
     [_starLevelImageView addSubview:_rateView];
 
