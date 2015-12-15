@@ -80,8 +80,9 @@
     //友盟统计账号登出
     [MobClick profileSignOff];
 //    [self.navigationController pushViewController:lc animated:YES];
-    [[self slideMenu] hideMenuViewController];
+    
     [self dismissViewControllerAnimated:NO completion:^{
+        [[self slideMenu] hideMenuViewController];
         [[(AppDelegate *)[[UIApplication sharedApplication] delegate] navController] popToRootViewControllerAnimated:NO];
         
     }];
