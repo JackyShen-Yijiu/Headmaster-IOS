@@ -10,4 +10,14 @@
 
 @interface HomeGuideController : UIViewController
 
+@property (nonatomic, strong) UIImageView *imageView;
+
+@property (nonatomic, strong) NSArray *imagesArray;
+
+@property (nonatomic, assign) NSUInteger currentImageFlage;
+
++ (BOOL)isShowGuide;
+
++ (void)testGuide;
+
 @end
