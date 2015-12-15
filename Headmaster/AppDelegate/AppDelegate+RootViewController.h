@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 
-@interface AppDelegate (RootViewController)
+@interface AppDelegate (RootViewController)<RESideMenuDelegate>
 
 - (UIViewController *)rootViewController;
 
