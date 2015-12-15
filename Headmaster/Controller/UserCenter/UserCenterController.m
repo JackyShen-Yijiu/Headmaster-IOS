@@ -10,6 +10,7 @@
 #import "LoginController.h"
 #import "APService.h"
 #import "AppDelegate.h"
+#import "UIImage+Helper.h"
 
 @interface UserCenterController () <UITableViewDataSource,UITableViewDelegate>
 
@@ -140,9 +141,15 @@
         cell.backgroundColor = [UIColor clearColor];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-    cell.textLabel.text = [UserInfoModel defaultUserInfo].name;
-    cell.textLabel.textColor = [UIColor colorWithHexString:@"#BFBFBF"];
-    cell.imageView.image = [UIImage imageNamed:@"tou"];
+    UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(10, 0, 50, 50)];
+    [iv sd_setImageWithURL:[NSURL URLWithString:[UserInfoModel defaultUserInfo].portrait]];
+    iv.image = [UIImage resizeImage:iv.image newSize:CGSizeMake(50, 50)];
+    iv.layer.cornerRadius = 25;
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(70, 0, 100, 50)];
+    label.text = [UserInfoModel defaultUserInfo].name;
+    label.textColor = [UIColor colorWithHexString:@"#BFBFBF"];
+    [cell.contentView addSubview:iv];
+    [cell.contentView addSubview:label];
     return cell;
 }
 

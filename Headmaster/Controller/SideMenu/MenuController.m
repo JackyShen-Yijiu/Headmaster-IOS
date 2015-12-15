@@ -65,7 +65,8 @@
         _headView.backgroundColor = [UIColor clearColor];
         UIImageView * imgView = [[UIImageView alloc] initWithFrame:CGRectMake(55, 82, 78, 78)];
         imgView.userInteractionEnabled = YES;
-        imgView.image = [UIImage imageNamed:@"tou"];
+        NSLog(@"%@",[UserInfoModel defaultUserInfo].portrait);
+        [imgView sd_setImageWithURL:[NSURL URLWithString:[UserInfoModel defaultUserInfo].portrait]];
         imgView.layer.masksToBounds = YES;
         imgView.layer.cornerRadius = 39;
         [_headView addSubview:imgView];
