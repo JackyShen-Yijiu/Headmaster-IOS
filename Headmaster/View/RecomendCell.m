@@ -347,7 +347,7 @@
     
     if ([self.model isKindOfClass:[HMComplainModel class]]) {
         HMComplainModel * model = (HMComplainModel *)self.model;
-        if (model.isDealDone != switchbutton.isOn) {
+        if (model.isDealDone == NO) {
             if ([_delegate respondsToSelector:@selector(complainCell:DidSwithcButttonValueChanged:)]) {
                 [_delegate complainCell:self DidSwithcButttonValueChanged:switchbutton];
             }

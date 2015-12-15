@@ -378,7 +378,7 @@
 {
     WS(ws);
     HMComplainModel * model  = (HMComplainModel *)cell.model;
-    if (swithcButton.isOn != model.isDealDone) {
+    if (model.isDealDone == NO) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         [NetworkEntity markDealComplainWithComplainId:model.recomendId
                                                 useID:[[UserInfoModel defaultUserInfo] userID]
