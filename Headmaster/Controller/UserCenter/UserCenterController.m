@@ -34,6 +34,9 @@
     
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    UIView *lineTopView = [[UIView alloc] initWithFrame:CGRectMake(7.5, 0, self.view.bounds.size.width - 15, 2)];
+    lineTopView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
+    [self.view addSubview:lineTopView];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self setNavBar];
     [self addBackgroundImage];
@@ -93,7 +96,7 @@
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-64)];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 5, self.view.frame.size.width, self.view.frame.size.height-69)];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.backgroundColor = [UIColor clearColor];
@@ -112,14 +115,14 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return self.view.frame.size.height -100;
+    return self.view.frame.size.height -69-44;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.width -100)];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height -69-44)];
     view.userInteractionEnabled = YES;
     view.backgroundColor = [UIColor clearColor];
-    UIButton *loginOutBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 300, self.view.frame.size.width, 40)];
+    UIButton *loginOutBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height -69-44-100, self.view.frame.size.width, 40)];
     [loginOutBtn setTitle:@"退出登入" forState:UIControlStateNormal];
     [loginOutBtn setTitleColor:[UIColor colorWithHexString:@"#bfbfbf"] forState:UIControlStateNormal];
     loginOutBtn.titleLabel.font = [UIFont systemFontOfSize:16];
