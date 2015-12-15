@@ -751,6 +751,7 @@
     }
     else{
         id<IMessageModel> model = object;
+
         if (_delegate && [_delegate respondsToSelector:@selector(messageViewController:cellForMessageModel:)]) {
             UITableViewCell *cell = [_delegate messageViewController:tableView cellForMessageModel:model];
             if (cell) {
