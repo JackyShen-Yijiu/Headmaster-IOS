@@ -32,6 +32,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    UIView *lineTopView = [[UIView alloc] initWithFrame:CGRectMake(7.5, 0, self.view.bounds.size.width - 15, 2)];
+    lineTopView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
+    [self.view addSubview:lineTopView];
     [self addBackgroundImage];
     [self initUI];
 }
@@ -48,13 +51,13 @@
 
     _placeholderLabel = [[UILabel alloc] init];
     _placeholderLabel.backgroundColor = [UIColor clearColor];
-    _placeholderLabel.frame = CGRectMake(2, 6, 200, 30);
+    _placeholderLabel.frame = CGRectMake(2, 8, 200, 30);
     _placeholderLabel.text = @"请留下宝贵意见和建议";
     _placeholderLabel.font = [UIFont systemFontOfSize:15];
     _placeholderLabel.textColor = [UIColor grayColor];
     [self.view addSubview:_placeholderLabel];
     
-    _textview = [[UITextView alloc] initWithFrame:CGRectMake(0, 6, self.view.frame.size.width, 100)];
+    _textview = [[UITextView alloc] initWithFrame:CGRectMake(0, 8, self.view.frame.size.width, 100)];
     _textview.backgroundColor = [UIColor blackColor];
     _textview.alpha = 0.5;
     _textview.textColor = [UIColor colorWithHexString:TEXT_HIGHLIGHT_COLOR];
@@ -63,7 +66,7 @@
     _textview.layer.borderWidth = 1;
     [self.view addSubview:_textview];
     
-    UIButton *submitBtn = [[UIButton alloc] initWithFrame:CGRectMake(10, 111, self.view.frame.size.width-20, 40)];
+    UIButton *submitBtn = [[UIButton alloc] initWithFrame:CGRectMake(10, 113, self.view.frame.size.width-20, 40)];
     [submitBtn setTitle:@"提交" forState:UIControlStateNormal];
     submitBtn.backgroundColor = [UIColor darkGrayColor];
     [submitBtn addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
