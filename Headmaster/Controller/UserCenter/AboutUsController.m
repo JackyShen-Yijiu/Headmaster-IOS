@@ -36,6 +36,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    UIView *lineTopView = [[UIView alloc] initWithFrame:CGRectMake(7.5, 0, self.view.bounds.size.width - 15, 2)];
+    lineTopView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
+    [self.view addSubview:lineTopView];
     [self addBackgroundImage];
     [self initUI];
     [self configeUI];
@@ -76,7 +79,7 @@
 }
 
 - (void)configeUI {
-    _iconView.image = [UIImage imageNamed:@"jietu"];
+    _iconView.image = [UIImage imageNamed:@"aboutUsIcon"];
     _iconView.layer.cornerRadius = 10;
     _iconView.clipsToBounds = YES;
     

@@ -44,6 +44,10 @@
     [self addBackgroundImage];
     self.automaticallyAdjustsScrollViewInsets = NO;
     
+    UIView *lineTopView = [[UIView alloc] initWithFrame:CGRectMake(7.5, 0, self.view.bounds.size.width - 15, 2)];
+    lineTopView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
+    [self.view addSubview:lineTopView];
+    
     [self.view addSubview:self.tableView];
     _viewModel = [InformationViewModel new];
     WS(ws);
@@ -89,7 +93,7 @@
 
 - (RefreshTableView *)tableView {
     if (!_tableView) {
-        _tableView = [[RefreshTableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height - 64 -49) style:UITableViewStylePlain];
+        _tableView = [[RefreshTableView alloc] initWithFrame:CGRectMake(0, 2, self.view.width, self.view.height - 64 -49-2) style:UITableViewStylePlain];
         _tableView.backgroundColor = [UIColor clearColor];
         _tableView.delegate = self;
         _tableView.dataSource = self;

@@ -72,6 +72,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.automaticallyAdjustsScrollViewInsets = NO;
+    UIView *lineTopView = [[UIView alloc] initWithFrame:CGRectMake(7.5, 0, self.view.bounds.size.width - 15, 2)];
+    lineTopView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
+    [self.view addSubview:lineTopView];
     [self addBackgroundImage];
     _isCoachBtn = 2;
     [self createUI];
@@ -104,7 +107,7 @@
 
 - (RefreshTableView *)tableView {
     if (!_tableView) {
-        _tableView = [[RefreshTableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height - 64) style:UITableViewStylePlain];
+        _tableView = [[RefreshTableView alloc] initWithFrame:CGRectMake(0, 2, self.view.width, self.view.height - 64-2) style:UITableViewStylePlain];
         _tableView.dataSource = self;
         _tableView.delegate = self;
         _tableView.backgroundColor = [UIColor clearColor];
