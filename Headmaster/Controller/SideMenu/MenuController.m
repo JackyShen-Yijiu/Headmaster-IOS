@@ -64,6 +64,7 @@
         _headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 200)];
         _headView.backgroundColor = [UIColor clearColor];
         UIImageView * imgView = [[UIImageView alloc] initWithFrame:CGRectMake(97, 82, 78, 78)];
+        UIImageView * imgView = [[UIImageView alloc] initWithFrame:CGRectMake(55, 82, 78, 78)];
         imgView.userInteractionEnabled = YES;
         imgView.image = [UIImage imageNamed:@"tou"];
         imgView.layer.masksToBounds = YES;

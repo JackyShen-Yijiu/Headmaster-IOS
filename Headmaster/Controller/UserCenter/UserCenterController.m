@@ -38,6 +38,7 @@
     [self setNavBar];
     [self addBackgroundImage];
     [self initUI];
+    [self.view addSubview:self.tableView];
 }
 
 - (void)setNavBar {
@@ -69,7 +70,6 @@
     
     self.tableView.tableFooterView = view;
 }
-
 - (void)UserWillLoginOut {
     UserInfoModel *uim = [UserInfoModel defaultUserInfo];
     [uim loginOut];
@@ -84,6 +84,7 @@
 //            _hideMenu();
 //        }
 //    };
+
     //极光推送设置alias
     [APService setAlias:[UserInfoModel defaultUserInfo].userID callbackSelector:@selector(tagsAliasCallback:tags:alias:) object:self];
     //友盟统计账号登出
@@ -107,7 +108,7 @@
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 100)];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-64)];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.backgroundColor = [UIColor clearColor];
@@ -124,6 +125,25 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 50;
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return self.view.frame.size.height -100;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.width -100)];
+    view.userInteractionEnabled = YES;
+    view.backgroundColor = [UIColor clearColor];
+    UIButton *loginOutBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 300, self.view.frame.size.width, 40)];
+    [loginOutBtn setTitle:@"退出登入" forState:UIControlStateNormal];
+    [loginOutBtn setTitleColor:[UIColor colorWithHexString:@"#bfbfbf"] forState:UIControlStateNormal];
+    loginOutBtn.titleLabel.font = [UIFont systemFontOfSize:16];
+    loginOutBtn.backgroundColor = [UIColor darkGrayColor];
+    [loginOutBtn addTarget:self action:@selector(UserWillLoginOut) forControlEvents:UIControlEventTouchUpInside];
+    [view addSubview:loginOutBtn];
+    return view;
+}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"yy"];
