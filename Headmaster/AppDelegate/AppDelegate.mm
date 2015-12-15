@@ -52,6 +52,7 @@
 //         当需要引导页时打开注释
         [YBWelcomeController show];
     }
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     return YES;
 }
 
@@ -120,6 +121,7 @@
 
 //接受通知
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    
     if ([self isReciveFromHunaxin:userInfo]) {
         [self.navController jumpToMessageList];
     }else{
