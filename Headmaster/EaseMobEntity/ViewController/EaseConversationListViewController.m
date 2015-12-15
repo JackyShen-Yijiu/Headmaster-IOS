@@ -14,8 +14,9 @@
 #import "EaseConversationCell.h"
 #import "EaseConvertToCommonEmoticonsHelper.h"
 #import "NSDate+Category.h"
+#import "RESideMenu.h"
 
-@interface EaseConversationListViewController () <IChatManagerDelegate>
+@interface EaseConversationListViewController () <IChatManagerDelegate,RESideMenuDelegate>
 
 @end
 
@@ -154,7 +155,10 @@
     
     if (!self.dataArray.count) {
         ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"您现在还没有与您的教练聊天的记录"];
-        [alertView show];
+        if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"number"] isEqualToString:@"0"]) {
+            [alertView show];
+        }
+        
     }
 
     [self tableViewDidFinishTriggerHeader:YES reload:YES];
@@ -236,5 +240,21 @@
     }
     return latestMessageTime;
 }
+
+- (void)sideMenu:(RESideMenu *)sideMenu willShowMenuViewController:(UIViewController *)menuViewController
+{
+    
+}
+
+- (void)sideMenu:(RESideMenu *)sideMenu willHideMenuViewController:(UIViewController *)menuViewController
+{
+    
+}
+
+
+
+
+
+
 
 @end

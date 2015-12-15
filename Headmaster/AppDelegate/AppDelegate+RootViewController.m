@@ -46,9 +46,11 @@
     //创建sideMenu
     MenuController * sideVC = [[MenuController alloc] init];
     
+    
     //创建抽屉
     static RESideMenu *sideViewController = nil;
     sideViewController = [[RESideMenu alloc] initWithContentViewController:naviController leftMenuViewController:sideVC rightMenuViewController:nil];
+    sideViewController.delegate = self;
     sideViewController.backgroundImage = [UIImage imageNamed:@""];
     sideViewController.menuPreferredStatusBarStyle = 1;
     sideViewController.parallaxEnabled = NO;
@@ -73,6 +75,16 @@
     
     //RESideMenu默认设置的状态栏颜色总是黑色的，修改其中的preferredStatusBarStyle方法，使其返回白色状态栏
     return sideViewController;
+
+}
+- (void)sideMenu:(RESideMenu *)sideMenu willShowMenuViewController:(UIViewController *)menuViewController
+{
+    [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:@"number"];
+}
+
+- (void)sideMenu:(RESideMenu *)sideMenu willHideMenuViewController:(UIViewController *)menuViewController
+{
+    [[NSUserDefaults standardUserDefaults] setObject:@"0" forKey:@"number"];
 
 }
 
