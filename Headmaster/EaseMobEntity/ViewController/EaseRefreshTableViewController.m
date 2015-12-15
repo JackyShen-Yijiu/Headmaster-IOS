@@ -43,7 +43,7 @@
     [self.view addSubview:self.bgView];
     
     // 添加button下面一条线
-    self.lineView = [[UIView alloc] initWithFrame:CGRectMake(7.5, 0, self.view.frame.size.width - 15, 2)];
+    self.lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 2)];
     self.lineView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
     [self.view addSubview:self.lineView];
 

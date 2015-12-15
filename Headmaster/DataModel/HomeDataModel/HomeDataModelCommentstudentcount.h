@@ -2,11 +2,10 @@
 
 @interface HomeDataModelCommentstudentcount : NSObject
 
-@property (nonatomic, assign) NSString * badcomment;
-@property (nonatomic, assign) NSString * generalcomment;
-@property (nonatomic, strong) NSString * goodcommnent;
+@property (nonatomic, assign) NSInteger badcomment;
+@property (nonatomic, assign) NSInteger generalcomment;
+@property (nonatomic, assign) NSInteger goodcommnent;
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
--(NSDictionary *)toDictionary;
 @end

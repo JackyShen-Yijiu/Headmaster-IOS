@@ -89,10 +89,10 @@
 //        apnsCertName = @"pordXZPush";
 //    #endif
     
-    apnsCertName = @"dis_apns";
+    apnsCertName = @"pordXZPush";
     [[EaseSDKHelper shareHelper] easemobApplication:application
                       didFinishLaunchingWithOptions:launchOptions
-                                             appkey:@"black-cat#yibuxuechetest"
+                                             appkey:@"black-cat#yibuxuecheprod"
                                        apnsCertName:apnsCertName
                                         otherConfig:@{kSDKConfigEnableConsoleLogger:[NSNumber numberWithBool:YES]}];
     

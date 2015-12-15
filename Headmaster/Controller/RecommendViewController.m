@@ -141,7 +141,7 @@
     lineTopView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
     [self.view addSubview:lineTopView];
     
-    self.tableView = [[RefreshTableView alloc] initWithFrame:CGRectMake(0, self.toolView.bottom, self.view.width, self.view.height - self.toolView.bottom) style:UITableViewStylePlain];
+    self.tableView = [[RefreshTableView alloc] initWithFrame:CGRectMake(0, self.toolView.bottom, self.view.width, self.view.height - self.toolView.bottom - 65) style:UITableViewStylePlain];
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
