@@ -22,6 +22,7 @@
         
         _title = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 220, 40)];
         _title.textAlignment = NSTextAlignmentCenter;
+        _title.numberOfLines = 0;
         _title.backgroundColor = [UIColor clearColor];
         _title.font = [UIFont systemFontOfSize:12];
         _title.textColor = [UIColor whiteColor];

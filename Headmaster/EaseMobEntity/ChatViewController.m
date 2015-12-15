@@ -172,7 +172,6 @@
         NSString *CellIdentifier = [CustomMessageCell cellIdentifierWithModel:model];
         //发送cell
         CustomMessageCell *sendCell = (CustomMessageCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-        
         // Configure the cell...
         if (sendCell == nil) {
             sendCell = [[CustomMessageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier model:model];
