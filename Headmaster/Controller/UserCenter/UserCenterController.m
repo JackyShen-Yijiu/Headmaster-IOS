@@ -37,7 +37,6 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self setNavBar];
     [self addBackgroundImage];
-    [self initUI];
     [self.view addSubview:self.tableView];
 }
 
@@ -56,20 +55,6 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)initUI {
-    [self.view addSubview:self.tableView];
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 50)];
-    view.backgroundColor = [UIColor clearColor];
-    UIButton *loginOutBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 10, self.view.frame.size.width, 40)];
-    [loginOutBtn setTitle:@"退出登入" forState:UIControlStateNormal];
-    [loginOutBtn setTitleColor:[UIColor colorWithHexString:@"#bfbfbf"] forState:UIControlStateNormal];
-    loginOutBtn.titleLabel.font = [UIFont systemFontOfSize:16];
-    loginOutBtn.backgroundColor = [UIColor darkGrayColor];
-    [loginOutBtn addTarget:self action:@selector(UserWillLoginOut) forControlEvents:UIControlEventTouchUpInside];
-    [view addSubview:loginOutBtn];
-    
-    self.tableView.tableFooterView = view;
-}
 - (void)UserWillLoginOut {
     UserInfoModel *uim = [UserInfoModel defaultUserInfo];
     [uim loginOut];
