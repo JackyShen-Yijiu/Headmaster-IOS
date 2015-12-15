@@ -227,7 +227,7 @@
             ws.tableView.tableHeaderView = nil;
             [NetworkEntity getComplainListWithUserid:[[UserInfoModel defaultUserInfo] userID]
                                             SchoolId:[[UserInfoModel defaultUserInfo] schoolId]
-                                           pageIndex:1
+                                           pageIndex:ws.complainData.count / RELOADDATACOUNT + 1
                                              success:^(id responseObject) {
                                                  
                                                  NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
@@ -253,9 +253,9 @@
             ws.tableView.tableHeaderView = ws.pieView;
             [NetworkEntity getRecommendListWithUserid:[[UserInfoModel defaultUserInfo] userID]
                                              SchoolId:[[UserInfoModel defaultUserInfo] schoolId]
-                                            pageIndex:1
+                                            pageIndex:ws.recomendData.count / RELOADDATACOUNT + 1
                                            searchType:ws.searchType
-                                         commentLevle:ws.recomendData.count / RELOADDATACOUNT + 1
+                                         commentLevle:ws.toolView.selectButtonInteger - 100
                                               success:^(id responseObject) {
                                                   
                                                   NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
@@ -378,7 +378,7 @@
 {
     WS(ws);
     HMComplainModel * model  = (HMComplainModel *)cell.model;
-    if (swithcButton.isOn != model.isDealDone) {
+    if (model.isDealDone == NO) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         [NetworkEntity markDealComplainWithComplainId:model.recomendId
                                                 useID:[[UserInfoModel defaultUserInfo] userID]

@@ -269,7 +269,7 @@
     if(_model.stuPortrait.originalpic)
         [self.stuPorView.imageView sd_setImageWithURL:[NSURL URLWithString:_model.stuPortrait.originalpic] placeholderImage:defaultImage];
     if(_model.coaPortrait.originalpic)
-        [self.stuPorView.imageView sd_setImageWithURL:[NSURL URLWithString:_model.coaPortrait.originalpic] placeholderImage:defaultImage];
+        [self.coaPorView.imageView sd_setImageWithURL:[NSURL URLWithString:_model.coaPortrait.originalpic] placeholderImage:defaultImage];
     
     
     self.stuName.text = _model.studendName;
@@ -347,7 +347,7 @@
     
     if ([self.model isKindOfClass:[HMComplainModel class]]) {
         HMComplainModel * model = (HMComplainModel *)self.model;
-        if (model.isDealDone != switchbutton.isOn) {
+        if (model.isDealDone == NO) {
             if ([_delegate respondsToSelector:@selector(complainCell:DidSwithcButttonValueChanged:)]) {
                 [_delegate complainCell:self DidSwithcButttonValueChanged:switchbutton];
             }
