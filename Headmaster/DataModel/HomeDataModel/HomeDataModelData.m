@@ -34,7 +34,7 @@
 	}
 
 	if(![dictionary[@"complaintstudentcount"] isKindOfClass:[NSNull class]]){
-		self.complaintstudentcount = [NSString stringWithFormat:@"%@",dictionary[@"complaintstudentcount"]];
+		self.complaintstudentcount = [dictionary[@"complaintstudentcount"] integerValue];
 	}	
 	if(![dictionary[@"coursestudentnow"] isKindOfClass:[NSNull class]]){
 		self.coursestudentnow = [dictionary[@"coursestudentnow"] integerValue];

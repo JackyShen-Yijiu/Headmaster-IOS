@@ -63,12 +63,17 @@
     self.myNavigationItem.title = @"数据概述";
     [MobClick beginLogPageView:NSStringFromClass([self class])];
     
+    // 加载天气信息
+    [self.locService startUserLocationService];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     [MobClick endLogPageView:NSStringFromClass([self class])];
+    
+    // 停止天气服务
+    [self.locService stopUserLocationService];
 }
 
 - (void)viewDidLoad {
@@ -139,6 +144,7 @@
         if (_viewModel.searchType == kDateSearchTypeWeek) {
 //            [self.progressView refreshData:@[ @(0.85), @(0.3), @(1), @(0.72) ]];
             [self.evaluateView refreshData:_viewModel.evaluateArray];
+            [self.progressView refreshData:@[ @(0), @(0), @(1), @(0) ]];
         }else {
             [self.topView refreshSubjectData:_viewModel.subjectArray sameDay:_viewModel.applyCount];
             [self.progressView refreshData:_viewModel.progressArray];
@@ -370,6 +376,7 @@
         NSDictionary *addressComponent = [result objectInfoForKey:@"addressComponent"];
         _cityName = [addressComponent objectStringForKey:@"city"];
         [self addWeatherData];
+        [self.locService stopUserLocationService];
        
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
     }];
