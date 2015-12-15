@@ -3507,7 +3507,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yibuxuechexiaozhangduan;
 				PRODUCT_NAME = "一步校长";
-				PROVISIONING_PROFILE = "bec297f5-3afd-4f3f-a13f-90bc2347d647";
+				PROVISIONING_PROFILE = "d6a518bb-c2df-4eab-bb9a-601e690b11aa";
 			};
 			name = Debug;
 		};
@@ -3549,7 +3549,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yibuxuechexiaozhangduan;
 				PRODUCT_NAME = "一步校长";
-				PROVISIONING_PROFILE = "bec297f5-3afd-4f3f-a13f-90bc2347d647";
+				PROVISIONING_PROFILE = "d6a518bb-c2df-4eab-bb9a-601e690b11aa";
 			};
 			name = Release;
 		};
