@@ -75,6 +75,8 @@
     
     EaseEmotionManager *manager= [[EaseEmotionManager alloc] initWithType:EMEmotionDefault emotionRow:3 emotionCol:7 emotions:[EaseEmoji allEmoji]];
     [self.faceView setEmotionManagers:@[manager]];
+    
+    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sbg"]];
 }
 
 - (void)viewWillAppear:(BOOL)animated
