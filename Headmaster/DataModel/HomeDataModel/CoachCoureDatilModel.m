@@ -51,6 +51,7 @@
         }
         _coachid = [dictionary objectForKey:@"coachid"];
         _name = [dictionary objectForKey:@"name"];
+        _mobile = [dictionary objectForKey:@"mobile"];
         _starlevel = [[dictionary objectForKey:@"starlevel"] integerValue];
         _coursecount = [[dictionary objectForKey:@"coursecount"] integerValue];
         _goodcommentcount = [[dictionary objectForKey:@"goodcommentcount"] integerValue];

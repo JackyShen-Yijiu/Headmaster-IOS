@@ -63,9 +63,15 @@
             }
         }
     }
-    if (max < 5) {
-        max = 5;
+    if (max < 4) {
+        max = 4;
+    }else {
+        NSInteger remainder = max % 4;
+        if (remainder) {
+            max += 4 - remainder;
+        }
     }
+
     if (self.showRange) {
         _yValueMin = (int)min;
     }else{
@@ -103,7 +109,7 @@
     }
     
     _xLabels = xLabels;
-    CGFloat num = xLabels.count;
+//    CGFloat num = xLabels.count;
 //    if (xLabels.count>=8) {
 //        num = 8;
 //    }else if (xLabels.count<=4){
@@ -221,11 +227,19 @@
             return;
         NSArray *childAry = _yValues[i];
         for (int j=0; j<childAry.count; j++) {
-            NSString *valueString = childAry[j];
-            float value = [valueString floatValue];
-            float grade = ((float)value-_yValueMin) / ((float)_yValueMax-_yValueMin);
             
-            UUBar * bar = [[UUBar alloc] initWithFrame:CGRectMake((j+(_yValues.count==1?0.25:0.05))*_xLabelWidth +i*_xLabelWidth * 0.47 + _xLabelWidth / 2.f, UULabelHeight, _xLabelWidth * (_yValues.count==1?0.5:0.45), chartCavanHeight)];
+            NSString *valueString = childAry[j];
+            CGFloat value = [valueString floatValue];
+            CGFloat grade = ((CGFloat)value-_yValueMin) / ((CGFloat)_yValueMax-_yValueMin);
+            
+//            float level = (_yValueMax-_yValueMin) /4.0;
+//            CGFloat chartCavanHeight = self.bounds.size.height - UULabelHeight*3;
+//            CGFloat levelHeight = chartCavanHeight /4.0;
+            
+            UUBar * bar = [[UUBar alloc] initWithFrame:CGRectMake((j+(_yValues.count==1?0.25:0.05))*_xLabelWidth +i*_xLabelWidth * 0.47 + _xLabelWidth / 2.f,
+                                                                  UULabelHeight,
+                                                                  _xLabelWidth * (_yValues.count==1?0.5:0.45),
+                                                                  chartCavanHeight)];
             bar.barColor = [_colors objectAtIndex:i];
             bar.grade = grade;
             [_myScrollView addSubview:bar];

@@ -67,8 +67,13 @@
             }
         }
     }
-    if (max < 5) {
-        max = 5;
+    if (max < 4) {
+        max = 4;
+    }else {
+        NSInteger remainder = max % 4;
+        if (remainder) {
+            max += 4 - remainder;
+        }
     }
     if (self.showRange) {
         _yValueMin = min;
