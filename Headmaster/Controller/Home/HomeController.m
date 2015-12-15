@@ -26,6 +26,8 @@
 #import "HomeProgressView.h"
 #import "RecommendViewController.h"
 
+#import "HomeGuideController.h"
+
 @interface HomeController () <BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate>
 
 @property (nonatomic, strong) HomeTopView *topView;
@@ -65,6 +67,8 @@
     
     // 加载天气信息
     [self.locService startUserLocationService];
+    
+    [_viewModel networkRequestRefresh];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -78,6 +82,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+//    [HomeGuideController testGuide];
+    if ([HomeGuideController isShowGuide]) {
+        HomeGuideController *guideVC = [HomeGuideController new];
+        [self presentViewController:guideVC animated:NO completion:nil];
+    }
     
     [self addSideMenuButton];
 //    [self addWeatherImage];
