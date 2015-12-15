@@ -38,14 +38,14 @@
         self.edgesForExtendedLayout =  UIRectEdgeNone;
     }
     
-    UIImageView * imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
-    imageView.image = [UIImage imageNamed:@"sbg"];
-    [self.view addSubview:imageView];
+    self.bgView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    self.bgView.image = [UIImage imageNamed:@"teacher_bg"];
+    [self.view addSubview:self.bgView];
     
     // 添加button下面一条线
-    UIView *lineDownView = [[UIView alloc] initWithFrame:CGRectMake(7.5, 0, self.view.frame.size.width - 15, 2)];
-    lineDownView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
-    [self.view addSubview:lineDownView];
+    self.lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 2)];
+    self.lineView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
+    [self.view addSubview:self.lineView];
 
     
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:self.style];
