@@ -12,6 +12,7 @@
 
 @property (nonatomic,strong) NSString *coachid;
 @property (nonatomic,strong) NSString *name;
+@property (nonatomic,strong) NSString *mobile;
 @property (nonatomic,strong) NSString *originalpic;
 @property (nonatomic,assign) NSInteger  starlevel;
 @property (nonatomic,assign) NSInteger  coursecount;

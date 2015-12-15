@@ -329,6 +329,7 @@
 		B8771E491C098F500051DE9D /* RefreshTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8771E451C098F500051DE9D /* RefreshTableView.m */; };
 		B8771E521C0990980051DE9D /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B8771E511C0990980051DE9D /* UserInfoModel.m */; };
 		B8771E551C0991570051DE9D /* UIViewController+Method.m in Sources */ = {isa = PBXBuildFile; fileRef = B8771E541C0991570051DE9D /* UIViewController+Method.m */; };
+		B88BC0F11C1FB25D0060373C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B88BC0F31C1FB25D0060373C /* Localizable.strings */; };
 		B895A1951C10329F00FEDD78 /* InformationDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D92296E71C0FE9A000D0FFDF /* InformationDataModel.m */; };
 		B895A1961C1032C000FEDD78 /* InformationViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D92296E41C0FDCC500D0FFDF /* InformationViewModel.m */; };
 		B895A19A1C1041D100FEDD78 /* RecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B895A1991C1041D100FEDD78 /* RecommendViewController.m */; };
@@ -955,6 +956,7 @@
 		B8771E511C0990980051DE9D /* UserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoModel.m; sourceTree = "<group>"; };
 		B8771E531C0991570051DE9D /* UIViewController+Method.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Method.h"; sourceTree = "<group>"; };
 		B8771E541C0991570051DE9D /* UIViewController+Method.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Method.m"; sourceTree = "<group>"; };
+		B88BC0F41C1FB2600060373C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B895A1981C1041D100FEDD78 /* RecommendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendViewController.h; sourceTree = "<group>"; };
 		B895A1991C1041D100FEDD78 /* RecommendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendViewController.m; sourceTree = "<group>"; };
 		B895A19B1C1042DB00FEDD78 /* DZNSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZNSegmentedControl.h; sourceTree = "<group>"; };
@@ -1282,6 +1284,7 @@
 				B8771B0A1C0976200051DE9D /* Assets.xcassets */,
 				B8771B0F1C0976200051DE9D /* Info.plist */,
 				B8771E4A1C098F7D0051DE9D /* PrefixHeader.pch */,
+				B88BC0F31C1FB25D0060373C /* Localizable.strings */,
 				B8771AF81C0976200051DE9D /* Supporting Files */,
 			);
 			path = Headmaster;
@@ -2877,6 +2880,11 @@
 					B8771AF41C0976200051DE9D = {
 						CreatedOnToolsVersion = 7.1.1;
 						DevelopmentTeam = MC3VUBEH8X;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -2983,6 +2991,7 @@
 				B8771D6C1C098DE40051DE9D /* call_silence_h.png in Resources */,
 				B8771D641C098DE40051DE9D /* VoiceSearchFeedback020.png in Resources */,
 				B8771D971C098DE40051DE9D /* chatBar_recordSelected.png in Resources */,
+				B88BC0F11C1FB25D0060373C /* Localizable.strings in Resources */,
 				55BA0F5D1C0EFA8100F83CD8 /* PublishCell.xib in Resources */,
 				B8771DAF1C098DE40051DE9D /* chatBar_more_photo.png in Resources */,
 				B8771D471C098DE40051DE9D /* VoiceSearchFeedback005@2x.png in Resources */,
@@ -3363,6 +3372,17 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		B88BC0F31C1FB25D0060373C /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B88BC0F41C1FB2600060373C /* Base */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		B8771B101C0976200051DE9D /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -3497,8 +3517,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Wei Ai Chi Kuang Tech Co. Ltd (MC3VUBEH8X)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Wei Ai Chi Kuang Tech Co. Ltd (MC3VUBEH8X)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Guobin Shen (69F6W58BNP)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Guobin Shen (69F6W58BNP)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
