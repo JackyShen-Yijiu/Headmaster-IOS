@@ -86,8 +86,8 @@
 //            self.title = [self.conversation.ext objectForKey:@"groupSubject"];
         }
     }
-    
-    self.myNavigationItem.title = nil;
+
+        self.myNavigationItem.title = nil;
     if(self.mobile){
         UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.frame = CGRectMake(0, 0, 25, 25);
@@ -172,7 +172,7 @@
         NSString *CellIdentifier = [CustomMessageCell cellIdentifierWithModel:model];
         //发送cell
         CustomMessageCell *sendCell = (CustomMessageCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-        
+//        sendCell.backgroundColor = [UIColor redColor];
         // Configure the cell...
         if (sendCell == nil) {
             sendCell = [[CustomMessageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier model:model];

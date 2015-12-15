@@ -148,7 +148,13 @@
         
         if (model) {
             [self.dataArray addObject:model];
+            
         }
+    }
+    
+    if (!self.dataArray.count) {
+        ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"您现在还没有与您的教练聊天的记录"];
+        [alertView show];
     }
 
     [self tableViewDidFinishTriggerHeader:YES reload:YES];
