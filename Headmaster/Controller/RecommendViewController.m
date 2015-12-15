@@ -116,6 +116,27 @@
     }
     return str;
 }
+// 返回评论类别字符串
+- (NSString *)evaluateTypeString:(NSInteger)flage {
+    NSString *evaluate = @"";
+    switch (flage) {
+        case 1:
+            evaluate = @"好评";
+            break;
+        case 2:
+            evaluate = @"中评";
+            break;
+        case 3:
+            evaluate = @"差评";
+            break;
+        case 4:
+            evaluate = @"投诉";
+            break;
+        default:
+            break;
+    }
+    return evaluate;
+}
 
 -(void)initUI
 {
@@ -257,7 +278,7 @@
                                            searchType:ws.searchType
                                          commentLevle:ws.toolView.selectButtonInteger - 100
                                               success:^(id responseObject) {
-                                                  
+                                                  NSLog(@"%li==%@",ws.toolView.selectButtonInteger,responseObject);
                                                   NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
                                                   
                                                   if (type == 1) {
@@ -307,6 +328,9 @@
         _toolView = [RecommendToolView new];
         WS(ws)
         _toolView.itemClickBlock = ^(UIButton *btn) {
+            
+            ws.title = [NSString stringWithFormat:@"%@%@详情",[ws searchTypeString],[ws evaluateTypeString:btn.tag - 100]];
+            
             [ws.tableView.refreshHeader beginRefreshing];
         };
     }
