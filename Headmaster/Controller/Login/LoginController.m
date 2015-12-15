@@ -140,7 +140,6 @@
     _iconView.image = [UIImage imageNamed:@"icon120x110.png"];
     
     _phoneTF.placeholder = @"账号";
-    _phoneTF.text = @"15652305651";
     _phoneTF.textColor = [UIColor colorWithHexString:@"#fefefe"];
     [_phoneTF setValue:[UIColor colorWithHexString:@"#bfbfbf"] forKeyPath:@"_placeholderLabel.textColor"];
     [_phoneTF setValue:[UIFont systemFontOfSize:15] forKeyPath:@"_placeholderLabel.font"];
@@ -156,7 +155,6 @@
     _lineViewUP.alpha = 0.1;
     
     _passwordTF.placeholder = @"密码";
-    _passwordTF.text = @"123456";
     _passwordTF.textColor = [UIColor colorWithHexString:@"#fefefe"];
     [_passwordTF setValue:[UIColor colorWithHexString:@"#bfbfbf"] forKeyPath:@"_placeholderLabel.textColor"];
     [_passwordTF setValue:[UIFont systemFontOfSize:15] forKeyPath:@"_placeholderLabel.font"];
