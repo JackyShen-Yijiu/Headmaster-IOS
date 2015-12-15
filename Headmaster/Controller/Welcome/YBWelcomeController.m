@@ -32,11 +32,13 @@
 #define kVersion @"kVersion"
 
 
-@interface YBWelcomeController ()
+@interface YBWelcomeController ()<UIScrollViewDelegate>
 
 @property (nonatomic, strong) UIWindow *window;
 
 @property (nonatomic, strong) UIScrollView *scrollView;
+
+@property (nonatomic, strong) UIPageControl *pageControl;
 
 @end
 
@@ -101,8 +103,12 @@
     CGFloat btnHeight = 40;
     CGFloat btnBottom = 60;
     UIButton *button = [UIButton new];
+    [button.layer setMasksToBounds:YES];
+    [button.layer setCornerRadius:btnHeight / 2.f];
+    [button setTitle:@"点击进入" forState:UIControlStateNormal];
+    
     button.frame = CGRectMake((SCREEN_WIDTH - btnWidth) / 2, SCREEN_HEIGHT - btnHeight - btnBottom, btnWidth, btnHeight);
-    button.backgroundColor = [UIColor redColor];
+    button.backgroundColor = [UIColor colorWithHexString:@"01E2B6" alpha:1];
     [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
     
     UIImageView *imageView = (UIImageView *)[self.scrollView viewWithTag:tag];
@@ -124,6 +130,12 @@
     }];
 }
 
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    
+    NSInteger currentPage = scrollView.contentOffset.x / SCREEN_WIDTH;
+    self.pageControl.currentPage = currentPage;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -132,8 +144,10 @@
     [self saveVersion];
     
     [self.view addSubview:self.scrollView];
+    [self.view addSubview:self.pageControl];
     
-    [self cycleCreateImageView:@[ @"bg", @"bg", @"bg" ]];
+    [self cycleCreateImageView:@[ @"guide_page_1.jpg", @"guide_page_2.jpg", @"guide_page_3.jpg", @"guide_page_4.jpg" ]];
+    self.pageControl.numberOfPages = 4;
     
 }
 
@@ -155,10 +169,21 @@
         _scrollView.showsHorizontalScrollIndicator = NO;
         _scrollView.showsVerticalScrollIndicator = NO;
         _scrollView.pagingEnabled = YES;
+        _scrollView.delegate = self;
         // 弹簧效果
         _scrollView.bounces = NO;
     }
     return _scrollView;
+}
+
+- (UIPageControl *)pageControl {
+    if (!_pageControl) {
+        _pageControl = [UIPageControl new];
+        _pageControl.frame = CGRectMake(0, 50, SCREEN_WIDTH, 10);
+        _pageControl.pageIndicatorTintColor = [UIColor colorWithHexString:@"#FFFFFF" alpha:0.2];
+        _pageControl.currentPageIndicatorTintColor = [UIColor lightGrayColor];
+    }
+    return _pageControl;
 }
 
 /*
