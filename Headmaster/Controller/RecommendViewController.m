@@ -366,6 +366,7 @@
     ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:cell.model.coaId conversationType:eConversationTypeChat];
     chatController.userName = cell.model.coaName;
     chatController.mobile = cell.model.coaMobile;
+    chatController.avator = cell.model.coaPortrait.originalpic;
     [self.navigationController pushViewController:chatController animated:YES];
 }
 
@@ -373,9 +374,9 @@
 {
     ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:cell.model.studentid conversationType:eConversationTypeChat];
     chatController.userName = cell.model.studendName;
-        chatController.mobile = cell.model.stuMobile;
+    chatController.mobile = cell.model.stuMobile;
+    chatController.avator = cell.model.stuPortrait.originalpic;
     [self.navigationController pushViewController:chatController animated:YES];
-
 }
 
 #pragma mark - 投诉
