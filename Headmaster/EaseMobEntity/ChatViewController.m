@@ -286,12 +286,9 @@
         model.avatarURLPath = [[UserInfoModel defaultUserInfo] portrait];
         model.nickname = [[UserInfoModel defaultUserInfo] name];
         if([[UserInfoModel defaultUserInfo] messageExt]){
-            NSMutableDictionary * dic = [[NSMutableDictionary alloc] initWithDictionary:[[UserInfoModel defaultUserInfo] messageExt]];
-            if (self.userName)
-                [dic setValue:self.userName forKey:@"toNickName"];
-            if (self.avator)
-                [dic setValue:self.avator forKey:@"toAva"];
-            [model message].ext = dic;
+            
+            [model message].ext = [self ext];
+            
         }
         
     }else{
@@ -318,7 +315,9 @@
             [dic setValue:self.userName forKey:@"toNickName"];
         if (self.avator)
             [dic setValue:self.avator forKey:@"toAva"];
-        
+        if (self.mobile) {
+            [dic setValue:self.mobile forKey:@"toMobile"];
+        }
         return dic;
     }
     return nil;
