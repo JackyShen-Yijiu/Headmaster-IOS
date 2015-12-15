@@ -120,7 +120,7 @@
             if (type == 1) {
                 ws.dataSource = [[BaseModelMethod getTeacherListArrayFormDicInfo:[responseObject objectArrayForKey:@"data"]] mutableCopy];
                 if (ws.dataSource.count == 0) {
-                    ToastAlertView *tav = [[ToastAlertView alloc] initWithTitle:@"无此教练"];
+                    ToastAlertView *tav = [[ToastAlertView alloc] initWithTitle:@"没有搜到您要找的教练"];
                     [tav show];
                     
                 }
