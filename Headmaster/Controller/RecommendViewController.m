@@ -363,19 +363,14 @@
 }
 - (void)recomendCell:(RecomendCell *)cell DidCoaImessageButton:(UIButton *)button
 {
-    ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:cell.model.coaId conversationType:eConversationTypeChat];
-    chatController.userName = cell.model.coaName;
-    chatController.mobile = cell.model.coaMobile;
+    ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:cell.model.coaId conversationType:eConversationTypeChat Name:cell.model.coaName ava:cell.model.coaPortrait.originalpic mobile:cell.model.coaMobile];
     [self.navigationController pushViewController:chatController animated:YES];
 }
 
 - (void)recomendCell:(RecomendCell *)cell DidStuImessageButton:(UIButton *)button
 {
-    ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:cell.model.studentid conversationType:eConversationTypeChat];
-    chatController.userName = cell.model.studendName;
-        chatController.mobile = cell.model.stuMobile;
+    ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:cell.model.studentid conversationType:eConversationTypeChat Name:cell.model.studendName ava:cell.model.stuPortrait.originalpic mobile:cell.model.stuMobile];
     [self.navigationController pushViewController:chatController animated:YES];
-
 }
 
 #pragma mark - 投诉

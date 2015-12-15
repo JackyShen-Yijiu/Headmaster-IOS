@@ -120,7 +120,7 @@
             if (type == 1) {
                 ws.dataSource = [[BaseModelMethod getTeacherListArrayFormDicInfo:[responseObject objectArrayForKey:@"data"]] mutableCopy];
                 if (ws.dataSource.count == 0) {
-                    ToastAlertView *tav = [[ToastAlertView alloc] initWithTitle:@"无此教练"];
+                    ToastAlertView *tav = [[ToastAlertView alloc] initWithTitle:@"没有搜到您要找的教练"];
                     [tav show];
                     
                 }
@@ -239,8 +239,7 @@
 
 - (void)teacherCell:(TeacherCell *)cell didClickMessageButton:(UIButton *)button
 {
-    ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:cell.model.userId conversationType:eConversationTypeChat];
-    chatController.userName = cell.model.userName;
+    ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:cell.model.userId conversationType:eConversationTypeChat Name:cell.model.userName ava:cell.model.porInfo.originalpic mobile:nil];
     [self.navigationController pushViewController:chatController animated:YES];
 }
 

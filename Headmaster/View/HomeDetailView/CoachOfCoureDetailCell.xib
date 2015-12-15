@@ -31,10 +31,10 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="毛云娇" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lfr-Bx-UTr">
-                        <rect key="frame" x="84" y="15" width="61" height="21"/>
+                        <rect key="frame" x="84" y="15" width="100" height="21"/>
                         <animations/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="61" id="Zrb-ek-86G"/>
+                            <constraint firstAttribute="width" constant="100" id="Zrb-ek-86G"/>
                             <constraint firstAttribute="height" constant="21" id="gwd-vZ-ic3"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>

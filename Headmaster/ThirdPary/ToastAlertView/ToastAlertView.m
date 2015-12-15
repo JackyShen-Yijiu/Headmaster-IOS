@@ -23,7 +23,7 @@
         _title = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 220, 40)];
         _title.textAlignment = NSTextAlignmentCenter;
         _title.backgroundColor = [UIColor clearColor];
-        _title.font = [UIFont systemFontOfSize:16];
+        _title.font = [UIFont systemFontOfSize:12];
         _title.textColor = [UIColor whiteColor];
         _title.text = title;
         [_alertboxImageView addSubview:_title];

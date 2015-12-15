@@ -22,11 +22,28 @@
     UIMenuItem *_transpondMenuItem;
 }
 
+@property(nonatomic,strong)NSString * userName;
+@property(nonatomic,strong)NSString * mobile;
+@property(nonatomic,strong)NSString * avator;
+
 @property (nonatomic) BOOL isPlayingAudio;
 
 @end
 
 @implementation ChatViewController
+
+- (instancetype)initWithConversationChatter:(NSString *)conversationChatter
+                           conversationType:(EMConversationType)conversationType
+                                       Name:(NSString *)name ava:(NSString *)ava mobile:(NSString *)mobile
+{
+    self = [super initWithConversationChatter:conversationChatter conversationType:conversationType];
+    if (self) {
+        self.userName = name;
+        self.avator = ava;
+        self.mobile = mobile;
+    }
+    return self;
+}
 
 - (void)viewDidLoad
 {
@@ -66,10 +83,11 @@
     if (self.conversation.conversationType == eConversationTypeGroupChat) {
         if ([[self.conversation.ext objectForKey:@"groupSubject"] length])
         {
-            self.title = [self.conversation.ext objectForKey:@"groupSubject"];
+//            self.title = [self.conversation.ext objectForKey:@"groupSubject"];
         }
     }
     
+    self.myNavigationItem.title = nil;
     if(self.mobile){
         UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.frame = CGRectMake(0, 0, 25, 25);
@@ -268,7 +286,15 @@
     if ([fromId isEqualToString:[[UserInfoModel defaultUserInfo] userID]]) {
         model.avatarURLPath = [[UserInfoModel defaultUserInfo] portrait];
         model.nickname = [[UserInfoModel defaultUserInfo] name];
-        [model message].ext = [[UserInfoModel defaultUserInfo] messageExt];
+        if([[UserInfoModel defaultUserInfo] messageExt]){
+            NSMutableDictionary * dic = [[NSMutableDictionary alloc] initWithDictionary:[[UserInfoModel defaultUserInfo] messageExt]];
+            if (self.userName)
+                [dic setValue:self.userName forKey:@"toNickName"];
+            if (self.avator)
+                [dic setValue:self.avator forKey:@"toAva"];
+            [model message].ext = dic;
+        }
+        
     }else{
         NSDictionary * dic = [[model message] ext];
         model.avatarURLPath = [dic objectStringForKey:@"headUrl"];
@@ -278,6 +304,26 @@
     model.failImageName = @"user";
 }
 
+- (void)didSendText:(NSString *)text
+{
+    if (text && text.length > 0) {
+        [self sendTextMessage:text withExt:[self ext]];
+    }
+}
+
+- (NSDictionary *)ext
+{
+    if([[UserInfoModel defaultUserInfo] messageExt]){
+        NSMutableDictionary * dic = [[NSMutableDictionary alloc] initWithDictionary:[[UserInfoModel defaultUserInfo] messageExt]];
+        if (self.userName)
+            [dic setValue:self.userName forKey:@"toNickName"];
+        if (self.avator)
+            [dic setValue:self.avator forKey:@"toAva"];
+        
+        return dic;
+    }
+    return nil;
+}
 
 #pragma mark - EaseMob
 
