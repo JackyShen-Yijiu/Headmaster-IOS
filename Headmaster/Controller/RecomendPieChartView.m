@@ -97,13 +97,13 @@
     
     self.midRecomend = [[IconLabel alloc] init];
     self.midRecomend.label.text = @"中评";
-    self.midRecomend.icon.image = [UIImage imageNamed:@"middle"];
+    self.midRecomend.icon.image = [UIImage imageNamed:@"generalcomment"];
 
     [self addSubview:self.midRecomend];
     
     self.poorRecomend = [[IconLabel alloc] init];
     self.poorRecomend.label.text = @"差评";
-    self.poorRecomend.icon.image = [UIImage imageNamed:@"low"];
+    self.poorRecomend.icon.image = [UIImage imageNamed:@"badcomment"];
     [self addSubview:self.poorRecomend];
     
 }
