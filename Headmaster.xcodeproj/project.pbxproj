@@ -3474,8 +3474,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Wei Ai Chi Kuang Tech Co. Ltd (MC3VUBEH8X)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Wei Ai Chi Kuang Tech Co. Ltd (MC3VUBEH8X)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3507,7 +3507,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yibuxuechexiaozhangduan;
 				PRODUCT_NAME = "一步校长";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "bec297f5-3afd-4f3f-a13f-90bc2347d647";
 			};
 			name = Debug;
 		};
@@ -3517,7 +3517,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Wei Ai Chi Kuang Tech Co. Ltd (MC3VUBEH8X)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3549,7 +3549,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yibuxuechexiaozhangduan;
 				PRODUCT_NAME = "一步校长";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "bec297f5-3afd-4f3f-a13f-90bc2347d647";
 			};
 			name = Release;
 		};
