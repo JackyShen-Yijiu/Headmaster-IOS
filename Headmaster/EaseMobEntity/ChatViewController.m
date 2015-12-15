@@ -86,6 +86,7 @@
 - (void)telButtonClick:(UIButton *)button
 {
     NSString * str = [NSString stringWithFormat:@"telprompt://%@",self.mobile];
+    NSLog(@"%@",str);
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
 }
 

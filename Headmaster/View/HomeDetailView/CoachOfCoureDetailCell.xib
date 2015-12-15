@@ -146,6 +146,7 @@
                 <outlet property="goodCommondLabel" destination="SEc-FG-GFo" id="0Q7-b0-5Xp"/>
                 <outlet property="iconImageView" destination="iuF-Pn-b0I" id="swP-Us-g5u"/>
                 <outlet property="mightCommondLabel" destination="07s-ha-rcf" id="1tQ-iz-74h"/>
+                <outlet property="nameLabel" destination="Lfr-Bx-UTr" id="lHm-96-Q7C"/>
                 <outlet property="starLevelImageView" destination="c91-AX-Lda" id="Ipi-2b-Pmq"/>
             </connections>
             <point key="canvasLocation" x="55.5" y="233"/>

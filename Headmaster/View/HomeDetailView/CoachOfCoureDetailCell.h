@@ -19,6 +19,7 @@
 
 @end
 @interface CoachOfCoureDetailCell : YBBaseTableCell
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (nonatomic,weak) id<CoachOfCoureDetailCellDelegate>delegate;
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *buttonIcon;
@@ -31,5 +32,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *starLevelImageView;
 @property (nonatomic, strong) CWStarRateView *rateView;
 
+@property (nonatomic,strong) NSString *mobileStr;
 - (void)refreshData:(CoachCoureDatilModel *)dataModel;
 @end
