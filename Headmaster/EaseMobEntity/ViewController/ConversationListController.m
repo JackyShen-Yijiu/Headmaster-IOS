@@ -43,7 +43,7 @@ static NSString *kGroupName = @"GroupName";
     [super viewDidLoad];
     
     [self registerNotifications];
-    [[EaseMob sharedInstance].chatManager loadAllConversationsFromDatabaseWithAppend2Chat:YES];
+    [[EaseMob sharedInstance].chatManager loadAllConversationsFromDatabaseWithAppend2Chat:NO];
     self.showRefreshHeader = YES;
     self.delegate = self;
     self.dataSource = self;

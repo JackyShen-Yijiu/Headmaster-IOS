@@ -165,16 +165,15 @@ CGFloat const EaseConversationCellPadding = 10;
 - (void)setModel:(id<IConversationModel>)model
 {
     _model = model;
-    
-    if ([_model.title length] > 0) {
-        self.titleLabel.text = _model.title;
-    }
-    else{
-        self.titleLabel.text = _model.conversation.chatter;
+    NSDictionary * ext = [[_model conversation] ext];
+    NSString * title = [ext objectStringForKey:@"toNickName"];
+    NSString * ava = [ext objectStringForKey:@"toAva"];
+    if ([title length] > 0) {
+        self.titleLabel.text = title;
     }
     
     if (self.showAvatar) {
-        if ([_model.avatarURLPath length] > 0){
+        if ([ava length] > 0){
             [self.avatarView.imageView sd_setImageWithURL:[NSURL URLWithString:_model.avatarURLPath] placeholderImage:_model.avatarImage];
         } else {
             if (_model.avatarImage) {

@@ -32,9 +32,11 @@
 
 @implementation ChatViewController
 
-- (instancetype)initWithName:(NSString *)name ava:(NSString *)ava mobile:(NSString *)mobile
+- (instancetype)initWithConversationChatter:(NSString *)conversationChatter
+                           conversationType:(EMConversationType)conversationType
+                                       Name:(NSString *)name ava:(NSString *)ava mobile:(NSString *)mobile
 {
-    self = [super init];
+    self = [super initWithConversationChatter:conversationChatter conversationType:conversationType];
     if (self) {
         self.userName = name;
         self.avator = ava;
@@ -81,10 +83,11 @@
     if (self.conversation.conversationType == eConversationTypeGroupChat) {
         if ([[self.conversation.ext objectForKey:@"groupSubject"] length])
         {
-            self.title = [self.conversation.ext objectForKey:@"groupSubject"];
+//            self.title = [self.conversation.ext objectForKey:@"groupSubject"];
         }
     }
     
+    self.myNavigationItem.title = nil;
     if(self.mobile){
         UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.frame = CGRectMake(0, 0, 25, 25);
@@ -301,6 +304,26 @@
     model.failImageName = @"user";
 }
 
+- (void)didSendText:(NSString *)text
+{
+    if (text && text.length > 0) {
+        [self sendTextMessage:text withExt:[self ext]];
+    }
+}
+
+- (NSDictionary *)ext
+{
+    if([[UserInfoModel defaultUserInfo] messageExt]){
+        NSMutableDictionary * dic = [[NSMutableDictionary alloc] initWithDictionary:[[UserInfoModel defaultUserInfo] messageExt]];
+        if (self.userName)
+            [dic setValue:self.userName forKey:@"toNickName"];
+        if (self.avator)
+            [dic setValue:self.avator forKey:@"toAva"];
+        
+        return dic;
+    }
+    return nil;
+}
 
 #pragma mark - EaseMob
 

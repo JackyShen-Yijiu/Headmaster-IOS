@@ -11,6 +11,8 @@
 #import "EaseMessageViewController.h"
 
 @interface ChatViewController : EaseMessageViewController
-- (instancetype)initWithName:(NSString *)name ava:(NSString *)ava mobile:(NSString *)mobile;
+- (instancetype)initWithConversationChatter:(NSString *)conversationChatter
+                           conversationType:(EMConversationType)conversationType
+                                       Name:(NSString *)name ava:(NSString *)ava mobile:(NSString *)mobile;
 
 @end
