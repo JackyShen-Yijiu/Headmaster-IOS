@@ -178,7 +178,7 @@
     _outSideBgView.progress = 0;
     
     _outSideFgView.animationDuration = 2;
-    _outSideFgView.lineColor = [UIColor colorWithHexString:@"F955D2"];
+    _outSideFgView.lineColor = [UIColor colorWithHexString:@"F955D2" alpha:0.8];
     _outSideFgView.progress = 0;
     
     _inSideBgView.animationDuration = 0.7;
@@ -186,7 +186,7 @@
     _inSideBgView.progress = 1;
     
     _inSideFgView.animationDuration = 2;
-    _inSideFgView.lineColor = [UIColor colorWithHexString:HIGHLIGHT_COLOR];
+    _inSideFgView.lineColor = [UIColor colorWithHexString:HIGHLIGHT_COLOR alpha:0.8];
     _inSideFgView.progress = 0;
     
     _progressLabel = [UILabel new];

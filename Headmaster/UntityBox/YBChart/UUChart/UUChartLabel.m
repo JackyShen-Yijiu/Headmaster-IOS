@@ -20,11 +20,10 @@
         [self setLineBreakMode:NSLineBreakByWordWrapping];
         [self setMinimumScaleFactor:5.0f];
         [self setNumberOfLines:1];
-        [self setFont:[UIFont boldSystemFontOfSize:9.0f]];
+        [self setFont:[UIFont boldSystemFontOfSize:14.0f]];
         [self setTextColor: [UIColor colorWithHexString:@"047A64"]];
         self.backgroundColor = [UIColor clearColor];
         [self setTextAlignment:NSTextAlignmentCenter];
-//        self.userInteractionEnabled = YES;
     }
     return self;
 }
