@@ -174,7 +174,7 @@ CGFloat const EaseConversationCellPadding = 10;
     
 //    if (self.showAvatar) {
     if ([ava length] > 0){
-        [self.avatarView.imageView sd_setImageWithURL:[NSURL URLWithString:_model.avatarURLPath] placeholderImage:[UIImage imageNamed:@"defoult_por"]];
+        [self.avatarView.imageView sd_setImageWithURL:[NSURL URLWithString:ava] placeholderImage:[UIImage imageNamed:@"defoult_por"]];
     } else {
         self.avatarView.image = [UIImage imageNamed:@"defoult_por"];
     }
