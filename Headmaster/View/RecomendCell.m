@@ -269,7 +269,7 @@
     if(_model.stuPortrait.originalpic)
         [self.stuPorView.imageView sd_setImageWithURL:[NSURL URLWithString:_model.stuPortrait.originalpic] placeholderImage:defaultImage];
     if(_model.coaPortrait.originalpic)
-        [self.stuPorView.imageView sd_setImageWithURL:[NSURL URLWithString:_model.coaPortrait.originalpic] placeholderImage:defaultImage];
+        [self.coaPorView.imageView sd_setImageWithURL:[NSURL URLWithString:_model.coaPortrait.originalpic] placeholderImage:defaultImage];
     
     
     self.stuName.text = _model.studendName;
