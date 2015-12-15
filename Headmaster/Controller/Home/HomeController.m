@@ -139,6 +139,7 @@
         if (_viewModel.searchType == kDateSearchTypeWeek) {
 //            [self.progressView refreshData:@[ @(0.85), @(0.3), @(1), @(0.72) ]];
             [self.evaluateView refreshData:_viewModel.evaluateArray];
+            [self.progressView refreshData:@[ @(0), @(0), @(1), @(0) ]];
         }else {
             [self.topView refreshSubjectData:_viewModel.subjectArray sameDay:_viewModel.applyCount];
             [self.progressView refreshData:_viewModel.progressArray];

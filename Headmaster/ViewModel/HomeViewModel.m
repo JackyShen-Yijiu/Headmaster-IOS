@@ -48,10 +48,11 @@
             _subjectArray = [marr copy];
 //            _subjectArray = @[ @"2",@"3",@"4",@"5" ];
             
-            _evaluateArray = @[ dailyData.data.commentstudentcount.goodcommnent,
-                                dailyData.data.commentstudentcount.generalcomment,
-                                dailyData.data.commentstudentcount.badcomment,
-                                dailyData.data.complaintstudentcount ];
+            
+            _evaluateArray = @[ [NSString stringWithFormat:@"%li",dailyData.data.commentstudentcount.goodcommnent],
+                                [NSString stringWithFormat:@"%li",dailyData.data.commentstudentcount.generalcomment],
+                                [NSString stringWithFormat:@"%li",dailyData.data.commentstudentcount.badcomment],
+                                [NSString stringWithFormat:@"%li",dailyData.data.complaintstudentcount] ];
             
             // 进度数据
             CGFloat value_1 = 0;
@@ -59,11 +60,11 @@
             CGFloat value_4 = 0;
             
             if (dailyData.data.coachstotalcoursecount) {           
-                value_1 = dailyData.data.reservationcoursecountday / dailyData.data.coachstotalcoursecount;
-                value_2 = dailyData.data.finishreservationnow / dailyData.data.coachstotalcoursecount;
+                value_1 = dailyData.data.reservationcoursecountday / (CGFloat)(dailyData.data.coachstotalcoursecount);
+                value_2 = dailyData.data.finishreservationnow / (CGFloat)(dailyData.data.coachstotalcoursecount);
             }
             if (dailyData.data.coachcoursenow) {
-                value_4 = dailyData.data.coursestudentnow / dailyData.data.coachcoursenow;
+                value_4 = dailyData.data.coursestudentnow / (CGFloat)(dailyData.data.coachcoursenow);
             }
             _progressArray = @[ @(value_1), @(value_2), @(1), @(value_4) ];
         }
