@@ -175,7 +175,7 @@
     [_loginButton setTitleColor:[UIColor colorWithHexString:@"#fefefe"] forState:UIControlStateNormal];
     [_loginButton addTarget:self action:@selector(buttonIsClick) forControlEvents:UIControlEventTouchUpInside];
     
-    [_callBtn setTitle:@"联系客服:66666666666" forState:UIControlStateNormal];
+    [_callBtn setTitle:@"如需使用请致电:010-53658566" forState:UIControlStateNormal];
     _callBtn.titleLabel.font = [UIFont systemFontOfSize:12];
     [_callBtn setTitleColor:[UIColor colorWithHexString:@"#fefefe"] forState:UIControlStateNormal];
     [_callBtn addTarget:self action:@selector(callNum) forControlEvents:UIControlEventTouchUpInside];
