@@ -20,6 +20,19 @@
 
 @implementation MenuController
 
++ (UIImageView *)defaultImageView {
+    
+    static UIImageView *imgview = nil;
+    @synchronized (self)
+    {
+        if (!imgview) {
+            imgview = [[UIImageView alloc] init];
+            [imgview sd_setImageWithURL:[NSURL URLWithString:[UserInfoModel defaultUserInfo].portrait]];
+        }
+    }
+    return imgview;
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [MobClick beginLogPageView:NSStringFromClass([self class])];
@@ -63,10 +76,9 @@
     if (!_headView) {
         _headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 200)];
         _headView.backgroundColor = [UIColor clearColor];
-        UIImageView * imgView = [[UIImageView alloc] initWithFrame:CGRectMake(55, 82, 78, 78)];
+        UIImageView * imgView = [[self class] defaultImageView];
+        imgView.frame = CGRectMake(55, 82, 78, 78);
         imgView.userInteractionEnabled = YES;
-        NSLog(@"%@",[UserInfoModel defaultUserInfo].portrait);
-        [imgView sd_setImageWithURL:[NSURL URLWithString:[UserInfoModel defaultUserInfo].portrait]];
         imgView.layer.masksToBounds = YES;
         imgView.layer.cornerRadius = 39;
         [_headView addSubview:imgView];
@@ -79,6 +91,7 @@
 - (void)iconViewIsClick {
 //    [self.sideMenuViewController hideMenuViewController];
     UserCenterController *ucc = [[UserCenterController alloc] init];
+    ucc.iconImage = [[self class] defaultImageView].image;
     ucc.hideMenu = ^ {
         [self.sideMenuViewController hideMenuViewController];
     };

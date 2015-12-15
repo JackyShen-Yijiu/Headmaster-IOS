@@ -66,6 +66,7 @@
     [ud removeObjectForKey:@"0"];
     [ud removeObjectForKey:@"1"];
     [ud removeObjectForKey:@"2"];
+    [ud removeObjectForKey:@"USERIMAGE"];
 //    LoginController *lc = [LoginController new];
 //    lc.dismissController = ^ {
 //        [self dismissViewControllerAnimated:YES completion:nil];
@@ -142,8 +143,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(10, 0, 50, 50)];
-    [iv sd_setImageWithURL:[NSURL URLWithString:[UserInfoModel defaultUserInfo].portrait]];
-    iv.image = [UIImage resizeImage:iv.image newSize:CGSizeMake(50, 50)];
+    iv.image = [UIImage resizeImage:_iconImage newSize:CGSizeMake(50, 50)];
     iv.layer.cornerRadius = 25;
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(70, 0, 100, 50)];
     label.text = [UserInfoModel defaultUserInfo].name;

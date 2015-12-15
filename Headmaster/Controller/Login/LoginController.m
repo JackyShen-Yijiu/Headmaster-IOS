@@ -227,17 +227,25 @@
 
 #pragma mark - buttonClick
 
+
 - (void)buttonIsClick {
     
     [self.view endEditing:YES];
     
+    
     [NetworkEntity loginWithPhotoNumber:_phoneTF.text password:_passwordTF.text success:^(id responseObject) {
         NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
         if (type == 1) {
+            
             NSMutableDictionary * loginInfo = [responseObject mutableCopy];
             [NetworkTool setHTTPHeaderField:[[loginInfo objectForKey:@"data"] objectForKey:@"token"]];
             [loginInfo setValue:[_passwordTF.text MD5Digest]forKey:@"md5Pass"];
+            
             [[UserInfoModel defaultUserInfo] loginViewDic:loginInfo];
+            
+            [[MenuController defaultImageView] sd_setImageWithURL:[NSURL URLWithString:[UserInfoModel defaultUserInfo].portrait]];
+            
+            
             
             //极光推送设置alias
             [APService setAlias:[UserInfoModel defaultUserInfo].userID callbackSelector:@selector(tagsAliasCallback:tags:alias:) object:self];

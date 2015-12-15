@@ -364,21 +364,12 @@
     }
 }
 
-//- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
-//    if (![text isEqualToString:@""]) {
-//        self.placeholderLabel.hidden = YES;
-//        
-//    }
-//    if ([text isEqualToString:@""] && range.location == 0 && range.length == 1) {
-//        self.placeholderLabel.hidden = NO;
-//    }else {
-//        self.placeholderLabel.hidden = YES;
-//    }
-//    if (range.location>=300) {
-//        return NO;
-//    }
-//    return YES;
-//}
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    if (range.location>=300) {
+        return NO;
+    }
+    return YES;
+}
 
 #pragma marl - buttonClick
 

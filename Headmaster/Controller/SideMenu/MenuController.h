@@ -10,4 +10,6 @@
 
 @interface MenuController : YBBaseTableController
 
++ (UIImageView *)defaultImageView;
+
 @end

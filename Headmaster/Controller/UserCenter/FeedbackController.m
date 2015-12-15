@@ -7,6 +7,7 @@
 //
 
 #import "FeedbackController.h"
+#import "NSString+Helper.h"
 
 @interface FeedbackController () <UITextViewDelegate> {
     UITextView *_textview;
@@ -79,6 +80,12 @@
 
 - (void)btnClick {
     [_textview resignFirstResponder];
+    
+    if ([[_textview.text trimString] isEqualToString:@""]) {
+        ToastAlertView *toastView = [[ToastAlertView alloc] initWithTitle:@"请您填写完反馈内容后再反馈!"];
+        [toastView show];
+        return ;
+    }
     //手机版本
     NSString* phoneVersion = [[UIDevice currentDevice] systemVersion];
     //分辨率为宽高*scale
@@ -99,7 +106,7 @@
                             };
     NSLog(@"%@",params);
     [NetworkEntity postFeedbackWithparams:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"您的反馈我们已收到"];
+        ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"我们以收到您的反馈，谢谢您的宝贵意见"];
         [alertView show];
     } failure:^(AFHTTPRequestOperation *operation, id responseObject) {
         ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"反馈失败，请检查网络连接"];

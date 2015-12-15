@@ -12,4 +12,6 @@
 
 @property (nonatomic, copy) void (^hideMenu)(void);
 
+@property (nonatomic, copy) UIImage *iconImage;
+
 @end
