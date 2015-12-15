@@ -92,18 +92,18 @@
     
     self.higRecomend = [[IconLabel alloc] init];
     self.higRecomend.label.text = @"好评";
-    self.higRecomend.icon.image = [UIImage imageNamed:@"hig_recomend"];
+    self.higRecomend.icon.image = [UIImage imageNamed:@"high"];
     [self addSubview:self.higRecomend];
     
     self.midRecomend = [[IconLabel alloc] init];
     self.midRecomend.label.text = @"中评";
-    self.midRecomend.icon.image = [UIImage imageNamed:@"midRecomend"];
+    self.midRecomend.icon.image = [UIImage imageNamed:@"middle"];
 
     [self addSubview:self.midRecomend];
     
     self.poorRecomend = [[IconLabel alloc] init];
     self.poorRecomend.label.text = @"差评";
-    self.poorRecomend.icon.image = [UIImage imageNamed:@"poorRecomend"];
+    self.poorRecomend.icon.image = [UIImage imageNamed:@"low"];
     [self addSubview:self.poorRecomend];
     
 }
