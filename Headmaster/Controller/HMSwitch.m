@@ -69,7 +69,7 @@
 
 - (void)handlePanGestureRecognizerEvent:(UIPanGestureRecognizer *)recognizer
 {
-    if (self.isOn) {
+    if (!self.isOn) {
         return;
     }
     switch (recognizer.state) {

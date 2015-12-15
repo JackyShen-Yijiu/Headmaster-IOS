@@ -295,7 +295,7 @@
     if ([model isKindOfClass:[HMRecomendModel class]]) {
         self.rateView.scorePercent = (_model.rating / 5.f);
     }else{
-        [self.switchButton setOn:[(HMComplainModel *)self.model isDealDone]];
+        [self.switchButton setOn:![(HMComplainModel *)self.model isDealDone]];
     }
 }
 

@@ -86,7 +86,6 @@
 //            self.title = [self.conversation.ext objectForKey:@"groupSubject"];
         }
     }
-    self.myNavigationItem.title = self.title;
     
     if(self.mobile){
         UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -172,6 +171,7 @@
         NSString *CellIdentifier = [CustomMessageCell cellIdentifierWithModel:model];
         //发送cell
         CustomMessageCell *sendCell = (CustomMessageCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        
         // Configure the cell...
         if (sendCell == nil) {
             sendCell = [[CustomMessageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier model:model];
