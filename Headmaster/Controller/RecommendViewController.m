@@ -194,11 +194,13 @@
         if (![ws isShowRecomend]) {
             //投诉
             ws.tableView.tableHeaderView = nil;
+            
             [NetworkEntity getComplainListWithUserid:[[UserInfoModel defaultUserInfo] userID]
                                             SchoolId:[[UserInfoModel defaultUserInfo] schoolId]
                                            pageIndex:1
                                              success:^(id responseObject) {
                                                  
+//                                                 NSLog(@"==%@",responseObject);
                                                  NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
                                                  if (type == 1) {
                                                      ws.complainData = [[BaseModelMethod getComplainListArrayFormDicInfo:[responseObject objectArrayForKey:@"data"]] mutableCopy];
@@ -246,9 +248,23 @@
             //投诉
             ws.tableView.tableHeaderView = nil;
             ws.tableView.tableHeaderView = nil;
+            
+            NSInteger recomendDataCount = 0;
+            if (ws.recomendData.count) {
+                if (ws.recomendData.count <= 10) {
+                    recomendDataCount = 10;
+                }else {
+                    NSInteger temp = ws.recomendData.count % 10;
+                    if (temp) {
+                        temp += RELOADDATACOUNT - temp;
+                    }
+                    recomendDataCount = ws.recomendData.count + temp;
+                }
+            }
+            
             [NetworkEntity getComplainListWithUserid:[[UserInfoModel defaultUserInfo] userID]
                                             SchoolId:[[UserInfoModel defaultUserInfo] schoolId]
-                                           pageIndex:ws.complainData.count / RELOADDATACOUNT + 1
+                                           pageIndex:recomendDataCount / RELOADDATACOUNT + 1
                                              success:^(id responseObject) {
                                                  
                                                  NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
@@ -272,13 +288,26 @@
         }else{
             //评论
             ws.tableView.tableHeaderView = ws.pieView;
+            
+            NSInteger recomendDataCount = 0;
+            if (ws.recomendData.count) {
+                if (ws.recomendData.count <= 10) {
+                    recomendDataCount = 10;
+                }else {
+                    NSInteger temp = ws.recomendData.count % 10;
+                    if (temp) {
+                        temp += RELOADDATACOUNT - temp;
+                    }
+                    recomendDataCount = ws.recomendData.count + temp;
+                }
+            }
             [NetworkEntity getRecommendListWithUserid:[[UserInfoModel defaultUserInfo] userID]
                                              SchoolId:[[UserInfoModel defaultUserInfo] schoolId]
-                                            pageIndex:ws.recomendData.count / RELOADDATACOUNT + 1
+                                            pageIndex:recomendDataCount / RELOADDATACOUNT + 1
                                            searchType:ws.searchType
                                          commentLevle:ws.toolView.selectButtonInteger - 100
                                               success:^(id responseObject) {
-                                                  NSLog(@"%li==%@",ws.toolView.selectButtonInteger,responseObject);
+//                                                  NSLog(@"%li==%@",ws.toolView.selectButtonInteger,responseObject);
                                                   NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
                                                   
                                                   if (type == 1) {
