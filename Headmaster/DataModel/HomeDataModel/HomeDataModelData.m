@@ -21,7 +21,7 @@
 {
 	self = [super init];
 	if(![dictionary[@"applystudentcount"] isKindOfClass:[NSNull class]]){
-		self.applystudentcount = [NSString stringWithFormat:@"%@",dictionary[@"applystudentcount"]];
+		self.applystudentcount = [dictionary[@"applystudentcount"] integerValue];
 	}	
 	if(![dictionary[@"coachcoursenow"] isKindOfClass:[NSNull class]]){
 		self.coachcoursenow = [dictionary[@"coachcoursenow"] integerValue];
@@ -45,7 +45,7 @@
 	if(![dictionary[@"reservationcoursecountday"] isKindOfClass:[NSNull class]]){
 		self.reservationcoursecountday = [dictionary[@"reservationcoursecountday"] integerValue];
 	}	
-	if(dictionary[@"schoolstudentcount"] != nil && [dictionary[@"schoolstudentcount"] isKindOfClass:[NSArray class]]){
+	if([dictionary objectArrayForKey:@"schoolstudentcount"]){
 		NSArray * schoolstudentcountDictionaries = dictionary[@"schoolstudentcount"];
 		NSMutableArray * schoolstudentcountItems = [NSMutableArray array];
 		for(NSDictionary * schoolstudentcountDictionary in schoolstudentcountDictionaries){
