@@ -377,6 +377,7 @@
 		D97244AD1C1ED0BD002B3FDE /* DataDetailDMYearData.m in Sources */ = {isa = PBXBuildFile; fileRef = D97244A71C1ED0BD002B3FDE /* DataDetailDMYearData.m */; };
 		D97244AE1C1ED0BD002B3FDE /* DataDetailDMYearDatalist.m in Sources */ = {isa = PBXBuildFile; fileRef = D97244A91C1ED0BD002B3FDE /* DataDetailDMYearDatalist.m */; };
 		D97244AF1C1ED0BD002B3FDE /* DataDetailDMYearRootClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D97244AB1C1ED0BD002B3FDE /* DataDetailDMYearRootClass.m */; };
+		D98511801C20A34900D277CD /* HomeGuideController.m in Sources */ = {isa = PBXBuildFile; fileRef = D985117F1C20A34900D277CD /* HomeGuideController.m */; };
 		D9C3F4561C167322006D22BC /* DVVProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C3F4551C167322006D22BC /* DVVProgressView.m */; };
 		D9C3F4591C167365006D22BC /* HomeProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C3F4581C167365006D22BC /* HomeProgressView.m */; };
 		D9CEC8EB1C0E8C83008DEE69 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC8EA1C0E8C83008DEE69 /* AppDelegate.mm */; };
@@ -1051,6 +1052,8 @@
 		D97244A91C1ED0BD002B3FDE /* DataDetailDMYearDatalist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataDetailDMYearDatalist.m; sourceTree = "<group>"; };
 		D97244AA1C1ED0BD002B3FDE /* DataDetailDMYearRootClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataDetailDMYearRootClass.h; sourceTree = "<group>"; };
 		D97244AB1C1ED0BD002B3FDE /* DataDetailDMYearRootClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataDetailDMYearRootClass.m; sourceTree = "<group>"; };
+		D985117E1C20A34900D277CD /* HomeGuideController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeGuideController.h; sourceTree = "<group>"; };
+		D985117F1C20A34900D277CD /* HomeGuideController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeGuideController.m; sourceTree = "<group>"; };
 		D9C3F4541C167322006D22BC /* DVVProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVVProgressView.h; sourceTree = "<group>"; };
 		D9C3F4551C167322006D22BC /* DVVProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVVProgressView.m; sourceTree = "<group>"; };
 		D9C3F4571C167365006D22BC /* HomeProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeProgressView.h; sourceTree = "<group>"; };
@@ -2647,6 +2650,8 @@
 			children = (
 				D9CEC9551C0ED27E008DEE69 /* HomeController.h */,
 				D9CEC9561C0ED27E008DEE69 /* HomeController.m */,
+				D985117E1C20A34900D277CD /* HomeGuideController.h */,
+				D985117F1C20A34900D277CD /* HomeGuideController.m */,
 				0613DC1C1C1C524800580C32 /* HomeDetailController.h */,
 				0613DC1D1C1C524800580C32 /* HomeDetailController.m */,
 				060BA8A11C10122C009AD55E /* CoachOfCoureDetailController.h */,
@@ -3316,6 +3321,7 @@
 				D9CEC9161C0E8CF7008DEE69 /* TeacherModel.m in Sources */,
 				B8771DED1C098DE40051DE9D /* EaseTextView.m in Sources */,
 				0613DC181C1C51E200580C32 /* HomeDetailTableViewDataModel.m in Sources */,
+				D98511801C20A34900D277CD /* HomeGuideController.m in Sources */,
 				D92297441C10439200D0FFDF /* UUBar.m in Sources */,
 				B8771DDB1C098DE40051DE9D /* EaseEmotionManager.m in Sources */,
 				B8771D161C098DE40051DE9D /* MWGridViewController.m in Sources */,
@@ -3474,8 +3480,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Wei Ai Chi Kuang Tech Co. Ltd (MC3VUBEH8X)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Wei Ai Chi Kuang Tech Co. Ltd (MC3VUBEH8X)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3507,7 +3513,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yibuxuechexiaozhangduan;
 				PRODUCT_NAME = "一步校长";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "d6a518bb-c2df-4eab-bb9a-601e690b11aa";
 			};
 			name = Debug;
 		};
@@ -3517,7 +3523,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Wei Ai Chi Kuang Tech Co. Ltd (MC3VUBEH8X)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3549,7 +3555,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yibuxuechexiaozhangduan;
 				PRODUCT_NAME = "一步校长";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "d6a518bb-c2df-4eab-bb9a-601e690b11aa";
 			};
 			name = Release;
 		};
