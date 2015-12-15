@@ -132,7 +132,7 @@
     _inSide.frame = _inSideBgView.frame;
     
     _progressLabel.frame = CGRectMake(0, 0, insideWidth, insideWidth);
-    _progressLabel.center = CGPointMake(viewWidth / 2.f, viewHeight / 2.f - 10);
+    _progressLabel.center = CGPointMake(viewWidth / 2.f, viewHeight / 2.f - 5);
     
     if (SCREEN_WIDTH > 320) {
         _firstMarkLabel.frame = CGRectMake(0, viewHeight - 30 - 60, viewWidth, 30);
@@ -206,11 +206,11 @@
     _secondMarkLabel.textColor = [UIColor colorWithHexString:@"F955D2"];
     
     if (SCREEN_WIDTH > 320) {
-        _progressLabel.font = [UIFont fontWithName:@"HiraKakuProN-W3" size:64];
+        _progressLabel.font = [UIFont fontWithName:@"HiraKakuProN-W3" size:48];
         _firstMarkLabel.font = [UIFont systemFontOfSize:20];
         _secondMarkLabel.font = [UIFont systemFontOfSize:20];
     }else {
-        _progressLabel.font = [UIFont fontWithName:@"HiraKakuProN-W3" size:52];
+        _progressLabel.font = [UIFont fontWithName:@"HiraKakuProN-W3" size:42];
         _firstMarkLabel.font = [UIFont systemFontOfSize:17];
         _secondMarkLabel.font = [UIFont systemFontOfSize:17];
     }

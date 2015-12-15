@@ -39,7 +39,7 @@
     }
     
     UIImageView * imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
-    imageView.image = [UIImage imageNamed:@"teacher_bg"];
+    imageView.image = [UIImage imageNamed:@"sbg"];
     [self.view addSubview:imageView];
     
     // 添加button下面一条线
