@@ -115,9 +115,7 @@
 
 - (void)coachOfCoureDetailCell:(CoachOfCoureDetailCell *)cell DidImessageButton:(UIButton *)button
 {
-    ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:cell.model.coachid conversationType:eConversationTypeChat];
-    chatController.userName = cell.model.name;
-    chatController.mobile = cell.model.mobile;
+    ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:cell.model.coachid conversationType:eConversationTypeChat Name:cell.model.name ava:cell.model.originalpic mobile:cell.model.mobile];
     [self.navigationController pushViewController:chatController animated:YES];
 
 }

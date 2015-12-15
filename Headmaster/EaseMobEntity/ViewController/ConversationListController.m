@@ -43,7 +43,7 @@ static NSString *kGroupName = @"GroupName";
     [super viewDidLoad];
     
     [self registerNotifications];
-    [[EaseMob sharedInstance].chatManager loadAllConversationsFromDatabaseWithAppend2Chat:YES];
+    [[EaseMob sharedInstance].chatManager loadAllConversationsFromDatabaseWithAppend2Chat:NO];
     self.showRefreshHeader = YES;
     self.delegate = self;
     self.dataSource = self;
@@ -147,11 +147,11 @@ static NSString *kGroupName = @"GroupName";
 - (void)fixModelInfo:(EMConversation *)convModel MessageModelInfo:(EMMessage *)messModel
 {
     NSString * fromId = [messModel from];
-    if ([fromId isEqualToString:[[UserInfoModel defaultUserInfo] userID]]) {
-        convModel.ext = [[UserInfoModel defaultUserInfo] messageExt];
-    }else{
-        convModel.ext = [[messModel ext] copy];
-    }
+    convModel.ext = [[messModel ext] copy];
+//    if (![fromId isEqualToString:[[UserInfoModel defaultUserInfo] userID]]) {
+//        convModel.ext = [[UserInfoModel defaultUserInfo] messageExt];
+//    }else{
+//    }
 }
 
 - (NSString *)conversationListViewController:(EaseConversationListViewController *)conversationListViewController

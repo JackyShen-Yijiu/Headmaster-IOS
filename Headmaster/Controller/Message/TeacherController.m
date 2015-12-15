@@ -239,8 +239,7 @@
 
 - (void)teacherCell:(TeacherCell *)cell didClickMessageButton:(UIButton *)button
 {
-    ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:cell.model.userId conversationType:eConversationTypeChat];
-    chatController.userName = cell.model.userName;
+    ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:cell.model.userId conversationType:eConversationTypeChat Name:cell.model.userName ava:cell.model.porInfo.originalpic mobile:nil];
     [self.navigationController pushViewController:chatController animated:YES];
 }
 

@@ -35,10 +35,11 @@
     return;
     
 	_grade = grade;
+    
 	UIBezierPath *progressline = [UIBezierPath bezierPath];
     
-    [progressline moveToPoint:CGPointMake(self.frame.size.width/2.0, self.frame.size.height+30)];
-	[progressline addLineToPoint:CGPointMake(self.frame.size.width/2.0, (1 - grade) * self.frame.size.height+15)];
+    [progressline moveToPoint:CGPointMake(self.bounds.size.width/2.0, self.bounds.size.height+30)];
+	[progressline addLineToPoint:CGPointMake(self.bounds.size.width/2.0, (1 - grade) * self.bounds.size.height+0)];
 	
     [progressline setLineWidth:1.0];
     [progressline setLineCapStyle:kCGLineCapSquare];
