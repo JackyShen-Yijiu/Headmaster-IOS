@@ -120,7 +120,11 @@
     _outSideBgView.frame = CGRectMake(1, 1, viewWidth - 2, viewHeight - 2);
     _outSideFgView.frame = _outSideBgView.frame;
     _outSide.frame = _outSideBgView.frame;
-    CGFloat margin = 35;
+    
+    CGFloat margin = 37;
+    if (SCREEN_WIDTH > 320) {
+        margin = 47;
+    }
     
     CGFloat insideWidth = viewHeight - margin * 2;
     _inSideBgView.frame = CGRectMake(margin, margin, insideWidth, insideWidth);
