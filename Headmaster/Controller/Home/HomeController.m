@@ -370,6 +370,7 @@
         NSDictionary *addressComponent = [result objectInfoForKey:@"addressComponent"];
         _cityName = [addressComponent objectStringForKey:@"city"];
         [self addWeatherData];
+        [self.locService stopUserLocationService];
        
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
     }];
