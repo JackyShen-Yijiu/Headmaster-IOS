@@ -86,8 +86,8 @@
 //            self.title = [self.conversation.ext objectForKey:@"groupSubject"];
         }
     }
+    self.myNavigationItem.title = self.title;
     
-    self.myNavigationItem.title = nil;
     if(self.mobile){
         UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.frame = CGRectMake(0, 0, 25, 25);
