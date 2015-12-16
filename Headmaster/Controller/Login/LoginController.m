@@ -275,7 +275,7 @@
 }
 
 - (void)callNum {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel://666666666666666"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel://010-53658566"]];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
