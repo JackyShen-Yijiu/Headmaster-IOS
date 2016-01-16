@@ -2884,7 +2884,7 @@
 				TargetAttributes = {
 					B8771AF41C0976200051DE9D = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = MC3VUBEH8X;
+						DevelopmentTeam = C34F4H4R4C;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 0;
@@ -3480,8 +3480,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Wei Ai Chi Kuang Tech Co. Ltd (MC3VUBEH8X)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Wei Ai Chi Kuang Tech Co. Ltd (MC3VUBEH8X)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3513,7 +3513,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yibuxuechexiaozhangduan;
 				PRODUCT_NAME = "一步校长";
-				PROVISIONING_PROFILE = "d6a518bb-c2df-4eab-bb9a-601e690b11aa";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -3523,7 +3523,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Wei Ai Chi Kuang Tech Co. Ltd (MC3VUBEH8X)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3555,7 +3556,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yibuxuechexiaozhangduan;
 				PRODUCT_NAME = "一步校长";
-				PROVISIONING_PROFILE = "d6a518bb-c2df-4eab-bb9a-601e690b11aa";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
