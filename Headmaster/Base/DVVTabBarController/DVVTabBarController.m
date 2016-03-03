@@ -90,14 +90,19 @@
     
     self.titleArray = @[ @"", @"", @""];
     
+    CGRect rect = self.tabBar.bounds;
+    // 高度需要+1，否则会出现底部tabBar的白色背景（会显示出来一条白线）
+    rect.size.height += 1;
+    
     _coverView = [UIView new];
-    _coverView.frame = self.tabBar.bounds;
+    _coverView.frame = rect;
+    _coverView.backgroundColor = [UIColor redColor];
     // 添加背景图片
     if (_backgroundImage) {
         _coverView.backgroundColor = [UIColor clearColor];
         _backgroundImageView = [UIImageView new];
         _backgroundImageView.image = _backgroundImage;
-        _backgroundImageView.frame = self.tabBar.bounds;
+        _backgroundImageView.frame = rect;
         [self.tabBar addSubview:_backgroundImageView];
     }
     
