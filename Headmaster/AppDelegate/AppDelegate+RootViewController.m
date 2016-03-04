@@ -35,8 +35,8 @@
         viewController.title = titleArray[i];
 //        HMNagationController *naviVC = [[HMNagationController alloc] initWithRootViewController:viewController];
         [tabBarVC addChildViewController:viewController];
+        
     }
-    
     
     return tabBarVC;
 }

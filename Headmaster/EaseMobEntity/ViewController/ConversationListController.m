@@ -285,6 +285,7 @@ static NSString *kGroupName = @"GroupName";
 //    }else{
 //        [self hiddenMessCountInTabBar];
 //    }
+        
     UIApplication *application = [UIApplication sharedApplication];
     [application setApplicationIconBadgeNumber:unreadCount];
 }

@@ -12,6 +12,7 @@
 #import "MenuController.h"
 #import "UserCenterController.h"
 #import "APService.h"
+#import "EaseSDKHelper.h"
 
 
 #define h_center self.view.center
@@ -232,7 +233,6 @@
     
     [self.view endEditing:YES];
     
-    
     [NetworkEntity loginWithPhotoNumber:_phoneTF.text password:_passwordTF.text success:^(id responseObject) {
         NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
         if (type == 1) {
@@ -245,14 +245,14 @@
             
             [[MenuController defaultImageView] sd_setImageWithURL:[NSURL URLWithString:[UserInfoModel defaultUserInfo].portrait]];
             
-            
-            
             //极光推送设置alias
             [APService setAlias:[UserInfoModel defaultUserInfo].userID callbackSelector:@selector(tagsAliasCallback:tags:alias:) object:self];
             
             //友盟账号统计
             [MobClick profileSignInWithPUID:_phoneTF.text];
             
+            [[EaseMob sharedInstance].chatManager removeAllConversationsWithDeleteMessages:YES append2Chat:NO];
+
             if ([_delegate respondsToSelector:@selector(loginControllerDidLoginSucess:)]) {
                 [_delegate loginControllerDidLoginSucess:self];
             }
