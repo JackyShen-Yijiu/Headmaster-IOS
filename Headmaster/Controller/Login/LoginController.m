@@ -110,7 +110,7 @@
     _lineViewDown = [[UIView alloc] init];           //密码输入框下的线
     [self.view addSubview:_lineViewDown];
     
-    _loginButton = [[UIButton alloc] init];          //登入按钮
+    _loginButton = [[UIButton alloc] init];          //登录按钮
     [self.view addSubview:_loginButton];
     
     _callBtn = [[UIButton alloc] init];              //联系我们
@@ -137,7 +137,8 @@
 - (void)configeUI {
     _BackgroundImage.image = [UIImage imageNamed:@"bg_login"];
     
-    _iconView.image = [UIImage imageNamed:@"icon120x110.png"];
+    _iconView.contentMode = UIViewContentModeCenter;
+    _iconView.image = [UIImage imageNamed:@"ic_logo"];
     
     _phoneTF.placeholder = @"账号";
     _phoneTF.textColor = [UIColor colorWithHexString:@"#fefefe"];
@@ -170,7 +171,7 @@
     _lineViewDown.alpha = 0.1;
     
     _loginButton.backgroundColor = [UIColor colorWithHexString:@"#01E4B7"];
-    [_loginButton setTitle:@"登入" forState:UIControlStateNormal];
+    [_loginButton setTitle:@"登录" forState:UIControlStateNormal];
     _loginButton.titleLabel.font = [UIFont systemFontOfSize:21];
     [_loginButton setTitleColor:[UIColor colorWithHexString:@"#fefefe"] forState:UIControlStateNormal];
     [_loginButton addTarget:self action:@selector(buttonIsClick) forControlEvents:UIControlEventTouchUpInside];
@@ -179,7 +180,6 @@
     _callBtn.titleLabel.font = [UIFont systemFontOfSize:12];
     [_callBtn setTitleColor:[UIColor colorWithHexString:@"#fefefe"] forState:UIControlStateNormal];
     [_callBtn addTarget:self action:@selector(callNum) forControlEvents:UIControlEventTouchUpInside];
-
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {

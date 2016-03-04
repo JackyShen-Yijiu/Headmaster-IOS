@@ -126,7 +126,7 @@
     view.userInteractionEnabled = YES;
     view.backgroundColor = [UIColor clearColor];
     UIButton *loginOutBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height -69-44-100, self.view.frame.size.width, 40)];
-    [loginOutBtn setTitle:@"退出登入" forState:UIControlStateNormal];
+    [loginOutBtn setTitle:@"退出登录" forState:UIControlStateNormal];
     [loginOutBtn setTitleColor:[UIColor colorWithHexString:@"#bfbfbf"] forState:UIControlStateNormal];
     loginOutBtn.titleLabel.font = [UIFont systemFontOfSize:16];
     loginOutBtn.backgroundColor = [UIColor darkGrayColor];

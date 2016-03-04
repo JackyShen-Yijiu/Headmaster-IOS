@@ -172,7 +172,13 @@
     [_weatherViewModel successRefreshBlock:^{
         HomeWeatherModel *homeModel = [_weatherViewModel.weatherArray lastObject];
         
+        if (!homeModel.temperature || !homeModel.temperature.length || [homeModel.temperature isKindOfClass:[NSNull class]]) {
+            return ;
+        }
+        
         NSString *str = [NSString stringWithFormat:@"%@℃",homeModel.temperature];
+
+        NSLog(@"%@", str);
         self.temperatureLabel.text = str;
         self.temperatureLabel.textAlignment = NSTextAlignmentRight ;
         self.temperatureLabel.font = [UIFont systemFontOfSize:16];

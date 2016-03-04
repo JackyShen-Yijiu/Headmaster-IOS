@@ -68,7 +68,7 @@
 - (void)sysConfigWithApplication:(UIApplication *)application LaunchOptions:(NSDictionary *)launchOptions
 {
     //umeng统计
-    [MobClick startWithAppkey:@"5667f8a467e58e8aca001142" reportPolicy:BATCH   channelId:nil];
+    [MobClick startWithAppkey:umengAppkey reportPolicy:BATCH   channelId:nil];
     NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     [MobClick setAppVersion:version];
     [MobClick setLogEnabled:NO];
@@ -79,8 +79,6 @@
     [[AFNetworkActivityLogger sharedLogger] startLogging];
     
     //环信
-    NSString *apnsCertName = nil;
-    
     
     
 //    #if DEBUG
@@ -89,11 +87,10 @@
 //        apnsCertName = @"pordXZPush";
 //    #endif
     
-    apnsCertName = @"pordXZPush";
     [[EaseSDKHelper shareHelper] easemobApplication:application
                       didFinishLaunchingWithOptions:launchOptions
-                                             appkey:@"black-cat#yibuxuecheprod"
-                                       apnsCertName:apnsCertName
+                                             appkey:easeMobAPPkey
+                                       apnsCertName:easeMobPushName
                                         otherConfig:@{kSDKConfigEnableConsoleLogger:[NSNumber numberWithBool:YES]}];
     
     //极光推送

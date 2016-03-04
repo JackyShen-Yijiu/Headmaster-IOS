@@ -79,11 +79,11 @@
 }
 
 - (void)configeUI {
-    _iconView.image = [UIImage imageNamed:@"aboutUsIcon"];
+    _iconView.image = [UIImage imageNamed:@"ic_logo"];
     _iconView.layer.cornerRadius = 10;
     _iconView.clipsToBounds = YES;
     
-    _iconNameLabel.text = @"一步学车";
+    _iconNameLabel.text = @"极致驾服";
     _iconNameLabel.textColor = [UIColor colorWithHexString:@"#fcfcfc"];
     _iconNameLabel.font = [UIFont systemFontOfSize:14];
     
@@ -97,16 +97,17 @@
     
     [_LicenseServiceAgreementBtn setTitle:@"许可服务协议" forState:UIControlStateNormal];
     [_LicenseServiceAgreementBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    _LicenseServiceAgreementBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    _LicenseServiceAgreementBtn.titleLabel.font = [UIFont systemFontOfSize:12];
     [_LicenseServiceAgreementBtn addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
     
     _buttomLabel.text = @"Copyright All Right Resrved";
     _buttomLabel.textColor = [UIColor colorWithHexString:@"#fcfcfc"];
+    _buttomLabel.font = [UIFont systemFontOfSize:12];
 }
 
 - (void)btnClick {
     InformationDetailController *imdc = [[InformationDetailController alloc] init];
-    imdc.urlStr = @"http://www.ifanying.com/userAgreement.html";
+    imdc.urlStr = @"http://www.yibuxueche.com/jzjfheadmastergreement.htm";
     imdc.navTitle = @"许可服务协议";
     [self.navigationController pushViewController:imdc animated:YES];
 }
@@ -140,7 +141,7 @@
     
     [_LicenseServiceAgreementBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(self.view);
-        make.bottom.mas_equalTo(_buttomLabel.mas_top).offset(-15);
+        make.bottom.mas_equalTo(_buttomLabel.mas_top).offset(0);
     }];
     
 }

@@ -36,7 +36,7 @@
 #define PUBLISHMESSAGE              @"headmaster/userinfo/publishbulletin"
 
 /*  获得天气数据 */
-#define WEATHERDATA @"headmaster/info/getweather"
+#define WEATHERDATA                 @"headmaster/info/getweather"
 
 /*获取评论*/
 #define RECOMENDHMESSAGE            @"headmaster/statistics/commentdetails"
