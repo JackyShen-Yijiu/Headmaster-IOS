@@ -3407,8 +3407,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Guo Bin Shen (L74C9NC842)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Guo Bin Shen (L74C9NC842)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Jizhi Driver Services Co., Ltd (2VG884M937)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Jizhi Driver Services Co., Ltd (2VG884M937)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -3430,7 +3430,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "209ef630-a41d-4cc5-9687-f3fa89e736ed";
+				PROVISIONING_PROFILE = "84c617e5-dd02-488a-9351-253d3409da57";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -3452,8 +3452,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Guo Bin Shen (L74C9NC842)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Guo Bin Shen (L74C9NC842)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Jizhi Driver Services Co., Ltd (2VG884M937)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Jizhi Driver Services Co., Ltd (2VG884M937)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -3468,7 +3468,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "209ef630-a41d-4cc5-9687-f3fa89e736ed";
+				PROVISIONING_PROFILE = "84c617e5-dd02-488a-9351-253d3409da57";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

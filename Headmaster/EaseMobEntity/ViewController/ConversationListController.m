@@ -119,11 +119,10 @@ static NSString *kGroupName = @"GroupName";
     if (conversationModel) {
         EMConversation *conversation = conversationModel.conversation;
         if (conversation) {
-            NSDictionary * extDic = [conversation ext];
-            NSString * name = [extDic objectStringForKey:@"toNickName"];
-            NSString * ava = [extDic objectStringForKey:@"toAva"];
-            NSString * mobile = [extDic objectStringForKey:@"toMobile"];
-            ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:conversation.chatter conversationType:conversation.conversationType Name:name ava:ava mobile:mobile];
+            
+            NSDictionary * ext = [[conversationModel conversation] ext];
+            NSLog(@"获取用户信息ext:%@",ext);
+            ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:conversation.chatter conversationType:conversation.conversationType Name:conversationModel.title ava:conversationModel.avatarURLPath mobile:nil];
             [self.myNavController pushViewController:chatController animated:YES];
             
         }

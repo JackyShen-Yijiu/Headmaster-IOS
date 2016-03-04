@@ -166,8 +166,9 @@ CGFloat const EaseConversationCellPadding = 10;
 {
     _model = model;
     NSDictionary * ext = [[_model conversation] ext];
-    NSString * title = [ext objectStringForKey:@"toNickName"];
-    NSString * ava = [ext objectStringForKey:@"toAva"];
+    NSLog(@"获取用户信息ext:%@",ext);
+    NSString * title = [ext objectStringForKey:@"nickName"];
+    NSString * ava = [ext objectStringForKey:@"headUrl"];
     if ([title length] > 0) {
         self.titleLabel.text = title;
     }
@@ -187,6 +188,7 @@ CGFloat const EaseConversationCellPadding = 10;
         _avatarView.showBadge = YES;
         _avatarView.badge = _model.conversation.unreadMessagesCount;
     }
+    
 }
 
 - (void)setTitleLabelFont:(UIFont *)titleLabelFont
