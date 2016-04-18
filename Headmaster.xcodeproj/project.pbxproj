@@ -378,6 +378,8 @@
 		D97244AE1C1ED0BD002B3FDE /* DataDetailDMYearDatalist.m in Sources */ = {isa = PBXBuildFile; fileRef = D97244A91C1ED0BD002B3FDE /* DataDetailDMYearDatalist.m */; };
 		D97244AF1C1ED0BD002B3FDE /* DataDetailDMYearRootClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D97244AB1C1ED0BD002B3FDE /* DataDetailDMYearRootClass.m */; };
 		D98511801C20A34900D277CD /* HomeGuideController.m in Sources */ = {isa = PBXBuildFile; fileRef = D985117F1C20A34900D277CD /* HomeGuideController.m */; };
+		D994A6281CC4B27100BC0059 /* JZPublishController.m in Sources */ = {isa = PBXBuildFile; fileRef = D994A6271CC4B27100BC0059 /* JZPublishController.m */; };
+		D994A62B1CC4B6D100BC0059 /* JZPublishHistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = D994A62A1CC4B6D100BC0059 /* JZPublishHistoryController.m */; };
 		D9C3F4561C167322006D22BC /* DVVProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C3F4551C167322006D22BC /* DVVProgressView.m */; };
 		D9C3F4591C167365006D22BC /* HomeProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C3F4581C167365006D22BC /* HomeProgressView.m */; };
 		D9CEC8EB1C0E8C83008DEE69 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC8EA1C0E8C83008DEE69 /* AppDelegate.mm */; };
@@ -1054,6 +1056,10 @@
 		D97244AB1C1ED0BD002B3FDE /* DataDetailDMYearRootClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataDetailDMYearRootClass.m; sourceTree = "<group>"; };
 		D985117E1C20A34900D277CD /* HomeGuideController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeGuideController.h; sourceTree = "<group>"; };
 		D985117F1C20A34900D277CD /* HomeGuideController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeGuideController.m; sourceTree = "<group>"; };
+		D994A6261CC4B27100BC0059 /* JZPublishController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZPublishController.h; sourceTree = "<group>"; };
+		D994A6271CC4B27100BC0059 /* JZPublishController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZPublishController.m; sourceTree = "<group>"; };
+		D994A6291CC4B6D100BC0059 /* JZPublishHistoryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZPublishHistoryController.h; sourceTree = "<group>"; };
+		D994A62A1CC4B6D100BC0059 /* JZPublishHistoryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZPublishHistoryController.m; sourceTree = "<group>"; };
 		D9C3F4541C167322006D22BC /* DVVProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVVProgressView.h; sourceTree = "<group>"; };
 		D9C3F4551C167322006D22BC /* DVVProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVVProgressView.m; sourceTree = "<group>"; };
 		D9C3F4571C167365006D22BC /* HomeProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeProgressView.h; sourceTree = "<group>"; };
@@ -2715,6 +2721,10 @@
 				D9CEC9841C0ED7D8008DEE69 /* SideMenuItem.m */,
 				55BA0F531C0EF6D300F83CD8 /* PublishController.h */,
 				55BA0F541C0EF6D300F83CD8 /* PublishController.m */,
+				D994A6261CC4B27100BC0059 /* JZPublishController.h */,
+				D994A6271CC4B27100BC0059 /* JZPublishController.m */,
+				D994A6291CC4B6D100BC0059 /* JZPublishHistoryController.h */,
+				D994A62A1CC4B6D100BC0059 /* JZPublishHistoryController.m */,
 				5562F30B1C15386D002E5313 /* MenuController.h */,
 				5562F30C1C15386D002E5313 /* MenuController.m */,
 			);
@@ -3124,6 +3134,7 @@
 				D97244881C1EC3E5002B3FDE /* DataDetailDMWeekCoursedata.m in Sources */,
 				B895A1951C10329F00FEDD78 /* InformationDataModel.m in Sources */,
 				B8771E361C098E6B0051DE9D /* RFSegmentView.m in Sources */,
+				D994A6281CC4B27100BC0059 /* JZPublishController.m in Sources */,
 				B8771D081C098DE40051DE9D /* EMGifImage.m in Sources */,
 				B8771E351C098E6B0051DE9D /* YiRefreshHeader.m in Sources */,
 				0666FF971C140E9A009FA71F /* HomeDataDatailModelRootClass.m in Sources */,
@@ -3190,6 +3201,7 @@
 				B8771D2F1C098DE40051DE9D /* PSTCollectionViewCell.m in Sources */,
 				0666FFA41C141C8D009FA71F /* ApplyStuentListModel.m in Sources */,
 				B8771CFE1C098DE40051DE9D /* EMCDDeviceManager+Media.m in Sources */,
+				D994A62B1CC4B6D100BC0059 /* JZPublishHistoryController.m in Sources */,
 				0613DC141C1C51E200580C32 /* HomeDataDetailDMComplaintlist.m in Sources */,
 				B8771D331C098DE40051DE9D /* PSTCollectionViewItemKey.m in Sources */,
 				B8771D341C098DE40051DE9D /* PSTCollectionViewLayout.m in Sources */,

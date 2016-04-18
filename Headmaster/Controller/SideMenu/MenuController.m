@@ -56,7 +56,7 @@
     
     SideMenuItem * item1 = [[SideMenuItem alloc] init];
     item1.title = @"发布公告";
-    item1.target = @"PublishController";
+    item1.target = @"JZPublishController";
     
     SideMenuItem * item2 = [[SideMenuItem alloc] init];
     item2.title = @"我的教练";
