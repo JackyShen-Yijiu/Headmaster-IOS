@@ -90,7 +90,7 @@
     
     
     self.LeftItemArray = @[ item1,item2,item3,item4,item5 ];
-    self.LeftIconArray = @[ @"1",@"2",@"3",@"",@"" ];
+    self.LeftIconArray = @[ @"announcement",@"coach",@"data",@"complaint",@"set" ];
     self.tableView.tableHeaderView = self.headView;
 }
 
