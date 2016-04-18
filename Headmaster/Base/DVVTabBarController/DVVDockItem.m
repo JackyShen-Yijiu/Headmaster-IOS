@@ -8,9 +8,6 @@
 
 #import "DVVDockItem.h"
 
-// 文字的高度比例
-static CGFloat kTitleRatio = 0.f;
-
 @implementation DVVDockItem
 
 - (instancetype)init
@@ -39,7 +36,7 @@ static CGFloat kTitleRatio = 0.f;
     self.titleLabel.font = [UIFont systemFontOfSize:12];
     
     // 图片的内容模式
-    self.imageView.contentMode = UIViewContentModeScaleToFill;
+    //    self.imageView.contentMode = UIViewContentModeScaleToFill;
 }
 
 #pragma mark 覆盖父类在highlighted时的所有操作
@@ -49,28 +46,28 @@ static CGFloat kTitleRatio = 0.f;
 
 #pragma mark 调整内部ImageView的frame
 - (CGRect)imageRectForContentRect:(CGRect)contentRect {
-    CGFloat imageX = 0;
+    CGFloat imageWidth = 52/2;
+    CGFloat imageHeight = 52/2;
+    CGFloat imageX = contentRect.size.width/2-imageWidth/2;
     CGFloat imageY = 0;
-    CGFloat imageWidth = contentRect.size.width;
-    CGFloat imageHeight = contentRect.size.height * ( 1- kTitleRatio );
     return CGRectMake(imageX, imageY, imageWidth, imageHeight);
 }
 
 #pragma mark 调整内部UILabel的frame
 - (CGRect)titleRectForContentRect:(CGRect)contentRect {
     CGFloat titleX = 0;
-    CGFloat titleHeight = contentRect.size.height * kTitleRatio;
+    CGFloat titleHeight = 20;//contentRect.size.height * kTitleRatio;
     CGFloat titleY = contentRect.size.height - titleHeight - 3;
     CGFloat titleWidth = contentRect.size.width;
     return CGRectMake(titleX, titleY, titleWidth, titleHeight);
 }
 
 /*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
+ // Only override drawRect: if you perform custom drawing.
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect {
+ // Drawing code
+ }
+ */
 
 @end
