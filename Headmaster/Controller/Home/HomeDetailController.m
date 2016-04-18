@@ -21,6 +21,8 @@
 @property (nonatomic, strong) HomeDetailTableView *monthTableView;
 @property (nonatomic, strong) HomeDetailTableView *yearTableView;
 
+@property (nonatomic, strong) UIBarButtonItem *pushBtn;
+
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) TopButtonView *topButtonView;
 @end
@@ -30,6 +32,11 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [MobClick beginLogPageView:NSStringFromClass([self class])];
+    if (_isFormSideMenu) {
+        self.navigationItem.leftBarButtonItem = self.pushBtn;
+    }
+    
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -104,6 +111,12 @@
 //    self.weekTableView.backgroundColor = [UIColor lightGrayColor];
 //    self.monthTableView.backgroundColor = [UIColor orangeColor];
 //    self.yearTableView.backgroundColor = [UIColor magentaColor];
+    
+}
+
+//
+- (void)pushBtnClick {
+   [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark 点击进入详情的回调
@@ -276,6 +289,17 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (UIBarButtonItem *)pushBtn {
+    if (!_pushBtn) {
+        CGRect backframe= CGRectMake(0, 0, 16, 16);
+        UIButton* backButton= [UIButton buttonWithType:UIButtonTypeCustom];
+        backButton.frame = backframe;
+        [backButton setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+        [backButton addTarget:self action:@selector(pushBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        _pushBtn = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+    }
+    return _pushBtn;
 }
 
 
