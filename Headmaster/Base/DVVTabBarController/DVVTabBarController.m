@@ -38,6 +38,8 @@
 
 @property(nonatomic, strong) UIImageView *backgroundImageView;
 
+@property (nonatomic,assign) UIButton *selectBtn;
+
 @end
 
 @implementation DVVTabBarController
@@ -54,8 +56,9 @@
 #pragma mark - 初始化属性 method
 - (void)initialProperty {
     
-    _titleNormalColor = [UIColor orangeColor];
-    _titleSelectedColor = [UIColor greenColor];
+    _titleNormalColor = [UIColor lightGrayColor];
+    _titleSelectedColor = [UIColor colorWithHexString:@"00f8c7"];
+    
 }
 
 - (void)viewDidLoad {
@@ -70,25 +73,25 @@
         return;
     }
     
-    self.backgroundImage = [UIImage imageNamed:@"tabBar_background"];
+    //    self.backgroundImage = [UIImage imageNamed:@"tabBar_background"];
     
-    self.iconNormalArray = @[ @"",
-                              @"",
-                              @"" ];
+    self.iconNormalArray = @[ @"statistics",
+                              @"nwes",
+                              @"information" ];
     
-    self.iconSelectedArray = @[ @"",
-                                @"",
-                                @"" ];
+    self.iconSelectedArray = @[ @"statistics_fill",
+                                @"nwes_fill",
+                                @"information_fill"];
     
     self.itemBackgroundNormalArray = @[ @"",
                                         @"",
                                         @"" ];
     
-    self.itembackgroundSelectedArray = @[ @"tabBar_data_selected",
-                                          @"tabBar_information_selected",
-                                          @"tabBar_message_selected" ];
+    self.itembackgroundSelectedArray = @[ @"",
+                                          @"",
+                                          @"" ];
     
-    self.titleArray = @[ @"", @"", @""];
+    self.titleArray = @[ @"数据", @"资讯", @"消息"];
     
     CGRect rect = self.tabBar.bounds;
     // 高度需要+1，否则会出现底部tabBar的白色背景（会显示出来一条白线）
@@ -96,7 +99,7 @@
     
     _coverView = [UIView new];
     _coverView.frame = rect;
-    _coverView.backgroundColor = [UIColor redColor];
+    _coverView.backgroundColor = RGB_Color(29, 28, 33);
     // 添加背景图片
     if (_backgroundImage) {
         _coverView.backgroundColor = [UIColor clearColor];
@@ -120,6 +123,10 @@
 
 #pragma mark - 选中一项 method
 - (void)itemButtonSelected:(UIButton *)sender {
+    
+    [self.selectBtn setBackgroundColor:RGB_Color(29, 28, 33)];
+    [sender setBackgroundColor:RGB_Color(22, 22, 25)];
+    self.selectBtn = sender;
     
     //取消上次选中的状态
     for (UIButton *itemBtn in _coverView.subviews) {
@@ -166,15 +173,15 @@
     //设置tag值
     itemBtn.tag = tag;
     itemBtn.backgroundColor = [UIColor clearColor];
-//    if (tag == 0) {
-//        itemBtn.backgroundColor = [UIColor redColor];
-//    }
-//    if (tag == 1) {
-//        itemBtn.backgroundColor = [UIColor greenColor];
-//    }
-//    if (tag == 2) {
-//        itemBtn.backgroundColor = [UIColor orangeColor];
-//    }
+    //    if (tag == 0) {
+    //        itemBtn.backgroundColor = [UIColor redColor];
+    //    }
+    //    if (tag == 1) {
+    //        itemBtn.backgroundColor = [UIColor greenColor];
+    //    }
+    //    if (tag == 2) {
+    //        itemBtn.backgroundColor = [UIColor orangeColor];
+    //    }
     //取消高亮效果
     itemBtn.adjustsImageWhenHighlighted = NO;
     //设置图片
@@ -187,12 +194,14 @@
     //设置标题
     [itemBtn setTitle:newTitle forState:UIControlStateNormal];
     [itemBtn setTitleColor:_titleNormalColor forState:UIControlStateNormal];
+    [itemBtn setTitleColor:_titleSelectedColor forState:UIControlStateSelected];
     
     //添加点击事件
     [itemBtn addTarget:self action:@selector(itemButtonSelected:) forControlEvents:UIControlEventTouchUpInside];
     
     //添加
     [_coverView addSubview:itemBtn];
+    
     //重新布局
     [self reconfigureCoverViewSubviewsFrame];
     
@@ -208,13 +217,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
