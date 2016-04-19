@@ -16,11 +16,11 @@
 
 @implementation HomeEvaluateView
 
-- (instancetype)init
+- (instancetype)initWithFrame:(CGRect)frame
 {
-    self = [super init];
+    self = [super initWithFrame:frame];
     if (self) {
-        
+        [self createButtons];
     }
     return self;
 }
@@ -52,24 +52,30 @@
     self.itemClick = handle;
 }
 
-- (void)layoutSubviews {
+- (void)createButtons
+{
     
-    [self createButtons];
-}
+    UILabel *topLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.width, 50)];
+    topLabel.textAlignment = 1;
+    topLabel.textAlignment = NSTextAlignmentCenter;
+    topLabel.text = @"学员评价";
+    topLabel.font = [UIFont boldSystemFontOfSize:14];
+    topLabel.textColor = [UIColor whiteColor];
+    [self addSubview:topLabel];
+    
+    NSArray *imageArray = [NSArray arrayWithObjects:@"good",@"well",@"bad", nil];
+    NSArray *titleArray = [NSArray arrayWithObjects:@" 好评",@" 中评",@" 差评", nil];
 
-- (void)createButtons {
+    CGFloat btnWidth = self.width / 3.0;
+    CGFloat btnHeight = 75;
     
-    NSArray *imageArray = [NSArray arrayWithObjects:@"high",@"middle",@"low",@"complain", nil];
-    
-    CGFloat btnWidth = self.width / 4.0;
-    
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 3; i++) {
         
         UIButton *button = [[UIButton alloc] init];
         button.tag = i;
-        button.frame = CGRectMake(i * btnWidth, 0, btnWidth, btnWidth);
+        button.frame = CGRectMake(i * btnWidth, 50, btnWidth, btnHeight);
         
-        CGFloat labelViewHeight = 30;
+        CGFloat labelViewHeight = 16;
         UILabel *label = [UILabel new];
         label.tag = i + 1;
         label.frame = CGRectMake(0, 0, btnWidth, labelViewHeight);
@@ -77,23 +83,35 @@
         label.font = [UIFont fontWithName:@"HiraKakuProN-W3" size:16];
         label.text = @" ";
         
-        CGFloat imageViewWidth = 24;
-        UIImageView *imageView = [UIImageView new];
+        CGFloat imageViewWidth = btnWidth;
+        UIButton *stateBtn = [UIButton new];
+        stateBtn.titleLabel.font = [UIFont systemFontOfSize:13];
+        
         if (i == 3) {
-            imageView.frame = CGRectMake(btnWidth / 2.0 - imageViewWidth / 2.0, labelViewHeight + 3, imageViewWidth, imageViewWidth);
-            imageView.image = [UIImage imageNamed:imageArray[i]];
-            [button addSubview:imageView];
+            stateBtn.frame = CGRectMake(btnWidth / 2.0 - imageViewWidth / 2.0, labelViewHeight, imageViewWidth, imageViewWidth/2);
+            [stateBtn setImage:[UIImage imageNamed:imageArray[i]] forState:UIControlStateNormal];
+            [stateBtn setTitle:titleArray[i] forState:UIControlStateNormal];
+            [button addSubview:stateBtn];
             label.textColor = [UIColor colorWithHexString:@"DA0808"];
         }else
         {
-            imageView.frame = CGRectMake(btnWidth / 2.0 - imageViewWidth / 2.0, labelViewHeight, imageViewWidth, imageViewWidth);
-            imageView.image = [UIImage imageNamed:imageArray[i]];
-            [button addSubview:imageView];
+            stateBtn.frame = CGRectMake(btnWidth / 2.0 - imageViewWidth / 2.0, labelViewHeight, imageViewWidth, imageViewWidth/2);
+            [stateBtn setImage:[UIImage imageNamed:imageArray[i]] forState:UIControlStateNormal];
+            [stateBtn setTitle:titleArray[i] forState:UIControlStateNormal];
+            [button addSubview:stateBtn];
             label.textColor = [UIColor colorWithHexString:@"19f9cc"];
         }
+        
         [button addSubview:label];
         [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
+        
+        UIView *lineView = [[UIView alloc] init];
+        CGFloat lineViewX = btnWidth + btnWidth * i;
+        lineView.frame = CGRectMake(lineViewX, 60, 0.5, btnHeight-20);
+        lineView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
+        [self addSubview:lineView];
+        
     }
 }
 

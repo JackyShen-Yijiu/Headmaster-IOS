@@ -12,4 +12,6 @@
 
 @property (nonatomic,assign) NSInteger commentTag;
 @property(nonatomic,assign)kDateSearchType searchType;
+
+@property (nonatomic, assign) BOOL isFormSideMenu;
 @end

@@ -14,6 +14,8 @@
 #import "NetworkEntity.h"
 #import "SearchBarView.h"
 
+
+
 @interface TeacherController ()<UITableViewDelegate,UITableViewDataSource,TeacherCellDelegate,UISearchBarDelegate,UISearchDisplayDelegate>
 @property(nonatomic,strong)UIImageView * bgView;
 @property(nonatomic,strong)RefreshTableView * tableView;
@@ -64,7 +66,7 @@
 - (void)initNavBar
 {
     [self resetNavBar];
-    self.myNavigationItem.title = @"我的教练";
+    self.myNavigationItem.title = @"我校教练";
     
     CGRect backframe= CGRectMake(0, 0, 16, 16);
     UIButton* backButton= [UIButton buttonWithType:UIButtonTypeCustom];
@@ -84,7 +86,7 @@
     self.bgView.image = [UIImage imageNamed:@"teacher_bg"];
     [self.view addSubview:self.bgView];
     
-    self.tableView = [[RefreshTableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height) style:UITableViewStylePlain];
+    self.tableView = [[RefreshTableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height - 64) style:UITableViewStylePlain];
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -239,8 +241,27 @@
 
 - (void)teacherCell:(TeacherCell *)cell didClickMessageButton:(UIButton *)button
 {
-    ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:cell.model.userId conversationType:eConversationTypeChat Name:cell.model.userName ava:cell.model.porInfo.originalpic mobile:nil];
-    [self.navigationController pushViewController:chatController animated:YES];
+    NSLog(@"button.tag = %lu",button.tag);
+    if (button.tag == 601) {
+        // 电话
+        if (cell.model.mobile == nil ||[cell.model.mobile isEqualToString:@""]) {
+            [self showTotasViewWithMes:@"该教练未录入电话!"];
+            return;
+        }
+                        NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",cell.model.mobile];
+                        UIWebView * callWebview = [[UIWebView alloc] init];
+                        [callWebview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
+                        [self.view addSubview:callWebview];
+        
+    }
+    if (button.tag == 600) {
+        // 聊天
+        ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:cell.model.userId conversationType:eConversationTypeChat Name:cell.model.userName ava:cell.model.porInfo.originalpic mobile:nil];
+        [self.navigationController pushViewController:chatController animated:YES];
+    }
+    
+    
+    
 }
 
 @end

@@ -75,6 +75,7 @@
 }
 
 - (void)pushBtnClick {
+    
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 

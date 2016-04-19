@@ -40,4 +40,12 @@
 #define HM_LINE_HEIGHT  0.5f
 #define RELOADDATACOUNT 10
 
+
+// 白色字体颜色
+#define JZ_FONTCOLOR_WHITE   RGB_Color(255,255,255)
+
+// 灰色字体颜色
+#define JZ_FONTCOLOR_LIGHTWHITE   RGB_Color(185,185,185)
+
+
 #endif

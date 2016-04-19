@@ -61,6 +61,7 @@
 		55BA0F5D1C0EFA8100F83CD8 /* PublishCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55BA0F5B1C0EFA8100F83CD8 /* PublishCell.xib */; };
 		55FDE40A1C0FC5C700329F17 /* InformationDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FDE4091C0FC5C700329F17 /* InformationDetailController.m */; };
 		92A9E5D7EE3DDE4857910BA1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95191FB6D2020B2944026A70 /* libPods.a */; };
+		B22BADC81CC60C0A00455E1C /* AppDelegate+YJPush.m in Sources */ = {isa = PBXBuildFile; fileRef = B22BADC71CC60C0A00455E1C /* AppDelegate+YJPush.m */; };
 		B838C24B1C1B0AB800493360 /* ProjectGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = B838C24A1C1B0AB800493360 /* ProjectGuideView.m */; };
 		B838C24E1C1B0B1B00493360 /* SMPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B838C24D1C1B0B1B00493360 /* SMPageControl.m */; };
 		B8771AFA1C0976200051DE9D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B8771AF91C0976200051DE9D /* main.m */; };
@@ -527,6 +528,8 @@
 		948A09C6A9F41BA727FBB910 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		95191FB6D2020B2944026A70 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3E14DCC66DCDB782D0DD66F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		B22BADC61CC60C0A00455E1C /* AppDelegate+YJPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+YJPush.h"; sourceTree = "<group>"; };
+		B22BADC71CC60C0A00455E1C /* AppDelegate+YJPush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+YJPush.m"; sourceTree = "<group>"; };
 		B838C2491C1B0AB800493360 /* ProjectGuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectGuideView.h; sourceTree = "<group>"; };
 		B838C24A1C1B0AB800493360 /* ProjectGuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectGuideView.m; sourceTree = "<group>"; };
 		B838C24C1C1B0B1B00493360 /* SMPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPageControl.h; sourceTree = "<group>"; };
@@ -2652,6 +2655,8 @@
 		D9CEC8E81C0E8C83008DEE69 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
+				B22BADC61CC60C0A00455E1C /* AppDelegate+YJPush.h */,
+				B22BADC71CC60C0A00455E1C /* AppDelegate+YJPush.m */,
 				D9CEC8E91C0E8C83008DEE69 /* AppDelegate.h */,
 				D9CEC8EA1C0E8C83008DEE69 /* AppDelegate.mm */,
 				D9CEC9521C0ED044008DEE69 /* AppDelegate+RootViewController.h */,
@@ -3360,6 +3365,7 @@
 				B8771DE81C098DE40051DE9D /* EaseBubbleView+Voice.m in Sources */,
 				0613DC151C1C51E200580C32 /* HomeDataDetailDMData.m in Sources */,
 				B838C24E1C1B0B1B00493360 /* SMPageControl.m in Sources */,
+				B22BADC81CC60C0A00455E1C /* AppDelegate+YJPush.m in Sources */,
 				B8771D2B1C098DE40051DE9D /* UIImageView+EMWebCache.m in Sources */,
 				D92296C91C0FD2FF00D0FFDF /* HomeSeeTimeView.m in Sources */,
 				D922974D1C10439200D0FFDF /* YBPieChartView.m in Sources */,
