@@ -239,8 +239,17 @@
 
 - (void)teacherCell:(TeacherCell *)cell didClickMessageButton:(UIButton *)button
 {
-    ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:cell.model.userId conversationType:eConversationTypeChat Name:cell.model.userName ava:cell.model.porInfo.originalpic mobile:nil];
-    [self.navigationController pushViewController:chatController animated:YES];
+    if (button.tag == 601) {
+        // 电话
+    }
+    if (button.tag == 600) {
+        // 聊天
+        ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:cell.model.userId conversationType:eConversationTypeChat Name:cell.model.userName ava:cell.model.porInfo.originalpic mobile:nil];
+        [self.navigationController pushViewController:chatController animated:YES];
+    }
+    
+    
+    
 }
 
 @end

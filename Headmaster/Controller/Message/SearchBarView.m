@@ -64,6 +64,8 @@
 @property(nonatomic,strong)UIView * topLineView;
 @property(nonatomic,strong)UIView * bottomView;
 
+@property (nonatomic, strong) UIView *bgView;
+
 @end
 
 @implementation SearchBarView
@@ -85,13 +87,20 @@
         [_searchBar setBackgroundColor:[UIColor clearColor]];
         [_searchBar setBarTintColor:[UIColor clearColor]];
         _searchBar.placeholder = @"搜索";
+        [_searchBar setInputAccessoryView:self.bgView];// 提供一个遮盖视图
         [self addSubview:_searchBar];
     }
     return _searchBar;
 
 }
 
-
+- (UIView *)bgView{
+    if (_bgView == nil) {
+        _bgView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.frame) + 64 + 40, self.frame.size.width, 300)];
+        _bgView.backgroundColor = [UIColor cyanColor];
+    }
+    return _bgView;
+}
 - (UIView *)topLineView
 {
     if (!_topLineView) {

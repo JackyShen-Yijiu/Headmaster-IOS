@@ -15,7 +15,7 @@
 @protocol TeacherCellDelegate <NSObject>
 - (void)teacherCell:(TeacherCell *)cell didClickMessageButton:(UIButton *)button;
 @end
-@interface TeacherCell : YBBaseTableCell
+@interface TeacherCell : UITableViewCell
 @property(nonatomic,strong)TeacherModel * model;
 @property(nonatomic,weak)id<TeacherCellDelegate>delegate;
 + (CGFloat)cellHigth;
