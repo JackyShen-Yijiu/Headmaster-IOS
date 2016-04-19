@@ -38,7 +38,7 @@
 @implementation JZPublishController
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-       [MobClick beginLogPageView:NSStringFromClass([self class])];
+    [MobClick beginLogPageView:NSStringFromClass([self class])];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -57,7 +57,7 @@
     self.mainTitleField.delegate = self;
     
     
-
+    
     
     
 }
@@ -75,7 +75,7 @@
     
     self.navigationItem.leftBarButtonItem = self.pushBtn;
     [self addBackgroundImage];
-
+    
     UIView *topView = [[UIView alloc]init];
     topView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
     self.topView = topView;
@@ -165,12 +165,12 @@
     }];
     
     [self.alphaView mas_makeConstraints:^(MASConstraintMaker *make) {
-       
+        
         make.top.equalTo(self.lineView.mas_bottom).offset(16);
         make.left.equalTo(self.view.mas_left).offset(16);
         make.right.equalTo(self.view.mas_right).offset(-16);
         make.height.equalTo(@274);
-
+        
         
     }];
     
@@ -182,7 +182,7 @@
         make.left.equalTo(self.alphaView).offset(12);
         make.right.equalTo(self.alphaView).offset(-12);
         make.bottom.equalTo(self.alphaView).offset(-12);
-
+        
     }];
     
     
@@ -205,7 +205,7 @@
         
     }];
     
-
+    
 }
 
 #pragma mark - 发布按钮点击事件
@@ -213,31 +213,39 @@
     
     
     NSLog(@"点击了putButtonClick putButtonClick putButtonClick putButtonClick ");
-    if (!self.contentTextView.text) {
+    if ([self.contentTextView.text isEqualToString:@""]) {
         
         [self showTotasViewWithMes:@"输入内容不可为空"];
     }else {
         
         
         [self needPublishMessageWithContentText:self.contentTextView.text WithMainTitle:self.mainTitleField.text];
+        [UIView animateWithDuration:0.25 animations:^{
+            
+            [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+            
+        }];
     }
+    
+    
+    
     
 }
 
 
 #pragma mark - 发布的网络请求
 - (void)needPublishMessageWithContentText:(NSString *)contentText WithMainTitle:(NSString *)mainTitle {
-
+    
     [NetworkEntity postPublishMessageWithUseInfoModel:[UserInfoModel defaultUserInfo] textContent:contentText mainTitle:mainTitle success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
-                ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:[dataDic objectForKey:@"data"]];
-                [alertView show];
+        NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
+        ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:[dataDic objectForKey:@"data"]];
+        [alertView show];
         
     } failure:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
-                ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:[dataDic objectForKey:@"msg"]];
-                [alertView show];
-
+        ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:[dataDic objectForKey:@"msg"]];
+        [alertView show];
+        
         
     }];
 }
@@ -269,7 +277,7 @@
         self.view.transform = CGAffineTransformMakeTranslation(0,0);
         return NO;
     }
-
+    
     
     if (range.location>=300) {
         self.view.transform = CGAffineTransformMakeTranslation(0,0);
@@ -284,7 +292,7 @@
     self.placeholderLabel.hidden = YES;
     self.placeholderLabel.text = @"";
     
-
+    
     
     return YES;
 }
@@ -294,14 +302,14 @@
     
     [self.mainTitleField becomeFirstResponder];
     
-   
+    
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     
     [self.contentTextView resignFirstResponder];
-
-   
+    
+    
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
