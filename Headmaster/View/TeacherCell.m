@@ -168,6 +168,15 @@
         }];
     
     self.titleLabel.text = _model.userName;
+    
+    // 可授科目
+    NSMutableString *subStr = [NSMutableString string];
+    for (int i = 0; i < model.subjectArray.count; i++) {
+        NSDictionary *dict = model.subjectArray[i];
+        [subStr appendFormat:@"%@ ",dict[@"name"]];
+    }
+    self.teachcontentLabel.text = subStr;
+    self.passLabel.text = [NSString stringWithFormat:@"通过率 %lu%%",model.passrate];
     self.rateView.scorePercent = _model.raring  / 5.f;
     
 }

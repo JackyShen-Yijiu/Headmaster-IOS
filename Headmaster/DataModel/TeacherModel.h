@@ -13,5 +13,8 @@
 @property(nonatomic,strong)NSString * userName;
 @property(nonatomic,strong)HMPortraitInfoModel * porInfo;
 @property(nonatomic,assign)CGFloat raring;
+@property (nonatomic, strong) NSArray *subjectArray;
+@property (nonatomic, strong) NSString *mobile;
+@property (nonatomic, assign) NSInteger passrate;
 + (TeacherModel *)converJsonDicToModel:(NSDictionary *)dic;
 @end
