@@ -33,6 +33,8 @@
 
 @property (nonatomic, assign)BOOL isNeedRefresh;
 
+@property (nonatomic, strong) UIBarButtonItem *pushBtn;
+
 @end
 
 @implementation RecommendViewController
@@ -57,6 +59,10 @@
     self.isNeedRefresh = NO;
     
     [MobClick beginLogPageView:NSStringFromClass([self class])];
+    
+    if (_isFormSideMenu) {
+         self.navigationItem.leftBarButtonItem = self.pushBtn;
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -169,6 +175,10 @@
     self.tableView.tableHeaderView = nil;
     [self.view addSubview:self.tableView];
     [self initRefreshView];
+}
+
+- (void)pushBtnClick {
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark Load Data
@@ -331,6 +341,17 @@
         }
 
     };
+}
+- (UIBarButtonItem *)pushBtn {
+    if (!_pushBtn) {
+        CGRect backframe= CGRectMake(0, 0, 16, 16);
+        UIButton* backButton= [UIButton buttonWithType:UIButtonTypeCustom];
+        backButton.frame = backframe;
+        [backButton setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+        [backButton addTarget:self action:@selector(pushBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        _pushBtn = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+    }
+    return _pushBtn;
 }
 
 #pragma mark - PieChatView
