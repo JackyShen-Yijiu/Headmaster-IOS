@@ -86,9 +86,17 @@
  *  发布公告
  */
 
-+ (void)postPublishMessageWithUseInfoModel:(UserInfoModel *)uim textContent:(NSString *)content type:(NSString *)type
+//+ (void)postPublishMessageWithUseInfoModel:(UserInfoModel *)uim textContent:(NSString *)content type:(NSString *)type
+//                                   success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+//                                   failure:(void (^)(AFHTTPRequestOperation *operation, id responseObject))failure;
+
++ (void)postPublishMessageWithUseInfoModel:(UserInfoModel *)uim textContent:(NSString *)content mainTitle:(NSString *)mainTitle
                                    success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
                                    failure:(void (^)(AFHTTPRequestOperation *operation, id responseObject))failure;
+
+
+
+
 
 /**
  *  资讯列表

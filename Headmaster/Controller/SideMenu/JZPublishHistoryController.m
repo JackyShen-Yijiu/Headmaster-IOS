@@ -7,23 +7,38 @@
 //
 
 #import "JZPublishHistoryController.h"
+#import "JZPublishHistoryView.h"
+#define kLKSize [UIScreen mainScreen].bounds.size
 
 @interface JZPublishHistoryController ()
 @property (nonatomic, strong) UIBarButtonItem *pushBtn;
-
+@property (nonatomic, weak) JZPublishHistoryView *historyView;
 @end
 
 @implementation JZPublishHistoryController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
     
-    self.view.backgroundColor = [UIColor orangeColor];
+    [self addBackgroundImage];
     self.navigationItem.title = @"历史公告";
     
     self.navigationItem.leftBarButtonItem = self.pushBtn;
     
+    UIView *topLine = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kLKSize.width, 1)];
+    topLine.backgroundColor = [UIColor blackColor];
+    
+    [self.view addSubview:topLine];
+    
+    
+    JZPublishHistoryView *historyView = [[JZPublishHistoryView alloc]initWithFrame:CGRectMake(0, 1, kLKSize.width, kLKSize.height-65)];
+    
+    self.historyView = historyView;
+    
+    [self.view addSubview:historyView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,4 +66,10 @@
      }
 
 
+#pragma mark - 背景图片
+- (void)addBackgroundImage {
+    
+    UIImage *image = [UIImage imageNamed:@"controllerBackground"];
+    self.view.layer.contents = (id)image.CGImage;
+}
 @end
