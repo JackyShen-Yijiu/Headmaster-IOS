@@ -281,6 +281,8 @@
     
     if (range.location>=300) {
         self.view.transform = CGAffineTransformMakeTranslation(0,0);
+        [self showTotasViewWithMes:@"公告内容最多输入300字"];
+
         return NO;
     }
     return YES;
@@ -300,24 +302,42 @@
     
     self.placeholderLabel.hidden = YES;
     
-    [self.mainTitleField becomeFirstResponder];
-    
+
+        [self.mainTitleField becomeFirstResponder];
     
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-    
+
     [self.contentTextView resignFirstResponder];
-    
-    
+ 
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
     [self.contentTextView resignFirstResponder];
-    
-    
+
     return NO;
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+    
+    if ([string isEqualToString:@"\n"]) {
+        
+        [self.contentTextView resignFirstResponder];
+        
+        return NO;
+    }
+    
+    
+    if (range.location>=15) {
+        [self showTotasViewWithMes:@"公告标题最多输入15字"];
+        [self.contentTextView resignFirstResponder];
+        return NO;
+    }
+    return YES;
+
 }
 
 

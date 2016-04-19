@@ -98,6 +98,8 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    
+    [super viewWillAppear:YES];
     // 显示下面的导航栏
     self.tabBarController.tabBar.hidden = NO;
     self.myNavigationItem.title = @"数据概述";
