@@ -38,7 +38,7 @@
 
 @property (nonatomic, strong) HomeProgressView *progressView;
 
-@property (nonatomic, strong) HomeSeeTimeView *seeTimeView;
+//@property (nonatomic, strong) HomeSeeTimeView *seeTimeView;
 
 @property (nonatomic, strong) HomeViewModel *viewModel;
 
@@ -54,61 +54,106 @@
 
 @property (nonatomic,strong) NSString *weatherUrl;
 
+@property (nonatomic,strong) UIView *rightView;
+@property (nonatomic,strong) UILabel *rightLabel;
+
 @end
 
 @implementation HomeController
+
+- (UIView *)rightView
+{
+    if (_rightView==nil) {
+        
+        _rightView = [[UIView alloc] init];
+        _rightView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"complaint"]];
+        _rightView.frame = CGRectMake(0, 0, 18, 18);
+        
+        _rightView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(rightViewDidClick)];
+        [_rightView addGestureRecognizer:tap];
+        
+        _rightLabel = [[UILabel alloc] init];
+        _rightLabel.text = @"1";
+        _rightLabel.textColor = [UIColor whiteColor];
+        _rightLabel.backgroundColor = [UIColor redColor];
+        _rightLabel.textAlignment = NSTextAlignmentCenter;
+        _rightLabel.font = [UIFont systemFontOfSize:8];
+        _rightLabel.frame = CGRectMake(_rightView.width-10, 0, 10, 10);
+        _rightLabel.layer.masksToBounds = YES;
+        _rightLabel.layer.cornerRadius = _rightLabel.width/2;
+        [_rightView addSubview:_rightLabel];
+        
+    }
+    return _rightView;
+}
+
+- (void)rightViewDidClick
+{
+    RecommendViewController *recommendVC = [RecommendViewController new];
+    recommendVC.searchType = self.searchType;
+    recommendVC.commentTag = 3;
+    [self.myNavController pushViewController:recommendVC animated:YES];
+}
 
 - (void)viewWillAppear:(BOOL)animated
 {
     // 显示下面的导航栏
     self.tabBarController.tabBar.hidden = NO;
     self.myNavigationItem.title = @"数据概述";
+    self.myNavigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.rightView];
+    
     [MobClick beginLogPageView:NSStringFromClass([self class])];
     
     // 加载天气信息
     [self.locService startUserLocationService];
     
     [_viewModel networkRequestRefresh];
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+    
+    self.myNavigationItem.rightBarButtonItem = nil;
+    
     [MobClick endLogPageView:NSStringFromClass([self class])];
     
     // 停止天气服务
     [self.locService stopUserLocationService];
+    
 }
 
 - (void)viewDidLoad {
+
     [super viewDidLoad];
-    
-//    [HomeGuideController testGuide];
+
     if ([HomeGuideController isShowGuide]) {
         [HomeGuideController show];
     }
     
     [self addSideMenuButton];
-//    [self addWeatherImage];
+
     self.view.frame = CGRectMake(0, 0, self.view.width, self.view.height - 64 - 49);
     
     [self.view addSubview:self.topView];
     
     // 添加button上面一条线
-    UIView *lineTopView = [[UIView alloc] initWithFrame:CGRectMake(7.5, 0, self.view.bounds.size.width - 15, 2)];
+    UIView *lineTopView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 0.5)];
     lineTopView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
     // 添加button下面一条线
-    UIView *lineDownView = [[UIView alloc] initWithFrame:CGRectMake(7.5, 62, self.view.bounds.size.width - 15, 2)];
+    UIView *lineDownView = [[UIView alloc] initWithFrame:CGRectMake(10, CGRectGetMaxY(self.topView.frame), self.view.bounds.size.width - 20, 0.5)];
     lineDownView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
     
     [self.view addSubview:lineTopView];
     [self.view addSubview:lineDownView];
     [self.view addSubview:lineDownView];
     [self.view addSubview:lineTopView];
+    
     // 加载地图用于定位,展示天气信息
     [self addMap];
 
-    // Do any additional setup after loading the view.
     [self addBackgroundImage];
     
     self.searchType = kDateSearchTypeToday;
@@ -116,52 +161,63 @@
     [self.view addSubview:self.progressView];
     [self.view addSubview:self.moreButton];
     [self.view addSubview:self.evaluateView];
-    [self.view addSubview:self.seeTimeView];
+//    [self.view addSubview:self.seeTimeView];
     
     [self.evaluateView itemClick:^(UIButton *button) {
-        
         RecommendViewController *recommendVC = [RecommendViewController new];
         recommendVC.searchType = self.searchType;
         recommendVC.commentTag = button.tag;
         [self.myNavController pushViewController:recommendVC animated:YES];
     }];
     
-    [self.seeTimeView itemClick:^(UIButton *button) {
-        
-        if (button.tag + 1 == self.searchType) {
-            return;
-        }
-        self.searchType = button.tag + 1;
-        if (button.tag == 2) {
-            _viewModel.searchType = kDateSearchTypeWeek;
-            [_viewModel networkRequestRefresh];
-            
-        }else {
-            if(button.tag == 0) {
-                _viewModel.searchType = kDateSearchTypeToday;
-            }else if(button.tag == 1 ) {
-                _viewModel.searchType = kDateSearchTypeYesterday;
-            }
-            [_viewModel networkRequestRefresh];
-        }
-    }];
+//    [self.seeTimeView itemClick:^(UIButton *button) {
+//        
+//        if (button.tag + 1 == self.searchType) {
+//            return;
+//        }
+//        self.searchType = button.tag + 1;
+//        if (button.tag == 2) {
+//            _viewModel.searchType = kDateSearchTypeWeek;
+//            [_viewModel networkRequestRefresh];
+//            
+//        }else {
+//            if(button.tag == 0) {
+//                _viewModel.searchType = kDateSearchTypeToday;
+//            }else if(button.tag == 1 ) {
+//                _viewModel.searchType = kDateSearchTypeYesterday;
+//            }
+//            [_viewModel networkRequestRefresh];
+//        }
+//    }];
     
     _viewModel = [HomeViewModel new];
     // 刷新数据
     [_viewModel successRefreshBlock:^{
         
         if (_viewModel.searchType == kDateSearchTypeWeek) {
-//            [self.progressView refreshData:@[ @(0.85), @(0.3), @(1), @(0.72) ]];
+            
             [self.evaluateView refreshData:_viewModel.evaluateArray];
+            self.rightLabel.text = _viewModel.evaluateArray[3];
             [self.progressView refreshData:@[ @(0), @(0), @(1), @(0) ]];
+            
         }else {
+            
             [self.topView refreshSubjectData:_viewModel.subjectArray sameDay:_viewModel.applyCount];
             [self.progressView refreshData:_viewModel.progressArray];
             [self.evaluateView refreshData:_viewModel.evaluateArray];
+            self.rightLabel.text = _viewModel.evaluateArray[3];
+            
         }
+        
+        if (_viewModel.evaluateArray[3] && [_viewModel.evaluateArray[3] isEqualToString:@"0"]) {
+            self.rightLabel.hidden = YES;
+        }
+        
     }];
+    
     _viewModel.searchType = 1;
     [_viewModel networkRequestRefresh];
+    
 }
 
 #pragma mark ----- 加载天气数据
@@ -238,8 +294,8 @@
     
     HomeDetailController *detailVC = [HomeDetailController new];
     detailVC.searchType = self.searchType;
-    
     [self.navigationController pushViewController:detailVC animated:YES];
+    
 }
 
 #pragma mark 侧栏按钮
@@ -251,7 +307,6 @@
     [btn setBackgroundImage:[UIImage imageNamed:@"headerIcon"] forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(openSideMenu) forControlEvents:UIControlEventTouchUpInside];
     self.myNavigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
-    
     
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 120, 37, 80, 31)];
     [view addSubview:self.temperatureLabel];
@@ -273,9 +328,8 @@
 
 - (HomeTopView *)topView {
     if (!_topView) {
-        _topView = [HomeTopView new];
-        _topView.frame = CGRectMake(0, 0, self.view.width, 60);
-//        _topView.backgroundColor = [UIColor redColor];
+        _topView = [[HomeTopView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 105)];
+        
     }
     return _topView;
 }
@@ -284,7 +338,7 @@
     if (!_progressView) {
         _progressView = [HomeProgressView new];
         _progressView.frame = CGRectMake(0, 0, self.view.bounds.size.width - 100, self.view.bounds.size.width - 100);
-        _progressView.center = CGPointMake(self.view.bounds.size.width / 2.f, self.view.bounds.size.height / 2.f - 15);
+        _progressView.center = CGPointMake(self.view.bounds.size.width / 2.f, self.view.bounds.size.height / 2.f);
         _progressView.backgroundColor = [UIColor clearColor];
     }
     return _progressView;
@@ -306,30 +360,30 @@
 
 - (HomeEvaluateView *)evaluateView {
     if (!_evaluateView) {
-        _evaluateView = [HomeEvaluateView new];
+        _evaluateView = [[HomeEvaluateView alloc] initWithFrame:CGRectMake(0,
+                                                                          CGRectGetMaxY(_progressView.frame)-20,
+                                                                          self.view.width,
+                                                                          75+50)];
 //        _evaluateView.backgroundColor = [UIColor redColor];
-        _evaluateView.frame = CGRectMake(40,
-                                         self.seeTimeView.top - self.seeTimeView.height - 20,
-                                         self.view.width - 80,
-                                         60);
     }
     return _evaluateView;
 }
 
-- (HomeSeeTimeView *)seeTimeView {
-    if (!_seeTimeView) {
-        CGFloat margin = 52.f;
-        if (SCREEN_WIDTH > 320) {
-            margin = 60;
-        }
-        _seeTimeView = [HomeSeeTimeView new];
-        _seeTimeView.frame = CGRectMake(margin,
-                                        self.view.height - 70,
-                                        self.view.width - margin * 2,
-                                        50);
-    }
-    return _seeTimeView;
-}
+//- (HomeSeeTimeView *)seeTimeView {
+//    if (!_seeTimeView) {
+//        CGFloat margin = 52.f;
+//        if (SCREEN_WIDTH > 320) {
+//            margin = 60;
+//        }
+//        _seeTimeView = [HomeSeeTimeView new];
+//        _seeTimeView.frame = CGRectMake(margin,
+//                                        self.view.height - 70,
+//                                        self.view.width - margin * 2,
+//                                        50);
+//    }
+//    return _seeTimeView;
+//}
+
 - (UILabel *)temperatureLabel
 {
     if (!_temperatureLabel) {

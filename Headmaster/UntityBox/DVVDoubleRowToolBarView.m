@@ -29,7 +29,6 @@
 {
     self = [super init];
     if (self) {
-//        self.backgroundColor = [UIColor whiteColor];
         //调用初始化属性
         [self chuShiHuaShuXing];
     }
@@ -45,10 +44,10 @@
         
         for (UIButton *btn in itemButton.subviews) {
             if (btn.tag != 0 && [btn isKindOfClass:[UIButton class]]) {
-                
                 [btn setTitle:array[btn.tag - 1] forState:UIControlStateNormal];
             }
         }
+        
     }
 }
 
@@ -129,10 +128,16 @@
     for (int i = 0; i < _downTitleArray.count; i++) {
         
         UIButton *itemButton = [self createOneButtonWithUpTitle:_upTitleArray[i] downTitle:_downTitleArray[i] Size:buttonSize MinX:i * buttonSize.width Tag:i];
-        
         [self addSubview:itemButton];
+        
+        UIView *lineView = [[UIView alloc] init];
+        CGFloat lineViewX = itemButton.width-1;
+        lineView.frame = CGRectMake(lineViewX, 10, 0.5, itemButton.height-20);
+        lineView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
+        [itemButton addSubview:lineView];
+        
     }
-//    _followBarLabel = [UILabel new];
+    
     //添加跟随的按钮
     CGFloat locationFloat = _selectButtonInteger * buttonSize.width;
     if (_followBarLocation) {
