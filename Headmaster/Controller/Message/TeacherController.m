@@ -66,7 +66,7 @@
 - (void)initNavBar
 {
     [self resetNavBar];
-    self.myNavigationItem.title = @"我的教练";
+    self.myNavigationItem.title = @"我校教练";
     
     CGRect backframe= CGRectMake(0, 0, 16, 16);
     UIButton* backButton= [UIButton buttonWithType:UIButtonTypeCustom];
@@ -86,7 +86,7 @@
     self.bgView.image = [UIImage imageNamed:@"teacher_bg"];
     [self.view addSubview:self.bgView];
     
-    self.tableView = [[RefreshTableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height - 38 - 2) style:UITableViewStylePlain];
+    self.tableView = [[RefreshTableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height - 64) style:UITableViewStylePlain];
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
