@@ -11,7 +11,7 @@
 
 @interface HomeDetailNormalLineChartCell()
 
-@property (nonatomic, weak) YBLineChartView *lineChartView;
+@property (nonatomic, strong) YBLineChartView *lineChartView;
 
 @end
 
@@ -41,8 +41,8 @@
 - (YBLineChartView *)lineChartView {
     if (!_lineChartView) {
         
-        YBLineChartView *lineChartView = [[YBLineChartView alloc]init];
-        _lineChartView = lineChartView;
+       
+        _lineChartView =  [YBLineChartView new];;
     }
     return _lineChartView;
 }
