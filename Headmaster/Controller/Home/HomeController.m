@@ -116,8 +116,6 @@
 {
     [super viewWillDisappear:animated];
     
-    self.myNavigationItem.rightBarButtonItem = nil;
-    
     [MobClick endLogPageView:NSStringFromClass([self class])];
     
     // 停止天气服务
@@ -301,18 +299,18 @@
 #pragma mark 侧栏按钮
 - (void)addSideMenuButton {
     
-    UIButton *btn = [UIButton new];
-    btn.frame = CGRectMake(15, 7, 36, 30);
+//    UIButton *btn = [UIButton new];
+//    btn.frame = CGRectMake(15, 7, 36, 30);
 //    btn.backgroundColor = [UIColor redColor];
-    [btn setBackgroundImage:[UIImage imageNamed:@"headerIcon"] forState:UIControlStateNormal];
-    [btn addTarget:self action:@selector(openSideMenu) forControlEvents:UIControlEventTouchUpInside];
-    self.myNavigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
+//    [btn setBackgroundImage:[UIImage imageNamed:@"side"] forState:UIControlStateNormal];
+//    [btn addTarget:self action:@selector(openSideMenu) forControlEvents:UIControlEventTouchUpInside];
+    self.myNavigationItem.leftBarButtonItem = [UIBarButtonItem itemWithNormalIcon:@"side" highlightedIcon:@"side" target:self action:@selector(openSideMenu)];
     
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 120, 37, 80, 31)];
-    [view addSubview:self.temperatureLabel];
-    [view addSubview:self.WeatherimageViewWeather];
+//    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 120, 37, 80, 31)];
+//    [view addSubview:self.temperatureLabel];
+//    [view addSubview:self.WeatherimageViewWeather];
     
-    self.myNavigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:view];
+//    self.myNavigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:view];
     
 }
 
