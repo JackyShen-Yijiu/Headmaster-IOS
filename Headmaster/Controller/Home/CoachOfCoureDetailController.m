@@ -39,6 +39,9 @@
     [self addBackgroundImage];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.view addSubview:self.tableView];
+    
+    self.tableView.refreshFooter = nil;
+    
     switch (_searchType) {
         case 1:
             self.title = @"今天教练详情";
