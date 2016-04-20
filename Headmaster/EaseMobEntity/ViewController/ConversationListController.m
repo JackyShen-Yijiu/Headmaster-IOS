@@ -117,8 +117,8 @@ static NSString *kGroupName = @"GroupName";
     
     return _networkStateView;
 }
-#pragma mark - EaseConversationListViewControllerDelegate
 
+#pragma mark - EaseConversationListViewControllerDelegate
 - (void)conversationListViewController:(EaseConversationListViewController *)conversationListViewController
             didSelectConversationModel:(id<IConversationModel>)conversationModel
 {
