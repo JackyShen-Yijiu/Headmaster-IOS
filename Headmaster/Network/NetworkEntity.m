@@ -13,6 +13,18 @@
 #import "UserInfoModel.h"
 
 @implementation NetworkEntity
+/**
+ *  获取用户信息
+ */
++ (void)getUserInfoWithUserInfoWithUserId:(NSString *)userId
+                                  success:(NetworkSuccessBlock)success failure:(NetworkFailureBlock)failure
+{
+    if (!userId) {
+        return [NetworkTool missParagramerCallBackFailure:failure];
+    }
+     NSString * urlStr = [NSString stringWithFormat:@"%@/userinfo/getimuserinfo?userid=%@",[NetworkTool domain],userId];
+    [NetworkTool GET:urlStr params:nil success:success failure:failure];
+}
 
 /**
  *  登陆模块

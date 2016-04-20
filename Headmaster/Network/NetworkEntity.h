@@ -14,6 +14,11 @@
 @class UserInfoModel;
 
 @interface NetworkEntity : NSObject
+/**
+ *  获取用户信息
+ */
++ (void)getUserInfoWithUserInfoWithUserId:(NSString *)userId
+                                  success:(NetworkSuccessBlock)success failure:(NetworkFailureBlock)failure;
 
 /**
  *  登陆模块

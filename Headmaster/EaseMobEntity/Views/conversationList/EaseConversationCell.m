@@ -7,9 +7,9 @@
 //
 
 #import "EaseConversationCell.h"
-
 #import "EMConversation.h"
 #import "UIImageView+EMWebCache.h"
+#import "JGUserTools.h"
 
 CGFloat const EaseConversationCellPadding = 10;
 
@@ -167,19 +167,14 @@ CGFloat const EaseConversationCellPadding = 10;
     _model = model;
     NSDictionary * ext = [[_model conversation] ext];
     NSLog(@"获取用户信息ext:%@",ext);
-    NSString * title = [ext objectStringForKey:@"nickName"];
-    NSString * ava = [ext objectStringForKey:@"headUrl"];
-    if ([title length] > 0) {
-        self.titleLabel.text = title;
-    }
     
-//    if (self.showAvatar) {
-    if ([ava length] > 0){
-        [self.avatarView.imageView sd_setImageWithURL:[NSURL URLWithString:ava] placeholderImage:[UIImage imageNamed:@"defoult_por"]];
-    } else {
-        self.avatarView.image = [UIImage imageNamed:@"defoult_por"];
-    }
-//    }
+    // 获取服务器用户名
+    NSString *name = [JGUserTools getNickNameByEMUserName:_model.conversation.chatter];
+    self.titleLabel.text = name;
+    
+    // 获取服务器用户头像
+    NSString *avatar = [JGUserTools getAvatarUrlByEMUserName:_model.conversation.chatter];
+    [self.avatarView.imageView sd_setImageWithURL:[NSURL URLWithString:avatar] placeholderImage:[UIImage imageNamed:@"user_normal"]];
     
     if (_model.conversation.unreadMessagesCount == 0) {
         _avatarView.showBadge = NO;
