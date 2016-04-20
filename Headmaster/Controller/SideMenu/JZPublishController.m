@@ -219,7 +219,10 @@
     if ([self.contentTextView.text isEqualToString:@""]) {
         
         [self showTotasViewWithMes:@"输入内容不可为空"];
-    }else {
+    }else if (self.contentTextView.text.length >=300 ){
+    
+        [self showTotasViewWithMes:@"公告内容最多输入300字"];
+    } else {
         
         
         [self needPublishMessageWithContentText:self.contentTextView.text WithMainTitle:self.mainTitleField.text];
