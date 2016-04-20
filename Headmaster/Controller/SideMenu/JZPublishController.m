@@ -87,7 +87,7 @@
     mainTitleField.font = [UIFont systemFontOfSize:14];
     
     mainTitleField.textColor = [UIColor whiteColor];
-    mainTitleField.tintColor = [UIColor clearColor];
+    mainTitleField.tintColor = [UIColor whiteColor];
     [mainTitleField setValue:RGB_Color(185, 185, 185) forKeyPath:@"_placeholderLabel.textColor"];
     [mainTitleField setValue:[UIFont boldSystemFontOfSize:14] forKeyPath:@"_placeholderLabel.font"];
     [self.view addSubview:mainTitleField];
@@ -110,7 +110,7 @@
     UITextView *contentTextView = [[UITextView alloc]init];
     contentTextView.backgroundColor = [UIColor clearColor];
     contentTextView.textColor = [UIColor whiteColor];
-    contentTextView.tintColor = [UIColor clearColor];
+    contentTextView.tintColor = [UIColor whiteColor];
     [self.view addSubview:contentTextView];
     self.contentTextView = contentTextView;
     
@@ -201,7 +201,7 @@
         make.top.equalTo(self.alphaView.mas_bottom).offset(10);
         make.left.equalTo(self.view.mas_left).offset(16);
         make.right.equalTo(self.view.mas_right).offset(-16);
-        make.width.equalTo(@44);
+        make.height.equalTo(@44);
         
     }];
     

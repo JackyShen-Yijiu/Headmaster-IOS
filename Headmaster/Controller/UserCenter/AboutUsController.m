@@ -91,7 +91,7 @@
     _descriptionLabel.textColor = [UIColor colorWithHexString:@"#fcfcfc"];
     _descriptionLabel.font = [UIFont systemFontOfSize:15];
     
-    _versionLabel.text = @"v1.0.0";
+    _versionLabel.text = @"v1.1.0";
     _versionLabel.textColor = [UIColor colorWithHexString:@"#fcfcfc"];
     _versionLabel.font = [UIFont systemFontOfSize:15];
     

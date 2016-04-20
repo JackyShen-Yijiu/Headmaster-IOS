@@ -387,6 +387,7 @@
 		D9AEF2661CC5E19E00AB76DD /* JZPublishHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AEF2651CC5E19E00AB76DD /* JZPublishHistoryView.m */; };
 		D9AEF2721CC603B200AB76DD /* JZPublishHistoryData.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AEF26F1CC603B100AB76DD /* JZPublishHistoryData.m */; };
 		D9AEF2731CC603B200AB76DD /* JZPublishHistoryRootClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AEF2711CC603B100AB76DD /* JZPublishHistoryRootClass.m */; };
+		D9B9CF671CC74A9B00009E7B /* BLPFAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B9CF661CC74A9B00009E7B /* BLPFAlertView.m */; };
 		D9C3F4561C167322006D22BC /* DVVProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C3F4551C167322006D22BC /* DVVProgressView.m */; };
 		D9C3F4591C167365006D22BC /* HomeProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C3F4581C167365006D22BC /* HomeProgressView.m */; };
 		D9CEC8EB1C0E8C83008DEE69 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC8EA1C0E8C83008DEE69 /* AppDelegate.mm */; };
@@ -1081,6 +1082,8 @@
 		D9AEF26F1CC603B100AB76DD /* JZPublishHistoryData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZPublishHistoryData.m; sourceTree = "<group>"; };
 		D9AEF2701CC603B100AB76DD /* JZPublishHistoryRootClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZPublishHistoryRootClass.h; sourceTree = "<group>"; };
 		D9AEF2711CC603B100AB76DD /* JZPublishHistoryRootClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZPublishHistoryRootClass.m; sourceTree = "<group>"; };
+		D9B9CF651CC74A9B00009E7B /* BLPFAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLPFAlertView.h; sourceTree = "<group>"; };
+		D9B9CF661CC74A9B00009E7B /* BLPFAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLPFAlertView.m; sourceTree = "<group>"; };
 		D9C3F4541C167322006D22BC /* DVVProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVVProgressView.h; sourceTree = "<group>"; };
 		D9C3F4551C167322006D22BC /* DVVProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVVProgressView.m; sourceTree = "<group>"; };
 		D9C3F4571C167365006D22BC /* HomeProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeProgressView.h; sourceTree = "<group>"; };
@@ -2125,6 +2128,8 @@
 		B8771DF31C098E6B0051DE9D /* ThirdPary */ = {
 			isa = PBXGroup;
 			children = (
+				D9B9CF651CC74A9B00009E7B /* BLPFAlertView.h */,
+				D9B9CF661CC74A9B00009E7B /* BLPFAlertView.m */,
 				B8771DF41C098E6B0051DE9D /* AFNetworkActivityLogger */,
 				B8771DF71C098E6B0051DE9D /* EaseMobSDK */,
 				B8771E131C098E6B0051DE9D /* JGPush */,
@@ -3218,6 +3223,7 @@
 				B8771DE91C098DE40051DE9D /* EaseBubbleView.m in Sources */,
 				0613DC161C1C51E200580C32 /* HomeDataDetailDMReservationstudentlist.m in Sources */,
 				D92297451C10439200D0FFDF /* UUBarChart.m in Sources */,
+				D9B9CF671CC74A9B00009E7B /* BLPFAlertView.m in Sources */,
 				B8771D001C098DE40051DE9D /* EMCDDeviceManager+ProximitySensor.m in Sources */,
 				D97244AF1C1ED0BD002B3FDE /* DataDetailDMYearRootClass.m in Sources */,
 				B8771DCB1C098DE40051DE9D /* EaseSDKHelper.m in Sources */,
