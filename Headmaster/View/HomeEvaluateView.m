@@ -12,6 +12,8 @@
 
 @property (nonatomic, copy) ButtonClickBlock itemClick;
 
+@property (nonatomic,strong) NSMutableArray *labelArray;
+
 @end
 
 @implementation HomeEvaluateView
@@ -20,6 +22,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.labelArray = [NSMutableArray array];
         [self createButtons];
     }
     return self;
@@ -31,13 +34,13 @@
     if (!array.count) {
         return;
     }
-    for (UIButton *itemButton in self.subviews) {
-        for (UILabel *label in itemButton.subviews) {
-            if (label.tag != 0 && ![[array objectAtIndex:label.tag - 1] isKindOfClass:[NSNull class]]) {
-                label.text = [array objectAtIndex:label.tag - 1];
-            }
+    
+    for (UILabel *label in self.labelArray) {
+        if (label.tag != 0 && ![[array objectAtIndex:label.tag - 1] isKindOfClass:[NSNull class]]) {
+            label.text = [array objectAtIndex:label.tag - 1];
         }
     }
+    
 }
 
 // 按钮点击事件
@@ -78,6 +81,7 @@
         CGFloat labelViewHeight = 16;
         UILabel *label = [UILabel new];
         label.tag = i + 1;
+        [self.labelArray addObject:label];
         label.frame = CGRectMake(0, 0, btnWidth, labelViewHeight);
         label.textAlignment = 1;
         label.font = [UIFont fontWithName:@"HiraKakuProN-W3" size:16];
@@ -85,6 +89,7 @@
         
         CGFloat imageViewWidth = btnWidth;
         UIButton *stateBtn = [UIButton new];
+        stateBtn.tag = i;
         stateBtn.titleLabel.font = [UIFont systemFontOfSize:13];
         
         if (i == 3) {
@@ -104,6 +109,8 @@
         
         [button addSubview:label];
         [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
+        [stateBtn addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
+
         [self addSubview:button];
         
         UIView *lineView = [[UIView alloc] init];
