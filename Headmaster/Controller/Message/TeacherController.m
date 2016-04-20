@@ -121,7 +121,7 @@
             NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
             if (type == 1) {
                 
-                ws.myNavigationItem.title = [NSString stringWithFormat:@"我校教练(%@)",responseObject[@"count"]];
+                ws.myNavigationItem.title = [NSString stringWithFormat:@"我校教练(%@)",responseObject[@"extra"]];
 
                 ws.dataSource = [[BaseModelMethod getTeacherListArrayFormDicInfo:[responseObject objectArrayForKey:@"data"]] mutableCopy];
                 if (ws.dataSource.count == 0) {
