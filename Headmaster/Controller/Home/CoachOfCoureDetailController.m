@@ -39,6 +39,9 @@
     [self addBackgroundImage];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.view addSubview:self.tableView];
+    
+    self.tableView.refreshFooter = nil;
+    
     switch (_searchType) {
         case 1:
             self.title = @"今天教练详情";
@@ -127,7 +130,7 @@
 
 - (RefreshTableView *)tableView {
     if (!_tableView) {
-        _tableView = [[RefreshTableView alloc] initWithFrame:CGRectMake(0, 2, self.view.width, self.view.height - 64 -49-2) style:UITableViewStylePlain];
+        _tableView = [[RefreshTableView alloc] initWithFrame:CGRectMake(0, 2, self.view.width, self.view.height - 64) style:UITableViewStylePlain];
         _tableView.backgroundColor = [UIColor clearColor];
         _tableView.delegate = self;
         _tableView.dataSource = self;
