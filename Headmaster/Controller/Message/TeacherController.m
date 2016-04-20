@@ -120,6 +120,9 @@
             ws.searchKey = nil;
             NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
             if (type == 1) {
+                
+                ws.myNavigationItem.title = [NSString stringWithFormat:@"我校教练(%@)",responseObject[@"count"]];
+
                 ws.dataSource = [[BaseModelMethod getTeacherListArrayFormDicInfo:[responseObject objectArrayForKey:@"data"]] mutableCopy];
                 if (ws.dataSource.count == 0) {
                     ToastAlertView *tav = [[ToastAlertView alloc] initWithTitle:@"没有搜到您要找的教练"];
