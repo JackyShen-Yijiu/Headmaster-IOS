@@ -45,14 +45,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    UIView *lineTopView = [[UIView alloc] initWithFrame:CGRectMake(7.5, 0, self.view.bounds.size.width - 15, 2)];
-    lineTopView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
+    UIView *lineTopView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 2)];
+    lineTopView.backgroundColor = RGB_Color(41, 41, 41);
     [self.view addSubview:lineTopView];
     [self setNavBar];
     
     [self addBackgroundImage];
     [self isFirstLOad];
     [self createUI];
+    
+    
 }
 
 - (void)setNavBar {
@@ -79,7 +81,11 @@
     [self.view addSubview:self.tableView];
     self.dataArr = @[@[@"新消息提醒",@"投诉消息提醒",@"新学员报名提醒"],@[@"清除缓存",@"关于我们",@"去评分",@"意见反馈"]];
     self.tableView.tableFooterView = [self tableFootView];
+    
+    self.tableView.tableHeaderView = [self headerView];
 }
+
+
 
 #pragma mark ----lazy load 
 
@@ -101,6 +107,7 @@
     }
     return _tableView;
 }
+
 
 #pragma mark ----tableViewDelegate
 
@@ -137,23 +144,29 @@
     cell.textLabel.font = [UIFont systemFontOfSize:14];
     cell.textLabel.textColor = RGB_Color(185, 185, 185);
     cell.backgroundColor = RGB_Color(41, 41, 41);
-
+    cell.userInteractionEnabled = YES;
+    
     if (indexPath.section == 1) {
         if (indexPath.row == 0) {
             UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(150, 0, self.view.width - 150 - 30, 44)];
             NSString * path = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory,NSUserDomainMask, YES)lastObject];
             CGFloat sizeF = [self folderSizeAtPath:path];
-            NSString *message = [NSString stringWithFormat:@"%.2fM",sizeF];
+            NSString *message = [NSString stringWithFormat:@"%zd",(int)sizeF];
+            NSLog(@"cell-sizeF:%f",sizeF);
+            
+            cell.userInteractionEnabled = (int)sizeF;
+            
             label.text = message;
             label.textColor = [UIColor colorWithHexString:@"b7b7b7"];
             label.font = [UIFont systemFontOfSize:12];
             label.textAlignment = NSTextAlignmentRight;
             [cell addSubview:label];
         }
+        
+        
     }
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 
-    
     if (indexPath.section == 0) {
 
             if (indexPath.row <3) {
@@ -212,6 +225,8 @@
     return cell;
 }
 
+
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (1 == indexPath.section) {
@@ -219,15 +234,16 @@
             // 清除缓存
             NSString * path = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory,NSUserDomainMask, YES)lastObject];
             CGFloat sizeF = [self folderSizeAtPath:path];
-            NSLog(@"sizeF:%f",sizeF);;
+            NSLog(@"sizeF:%f",sizeF);
             
             if (sizeF == 0) {
                 // 当缓存为0时,不让去在去清理
                 [self showTotasViewWithMes:@"现在没有可清理的内存"];
+                
                 return;
                 
             }
-            NSString *message = [NSString stringWithFormat:@"缓存大小为%fM.确定要清除缓存吗?",sizeF];
+            NSString *message = [NSString stringWithFormat:@"缓存大小为%zdM.确定要清除缓存吗?",(int)sizeF];
             
             
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"清除缓存"
@@ -357,6 +373,17 @@
     return quit;
     
 }
+-(UIView *)headerView {
+    
+    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 2, [UIScreen mainScreen].bounds.size.width, 15)];
+    
+    
+    headerView.backgroundColor = RGB_Color(44, 44, 44);
+    
+    
+    return headerView;
+    
+}
 
 
 #pragma mark ------ 去评分和版本更新相关操作
@@ -408,7 +435,7 @@
     return 0;
 }
 
-
+#pragma mark - alertView代理
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 1) {
