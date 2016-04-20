@@ -147,7 +147,7 @@ static NSString *kGroupName = @"GroupName";
 
 - (void)fixModelInfo:(EMConversation *)convModel MessageModelInfo:(EMMessage *)messModel
 {
-    NSString * fromId = [messModel from];
+//    NSString * fromId = [messModel from];
     convModel.ext = [[messModel ext] copy];
 //    
 //    if (![fromId isEqualToString:[[UserInfoModel defaultUserInfo] userID]]) {

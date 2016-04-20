@@ -14,6 +14,6 @@
 
 @property (nonatomic, copy) void (^refreshBlock)(void);
 
-- (void)needPublishMessageWithContentStr:(NSString *)str WithType:(NSString *)type;
+//- (void)needPublishMessageWithContentStr:(NSString *)str WithType:(NSString *)type;
 
 @end

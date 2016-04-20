@@ -404,7 +404,7 @@
         return ;
     }
     [_tv resignFirstResponder];
-    [_viewModel needPublishMessageWithContentStr:_tv.text WithType:[NSString stringWithFormat:@"%d",_isCoachBtn]];
+//    [_viewModel needPublishMessageWithContentStr:_tv.text WithType:[NSString stringWithFormat:@"%d",_isCoachBtn]];
     _tv.text = @"";
     _placeholderLabel.hidden = NO;
 }

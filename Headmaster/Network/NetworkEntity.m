@@ -126,14 +126,16 @@
     [manager.requestSerializer setValue:uim.token forHTTPHeaderField:@"authorization"];
     [manager GET:urlStr parameters:params success:success failure:failure];
 }
-+ (void)postPublishMessageWithUseInfoModel:(UserInfoModel *)uim textContent:(NSString *)content type:(NSString *)type
+
++ (void)postPublishMessageWithUseInfoModel:(UserInfoModel *)uim textContent:(NSString *)content mainTitle:(NSString *)mainTitle
                                    success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
                                    failure:(void (^)(AFHTTPRequestOperation *operation, id responseObject))failure {
     NSDictionary *params =@{
                             @"content":content,
-                            @"bulletobject": type,
                             @"userid":uim.userID,
-                            @"schoolid":uim.schoolId
+                            @"schoolid":uim.schoolId,
+                            @"title":mainTitle,
+                            @"bulletobject":@1
                             };
     NSString *urlStr = [NSString stringWithFormat:@"%@/%@",[NetworkTool domain],PUBLISHMESSAGE];
     

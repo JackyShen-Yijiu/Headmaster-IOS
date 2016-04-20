@@ -379,6 +379,12 @@
 		D97244AE1C1ED0BD002B3FDE /* DataDetailDMYearDatalist.m in Sources */ = {isa = PBXBuildFile; fileRef = D97244A91C1ED0BD002B3FDE /* DataDetailDMYearDatalist.m */; };
 		D97244AF1C1ED0BD002B3FDE /* DataDetailDMYearRootClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D97244AB1C1ED0BD002B3FDE /* DataDetailDMYearRootClass.m */; };
 		D98511801C20A34900D277CD /* HomeGuideController.m in Sources */ = {isa = PBXBuildFile; fileRef = D985117F1C20A34900D277CD /* HomeGuideController.m */; };
+		D994A6281CC4B27100BC0059 /* JZPublishController.m in Sources */ = {isa = PBXBuildFile; fileRef = D994A6271CC4B27100BC0059 /* JZPublishController.m */; };
+		D994A62B1CC4B6D100BC0059 /* JZPublishHistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = D994A62A1CC4B6D100BC0059 /* JZPublishHistoryController.m */; };
+		D9AEF2621CC5DA4500AB76DD /* JZPublishHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AEF2611CC5DA4500AB76DD /* JZPublishHistoryCell.m */; };
+		D9AEF2661CC5E19E00AB76DD /* JZPublishHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AEF2651CC5E19E00AB76DD /* JZPublishHistoryView.m */; };
+		D9AEF2721CC603B200AB76DD /* JZPublishHistoryData.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AEF26F1CC603B100AB76DD /* JZPublishHistoryData.m */; };
+		D9AEF2731CC603B200AB76DD /* JZPublishHistoryRootClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AEF2711CC603B100AB76DD /* JZPublishHistoryRootClass.m */; };
 		D9C3F4561C167322006D22BC /* DVVProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C3F4551C167322006D22BC /* DVVProgressView.m */; };
 		D9C3F4591C167365006D22BC /* HomeProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C3F4581C167365006D22BC /* HomeProgressView.m */; };
 		D9CEC8EB1C0E8C83008DEE69 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC8EA1C0E8C83008DEE69 /* AppDelegate.mm */; };
@@ -1057,6 +1063,18 @@
 		D97244AB1C1ED0BD002B3FDE /* DataDetailDMYearRootClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataDetailDMYearRootClass.m; sourceTree = "<group>"; };
 		D985117E1C20A34900D277CD /* HomeGuideController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeGuideController.h; sourceTree = "<group>"; };
 		D985117F1C20A34900D277CD /* HomeGuideController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeGuideController.m; sourceTree = "<group>"; };
+		D994A6261CC4B27100BC0059 /* JZPublishController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZPublishController.h; sourceTree = "<group>"; };
+		D994A6271CC4B27100BC0059 /* JZPublishController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZPublishController.m; sourceTree = "<group>"; };
+		D994A6291CC4B6D100BC0059 /* JZPublishHistoryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZPublishHistoryController.h; sourceTree = "<group>"; };
+		D994A62A1CC4B6D100BC0059 /* JZPublishHistoryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZPublishHistoryController.m; sourceTree = "<group>"; };
+		D9AEF2601CC5DA4500AB76DD /* JZPublishHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZPublishHistoryCell.h; sourceTree = "<group>"; };
+		D9AEF2611CC5DA4500AB76DD /* JZPublishHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZPublishHistoryCell.m; sourceTree = "<group>"; };
+		D9AEF2641CC5E19E00AB76DD /* JZPublishHistoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZPublishHistoryView.h; sourceTree = "<group>"; };
+		D9AEF2651CC5E19E00AB76DD /* JZPublishHistoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZPublishHistoryView.m; sourceTree = "<group>"; };
+		D9AEF26E1CC603B100AB76DD /* JZPublishHistoryData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZPublishHistoryData.h; sourceTree = "<group>"; };
+		D9AEF26F1CC603B100AB76DD /* JZPublishHistoryData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZPublishHistoryData.m; sourceTree = "<group>"; };
+		D9AEF2701CC603B100AB76DD /* JZPublishHistoryRootClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZPublishHistoryRootClass.h; sourceTree = "<group>"; };
+		D9AEF2711CC603B100AB76DD /* JZPublishHistoryRootClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZPublishHistoryRootClass.m; sourceTree = "<group>"; };
 		D9C3F4541C167322006D22BC /* DVVProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVVProgressView.h; sourceTree = "<group>"; };
 		D9C3F4551C167322006D22BC /* DVVProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVVProgressView.m; sourceTree = "<group>"; };
 		D9C3F4571C167365006D22BC /* HomeProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeProgressView.h; sourceTree = "<group>"; };
@@ -2591,6 +2609,49 @@
 			path = Year;
 			sourceTree = "<group>";
 		};
+		D9AEF25E1CC5D9D000AB76DD /* Publish（公告） */ = {
+			isa = PBXGroup;
+			children = (
+				D9AEF2671CC5E91200AB76DD /* Model */,
+				D9AEF25F1CC5DA0700AB76DD /* Controller */,
+				D9AEF2631CC5DA4B00AB76DD /* View */,
+			);
+			name = "Publish（公告）";
+			sourceTree = "<group>";
+		};
+		D9AEF25F1CC5DA0700AB76DD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D994A6261CC4B27100BC0059 /* JZPublishController.h */,
+				D994A6271CC4B27100BC0059 /* JZPublishController.m */,
+				D994A6291CC4B6D100BC0059 /* JZPublishHistoryController.h */,
+				D994A62A1CC4B6D100BC0059 /* JZPublishHistoryController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		D9AEF2631CC5DA4B00AB76DD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D9AEF2641CC5E19E00AB76DD /* JZPublishHistoryView.h */,
+				D9AEF2651CC5E19E00AB76DD /* JZPublishHistoryView.m */,
+				D9AEF2601CC5DA4500AB76DD /* JZPublishHistoryCell.h */,
+				D9AEF2611CC5DA4500AB76DD /* JZPublishHistoryCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		D9AEF2671CC5E91200AB76DD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D9AEF26E1CC603B100AB76DD /* JZPublishHistoryData.h */,
+				D9AEF26F1CC603B100AB76DD /* JZPublishHistoryData.m */,
+				D9AEF2701CC603B100AB76DD /* JZPublishHistoryRootClass.h */,
+				D9AEF2711CC603B100AB76DD /* JZPublishHistoryRootClass.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		D9CEC8E81C0E8C83008DEE69 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -2720,6 +2781,7 @@
 				D9CEC9841C0ED7D8008DEE69 /* SideMenuItem.m */,
 				55BA0F531C0EF6D300F83CD8 /* PublishController.h */,
 				55BA0F541C0EF6D300F83CD8 /* PublishController.m */,
+				D9AEF25E1CC5D9D000AB76DD /* Publish（公告） */,
 				5562F30B1C15386D002E5313 /* MenuController.h */,
 				5562F30C1C15386D002E5313 /* MenuController.m */,
 			);
@@ -3129,6 +3191,7 @@
 				D97244881C1EC3E5002B3FDE /* DataDetailDMWeekCoursedata.m in Sources */,
 				B895A1951C10329F00FEDD78 /* InformationDataModel.m in Sources */,
 				B8771E361C098E6B0051DE9D /* RFSegmentView.m in Sources */,
+				D994A6281CC4B27100BC0059 /* JZPublishController.m in Sources */,
 				B8771D081C098DE40051DE9D /* EMGifImage.m in Sources */,
 				B8771E351C098E6B0051DE9D /* YiRefreshHeader.m in Sources */,
 				0666FF971C140E9A009FA71F /* HomeDataDatailModelRootClass.m in Sources */,
@@ -3195,6 +3258,7 @@
 				B8771D2F1C098DE40051DE9D /* PSTCollectionViewCell.m in Sources */,
 				0666FFA41C141C8D009FA71F /* ApplyStuentListModel.m in Sources */,
 				B8771CFE1C098DE40051DE9D /* EMCDDeviceManager+Media.m in Sources */,
+				D994A62B1CC4B6D100BC0059 /* JZPublishHistoryController.m in Sources */,
 				0613DC141C1C51E200580C32 /* HomeDataDetailDMComplaintlist.m in Sources */,
 				B8771D331C098DE40051DE9D /* PSTCollectionViewItemKey.m in Sources */,
 				B8771D341C098DE40051DE9D /* PSTCollectionViewLayout.m in Sources */,
@@ -3263,6 +3327,7 @@
 				D9CEC9781C0ED643008DEE69 /* UIColor+Extension.m in Sources */,
 				D95CE3B81C12BD3600EF6F75 /* HomeDataModelRootClass.m in Sources */,
 				D9CEC9511C0ECD35008DEE69 /* YBWelcomeController.m in Sources */,
+				D9AEF2721CC603B200AB76DD /* JZPublishHistoryData.m in Sources */,
 				D9D2DF8A1C17D619005DB212 /* HomeDetailNormalLineChartCell.m in Sources */,
 				B8771DE31C098DE40051DE9D /* EaseBubbleView+File.m in Sources */,
 				D9CEC97D1C0ED643008DEE69 /* DVVToolBarView.m in Sources */,
@@ -3324,6 +3389,7 @@
 				D97244891C1EC3E5002B3FDE /* DataDetailDMWeekData.m in Sources */,
 				B8771E521C0990980051DE9D /* UserInfoModel.m in Sources */,
 				B8771D2A1C098DE40051DE9D /* UIImageView+EMHighlightedWebCache.m in Sources */,
+				D9AEF2661CC5E19E00AB76DD /* JZPublishHistoryView.m in Sources */,
 				D9CEC9161C0E8CF7008DEE69 /* TeacherModel.m in Sources */,
 				B8771DED1C098DE40051DE9D /* EaseTextView.m in Sources */,
 				0613DC181C1C51E200580C32 /* HomeDetailTableViewDataModel.m in Sources */,
@@ -3338,6 +3404,7 @@
 				B8771D3D1C098DE40051DE9D /* ChatViewController.m in Sources */,
 				D92296EB1C0FEE9500D0FFDF /* InformationDataModelRootClass.m in Sources */,
 				0613DC111C1C51E200580C32 /* HomeDataDetailDMApplystuentlist.m in Sources */,
+				D9AEF2731CC603B200AB76DD /* JZPublishHistoryRootClass.m in Sources */,
 				B8C703211C12F738006035B1 /* HMComplainModel.m in Sources */,
 				0613DC211C1C528F00580C32 /* HomeDataDetailViewModel.m in Sources */,
 				0666FFB91C141D74009FA71F /* ComplaintListModel.m in Sources */,
@@ -3348,6 +3415,7 @@
 				B8771D0E1C098DE40051DE9D /* MJRefreshHeader.m in Sources */,
 				B8771DEA1C098DE40051DE9D /* EaseChatToolbar.m in Sources */,
 				B8771DD51C098DE40051DE9D /* EaseChineseToPinyin.m in Sources */,
+				D9AEF2621CC5DA4500AB76DD /* JZPublishHistoryCell.m in Sources */,
 				B8771D1C1C098DE40051DE9D /* DACircularProgressView.m in Sources */,
 				B8771E381C098E6B0051DE9D /* ToastAlertView.m in Sources */,
 				0699E5E31C15811A0079CABF /* CoachCoureDatailModelRootClass.m in Sources */,
@@ -3486,8 +3554,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Jizhi Driver Services Co., Ltd (2VG884M937)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Jizhi Driver Services Co., Ltd (2VG884M937)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3518,7 +3587,7 @@
 					"$(PROJECT_DIR)/Headmaster/ThirdPary/JGPush",
 				);
 				PRODUCT_NAME = "极致校长";
-				PROVISIONING_PROFILE = "84c617e5-dd02-488a-9351-253d3409da57";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -3528,8 +3597,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Jizhi Driver Services Co., Ltd (2VG884M937)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Jizhi Driver Services Co., Ltd (2VG884M937)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3560,7 +3630,7 @@
 					"$(PROJECT_DIR)/Headmaster/ThirdPary/JGPush",
 				);
 				PRODUCT_NAME = "极致校长";
-				PROVISIONING_PROFILE = "84c617e5-dd02-488a-9351-253d3409da57";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
