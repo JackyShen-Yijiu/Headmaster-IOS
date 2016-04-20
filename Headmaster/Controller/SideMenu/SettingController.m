@@ -151,7 +151,7 @@
             UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(150, 0, self.view.width - 150 - 30, 44)];
             NSString * path = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory,NSUserDomainMask, YES)lastObject];
             CGFloat sizeF = [self folderSizeAtPath:path];
-            NSString *message = [NSString stringWithFormat:@"%zd",(int)sizeF];
+            NSString *message = [NSString stringWithFormat:@"%zdM",(int)sizeF];
             NSLog(@"cell-sizeF:%f",sizeF);
             
             cell.userInteractionEnabled = (int)sizeF;
