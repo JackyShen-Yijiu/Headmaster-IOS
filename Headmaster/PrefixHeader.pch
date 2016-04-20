@@ -38,7 +38,6 @@
 #define HM_HIGHTCOLOR [UIColor colorWithWhite:0.9 alpha:1]
 #define HM_LINE_COLOR  RGB_Color(0xe6, 0xe6, 0xe6)
 #define HM_LINE_HEIGHT  0.5f
-
 #define RELOADDATACOUNT 10
 
 
@@ -48,5 +47,9 @@
 // 灰色字体颜色
 #define JZ_FONTCOLOR_LIGHTWHITE   RGB_Color(185,185,185)
 
+// 数据库名称
+#define yikaojiuguodDBName @"yikaojiuguo_v20150520"
+
+#define KNOTIFICATION_USERLOADED @"userLoaded"
 
 #endif

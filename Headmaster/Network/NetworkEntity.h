@@ -14,6 +14,11 @@
 @class UserInfoModel;
 
 @interface NetworkEntity : NSObject
+/**
+ *  获取用户信息
+ */
++ (void)getUserInfoWithUserInfoWithUserId:(NSString *)userId
+                                  success:(NetworkSuccessBlock)success failure:(NetworkFailureBlock)failure;
 
 /**
  *  登陆模块
@@ -86,9 +91,17 @@
  *  发布公告
  */
 
-+ (void)postPublishMessageWithUseInfoModel:(UserInfoModel *)uim textContent:(NSString *)content type:(NSString *)type
+//+ (void)postPublishMessageWithUseInfoModel:(UserInfoModel *)uim textContent:(NSString *)content type:(NSString *)type
+//                                   success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+//                                   failure:(void (^)(AFHTTPRequestOperation *operation, id responseObject))failure;
+
++ (void)postPublishMessageWithUseInfoModel:(UserInfoModel *)uim textContent:(NSString *)content mainTitle:(NSString *)mainTitle
                                    success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
                                    failure:(void (^)(AFHTTPRequestOperation *operation, id responseObject))failure;
+
+
+
+
 
 /**
  *  资讯列表

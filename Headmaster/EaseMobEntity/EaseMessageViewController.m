@@ -44,18 +44,18 @@
     if ([conversationChatter length] == 0) {
         return nil;
     }
-    
     self = [super initWithStyle:UITableViewStylePlain];
+    
     if (self) {
-        _conversation = [[EaseMob sharedInstance].chatManager conversationForChatter:conversationChatter conversationType:conversationType];
         
+        _conversation = [[EaseMob sharedInstance].chatManager conversationForChatter:conversationChatter conversationType:conversationType];
         _messageCountOfPage = 10;
         _timeCellHeight = 30;
         _deleteConversationIfNull = YES;
         _scrollToBottomWhenAppear = YES;
         _messsagesSource = [NSMutableArray array];
-        
         [_conversation markAllMessagesAsRead:YES];
+        
     }
     
     return self;

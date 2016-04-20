@@ -13,6 +13,18 @@
 #import "UserInfoModel.h"
 
 @implementation NetworkEntity
+/**
+ *  获取用户信息
+ */
++ (void)getUserInfoWithUserInfoWithUserId:(NSString *)userId
+                                  success:(NetworkSuccessBlock)success failure:(NetworkFailureBlock)failure
+{
+    if (!userId) {
+        return [NetworkTool missParagramerCallBackFailure:failure];
+    }
+     NSString * urlStr = [NSString stringWithFormat:@"%@/userinfo/getimuserinfo?userid=%@",[NetworkTool domain],userId];
+    [NetworkTool GET:urlStr params:nil success:success failure:failure];
+}
 
 /**
  *  登陆模块
@@ -126,14 +138,16 @@
     [manager.requestSerializer setValue:uim.token forHTTPHeaderField:@"authorization"];
     [manager GET:urlStr parameters:params success:success failure:failure];
 }
-+ (void)postPublishMessageWithUseInfoModel:(UserInfoModel *)uim textContent:(NSString *)content type:(NSString *)type
+
++ (void)postPublishMessageWithUseInfoModel:(UserInfoModel *)uim textContent:(NSString *)content mainTitle:(NSString *)mainTitle
                                    success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
                                    failure:(void (^)(AFHTTPRequestOperation *operation, id responseObject))failure {
     NSDictionary *params =@{
                             @"content":content,
-                            @"bulletobject": type,
                             @"userid":uim.userID,
-                            @"schoolid":uim.schoolId
+                            @"schoolid":uim.schoolId,
+                            @"title":mainTitle,
+                            @"bulletobject":@1
                             };
     NSString *urlStr = [NSString stringWithFormat:@"%@/%@",[NetworkTool domain],PUBLISHMESSAGE];
     

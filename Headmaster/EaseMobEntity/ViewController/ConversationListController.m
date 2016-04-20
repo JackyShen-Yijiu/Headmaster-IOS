@@ -15,7 +15,7 @@
 #import "EMConversation.h"
 #import "EMConversation.h"
 #import "EMCDDeviceManager.h"
-
+#import "JGUserTools.h"
 
 //两次提示的默认间隔
 static const CGFloat kDefaultPlaySoundInterval = 3.0;
@@ -42,6 +42,8 @@ static NSString *kGroupName = @"GroupName";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLoaded) name:KNOTIFICATION_USERLOADED object:nil];
+
     [self registerNotifications];
     [[EaseMob sharedInstance].chatManager loadAllConversationsFromDatabaseWithAppend2Chat:NO];
     self.showRefreshHeader = YES;
@@ -54,6 +56,10 @@ static NSString *kGroupName = @"GroupName";
 
 }
 
+- (void)userLoaded
+{
+    [self tableViewDidTriggerHeaderRefresh];
+}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -117,13 +123,21 @@ static NSString *kGroupName = @"GroupName";
             didSelectConversationModel:(id<IConversationModel>)conversationModel
 {
     if (conversationModel) {
+        
         EMConversation *conversation = conversationModel.conversation;
         if (conversation) {
             
             NSDictionary * ext = [[conversationModel conversation] ext];
             NSLog(@"获取用户信息ext:%@",ext);
-            ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:conversation.chatter conversationType:conversation.conversationType Name:conversationModel.title ava:conversationModel.avatarURLPath mobile:nil];
-            [self.myNavController pushViewController:chatController animated:YES];
+            NSString *name = [JGUserTools getNickNameByEMUserName:conversation.chatter];
+            NSString *avatar = [JGUserTools getAvatarUrlByEMUserName:conversation.chatter];
+
+//            ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:conversation.chatter conversationType:conversation.conversationType];
+//            chatController.title = name;
+//            [self.myNavController pushViewController:chatController animated:YES];
+            
+            ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:conversation.chatter conversationType:eConversationTypeChat Name:name ava:avatar mobile:nil];
+            [self.navigationController pushViewController:chatController animated:YES];
             
         }
     }
@@ -147,7 +161,7 @@ static NSString *kGroupName = @"GroupName";
 
 - (void)fixModelInfo:(EMConversation *)convModel MessageModelInfo:(EMMessage *)messModel
 {
-    NSString * fromId = [messModel from];
+//    NSString * fromId = [messModel from];
     convModel.ext = [[messModel ext] copy];
 //    
 //    if (![fromId isEqualToString:[[UserInfoModel defaultUserInfo] userID]]) {

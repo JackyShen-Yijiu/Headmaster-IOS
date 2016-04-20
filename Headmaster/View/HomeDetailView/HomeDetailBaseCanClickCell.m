@@ -22,29 +22,38 @@
     _clickBlock = handle;
 }
 
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    
-    [self.contentView addSubview:self.titleLabel];
-    [self.contentView addSubview:self.markLabel];
-    [self.contentView addSubview:self.markImageView];
-    [self.contentView addSubview:self.clickButton];
-    
-    CGRect rect = self.bounds;
-    self.titleLabel.frame = CGRectMake(0, 0, rect.size.width, self.titleDefaultHeight);
-    CGFloat markLabelWidth = 100;
-    CGFloat markImageWidth = 4;
-    CGFloat markImageHeight = 6;
-    CGFloat rightMargin = 15;
-    self.markLabel.frame = CGRectMake(rect.size.width - markLabelWidth - markImageWidth - rightMargin - 3, 0, markLabelWidth, self.titleDefaultHeight);
-    self.markImageView.frame = CGRectMake(rect.size.width - markImageWidth - rightMargin, self.titleDefaultHeight / 2.f - markImageHeight / 2.f, markImageWidth, markImageHeight);
-    self.clickButton.frame = CGRectMake(rect.size.width - self.titleDefaultHeight - rightMargin, 0, self.titleDefaultHeight, self.titleDefaultHeight);
-    
-//    self.titleLabel.backgroundColor = [UIColor redColor];
-//    self.markLabel.backgroundColor = [UIColor orangeColor];
-//    self.markImageView.backgroundColor = [UIColor redColor];
-//    self.clickButton.backgroundColor = [UIColor colorWithRed:0.7 green:0.7 blue:0.7 alpha:0.5];
+- (instancetype)initWithWidth:(CGFloat)width Style:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        
+        [self.contentView addSubview:self.titleLabel];
+        [self.contentView addSubview:self.markLabel];
+        [self.contentView addSubview:self.markImageView];
+        [self.contentView addSubview:self.clickButton];
+        CGRect rect = self.bounds;
+        self.titleLabel.frame = CGRectMake(0, 0, rect.size.width, self.titleDefaultHeight);
+        CGFloat markLabelWidth = 100;
+        CGFloat markImageWidth = 4;
+        CGFloat markImageHeight = 6;
+        CGFloat rightMargin = 15;
+        self.markLabel.frame = CGRectMake(rect.size.width - markLabelWidth - markImageWidth - rightMargin - 3, 0, markLabelWidth, self.titleDefaultHeight);
+        self.markImageView.frame = CGRectMake(rect.size.width - markImageWidth - rightMargin, self.titleDefaultHeight / 2.f - markImageHeight / 2.f, markImageWidth, markImageHeight);
+        self.clickButton.frame = CGRectMake(rect.size.width - self.titleDefaultHeight - rightMargin, 0, self.titleDefaultHeight, self.titleDefaultHeight);
+        
+    }
+    return self;
 }
+
+//- (void)layoutSubviews {
+//    [super layoutSubviews];
+//    
+//    
+//    
+////    self.titleLabel.backgroundColor = [UIColor redColor];
+////    self.markLabel.backgroundColor = [UIColor orangeColor];
+////    self.markImageView.backgroundColor = [UIColor redColor];
+////    self.clickButton.backgroundColor = [UIColor colorWithRed:0.7 green:0.7 blue:0.7 alpha:0.5];
+//}
 
 - (UILabel *)titleLabel {
     if (!_titleLabel) {

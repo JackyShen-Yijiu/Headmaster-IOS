@@ -23,19 +23,19 @@
     }];
 }
 
-- (void)needPublishMessageWithContentStr:(NSString *)str WithType:(NSString *)type {
-    [NetworkEntity postPublishMessageWithUseInfoModel:[UserInfoModel defaultUserInfo] textContent:str type:type success:^(AFHTTPRequestOperation *operation, id responseObject) {
-         NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
-        ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:[dataDic objectForKey:@"data"]];
-        [alertView show];
-        if (_refreshBlock) {
-            _refreshBlock();
-        }
-    } failure:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
-        ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:[dataDic objectForKey:@"msg"]];
-        [alertView show];
-    }];
-}
+//- (void)needPublishMessageWithContentStr:(NSString *)str WithType:(NSString *)type {
+//    [NetworkEntity postPublishMessageWithUseInfoModel:[UserInfoModel defaultUserInfo] textContent:str type:type success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//         NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
+//        ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:[dataDic objectForKey:@"data"]];
+//        [alertView show];
+//        if (_refreshBlock) {
+//            _refreshBlock();
+//        }
+//    } failure:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
+//        ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:[dataDic objectForKey:@"msg"]];
+//        [alertView show];
+//    }];
+//}
 
 @end

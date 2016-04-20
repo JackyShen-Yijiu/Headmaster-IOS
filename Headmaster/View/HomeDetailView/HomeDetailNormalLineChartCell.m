@@ -40,7 +40,9 @@
 
 - (YBLineChartView *)lineChartView {
     if (!_lineChartView) {
-        _lineChartView = [YBLineChartView new];
+        
+       
+        _lineChartView =  [YBLineChartView new];;
     }
     return _lineChartView;
 }
