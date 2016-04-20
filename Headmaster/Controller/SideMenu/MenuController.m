@@ -118,8 +118,8 @@
         [_headView addSubview:nameLabel];
         
         
-        UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(iconViewIsClick)];
-        [imgView addGestureRecognizer:tapGR];
+//        UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(iconViewIsClick)];
+//        [imgView addGestureRecognizer:tapGR];
     }
     return _headView;
 }
