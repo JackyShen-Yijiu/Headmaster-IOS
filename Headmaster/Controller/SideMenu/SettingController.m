@@ -156,11 +156,6 @@
     
     if (indexPath.section == 0) {
 
-//
-//        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(29, 35, 200, 15)];
-//        label.textColor = [UIColor colorWithHexString:TEXT_NORMAL_COLOR];
-//        [cell.contentView addSubview:label];
-
             if (indexPath.row <3) {
                 NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
                 NSInteger btnX = [ud integerForKey:[NSString stringWithFormat:@"%zd",indexPath.row]];
@@ -451,13 +446,6 @@
     [ud removeObjectForKey:@"1"];
     [ud removeObjectForKey:@"2"];
     [ud removeObjectForKey:@"USERIMAGE"];
-    //    LoginController *lc = [LoginController new];
-    //    lc.dismissController = ^ {
-    //        [self dismissViewControllerAnimated:YES completion:nil];
-    //        if (_hideMenu) {
-    //            _hideMenu();
-    //        }
-    //    };
     
     //极光推送设置alias
     [APService setAlias:[UserInfoModel defaultUserInfo].userID callbackSelector:@selector(tagsAliasCallback:tags:alias:) object:self];

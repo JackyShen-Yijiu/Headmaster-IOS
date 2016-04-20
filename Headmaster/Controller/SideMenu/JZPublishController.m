@@ -126,6 +126,9 @@
     [putButton setTitle:@"发布" forState:UIControlStateNormal];
     [putButton.titleLabel setFont:[UIFont systemFontOfSize:14]];
     putButton.backgroundColor = RGB_Color(0, 248, 199);
+    
+    putButton.layer.masksToBounds = YES;
+    putButton.layer.cornerRadius = 4;
     [self.view addSubview:putButton];
     self.putButton = putButton;
     [putButton addTarget:self action:@selector(putButtonClick) forControlEvents:UIControlEventTouchUpInside];

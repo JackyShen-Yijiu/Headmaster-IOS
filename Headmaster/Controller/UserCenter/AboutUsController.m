@@ -91,7 +91,8 @@
     _descriptionLabel.textColor = [UIColor colorWithHexString:@"#fcfcfc"];
     _descriptionLabel.font = [UIFont systemFontOfSize:15];
     
-    _versionLabel.text = @"v1.1.0";
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    _versionLabel.text = [NSString stringWithFormat:@"v %@",[infoDictionary objectForKey:@"CFBundleShortVersionString"]];
     _versionLabel.textColor = [UIColor colorWithHexString:@"#fcfcfc"];
     _versionLabel.font = [UIFont systemFontOfSize:15];
     
