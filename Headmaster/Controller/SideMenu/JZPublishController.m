@@ -87,7 +87,7 @@
     mainTitleField.font = [UIFont systemFontOfSize:14];
     
     mainTitleField.textColor = [UIColor whiteColor];
-    mainTitleField.tintColor = [UIColor clearColor];
+    mainTitleField.tintColor = [UIColor whiteColor];
     [mainTitleField setValue:RGB_Color(185, 185, 185) forKeyPath:@"_placeholderLabel.textColor"];
     [mainTitleField setValue:[UIFont boldSystemFontOfSize:14] forKeyPath:@"_placeholderLabel.font"];
     [self.view addSubview:mainTitleField];
@@ -110,7 +110,7 @@
     UITextView *contentTextView = [[UITextView alloc]init];
     contentTextView.backgroundColor = [UIColor clearColor];
     contentTextView.textColor = [UIColor whiteColor];
-    contentTextView.tintColor = [UIColor clearColor];
+    contentTextView.tintColor = [UIColor whiteColor];
     [self.view addSubview:contentTextView];
     self.contentTextView = contentTextView;
     
@@ -126,6 +126,9 @@
     [putButton setTitle:@"发布" forState:UIControlStateNormal];
     [putButton.titleLabel setFont:[UIFont systemFontOfSize:14]];
     putButton.backgroundColor = RGB_Color(0, 248, 199);
+    
+    putButton.layer.masksToBounds = YES;
+    putButton.layer.cornerRadius = 4;
     [self.view addSubview:putButton];
     self.putButton = putButton;
     [putButton addTarget:self action:@selector(putButtonClick) forControlEvents:UIControlEventTouchUpInside];
@@ -201,7 +204,7 @@
         make.top.equalTo(self.alphaView.mas_bottom).offset(10);
         make.left.equalTo(self.view.mas_left).offset(16);
         make.right.equalTo(self.view.mas_right).offset(-16);
-        make.width.equalTo(@44);
+        make.height.equalTo(@44);
         
     }];
     

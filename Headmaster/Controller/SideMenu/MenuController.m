@@ -70,7 +70,7 @@
     
     // 运营数据
     SideMenuItem * item3 = [[SideMenuItem alloc] init];
-    item3.title = @"运营数据";
+    item3.title = @"数据概览";
     item3.target = @"HomeDetailController";
     
     
@@ -118,8 +118,8 @@
         [_headView addSubview:nameLabel];
         
         
-        UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(iconViewIsClick)];
-        [imgView addGestureRecognizer:tapGR];
+//        UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(iconViewIsClick)];
+//        [imgView addGestureRecognizer:tapGR];
     }
     return _headView;
 }

@@ -137,7 +137,7 @@
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
 {
-    return self.childViewControllers.count > 2;
+    return NO;//self.childViewControllers.count > 2;
 }
 
 @end
