@@ -119,8 +119,8 @@
     [backButton addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem* someBarButtonItem= [[UIBarButtonItem alloc] initWithCustomView:backButton];
     self.myNavigationItem.leftBarButtonItems = @[[self barSpaingItem],someBarButtonItem];
-    
     self.myNavigationItem.title = self.userName;
+    
     //单聊
     if (self.conversation.conversationType == eConversationTypeChat) {
 
