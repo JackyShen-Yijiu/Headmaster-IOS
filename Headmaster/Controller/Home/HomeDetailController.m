@@ -169,10 +169,12 @@
     if (isCoachTeacher) {
         CoachOfCoureDetailController *coachDetailVC = [CoachOfCoureDetailController new];
         coachDetailVC.searchType = searchType;
+        coachDetailVC.isFormMenu = _isFormSideMenu;
         [self.navigationController pushViewController:coachDetailVC animated:YES];
     }else {
         RecommendViewController *recommendVC = [RecommendViewController new];
         recommendVC.searchType = searchType;
+        recommendVC.isFormSideMenu = _isFormSideMenu;
         [self.navigationController pushViewController:recommendVC animated:YES];
     }
 }

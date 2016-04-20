@@ -80,6 +80,8 @@
     [self.messageButton setImage:[UIImage imageNamed:@"chat"] forState:UIControlStateNormal];
     [self.messageButton addTarget:self action:@selector(messageButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     self.messageButton.tag = 600;
+     self.messageButton.imageEdgeInsets = UIEdgeInsetsMake(16, 0, 0, 8);
+//    self.messageButton.backgroundColor = [UIColor redColor];
     [self.contentView addSubview:self.messageButton];
     
     // 电话
@@ -89,6 +91,8 @@
     [self.contentView addSubview:self.phoneButton];
     self.phoneButton.tag = 601;
     self.bottonLineView = [self getOnelineView];
+    self.phoneButton.imageEdgeInsets = UIEdgeInsetsMake(16, 8, 0, 0);
+//    self.phoneButton.backgroundColor = [UIColor cyanColor];
     [self.contentView addSubview:self.bottonLineView];
     
     [self setNeedsUpdateConstraints];
@@ -130,17 +134,17 @@
     }];
     
     [self.phoneButton mas_makeConstraints:^(MASConstraintMaker *make) {
-         make.top.equalTo(self.rateView.mas_bottom).offset(16.f);
+         make.top.equalTo(self.rateView.mas_bottom).offset(0.f);
         make.right.equalTo(self.contentView).offset(-16);
-        make.width.equalTo(@(20));
-        make.height.equalTo(@(20.f));
+        make.width.equalTo(@(28));
+        make.height.equalTo(@(36.f));
     }];
     
     [self.messageButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.rateView.mas_bottom).offset(16.f);
-        make.right.equalTo(self.phoneButton.mas_left).offset(-16);
-        make.width.equalTo(@(20));
-        make.height.equalTo(@(20.f));
+        make.top.equalTo(self.rateView.mas_bottom).offset(0.f);
+        make.right.equalTo(self.phoneButton.mas_left).offset(-8);
+        make.width.equalTo(@(28));
+        make.height.equalTo(@(36.f));
     }];
     
     [self.bottonLineView mas_makeConstraints:^(MASConstraintMaker *make) {

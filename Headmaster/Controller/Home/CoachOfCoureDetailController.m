@@ -15,6 +15,9 @@
 @interface CoachOfCoureDetailController () <UITableViewDataSource,UITableViewDelegate,CoachOfCoureDetailCellDelegate>
 @property (nonatomic, strong) RefreshTableView       *tableView;
 @property (nonatomic, strong) CoachCourseDatailViewModel *coachCoureDatailViewModel;
+
+@property (nonatomic, strong) UIBarButtonItem *pushBtn;
+
 @end
 
 @implementation CoachOfCoureDetailController
@@ -32,6 +35,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    if (_isFormMenu) {
+        self.navigationItem.leftBarButtonItem = self.pushBtn;
+    }
+
     
     UIView *lineTopView = [[UIView alloc] initWithFrame:CGRectMake(7.5, 0, self.view.bounds.size.width - 15, 2)];
     lineTopView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
@@ -90,6 +98,22 @@
     self.tableView.refreshHeader.beginRefreshingBlock = ^(){
         [viewModel networkRequestNeedUpRefreshWithCoachCourseListWithuserid:[[UserInfoModel defaultUserInfo] userID] searchtype:ws.searchType schoolid:[[UserInfoModel defaultUserInfo] schoolId] count:10];    };
 
+}
+- (void)pushBtnClick {
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+- (UIBarButtonItem *)pushBtn {
+    if (!_pushBtn) {
+        CGRect backframe= CGRectMake(0, 0, 16, 16);
+        UIButton* backButton= [UIButton buttonWithType:UIButtonTypeCustom];
+        backButton.frame = backframe;
+        [backButton setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+        [backButton addTarget:self action:@selector(pushBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        _pushBtn = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+    }
+    return _pushBtn;
 }
 
 - (void)didReceiveMemoryWarning {
