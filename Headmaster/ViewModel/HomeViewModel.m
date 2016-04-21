@@ -29,25 +29,36 @@
                                     weekData.data.complaintstudentcount ];
             
         } else {
+            
             HomeDataModelRootClass *dailyData = [[HomeDataModelRootClass alloc] initWithDictionary:responseObject];
             
             if (dailyData.type == 0) {
                 return ;
             }
-            NSLog(@"%@",responseObject);
+            
+            NSLog(@"科目responseObject:%@",responseObject);
             NSMutableArray *marr = [NSMutableArray arrayWithObjects:@"0",@"0",@"0",@"0", nil];
+            
             for (NSInteger i = 0; i < dailyData.data.schoolstudentcount.count; i++) {
+                
                 for (HomeDataModelSchoolstudentcount *count in dailyData.data.schoolstudentcount) {
+                    
+                    NSLog(@"count.studentcount:%ld count.subjectid:%ld",(long)count.studentcount,(long)count.subjectid);
+                    
                     if (count.subjectid == i+1) {
-//                        [marr addObject:[NSString stringWithFormat:@"%li",count.studentcount]];
-                        [marr replaceObjectAtIndex:i withObject:[NSString stringWithFormat:@"%li",count.subjectid]];
+                        [marr replaceObjectAtIndex:i withObject:[NSString stringWithFormat:@"%li",count.studentcount]];
                     }
+                    
+                    NSLog(@"科目数组marr:%@",marr);
+                    
                 }
+                
             }
+            
             _applyCount = [NSString stringWithFormat:@"%li",dailyData.data.applystudentcount];
             _subjectArray = [marr copy];
-//            _subjectArray = @[ @"2",@"3",@"4",@"5" ];
             
+            NSLog(@"科目marr:%@ _subjectArray:%@",marr,_subjectArray);
             
             _evaluateArray = @[ [NSString stringWithFormat:@"%li",dailyData.data.commentstudentcount.goodcommnent],
                                 [NSString stringWithFormat:@"%li",dailyData.data.commentstudentcount.generalcomment],
