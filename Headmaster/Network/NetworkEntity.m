@@ -122,12 +122,12 @@
     [NetworkTool POST:urlStr params:dic success:success failure:failure];
 }
 
-+ (void)getPublishListWithUseInfoModel:(UserInfoModel *)uim seqindex:(NSString *)index count:(NSString *)count
++ (void)getPublishListWithUseInfoModel:(UserInfoModel *)uim seqindex:(NSInteger)index count:(NSInteger)count
                                success:(void (^)(AFHTTPRequestOperation *, id))success
                                failure:(void (^)(AFHTTPRequestOperation *, id))failure {
     NSDictionary *params =@{
-                            @"seqindex":index,
-                            @"count":count,
+                            @"seqindex":[NSString stringWithFormat:@"%zd",index],
+                            @"count":[NSString stringWithFormat:@"%zd",count],
                             @"userid":uim.userID,
                             @"schoolid":uim.schoolId
                             };

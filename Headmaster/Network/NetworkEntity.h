@@ -83,7 +83,7 @@
 /**
  *  获取发布
  */
-+ (void)getPublishListWithUseInfoModel:(UserInfoModel *)uim seqindex:(NSString *)index count:(NSString *)count
++ (void)getPublishListWithUseInfoModel:(UserInfoModel *)uim seqindex:(NSInteger)index count:(NSInteger)count
                                success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
                                failure:(void (^)(AFHTTPRequestOperation *operation, id responseObject))failure;
 

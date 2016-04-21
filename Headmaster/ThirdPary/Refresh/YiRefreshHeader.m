@@ -47,7 +47,7 @@
     headerLabel=[[UILabel alloc] initWithFrame:CGRectMake((scrollWidth-labelWidth)/2, 0, labelWidth, labelHeight)];
     [headerView addSubview:headerLabel];
     headerLabel.textAlignment=NSTextAlignmentCenter;
-    headerLabel.text=@"下拉可刷新";
+    headerLabel.text=@"";
     headerLabel.textColor = [UIColor whiteColor];
     headerLabel.font=[UIFont systemFontOfSize:14];
     

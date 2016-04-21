@@ -17,6 +17,7 @@ typedef void (^BeginRefreshingBlock)(void);
 @property UIScrollView *scrollView;
 @property (nonatomic, copy) BeginRefreshingBlock beginRefreshingBlock;
 
+
 -(void)header;
 -(void)endRefreshing;
 -(void)beginRefreshing;

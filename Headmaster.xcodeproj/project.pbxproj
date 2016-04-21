@@ -329,7 +329,6 @@
 		B8771E461C098F500051DE9D /* HMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B8771E3F1C098F500051DE9D /* HMButton.m */; };
 		B8771E471C098F500051DE9D /* NGOSegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B8771E411C098F500051DE9D /* NGOSegmentControl.m */; };
 		B8771E481C098F500051DE9D /* PortraitView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8771E431C098F500051DE9D /* PortraitView.m */; };
-		B8771E491C098F500051DE9D /* RefreshTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8771E451C098F500051DE9D /* RefreshTableView.m */; };
 		B8771E521C0990980051DE9D /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B8771E511C0990980051DE9D /* UserInfoModel.m */; };
 		B8771E551C0991570051DE9D /* UIViewController+Method.m in Sources */ = {isa = PBXBuildFile; fileRef = B8771E541C0991570051DE9D /* UIViewController+Method.m */; };
 		B88BC0F11C1FB25D0060373C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B88BC0F31C1FB25D0060373C /* Localizable.strings */; };
@@ -387,7 +386,6 @@
 		D9AEF2661CC5E19E00AB76DD /* JZPublishHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AEF2651CC5E19E00AB76DD /* JZPublishHistoryView.m */; };
 		D9AEF2721CC603B200AB76DD /* JZPublishHistoryData.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AEF26F1CC603B100AB76DD /* JZPublishHistoryData.m */; };
 		D9AEF2731CC603B200AB76DD /* JZPublishHistoryRootClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AEF2711CC603B100AB76DD /* JZPublishHistoryRootClass.m */; };
-		D9B9CF671CC74A9B00009E7B /* BLPFAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B9CF661CC74A9B00009E7B /* BLPFAlertView.m */; };
 		D9C3F4561C167322006D22BC /* DVVProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C3F4551C167322006D22BC /* DVVProgressView.m */; };
 		D9C3F4591C167365006D22BC /* HomeProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C3F4581C167365006D22BC /* HomeProgressView.m */; };
 		D9CEC8EB1C0E8C83008DEE69 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = D9CEC8EA1C0E8C83008DEE69 /* AppDelegate.mm */; };
@@ -431,6 +429,7 @@
 		D9D375611C127457008C54FF /* DVVDockItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D3755E1C127457008C54FF /* DVVDockItem.m */; };
 		D9D375621C127457008C54FF /* DVVTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D375601C127457008C54FF /* DVVTabBarController.m */; };
 		D9E41AB61C129DD0007A2019 /* YBBaseTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E41AB51C129DD0007A2019 /* YBBaseTableCell.m */; };
+		D9E7CD371CC8E3E400AF1B31 /* RefreshTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E7CD361CC8E3E400AF1B31 /* RefreshTableView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -966,8 +965,6 @@
 		B8771E411C098F500051DE9D /* NGOSegmentControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGOSegmentControl.m; sourceTree = "<group>"; };
 		B8771E421C098F500051DE9D /* PortraitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortraitView.h; sourceTree = "<group>"; };
 		B8771E431C098F500051DE9D /* PortraitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PortraitView.m; sourceTree = "<group>"; };
-		B8771E441C098F500051DE9D /* RefreshTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefreshTableView.h; sourceTree = "<group>"; };
-		B8771E451C098F500051DE9D /* RefreshTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefreshTableView.m; sourceTree = "<group>"; };
 		B8771E4A1C098F7D0051DE9D /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		B8771E501C0990980051DE9D /* UserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoModel.h; sourceTree = "<group>"; };
 		B8771E511C0990980051DE9D /* UserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoModel.m; sourceTree = "<group>"; };
@@ -1082,8 +1079,6 @@
 		D9AEF26F1CC603B100AB76DD /* JZPublishHistoryData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZPublishHistoryData.m; sourceTree = "<group>"; };
 		D9AEF2701CC603B100AB76DD /* JZPublishHistoryRootClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZPublishHistoryRootClass.h; sourceTree = "<group>"; };
 		D9AEF2711CC603B100AB76DD /* JZPublishHistoryRootClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZPublishHistoryRootClass.m; sourceTree = "<group>"; };
-		D9B9CF651CC74A9B00009E7B /* BLPFAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLPFAlertView.h; sourceTree = "<group>"; };
-		D9B9CF661CC74A9B00009E7B /* BLPFAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLPFAlertView.m; sourceTree = "<group>"; };
 		D9C3F4541C167322006D22BC /* DVVProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVVProgressView.h; sourceTree = "<group>"; };
 		D9C3F4551C167322006D22BC /* DVVProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVVProgressView.m; sourceTree = "<group>"; };
 		D9C3F4571C167365006D22BC /* HomeProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeProgressView.h; sourceTree = "<group>"; };
@@ -1170,6 +1165,8 @@
 		D9D375601C127457008C54FF /* DVVTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVVTabBarController.m; sourceTree = "<group>"; };
 		D9E41AB41C129DD0007A2019 /* YBBaseTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBBaseTableCell.h; sourceTree = "<group>"; };
 		D9E41AB51C129DD0007A2019 /* YBBaseTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YBBaseTableCell.m; sourceTree = "<group>"; };
+		D9E7CD351CC8E3E400AF1B31 /* RefreshTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RefreshTableView.h; path = Headmaster/ThirdPary/RefreshTableView.h; sourceTree = SOURCE_ROOT; };
+		D9E7CD361CC8E3E400AF1B31 /* RefreshTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RefreshTableView.m; path = Headmaster/ThirdPary/RefreshTableView.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2128,8 +2125,6 @@
 		B8771DF31C098E6B0051DE9D /* ThirdPary */ = {
 			isa = PBXGroup;
 			children = (
-				D9B9CF651CC74A9B00009E7B /* BLPFAlertView.h */,
-				D9B9CF661CC74A9B00009E7B /* BLPFAlertView.m */,
 				B8771DF41C098E6B0051DE9D /* AFNetworkActivityLogger */,
 				B8771DF71C098E6B0051DE9D /* EaseMobSDK */,
 				B8771E131C098E6B0051DE9D /* JGPush */,
@@ -2347,6 +2342,8 @@
 		B8771E171C098E6B0051DE9D /* Refresh */ = {
 			isa = PBXGroup;
 			children = (
+				D9E7CD351CC8E3E400AF1B31 /* RefreshTableView.h */,
+				D9E7CD361CC8E3E400AF1B31 /* RefreshTableView.m */,
 				B8771E181C098E6B0051DE9D /* Header.h */,
 				B8771E191C098E6B0051DE9D /* YiRefreshFooter.h */,
 				B8771E1A1C098E6B0051DE9D /* YiRefreshFooter.m */,
@@ -2407,8 +2404,6 @@
 				B8771E411C098F500051DE9D /* NGOSegmentControl.m */,
 				B8771E421C098F500051DE9D /* PortraitView.h */,
 				B8771E431C098F500051DE9D /* PortraitView.m */,
-				B8771E441C098F500051DE9D /* RefreshTableView.h */,
-				B8771E451C098F500051DE9D /* RefreshTableView.m */,
 				B8771E531C0991570051DE9D /* UIViewController+Method.h */,
 				B8771E541C0991570051DE9D /* UIViewController+Method.m */,
 				D9CEC9691C0ED643008DEE69 /* NSString+Helper.h */,
@@ -3214,6 +3209,7 @@
 				B8771D1B1C098DE40051DE9D /* MWZoomingScrollView.m in Sources */,
 				B8C703271C13093C006035B1 /* HMSwitch.m in Sources */,
 				B8771DEC1C098DE40051DE9D /* EaseImageView.m in Sources */,
+				D9E7CD371CC8E3E400AF1B31 /* RefreshTableView.m in Sources */,
 				0613DC121C1C51E200580C32 /* HomeDataDetailDMBadcommentlist.m in Sources */,
 				B8771D0B1C098DE40051DE9D /* MJRefreshFooter.m in Sources */,
 				B8771D021C098DE40051DE9D /* EMCDDeviceManagerBase.m in Sources */,
@@ -3223,7 +3219,6 @@
 				B8771DE91C098DE40051DE9D /* EaseBubbleView.m in Sources */,
 				0613DC161C1C51E200580C32 /* HomeDataDetailDMReservationstudentlist.m in Sources */,
 				D92297451C10439200D0FFDF /* UUBarChart.m in Sources */,
-				D9B9CF671CC74A9B00009E7B /* BLPFAlertView.m in Sources */,
 				B8771D001C098DE40051DE9D /* EMCDDeviceManager+ProximitySensor.m in Sources */,
 				D97244AF1C1ED0BD002B3FDE /* DataDetailDMYearRootClass.m in Sources */,
 				B8771DCB1C098DE40051DE9D /* EaseSDKHelper.m in Sources */,
@@ -3438,7 +3433,6 @@
 				B8771E381C098E6B0051DE9D /* ToastAlertView.m in Sources */,
 				0699E5E31C15811A0079CABF /* CoachCoureDatailModelRootClass.m in Sources */,
 				D92296CA1C0FD2FF00D0FFDF /* HomeTopView.m in Sources */,
-				B8771E491C098F500051DE9D /* RefreshTableView.m in Sources */,
 				B8771D201C098DE40051DE9D /* EMSDWebImageDownloader.m in Sources */,
 				B8771D1E1C098DE40051DE9D /* EMSDWebImageCompat.m in Sources */,
 				B895A19A1C1041D100FEDD78 /* RecommendViewController.m in Sources */,

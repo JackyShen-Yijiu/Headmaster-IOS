@@ -35,6 +35,8 @@ static NSString *JZPublishHistoryCellID = @"JZPublishHistoryCellID";
         
         [self addBackgroundImage];
         [self loadData];
+        [self setRefresh];
+        
         
 
         
@@ -80,7 +82,7 @@ static NSString *JZPublishHistoryCellID = @"JZPublishHistoryCellID";
 -(void)loadData {
     
 
-    [NetworkEntity getPublishListWithUseInfoModel:[UserInfoModel defaultUserInfo]  seqindex:[NSString stringWithFormat:@"0"] count:[NSString stringWithFormat:@"10"] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [NetworkEntity getPublishListWithUseInfoModel:[UserInfoModel defaultUserInfo]  seqindex:0 count:10 success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
         NSArray *resultData = dataDic[@"data"];
@@ -102,12 +104,73 @@ static NSString *JZPublishHistoryCellID = @"JZPublishHistoryCellID";
         
     } failure:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        
+        [self.vc showTotasViewWithMes:@"网络出错啦"];
     }];
     
     
 }
 
+-(void)setRefresh {
+    
+    WS(ws);
+    
+    self.refreshFooter.beginRefreshingBlock = ^{
+        [ws loadMoreData];
+    };
+    
+    self.refreshHeader = nil;
+    
+    
+}
+
+-(void)loadMoreData {
+    
+    
+    JZPublishHistoryData *dataModel = self.listDataArray.lastObject;
+    
+    NSLog(@"%zd",dataModel.seqindex);
+    
+    [NetworkEntity getPublishListWithUseInfoModel:[UserInfoModel defaultUserInfo]  seqindex:dataModel.seqindex count:10 success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
+        
+        NSArray *resultData = dataDic[@"data"];
+        if (!resultData.count) {
+            
+            [self.refreshFooter endRefreshing];
+            self.refreshFooter.scrollView = nil;
+            [self.vc showTotasViewWithMes:@"已经加载所有数据"];
+            return;
+            
+        }
+
+        
+        
+        
+
+
+        if ([[dataDic objectForKey:@"type"] integerValue]) {
+            NSArray *array = resultData;
+            for (NSDictionary *dict in array) {
+                
+                JZPublishHistoryData *listModel = [JZPublishHistoryData yy_modelWithDictionary:dict];
+                
+                [self.listDataArray addObject:listModel];
+            }
+            
+             [self.refreshFooter endRefreshing];
+            [self reloadData];
+            
+            
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        
+    }];
+
+    
+}
 
 
 -(NSMutableArray *)listDataArray {

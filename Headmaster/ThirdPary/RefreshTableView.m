@@ -15,6 +15,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self initRefreshView];
+        
     }
     return self;
 }
@@ -43,6 +44,7 @@
     };
     
     self.refreshFooter.beginRefreshingBlock=^(){
+        
     };
     
 }

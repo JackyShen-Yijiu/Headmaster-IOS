@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RefreshTableView.h"
 
-@interface JZPublishHistoryView : UITableView
+@interface JZPublishHistoryView : RefreshTableView
+@property (nonatomic, strong) UIViewController *vc;
 
 @end

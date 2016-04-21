@@ -10,7 +10,7 @@
 #import "AboutUsController.h"
 #import "FeedbackController.h"
 #import "EaseSDKHelper.h"
-#import "BLPFAlertView.h"
+
 #import "APService.h"
 
 

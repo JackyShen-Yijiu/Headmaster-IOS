@@ -97,9 +97,7 @@
         make.top.equalTo(self.timeLabel.mas_bottom).offset(12);//
         make.left.equalTo(self.contentView.mas_left).offset(16);
         make.right.equalTo(self.contentView.mas_right).offset(-16);
-        
-        
-        
+
     }];
     
     [self.linView mas_makeConstraints:^(MASConstraintMaker *make) {
