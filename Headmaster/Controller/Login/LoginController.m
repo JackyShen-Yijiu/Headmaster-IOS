@@ -168,6 +168,9 @@
     
     _bottomLineView.frame = CGRectMake(0, 0, 55, 1);
     _bottomLineView.center = CGPointMake(h_center.x + 32, h_size.height -10);
+    if (YBIphone6Plus) {
+        _bottomLineView.center = CGPointMake(h_center.x + 32, h_size.height -14);
+    }
     
     
    }
