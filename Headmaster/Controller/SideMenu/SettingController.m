@@ -383,6 +383,42 @@
     return headerView;
     
 }
+- (void)UserWillLoginOut {
+    UserInfoModel *uim = [UserInfoModel defaultUserInfo];
+    [uim loginOut];
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    [ud removeObjectForKey:@"0"];
+    [ud removeObjectForKey:@"1"];
+    [ud removeObjectForKey:@"2"];
+    [ud removeObjectForKey:@"USERIMAGE"];
+    //    LoginController *lc = [LoginController new];
+    //    lc.dismissController = ^ {
+    //        [self dismissViewControllerAnimated:YES completion:nil];
+    //        if (_hideMenu) {
+    //            _hideMenu();
+    //        }
+    //    };
+    
+    //极光推送设置alias
+    [APService setAlias:[UserInfoModel defaultUserInfo].userID callbackSelector:@selector(tagsAliasCallback:tags:alias:) object:self];
+    //友盟统计账号登出
+    [MobClick profileSignOff];
+    //    [self.navigationController pushViewController:lc animated:YES];
+    
+    [self dismissViewControllerAnimated:NO completion:^{
+        [[self slideMenu] hideMenuViewController];
+        [[(AppDelegate *)[[UIApplication sharedApplication] delegate] navController] popToRootViewControllerAnimated:NO];
+        
+    }];
+}
+
+-(void)tagsAliasCallback:(int)iResCode
+                    tags:(NSSet*)tags
+                   alias:(NSString*)alias
+{
+    NSLog(@"rescode: %d, \ntags: %@, \nalias: %@\n", iResCode, tags , alias);
+}
+
 
 
 #pragma mark ------ 去评分和版本更新相关操作
