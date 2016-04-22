@@ -92,6 +92,7 @@
     [self.view addSubview:_BackgroundImage];
     
     _iconView = [[UIImageView alloc] init];          //logo
+//    _iconView.backgroundColor = [UIColor cyanColor];
     [self.view addSubview:_iconView];
     
     _phoneAndPasswordBG = [[UIView alloc] init];
@@ -144,6 +145,7 @@
     _BackgroundImage.frame = self.view.bounds;
     
     _iconView.frame         = CGRectMake(h_center.x -h_iconViewWidth/2, h_iconViewTOP, h_iconViewWidth, h_iconViewHeight);
+    NSLog(@"_iconView = %@",_iconView);
     
     _phoneAndPasswordBG.frame = CGRectMake(15,CGRectGetMaxY(_iconView.frame) + [UIScreen mainScreen].bounds.size.height *116/667,  h_size.width -30, h_bgH);
 
@@ -178,7 +180,7 @@
 - (void)configeUI {
     _BackgroundImage.image = [UIImage imageNamed:@"JZ_bg"];
     
-    _iconView.contentMode = UIViewContentModeCenter;
+//    _iconView.contentMode = UIViewContentModeCenter;
     _iconView.image = [UIImage imageNamed:@"JZ_image_logo"];
     
     _phoneTF.placeholder = @"请输入用户名";
@@ -229,10 +231,10 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     if ([_passwordTF.text isEqualToString:@""]) {
-        _passwordTF.placeholder = @"请输入用户名";
+        _passwordTF.placeholder = @"请输入密码";
     }
     if ([_phoneTF.text isEqualToString:@""]) {
-        _phoneTF.placeholder = @"请输入密码";
+        _phoneTF.placeholder = @"请输入用户名";
     }
 }
 
