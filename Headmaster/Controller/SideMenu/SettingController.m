@@ -384,33 +384,42 @@
     
 }
 - (void)UserWillLoginOut {
-    UserInfoModel *uim = [UserInfoModel defaultUserInfo];
-    [uim loginOut];
-    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    [ud removeObjectForKey:@"0"];
-    [ud removeObjectForKey:@"1"];
-    [ud removeObjectForKey:@"2"];
-    [ud removeObjectForKey:@"USERIMAGE"];
-    //    LoginController *lc = [LoginController new];
-    //    lc.dismissController = ^ {
-    //        [self dismissViewControllerAnimated:YES completion:nil];
-    //        if (_hideMenu) {
-    //            _hideMenu();
-    //        }
-    //    };
     
-    //极光推送设置alias
-    [APService setAlias:[UserInfoModel defaultUserInfo].userID callbackSelector:@selector(tagsAliasCallback:tags:alias:) object:self];
-    //友盟统计账号登出
-    [MobClick profileSignOff];
-    //    [self.navigationController pushViewController:lc animated:YES];
     
-    [self dismissViewControllerAnimated:NO completion:^{
-        [[self slideMenu] hideMenuViewController];
-        [[(AppDelegate *)[[UIApplication sharedApplication] delegate] navController] popToRootViewControllerAnimated:NO];
+    [[EaseMob sharedInstance].chatManager logoffWithUnbindDeviceToken:YES error:nil];
+    
+    [[EaseMob sharedInstance].chatManager asyncLogoffWithUnbindDeviceToken:YES];
+    
+    [[EaseMob sharedInstance].chatManager asyncLogoffWithUnbindDeviceToken:YES completion:^(NSDictionary *info, EMError *error) {
+//        DYNSLog(@"asyncLogoffWithUnbindDeviceToken%@",error);
+    } onQueue:nil];
+    
+    [[EaseMob sharedInstance].chatManager asyncLogoffWithUnbindDeviceToken:YES completion:^(NSDictionary *info, EMError *error) {
         
-    }];
-}
+        UserInfoModel *uim = [UserInfoModel defaultUserInfo];
+        [uim loginOut];
+        NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+        [ud removeObjectForKey:@"0"];
+        [ud removeObjectForKey:@"1"];
+        [ud removeObjectForKey:@"2"];
+        [ud removeObjectForKey:@"USERIMAGE"];
+        
+        //极光推送设置alias
+        [APService setAlias:[UserInfoModel defaultUserInfo].userID callbackSelector:@selector(tagsAliasCallback:tags:alias:) object:self];
+        
+        //友盟统计账号登出
+        [MobClick profileSignOff];
+        //    [self.navigationController pushViewController:lc animated:YES];
+        
+        [self dismissViewControllerAnimated:NO completion:^{
+            [[self slideMenu] hideMenuViewController];
+            [[(AppDelegate *)[[UIApplication sharedApplication] delegate] navController] popToRootViewControllerAnimated:NO];
+            
+        }];
+        
+    } onQueue:nil];
+    
+    }
 
 -(void)tagsAliasCallback:(int)iResCode
                     tags:(NSSet*)tags

@@ -102,6 +102,7 @@
     
     _phoneTF = [[UITextField alloc] init];           //账号输入框
     _phoneTF.backgroundColor = [UIColor clearColor];
+    _phoneTF.clearButtonMode = UITextFieldViewModeWhileEditing;
     [self.view addSubview:_phoneTF];
     
     _upView = [[UIView alloc] init];                 //账号输入框左侧的父视图
@@ -114,7 +115,8 @@
     _lineViewUP.backgroundColor = [UIColor colorWithHexString:@"585968"];
     [self.view addSubview:_lineViewUP];
     
-    _passwordTF = [[UITextField alloc] init];        //密码输入框
+    _passwordTF = [[UITextField alloc] init];
+    _passwordTF.clearButtonMode = UITextFieldViewModeWhileEditing;//密码输入框
     [self.view addSubview:_passwordTF];
     
     _downView = [[UIView alloc] init];               //密码输入框左侧的父视图
@@ -279,26 +281,93 @@
         NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
         if (type == 1) {
             
-            NSMutableDictionary * loginInfo = [responseObject mutableCopy];
-            [NetworkTool setHTTPHeaderField:[[loginInfo objectForKey:@"data"] objectForKey:@"token"]];
-            [loginInfo setValue:[_passwordTF.text MD5Digest]forKey:@"md5Pass"];
+            // 环信登录
+            BOOL isLoggedIn = [[EaseMob sharedInstance].chatManager isLoggedIn];
             
-            [[UserInfoModel defaultUserInfo] loginViewDic:loginInfo];
-            
-            [[MenuController defaultImageView] sd_setImageWithURL:[NSURL URLWithString:[UserInfoModel defaultUserInfo].portrait]];
-            
-            //极光推送设置alias
-            [APService setAlias:[UserInfoModel defaultUserInfo].userID callbackSelector:@selector(tagsAliasCallback:tags:alias:) object:self];
-            
-            //友盟账号统计
-            [MobClick profileSignInWithPUID:_phoneTF.text];
-            
-            [[EaseMob sharedInstance].chatManager removeAllConversationsWithDeleteMessages:YES append2Chat:NO];
-
-            if ([_delegate respondsToSelector:@selector(loginControllerDidLoginSucess:)]) {
-                [_delegate loginControllerDidLoginSucess:self];
+            if (isLoggedIn) {
+                [[EaseMob sharedInstance].chatManager logoffWithUnbindDeviceToken:YES error:nil];
+                
+                [[EaseMob sharedInstance].chatManager asyncLogoffWithUnbindDeviceToken:YES];
+                
+                [[EaseMob sharedInstance].chatManager asyncLogoffWithUnbindDeviceToken:YES completion:^(NSDictionary *info, EMError *error) {
+                    
+                } onQueue:nil];
+                [[EaseMob sharedInstance].chatManager asyncLogoffWithUnbindDeviceToken:YES completion:^(NSDictionary *info, EMError *error) {
+                    
+                    if (!error && info) {
+                    }
+                } onQueue:nil];
             }
-        }else {
+            
+            NSString *headerid = [NSString stringWithFormat:@"%@",responseObject[@"data"][@"userid"]];
+            
+            // 异步登陆账号
+            [[EaseMob sharedInstance].chatManager asyncLoginWithUsername:headerid
+                                                                password:[_passwordTF.text MD5Digest]
+                                                              completion:
+             ^(NSDictionary *loginInfo, EMError *error) {
+                 
+                 NSLog(@"环信登陆loginInfo:%@ error:%@",loginInfo,error);
+                 
+                 [MBProgressHUD hideHUDForView:self.view animated:NO];
+                 
+                 if (loginInfo && !error) {
+                     
+                     
+                     // 基本数据保存
+                     NSMutableDictionary * loginInfo = [responseObject mutableCopy];
+                     
+                     [NetworkTool setHTTPHeaderField:[[loginInfo objectForKey:@"data"] objectForKey:@"token"]];
+                     
+                     [loginInfo setValue:[_passwordTF.text MD5Digest]forKey:@"md5Pass"];
+                     
+                     [[UserInfoModel defaultUserInfo] loginViewDic:loginInfo];
+                     
+                     [[MenuController defaultImageView] sd_setImageWithURL:[NSURL URLWithString:[UserInfoModel defaultUserInfo].portrait]];
+                     
+                     
+                     //友盟账号统计
+                     [MobClick profileSignInWithPUID:_phoneTF.text];
+
+                     //极光推送设置alias
+                     [APService setAlias:[UserInfoModel defaultUserInfo].userID callbackSelector:@selector(tagsAliasCallback:tags:alias:) object:self];
+                     
+                     
+                     // 旧数据转换 (如果您的sdk是由2.1.2版本升级过来的，需要家这句话)
+                     EMError *error = [[EaseMob sharedInstance].chatManager importDataToNewDatabase];
+                     if (!error) {
+                         //获取数据库中数据
+                         error = [[EaseMob sharedInstance].chatManager loadDataFromDatabase];
+                     }
+                     
+                     //                    [[EaseMob sharedInstance].chatManager removeAllConversationsWithDeleteMessages:YES append2Chat:NO];
+                     
+                     // 设置自动登录
+                     [[EaseMob sharedInstance].chatManager setIsAutoLoginEnabled:YES];
+                     
+
+                     
+                     if ([_delegate respondsToSelector:@selector(loginControllerDidLoginSucess:)]) {
+                         [_delegate loginControllerDidLoginSucess:self];
+                     }
+
+                    
+                     
+                 }
+                 else
+                 {
+                     ToastAlertView *alerview = [[ToastAlertView alloc] initWithTitle:error.description controller:self];
+                     [alerview show];
+                     
+                 }
+                 
+             } onQueue:nil];
+            
+
+                     
+//            [[EaseMob sharedInstance].chatManager removeAllConversationsWithDeleteMessages:YES append2Chat:NO];
+
+                    }else {
             ToastAlertView *toastView = [[ToastAlertView alloc] initWithTitle:[responseObject objectForKey:@"msg"]];
             [toastView show];
         }
