@@ -34,10 +34,19 @@ CGFloat const EaseConversationCellPadding = 10;
     EaseConversationCell *cell = [self appearance];
     cell.titleLabelColor = RGBA_Color(0xfe, 0xfe, 0xff, 1);
     cell.titleLabelFont = [UIFont systemFontOfSize:17];
+    if (YBIphone6Plus) {
+        cell.titleLabelFont = [UIFont systemFontOfSize:17*YBRatio];
+    }
     cell.detailLabelColor = RGBA_Color(0x75, 0x75, 0x75, 1);
     cell.detailLabelFont = [UIFont systemFontOfSize:15];
+    if (YBIphone6Plus) {
+        cell.detailLabelFont = [UIFont systemFontOfSize:15*YBRatio];
+    }
     cell.timeLabelColor = RGBA_Color(0x75, 0x75, 0x75, 1);
     cell.timeLabelFont = [UIFont systemFontOfSize:13];
+    if (YBIphone6Plus) {
+        cell.timeLabelFont = [UIFont systemFontOfSize:13*YBRatio];
+    }
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style
@@ -231,6 +240,9 @@ CGFloat const EaseConversationCellPadding = 10;
 
 + (CGFloat)cellHeightWithModel:(id)model
 {
+    if (YBIphone6Plus) {
+        return EaseConversationCellMinHeight * YBSizeRatio;
+    }
     return EaseConversationCellMinHeight;
 }
 

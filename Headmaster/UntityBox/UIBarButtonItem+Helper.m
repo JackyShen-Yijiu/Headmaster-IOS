@@ -68,7 +68,9 @@
     [btn setBackgroundImage:backImage forState:UIControlStateHighlighted];
     [btn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     btn.titleLabel.font = [UIFont boldSystemFontOfSize:16];
-    
+    if (YBIphone6Plus) {
+        btn.titleLabel.font = [UIFont boldSystemFontOfSize:16*YBRatio];
+    }
     if (CGSizeEqualToSize(backImage.size, CGSizeZero)) {
         CGSize size = [btn.titleLabel sizeThatFits:CGSizeMake(100, 44)];
         btn.frame = CGRectMake(0, 0, size.width, size.height);

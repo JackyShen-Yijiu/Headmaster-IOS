@@ -83,6 +83,9 @@
         self.topLabel.textAlignment = NSTextAlignmentCenter;
         self.topLabel.text = @"今日报名人数";
         self.topLabel.font = [UIFont boldSystemFontOfSize:15];
+        if (YBIphone6Plus) {
+            self.topLabel.font = [UIFont boldSystemFontOfSize:15*YBRatio];
+        }
         self.topLabel.textColor = [UIColor colorWithHexString:@"19f9cc"];
         
         // 添加分割线

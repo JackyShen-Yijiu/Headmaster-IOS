@@ -47,6 +47,9 @@
     // 姓名
     self.titleLabel = [[UILabel alloc] init];
     self.titleLabel.font =[UIFont systemFontOfSize:16.f];
+    if (YBIphone6Plus) {
+        self.titleLabel.font =[UIFont systemFontOfSize:16.f*YBRatio];
+    }
     self.titleLabel.textColor = JZ_FONTCOLOR_WHITE;
     self.titleLabel.numberOfLines = 1;
     self.titleLabel.backgroundColor = [UIColor clearColor];
@@ -56,6 +59,9 @@
    self.teachcontentLabel.text = @"科目二 科目三";
     self.teachcontentLabel.textColor = JZ_FONTCOLOR_LIGHTWHITE;
    self.teachcontentLabel.font = [UIFont systemFontOfSize:12];
+    if (YBIphone6Plus) {
+        self.teachcontentLabel.font = [UIFont systemFontOfSize:12*YBRatio];
+    }
     self.teachcontentLabel.backgroundColor =  [UIColor clearColor];
     
     // 通过率
@@ -63,6 +69,9 @@
     self.passLabel.text = @"通过率 98%";
     self.passLabel.textColor = JZ_FONTCOLOR_LIGHTWHITE;
     self.passLabel.font = [UIFont systemFontOfSize:12];
+    if (YBIphone6Plus) {
+        self.passLabel.font = [UIFont systemFontOfSize:12*YBRatio];
+    }
     self.passLabel.backgroundColor =  [UIColor clearColor];
 
     

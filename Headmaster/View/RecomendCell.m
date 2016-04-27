@@ -65,6 +65,9 @@
 {
     UILabel * label = [[UILabel alloc] init];
     label.font = [UIFont systemFontOfSize:14.f];
+    if (YBIphone6Plus) {
+        label.font = [UIFont systemFontOfSize:14.f*YBRatio];
+    }
     label.backgroundColor = [UIColor clearColor];
     label.textAlignment = NSTextAlignmentLeft;
     label.numberOfLines = 0;
@@ -137,10 +140,16 @@
  
     self.courseType = [self getOnePropertyLabel];
     self.courseType.font = [UIFont systemFontOfSize:12.f];
+    if (YBIphone6Plus) {
+        self.courseType.font = [UIFont systemFontOfSize:12.f*YBRatio];
+    }
     [self.contentView addSubview:self.courseType];
     
     self.courseName = [self getOnePropertyLabel];
     self.courseName.font = [UIFont systemFontOfSize:12.f];
+    if (YBIphone6Plus) {
+        self.courseName.font = [UIFont systemFontOfSize:12.f*YBRatio];
+    }
     [self.contentView addSubview:self.courseName];
     
     self.recomendContent = [[self class] reconedContentLabel];
@@ -313,6 +322,9 @@
 {
     UILabel * label = [[UILabel alloc] init];
     label.font = [UIFont systemFontOfSize:14.f];
+    if (YBIphone6Plus) {
+        label.font = [UIFont systemFontOfSize:14.f*YBRatio];
+    }
     label.backgroundColor = [UIColor clearColor];
     label.textColor = RGB_Color(0xbf, 0xbf, 0xbf);
     label.textAlignment = NSTextAlignmentLeft;

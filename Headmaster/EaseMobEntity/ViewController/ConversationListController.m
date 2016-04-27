@@ -109,6 +109,9 @@ static NSString *kGroupName = @"GroupName";
         
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(imageView.frame) + 5, 0, _networkStateView.frame.size.width - (CGRectGetMaxX(imageView.frame) + 15), _networkStateView.frame.size.height)];
         label.font = [UIFont systemFontOfSize:15.0];
+        if (YBIphone6Plus) {
+            label.font = [UIFont systemFontOfSize:15*YBRatio];
+        }
         label.textColor = [UIColor grayColor];
         label.backgroundColor = [UIColor clearColor];
         label.text = NSLocalizedString(@"network.disconnection", @"Network disconnection");

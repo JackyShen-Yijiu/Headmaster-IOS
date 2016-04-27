@@ -79,6 +79,9 @@
         _rightLabel.backgroundColor = [UIColor redColor];
         _rightLabel.textAlignment = NSTextAlignmentCenter;
         _rightLabel.font = [UIFont systemFontOfSize:8];
+        if (YBIphone6Plus) {
+            _rightLabel.font = [UIFont systemFontOfSize:8*YBRatio];
+        }
         _rightLabel.frame = CGRectMake(_rightView.width-10, 0, 10, 10);
         _rightLabel.layer.masksToBounds = YES;
         _rightLabel.layer.cornerRadius = _rightLabel.width/2;
@@ -238,6 +241,9 @@
         self.temperatureLabel.text = str;
         self.temperatureLabel.textAlignment = NSTextAlignmentRight ;
         self.temperatureLabel.font = [UIFont systemFontOfSize:16];
+        if (YBIphone6Plus) {
+            self.temperatureLabel.font = [UIFont systemFontOfSize:16*YBRatio];
+        }
         self.temperatureLabel.textColor = [UIColor whiteColor];
         // 显示自定义的天气图片
         if ([homeModel.weather isEqualToString:@"大雪"]) {

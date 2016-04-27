@@ -51,6 +51,9 @@
         UILabel *signLabel = [[UILabel alloc]init];
         signLabel.frame = CGRectMake(10, 0, 50, 40);
         signLabel.font = [UIFont systemFontOfSize:12.f];
+        if (YBIphone6Plus) {
+            signLabel.font = [UIFont systemFontOfSize:12.f*YBRatio];
+        }
         signLabel.text = strArray[i];
         signLabel.textColor = [UIColor colorWithHexString:colorArray[i]];
         

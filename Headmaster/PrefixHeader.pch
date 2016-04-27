@@ -58,4 +58,8 @@
 #define YBIphone5 [UIScreen mainScreen].bounds.size.height==568
 #define YBIphone4 [UIScreen mainScreen].bounds.size.height==480
 
+
+#define YBRatio 1.15
+#define YBSizeRatio 1.5
+
 #endif

@@ -154,6 +154,9 @@
         _tv = [[UITextView alloc] init];
         _tv.backgroundColor = [UIColor clearColor];
         _tv.font = [UIFont systemFontOfSize:16];
+        if (YBIphone6Plus) {
+            _tv.font = [UIFont systemFontOfSize:16*YBRatio];
+        }
         _tv.textColor = [UIColor colorWithHexString:TEXT_HIGHLIGHT_COLOR];
     }
     return _tv;
@@ -164,6 +167,9 @@
     if (!_placeholderLabel) {
         _placeholderLabel = [[UILabel alloc] init];
         _placeholderLabel.font = [UIFont systemFontOfSize:16];
+        if (YBIphone6Plus) {
+            _placeholderLabel.font = [UIFont systemFontOfSize:16*YBRatio];
+        }
         _placeholderLabel.backgroundColor = [UIColor clearColor];
     }
     return _placeholderLabel;
@@ -183,6 +189,9 @@
         UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
         [button setTitle:@"发布" forState:UIControlStateNormal];
         button.titleLabel.font = [UIFont boldSystemFontOfSize:17];
+        if (YBIphone6Plus) {
+            button.titleLabel.font = [UIFont boldSystemFontOfSize:17*YBRatio];
+        }
         [button setTitleColor:[UIColor colorWithHexString:@"#fcfcfc"] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(publishBtnClick) forControlEvents:UIControlEventTouchUpInside];
         _publishBtn = [[UIBarButtonItem alloc] initWithCustomView:button];
@@ -323,7 +332,9 @@
         self.placeholderLabel.frame = CGRectMake(20, 42, 200, 30);
         self.placeholderLabel.text = @"最多输入300字";
         self.placeholderLabel.font = [UIFont systemFontOfSize:15];
-        
+        if (YBIphone6Plus) {
+            self.placeholderLabel.font = [UIFont systemFontOfSize:15*YBRatio];
+        }
         self.placeholderLabel.textColor = [UIColor grayColor];
         [cell.contentView addSubview:self.placeholderLabel];
         

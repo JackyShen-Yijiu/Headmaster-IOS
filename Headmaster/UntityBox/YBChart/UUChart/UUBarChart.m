@@ -204,6 +204,9 @@
     _xTitleMarkLabel.frame = CGRectMake(1, 10, 25, 10);
     _xTitleMarkLabel.textAlignment = 2;
     _xTitleMarkLabel.font = [UIFont systemFontOfSize:12];
+    if (YBIphone6Plus) {
+        _xTitleMarkLabel.font = [UIFont systemFontOfSize:12*YBRatio];
+    }
     [_markView addSubview:_xTitleMarkLabel];
     
     _yTitleMarkLabel = [UILabel new];
@@ -211,6 +214,9 @@
     _yTitleMarkLabel.frame = CGRectMake(-3, 0, 30, 15);
     _yTitleMarkLabel.textAlignment = 0;
     _yTitleMarkLabel.font = [UIFont systemFontOfSize:12];
+    if (YBIphone6Plus) {
+        _yTitleMarkLabel.font = [UIFont systemFontOfSize:12*YBRatio];
+    }
     [_markView addSubview:_yTitleMarkLabel];
     
     if (_xTitleMarkWordString) {

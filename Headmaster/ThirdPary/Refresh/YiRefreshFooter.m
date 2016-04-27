@@ -48,7 +48,9 @@
     headerLabel.text=@"加载更多...";
     headerLabel.textColor = [UIColor whiteColor];
     headerLabel.font=[UIFont systemFontOfSize:14];
-    
+    if (YBIphone6Plus) {
+        headerLabel.font=[UIFont systemFontOfSize:14*YBRatio];
+    }
     
     activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     activityView.frame=CGRectMake(headerLabel.right - 5, 0, imageWidth, imageHeight);

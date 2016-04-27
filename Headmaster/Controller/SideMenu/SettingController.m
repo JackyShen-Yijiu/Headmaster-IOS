@@ -141,6 +141,9 @@
     }
     cell.textLabel.text = self.dataArr[indexPath.section][indexPath.row];
     cell.textLabel.font = [UIFont systemFontOfSize:14];
+    if (YBIphone6Plus) {
+        cell.textLabel.font = [UIFont systemFontOfSize:14*YBRatio];
+    }
     cell.textLabel.textColor = RGB_Color(185, 185, 185);
     cell.backgroundColor = RGB_Color(41, 41, 41);
     cell.userInteractionEnabled = YES;
@@ -158,6 +161,9 @@
             label.text = message;
             label.textColor = [UIColor colorWithHexString:@"b7b7b7"];
             label.font = [UIFont systemFontOfSize:12];
+            if (YBIphone6Plus) {
+                label.font = [UIFont systemFontOfSize:12*YBRatio];
+            }
             label.textAlignment = NSTextAlignmentRight;
             [cell addSubview:label];
         }
@@ -366,6 +372,9 @@
     quit.backgroundColor = RGB_Color(44, 44, 44);
     [quit setTitle:@"退出" forState:UIControlStateNormal];
     quit.titleLabel.font = [UIFont systemFontOfSize:14];
+    if (YBIphone6Plus) {
+        quit.titleLabel.font = [UIFont systemFontOfSize:14*YBRatio];
+    }
     [quit setTitleColor:RGB_Color(185, 185, 185) forState:UIControlStateNormal];
     quit.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 44);
     [quit addTarget:self action:@selector(UserWillLoginOut) forControlEvents:UIControlEventTouchUpInside];

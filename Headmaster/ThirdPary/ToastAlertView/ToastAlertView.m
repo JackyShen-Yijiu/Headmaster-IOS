@@ -25,6 +25,9 @@
         _title.numberOfLines = 0;
         _title.backgroundColor = [UIColor clearColor];
         _title.font = [UIFont systemFontOfSize:12];
+        if (YBIphone6Plus) {
+            _title.font = [UIFont systemFontOfSize:12*YBRatio];
+        }
         _title.textColor = [UIColor whiteColor];
         _title.text = title;
         [_alertboxImageView addSubview:_title];
@@ -50,6 +53,9 @@
         _title.textAlignment = NSTextAlignmentCenter;
         _title.backgroundColor = [UIColor clearColor];
         _title.font = [UIFont systemFontOfSize:16];
+        if (YBIphone6Plus) {
+            _title.font = [UIFont systemFontOfSize:16*YBRatio];
+        }
         _title.textColor = [UIColor whiteColor];
         _title.text = title;
         [_title sizeToFit];
