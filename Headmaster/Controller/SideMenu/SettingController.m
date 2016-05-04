@@ -173,56 +173,43 @@
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 
     if (indexPath.section == 0) {
-
-            if (indexPath.row <3) {
-                NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-                NSInteger btnX = [ud integerForKey:[NSString stringWithFormat:@"%zd",indexPath.row]];
-                
-                if (!btnX) {
-                    btnX = self.view.frame.size.width -80;
-                    if (indexPath.row == 0 && [[UserInfoModel defaultUserInfo].newmessagereminder isEqualToString:@"0"]) {
-                        btnX += 30;
-                    }
-                    if (indexPath.row == 1 && [[UserInfoModel defaultUserInfo].complaintreminder isEqualToString:@"0"]) {
-                        btnX += 30;
-                    }
-                    if (indexPath.row == 2 && [[UserInfoModel defaultUserInfo].applyreminder isEqualToString:@"0"]) {
-                        btnX += 30;
-                    }
-                    [ud setInteger:btnX forKey:[NSString stringWithFormat:@"%zd",indexPath.row]];
-                    [ud synchronize];
-                }
-                UIImageView *bgView = [[UIImageView alloc] initWithFrame:CGRectMake(self.view.frame.size.width -65, 40, 40, 9)];
-                bgView.centerY = cell.centerY;
-                bgView.image = [UIImage imageNamed:@"hd69x16"];
+        UISwitch *switchControl = [[UISwitch alloc] initWithFrame:CGRectMake(0, 0, 45, 20)];
+        switchControl.onTintColor = RGB_Color(0, 248, 199);
+        
+        switchControl.tag = 100 + indexPath.row;
+        
+        if (indexPath.row == 0) {
+            if ([UserInfoModel defaultUserInfo].newmessagereminder) {
+                NSInteger num = [UserInfoModel defaultUserInfo].newmessagereminder.integerValue;
+                switchControl.on = num;
                
-                bgView.layer.cornerRadius = 10;
-                [cell.contentView addSubview:bgView];
-                
-                UIButton *switchBtn = [[UIButton alloc] initWithFrame:CGRectMake((int)btnX, bgView.frame.origin.y - 10, 42, 30)];
-                
-             
-
-                if ((int)btnX == self.view.frame.size.width -80) {
-                    [switchBtn setImage:[UIImage imageNamed:@"an84x60"] forState:UIControlStateNormal];
-                }else {
-                    [switchBtn setImage:[UIImage imageNamed:@"hm82x60"] forState:UIControlStateNormal];
-                }
-                switchBtn.tag = indexPath.row;
-                switchBtn.layer.cornerRadius = 10;
-                [switchBtn addTarget:self action:@selector(switchBtnAction:) forControlEvents:UIControlEventTouchUpInside];
-                [cell.contentView addSubview:switchBtn];
-                cell.accessoryType = UITableViewCellAccessoryNone;
+            }else {
+                switchControl.on = YES;
                 
             }
-
-        for (UILabel *subView in cell.contentView.subviews) {
-            if ([subView isKindOfClass:[UILabel class]]) {
-                subView.text = _dataArr[0][indexPath.row];
+        }else if (indexPath.row == 1) {
+            if ([UserInfoModel defaultUserInfo].complaintreminder) {
+                NSInteger num = [UserInfoModel defaultUserInfo].complaintreminder.integerValue;
+                switchControl.on = num;
+                
+            }else {
+                switchControl.on = YES;
+                
             }
-
-       
-    }
+        }else if (indexPath.row == 2) {
+            
+            if ([UserInfoModel defaultUserInfo].applyreminder) {
+                NSInteger num = [UserInfoModel defaultUserInfo].applyreminder.integerValue;
+                NSLog(@"num:%zd",num);
+                switchControl.on = num;
+            }else {
+                switchControl.on = YES;
+                
+            }
+        }
+        cell.accessoryView = switchControl;
+        
+        [switchControl addTarget:self action:@selector(switchBtnAction:) forControlEvents:UIControlEventValueChanged];
 
     
     }
@@ -292,43 +279,114 @@
 
 
 
-- (void)switchBtnAction:(UIButton *)sender {
-    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    NSInteger btnX = [ud integerForKey:[NSString stringWithFormat:@"%zd",sender.tag]];
+- (void)switchBtnAction:(UISwitch *)sender {
     
-    if (btnX == self.view.frame.size.width -80) {
-       
-        [self changeUseMessage:ud button:sender goRight:YES];
-    }else {
-       
-        [self changeUseMessage:ud button:sender goRight:NO];
+    if (sender.tag - 100 == 0) {
+        if (sender.on == YES) {
+            [[UserInfoModel defaultUserInfo] setValue:@"1" forKey:@"newmessagereminder"];
+        }else if (sender.on == NO) {
+            [[UserInfoModel defaultUserInfo] setValue:@"0" forKey:@"newmessagereminder"];
+        }
+ 
     }
+    if (sender.tag - 100 == 1) {
+        if (sender.on == YES) {
+            [[UserInfoModel defaultUserInfo] setValue:@"1" forKey:@"complaintreminder"];
+        }else if (sender.on == NO) {
+            [[UserInfoModel defaultUserInfo] setValue:@"0" forKey:@"complaintreminder"];
+        }
+        
+    }
+    if (sender.tag - 100 == 2) {
+        if (sender.on == YES) {
+            [[UserInfoModel defaultUserInfo] setValue:@"1" forKey:@"applyreminder"];
+        }else if (sender.on == NO) {
+            [[UserInfoModel defaultUserInfo] setValue:@"0" forKey:@"applyreminder"];
+        }
+        
+    }
+    
+            NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+            NSString *newmessagereminder = [ud integerForKey:@"0"] == sender.isOn?@"1":@"0";
+            NSString *complaintreminder  = [ud integerForKey:@"1"] == sender.isOn?@"1":@"0";
+            NSString *applyreminder      = [ud integerForKey:@"2"] == sender.isOn?@"1":@"0";
+    
+    [NetworkEntity changeUserMessageWithUseInfoModel:[UserInfoModel defaultUserInfo] complaintReminder:complaintreminder applyreminder:applyreminder newmessagereminder:newmessagereminder success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
+        if ([[dataDic objectForKey:@"data"] isEqualToString:@"success"]) {
+            
+            if (sender.isOn == NO) {
+                sender.on = sender.isOn;
+                
+                [ud removeObjectForKey:[NSString stringWithFormat:@"%zd",sender.tag]];
+                [ud setInteger:sender.on forKey:[NSString stringWithFormat:@"%zd",sender.tag]];
+                [ud synchronize];
+                //环信消息开启免打扰模式
+                if (sender.tag - 100 == 0) {
+                    NSLog(@"环信消息开启免打扰模式");
+                    EMPushNotificationOptions *options = [[EaseMob sharedInstance].chatManager pushNotificationOptions];
+                    options.noDisturbStatus = ePushNotificationNoDisturbStatusDay;
+                    [[EaseMob sharedInstance].chatManager asyncUpdatePushOptions:options];
+                }
+            }else {
+                
+                sender.on = sender.isOn;
+                [ud removeObjectForKey:[NSString stringWithFormat:@"%zd",sender.tag]];
+                [ud setInteger:sender.on forKey:[NSString stringWithFormat:@"%zd",sender.tag]];
+                [ud synchronize];
+                //环信消息关闭免打扰模式
+                if (sender.tag - 100 == 0) {
+                    NSLog(@"环信消息关闭免打扰模式");
+
+                    EMPushNotificationOptions *options = [[EaseMob sharedInstance].chatManager pushNotificationOptions];
+                    options.noDisturbStatus = ePushNotificationNoDisturbStatusClose;
+                    [[EaseMob sharedInstance].chatManager asyncUpdatePushOptions:options];
+                }
+            
+            }
+            
+            
+        }else {
+        ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"同步失败，请检查网络连接"];
+        [alertView show];
+        }
+
+        
+    } failure:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"同步失败，请检查网络连接"];
+        [alertView show];
+        
+    }];
+
+
     
 }
 
-- (void)changeUseMessage:(NSUserDefaults *)ud button:(UIButton *)btn goRight:(BOOL)goright {
-    NSString *newmessagereminder = [ud integerForKey:@"0"] == self.view.frame.size.width -80?@"1":@"0";
-    NSString *complaintreminder  = [ud integerForKey:@"1"] == self.view.frame.size.width -80?@"1":@"0";
-    NSString *applyreminder      = [ud integerForKey:@"2"] == self.view.frame.size.width -80?@"1":@"0";
+- (void)changeUseMessage:(NSUserDefaults *)ud switchBtn:(UISwitch *)btn{
+    NSString *newmessagereminder = [ud integerForKey:@"0"] == btn.isOn?@"0":@"1";
+    NSString *complaintreminder  = [ud integerForKey:@"1"] ==  btn.isOn?@"0":@"1";
+    NSString *applyreminder      = [ud integerForKey:@"2"] ==  btn.isOn?@"0":@"1";
     if (btn.tag == 0) {
-        newmessagereminder = [ud integerForKey:@"0"] == self.view.frame.size.width -80?@"0":@"1";
+        newmessagereminder = [ud integerForKey:@"0"] == btn.isOn ? @"1":@"0";
     }else if (btn.tag == 1) {
-        complaintreminder  = [ud integerForKey:@"1"] == self.view.frame.size.width -80?@"0":@"1";
+        complaintreminder  = [ud integerForKey:@"1"] == btn.isOn ? @"1":@"0";
     }else {
-        applyreminder      = [ud integerForKey:@"2"] == self.view.frame.size.width -80?@"0":@"1";
+        applyreminder      = [ud integerForKey:@"2"] == btn.isOn ? @"1":@"0";
     }
+
+    
     [NetworkEntity changeUserMessageWithUseInfoModel:[UserInfoModel defaultUserInfo] complaintReminder:complaintreminder applyreminder:applyreminder newmessagereminder:newmessagereminder success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
         NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
-        CGRect btnFrame = btn.frame;
         if ([[dataDic objectForKey:@"data"] isEqualToString:@"success"]) {
-            NSInteger btnX = [ud integerForKey:[NSString stringWithFormat:@"%zd",btn.tag]];
-            if (btnX == self.view.frame.size.width -80) {
-                btnX += 30;
-                btnFrame.origin.x = btnX;
-                btn.frame = btnFrame;
-                [btn setImage:[UIImage imageNamed:@"hm82x60"] forState:UIControlStateNormal];
+//            NSInteger btnX = [ud integerForKey:[NSString stringWithFormat:@"%zd",btn.tag]];
+            if (btn.isOn == NO) {
+                btn.on = btn.isOn;
+
                 [ud removeObjectForKey:[NSString stringWithFormat:@"%zd",btn.tag]];
-                [ud setInteger:btnX forKey:[NSString stringWithFormat:@"%zd",btn.tag]];
+                [ud setInteger:btn.on forKey:[NSString stringWithFormat:@"%zd",btn.tag]];
                 [ud synchronize];
                 //环信消息开启免打扰模式
                 if (btn.tag == 0) {
@@ -337,12 +395,10 @@
                     [[EaseMob sharedInstance].chatManager asyncUpdatePushOptions:options];
                 }
             }else {
-                btnX -= 30;
-                btnFrame.origin.x = btnX;
-                btn.frame = btnFrame;
-                [btn setImage:[UIImage imageNamed:@"an84x60"] forState:UIControlStateNormal];
+
+                btn.on = btn.isOn;
                 [ud removeObjectForKey:[NSString stringWithFormat:@"%zd",btn.tag]];
-                [ud setInteger:btnX forKey:[NSString stringWithFormat:@"%zd",btn.tag]];
+                [ud setInteger:btn.on forKey:[NSString stringWithFormat:@"%zd",btn.tag]];
                 [ud synchronize];
                 //环信消息关闭免打扰模式
                 if (btn.tag == 0) {
