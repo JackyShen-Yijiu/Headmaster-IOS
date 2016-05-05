@@ -298,4 +298,20 @@
     [manager POST:urlStr parameters:params success:success failure:failure];
 }
 
+/**
+ *  合格学员信息列表
+ */
++ (void)getPassRateListWithuserid:(NSString *)userid
+                  searchSubjectID:(NSInteger)SubjectID
+                            count:(NSInteger) count
+                            index:(NSInteger) index
+                          success:(NetworkSuccessBlock)success
+                          failure:(NetworkFailureBlock)failure{
+    NSDictionary *params = @{@"userid":userid,
+                             @"searchtype":[NSString stringWithFormat:@"%li",SubjectID],
+                             
+                             @"count":[NSString stringWithFormat:@"%li",count],
+                             @"index":[NSString stringWithFormat:@"%li",index]};
+    [NetworkTool GET:PASSRATELIST params:params success:success failure:failure];
+}
 @end

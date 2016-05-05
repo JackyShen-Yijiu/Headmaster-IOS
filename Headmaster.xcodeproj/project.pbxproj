@@ -46,6 +46,17 @@
 		0699E5EC1C15C33E0079CABF /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0699E5EB1C15C33E0079CABF /* libstdc++.6.0.9.tbd */; };
 		0699E5EE1C15C3630079CABF /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0699E5ED1C15C3630079CABF /* CoreTelephony.framework */; };
 		0699E5F01C15C3760079CABF /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0699E5EF1C15C3760079CABF /* libsqlite3.0.tbd */; };
+		06C3261E1CDAE381004D888A /* JZPassRateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C3261D1CDAE381004D888A /* JZPassRateController.m */; };
+		06C326211CDAE4DA004D888A /* JZPassRateToolBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C326201CDAE4DA004D888A /* JZPassRateToolBarView.m */; };
+		06C326241CDAE9C0004D888A /* JZPassRateListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C326231CDAE9C0004D888A /* JZPassRateListView.m */; };
+		06C326271CDAEBA2004D888A /* JZNoDataShowBGView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C326261CDAEBA2004D888A /* JZNoDataShowBGView.m */; };
+		06C3262D1CDAED85004D888A /* JZPassRateViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C3262C1CDAED85004D888A /* JZPassRateViewModel.m */; };
+		06C326301CDAF522004D888A /* JZPassRateListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C3262F1CDAF522004D888A /* JZPassRateListModel.m */; };
+		06C326331CDAF972004D888A /* JZPassRateListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C326321CDAF972004D888A /* JZPassRateListCell.m */; };
+		06C326361CDB0E72004D888A /* JZPassRateListExamNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C326351CDB0E72004D888A /* JZPassRateListExamNumberView.m */; };
+		06C326391CDB1126004D888A /* JZPassRateLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C326381CDB1126004D888A /* JZPassRateLabelView.m */; };
+		06C3263C1CDB1C1B004D888A /* JZPassRateHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C3263B1CDB1C1B004D888A /* JZPassRateHeaderView.m */; };
+		06C3263F1CDB3377004D888A /* TTRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C3263E1CDB3377004D888A /* TTRefreshFooter.m */; };
 		5543A6341C130D710063F7EE /* UserCenterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5543A6331C130D710063F7EE /* UserCenterController.m */; };
 		5545DE5E1C14134F00F41506 /* AboutUsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5545DE5D1C14134F00F41506 /* AboutUsController.m */; };
 		5545DE611C14228C00F41506 /* NewStudentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5545DE601C14228C00F41506 /* NewStudentController.m */; };
@@ -513,6 +524,28 @@
 		0699E5EB1C15C33E0079CABF /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		0699E5ED1C15C3630079CABF /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		0699E5EF1C15C3760079CABF /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		06C3261C1CDAE381004D888A /* JZPassRateController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZPassRateController.h; sourceTree = "<group>"; };
+		06C3261D1CDAE381004D888A /* JZPassRateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZPassRateController.m; sourceTree = "<group>"; };
+		06C3261F1CDAE4DA004D888A /* JZPassRateToolBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZPassRateToolBarView.h; sourceTree = "<group>"; };
+		06C326201CDAE4DA004D888A /* JZPassRateToolBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZPassRateToolBarView.m; sourceTree = "<group>"; };
+		06C326221CDAE9C0004D888A /* JZPassRateListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZPassRateListView.h; sourceTree = "<group>"; };
+		06C326231CDAE9C0004D888A /* JZPassRateListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZPassRateListView.m; sourceTree = "<group>"; };
+		06C326251CDAEBA2004D888A /* JZNoDataShowBGView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZNoDataShowBGView.h; sourceTree = "<group>"; };
+		06C326261CDAEBA2004D888A /* JZNoDataShowBGView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZNoDataShowBGView.m; sourceTree = "<group>"; };
+		06C3262B1CDAED85004D888A /* JZPassRateViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZPassRateViewModel.h; sourceTree = "<group>"; };
+		06C3262C1CDAED85004D888A /* JZPassRateViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZPassRateViewModel.m; sourceTree = "<group>"; };
+		06C3262E1CDAF522004D888A /* JZPassRateListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZPassRateListModel.h; sourceTree = "<group>"; };
+		06C3262F1CDAF522004D888A /* JZPassRateListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZPassRateListModel.m; sourceTree = "<group>"; };
+		06C326311CDAF972004D888A /* JZPassRateListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZPassRateListCell.h; sourceTree = "<group>"; };
+		06C326321CDAF972004D888A /* JZPassRateListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZPassRateListCell.m; sourceTree = "<group>"; };
+		06C326341CDB0E72004D888A /* JZPassRateListExamNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZPassRateListExamNumberView.h; sourceTree = "<group>"; };
+		06C326351CDB0E72004D888A /* JZPassRateListExamNumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZPassRateListExamNumberView.m; sourceTree = "<group>"; };
+		06C326371CDB1126004D888A /* JZPassRateLabelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZPassRateLabelView.h; sourceTree = "<group>"; };
+		06C326381CDB1126004D888A /* JZPassRateLabelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZPassRateLabelView.m; sourceTree = "<group>"; };
+		06C3263A1CDB1C1B004D888A /* JZPassRateHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZPassRateHeaderView.h; sourceTree = "<group>"; };
+		06C3263B1CDB1C1B004D888A /* JZPassRateHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZPassRateHeaderView.m; sourceTree = "<group>"; };
+		06C3263D1CDB3377004D888A /* TTRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRefreshFooter.h; sourceTree = "<group>"; };
+		06C3263E1CDB3377004D888A /* TTRefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRefreshFooter.m; sourceTree = "<group>"; };
 		5543A6321C130D710063F7EE /* UserCenterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterController.h; sourceTree = "<group>"; };
 		5543A6331C130D710063F7EE /* UserCenterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterController.m; sourceTree = "<group>"; };
 		5545DE5C1C14134F00F41506 /* AboutUsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutUsController.h; path = Headmaster/Controller/UserCenter/AboutUsController.h; sourceTree = SOURCE_ROOT; };
@@ -1266,6 +1299,67 @@
 				0699E5DF1C1566E50079CABF /* CoachCourseDatailViewModel.m */,
 			);
 			name = DataDatailViewModel;
+			sourceTree = "<group>";
+		};
+		06C326171CDAE34C004D888A /* JZPassRate */ = {
+			isa = PBXGroup;
+			children = (
+				06C326181CDAE34C004D888A /* Controller */,
+				06C326191CDAE34C004D888A /* Model */,
+				06C3261A1CDAE34C004D888A /* View */,
+				06C3261B1CDAE34C004D888A /* ViewModel */,
+			);
+			path = JZPassRate;
+			sourceTree = "<group>";
+		};
+		06C326181CDAE34C004D888A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				06C3261C1CDAE381004D888A /* JZPassRateController.h */,
+				06C3261D1CDAE381004D888A /* JZPassRateController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		06C326191CDAE34C004D888A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				06C3262E1CDAF522004D888A /* JZPassRateListModel.h */,
+				06C3262F1CDAF522004D888A /* JZPassRateListModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		06C3261A1CDAE34C004D888A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				06C3263A1CDB1C1B004D888A /* JZPassRateHeaderView.h */,
+				06C3263B1CDB1C1B004D888A /* JZPassRateHeaderView.m */,
+				06C3261F1CDAE4DA004D888A /* JZPassRateToolBarView.h */,
+				06C326201CDAE4DA004D888A /* JZPassRateToolBarView.m */,
+				06C326221CDAE9C0004D888A /* JZPassRateListView.h */,
+				06C326231CDAE9C0004D888A /* JZPassRateListView.m */,
+				06C326251CDAEBA2004D888A /* JZNoDataShowBGView.h */,
+				06C326261CDAEBA2004D888A /* JZNoDataShowBGView.m */,
+				06C326311CDAF972004D888A /* JZPassRateListCell.h */,
+				06C326321CDAF972004D888A /* JZPassRateListCell.m */,
+				06C326341CDB0E72004D888A /* JZPassRateListExamNumberView.h */,
+				06C326351CDB0E72004D888A /* JZPassRateListExamNumberView.m */,
+				06C326371CDB1126004D888A /* JZPassRateLabelView.h */,
+				06C326381CDB1126004D888A /* JZPassRateLabelView.m */,
+				06C3263D1CDB3377004D888A /* TTRefreshFooter.h */,
+				06C3263E1CDB3377004D888A /* TTRefreshFooter.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		06C3261B1CDAE34C004D888A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				06C3262B1CDAED85004D888A /* JZPassRateViewModel.h */,
+				06C3262C1CDAED85004D888A /* JZPassRateViewModel.m */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		145B830FCF45682C02C93D3C /* Frameworks */ = {
@@ -2827,6 +2921,8 @@
 		D9CEC8F21C0E8CF7008DEE69 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+
+				06C326171CDAE34C004D888A /* JZPassRate */,
 				D92424641CDB0D58002AB7C0 /* ComplaintDetail */,
 				D924246B1CDB0D58002AB7C0 /* ComplaintList */,
 				B895A1971C1041BD00FEDD78 /* Recomond */,
@@ -3319,6 +3415,7 @@
 			files = (
 				B895A1961C1032C000FEDD78 /* InformationViewModel.m in Sources */,
 				B22BADCD1CC74DE000455E1C /* JGUserModel.m in Sources */,
+				06C326361CDB0E72004D888A /* JZPassRateListExamNumberView.m in Sources */,
 				D9E41AB61C129DD0007A2019 /* YBBaseTableCell.m in Sources */,
 				D97244881C1EC3E5002B3FDE /* DataDetailDMWeekCoursedata.m in Sources */,
 				B895A1951C10329F00FEDD78 /* InformationDataModel.m in Sources */,
@@ -3363,6 +3460,7 @@
 				D972448A1C1EC3E5002B3FDE /* DataDetailDMWeekDatalist.m in Sources */,
 				D92296C81C0FD2FF00D0FFDF /* HomeEvaluateView.m in Sources */,
 				B8771D0F1C098DE40051DE9D /* MJRefreshLegendFooter.m in Sources */,
+				06C3263F1CDB3377004D888A /* TTRefreshFooter.m in Sources */,
 				D9CEC9141C0E8CF7008DEE69 /* HMPortraitInfoModel.m in Sources */,
 				B8771DD01C098DE40051DE9D /* NSDateFormatter+Category.m in Sources */,
 				0666FFB01C141D13009FA71F /* BadCommentListModel.m in Sources */,
@@ -3371,6 +3469,7 @@
 				B8771D381C098DE40051DE9D /* PSTGridLayoutRow.m in Sources */,
 				D95CE3B61C12BD3600EF6F75 /* HomeDataModelCommentstudentcount.m in Sources */,
 				B895A19D1C1042DB00FEDD78 /* DZNSegmentedControl.m in Sources */,
+				06C326241CDAE9C0004D888A /* JZPassRateListView.m in Sources */,
 				B8771D2D1C098DE40051DE9D /* NSIndexPath+PSTCollectionViewAdditions.m in Sources */,
 				D92297491C10439200D0FFDF /* UULineChart.m in Sources */,
 				B8771D131C098DE40051DE9D /* UIView+MJExtension.m in Sources */,
@@ -3397,6 +3496,7 @@
 				B8771D331C098DE40051DE9D /* PSTCollectionViewItemKey.m in Sources */,
 				B8771D341C098DE40051DE9D /* PSTCollectionViewLayout.m in Sources */,
 				B8771DF21C098DE40051DE9D /* EaseConversationCell.m in Sources */,
+				06C3263C1CDB1C1B004D888A /* JZPassRateHeaderView.m in Sources */,
 				B8771DCF1C098DE40051DE9D /* NSDate+Category.m in Sources */,
 				D92424901CDB0D58002AB7C0 /* JZComplaintCell.m in Sources */,
 				D9D2DF871C17D619005DB212 /* HomeDetailCanClickLineChartCell.m in Sources */,
@@ -3404,6 +3504,7 @@
 				D97244AD1C1ED0BD002B3FDE /* DataDetailDMYearData.m in Sources */,
 				D922974B1C10439200D0FFDF /* YBBarChartView.m in Sources */,
 				B8771D011C098DE40051DE9D /* EMCDDeviceManager+Remind.m in Sources */,
+				06C326211CDAE4DA004D888A /* JZPassRateToolBarView.m in Sources */,
 				D9D2DF841C17D619005DB212 /* HomeDetailBaseCanClickCell.m in Sources */,
 				B8771DD61C098DE40051DE9D /* EaseConvertToCommonEmoticonsHelper.m in Sources */,
 				B8771DCD1C098DE40051DE9D /* EaseMessageModel.m in Sources */,
@@ -3464,6 +3565,7 @@
 				0666FFA71C141CA5009FA71F /* ReservationStudentListModel.m in Sources */,
 				55BA0F4F1C0EF19A00F83CD8 /* TeacherController.m in Sources */,
 				0613DC131C1C51E200580C32 /* HomeDataDetailDMCoachcourselist.m in Sources */,
+				06C326331CDAF972004D888A /* JZPassRateListCell.m in Sources */,
 				D9CEC9781C0ED643008DEE69 /* UIColor+Extension.m in Sources */,
 				D95CE3B81C12BD3600EF6F75 /* HomeDataModelRootClass.m in Sources */,
 				D9CEC9511C0ECD35008DEE69 /* YBWelcomeController.m in Sources */,
@@ -3499,7 +3601,10 @@
 				B22BADCE1CC74DE000455E1C /* JGUserTools.m in Sources */,
 				D92297481C10439200D0FFDF /* UUColor.m in Sources */,
 				0613DC1B1C1C521C00580C32 /* HomeDetailTableView.m in Sources */,
+				06C326391CDB1126004D888A /* JZPassRateLabelView.m in Sources */,
 				B838C24B1C1B0AB800493360 /* ProjectGuideView.m in Sources */,
+				06C326301CDAF522004D888A /* JZPassRateListModel.m in Sources */,
+				06C326271CDAEBA2004D888A /* JZNoDataShowBGView.m in Sources */,
 				D9CEC97A1C0ED643008DEE69 /* UIImageView+SDWedImage.m in Sources */,
 				B8771DD11C098DE40051DE9D /* NSObject+EaseMob.m in Sources */,
 				B8771DE51C098DE40051DE9D /* EaseBubbleView+Location.m in Sources */,
@@ -3513,6 +3618,7 @@
 				D922974D1C10439200D0FFDF /* YBPieChartView.m in Sources */,
 				B8771CFC1C098DE40051DE9D /* EMAudioPlayerUtil.m in Sources */,
 				B8771DD81C098DE40051DE9D /* EaseEmoji.m in Sources */,
+				06C3261E1CDAE381004D888A /* JZPassRateController.m in Sources */,
 				B8771DD91C098DE40051DE9D /* EaseEmojiEmoticons.m in Sources */,
 				B8771D101C098DE40051DE9D /* MJRefreshLegendHeader.m in Sources */,
 				D9CEC9771C0ED643008DEE69 /* NSString+Helper.m in Sources */,
@@ -3589,6 +3695,7 @@
 				B8771DEF1C098DE40051DE9D /* EaseFacialView.m in Sources */,
 				D95CE3B71C12BD3600EF6F75 /* HomeDataModelData.m in Sources */,
 				D922974A1C10439200D0FFDF /* XYPieChart.m in Sources */,
+				06C3262D1CDAED85004D888A /* JZPassRateViewModel.m in Sources */,
 				B8771DE01C098DE40051DE9D /* EaseBaseMessageCell.m in Sources */,
 				B8771E461C098F500051DE9D /* HMButton.m in Sources */,
 				B8771D3B1C098DE40051DE9D /* CustomMessageCell.m in Sources */,
@@ -3700,8 +3807,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Guo Bin Shen (L74C9NC842)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Guo Bin Shen (L74C9NC842)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Jizhi Driver Services Co., Ltd (2VG884M937)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Jizhi Driver Services Co., Ltd (2VG884M937)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3733,7 +3840,12 @@
 					"$(PROJECT_DIR)/Headmaster/ThirdPary/JGPush",
 				);
 				PRODUCT_NAME = "极致校长";
-				PROVISIONING_PROFILE = "6bb796de-d4dc-4ac9-a90c-5fbcb7a551fa";
+<<<<<<< HEAD
+				PROVISIONING_PROFILE = "0224fe0e-ef53-48c2-add7-a7104a2a136f";
+=======
+
+				PROVISIONING_PROFILE = "84c617e5-dd02-488a-9351-253d3409da57";
+>>>>>>> 66b2f038c2d6614ba2b42948a103ade7fc08006f
 			};
 			name = Debug;
 		};
@@ -3743,8 +3855,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Guo Bin Shen (L74C9NC842)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Guo Bin Shen (L74C9NC842)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Jizhi Driver Services Co., Ltd (2VG884M937)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Jizhi Driver Services Co., Ltd (2VG884M937)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3776,7 +3888,12 @@
 					"$(PROJECT_DIR)/Headmaster/ThirdPary/JGPush",
 				);
 				PRODUCT_NAME = "极致校长";
-				PROVISIONING_PROFILE = "6bb796de-d4dc-4ac9-a90c-5fbcb7a551fa";
+<<<<<<< HEAD
+				PROVISIONING_PROFILE = "0224fe0e-ef53-48c2-add7-a7104a2a136f";
+=======
+				PROVISIONING_PROFILE = "84c617e5-dd02-488a-9351-253d3409da57";
+
+>>>>>>> 66b2f038c2d6614ba2b42948a103ade7fc08006f
 			};
 			name = Release;
 		};

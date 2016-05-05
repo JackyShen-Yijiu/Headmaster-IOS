@@ -43,10 +43,13 @@
 #define kJZWidth [UIScreen mainScreen].bounds.size.width
 #define kJZHeight [UIScreen mainScreen].bounds.size.height
 
-// v1.2深色字体颜色
+// V_2.0 深色字体颜色
 #define kJZDarkTextColor RGB_Color(47,47,47)
-// v1.2浅色字体颜色
+// V_2.0 浅色字体颜色
 #define kJZLightTextColor RGB_Color(140,140,140)
+
+// V_2.0 主背景颜色
+#define JZ_MAIN_BACKGROUND_COLOR RGB_Color(232,232,237)
 
 
 // 白色字体颜色

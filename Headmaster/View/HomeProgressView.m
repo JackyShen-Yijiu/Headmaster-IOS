@@ -48,7 +48,8 @@
 {
     self = [super init];
     if (self) {
-        [self createObject];
+        
+//        [self createObject];
     }
     return self;
 }
@@ -73,7 +74,6 @@
     
     [_outSideBgView setNeedsDisplay];
     [_outSideFgView setNeedsDisplay];
-//    [_inSideBgView setNeedsDisplay];
     [_inSideFgView setNeedsDisplay];
     
     [self loadShowTextWithProgress:self.inSideFgView.progress];
@@ -107,7 +107,7 @@
 
 - (void)layoutSubviews {
     
-    [self configUI];
+    //[self configUI];
 }
 
 - (void)configUI {

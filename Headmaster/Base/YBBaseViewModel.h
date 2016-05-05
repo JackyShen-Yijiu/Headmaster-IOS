@@ -18,6 +18,7 @@ typedef void(^BaseViewModelUpdataBlock)();
 
 - (BOOL)successLoadMoreBlock;
 - (BOOL)errorLoadMoreBlock;
+- (BOOL) successLoadMoreBlockAndNoData;
 
 //** 设置刷新和加载回调Block **//
 // 刷新成功时：回调Block
@@ -27,6 +28,10 @@ typedef void(^BaseViewModelUpdataBlock)();
 
 // 加载成功时：回调Block
 - (void)successLoadMoreBlock:(BaseViewModelUpdataBlock)successLoadMoreBlock;
+
+
+// 加载成功时：回调Block
+- (void)successLoadMoreBlockAndNoData:(BaseViewModelUpdataBlock)successLoadMoreBlockAndNoData;
 // 加载失败时：回调Block
 - (void)errorLoadMoreBlock:(BaseViewModelUpdataBlock)errorLoadMoreBlock;
 
@@ -34,5 +39,6 @@ typedef void(^BaseViewModelUpdataBlock)();
 - (void)networkRequestRefresh;
 // 2、上拉加载时的网络请求
 - (void)networkRequestLoadMore;
+
 
 @end
