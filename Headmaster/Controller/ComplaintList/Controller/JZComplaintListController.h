@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface JZComplaintListController : UIViewController
-
+@property (nonatomic, assign) NSInteger count;
 @end
