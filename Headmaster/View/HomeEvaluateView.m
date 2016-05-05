@@ -22,6 +22,9 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        
+        self.backgroundColor = [UIColor redColor];
+        
         self.labelArray = [NSMutableArray array];
         [self createButtons];
     }
