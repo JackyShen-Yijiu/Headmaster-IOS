@@ -27,6 +27,7 @@
 #import "RecommendViewController.h"
 
 #import "HomeGuideController.h"
+#import "JZComplaintListController.h"
 
 @interface HomeController () <BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate>
 
@@ -93,10 +94,14 @@
 
 - (void)rightViewDidClick
 {
-    RecommendViewController *recommendVC = [RecommendViewController new];
-    recommendVC.searchType = self.searchType;
-    recommendVC.commentTag = 3;
-    [self.myNavController pushViewController:recommendVC animated:YES];
+    JZComplaintListController *complaintVC = [[JZComplaintListController alloc]init];
+    
+    [self.myNavController pushViewController:complaintVC animated:YES];
+
+//    RecommendViewController *recommendVC = [RecommendViewController new];
+//    recommendVC.searchType = self.searchType;
+//    recommendVC.commentTag = 3;
+//    [self.myNavController pushViewController:recommendVC animated:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated
