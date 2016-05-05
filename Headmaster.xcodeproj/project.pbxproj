@@ -2725,6 +2725,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		D92424C41CDB3C4E002AB7C0 /* Complaint */ = {
+			isa = PBXGroup;
+			children = (
+				D924246B1CDB0D58002AB7C0 /* ComplaintList */,
+				D92424641CDB0D58002AB7C0 /* ComplaintDetail */,
+			);
+			name = Complaint;
+			sourceTree = "<group>";
+		};
 		D94337751C1AAFBF00F479D3 /* HomeDataDetailModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -2921,10 +2930,8 @@
 		D9CEC8F21C0E8CF7008DEE69 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-
 				06C326171CDAE34C004D888A /* JZPassRate */,
-				D92424641CDB0D58002AB7C0 /* ComplaintDetail */,
-				D924246B1CDB0D58002AB7C0 /* ComplaintList */,
+				D92424C41CDB3C4E002AB7C0 /* Complaint */,
 				B895A1971C1041BD00FEDD78 /* Recomond */,
 				D9CEC8F31C0E8CF7008DEE69 /* Home */,
 				D9CEC8F41C0E8CF7008DEE69 /* Information */,
@@ -3841,7 +3848,6 @@
 				);
 				PRODUCT_NAME = "极致校长";
 				PROVISIONING_PROFILE = "0224fe0e-ef53-48c2-add7-a7104a2a136f";
-
 			};
 			name = Debug;
 		};
