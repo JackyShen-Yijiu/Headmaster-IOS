@@ -189,6 +189,9 @@
     _phoneTF.textColor = [UIColor colorWithHexString:@"#E4E5E6"];
     [_phoneTF setValue:[UIColor colorWithHexString:@"#C8CACD"] forKeyPath:@"_placeholderLabel.textColor"];
     [_phoneTF setValue:[UIFont systemFontOfSize:15] forKeyPath:@"_placeholderLabel.font"];
+    if (YBIphone6Plus) {
+        [_phoneTF setValue:[UIFont systemFontOfSize:15*YBRatio] forKeyPath:@"_placeholderLabel.font"];
+    }
     _phoneTF.delegate = self;
     _phoneTF.keyboardType = UIKeyboardTypeNumberPad;
     _phoneTF.leftViewMode = UITextFieldViewModeAlways;
@@ -204,6 +207,9 @@
     _passwordTF.textColor = [UIColor colorWithHexString:@"#E4E5E6"];
     [_passwordTF setValue:[UIColor colorWithHexString:@"#C8CACD"] forKeyPath:@"_placeholderLabel.textColor"];
     [_passwordTF setValue:[UIFont systemFontOfSize:15] forKeyPath:@"_placeholderLabel.font"];
+    if (YBIphone6Plus) {
+        [_passwordTF setValue:[UIFont systemFontOfSize:15*YBRatio] forKeyPath:@"_placeholderLabel.font"];
+    }
     _passwordTF.delegate = self;
     _passwordTF.secureTextEntry = YES;
     _passwordTF.leftViewMode = UITextFieldViewModeAlways;
@@ -218,11 +224,17 @@
     _loginButton.backgroundColor = [UIColor colorWithHexString:@"26CCC0"];
     [_loginButton setTitle:@"登录" forState:UIControlStateNormal];
     _loginButton.titleLabel.font = [UIFont systemFontOfSize:20];
+    if (YBIphone6Plus) {
+        _loginButton.titleLabel.font = [UIFont systemFontOfSize:20*YBRatio];
+    }
     [_loginButton setTitleColor:[UIColor colorWithHexString:@"#fefefe"] forState:UIControlStateNormal];
     [_loginButton addTarget:self action:@selector(buttonIsClick) forControlEvents:UIControlEventTouchUpInside];
     
     [_callBtn setTitle:@"没有账号?联系我们" forState:UIControlStateNormal];
     _callBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+    if (YBIphone6Plus) {
+        _callBtn.titleLabel.font = [UIFont systemFontOfSize:14*YBRatio];
+    }
     [_callBtn setTitleColor:[UIColor colorWithHexString:@"#9A9DA6"] forState:UIControlStateNormal];
     [_callBtn addTarget:self action:@selector(callNum) forControlEvents:UIControlEventTouchUpInside];
 }

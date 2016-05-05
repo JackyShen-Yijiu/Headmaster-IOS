@@ -128,6 +128,9 @@ NSString *const EaseMessageCellIdentifierSendFile = @"EaseMessageCellSendFile";
     _hasRead.text = NSLocalizedString(@"hasRead", @"Read");
     _hasRead.textAlignment = NSTextAlignmentCenter;
     _hasRead.font = [UIFont systemFontOfSize:12];
+    if (YBIphone6Plus) {
+        _hasRead.font = [UIFont systemFontOfSize:12*YBRatio];
+    }
     _hasRead.hidden = YES;
     [_hasRead sizeToFit];
     [self.contentView addSubview:_hasRead];
@@ -147,6 +150,7 @@ NSString *const EaseMessageCellIdentifierSendFile = @"EaseMessageCellSendFile";
                 [_bubbleView setupTextBubbleView];
                 
                 _bubbleView.textLabel.font = _messageTextFont;
+                
                 _bubbleView.textLabel.textColor = _messageTextColor;
             }
                 break;

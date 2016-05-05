@@ -50,7 +50,9 @@
     headerLabel.text=@"";
     headerLabel.textColor = [UIColor whiteColor];
     headerLabel.font=[UIFont systemFontOfSize:14];
-    
+    if (YBIphone6Plus) {
+        headerLabel.font=[UIFont systemFontOfSize:14*YBRatio];
+    }
     
     headerIV=[[UIImageView alloc] initWithFrame:CGRectMake((scrollWidth-labelWidth)/2-imageWidth, 0, imageWidth, imageHeight)];
     [headerView addSubview:headerIV];

@@ -86,24 +86,36 @@
     _iconNameLabel.text = @"极致驾服";
     _iconNameLabel.textColor = [UIColor colorWithHexString:@"#fcfcfc"];
     _iconNameLabel.font = [UIFont systemFontOfSize:14];
-    
+    if (YBIphone6Plus) {
+        _iconNameLabel.font = [UIFont systemFontOfSize:14*YBRatio];
+    }
     _descriptionLabel.text = @"做有态度的驾校培训";
     _descriptionLabel.textColor = [UIColor colorWithHexString:@"#fcfcfc"];
     _descriptionLabel.font = [UIFont systemFontOfSize:15];
-    
+    if (YBIphone6Plus) {
+        _descriptionLabel.font = [UIFont systemFontOfSize:15*YBRatio];
+    }
     NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
     _versionLabel.text = [NSString stringWithFormat:@"v %@",[infoDictionary objectForKey:@"CFBundleShortVersionString"]];
     _versionLabel.textColor = [UIColor colorWithHexString:@"#fcfcfc"];
     _versionLabel.font = [UIFont systemFontOfSize:15];
-    
+    if (YBIphone6Plus) {
+        _versionLabel.font = [UIFont systemFontOfSize:15*YBRatio];
+    }
     [_LicenseServiceAgreementBtn setTitle:@"许可服务协议" forState:UIControlStateNormal];
     [_LicenseServiceAgreementBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     _LicenseServiceAgreementBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+    if (YBIphone6Plus) {
+        _LicenseServiceAgreementBtn.titleLabel.font = [UIFont systemFontOfSize:12*YBRatio];
+    }
     [_LicenseServiceAgreementBtn addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
     
     _buttomLabel.text = @"Copyright All Right Resrved";
     _buttomLabel.textColor = [UIColor colorWithHexString:@"#fcfcfc"];
     _buttomLabel.font = [UIFont systemFontOfSize:12];
+    if (YBIphone6Plus) {
+        _buttomLabel.font = [UIFont systemFontOfSize:12*YBRatio];
+    }
 }
 
 - (void)btnClick {

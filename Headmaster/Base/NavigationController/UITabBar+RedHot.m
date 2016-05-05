@@ -26,6 +26,9 @@
     badgeView.layer.masksToBounds = YES;
     badgeView.textAlignment = NSTextAlignmentCenter;
     badgeView.font = [UIFont systemFontOfSize:8];
+    if (YBIphone6Plus) {
+        badgeView.font = [UIFont systemFontOfSize:8*YBRatio];
+    }
     badgeView.backgroundColor = [UIColor redColor];//颜色：红色
     CGRect tabFrame = self.frame;
     

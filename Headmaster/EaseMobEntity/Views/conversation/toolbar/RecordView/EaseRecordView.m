@@ -62,6 +62,9 @@
         _textLabel.text = NSLocalizedString(@"message.toolBar.record.upCancel", @"Fingers up slide, cancel sending");
         [self addSubview:_textLabel];
         _textLabel.font = [UIFont systemFontOfSize:13];
+        if (YBIphone6Plus) {
+            _textLabel.font = [UIFont systemFontOfSize:13*YBRatio];
+        }
         _textLabel.textColor = [UIColor whiteColor];
         _textLabel.layer.cornerRadius = 5;
         _textLabel.layer.borderColor = [[UIColor redColor] colorWithAlphaComponent:0.5].CGColor;

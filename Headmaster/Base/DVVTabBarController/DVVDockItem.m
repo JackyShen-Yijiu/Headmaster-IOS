@@ -34,7 +34,9 @@
     
     // 文字大小
     self.titleLabel.font = [UIFont systemFontOfSize:12];
-    
+    if (YBIphone6Plus) {
+        self.titleLabel.font = [UIFont systemFontOfSize:12*YBRatio];
+    }
     // 图片的内容模式
     //    self.imageView.contentMode = UIViewContentModeScaleToFill;
 }

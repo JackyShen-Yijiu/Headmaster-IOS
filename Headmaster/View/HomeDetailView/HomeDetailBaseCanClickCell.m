@@ -75,6 +75,9 @@
         _titleLabel = [UILabel new];
         _titleLabel.textAlignment = 1;
         _titleLabel.font = [UIFont systemFontOfSize:16];
+        if (YBIphone6Plus) {
+            _titleLabel.font = [UIFont systemFontOfSize:16*YBRatio];
+        }
         _titleLabel.textColor = [UIColor colorWithHexString:HIGHLIGHT_COLOR];
     }
     return _titleLabel;
@@ -84,6 +87,9 @@
     if (!_markLabel) {
         _markLabel = [UILabel new];
         _markLabel.font = [UIFont systemFontOfSize:12];
+        if (YBIphone6Plus) {
+            _markLabel.font = [UIFont systemFontOfSize:12*YBRatio];
+        }
         _markLabel.textAlignment = 2;
         _markLabel.textColor = [UIColor colorWithHexString:HIGHLIGHT_COLOR];
     }

@@ -11,7 +11,17 @@
 @implementation InformationListCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    
+    if (YBIphone6Plus) {
+        
+        self.contentLabel.font = [UIFont systemFontOfSize:14*YBRatio];
+        
+        self.timeLabel.font = [UIFont systemFontOfSize:14*YBRatio];
+        
+    }
+    
+    self.iconImageView.contentMode = UIViewContentModeScaleToFill;
+    
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -23,6 +33,7 @@
             self = array.lastObject;
         }
         self.backgroundColor = [UIColor clearColor];
+        
     }
     return self;
 }
@@ -30,6 +41,7 @@
 - (void)refreshData:(InformationDataModel *)dataModel {
     
     [self.iconImageView downloadImage:dataModel.logimg];
+    
     self.contentLabel.text = dataModel.descriptionString;
     self.contentLabel.textColor = [UIColor colorWithHexString:@"#bfbfbf"];
     self.timeLabel.text = [[self class] getLocalDateFormateUTCDate:dataModel.createtime];

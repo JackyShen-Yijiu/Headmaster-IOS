@@ -85,11 +85,16 @@
     UITextField *mainTitleField = [[UITextField alloc]init];
     mainTitleField.placeholder = @"请输入公告标题 最多15字（选填）";
     mainTitleField.font = [UIFont systemFontOfSize:14];
-    
+    if (YBIphone6Plus) {
+        mainTitleField.font = [UIFont systemFontOfSize:14*YBRatio];
+    }
     mainTitleField.textColor = [UIColor whiteColor];
     mainTitleField.tintColor = [UIColor whiteColor];
     [mainTitleField setValue:RGB_Color(185, 185, 185) forKeyPath:@"_placeholderLabel.textColor"];
     [mainTitleField setValue:[UIFont boldSystemFontOfSize:14] forKeyPath:@"_placeholderLabel.font"];
+    if (YBIphone6Plus) {
+        [mainTitleField setValue:[UIFont boldSystemFontOfSize:14*YBRatio] forKeyPath:@"_placeholderLabel.font"];
+    }
     [self.view addSubview:mainTitleField];
     self.mainTitleField = mainTitleField;
     

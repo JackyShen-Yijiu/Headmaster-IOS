@@ -184,6 +184,7 @@
     [upButton setTitle:upTitle forState:UIControlStateNormal];
     //字体
     upButton.titleLabel.font = _downTitleFont;
+   
     //显示文字颜色
     [upButton setTitleColor:[UIColor colorWithHexString:@"19f9cc"] forState:UIControlStateNormal];
     [upButton setTitleColor:_titleSelectColor forState:UIControlStateSelected];

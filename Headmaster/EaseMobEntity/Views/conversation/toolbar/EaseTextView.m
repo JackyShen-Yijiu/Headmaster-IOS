@@ -94,6 +94,9 @@
     self.scrollsToTop = NO;
     self.userInteractionEnabled = YES;
     self.font = [UIFont systemFontOfSize:16.0f];
+    if (YBIphone6Plus) {
+        self.font = [UIFont systemFontOfSize:16.0f*YBRatio];
+    }
     self.textColor = [UIColor blackColor];
     self.backgroundColor = [UIColor whiteColor];
     self.keyboardAppearance = UIKeyboardAppearanceDefault;

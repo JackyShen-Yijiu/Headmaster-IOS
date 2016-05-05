@@ -34,6 +34,9 @@
     if (!_label) {
         _label = [[UILabel alloc] init];
         _label.font = [UIFont systemFontOfSize:16.f];
+        if (YBIphone6Plus) {
+            _label.font = [UIFont systemFontOfSize:16.f*YBRatio];
+        }
         _label.textColor = RGB_Color(191, 191, 191);
         [self addSubview:_label];
     }
@@ -78,6 +81,9 @@
 {
     self.titleLabel = [[UILabel alloc] init];
     self.titleLabel.font = [UIFont systemFontOfSize:16.f];
+    if (YBIphone6Plus) {
+        self.titleLabel.font = [UIFont systemFontOfSize:16.f*YBRatio];
+    }
     self.titleLabel.textColor = RGB_Color(1, 226, 182);
     self.titleLabel.text = @"评价比例";
     [self addSubview:self.titleLabel];

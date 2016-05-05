@@ -207,12 +207,30 @@
     
     if (SCREEN_WIDTH > 320) {
         _progressLabel.font = [UIFont fontWithName:@"HiraKakuProN-W3" size:48];
+        if (YBIphone6Plus) {
+            _progressLabel.font = [UIFont fontWithName:@"HiraKakuProN-W3" size:48*YBRatio];
+        }
         _firstMarkLabel.font = [UIFont systemFontOfSize:20];
+        if (YBIphone6Plus) {
+            _firstMarkLabel.font = [UIFont systemFontOfSize:20*YBRatio];
+        }
         _secondMarkLabel.font = [UIFont systemFontOfSize:20];
+        if (YBIphone6Plus) {
+            _secondMarkLabel.font = [UIFont systemFontOfSize:20*YBRatio];
+        }
     }else {
         _progressLabel.font = [UIFont fontWithName:@"HiraKakuProN-W3" size:42];
+        if (YBIphone6Plus) {
+            _progressLabel.font = [UIFont fontWithName:@"HiraKakuProN-W3" size:42*YBRatio];
+        }
         _firstMarkLabel.font = [UIFont systemFontOfSize:17];
+        if (YBIphone6Plus) {
+            _firstMarkLabel.font = [UIFont systemFontOfSize:17*YBRatio];
+        }
         _secondMarkLabel.font = [UIFont systemFontOfSize:17];
+        if (YBIphone6Plus) {
+            _secondMarkLabel.font = [UIFont systemFontOfSize:17*YBRatio];
+        }
     }
     
     [self addSubview:_progressLabel];

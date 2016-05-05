@@ -27,6 +27,7 @@
 #import "RecommendViewController.h"
 
 #import "HomeGuideController.h"
+#import "JZComplaintListController.h"
 
 #import "JZPassRateController.h"
 
@@ -81,6 +82,9 @@
         _rightLabel.backgroundColor = [UIColor redColor];
         _rightLabel.textAlignment = NSTextAlignmentCenter;
         _rightLabel.font = [UIFont systemFontOfSize:8];
+        if (YBIphone6Plus) {
+            _rightLabel.font = [UIFont systemFontOfSize:8*YBRatio];
+        }
         _rightLabel.frame = CGRectMake(_rightView.width-10, 0, 10, 10);
         _rightLabel.layer.masksToBounds = YES;
         _rightLabel.layer.cornerRadius = _rightLabel.width/2;
@@ -92,10 +96,14 @@
 
 - (void)rightViewDidClick
 {
-    RecommendViewController *recommendVC = [RecommendViewController new];
-    recommendVC.searchType = self.searchType;
-    recommendVC.commentTag = 3;
-    [self.myNavController pushViewController:recommendVC animated:YES];
+    JZComplaintListController *complaintVC = [[JZComplaintListController alloc]init];
+    
+    [self.myNavController pushViewController:complaintVC animated:YES];
+
+//    RecommendViewController *recommendVC = [RecommendViewController new];
+//    recommendVC.searchType = self.searchType;
+//    recommendVC.commentTag = 3;
+//    [self.myNavController pushViewController:recommendVC animated:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -248,6 +256,9 @@
         self.temperatureLabel.text = str;
         self.temperatureLabel.textAlignment = NSTextAlignmentRight ;
         self.temperatureLabel.font = [UIFont systemFontOfSize:16];
+        if (YBIphone6Plus) {
+            self.temperatureLabel.font = [UIFont systemFontOfSize:16*YBRatio];
+        }
         self.temperatureLabel.textColor = [UIColor whiteColor];
         // 显示自定义的天气图片
         if ([homeModel.weather isEqualToString:@"大雪"]) {

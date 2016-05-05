@@ -113,7 +113,9 @@
         nameLabel.textColor = [UIColor whiteColor];
         nameLabel.textAlignment = NSTextAlignmentCenter;
         nameLabel.font = [UIFont systemFontOfSize:16];
-    
+        if (YBIphone6Plus) {
+            nameLabel.font = [UIFont systemFontOfSize:16*YBRatio];
+        }
         [_headView addSubview:imgView];
         [_headView addSubview:nameLabel];
         
@@ -157,6 +159,9 @@
         lb.textColor = [UIColor colorWithHexString:@"#fcfcfc"];
         lb.tag = 100 +indexPath.row;
         lb.font = [UIFont systemFontOfSize:16];
+        if (YBIphone6Plus) {
+            lb.font = [UIFont systemFontOfSize:16*YBRatio];
+        }
 //        lb.backgroundColor = [UIColor cyanColor];
         [cell.contentView addSubview:lb];
     }

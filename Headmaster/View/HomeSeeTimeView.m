@@ -94,6 +94,9 @@
     [button.layer setBorderColor:[UIColor colorWithHexString:@"19f9cc"].CGColor];
     [button.layer setBorderWidth:1];
     button.titleLabel.font = [UIFont italicSystemFontOfSize:20];
+    if (YBIphone6Plus) {
+        button.titleLabel.font = [UIFont italicSystemFontOfSize:20*YBRatio];
+    }
     [self buttonNormalState:button];
     
     [button setTitleColor:[UIColor colorWithHexString:@"19f9cc"] forState:UIControlStateSelected];

@@ -335,6 +335,9 @@
     _xTitleMarkLabel.frame = CGRectMake(1, 10, 25, 10);
     _xTitleMarkLabel.textAlignment = 2;
     _xTitleMarkLabel.font = [UIFont systemFontOfSize:12];
+    if (YBIphone6Plus) {
+        _xTitleMarkLabel.font = [UIFont systemFontOfSize:12*YBRatio];
+    }
     [_markView addSubview:_xTitleMarkLabel];
     
     _yTitleMarkLabel = [UILabel new];
@@ -342,6 +345,9 @@
     _yTitleMarkLabel.frame = CGRectMake(-3, 0, 30, 15);
     _yTitleMarkLabel.textAlignment = 0;
     _yTitleMarkLabel.font = [UIFont systemFontOfSize:12];
+    if (YBIphone6Plus) {
+        _yTitleMarkLabel.font = [UIFont systemFontOfSize:12*YBRatio];
+    }
     [_markView addSubview:_yTitleMarkLabel];
     
     if (_xTitleMarkWordString) {
@@ -369,6 +375,9 @@
         view.backgroundColor = [_colors objectAtIndex:index]?[_colors objectAtIndex:index]:UUGreen;
         UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(point.x-UUTagLabelwidth/2.0, point.y-UULabelHeight*2, UUTagLabelwidth, UULabelHeight)];
         label.font = [UIFont systemFontOfSize:10];
+        if (YBIphone6Plus) {
+            label.font = [UIFont systemFontOfSize:10*YBRatio];
+        }
         label.textAlignment = NSTextAlignmentCenter;
         label.textColor = view.backgroundColor;
         label.text = [NSString stringWithFormat:@"%d",(int)value];

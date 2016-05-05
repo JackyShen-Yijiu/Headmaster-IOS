@@ -42,8 +42,9 @@
 #define RECOMENDHMESSAGE            @"headmaster/statistics/commentdetails"
 
 /*投诉*/
-#define COMPLAINHMESSAGE            @"headmaster/statistics/complaintdetails"
+#define COMPLAINHMESSAGE            @"headmaster/statistics/complaintlist"
 #define DEALDONWHMESSAGE            @"headmaster/statistics/handlecomplaint"
+
 
 /* 教练授课详情 */
 #define COACHCOURSEDATAIL            @"headmaster/statistics/coachcoursedetails"

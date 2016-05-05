@@ -36,6 +36,9 @@
         _titleLabel.textAlignment   = NSTextAlignmentCenter;
         _titleLabel.backgroundColor = [UIColor clearColor];
         _titleLabel.font = [UIFont systemFontOfSize:14.f];
+        if (YBIphone6Plus) {
+            _titleLabel.font = [UIFont systemFontOfSize:14.f*YBRatio];
+        }
         [self addSubview:_titleLabel];
         
         self.norColor        = norColor;

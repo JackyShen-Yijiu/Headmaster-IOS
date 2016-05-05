@@ -55,6 +55,9 @@
     _placeholderLabel.frame = CGRectMake(2, 8, 200, 30);
     _placeholderLabel.text = @"请留下宝贵意见和建议";
     _placeholderLabel.font = [UIFont systemFontOfSize:15];
+    if (YBIphone6Plus) {
+        _placeholderLabel.font = [UIFont systemFontOfSize:15*YBRatio];
+    }
     _placeholderLabel.textColor = [UIColor grayColor];
     [self.view addSubview:_placeholderLabel];
     

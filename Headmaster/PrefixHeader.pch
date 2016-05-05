@@ -40,6 +40,14 @@
 #define HM_LINE_HEIGHT  0.5f
 #define RELOADDATACOUNT 10
 
+#define kJZWidth [UIScreen mainScreen].bounds.size.width
+#define kJZHeight [UIScreen mainScreen].bounds.size.height
+
+// v1.2深色字体颜色
+#define kJZDarkTextColor RGB_Color(47,47,47)
+// v1.2浅色字体颜色
+#define kJZLightTextColor RGB_Color(140,140,140)
+
 
 // 白色字体颜色
 #define JZ_FONTCOLOR_WHITE   RGB_Color(255,255,255)
@@ -57,5 +65,9 @@
 #define YBIphone6 [UIScreen mainScreen].bounds.size.height==667
 #define YBIphone5 [UIScreen mainScreen].bounds.size.height==568
 #define YBIphone4 [UIScreen mainScreen].bounds.size.height==480
+
+
+#define YBRatio 1.15
+#define YBSizeRatio 1.5
 
 #endif

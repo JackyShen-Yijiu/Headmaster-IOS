@@ -129,6 +129,9 @@
     [loginOutBtn setTitle:@"退出登录" forState:UIControlStateNormal];
     [loginOutBtn setTitleColor:[UIColor colorWithHexString:@"#bfbfbf"] forState:UIControlStateNormal];
     loginOutBtn.titleLabel.font = [UIFont systemFontOfSize:16];
+    if (YBIphone6Plus) {
+        loginOutBtn.titleLabel.font = [UIFont systemFontOfSize:16*YBRatio];
+    }
     loginOutBtn.backgroundColor = [UIColor darkGrayColor];
     [loginOutBtn addTarget:self action:@selector(UserWillLoginOut) forControlEvents:UIControlEventTouchUpInside];
     [view addSubview:loginOutBtn];

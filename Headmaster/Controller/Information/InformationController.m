@@ -112,6 +112,9 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (YBIphone6Plus) {
+        return 90 * YBSizeRatio;
+    }
     return 90;
 }
 

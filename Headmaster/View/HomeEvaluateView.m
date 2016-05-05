@@ -63,6 +63,9 @@
     topLabel.textAlignment = NSTextAlignmentCenter;
     topLabel.text = @"学员评价";
     topLabel.font = [UIFont boldSystemFontOfSize:14];
+    if (YBIphone6Plus) {
+        topLabel.font = [UIFont boldSystemFontOfSize:14*YBRatio];
+    }
     topLabel.textColor = [UIColor whiteColor];
     [self addSubview:topLabel];
     
@@ -85,13 +88,18 @@
         label.frame = CGRectMake(0, 0, btnWidth, labelViewHeight);
         label.textAlignment = 1;
         label.font = [UIFont fontWithName:@"HiraKakuProN-W3" size:16];
+        if (YBIphone6Plus) {
+            label.font = [UIFont fontWithName:@"HiraKakuProN-W3" size:16*YBRatio];
+        }
         label.text = @" ";
         
         CGFloat imageViewWidth = btnWidth;
         UIButton *stateBtn = [UIButton new];
         stateBtn.tag = i;
         stateBtn.titleLabel.font = [UIFont systemFontOfSize:13];
-        
+        if (YBIphone6Plus) {
+            stateBtn.titleLabel.font = [UIFont systemFontOfSize:13*YBRatio];
+        }
         if (i == 3) {
             stateBtn.frame = CGRectMake(btnWidth / 2.0 - imageViewWidth / 2.0, labelViewHeight, imageViewWidth, imageViewWidth/2);
             [stateBtn setImage:[UIImage imageNamed:imageArray[i]] forState:UIControlStateNormal];
