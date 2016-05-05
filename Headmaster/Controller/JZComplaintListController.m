@@ -18,8 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.myNavigationItem.title = [NSString stringWithFormat:@"投诉"];
-    self.myNavController.navigationBar.backgroundColor = [UIColor yellowColor];
-
+    
     
     self.view.backgroundColor = [UIColor cyanColor];
 }

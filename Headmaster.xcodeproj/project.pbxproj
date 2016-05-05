@@ -361,6 +361,8 @@
 		D922974C1C10439200D0FFDF /* YBLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = D92297411C10439200D0FFDF /* YBLineChartView.m */; };
 		D922974D1C10439200D0FFDF /* YBPieChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = D92297431C10439200D0FFDF /* YBPieChartView.m */; };
 		D92424071CDADAEF002AB7C0 /* JZComplaintListController.m in Sources */ = {isa = PBXBuildFile; fileRef = D92424061CDADAEF002AB7C0 /* JZComplaintListController.m */; };
+		D924240D1CDADD4C002AB7C0 /* JZComplaintListView.m in Sources */ = {isa = PBXBuildFile; fileRef = D924240C1CDADD4C002AB7C0 /* JZComplaintListView.m */; };
+		D92424101CDADDA1002AB7C0 /* JZComplaintCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D924240F1CDADDA1002AB7C0 /* JZComplaintCell.m */; };
 		D95CE3B61C12BD3600EF6F75 /* HomeDataModelCommentstudentcount.m in Sources */ = {isa = PBXBuildFile; fileRef = D95CE3AF1C12BD3600EF6F75 /* HomeDataModelCommentstudentcount.m */; };
 		D95CE3B71C12BD3600EF6F75 /* HomeDataModelData.m in Sources */ = {isa = PBXBuildFile; fileRef = D95CE3B11C12BD3600EF6F75 /* HomeDataModelData.m */; };
 		D95CE3B81C12BD3600EF6F75 /* HomeDataModelRootClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D95CE3B31C12BD3600EF6F75 /* HomeDataModelRootClass.m */; };
@@ -1030,6 +1032,10 @@
 		D92297431C10439200D0FFDF /* YBPieChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YBPieChartView.m; sourceTree = "<group>"; };
 		D92424051CDADAEF002AB7C0 /* JZComplaintListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZComplaintListController.h; sourceTree = "<group>"; };
 		D92424061CDADAEF002AB7C0 /* JZComplaintListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZComplaintListController.m; sourceTree = "<group>"; };
+		D924240B1CDADD4C002AB7C0 /* JZComplaintListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZComplaintListView.h; sourceTree = "<group>"; };
+		D924240C1CDADD4C002AB7C0 /* JZComplaintListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZComplaintListView.m; sourceTree = "<group>"; };
+		D924240E1CDADDA1002AB7C0 /* JZComplaintCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZComplaintCell.h; sourceTree = "<group>"; };
+		D924240F1CDADDA1002AB7C0 /* JZComplaintCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZComplaintCell.m; sourceTree = "<group>"; };
 		D95CE3AE1C12BD3600EF6F75 /* HomeDataModelCommentstudentcount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeDataModelCommentstudentcount.h; sourceTree = "<group>"; };
 		D95CE3AF1C12BD3600EF6F75 /* HomeDataModelCommentstudentcount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeDataModelCommentstudentcount.m; sourceTree = "<group>"; };
 		D95CE3B01C12BD3600EF6F75 /* HomeDataModelData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeDataModelData.h; sourceTree = "<group>"; };
@@ -2518,10 +2524,38 @@
 		D92424011CDADA85002AB7C0 /* Complaint */ = {
 			isa = PBXGroup;
 			children = (
+				D924240A1CDADD1B002AB7C0 /* Model */,
+				D92424091CDADD13002AB7C0 /* View */,
+				D92424081CDADD0A002AB7C0 /* Controller */,
+			);
+			name = Complaint;
+			sourceTree = "<group>";
+		};
+		D92424081CDADD0A002AB7C0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
 				D92424051CDADAEF002AB7C0 /* JZComplaintListController.h */,
 				D92424061CDADAEF002AB7C0 /* JZComplaintListController.m */,
 			);
-			name = Complaint;
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		D92424091CDADD13002AB7C0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D924240B1CDADD4C002AB7C0 /* JZComplaintListView.h */,
+				D924240C1CDADD4C002AB7C0 /* JZComplaintListView.m */,
+				D924240E1CDADDA1002AB7C0 /* JZComplaintCell.h */,
+				D924240F1CDADDA1002AB7C0 /* JZComplaintCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		D924240A1CDADD1B002AB7C0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		D94337751C1AAFBF00F479D3 /* HomeDataDetailModel */ = {
@@ -3224,6 +3258,7 @@
 				B8771DEC1C098DE40051DE9D /* EaseImageView.m in Sources */,
 				D9E7CD371CC8E3E400AF1B31 /* RefreshTableView.m in Sources */,
 				0613DC121C1C51E200580C32 /* HomeDataDetailDMBadcommentlist.m in Sources */,
+				D92424101CDADDA1002AB7C0 /* JZComplaintCell.m in Sources */,
 				B8771D0B1C098DE40051DE9D /* MJRefreshFooter.m in Sources */,
 				B8771D021C098DE40051DE9D /* EMCDDeviceManagerBase.m in Sources */,
 				D92424071CDADAEF002AB7C0 /* JZComplaintListController.m in Sources */,
@@ -3328,6 +3363,7 @@
 				062BB6F01C1694BE006D5BEE /* HomeWeatherModel.m in Sources */,
 				0699E5E01C1566E50079CABF /* CoachCourseDatailViewModel.m in Sources */,
 				5543A6341C130D710063F7EE /* UserCenterController.m in Sources */,
+				D924240D1CDADD4C002AB7C0 /* JZComplaintListView.m in Sources */,
 				B8771DD31C098DE40051DE9D /* UIViewController+DismissKeyboard.m in Sources */,
 				B8771DDC1C098DE40051DE9D /* ConversationListController.m in Sources */,
 				B8771D051C098DE40051DE9D /* EMVoiceConverter.mm in Sources */,
