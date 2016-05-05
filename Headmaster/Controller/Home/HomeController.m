@@ -61,6 +61,8 @@
 
 @property (nonatomic,strong) UIView *rightView;
 @property (nonatomic,strong) UILabel *rightLabel;
+///  投诉数量
+@property (nonatomic, assign) NSInteger complaintCount;
 
 @end
 
@@ -110,6 +112,8 @@
 {
     JZComplaintListController *complaintVC = [[JZComplaintListController alloc]init];
     
+    complaintVC.count = self.complaintCount;
+    
     [self.myNavController pushViewController:complaintVC animated:YES];
 
 //    RecommendViewController *recommendVC = [RecommendViewController new];
@@ -129,12 +133,15 @@
     
     [MobClick beginLogPageView:NSStringFromClass([self class])];
     
+    
+    
     // 加载天气信息
     [self.locService startUserLocationService];
     
     [_viewModel networkRequestRefresh];
     
 }
+
 
 - (void)viewWillDisappear:(BOOL)animated
 {
@@ -152,6 +159,8 @@
     [super viewDidLoad];
 
     NSLog(@"self.view:%@",self.view);
+    
+    [self loadComplaintData];
     
     if ([HomeGuideController isShowGuide]) {
         [HomeGuideController show];
@@ -443,6 +452,35 @@
 
 - (void)didFailToLocateUserWithError:(NSError *)error
 {
+    
+}
+
+///  加载投诉数量
+-(void)loadComplaintData {
+    
+    
+    [NetworkEntity getComplainListWithUserid:[UserInfoModel defaultUserInfo].userID SchoolId:[UserInfoModel defaultUserInfo].schoolId Index:1 Count:10 success:^(id responseObject) {
+        
+        
+        NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
+        if (type == 1) {
+            NSDictionary *resultData = responseObject[@"data"];
+            
+            self.complaintCount = [resultData[@"count"] integerValue];
+            
+            
+        }else{
+            
+            
+        }
+        
+    } failure:^(NSError *failure) {
+        
+        
+    }];
+    
+    
+    
     
 }
 

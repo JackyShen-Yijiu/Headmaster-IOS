@@ -12,7 +12,7 @@
 @interface JZComplaintListController ()
 @property (nonatomic, weak) JZComplaintListView *listView;
 
-@property (nonatomic, assign) NSInteger count;
+
 
 @end
 
@@ -24,7 +24,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
-    self.myNavigationItem.title = [NSString stringWithFormat:@"投诉%zd",self.count];
+    self.myNavigationItem.title = [NSString stringWithFormat:@"投诉(%zd)",self.count];
 
     self.view.backgroundColor = [UIColor cyanColor];
     JZComplaintListView *listView = [[JZComplaintListView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth, kJZHeight-64)];
