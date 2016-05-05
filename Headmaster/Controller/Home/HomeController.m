@@ -341,9 +341,9 @@
 - (HomeProgressView *)progressView {
     if (!_progressView) {
         _progressView = [HomeProgressView new];
-        CGFloat height = 340;
+        CGFloat height = 300;
         if (YBIphone6Plus) {
-            height = 340 * YBSizeRatio;
+            height = 300 * YBSizeRatio;
         }
         _progressView.frame = CGRectMake(0, CGRectGetMaxY(_topView.frame), self.view.bounds.size.width, height);
         _progressView.backgroundColor = [UIColor whiteColor];

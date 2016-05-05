@@ -3840,12 +3840,7 @@
 					"$(PROJECT_DIR)/Headmaster/ThirdPary/JGPush",
 				);
 				PRODUCT_NAME = "极致校长";
-<<<<<<< HEAD
 				PROVISIONING_PROFILE = "0224fe0e-ef53-48c2-add7-a7104a2a136f";
-=======
-
-				PROVISIONING_PROFILE = "84c617e5-dd02-488a-9351-253d3409da57";
->>>>>>> 66b2f038c2d6614ba2b42948a103ade7fc08006f
 			};
 			name = Debug;
 		};
@@ -3888,12 +3883,7 @@
 					"$(PROJECT_DIR)/Headmaster/ThirdPary/JGPush",
 				);
 				PRODUCT_NAME = "极致校长";
-<<<<<<< HEAD
 				PROVISIONING_PROFILE = "0224fe0e-ef53-48c2-add7-a7104a2a136f";
-=======
-				PROVISIONING_PROFILE = "84c617e5-dd02-488a-9351-253d3409da57";
-
->>>>>>> 66b2f038c2d6614ba2b42948a103ade7fc08006f
 			};
 			name = Release;
 		};
