@@ -26,7 +26,6 @@
 
     self.myNavigationItem.title = [NSString stringWithFormat:@"投诉(%zd)",self.count];
 
-    self.view.backgroundColor = [UIColor cyanColor];
     JZComplaintListView *listView = [[JZComplaintListView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth, kJZHeight-64)];
     
     listView.vc = self;

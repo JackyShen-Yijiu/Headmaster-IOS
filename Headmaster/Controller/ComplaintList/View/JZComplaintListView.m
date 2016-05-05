@@ -11,6 +11,7 @@
 #import "JZComplaintComplaintlist.h"
 #import <YYModel.h>
 #import "RefreshTableView.h"
+#import "JZComplaintDetailController.h"
 
 static NSString *JZComplaintCellID = @"JZComplaintCell";
 
@@ -39,7 +40,7 @@ static NSString *JZComplaintCellID = @"JZComplaintCell";
     return self;
     
 }
-
+#pragma mark - 数据源
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     return self.listDataArray.count;
@@ -53,7 +54,7 @@ static NSString *JZComplaintCellID = @"JZComplaintCell";
         listCell = [[JZComplaintCell  alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:JZComplaintCellID];
     }
     
-//    listCell.selectionStyle = UITableViewCellSelectionStyleNone;
+    listCell.selectionStyle = UITableViewCellSelectionStyleNone;
      JZComplaintComplaintlist *dataModel = self.listDataArray[indexPath.row];
         listCell.data = dataModel;
 
@@ -61,14 +62,21 @@ static NSString *JZComplaintCellID = @"JZComplaintCell";
     return listCell;
     
 }
-
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     JZComplaintComplaintlist *dataModel = self.listDataArray[indexPath.row];
     
     return [JZComplaintCell cellHeightDmData:dataModel];
 }
-
+#pragma mark - 代理
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    JZComplaintDetailController *complaintDetailVC = [[JZComplaintDetailController alloc]init];
+    
+    [self.vc.myNavController pushViewController:complaintDetailVC animated:YES];
+    
+}
+#pragma mark - 首次加载数据
 -(void)loadData {
     
     [NetworkEntity getComplainListWithUserid:[UserInfoModel defaultUserInfo].userID SchoolId:[UserInfoModel defaultUserInfo].schoolId Index:1 Count:10 success:^(id responseObject) {
@@ -107,7 +115,7 @@ static NSString *JZComplaintCellID = @"JZComplaintCell";
 
 
 }
-
+#pragma mark - 下拉刷新
 -(void)setRefresh {
     
     WS(ws);
@@ -120,6 +128,7 @@ static NSString *JZComplaintCellID = @"JZComplaintCell";
     
     
 }
+#pragma mark - 下拉加载的数据
 -(void)loadMoreData {
     
     static NSInteger index = 2;
@@ -172,6 +181,8 @@ static NSString *JZComplaintCellID = @"JZComplaintCell";
 
     
 }
+
+
 
 -(NSMutableArray *)listDataArray {
     

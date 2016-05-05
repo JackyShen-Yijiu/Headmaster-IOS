@@ -44,7 +44,7 @@ static NSString *JZComplaintCellID = @"JZComplaintCell";
 -(void)initUI {
     
     self.lineView = [[UIView alloc]init];
-    self.lineView.backgroundColor = kJZLightTextColor;
+    self.lineView.backgroundColor = JZ_MAIN_BACKGROUND_COLOR;
     
     self.studentNameLabel = [[UILabel alloc]init];
     self.studentNameLabel.textColor = kJZLightTextColor;

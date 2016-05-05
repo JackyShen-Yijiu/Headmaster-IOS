@@ -17,6 +17,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.myNavigationItem.title = @"投诉详情";
+    
+    self.view.backgroundColor = JZ_MAIN_BACKGROUND_COLOR;
+
+    
 }
 
 - (void)didReceiveMemoryWarning {
