@@ -28,6 +28,8 @@
 
 #import "HomeGuideController.h"
 
+#import "JZPassRateController.h"
+
 @interface HomeController () <BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate>
 
 @property (nonatomic, strong) HomeTopView *topView;
@@ -217,9 +219,17 @@
     
     _viewModel.searchType = 1;
     [_viewModel networkRequestRefresh];
+//    [self testVC];
     
 }
+- (void)testVC{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                JZPassRateController *vc = [JZPassRateController new];
+                vc.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:vc animated:YES];
+    });
 
+}
 #pragma mark ----- 加载天气数据
 - (void)addWeatherData
 {

@@ -173,4 +173,13 @@
 success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
 failure:(void (^)(AFHTTPRequestOperation *operation, id responseObject))failure;
 
+/**
+ *  合格学员信息列表
+ */
++ (void)getPassRateListWithuserid:(NSString *)userid
+                       searchSubjectID:(NSInteger)SubjectID
+                            count:(NSInteger) count
+                            index:(NSInteger) index
+                          success:(NetworkSuccessBlock)success
+                          failure:(NetworkFailureBlock)failure;
 @end

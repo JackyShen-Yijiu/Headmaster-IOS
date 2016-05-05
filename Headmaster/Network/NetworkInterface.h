@@ -51,6 +51,11 @@
 
 #define PERSONALSETTING             @"headmaster/userinfo/personalsetting"
 
+#define PASSRATELIST            @"headmaster/userinfo/personalsetting"
+
+
+
+
 
 #endif /* NetworkMacro_h */
 
@@ -78,6 +83,31 @@ typedef NS_ENUM(NSInteger,kDateSearchType) {
      *  本年
      */
     kDateSearchTypeYear
+};
+
+
+
+/**
+ *  查询科目 科目一,科目二,科目三,科目四
+ */
+typedef NS_ENUM(NSInteger,kDateSearchSubjectID) {
+    /**
+     *  科目一
+     */
+    kDateSearchSubjectIDOne = 1,
+    /**
+     *  科目二
+     */
+    kDateSearchSubjectIDTwo,
+    /**
+     *  科目三
+     */
+    kDateSearchSubjectIDThree,
+    /**
+     *  科目四
+     */
+    kDateSearchSubjectIDFour,
+
 };
 
 typedef NS_ENUM(NSInteger,KCommnetLevel) {
