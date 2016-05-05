@@ -7,9 +7,9 @@
 //
 
 #import "JZComplaintDetailController.h"
-
+#import "JZComplaintDetailView.h"
 @interface JZComplaintDetailController ()
-
+@property (nonatomic, weak) JZComplaintDetailView *detailView;
 @end
 
 @implementation JZComplaintDetailController
@@ -20,6 +20,10 @@
     self.myNavigationItem.title = @"投诉详情";
     
     self.view.backgroundColor = JZ_MAIN_BACKGROUND_COLOR;
+    
+    JZComplaintDetailView *detailView = [[JZComplaintDetailView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth, kJZHeight-64)];
+    
+    self.detailView = detailView;
 
     
 }
