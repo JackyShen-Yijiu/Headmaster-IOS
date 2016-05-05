@@ -7,7 +7,7 @@
 //
 
 #import "JZComplaintCell.h"
-
+static NSString *JZComplaintCellID = @"JZComplaintCell";
 @interface JZComplaintCell()
 
 ///  学员头像
@@ -56,7 +56,7 @@
 
     self.complaintDetail = [[UILabel alloc]init];
     self.complaintDetail.textColor = kJZDarkTextColor;
-    self.complaintDetail.numberOfLines = 0;
+    self.complaintDetail.numberOfLines = 2;
     [self.complaintDetail setFont:[UIFont systemFontOfSize:14]];
     
     self.complaintImageView = [[UIView alloc] init];

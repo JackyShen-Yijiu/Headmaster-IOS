@@ -7,8 +7,10 @@
 //
 
 #import "JZComplaintListController.h"
+#import "JZComplaintListView.h"
 
 @interface JZComplaintListController ()
+@property (nonatomic, weak) JZComplaintListView *listView;
 
 @end
 
@@ -18,9 +20,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.myNavigationItem.title = [NSString stringWithFormat:@"投诉"];
-    
-    
+
     self.view.backgroundColor = [UIColor cyanColor];
+    JZComplaintListView *listView = [[JZComplaintListView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth, kJZHeight-64)];
+    
+    self.listView = listView;
+    
+    [self.view addSubview:listView];
+
 }
 
 - (void)didReceiveMemoryWarning {
