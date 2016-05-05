@@ -8,6 +8,9 @@
 
 #import "JZComplaintListView.h"
 #import "JZComplaintCell.h"
+#import "JZComplaintComplaintlist.h"
+#import <YYModel.h>
+
 static NSString *JZComplaintCellID = @"JZComplaintCell";
 
 @interface JZComplaintListView ()<UITableViewDataSource,UITableViewDelegate>
@@ -48,9 +51,10 @@ static NSString *JZComplaintCellID = @"JZComplaintCell";
         listCell = [[JZComplaintCell  alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:JZComplaintCellID];
     }
     
-    listCell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
-    
+//    listCell.selectionStyle = UITableViewCellSelectionStyleNone;
+     JZComplaintComplaintlist *dataModel = self.listDataArray[indexPath.row];
+        listCell.data = dataModel;
+
     
     return listCell;
     
@@ -58,13 +62,48 @@ static NSString *JZComplaintCellID = @"JZComplaintCell";
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 0;
+    JZComplaintComplaintlist *dataModel = self.listDataArray[indexPath.row];
     
+    return [JZComplaintCell cellHeightDmData:dataModel];
 }
 
 -(void)loadData {
     
     
+    [NetworkEntity getComplainListWithUserid:[UserInfoModel defaultUserInfo].userID SchoolId:[UserInfoModel defaultUserInfo].schoolId Index:1 Count:10 success:^(id responseObject) {
+        
+        
+        NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
+        if (type == 1) {
+            NSDictionary *resultData = responseObject[@"data"];
+            
+            NSArray *complaintlist = resultData[@"complaintlist"];
+            
+            for (NSDictionary *dict in complaintlist) {
+                
+                JZComplaintComplaintlist *listModel = [JZComplaintComplaintlist yy_modelWithJSON:dict];
+                [self.listDataArray addObject:listModel];
+
+            }
+            [self reloadData];
+
+            
+            
+            
+        }else{
+        
+            ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"网络出错啦"];
+            [alertView show];
+            
+        }
+        
+    } failure:^(NSError *failure) {
+        ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"网络出错啦"];
+        [alertView show];
+        
+    }];
+
+
 }
 
 -(NSMutableArray *)listDataArray {

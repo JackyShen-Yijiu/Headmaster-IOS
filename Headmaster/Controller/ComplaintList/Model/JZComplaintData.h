@@ -3,6 +3,6 @@
 
 @interface JZComplaintData : NSObject
 
-@property (nonatomic, strong) NSArray * complaintlist;
+@property (nonatomic, strong) JZComplaintComplaintlist * complaintlist;
 @property (nonatomic, assign) NSInteger count;
 @end

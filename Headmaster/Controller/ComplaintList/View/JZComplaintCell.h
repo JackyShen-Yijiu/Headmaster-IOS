@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class JZComplaintComplaintlist;
 @interface JZComplaintCell : UITableViewCell
 
+@property (nonatomic, strong) JZComplaintComplaintlist *data;
++ (CGFloat)cellHeightDmData:(JZComplaintComplaintlist *)dmData;
 @end
