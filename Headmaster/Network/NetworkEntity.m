@@ -104,6 +104,24 @@
     [NetworkTool GET:urlStr params:dic success:success failure:failure];
 }
 
++(void)getComplainListWithUserid:(NSString *)userId SchoolId:(NSString *)schoolId Index:(NSInteger)index Count:(NSInteger)count success:(NetworkSuccessBlock)success failure:(NetworkFailureBlock)failure {
+    
+    if (!userId || !schoolId) {
+        return [NetworkTool missParagramerCallBackFailure:failure];
+    };
+    NSString *urlStr = [NSString stringWithFormat:@"%@/%@",[NetworkTool domain],COMPLAINHMESSAGE];
+    NSDictionary * dic = @{
+                           @"userid":userId,
+                           @"schoolid":schoolId,
+                           @"index":@(index),
+                           @"count":@(count)
+                           };
+    [NetworkTool GET:urlStr params:dic success:success failure:failure];
+    
+}
+
+
+
 
 + (void)markDealComplainWithComplainId:(NSString *)complainId
                                  useID:(NSString *)userId
@@ -280,4 +298,20 @@
     [manager POST:urlStr parameters:params success:success failure:failure];
 }
 
+/**
+ *  合格学员信息列表
+ */
++ (void)getPassRateListWithuserid:(NSString *)userid
+                  searchSubjectID:(NSInteger)SubjectID
+                            count:(NSInteger) count
+                            index:(NSInteger) index
+                          success:(NetworkSuccessBlock)success
+                          failure:(NetworkFailureBlock)failure{
+    NSDictionary *params = @{@"userid":userid,
+                             @"searchtype":[NSString stringWithFormat:@"%li",SubjectID],
+                             
+                             @"count":[NSString stringWithFormat:@"%li",count],
+                             @"index":[NSString stringWithFormat:@"%li",index]};
+    [NetworkTool GET:PASSRATELIST params:params success:success failure:failure];
+}
 @end
