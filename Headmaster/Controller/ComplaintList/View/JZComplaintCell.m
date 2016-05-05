@@ -28,17 +28,23 @@ static NSString *JZComplaintCellID = @"JZComplaintCell";
 /// 放置两张图片的View
 @property (nonatomic,strong) UIView *complaintImageView;
 
+@property (nonatomic, strong) UIView *lineView;
+
+
 @end
 @implementation JZComplaintCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         [self initUI];
-        self.selectionStyle = UITableViewCellSelectionStyleNone;
+//        self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return self;
 }
 -(void)initUI {
+    
+    self.lineView = [[UIView alloc]init];
+    self.lineView.backgroundColor = kJZLightTextColor;
     
     self.studentNameLabel = [[UILabel alloc]init];
     self.studentNameLabel.textColor = kJZLightTextColor;
@@ -81,6 +87,7 @@ static NSString *JZComplaintCellID = @"JZComplaintCell";
     [self.contentView addSubview:self.complaintImageView];
     [self.complaintImageView addSubview:self.complaintFirstImg];
     [self.complaintImageView addSubview:self.complaintSecondImg];
+    [self.contentView addSubview:self.lineView];
 
 }
 -(void)layoutSubviews {
@@ -137,6 +144,15 @@ static NSString *JZComplaintCellID = @"JZComplaintCell";
         make.left.equalTo(self.complaintFirstImg.mas_right).offset(10);
         make.bottom.equalTo(@0);
         make.width.mas_equalTo(73);
+    }];
+    
+    [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+       
+        make.left.equalTo(self.contentView.mas_left);
+        make.right.equalTo(self.contentView.mas_right);
+        make.bottom.equalTo(self.contentView.mas_bottom);
+        make.height.equalTo(@0.5);
+        
     }];
 
 }

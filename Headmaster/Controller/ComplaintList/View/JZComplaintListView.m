@@ -10,6 +10,7 @@
 #import "JZComplaintCell.h"
 #import "JZComplaintComplaintlist.h"
 #import <YYModel.h>
+#import "RefreshTableView.h"
 
 static NSString *JZComplaintCellID = @"JZComplaintCell";
 
@@ -23,7 +24,6 @@ static NSString *JZComplaintCellID = @"JZComplaintCell";
     
     self = [super initWithFrame:frame];
     if (self) {
-        
         self.frame = frame;
         
         self.dataSource = self;
@@ -32,6 +32,8 @@ static NSString *JZComplaintCellID = @"JZComplaintCell";
         
         
         [self loadData];
+        [self setRefresh];
+
         
     }
     return self;
@@ -69,7 +71,6 @@ static NSString *JZComplaintCellID = @"JZComplaintCell";
 
 -(void)loadData {
     
-    
     [NetworkEntity getComplainListWithUserid:[UserInfoModel defaultUserInfo].userID SchoolId:[UserInfoModel defaultUserInfo].schoolId Index:1 Count:10 success:^(id responseObject) {
         
         
@@ -79,6 +80,8 @@ static NSString *JZComplaintCellID = @"JZComplaintCell";
             
             NSArray *complaintlist = resultData[@"complaintlist"];
             
+            
+            
             for (NSDictionary *dict in complaintlist) {
                 
                 JZComplaintComplaintlist *listModel = [JZComplaintComplaintlist yy_modelWithJSON:dict];
@@ -87,7 +90,6 @@ static NSString *JZComplaintCellID = @"JZComplaintCell";
             }
             [self reloadData];
 
-            
             
             
         }else{
@@ -104,6 +106,71 @@ static NSString *JZComplaintCellID = @"JZComplaintCell";
     }];
 
 
+}
+
+-(void)setRefresh {
+    
+    WS(ws);
+    
+    self.refreshFooter.beginRefreshingBlock = ^{
+        [ws loadMoreData];
+    };
+    
+    self.refreshHeader = nil;
+    
+    
+}
+-(void)loadMoreData {
+    
+    static NSInteger index = 2;
+
+    
+    [NetworkEntity getComplainListWithUserid:[UserInfoModel defaultUserInfo].userID SchoolId:[UserInfoModel defaultUserInfo].schoolId Index:index Count:10 success:^(id responseObject) {
+        
+
+
+        NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
+        if (type == 1) {
+            NSDictionary *resultData = responseObject[@"data"];
+            
+            NSArray *complaintlist = resultData[@"complaintlist"];
+            
+            index ++;
+            if (!complaintlist.count) {
+                
+                [self.refreshFooter endRefreshing];
+                self.refreshFooter.scrollView = nil;
+                [self.vc showTotasViewWithMes:@"已经加载所有数据"];
+                return;
+                
+            }
+            
+            for (NSDictionary *dict in complaintlist) {
+                
+                JZComplaintComplaintlist *listModel = [JZComplaintComplaintlist yy_modelWithJSON:dict];
+                [self.listDataArray addObject:listModel];
+                
+            }
+            [self reloadData];
+            [self.refreshFooter endRefreshing];
+
+            
+            
+            
+        }else{
+            
+            ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"网络出错啦"];
+            [alertView show];
+            
+        }
+        
+    } failure:^(NSError *failure) {
+        ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"网络出错啦"];
+        [alertView show];
+        
+    }];
+
+    
 }
 
 -(NSMutableArray *)listDataArray {
