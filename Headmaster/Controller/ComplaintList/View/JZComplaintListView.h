@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RefreshTableView.h"
 
-@interface JZComplaintListView : UITableView
+@interface JZComplaintListView : RefreshTableView
+@property (nonatomic, strong) UIViewController *vc;
 
 @end

@@ -32,7 +32,9 @@
 #import "JZPassRateController.h"
 #import "JZCommentListController.h"
 
-@interface HomeController () <BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate>
+@interface HomeController () <BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate,UIScrollViewDelegate>
+
+@property (nonatomic,strong) UIScrollView *mainScrollView;
 
 @property (nonatomic, strong) HomeTopView *topView;
 
@@ -60,10 +62,22 @@
 
 @property (nonatomic,strong) UIView *rightView;
 @property (nonatomic,strong) UILabel *rightLabel;
+///  投诉数量
+@property (nonatomic, assign) NSInteger complaintCount;
 
 @end
 
 @implementation HomeController
+
+- (UIScrollView *)mainScrollView
+{
+    if (_mainScrollView==nil) {
+        
+        _mainScrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+        
+    }
+    return _mainScrollView;
+}
 
 - (UIView *)rightView
 {
@@ -99,6 +113,8 @@
 {
     JZComplaintListController *complaintVC = [[JZComplaintListController alloc]init];
     
+    complaintVC.count = self.complaintCount;
+    
     [self.myNavController pushViewController:complaintVC animated:YES];
 
 //    RecommendViewController *recommendVC = [RecommendViewController new];
@@ -113,10 +129,12 @@
     [super viewWillAppear:YES];
     // 显示下面的导航栏
     self.tabBarController.tabBar.hidden = NO;
-    self.myNavigationItem.title = @"数据概述";
+    self.myNavigationItem.title = @"数据概览";
     self.myNavigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.rightView];
     
     [MobClick beginLogPageView:NSStringFromClass([self class])];
+    
+    
     
     // 加载天气信息
     [self.locService startUserLocationService];
@@ -124,6 +142,7 @@
     [_viewModel networkRequestRefresh];
     
 }
+
 
 - (void)viewWillDisappear:(BOOL)animated
 {
@@ -140,15 +159,19 @@
 
     [super viewDidLoad];
 
+    NSLog(@"self.view:%@",self.view);
+    
+    [self loadComplaintData];
+    
     if ([HomeGuideController isShowGuide]) {
         [HomeGuideController show];
     }
     
     [self addSideMenuButton];
-
-    self.view.frame = CGRectMake(0, 0, self.view.width, self.view.height - 64 - 49);
     
-    [self.view addSubview:self.topView];
+    [self.view addSubview:self.mainScrollView];
+    
+    [self.mainScrollView addSubview:self.topView];
     
     // 添加button上面一条线
     UIView *lineTopView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 0.5)];
@@ -157,10 +180,10 @@
     UIView *lineDownView = [[UIView alloc] initWithFrame:CGRectMake(10, CGRectGetMaxY(self.topView.frame), self.view.bounds.size.width - 20, 0.5)];
     lineDownView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
     
-    [self.view addSubview:lineTopView];
-    [self.view addSubview:lineDownView];
-    [self.view addSubview:lineDownView];
-    [self.view addSubview:lineTopView];
+    [self.mainScrollView addSubview:lineTopView];
+    [self.mainScrollView addSubview:lineDownView];
+    [self.mainScrollView addSubview:lineDownView];
+    [self.mainScrollView addSubview:lineTopView];
     
     // 加载地图用于定位,展示天气信息
     [self addMap];
@@ -169,10 +192,11 @@
     
     self.searchType = kDateSearchTypeToday;
     
-    [self.view addSubview:self.progressView];
-    [self.view addSubview:self.moreButton];
-    [self.view addSubview:self.evaluateView];
-//    [self.view addSubview:self.seeTimeView];
+    [self.mainScrollView addSubview:self.progressView];
+    [self.mainScrollView addSubview:self.moreButton];
+    [self.mainScrollView addSubview:self.evaluateView];
+    
+    self.mainScrollView.contentSize = CGSizeMake(self.view.width, CGRectGetMaxY(self.evaluateView.frame)+64+49);
     
     [self.evaluateView itemClick:^(UIButton *button) {
         RecommendViewController *recommendVC = [RecommendViewController new];
@@ -180,27 +204,7 @@
         recommendVC.commentTag = button.tag;
         [self.myNavController pushViewController:recommendVC animated:YES];
     }];
-    
-//    [self.seeTimeView itemClick:^(UIButton *button) {
-//        
-//        if (button.tag + 1 == self.searchType) {
-//            return;
-//        }
-//        self.searchType = button.tag + 1;
-//        if (button.tag == 2) {
-//            _viewModel.searchType = kDateSearchTypeWeek;
-//            [_viewModel networkRequestRefresh];
-//            
-//        }else {
-//            if(button.tag == 0) {
-//                _viewModel.searchType = kDateSearchTypeToday;
-//            }else if(button.tag == 1 ) {
-//                _viewModel.searchType = kDateSearchTypeYesterday;
-//            }
-//            [_viewModel networkRequestRefresh];
-//        }
-//    }];
-    
+
     _viewModel = [HomeViewModel new];
     // 刷新数据
     [_viewModel successRefreshBlock:^{
@@ -322,20 +326,9 @@
 
 #pragma mark 侧栏按钮
 - (void)addSideMenuButton {
-    
-//    UIButton *btn = [UIButton new];
-//    btn.frame = CGRectMake(15, 7, 36, 30);
-//    btn.backgroundColor = [UIColor redColor];
-//    [btn setBackgroundImage:[UIImage imageNamed:@"side"] forState:UIControlStateNormal];
-//    [btn addTarget:self action:@selector(openSideMenu) forControlEvents:UIControlEventTouchUpInside];
+
     self.myNavigationItem.leftBarButtonItem = [UIBarButtonItem itemWithNormalIcon:@"side" highlightedIcon:@"side" target:self action:@selector(openSideMenu)];
-    
-//    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 120, 37, 80, 31)];
-//    [view addSubview:self.temperatureLabel];
-//    [view addSubview:self.WeatherimageViewWeather];
-    
-//    self.myNavigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:view];
-    
+
 }
 
 #pragma mark 打开侧栏
@@ -347,11 +340,10 @@
 }
 
 #pragma mark - lazy load
-
 - (HomeTopView *)topView {
     if (!_topView) {
         _topView = [[HomeTopView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 105)];
-        
+        _topView.backgroundColor = [UIColor yellowColor];
     }
     return _topView;
 }
@@ -359,11 +351,24 @@
 - (HomeProgressView *)progressView {
     if (!_progressView) {
         _progressView = [HomeProgressView new];
-        _progressView.frame = CGRectMake(0, 0, self.view.bounds.size.width - 100, self.view.bounds.size.width - 100);
-        _progressView.center = CGPointMake(self.view.bounds.size.width / 2.f, self.view.bounds.size.height / 2.f);
-        _progressView.backgroundColor = [UIColor clearColor];
+        CGFloat height = 300;
+        if (YBIphone6Plus) {
+            height = 300 * YBSizeRatio;
+        }
+        _progressView.frame = CGRectMake(0, CGRectGetMaxY(_topView.frame), self.view.bounds.size.width, height);
+        _progressView.backgroundColor = [UIColor whiteColor];
     }
     return _progressView;
+}
+
+- (HomeEvaluateView *)evaluateView {
+    if (!_evaluateView) {
+        _evaluateView = [[HomeEvaluateView alloc] initWithFrame:CGRectMake(0,
+                                                                           CGRectGetMaxY(_progressView.frame),
+                                                                           self.view.width,
+                                                                           75+50)];
+    }
+    return _evaluateView;
 }
 
 - (UIButton *)moreButton {
@@ -374,44 +379,16 @@
         [_moreButton.layer setMasksToBounds:YES];
         [_moreButton.layer setCornerRadius:_moreButton.bounds.size.width / 2];
         _moreButton.center = CGPointMake(self.view.centerX, self.view.centerY);
-//        _moreButton.backgroundColor = [UIColor redColor];
         [_moreButton addTarget:self action:@selector(moreButtonAction) forControlEvents:UIControlEventTouchUpInside];
     }
     return _moreButton;
 }
-
-- (HomeEvaluateView *)evaluateView {
-    if (!_evaluateView) {
-        _evaluateView = [[HomeEvaluateView alloc] initWithFrame:CGRectMake(0,
-                                                                          CGRectGetMaxY(_progressView.frame)-20,
-                                                                          self.view.width,
-                                                                          75+50)];
-//        _evaluateView.backgroundColor = [UIColor redColor];
-    }
-    return _evaluateView;
-}
-
-//- (HomeSeeTimeView *)seeTimeView {
-//    if (!_seeTimeView) {
-//        CGFloat margin = 52.f;
-//        if (SCREEN_WIDTH > 320) {
-//            margin = 60;
-//        }
-//        _seeTimeView = [HomeSeeTimeView new];
-//        _seeTimeView.frame = CGRectMake(margin,
-//                                        self.view.height - 70,
-//                                        self.view.width - margin * 2,
-//                                        50);
-//    }
-//    return _seeTimeView;
-//}
 
 - (UILabel *)temperatureLabel
 {
     if (!_temperatureLabel) {
         _temperatureLabel = [[UILabel alloc] init];
         _temperatureLabel.frame = CGRectMake(0, 0, 50, 30);
-//        _temperatureLabel.backgroundColor = [UIColor redColor];
         
     }
     return _temperatureLabel;
@@ -476,6 +453,35 @@
 
 - (void)didFailToLocateUserWithError:(NSError *)error
 {
+    
+}
+
+///  加载投诉数量
+-(void)loadComplaintData {
+    
+    
+    [NetworkEntity getComplainListWithUserid:[UserInfoModel defaultUserInfo].userID SchoolId:[UserInfoModel defaultUserInfo].schoolId Index:1 Count:10 success:^(id responseObject) {
+        
+        
+        NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
+        if (type == 1) {
+            NSDictionary *resultData = responseObject[@"data"];
+            
+            self.complaintCount = [resultData[@"count"] integerValue];
+            
+            
+        }else{
+            
+            
+        }
+        
+    } failure:^(NSError *failure) {
+        
+        
+    }];
+    
+    
+    
     
 }
 

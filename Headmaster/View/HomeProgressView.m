@@ -13,16 +13,16 @@
 
 @property (nonatomic, strong) UIImageView *backgroundImage;
 
-@property (nonatomic, strong) DVVProgressView *outSide;
-@property (nonatomic, strong) DVVProgressView *inSide;
+//@property (nonatomic, strong) DVVProgressView *outSide;
+//@property (nonatomic, strong) DVVProgressView *inSide;
 
-@property (nonatomic, strong) DVVProgressView *outSideBgView;
+//@property (nonatomic, strong) DVVProgressView *outSideBgView;
 
-@property (nonatomic, strong) DVVProgressView *outSideFgView;
+//@property (nonatomic, strong) DVVProgressView *outSideFgView;
 
-@property (nonatomic, strong) DVVProgressView *inSideBgView;
+//@property (nonatomic, strong) DVVProgressView *inSideBgView;
 
-@property (nonatomic, strong) DVVProgressView *inSideFgView;
+//@property (nonatomic, strong) DVVProgressView *inSideFgView;
 
 @property (nonatomic, strong) UILabel *progressLabel;
 
@@ -48,9 +48,58 @@
 {
     self = [super init];
     if (self) {
-        [self createObject];
+//        [self createObject];
+        [self setUpUI];
     }
     return self;
+}
+
+- (void)setUpUI
+{
+
+    NSInteger maxColumns = 2;
+    
+    for (int i = 0; i < 4; i ++) {
+    
+        NSInteger col = i % maxColumns;
+        NSInteger row = i / maxColumns;
+        
+        UIView *progressView = [[UIView alloc] init];
+        progressView.backgroundColor = [UIColor blueColor];
+        CGFloat progressViewW = kJZWidth/2;
+        CGFloat progressViewH = progressViewW;
+        CGFloat progressViewX = col * progressViewW;
+        CGFloat progressViewY = row * progressViewW;
+        progressView.frame = CGRectMake(progressViewX, progressViewY, progressViewW, progressViewH);
+        [self addSubview:progressView];
+        
+        DVVProgressView  *progress = [DVVProgressView new];
+//        progressView.lineBackgroundImage = [UIImage];
+        progress.lineWidth = 7;
+        progress.animationDuration = 1.0;
+        progress.lineColor = [UIColor colorWithHexString:HIGHLIGHT_COLOR alpha:0.8];
+        progress.progress = 1.0;
+        progress.backgroundColor = [UIColor redColor];
+        CGFloat progressY = 45;
+        if (i >= 2) {
+            progressY = 20;
+        }
+        progress.frame = CGRectMake(45, progressY, progressViewW-90, progressViewH-90);
+        [progressView addSubview:progress];
+        
+        UILabel *label = [[UILabel alloc] init];
+        CGFloat labelW = progress.width;
+        CGFloat labelH = 40;
+        CGFloat labelX = 0;
+        CGFloat labelY = progress.height/2-labelH/2;
+        label.text = @"33";
+        label.textAlignment = NSTextAlignmentCenter;
+        label.frame = CGRectMake(labelX, labelY, labelW, labelH);
+        [progress addSubview:label];
+        
+    }
+    
+    
 }
 
 - (void)refreshData:(NSArray *)array {
@@ -58,10 +107,10 @@
     if (array.count < 4) {
         return;
     }
-    self.outSideBgView.progress = [array[0] floatValue];
-    self.outSideFgView.progress = [array[1] floatValue];
-    self.inSideBgView.progress = [array[2] floatValue];
-    self.inSideFgView.progress = [array[3] floatValue];
+//    self.outSideBgView.progress = [array[0] floatValue];
+//    self.outSideFgView.progress = [array[1] floatValue];
+//    self.inSideBgView.progress = [array[2] floatValue];
+//    self.inSideFgView.progress = [array[3] floatValue];
     self.progress = [array[3] floatValue];
     // 加载显示的数字进度
     
@@ -71,12 +120,11 @@
 - (void)drawRect:(CGRect)rect {
     [super drawRect:rect];
     
-    [_outSideBgView setNeedsDisplay];
-    [_outSideFgView setNeedsDisplay];
-//    [_inSideBgView setNeedsDisplay];
-    [_inSideFgView setNeedsDisplay];
-    
-    [self loadShowTextWithProgress:self.inSideFgView.progress];
+//    [_outSideBgView setNeedsDisplay];
+//    [_outSideFgView setNeedsDisplay];
+//    [_inSideFgView setNeedsDisplay];
+//    
+//    [self loadShowTextWithProgress:self.inSideFgView.progress];
 }
 
 - (void)loadShowTextWithProgress:(CGFloat)progress {
@@ -107,7 +155,7 @@
 
 - (void)layoutSubviews {
     
-    [self configUI];
+    //[self configUI];
 }
 
 - (void)configUI {
@@ -116,20 +164,20 @@
     CGFloat viewHeight = self.bounds.size.height;
     
     _backgroundImage.frame = CGRectMake(20, 20, viewWidth - 40, viewHeight - 40);
-    
-    _outSideBgView.frame = CGRectMake(1, 1, viewWidth - 2, viewHeight - 2);
-    _outSideFgView.frame = _outSideBgView.frame;
-    _outSide.frame = _outSideBgView.frame;
-    
+//    
+//    _outSideBgView.frame = CGRectMake(1, 1, viewWidth - 2, viewHeight - 2);
+//    _outSideFgView.frame = _outSideBgView.frame;
+//    _outSide.frame = _outSideBgView.frame;
+//    
     CGFloat margin = 37;
     if (SCREEN_WIDTH > 320) {
         margin = 47;
     }
     
     CGFloat insideWidth = viewHeight - margin * 2;
-    _inSideBgView.frame = CGRectMake(margin, margin, insideWidth, insideWidth);
-    _inSideFgView.frame  =_inSideBgView.frame;
-    _inSide.frame = _inSideBgView.frame;
+//    _inSideBgView.frame = CGRectMake(margin, margin, insideWidth, insideWidth);
+//    _inSideFgView.frame  =_inSideBgView.frame;
+//    _inSide.frame = _inSideBgView.frame;
     
     _progressLabel.frame = CGRectMake(0, 0, insideWidth, insideWidth);
     _progressLabel.center = CGPointMake(viewWidth / 2.f, viewHeight / 2.f - 5);
@@ -156,42 +204,42 @@
     _backgroundImage.image = [UIImage imageNamed:@"home_progress_bg"];
     [self addSubview:_backgroundImage];
     
-    _outSide = [DVVProgressView new];
-    _inSide = [DVVProgressView new];
-    [self addSubview:_outSide];
+//    _outSide = [DVVProgressView new];
+//    _inSide = [DVVProgressView new];
+//    [self addSubview:_outSide];
     //    [self addSubview:_inSide];
-    _outSide.animationDuration = 1;
-    _inSide.animationDuration = 1;
-    _outSide.lineColor = [UIColor blackColor];
-    _inSide.lineColor = [UIColor blackColor];
-    _outSide.progress = 1;
-    _inSide.progress = 1;
+//    _outSide.animationDuration = 1;
+//    _inSide.animationDuration = 1;
+//    _outSide.lineColor = [UIColor blackColor];
+//    _inSide.lineColor = [UIColor blackColor];
+//    _outSide.progress = 1;
+//    _inSide.progress = 1;
     
-    _outSideBgView = [DVVProgressView new];
-    _outSideFgView = [DVVProgressView new];
-    _inSideBgView = [DVVProgressView new];
-    _inSideFgView = [DVVProgressView new];
+//    _outSideBgView = [DVVProgressView new];
+//    _outSideFgView = [DVVProgressView new];
+//    _inSideBgView = [DVVProgressView new];
+//    _inSideFgView = [DVVProgressView new];
     
-    [self addSubview:_outSideBgView];
-    [self addSubview:_outSideFgView];
-    [self addSubview:_inSideBgView];
-    [self addSubview:_inSideFgView];
+//    [self addSubview:_outSideBgView];
+//    [self addSubview:_outSideFgView];
+//    [self addSubview:_inSideBgView];
+//    [self addSubview:_inSideFgView];
     
-    _outSideBgView.animationDuration = 2;
-    _outSideBgView.lineColor = [UIColor colorWithHexString:@"4E1741"];
-    _outSideBgView.progress = 0;
-    
-    _outSideFgView.animationDuration = 2;
-    _outSideFgView.lineColor = [UIColor colorWithHexString:@"F955D2" alpha:0.8];
-    _outSideFgView.progress = 0;
-    
-    _inSideBgView.animationDuration = 0.7;
-    _inSideBgView.lineColor = [UIColor colorWithHexString:@"284E4D"];
-    _inSideBgView.progress = 1;
-    
-    _inSideFgView.animationDuration = 2;
-    _inSideFgView.lineColor = [UIColor colorWithHexString:HIGHLIGHT_COLOR alpha:0.8];
-    _inSideFgView.progress = 0;
+//    _outSideBgView.animationDuration = 2;
+//    _outSideBgView.lineColor = [UIColor colorWithHexString:@"4E1741"];
+//    _outSideBgView.progress = 0;
+//    
+//    _outSideFgView.animationDuration = 2;
+//    _outSideFgView.lineColor = [UIColor colorWithHexString:@"F955D2" alpha:0.8];
+//    _outSideFgView.progress = 0;
+//    
+//    _inSideBgView.animationDuration = 0.7;
+//    _inSideBgView.lineColor = [UIColor colorWithHexString:@"284E4D"];
+//    _inSideBgView.progress = 1;
+//    
+//    _inSideFgView.animationDuration = 2;
+//    _inSideFgView.lineColor = [UIColor colorWithHexString:HIGHLIGHT_COLOR alpha:0.8];
+//    _inSideFgView.progress = 0;
     
     _progressLabel = [UILabel new];
     _progressLabel.textAlignment = 1;
