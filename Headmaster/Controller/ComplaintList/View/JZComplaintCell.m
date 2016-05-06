@@ -167,7 +167,7 @@ static NSString *JZComplaintCellID = @"JZComplaintCell";
     self.complaintDetail.text = _data.complaintcontent;
     
     if (_data.feedbacktype == 1) {
-        
+
         self.complaintName.text = [NSString stringWithFormat:@"投诉教练：%@",_data.coachinfo.name];
         
     }else if (_data.feedbacktype == 2){

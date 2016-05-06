@@ -72,6 +72,10 @@ static NSString *JZComplaintCellID = @"JZComplaintCell";
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     JZComplaintDetailController *complaintDetailVC = [[JZComplaintDetailController alloc]init];
+   
+    JZComplaintComplaintlist *dataModel = self.listDataArray[indexPath.row];
+
+    complaintDetailVC.dataModel = dataModel;
     
     [self.vc.myNavController pushViewController:complaintDetailVC animated:YES];
     
