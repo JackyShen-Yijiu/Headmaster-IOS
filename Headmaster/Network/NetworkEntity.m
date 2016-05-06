@@ -283,7 +283,9 @@
     NSDictionary *params = @{ @"userid": [[UserInfoModel defaultUserInfo] userID],
                               @"searchtype": [NSString stringWithFormat:@"%li",searchType],
                               @"schoolid": [[UserInfoModel defaultUserInfo] schoolId] };
-        
+    
+    // http://127.0.0.1:8183/api/headmaster/statistics/getmainpagedata?userid=56582caf1fcf03d813f5fbfc&searchtype=1&schoolid=562dcc3ccb90f25c3bde40da
+
     [NetworkTool GET:HOME params:params success:success failure:failure];
 }
 

@@ -130,11 +130,11 @@
         UIButton *itemButton = [self createOneButtonWithUpTitle:_upTitleArray[i] downTitle:_downTitleArray[i] Size:buttonSize MinX:i * buttonSize.width Tag:i];
         [self addSubview:itemButton];
         
-        UIView *lineView = [[UIView alloc] init];
-        CGFloat lineViewX = itemButton.width-1;
-        lineView.frame = CGRectMake(lineViewX, 10, 0.5, itemButton.height-20);
-        lineView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
-        [itemButton addSubview:lineView];
+//        UIView *lineView = [[UIView alloc] init];
+//        CGFloat lineViewX = itemButton.width-1;
+//        lineView.frame = CGRectMake(lineViewX, 10, 0.5, itemButton.height-20);
+//        lineView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
+//        [itemButton addSubview:lineView];
         
     }
     
@@ -186,16 +186,16 @@
     upButton.titleLabel.font = _downTitleFont;
    
     //显示文字颜色
-    [upButton setTitleColor:[UIColor colorWithHexString:@"19f9cc"] forState:UIControlStateNormal];
-    [upButton setTitleColor:_titleSelectColor forState:UIControlStateSelected];
+    [upButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [upButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
     
     UIButton *downButton = [UIButton new];
     [downButton setBackgroundColor:[UIColor clearColor]];
     downButton.frame = CGRectMake(0, size.height / 2.0, size.width, size.height / 2.0);
     [downButton setTitle:downTitle forState:UIControlStateNormal];
     downButton.titleLabel.font = _downTitleFont;
-    [downButton setTitleColor:[UIColor colorWithHexString:@"009577"] forState:UIControlStateNormal];
-    [downButton setTitleColor:_titleSelectColor forState:UIControlStateSelected];
+    [downButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [downButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
     
     upButton.userInteractionEnabled = NO;
     downButton.userInteractionEnabled = NO;

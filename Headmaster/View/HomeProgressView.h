@@ -10,6 +10,6 @@
 
 @interface HomeProgressView : UIView
 
-- (void)refreshData:(NSArray *)array;
+- (void)refreshpassrate:(NSArray *)passrate overstockstudent:(NSArray *)overstockstudent;
 
 @end

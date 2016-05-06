@@ -9,6 +9,9 @@
 #import "HomeViewModel.h"
 #import "HomeDataModelRootClass.h"
 #import "HomeDataModelWeeklyRootClass.h"
+#import "YYModel.h"
+#import "HomeDataModelData.h"
+#import "HomeDataModelCommentstudentcount.h"
 
 @implementation HomeViewModel
 
@@ -16,21 +19,29 @@
     
     [NetworkEntity getHomeDataWithSearchType:_searchType success:^(id responseObject) {
         
+        NSLog(@"首页responseObject:%@",responseObject);
+        
         if (_searchType == kDateSearchTypeWeek) {
             
-            HomeDataModelWeeklyRootClass *weekData = [[HomeDataModelWeeklyRootClass alloc] initWithDictionary:responseObject];
-            if (weekData.type == 0) {
+            HomeDataModelRootClass *dailyData = [HomeDataModelRootClass yy_modelWithJSON:responseObject];
+
+            if (dailyData.type == 0) {
                 return ;
             }
             
-            _evaluateArray = @[ weekData.data.goodcommentcount,
-                                    weekData.data.generalcomment,
-                                    weekData.data.badcommentcount,
-                                    weekData.data.complaintstudentcount ];
+//            _evaluateArray = @[ @(dailyData.data.commentstudentcount.goodcommnent),
+//                                    @(dailyData.data.commentstudentcount.generalcomment),
+//                                    @(dailyData.data.commentstudentcount.badcomment),
+//                                    @(dailyData.data.complaintstudentcount)];
+            
+            _evaluateArray = @[ [NSString stringWithFormat:@"%li",dailyData.data.commentstudentcount.goodcommnent],
+                                [NSString stringWithFormat:@"%li",dailyData.data.commentstudentcount.generalcomment],
+                                [NSString stringWithFormat:@"%li",dailyData.data.commentstudentcount.badcomment],
+                                [NSString stringWithFormat:@"%li",dailyData.data.complaintstudentcount] ];
             
         } else {
             
-            HomeDataModelRootClass *dailyData = [[HomeDataModelRootClass alloc] initWithDictionary:responseObject];
+            HomeDataModelRootClass *dailyData = [HomeDataModelRootClass yy_modelWithJSON:responseObject];
             
             if (dailyData.type == 0) {
                 return ;
@@ -41,7 +52,9 @@
             
             for (NSInteger i = 0; i < dailyData.data.schoolstudentcount.count; i++) {
                 
-                for (HomeDataModelSchoolstudentcount *count in dailyData.data.schoolstudentcount) {
+                for (NSDictionary *countDict in dailyData.data.schoolstudentcount) {
+                    
+                    HomeDataModelSchoolstudentcount *count = [HomeDataModelSchoolstudentcount yy_modelWithJSON:countDict];
                     
                     NSLog(@"count.studentcount:%ld count.subjectid:%ld",(long)count.studentcount,(long)count.subjectid);
                     
@@ -66,18 +79,27 @@
                                 [NSString stringWithFormat:@"%li",dailyData.data.complaintstudentcount] ];
             
             // 进度数据
-            CGFloat value_1 = 0;
-            CGFloat value_2 = 0;
-            CGFloat value_4 = 0;
+//            CGFloat value_1 = 0;
+//            CGFloat value_2 = 0;
+//            CGFloat value_4 = 0;
+//            
+//            if (dailyData.data.coachstotalcoursecount) {           
+//                value_1 = dailyData.data.reservationcoursecountday / (CGFloat)(dailyData.data.coachstotalcoursecount);
+//                value_2 = dailyData.data.finishreservationnow / (CGFloat)(dailyData.data.coachstotalcoursecount);
+//            }
+//            if (dailyData.data.coachcoursenow) {
+//                value_4 = dailyData.data.coursestudentnow / (CGFloat)(dailyData.data.coachcoursenow);
+//            }
+//            _progressArray = @[ @(value_1), @(value_2), @(1), @(value_4) ];
             
-            if (dailyData.data.coachstotalcoursecount) {           
-                value_1 = dailyData.data.reservationcoursecountday / (CGFloat)(dailyData.data.coachstotalcoursecount);
-                value_2 = dailyData.data.finishreservationnow / (CGFloat)(dailyData.data.coachstotalcoursecount);
-            }
-            if (dailyData.data.coachcoursenow) {
-                value_4 = dailyData.data.coursestudentnow / (CGFloat)(dailyData.data.coachcoursenow);
-            }
-            _progressArray = @[ @(value_1), @(value_2), @(1), @(value_4) ];
+
+            NSLog(@"dailyData.data.passrate:%@",dailyData.data.passrate);
+            NSLog(@"dailyData.data.overstockstudent:%@",dailyData.data.overstockstudent);
+
+            _passrate = dailyData.data.passrate;
+            
+            _overstockstudent = dailyData.data.overstockstudent;
+            
         }
         
         [self successRefreshBlock];
