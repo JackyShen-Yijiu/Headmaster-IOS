@@ -29,6 +29,7 @@
 }
 - (void)initUI{
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+    self.userInteractionEnabled = YES;
     [self addSubview:self.pieChartView];
      [self addSubview:self.goodCommentView];
      [self addSubview:self.mightCommentView];
@@ -69,6 +70,12 @@
 
     // Configure the view for the selected state
 }
+- (void)didCommentView:(UITapGestureRecognizer *)tap{
+    
+    if ([self.delegate respondsToSelector:@selector(initWithCommentViewIndex:)]) {
+        [self.delegate initWithCommentViewIndex:tap.view.tag];
+    }
+}
 - (YBPieChartView *)pieChartView{
     
     if (_pieChartView == nil) {
@@ -86,6 +93,12 @@
         _goodCommentView.titileColor = kJZLightTextColor;
         _goodCommentView.titieleStr = @"好评 2%";
         _goodCommentView.labelFont = [UIFont systemFontOfSize:14];
+        _goodCommentView.tag = 500;
+        _goodCommentView.userInteractionEnabled = YES;
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didCommentView:)];
+        [_goodCommentView addGestureRecognizer:tap];
+        
         
     }
     return _goodCommentView;
@@ -97,6 +110,10 @@
         _mightCommentView.titileColor = kJZLightTextColor;
         _mightCommentView.titieleStr = @"中评 16%";
         _mightCommentView.labelFont = [UIFont systemFontOfSize:14];
+        _mightCommentView.tag = 501;
+        _mightCommentView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didCommentView:)];
+        [_mightCommentView addGestureRecognizer:tap];
     }
     return _mightCommentView;
 }
@@ -107,6 +124,10 @@
         _badCommentView.titileColor = kJZLightTextColor;
         _badCommentView.titieleStr = @"差评 82%";
         _badCommentView.labelFont = [UIFont systemFontOfSize:14];
+        _badCommentView.tag = 502;
+        _badCommentView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didCommentView:)];
+        [_badCommentView addGestureRecognizer:tap];
         
     }
     return _badCommentView;

@@ -24,7 +24,7 @@
 #import "XYPieChart.h"
 
 
-@interface JZcommentListView ()<UITableViewDataSource,UITableViewDelegate,XYPieChartDelegate>
+@interface JZcommentListView ()<UITableViewDataSource,UITableViewDelegate,XYPieChartDelegate,TTCommnentViewDeleage>
 
 @property (nonatomic, strong) JZCommentListViewModel *viewModel;
 
@@ -201,6 +201,7 @@
         if (!_chartCell) {
             _chartCell = [[JZCommentChartCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:IDCell];
             _chartCell.pieChartView.pieChart.delegate = self;
+            _chartCell.delegate = self;
         }
         //    JZPassRateListModel *model = [[JZPassRateListModel alloc] init];
         //    if (_searchSubjectID == kDateSearchSubjectIDOne) {
@@ -305,5 +306,18 @@
         // 差评
     }
     
+}
+// 手势点击事件
+- (void)initWithCommentViewIndex:(NSInteger)index{
+    if (500 == index) {
+        // 好评
+        [_chartCell.pieChartView.pieChart setSliceDeselectedAtIndex:0];
+    }
+    if (501 == index) {
+        // 中评
+    }
+    if (502 == index) {
+        // 差评
+    }
 }
 @end

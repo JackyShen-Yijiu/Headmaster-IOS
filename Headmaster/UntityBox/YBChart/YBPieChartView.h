@@ -18,6 +18,11 @@
 // 颜色数组(可不设置)
 @property (nonatomic, strong) NSArray *colorArray;
 
+////手势点击
+//@property (nonatomic, assign) BOOL isTap;
+//
+//@property (nonatomic, assign) CGFloat pieTapIndex;
+
 // 刷新数据
 - (void)reloadData;
 
