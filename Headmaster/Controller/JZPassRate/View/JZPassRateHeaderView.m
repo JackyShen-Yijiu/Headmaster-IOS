@@ -10,10 +10,6 @@
 
 @interface JZPassRateHeaderView ()
 
-@property (nonatomic, strong) UIView *titleView;
-
-
-
 @end
 
 @implementation JZPassRateHeaderView
@@ -26,8 +22,6 @@
 - (void)initUI{
     
     self.backgroundColor = [UIColor whiteColor];
-
-    [self addSubview:self.titleView];
     [self addSubview:self.titleLabel];
     [self addSubview:self.arrowImgView];
     [self addSubview:self.lineView];
@@ -53,18 +47,9 @@
     
     
     
-    
-    [self.titleView mas_makeConstraints:^(MASConstraintMaker *make) {
+        [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(self.mas_centerY);
         make.left.mas_equalTo(self.mas_left).offset(16);
-        
-        make.height.mas_equalTo(titleViewH);
-        make.width.mas_equalTo(titleViewW);
-       
-    }];
-    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.titleView.mas_top);
-        make.left.mas_equalTo(self.titleView.mas_right).offset(labelLeft);
         make.right.mas_equalTo(self.mas_right).offset(0);
         make.height.mas_equalTo(labelH);
         
@@ -102,18 +87,10 @@
 //            fontSize = 14 * YBRatio;
 //        }
         _titleLabel.font = [UIFont systemFontOfSize:fontSize];
-        _titleLabel.textColor = [UIColor cyanColor];
+        _titleLabel.textColor = kJZDarkTextColor;
     }
     return _titleLabel;
 }
-- (UIView *)titleView{
-    if (_titleView == nil) {
-        _titleView = [[UIView alloc] init];
-        _titleView.backgroundColor = [UIColor whiteColor];
-    }
-    return _titleView;
-}
-
 - (UIView *)lineView{
     if (_lineView == nil) {
         _lineView = [[UIView alloc] init];

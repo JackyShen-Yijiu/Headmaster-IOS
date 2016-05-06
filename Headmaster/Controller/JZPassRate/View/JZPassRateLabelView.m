@@ -45,7 +45,7 @@
 - (UILabel *)topLabel{
     if (_topLabel == nil) {
         _topLabel = [[UILabel alloc] init];
-        _topLabel.textColor = JZ_FONTCOLOR_LIGHTWHITE;
+        _topLabel.textColor = kJZLightTextColor;
         _topLabel.font = [UIFont systemFontOfSize:12];
     }
     return _topLabel;
@@ -53,7 +53,7 @@
 - (UILabel *)bottomLabel{
     if (_bottomLabel == nil) {
         _bottomLabel = [[UILabel alloc] init];
-        _bottomLabel.textColor = JZ_FONTCOLOR_LIGHTWHITE;
+        _bottomLabel.textColor = kJZLightTextColor;
         _bottomLabel.font = [UIFont systemFontOfSize:12];
     }
     return _bottomLabel;

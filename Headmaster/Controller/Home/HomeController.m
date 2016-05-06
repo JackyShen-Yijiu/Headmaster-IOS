@@ -30,6 +30,7 @@
 #import "JZComplaintListController.h"
 
 #import "JZPassRateController.h"
+#import "JZCommentListController.h"
 
 @interface HomeController () <BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate,UIScrollViewDelegate>
 
@@ -236,7 +237,7 @@
 }
 - (void)testVC{
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                JZPassRateController *vc = [JZPassRateController new];
+                JZCommentListController *vc = [JZCommentListController new];
                 vc.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:vc animated:YES];
     });
@@ -350,9 +351,9 @@
 - (HomeProgressView *)progressView {
     if (!_progressView) {
         _progressView = [HomeProgressView new];
-        CGFloat height = 340;
+        CGFloat height = 300;
         if (YBIphone6Plus) {
-            height = 340 * YBSizeRatio;
+            height = 300 * YBSizeRatio;
         }
         _progressView.frame = CGRectMake(0, CGRectGetMaxY(_topView.frame), self.view.bounds.size.width, height);
         _progressView.backgroundColor = [UIColor whiteColor];

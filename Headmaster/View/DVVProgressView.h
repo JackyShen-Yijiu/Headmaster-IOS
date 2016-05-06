@@ -18,10 +18,8 @@
 @property (nonatomic, assign) CGFloat animationDuration;
 // 线条的颜色
 @property (nonatomic, strong) UIColor *lineColor;
-
 // 线条的背景
 @property (nonatomic, strong) UIImage *lineBackgroundImage;
-
 // 是否显示进度球
 @property (nonatomic, assign) BOOL showBall;
 

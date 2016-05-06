@@ -51,7 +51,7 @@
 #define kJZNavBackgroundColor RGB_Color(29,28,33)
 
 
-// V_2.0 主背景颜色
+// V_2.0 主背景颜色 #e8e8ed
 #define JZ_MAIN_BACKGROUND_COLOR RGB_Color(232,232,237)
 
 
