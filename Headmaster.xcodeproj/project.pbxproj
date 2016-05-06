@@ -3670,11 +3670,8 @@
 				B8771DF01C098DE40051DE9D /* EaseChatBarMoreView.m in Sources */,
 				0605B7BB1C12CA3100A575B4 /* DataDatilViewModel.m in Sources */,
 				D9D2DFA21C1808A7005DB212 /* HomeDetailEvaluationCell.m in Sources */,
-<<<<<<< HEAD
-=======
 				D94555411CDC9929003266EF /* JZInformationController.m in Sources */,
 				D95CE3BF1C12BDD700EF6F75 /* HomeDataModelWeeklyRootClass.m in Sources */,
->>>>>>> 85a91e587a635ec50e1005fd4f4bed266eed386f
 				D9CEC97C1C0ED643008DEE69 /* DVVDoubleRowToolBarView.m in Sources */,
 				B8771DF11C098DE40051DE9D /* EaseRecordView.m in Sources */,
 				06C3264D1CDB478F004D888A /* JZCommentListViewModel.m in Sources */,
