@@ -18,6 +18,12 @@
 
 @property (nonatomic, strong) NSArray *evaluateArray;
 
-@property (nonatomic, strong) NSArray *progressArray;
+//@property (nonatomic, strong) NSArray *progressArray;
+
+// 漏课
+@property (nonatomic, strong) NSArray * overstockstudent;
+
+// 通过率
+@property (nonatomic, strong) NSArray * passrate;
 
 @end

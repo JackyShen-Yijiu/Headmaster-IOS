@@ -14,6 +14,7 @@
 @property (nonatomic, assign) NSInteger reservationcoursecountday;
 @property (nonatomic, strong) NSArray * schoolstudentcount;
 
--(instancetype)initWithDictionary:(NSDictionary *)dictionary;
+@property (nonatomic, strong) NSArray * overstockstudent;
+@property (nonatomic, strong) NSArray * passrate;
 
 @end

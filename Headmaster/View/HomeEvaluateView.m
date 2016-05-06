@@ -23,8 +23,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        self.backgroundColor = [UIColor redColor];
-        
+        self.backgroundColor = [UIColor whiteColor];
         self.labelArray = [NSMutableArray array];
         [self createButtons];
     }
@@ -69,7 +68,7 @@
     if (YBIphone6Plus) {
         topLabel.font = [UIFont boldSystemFontOfSize:14*YBRatio];
     }
-    topLabel.textColor = [UIColor whiteColor];
+    topLabel.textColor = [UIColor blackColor];
     [self addSubview:topLabel];
     
     NSArray *imageArray = [NSArray arrayWithObjects:@"good",@"well",@"bad", nil];
@@ -100,6 +99,7 @@
         UIButton *stateBtn = [UIButton new];
         stateBtn.tag = i;
         stateBtn.titleLabel.font = [UIFont systemFontOfSize:13];
+        [stateBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         if (YBIphone6Plus) {
             stateBtn.titleLabel.font = [UIFont systemFontOfSize:13*YBRatio];
         }
@@ -108,14 +108,14 @@
             [stateBtn setImage:[UIImage imageNamed:imageArray[i]] forState:UIControlStateNormal];
             [stateBtn setTitle:titleArray[i] forState:UIControlStateNormal];
             [button addSubview:stateBtn];
-            label.textColor = [UIColor colorWithHexString:@"DA0808"];
+            label.textColor = [UIColor blueColor];
         }else
         {
             stateBtn.frame = CGRectMake(btnWidth / 2.0 - imageViewWidth / 2.0, labelViewHeight, imageViewWidth, imageViewWidth/2);
             [stateBtn setImage:[UIImage imageNamed:imageArray[i]] forState:UIControlStateNormal];
             [stateBtn setTitle:titleArray[i] forState:UIControlStateNormal];
             [button addSubview:stateBtn];
-            label.textColor = [UIColor colorWithHexString:@"19f9cc"];
+            label.textColor = [UIColor blueColor];
         }
         
         [button addSubview:label];
@@ -127,7 +127,8 @@
         UIView *lineView = [[UIView alloc] init];
         CGFloat lineViewX = btnWidth + btnWidth * i;
         lineView.frame = CGRectMake(lineViewX, 60, 0.5, btnHeight-20);
-        lineView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
+        lineView.backgroundColor = [UIColor lightGrayColor];
+        lineView.alpha = 0.3;
         [self addSubview:lineView];
         
     }

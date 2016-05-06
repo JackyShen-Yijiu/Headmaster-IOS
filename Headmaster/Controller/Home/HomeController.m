@@ -213,12 +213,15 @@
             
             [self.evaluateView refreshData:_viewModel.evaluateArray];
             self.rightLabel.text = _viewModel.evaluateArray[3];
-            [self.progressView refreshData:@[ @(0), @(0), @(1), @(0) ]];
-            
+//            [self.progressView refreshData:@[ @(0), @(0), @(1), @(0) ]];
+            [self.progressView refreshpassrate:_viewModel.passrate overstockstudent:_viewModel.overstockstudent];
+
         }else {
             
             [self.topView refreshSubjectData:_viewModel.subjectArray sameDay:_viewModel.applyCount];
-            [self.progressView refreshData:_viewModel.progressArray];
+//            [self.progressView refreshData:_viewModel.progressArray];
+            [self.progressView refreshpassrate:_viewModel.passrate overstockstudent:_viewModel.overstockstudent];
+            
             [self.evaluateView refreshData:_viewModel.evaluateArray];
             self.rightLabel.text = _viewModel.evaluateArray[3];
             
@@ -343,19 +346,15 @@
 - (HomeTopView *)topView {
     if (!_topView) {
         _topView = [[HomeTopView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 105)];
-        _topView.backgroundColor = [UIColor yellowColor];
+        _topView.backgroundColor = [UIColor blackColor];
     }
     return _topView;
 }
 
 - (HomeProgressView *)progressView {
     if (!_progressView) {
-        _progressView = [HomeProgressView new];
-        CGFloat height = 300;
-        if (YBIphone6Plus) {
-            height = 300 * YBSizeRatio;
-        }
-        _progressView.frame = CGRectMake(0, CGRectGetMaxY(_topView.frame), self.view.bounds.size.width, height);
+        CGFloat height = kJZWidth * 0.86 + 30;
+        _progressView = [[HomeProgressView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_topView.frame), self.view.bounds.size.width, height)];
         _progressView.backgroundColor = [UIColor whiteColor];
     }
     return _progressView;

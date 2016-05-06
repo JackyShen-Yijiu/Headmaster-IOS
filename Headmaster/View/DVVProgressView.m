@@ -33,8 +33,8 @@
         _lineWidth = 10;
         _animationDuration = 3;
         
-        _startAngle = 0.8;
-        _endAngle = 0.2;
+        _startAngle = 0;
+        _endAngle = 1.0;
         
         _shapeLayer = [CAShapeLayer layer];
         _shapeLayer.fillColor = [[UIColor clearColor]CGColor];
@@ -69,6 +69,7 @@
     if (_endAngle >= 2) {
         _endAngle -= 2;
     }
+    
 }
 
 - (void)drawRect:(CGRect)rect {
@@ -90,8 +91,8 @@
     // 绘制路径
     UIBezierPath* aPath = [UIBezierPath bezierPathWithArcCenter:center
                                                          radius:radius
-                                                     startAngle:M_PI * _startAngle
-                                                       endAngle:M_PI * _endAngle
+                                                     startAngle:0
+                                                       endAngle:2 * M_PI
                                                       clockwise:YES];
     // 路径的宽度
     aPath.lineWidth = _lineWidth;
