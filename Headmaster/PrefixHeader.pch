@@ -48,7 +48,7 @@
 // V_2.0 浅色字体颜色
 #define kJZLightTextColor RGB_Color(140,140,140)
 
-// V_2.0 主背景颜色
+// V_2.0 主背景颜色 #e8e8ed
 #define JZ_MAIN_BACKGROUND_COLOR RGB_Color(232,232,237)
 
 
