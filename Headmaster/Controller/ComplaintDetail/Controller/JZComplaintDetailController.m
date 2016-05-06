@@ -9,9 +9,10 @@
 #import "JZComplaintDetailController.h"
 #import "JZComplaintDetailView.h"
 #import "JZComplaintComplaintlist.h"
+#import "JZComplaintDetailTopView.h"
 @interface JZComplaintDetailController ()
 @property (nonatomic, weak) JZComplaintDetailView *detailView;
-
+@property (nonatomic, weak) JZComplaintDetailTopView *detailTopView;
 @end
 
 @implementation JZComplaintDetailController
@@ -23,17 +24,37 @@
     
     self.view.backgroundColor = JZ_MAIN_BACKGROUND_COLOR;
     
-//    CGFloat height = [JZComplaintDetailView viewHeightDmData:self.dataModel];
-    CGFloat height = 500;
-    JZComplaintDetailView *detailView = [[JZComplaintDetailView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth, height)];
-    detailView.data = self.dataModel;
+    JZComplaintDetailTopView *detailTopView = [[JZComplaintDetailTopView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth, 146)];
+
+    detailTopView.data = self.dataModel;
+    self.detailTopView = detailTopView;
+    [self.view addSubview:detailTopView];
     
+    CGFloat detailViewHeight = [JZComplaintDetailView complaintDetailViewH:self.dataModel];
+    
+
+//    NSLog(@"detailViewHeight = %f",detailViewHeight);
+    JZComplaintDetailView *detailView = [[JZComplaintDetailView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth,detailViewHeight)];
+    detailView.data = self.dataModel;
     self.detailView = detailView;
     
-    [self.view addSubview:detailView];
+    UIScrollView *contentScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0,146,kJZWidth,detailViewHeight)];
+    contentScrollView.backgroundColor = [UIColor whiteColor];
+    
+    [self.view addSubview:contentScrollView];
+    
+    contentScrollView.contentSize = detailView.frame.size;
+
+    [contentScrollView addSubview:detailView];
+    
+
 
     
+    
+    
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
