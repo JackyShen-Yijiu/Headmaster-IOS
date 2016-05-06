@@ -415,7 +415,7 @@
 - (UIViewController *)rootViewController {
     
     NSArray *controllerArray = @[ @"HomeController",
-                                  @"InformationController",
+                                  @"JZInformationController",
                                   @"RecommendViewController" ];
     
     NSArray *titleArray = @[ @"数据概览", @"资讯", @"消息" ];

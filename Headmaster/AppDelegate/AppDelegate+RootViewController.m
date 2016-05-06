@@ -20,7 +20,7 @@
 - (UIViewController *)rootViewController {
 
     NSArray *controllerArray = @[ @"HomeController",
-                                  @"InformationController",
+                                  @"JZInformationController",
                                   @"ConversationListController"];
     
     NSArray *titleArray = @[ @"数据概览", @"资讯", @"消息" ];

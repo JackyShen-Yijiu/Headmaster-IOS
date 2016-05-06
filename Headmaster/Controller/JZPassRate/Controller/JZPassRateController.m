@@ -21,6 +21,10 @@
 @property (nonatomic, strong) JZPassRateListView *threeSubjexctView;
 @property (nonatomic, strong) JZPassRateListView *fourSubjexctView;
 
+@property (nonatomic, strong) UIView *bgView;
+
+
+
 
 
 @end
@@ -35,9 +39,21 @@
 //    [self initRefesh];
 }
 - (void)initUI{
-    self.view.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:self.toolBarView];
+    self.view.backgroundColor = JZ_MAIN_BACKGROUND_COLOR;
+    
+    
+
+    _bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 40)];
+    _bgView.layer.shadowColor = [UIColor blackColor].CGColor;
+    _bgView.layer.shadowOffset = CGSizeMake(0, 2);
+    _bgView.layer.shadowOpacity = 0.072;
+    _bgView.layer.shadowRadius = 2;
+    _bgView.backgroundColor = [UIColor whiteColor];
+    [self.bgView addSubview:self.toolBarView];
+    
+    
     [self.view addSubview:self.scrollView];
+    [self.view addSubview:self.bgView];
     
     [_scrollView addSubview:self.oneSubjexctView];
     [_scrollView addSubview:self.twoSubjexctView];
@@ -240,7 +256,7 @@
 - (UIScrollView *)scrollView{
     
     if (_scrollView == nil) {
-        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.toolBarView.frame), self.view.width, self.view.height - 49 - self.toolBarView.height)];
+        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.bgView.frame), self.view.width, self.view.height - self.bgView.height - 64)];
         _scrollView.contentSize = CGSizeMake(4 * self.view.width, 0);
         _scrollView.backgroundColor = [UIColor clearColor];
         _scrollView.pagingEnabled = YES;
@@ -254,16 +270,11 @@
 - (JZPassRateToolBarView *)toolBarView {
     if (!_toolBarView) {
         _toolBarView = [JZPassRateToolBarView new];
-         _toolBarView.frame = CGRectMake(0, 0, self.view.width, 40);
-        _toolBarView.titleNormalColor = [UIColor colorWithHexString:@"2f2f2f"];
-        _toolBarView.titleSelectColor = [UIColor redColor];
-        _toolBarView.followBarColor = [UIColor cyanColor];
-        
-        _toolBarView.layer.shadowColor = [UIColor blackColor].CGColor;
-        _toolBarView.layer.shadowOffset = CGSizeMake(0, 2);
-        _toolBarView.layer.shadowOpacity = 0.036;
-        _toolBarView.layer.shadowRadius = 2;
-        
+         _toolBarView.frame = CGRectMake(0, 0, self.view.width, self.bgView.height);
+        _toolBarView.titleNormalColor = kJZDarkTextColor;
+        _toolBarView.titleSelectColor = [UIColor colorWithHexString:@"3d8bff"];
+        _toolBarView.followBarColor = [UIColor colorWithHexString:@"3d8bff"];
+        _toolBarView.backgroundColor = [UIColor clearColor];
         _toolBarView.titleArray = @[ @"科目一", @"科目二", @"科目三" , @"科目四"];
         __weak typeof(self) ws = self;
         [_toolBarView dvvToolBarViewItemSelected:^(UIButton *button) {

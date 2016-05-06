@@ -57,6 +57,13 @@
 		06C326391CDB1126004D888A /* JZPassRateLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C326381CDB1126004D888A /* JZPassRateLabelView.m */; };
 		06C3263C1CDB1C1B004D888A /* JZPassRateHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C3263B1CDB1C1B004D888A /* JZPassRateHeaderView.m */; };
 		06C3263F1CDB3377004D888A /* TTRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C3263E1CDB3377004D888A /* TTRefreshFooter.m */; };
+		06C326471CDB445D004D888A /* JZCommentListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C326461CDB445D004D888A /* JZCommentListController.m */; };
+		06C3264A1CDB455C004D888A /* JZcommentListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C326491CDB455C004D888A /* JZcommentListView.m */; };
+		06C3264D1CDB478F004D888A /* JZCommentListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C3264C1CDB478F004D888A /* JZCommentListViewModel.m */; };
+		06C326501CDB4EA4004D888A /* JZCommentListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C3264F1CDB4EA4004D888A /* JZCommentListModel.m */; };
+		06C326531CDB5C20004D888A /* JZCommentChartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C326521CDB5C20004D888A /* JZCommentChartCell.m */; };
+		06C326561CDB5C3E004D888A /* JZCommentListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C326551CDB5C3E004D888A /* JZCommentListCell.m */; };
+		06C326591CDB5EC2004D888A /* TTCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C326581CDB5EC2004D888A /* TTCommentView.m */; };
 		5543A6341C130D710063F7EE /* UserCenterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5543A6331C130D710063F7EE /* UserCenterController.m */; };
 		5545DE5E1C14134F00F41506 /* AboutUsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5545DE5D1C14134F00F41506 /* AboutUsController.m */; };
 		5545DE611C14228C00F41506 /* NewStudentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5545DE601C14228C00F41506 /* NewStudentController.m */; };
@@ -387,6 +394,13 @@
 		D92424C21CDB0FC0002AB7C0 /* JZComplaintRootClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D92424B91CDB0FC0002AB7C0 /* JZComplaintRootClass.m */; };
 		D92424C31CDB0FC0002AB7C0 /* JZComplaintStudentinfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D92424BB1CDB0FC0002AB7C0 /* JZComplaintStudentinfo.m */; };
 		D92424CA1CDB4971002AB7C0 /* JZComplaintDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = D92424C91CDB4971002AB7C0 /* JZComplaintDetailView.m */; };
+		D94555221CDC715D003266EF /* JZComplaintDetailTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = D94555211CDC715D003266EF /* JZComplaintDetailTopView.m */; };
+		D94555411CDC9929003266EF /* JZInformationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D94555401CDC9929003266EF /* JZInformationController.m */; };
+		D94555461CDC9973003266EF /* JZInformationData.m in Sources */ = {isa = PBXBuildFile; fileRef = D94555431CDC9973003266EF /* JZInformationData.m */; };
+		D94555471CDC9973003266EF /* JZInformationRootClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D94555451CDC9973003266EF /* JZInformationRootClass.m */; };
+		D945554D1CDC9C46003266EF /* JZInformationTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = D945554C1CDC9C46003266EF /* JZInformationTopView.m */; };
+		D94555501CDC9C70003266EF /* JZInformationListView.m in Sources */ = {isa = PBXBuildFile; fileRef = D945554F1CDC9C70003266EF /* JZInformationListView.m */; };
+		D94555531CDC9C8C003266EF /* JZInformationListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D94555521CDC9C8C003266EF /* JZInformationListCell.m */; };
 		D95CE3B61C12BD3600EF6F75 /* HomeDataModelCommentstudentcount.m in Sources */ = {isa = PBXBuildFile; fileRef = D95CE3AF1C12BD3600EF6F75 /* HomeDataModelCommentstudentcount.m */; };
 		D95CE3B71C12BD3600EF6F75 /* HomeDataModelData.m in Sources */ = {isa = PBXBuildFile; fileRef = D95CE3B11C12BD3600EF6F75 /* HomeDataModelData.m */; };
 		D95CE3B91C12BD3600EF6F75 /* HomeDataModelSchoolstudentcount.m in Sources */ = {isa = PBXBuildFile; fileRef = D95CE3B51C12BD3600EF6F75 /* HomeDataModelSchoolstudentcount.m */; };
@@ -546,6 +560,20 @@
 		06C3263B1CDB1C1B004D888A /* JZPassRateHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZPassRateHeaderView.m; sourceTree = "<group>"; };
 		06C3263D1CDB3377004D888A /* TTRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRefreshFooter.h; sourceTree = "<group>"; };
 		06C3263E1CDB3377004D888A /* TTRefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRefreshFooter.m; sourceTree = "<group>"; };
+		06C326451CDB445D004D888A /* JZCommentListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZCommentListController.h; sourceTree = "<group>"; };
+		06C326461CDB445D004D888A /* JZCommentListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZCommentListController.m; sourceTree = "<group>"; };
+		06C326481CDB455C004D888A /* JZcommentListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZcommentListView.h; sourceTree = "<group>"; };
+		06C326491CDB455C004D888A /* JZcommentListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZcommentListView.m; sourceTree = "<group>"; };
+		06C3264B1CDB478F004D888A /* JZCommentListViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZCommentListViewModel.h; sourceTree = "<group>"; };
+		06C3264C1CDB478F004D888A /* JZCommentListViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZCommentListViewModel.m; sourceTree = "<group>"; };
+		06C3264E1CDB4EA4004D888A /* JZCommentListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZCommentListModel.h; sourceTree = "<group>"; };
+		06C3264F1CDB4EA4004D888A /* JZCommentListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZCommentListModel.m; sourceTree = "<group>"; };
+		06C326511CDB5C20004D888A /* JZCommentChartCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZCommentChartCell.h; sourceTree = "<group>"; };
+		06C326521CDB5C20004D888A /* JZCommentChartCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZCommentChartCell.m; sourceTree = "<group>"; };
+		06C326541CDB5C3E004D888A /* JZCommentListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZCommentListCell.h; sourceTree = "<group>"; };
+		06C326551CDB5C3E004D888A /* JZCommentListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZCommentListCell.m; sourceTree = "<group>"; };
+		06C326571CDB5EC2004D888A /* TTCommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTCommentView.h; sourceTree = "<group>"; };
+		06C326581CDB5EC2004D888A /* TTCommentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTCommentView.m; sourceTree = "<group>"; };
 		5543A6321C130D710063F7EE /* UserCenterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterController.h; sourceTree = "<group>"; };
 		5543A6331C130D710063F7EE /* UserCenterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterController.m; sourceTree = "<group>"; };
 		5545DE5C1C14134F00F41506 /* AboutUsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutUsController.h; path = Headmaster/Controller/UserCenter/AboutUsController.h; sourceTree = SOURCE_ROOT; };
@@ -1105,6 +1133,20 @@
 		D92424BB1CDB0FC0002AB7C0 /* JZComplaintStudentinfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZComplaintStudentinfo.m; sourceTree = "<group>"; };
 		D92424C81CDB4971002AB7C0 /* JZComplaintDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZComplaintDetailView.h; sourceTree = "<group>"; };
 		D92424C91CDB4971002AB7C0 /* JZComplaintDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZComplaintDetailView.m; sourceTree = "<group>"; };
+		D94555201CDC715D003266EF /* JZComplaintDetailTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZComplaintDetailTopView.h; sourceTree = "<group>"; };
+		D94555211CDC715D003266EF /* JZComplaintDetailTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZComplaintDetailTopView.m; sourceTree = "<group>"; };
+		D945553F1CDC9929003266EF /* JZInformationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZInformationController.h; sourceTree = "<group>"; };
+		D94555401CDC9929003266EF /* JZInformationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZInformationController.m; sourceTree = "<group>"; };
+		D94555421CDC9973003266EF /* JZInformationData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZInformationData.h; sourceTree = "<group>"; };
+		D94555431CDC9973003266EF /* JZInformationData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZInformationData.m; sourceTree = "<group>"; };
+		D94555441CDC9973003266EF /* JZInformationRootClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZInformationRootClass.h; sourceTree = "<group>"; };
+		D94555451CDC9973003266EF /* JZInformationRootClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZInformationRootClass.m; sourceTree = "<group>"; };
+		D945554B1CDC9C46003266EF /* JZInformationTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZInformationTopView.h; sourceTree = "<group>"; };
+		D945554C1CDC9C46003266EF /* JZInformationTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZInformationTopView.m; sourceTree = "<group>"; };
+		D945554E1CDC9C70003266EF /* JZInformationListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZInformationListView.h; sourceTree = "<group>"; };
+		D945554F1CDC9C70003266EF /* JZInformationListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZInformationListView.m; sourceTree = "<group>"; };
+		D94555511CDC9C8C003266EF /* JZInformationListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZInformationListCell.h; sourceTree = "<group>"; };
+		D94555521CDC9C8C003266EF /* JZInformationListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZInformationListCell.m; sourceTree = "<group>"; };
 		D95CE3AE1C12BD3600EF6F75 /* HomeDataModelCommentstudentcount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeDataModelCommentstudentcount.h; sourceTree = "<group>"; };
 		D95CE3AF1C12BD3600EF6F75 /* HomeDataModelCommentstudentcount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeDataModelCommentstudentcount.m; sourceTree = "<group>"; };
 		D95CE3B01C12BD3600EF6F75 /* HomeDataModelData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeDataModelData.h; sourceTree = "<group>"; };
@@ -1358,6 +1400,59 @@
 			children = (
 				06C3262B1CDAED85004D888A /* JZPassRateViewModel.h */,
 				06C3262C1CDAED85004D888A /* JZPassRateViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		06C326401CDB442C004D888A /* JZCommentListController */ = {
+			isa = PBXGroup;
+			children = (
+				06C326411CDB442C004D888A /* Controller */,
+				06C326421CDB442C004D888A /* Model */,
+				06C326431CDB442C004D888A /* View */,
+				06C326441CDB442C004D888A /* ViewModel */,
+			);
+			path = JZCommentListController;
+			sourceTree = "<group>";
+		};
+		06C326411CDB442C004D888A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				06C326451CDB445D004D888A /* JZCommentListController.h */,
+				06C326461CDB445D004D888A /* JZCommentListController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		06C326421CDB442C004D888A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				06C3264E1CDB4EA4004D888A /* JZCommentListModel.h */,
+				06C3264F1CDB4EA4004D888A /* JZCommentListModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		06C326431CDB442C004D888A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				06C326481CDB455C004D888A /* JZcommentListView.h */,
+				06C326491CDB455C004D888A /* JZcommentListView.m */,
+				06C326511CDB5C20004D888A /* JZCommentChartCell.h */,
+				06C326521CDB5C20004D888A /* JZCommentChartCell.m */,
+				06C326541CDB5C3E004D888A /* JZCommentListCell.h */,
+				06C326551CDB5C3E004D888A /* JZCommentListCell.m */,
+				06C326571CDB5EC2004D888A /* TTCommentView.h */,
+				06C326581CDB5EC2004D888A /* TTCommentView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		06C326441CDB442C004D888A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				06C3264B1CDB478F004D888A /* JZCommentListViewModel.h */,
+				06C3264C1CDB478F004D888A /* JZCommentListViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -2666,6 +2761,8 @@
 		D92424681CDB0D58002AB7C0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D94555201CDC715D003266EF /* JZComplaintDetailTopView.h */,
+				D94555211CDC715D003266EF /* JZComplaintDetailTopView.m */,
 				D92424C81CDB4971002AB7C0 /* JZComplaintDetailView.h */,
 				D92424C91CDB4971002AB7C0 /* JZComplaintDetailView.m */,
 			);
@@ -2758,6 +2855,50 @@
 				0613DC101C1C51E200580C32 /* HomeDetailTableViewDataModel.m */,
 			);
 			path = HomeDataDetailModel;
+			sourceTree = "<group>";
+		};
+		D945553C1CDC98FF003266EF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D94555421CDC9973003266EF /* JZInformationData.h */,
+				D94555431CDC9973003266EF /* JZInformationData.m */,
+				D94555441CDC9973003266EF /* JZInformationRootClass.h */,
+				D94555451CDC9973003266EF /* JZInformationRootClass.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D945553D1CDC98FF003266EF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D945554B1CDC9C46003266EF /* JZInformationTopView.h */,
+				D945554C1CDC9C46003266EF /* JZInformationTopView.m */,
+				D945554E1CDC9C70003266EF /* JZInformationListView.h */,
+				D945554F1CDC9C70003266EF /* JZInformationListView.m */,
+				D94555511CDC9C8C003266EF /* JZInformationListCell.h */,
+				D94555521CDC9C8C003266EF /* JZInformationListCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D945553E1CDC9908003266EF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D945553F1CDC9929003266EF /* JZInformationController.h */,
+				D94555401CDC9929003266EF /* JZInformationController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D94555541CDC9F7D003266EF /* Old */ = {
+			isa = PBXGroup;
+			children = (
+				D9CEC97E1C0ED6A6008DEE69 /* InformationController.h */,
+				D9CEC97F1C0ED6A6008DEE69 /* InformationController.m */,
+				55FDE4081C0FC5C700329F17 /* InformationDetailController.h */,
+				55FDE4091C0FC5C700329F17 /* InformationDetailController.m */,
+			);
+			name = Old;
 			sourceTree = "<group>";
 		};
 		D95CE3AD1C12BD2600EF6F75 /* HomeDataModel */ = {
@@ -2930,6 +3071,7 @@
 		D9CEC8F21C0E8CF7008DEE69 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				06C326401CDB442C004D888A /* JZCommentListController */,
 				06C326171CDAE34C004D888A /* JZPassRate */,
 				D92424C41CDB3C4E002AB7C0 /* Complaint */,
 				B895A1971C1041BD00FEDD78 /* Recomond */,
@@ -2963,10 +3105,10 @@
 		D9CEC8F41C0E8CF7008DEE69 /* Information */ = {
 			isa = PBXGroup;
 			children = (
-				D9CEC97E1C0ED6A6008DEE69 /* InformationController.h */,
-				D9CEC97F1C0ED6A6008DEE69 /* InformationController.m */,
-				55FDE4081C0FC5C700329F17 /* InformationDetailController.h */,
-				55FDE4091C0FC5C700329F17 /* InformationDetailController.m */,
+				D94555541CDC9F7D003266EF /* Old */,
+				D945553C1CDC98FF003266EF /* Model */,
+				D945553D1CDC98FF003266EF /* View */,
+				D945553E1CDC9908003266EF /* Controller */,
 			);
 			path = Information;
 			sourceTree = "<group>";
@@ -3428,6 +3570,7 @@
 				B2CB3DD21CDCA6EF00442471 /* HomeDataModelWeeklyData.m in Sources */,
 				B895A1951C10329F00FEDD78 /* InformationDataModel.m in Sources */,
 				B8771E361C098E6B0051DE9D /* RFSegmentView.m in Sources */,
+				D94555471CDC9973003266EF /* JZInformationRootClass.m in Sources */,
 				D994A6281CC4B27100BC0059 /* JZPublishController.m in Sources */,
 				B8771D081C098DE40051DE9D /* EMGifImage.m in Sources */,
 				B8771E351C098E6B0051DE9D /* YiRefreshHeader.m in Sources */,
@@ -3449,6 +3592,7 @@
 				B8771D001C098DE40051DE9D /* EMCDDeviceManager+ProximitySensor.m in Sources */,
 				D97244AF1C1ED0BD002B3FDE /* DataDetailDMYearRootClass.m in Sources */,
 				B8771DCB1C098DE40051DE9D /* EaseSDKHelper.m in Sources */,
+				06C326591CDB5EC2004D888A /* TTCommentView.m in Sources */,
 				D92296BC1C0FD29C00D0FFDF /* NetworkEntity.m in Sources */,
 				D9D2DF851C17D619005DB212 /* HomeDetailBaseNormalCell.m in Sources */,
 				0605B7BE1C12D98A00A575B4 /* WeatherViewModel.m in Sources */,
@@ -3489,6 +3633,7 @@
 				B8771DDF1C098DE40051DE9D /* EaseUserCell.m in Sources */,
 				0613DC171C1C51E200580C32 /* HomeDataDetailDMRootClass.m in Sources */,
 				D9CEC9151C0E8CF7008DEE69 /* HMRecomendModel.m in Sources */,
+				06C3264A1CDB455C004D888A /* JZcommentListView.m in Sources */,
 				B8771D151C098DE40051DE9D /* MWGridCell.m in Sources */,
 				B8771E391C098E6B0051DE9D /* UIView+Sizes.m in Sources */,
 				D9D375621C127457008C54FF /* DVVTabBarController.m in Sources */,
@@ -3525,8 +3670,15 @@
 				B8771DF01C098DE40051DE9D /* EaseChatBarMoreView.m in Sources */,
 				0605B7BB1C12CA3100A575B4 /* DataDatilViewModel.m in Sources */,
 				D9D2DFA21C1808A7005DB212 /* HomeDetailEvaluationCell.m in Sources */,
+<<<<<<< HEAD
+=======
+				D94555411CDC9929003266EF /* JZInformationController.m in Sources */,
+				D95CE3BF1C12BDD700EF6F75 /* HomeDataModelWeeklyRootClass.m in Sources */,
+>>>>>>> 85a91e587a635ec50e1005fd4f4bed266eed386f
 				D9CEC97C1C0ED643008DEE69 /* DVVDoubleRowToolBarView.m in Sources */,
 				B8771DF11C098DE40051DE9D /* EaseRecordView.m in Sources */,
+				06C3264D1CDB478F004D888A /* JZCommentListViewModel.m in Sources */,
+				06C326471CDB445D004D888A /* JZCommentListController.m in Sources */,
 				B8771D371C098DE40051DE9D /* PSTGridLayoutItem.m in Sources */,
 				D92424C11CDB0FC0002AB7C0 /* JZComplaintHeadportrait.m in Sources */,
 				D9CEC94B1C0EC4FE008DEE69 /* YBBaseViewModel.m in Sources */,
@@ -3549,6 +3701,7 @@
 				D9D2DF981C17FF77005DB212 /* CoachOfCoureDetailCell.m in Sources */,
 				062BB6F01C1694BE006D5BEE /* HomeWeatherModel.m in Sources */,
 				0699E5E01C1566E50079CABF /* CoachCourseDatailViewModel.m in Sources */,
+				D94555221CDC715D003266EF /* JZComplaintDetailTopView.m in Sources */,
 				5543A6341C130D710063F7EE /* UserCenterController.m in Sources */,
 				B8771DD31C098DE40051DE9D /* UIViewController+DismissKeyboard.m in Sources */,
 				B8771DDC1C098DE40051DE9D /* ConversationListController.m in Sources */,
@@ -3579,6 +3732,7 @@
 				D9AEF2721CC603B200AB76DD /* JZPublishHistoryData.m in Sources */,
 				D9D2DF8A1C17D619005DB212 /* HomeDetailNormalLineChartCell.m in Sources */,
 				B8771DE31C098DE40051DE9D /* EaseBubbleView+File.m in Sources */,
+				D945554D1CDC9C46003266EF /* JZInformationTopView.m in Sources */,
 				D9CEC97D1C0ED643008DEE69 /* DVVToolBarView.m in Sources */,
 				B8771DDA1C098DE40051DE9D /* EaseEmotionEscape.m in Sources */,
 				D9CEC9571C0ED27E008DEE69 /* HomeController.m in Sources */,
@@ -3604,16 +3758,19 @@
 				B8771DC81C098DE40051DE9D /* EaseLocationViewController.m in Sources */,
 				D9CEC9801C0ED6A6008DEE69 /* InformationController.m in Sources */,
 				B8771DC91C098DE40051DE9D /* EaseMessageViewController.m in Sources */,
+				D94555501CDC9C70003266EF /* JZInformationListView.m in Sources */,
 				D92424851CDB0D58002AB7C0 /* JZComplaintDetailController.m in Sources */,
 				D972447C1C1EC3D1002B3FDE /* DataDetailDMMonthCoursedata.m in Sources */,
 				B22BADCE1CC74DE000455E1C /* JGUserTools.m in Sources */,
 				D92297481C10439200D0FFDF /* UUColor.m in Sources */,
 				0613DC1B1C1C521C00580C32 /* HomeDetailTableView.m in Sources */,
 				06C326391CDB1126004D888A /* JZPassRateLabelView.m in Sources */,
+				06C326531CDB5C20004D888A /* JZCommentChartCell.m in Sources */,
 				B838C24B1C1B0AB800493360 /* ProjectGuideView.m in Sources */,
 				06C326301CDAF522004D888A /* JZPassRateListModel.m in Sources */,
 				06C326271CDAEBA2004D888A /* JZNoDataShowBGView.m in Sources */,
 				D9CEC97A1C0ED643008DEE69 /* UIImageView+SDWedImage.m in Sources */,
+				06C326501CDB4EA4004D888A /* JZCommentListModel.m in Sources */,
 				B8771DD11C098DE40051DE9D /* NSObject+EaseMob.m in Sources */,
 				B8771DE51C098DE40051DE9D /* EaseBubbleView+Location.m in Sources */,
 				B8771DCC1C098DE40051DE9D /* EaseConversationModel.m in Sources */,
@@ -3632,12 +3789,14 @@
 				D9CEC9771C0ED643008DEE69 /* NSString+Helper.m in Sources */,
 				D97244AC1C1ED0BD002B3FDE /* DataDetailDMYearCoursedata.m in Sources */,
 				D9CEC9131C0E8CF7008DEE69 /* BaseModelMethod.m in Sources */,
+				06C326561CDB5C3E004D888A /* JZCommentListCell.m in Sources */,
 				D9CEC98C1C0EDEC6008DEE69 /* YBBaseNavigationController.m in Sources */,
 				5545DE641C14261400F41506 /* FeedbackController.m in Sources */,
 				B8771DE61C098DE40051DE9D /* EaseBubbleView+Text.m in Sources */,
 				B8771DCA1C098DE40051DE9D /* EaseViewController.m in Sources */,
 				B8771D271C098DE40051DE9D /* UIImage+EMGIF.m in Sources */,
 				B8771D141C098DE40051DE9D /* MWCaptionView.m in Sources */,
+				D94555461CDC9973003266EF /* JZInformationData.m in Sources */,
 				0666FFB31C141D43009FA71F /* GeneralCommentListModel.m in Sources */,
 				D9CEC8EB1C0E8C83008DEE69 /* AppDelegate.mm in Sources */,
 				D9CEC9851C0ED7D8008DEE69 /* SideMenuController.m in Sources */,
@@ -3651,6 +3810,7 @@
 				D9CEC9161C0E8CF7008DEE69 /* TeacherModel.m in Sources */,
 				B8771DED1C098DE40051DE9D /* EaseTextView.m in Sources */,
 				0613DC181C1C51E200580C32 /* HomeDetailTableViewDataModel.m in Sources */,
+				D94555531CDC9C8C003266EF /* JZInformationListCell.m in Sources */,
 				D98511801C20A34900D277CD /* HomeGuideController.m in Sources */,
 				D92424C31CDB0FC0002AB7C0 /* JZComplaintStudentinfo.m in Sources */,
 				D92424911CDB0D58002AB7C0 /* JZComplaintListView.m in Sources */,
@@ -3847,7 +4007,7 @@
 					"$(PROJECT_DIR)/Headmaster/ThirdPary/JGPush",
 				);
 				PRODUCT_NAME = "极致校长";
-				PROVISIONING_PROFILE = "0224fe0e-ef53-48c2-add7-a7104a2a136f";
+				PROVISIONING_PROFILE = "84c617e5-dd02-488a-9351-253d3409da57";
 			};
 			name = Debug;
 		};
@@ -3890,7 +4050,7 @@
 					"$(PROJECT_DIR)/Headmaster/ThirdPary/JGPush",
 				);
 				PRODUCT_NAME = "极致校长";
-				PROVISIONING_PROFILE = "0224fe0e-ef53-48c2-add7-a7104a2a136f";
+				PROVISIONING_PROFILE = "84c617e5-dd02-488a-9351-253d3409da57";
 			};
 			name = Release;
 		};

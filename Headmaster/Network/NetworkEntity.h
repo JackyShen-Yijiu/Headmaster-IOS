@@ -183,7 +183,7 @@ success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
 failure:(void (^)(AFHTTPRequestOperation *operation, id responseObject))failure;
 
 /**
- *  合格学员信息列表
+ *  V 2.0 合格学员信息列表
  */
 + (void)getPassRateListWithuserid:(NSString *)userid
                        searchSubjectID:(NSInteger)SubjectID
@@ -191,4 +191,15 @@ failure:(void (^)(AFHTTPRequestOperation *operation, id responseObject))failure;
                             index:(NSInteger) index
                           success:(NetworkSuccessBlock)success
                           failure:(NetworkFailureBlock)failure;
+
+/**
+ *  V 2.0 学员评价
+ */
++ (void)getCommendListWithUserid:(NSString *)userId
+                        SchoolId:(NSString *)schoolId
+                       pageIndex:(NSInteger)index
+                           count:(NSInteger) count
+                      searchType:(kCommentDateSearchType)type
+                         success:(NetworkSuccessBlock)success
+                         failure:(NetworkFailureBlock)failure;
 @end

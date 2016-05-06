@@ -37,7 +37,7 @@
     return self;
 }
 - (void)initUI{
-    self.backgroundColor = [UIColor whiteColor];
+    self.backgroundColor = [UIColor colorWithHexString:@"f7f7f7"];
     [self.contentView addSubview:self.titleLabel];
     [self.contentView addSubview:self.timeLabel];
 
@@ -55,7 +55,7 @@
 - (void)layoutSubviews{
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.contentView.mas_top).offset(14);
-        make.left.mas_equalTo(self.contentView.mas_left).offset(12);
+        make.left.mas_equalTo(self.contentView.mas_left).offset(16);
         make.height.mas_equalTo(@14);
         
     }];
@@ -66,16 +66,16 @@
         
     }];
     
-    [self.passRateResultLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.passRateTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.titleLabel.mas_top);
-        make.right.mas_equalTo(self.contentView.mas_right).offset(-12);
+        make.right.mas_equalTo(self.contentView.mas_right).offset(-16);
         make.height.mas_equalTo(@14);
         
     }];
 
-       [self.passRateTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.passRateResultLabel.mas_bottom).offset(12);
-        make.right.mas_equalTo(self.contentView.mas_right).offset(-12);
+       [self.passRateResultLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.passRateTitleLabel.mas_bottom).offset(12);
+        make.right.mas_equalTo(self.contentView.mas_right).offset(-16);
         make.height.mas_equalTo(@12);
         
         
@@ -96,7 +96,7 @@
 - (UILabel *)titleLabel{
     if (_titleLabel == nil) {
         _titleLabel = [[UILabel alloc] init];
-        _titleLabel.textColor = JZ_FONTCOLOR_LIGHTWHITE;
+        _titleLabel.textColor = kJZDarkTextColor;
         _titleLabel.font = [UIFont systemFontOfSize:14];
         _titleLabel.text = @"考试三";
     }
@@ -105,7 +105,7 @@
 - (UILabel *)timeLabel{
     if (_timeLabel == nil) {
         _timeLabel = [[UILabel alloc] init];
-        _timeLabel.textColor = JZ_FONTCOLOR_LIGHTWHITE;
+        _timeLabel.textColor = kJZLightTextColor;
         _timeLabel.font = [UIFont systemFontOfSize:12];
         _timeLabel.text = @"2016/04/12";
     }
@@ -115,7 +115,7 @@
 - (UILabel *)passRateTitleLabel{
     if (_passRateTitleLabel == nil) {
         _passRateTitleLabel = [[UILabel alloc] init];
-        _passRateTitleLabel.textColor = JZ_FONTCOLOR_LIGHTWHITE;
+        _passRateTitleLabel.textColor = kJZDarkTextColor;
         _passRateTitleLabel.font = [UIFont systemFontOfSize:12];
         _passRateTitleLabel.text = @"通过率";
     }
@@ -125,8 +125,8 @@
 - (UILabel *)passRateResultLabel{
     if (_passRateResultLabel == nil) {
         _passRateResultLabel = [[UILabel alloc] init];
-        _passRateResultLabel.textColor = JZ_FONTCOLOR_LIGHTWHITE;
-        _passRateResultLabel.font = [UIFont systemFontOfSize:12];
+        _passRateResultLabel.textColor = [UIColor colorWithHexString:@"e80031"];
+        _passRateResultLabel.font = [UIFont systemFontOfSize:14];
         _passRateResultLabel.text = @"100%";
     }
     return _passRateResultLabel;
