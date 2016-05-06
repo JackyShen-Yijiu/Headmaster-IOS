@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YBPieChartView.h"
+#import "TTCommentView.h"
 
 @interface JZCommentChartCell : UITableViewCell
 
+@property (nonatomic,strong) YBPieChartView *pieChartView;
+
+@property (nonatomic, strong) TTCommentView *goodCommentView;
+
+@property (nonatomic, strong) TTCommentView *mightCommentView;
+
+@property (nonatomic, strong) TTCommentView *badCommentView;
 @end

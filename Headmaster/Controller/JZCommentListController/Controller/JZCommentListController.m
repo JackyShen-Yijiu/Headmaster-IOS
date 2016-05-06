@@ -35,13 +35,11 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.title = @"学员评价";
     [self initUI];
-    //    [self initRefesh];
+        [self initRefesh];
 }
 - (void)initUI{
     self.view.backgroundColor = JZ_MAIN_BACKGROUND_COLOR;
-    
-    
-    
+   
     _bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 40)];
     _bgView.layer.shadowColor = [UIColor blackColor].CGColor;
     _bgView.layer.shadowOffset = CGSizeMake(0, 2);
@@ -60,11 +58,17 @@
     [_scrollView addSubview:self.thisWeekView];
     [_scrollView addSubview:self.thisMonthView];
     
+     CGFloat contentOffsetX = 2 * self.view.width;
+    _scrollView.contentOffset = CGPointMake(contentOffsetX, 0);
+
+    
     
 }
 - (void)initRefesh{
     
     self.todayView.commentDateSearchType = kCommentDateSearchTypeToday;
+    self.todayView.commnetLevel = _commentLevel;
+    self.todayView.parementVC  = self;
     [self loadNetworkData];
     __weak typeof (self) ws = self;
     
@@ -144,7 +148,9 @@
         CGFloat contentOffsetX = 0;
         _scrollView.contentOffset = CGPointMake(contentOffsetX, 0);
         //        self.oneSubjexctView.searchSubjectID = kDateSearchSubjectIDOne;
-        [self.scrollView addSubview:self.lastMonthView];
+//        [self.scrollView addSubview:self.lastMonthView];
+        self.lastMonthView.commentDateSearchType = kCommentDateSearchTypeLastMonth;
+        self.lastMonthView.commnetLevel = self.commentLevel;
         self.lastMonthView.parementVC = self;
         
         //        self.allListView.studentState = index;
@@ -158,8 +164,8 @@
     }else if (1 == index) {
         CGFloat contentOffsetX = self.view.width;
         _scrollView.contentOffset = CGPointMake(contentOffsetX, 0);
-        //        self.twoSubjexctView.searchSubjectID = kDateSearchSubjectIDTwo;
-        [self.scrollView addSubview:self.lastWeekView];
+        self.lastWeekView.commentDateSearchType = kCommentDateSearchTypeLastWeek;
+        self.lastWeekView.commnetLevel = self.commentLevel;
         self.lastWeekView.parementVC = self;
         
         //        NSLog(@"22_scrollView.contentOffset.y:%f",_scrollView.contentOffset.y);
@@ -177,7 +183,9 @@
         CGFloat contentOffsetX = 2 * self.view.width;
         _scrollView.contentOffset = CGPointMake(contentOffsetX, 0);
         //        self.threeSubjexctView.searchSubjectID = kDateSearchSubjectIDThree;
-        [self.scrollView addSubview:self.todayView];
+//        [self.scrollView addSubview:self.todayView];
+        self.todayView.commentDateSearchType = kCommentDateSearchTypeToday;
+        self.todayView.commnetLevel = self.commentLevel;
         self.todayView.parementVC = self;
         
         
@@ -195,8 +203,8 @@
     else if (3 == index) {
         CGFloat contentOffsetX = 3 * self.view.width;
         _scrollView.contentOffset = CGPointMake(contentOffsetX, 0);
-        //        self.fourSubjexctView.searchSubjectID = kDateSearchSubjectIDFour;
-        [self.scrollView addSubview:self.thisWeekView];
+        self.thisWeekView.commentDateSearchType = kCommentDateSearchTypeThisWeek;
+        self.thisWeekView.commnetLevel = self.commentLevel;
         self.thisWeekView.parementVC = self;
         
         
@@ -212,8 +220,8 @@
     else if (4 == index) {
         CGFloat contentOffsetX = 4 * self.view.width;
         _scrollView.contentOffset = CGPointMake(contentOffsetX, 0);
-        //        self.fourSubjexctView.searchSubjectID = kDateSearchSubjectIDFour;
-        [self.scrollView addSubview:self.thisMonthView];
+        self.thisMonthView.commentDateSearchType = kCommentDateSearchTypeThisMonth;
+        self.thisMonthView.commnetLevel = self.commentLevel;
         self.thisMonthView.parementVC = self;
         
         
@@ -229,7 +237,7 @@
 
     NSLog(@"+++++++_scrollView.contentOffset.y:%f",_scrollView.contentOffset.y);
     
-    //    [self loadNetworkData];
+        [self loadNetworkData];
     
 }
 #pragma mark --- UIScroller delegate
@@ -302,6 +310,7 @@
         _toolBarView.titleSelectColor = [UIColor colorWithHexString:@"3d8bff"];
         _toolBarView.followBarColor = [UIColor colorWithHexString:@"3d8bff"];
         _toolBarView.backgroundColor = [UIColor clearColor];
+        _toolBarView.selectButtonInteger = 2;
         _toolBarView.titleArray = @[ @"上月", @"上周", @"今日" , @"本周", @"本月"];
         __weak typeof(self) ws = self;
         [_toolBarView dvvToolBarViewItemSelected:^(UIButton *button) {

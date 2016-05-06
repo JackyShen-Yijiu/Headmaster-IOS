@@ -10,4 +10,10 @@
 
 @interface JZCommentListController : UIViewController
 
+@property (nonatomic, assign) KCommnetLevel commentLevel; // 评价等级
+
+@property (nonatomic, assign) kCommentDateSearchType commnentDateSearchType; // 评论时间段
+
+- (void)loadNetworkData; // 数据刷新
+
 @end

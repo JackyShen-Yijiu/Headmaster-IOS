@@ -12,6 +12,7 @@
 
 - (void)initWithDataSearchType:(kCommentDateSearchType)commentDateSearchType;
 
+
 @end
 
 @interface JZcommentListView : TTRefreshFooter
@@ -20,6 +21,8 @@
 @property (nonatomic, strong) UIViewController *parementVC;
 
 @property (nonatomic, assign) kCommentDateSearchType commentDateSearchType;
+
+@property (nonatomic, assign) KCommnetLevel commnetLevel;
 
 @property (nonatomic, strong) id<ShowNoDataBG> showNodataDelegate;
 

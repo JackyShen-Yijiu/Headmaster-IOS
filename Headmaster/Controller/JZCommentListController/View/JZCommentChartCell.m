@@ -7,19 +7,13 @@
 //
 
 #import "JZCommentChartCell.h"
-#import "YBPieChartView.h"
-#import "TTCommentView.h"
+
+
 
 
 @interface JZCommentChartCell ()
 
-@property (nonatomic,strong) YBPieChartView *pieChartView;
 
-@property (nonatomic, strong) TTCommentView *goodCommentView;
-
-@property (nonatomic, strong) TTCommentView *mightCommentView;
-
-@property (nonatomic, strong) TTCommentView *badCommentView;
 
 @end
 @implementation JZCommentChartCell
@@ -34,6 +28,7 @@
     return self;
 }
 - (void)initUI{
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
     [self addSubview:self.pieChartView];
      [self addSubview:self.goodCommentView];
      [self addSubview:self.mightCommentView];
@@ -49,7 +44,7 @@
         make.width.mas_equalTo(@110);
     }];
     [self.goodCommentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.mas_top).offset(50);
+        make.top.mas_equalTo(self.pieChartView.mas_top).offset(10);
         make.left.mas_equalTo(self.pieChartView.mas_right).offset(50);
         make.height.mas_equalTo(@20);
        

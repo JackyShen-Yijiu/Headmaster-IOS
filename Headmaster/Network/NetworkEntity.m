@@ -66,7 +66,8 @@
 + (void)getRecommendListWithUserid:(NSString *)userId
                           SchoolId:(NSString *)schoolId
                          pageIndex:(NSInteger)index
-                        searchType:(kDateSearchType)type
+                             count:(NSInteger)count
+                        searchType:(kCommentDateSearchType)type
                       commentLevle:(KCommnetLevel)level
                            success:(NetworkSuccessBlock)success
                            failure:(NetworkFailureBlock)failure
@@ -79,6 +80,7 @@
                            @"userid":userId,
                            @"schoolid":schoolId,
                            @"index":@(index),
+                           @"count":@(count),
                            @"searchtype":@(type),
                            @"commentlevel":@(level)
                            };
@@ -314,31 +316,6 @@
                              @"index":[NSString stringWithFormat:@"%li",index]};
     [NetworkTool GET:PASSRATELIST params:params success:success failure:failure];
 }
-/**
- *  V 2.0 学员评价
- */
 
-+ (void)getCommendListWithUserid:(NSString *)userId
-                         SchoolId:(NSString *)schoolId
-                        pageIndex:(NSInteger)index
-                           count:(NSInteger) count
-                       searchType:(kCommentDateSearchType)type
-                          success:(NetworkSuccessBlock)success
-                          failure:(NetworkFailureBlock)failure
-{
-    if (!userId || !schoolId) {
-        return [NetworkTool missParagramerCallBackFailure:failure];
-    };
-    NSString *urlStr = [NSString stringWithFormat:@"%@/%@",[NetworkTool domain],RECOMENDHMESSAGE];
-    NSDictionary * dic = @{
-                           @"userid":userId,
-                           @"schoolid":schoolId,
-                           @"index":@(index),
-                           @"conut":@(count),
-                           @"searchtype":@(type),
-                           
-                           };
-    [NetworkTool GET:urlStr params:dic success:success failure:failure];
-}
 
 @end

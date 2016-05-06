@@ -57,8 +57,7 @@
         index = _thisMonthIndex;
     }
     
-    [NetworkEntity getCommendListWithUserid:[UserInfoModel defaultUserInfo].userID SchoolId:nil pageIndex:index count:10 searchType:_commentDateSearchType success:^(id responseObject) {
-        
+    [NetworkEntity getRecommendListWithUserid:[UserInfoModel defaultUserInfo].userID SchoolId:[UserInfoModel defaultUserInfo].schoolId pageIndex:index count:10 searchType:_commentDateSearchType commentLevle:_commentLevel success:^(id responseObject) {
         NSLog(@"responseObject=%@ subjectID=%@",responseObject, (NSString *)@(self.commentDateSearchType));
         NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
         NSArray *data = [responseObject objectArrayForKey:@"data"];
@@ -98,14 +97,12 @@
             }
         }
         
-            [self successRefreshBlock];
-            
+        [self successRefreshBlock];
 
     } failure:^(NSError *failure) {
         ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"网络错误!"];
         [alertView show];
     }];
-    
     
     
 }
@@ -135,16 +132,15 @@
     
     
     // 加载更多
-    [NetworkEntity getCommendListWithUserid:[UserInfoModel defaultUserInfo].userID SchoolId:nil pageIndex:index count:10 searchType:_commentDateSearchType success:^(id responseObject) {
-        
+    [NetworkEntity getRecommendListWithUserid:[UserInfoModel defaultUserInfo].userID SchoolId:[UserInfoModel defaultUserInfo].schoolId pageIndex:index count:10 searchType:_commentDateSearchType commentLevle:_commentLevel success:^(id responseObject) {
         NSLog(@"responseObject=%@ subjectID=%@",responseObject, (NSString *)@(self.commentDateSearchType));
         NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
         NSArray *data = [responseObject objectArrayForKey:@"data"];
         if (type == 1) {
-        
+            
             
             if (data.count == 0) {
-                 [self successLoadMoreBlockAndNoData];
+                [self successLoadMoreBlockAndNoData];
             }
             
             for (NSDictionary *dic in data) {
@@ -172,12 +168,12 @@
         
         [self successRefreshBlock];
         
-        
+
     } failure:^(NSError *failure) {
         ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"网络错误!"];
         [alertView show];
     }];
-
+    
 }
 
 

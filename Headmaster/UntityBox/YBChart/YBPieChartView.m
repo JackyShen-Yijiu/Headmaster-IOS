@@ -7,12 +7,12 @@
 //
 
 #import "YBPieChartView.h"
-#import "XYPieChart.h"
+
 #import "UIColor+Extension.h"
 
 @interface YBPieChartView()<XYPieChartDataSource, XYPieChartDelegate>
 
-@property (nonatomic, strong) XYPieChart *pieChart;
+
 
 @end
 
@@ -101,13 +101,5 @@
     }
     return _pieChart;
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
 @end

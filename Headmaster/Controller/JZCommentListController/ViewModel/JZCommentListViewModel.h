@@ -12,6 +12,8 @@
 
 @property (nonatomic, assign) kCommentDateSearchType commentDateSearchType;
 
+@property (nonatomic, assign) KCommnetLevel commentLevel;
+
 @property (nonatomic, strong) NSMutableArray *lastMonthArray;
 @property (nonatomic, strong) NSMutableArray *lastWeekArray;
 @property (nonatomic, strong) NSMutableArray *todayArray;

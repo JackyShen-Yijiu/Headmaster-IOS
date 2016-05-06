@@ -198,149 +198,149 @@
 
 - (void)initRefreshView
 {
-    WS(ws);
-    self.tableView.refreshHeader.beginRefreshingBlock = ^(){
-        
-        if (![ws isShowRecomend]) {
-            //投诉
-            ws.tableView.tableHeaderView = nil;
-            
-            [NetworkEntity getComplainListWithUserid:[[UserInfoModel defaultUserInfo] userID]
-                                            SchoolId:[[UserInfoModel defaultUserInfo] schoolId]
-                                           pageIndex:1
-                                             success:^(id responseObject) {
-                                                 
-//                                                 NSLog(@"==%@",responseObject);
-                                                 NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
-                                                 if (type == 1) {
-                                                     ws.complainData = [[BaseModelMethod getComplainListArrayFormDicInfo:[responseObject objectArrayForKey:@"data"]] mutableCopy];
-                                                     [ws.tableView.refreshHeader endRefreshing];
-                                                     [ws.tableView reloadData];
-                                                 }
-
-                                                 
-                                             } failure:^(NSError *failure) {
-                                                 [ws netErrorWithTableView:ws.tableView];
-                                             }];
-            
-        }else{
-            //评论
-            ws.tableView.tableHeaderView = ws.pieView;
-            [NetworkEntity getRecommendListWithUserid:[[UserInfoModel defaultUserInfo] userID]
-                                             SchoolId:[[UserInfoModel defaultUserInfo] schoolId]
-                                            pageIndex:1
-                                           searchType:ws.searchType
-                                         commentLevle:ws.toolView.selectButtonInteger - 100
-                                              success:^(id responseObject) {
-                                                
-                                                  
-                                                  NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
-                                                  if (type == 1) {
-                                                      NSDictionary * data = [responseObject objectInfoForKey:@"data"];
-                                                      ws.recomendData = [[BaseModelMethod getRecomendListArrayFormDicInfo:[data objectArrayForKey:@"commentlist"]] mutableCopy];
-                                                      [ws.pieView updateUIWithCountInfo:[data objectInfoForKey:@"commentcount"]];
-                                                      
-                                                      [ws.tableView.refreshHeader endRefreshing];
-                                                      [ws.tableView reloadData];
-                                                  } 
-                                                  
-                                                  
-                                              } failure:^(NSError *failure) {
-                                                  [ws netErrorWithTableView:ws.tableView];
-                                              }];
-        }
-        
-    };
-    
-    self.tableView.refreshFooter.beginRefreshingBlock = ^(){
-        
-        if (![ws isShowRecomend]) {
-            //投诉
-            ws.tableView.tableHeaderView = nil;
-            ws.tableView.tableHeaderView = nil;
-            
-            NSInteger recomendDataCount = 0;
-            if (ws.recomendData.count) {
-                if (ws.recomendData.count <= 10) {
-                    recomendDataCount = 10;
-                }else {
-                    NSInteger temp = ws.recomendData.count % 10;
-                    if (temp) {
-                        temp += RELOADDATACOUNT - temp;
-                    }
-                    recomendDataCount = ws.recomendData.count + temp;
-                }
-            }
-            
-            [NetworkEntity getComplainListWithUserid:[[UserInfoModel defaultUserInfo] userID]
-                                            SchoolId:[[UserInfoModel defaultUserInfo] schoolId]
-                                           pageIndex:recomendDataCount / RELOADDATACOUNT + 1
-                                             success:^(id responseObject) {
-                                                 
-                                                 NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
-                                                 
-                                                 if (type == 1) {
-                                                     NSArray * listArray = [[BaseModelMethod getComplainListArrayFormDicInfo:[responseObject objectArrayForKey:@"data"]] mutableCopy];
-                                                     if (listArray.count) {
-                                                         [ws.complainData addObjectsFromArray:listArray];
-                                                         [ws.tableView reloadData];
-                                                     }else{
-                                                         [ws showTotasViewWithMes:@"已经加载所有数据"];
-                                                     }
-                                                     [ws.tableView.refreshFooter endRefreshing];
-                                                 }else{
-                                                     [ws dealErrorResponseWithTableView:ws.tableView info:responseObject];
-                                                 }
-
-                                             } failure:^(NSError *failure) {
-                                                 
-                                             }];
-        }else{
-            //评论
-            ws.tableView.tableHeaderView = ws.pieView;
-            
-            NSInteger recomendDataCount = 0;
-            if (ws.recomendData.count) {
-                if (ws.recomendData.count <= 10) {
-                    recomendDataCount = 10;
-                }else {
-                    NSInteger temp = ws.recomendData.count % 10;
-                    if (temp) {
-                        temp += RELOADDATACOUNT - temp;
-                    }
-                    recomendDataCount = ws.recomendData.count + temp;
-                }
-            }
-            [NetworkEntity getRecommendListWithUserid:[[UserInfoModel defaultUserInfo] userID]
-                                             SchoolId:[[UserInfoModel defaultUserInfo] schoolId]
-                                            pageIndex:recomendDataCount / RELOADDATACOUNT + 1
-                                           searchType:ws.searchType
-                                         commentLevle:ws.toolView.selectButtonInteger - 100
-                                              success:^(id responseObject) {
-//                                                  NSLog(@"%li==%@",ws.toolView.selectButtonInteger,responseObject);
-                                                  NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
-                                                  
-                                                  if (type == 1) {
-                                                      NSDictionary * data = [responseObject objectInfoForKey:@"data"];
-                                                      NSArray * listArray = [[BaseModelMethod getRecomendListArrayFormDicInfo:[data objectArrayForKey:@"commentlist"]] mutableCopy];
-                                                      if (listArray.count) {
-                                                          [ws.recomendData addObjectsFromArray:listArray];
-                                                          [ws.tableView reloadData];
-                                                      }else{
-                                                          [ws showTotasViewWithMes:@"已经加载所有数据"];
-                                                      }
-                                                      [ws.tableView.refreshFooter endRefreshing];
-                                                  }else{
-                                                      [ws dealErrorResponseWithTableView:ws.tableView info:responseObject];
-                                                  }
-                                                  
-                                              } failure:^(NSError *failure) {
-                                                  [ws netErrorWithTableView:ws.tableView];
-                                              }];
-            
-        }
-
-    };
+//    WS(ws);
+//    self.tableView.refreshHeader.beginRefreshingBlock = ^(){
+//        
+//        if (![ws isShowRecomend]) {
+//            //投诉
+//            ws.tableView.tableHeaderView = nil;
+//            
+//            [NetworkEntity getComplainListWithUserid:[[UserInfoModel defaultUserInfo] userID]
+//                                            SchoolId:[[UserInfoModel defaultUserInfo] schoolId]
+//                                           pageIndex:1
+//                                             success:^(id responseObject) {
+//                                                 
+////                                                 NSLog(@"==%@",responseObject);
+//                                                 NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
+//                                                 if (type == 1) {
+//                                                     ws.complainData = [[BaseModelMethod getComplainListArrayFormDicInfo:[responseObject objectArrayForKey:@"data"]] mutableCopy];
+//                                                     [ws.tableView.refreshHeader endRefreshing];
+//                                                     [ws.tableView reloadData];
+//                                                 }
+//
+//                                                 
+//                                             } failure:^(NSError *failure) {
+//                                                 [ws netErrorWithTableView:ws.tableView];
+//                                             }];
+//            
+//        }else{
+//            //评论
+//            ws.tableView.tableHeaderView = ws.pieView;
+//            [NetworkEntity getRecommendListWithUserid:[[UserInfoModel defaultUserInfo] userID]
+//                                             SchoolId:[[UserInfoModel defaultUserInfo] schoolId]
+//                                            pageIndex:1
+//                                           searchType:ws.searchType
+//                                         commentLevle:ws.toolView.selectButtonInteger - 100
+//                                              success:^(id responseObject) {
+//                                                
+//                                                  
+//                                                  NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
+//                                                  if (type == 1) {
+//                                                      NSDictionary * data = [responseObject objectInfoForKey:@"data"];
+//                                                      ws.recomendData = [[BaseModelMethod getRecomendListArrayFormDicInfo:[data objectArrayForKey:@"commentlist"]] mutableCopy];
+//                                                      [ws.pieView updateUIWithCountInfo:[data objectInfoForKey:@"commentcount"]];
+//                                                      
+//                                                      [ws.tableView.refreshHeader endRefreshing];
+//                                                      [ws.tableView reloadData];
+//                                                  } 
+//                                                  
+//                                                  
+//                                              } failure:^(NSError *failure) {
+//                                                  [ws netErrorWithTableView:ws.tableView];
+//                                              }];
+//        }
+//        
+//    };
+//    
+//    self.tableView.refreshFooter.beginRefreshingBlock = ^(){
+//        
+//        if (![ws isShowRecomend]) {
+//            //投诉
+//            ws.tableView.tableHeaderView = nil;
+//            ws.tableView.tableHeaderView = nil;
+//            
+//            NSInteger recomendDataCount = 0;
+//            if (ws.recomendData.count) {
+//                if (ws.recomendData.count <= 10) {
+//                    recomendDataCount = 10;
+//                }else {
+//                    NSInteger temp = ws.recomendData.count % 10;
+//                    if (temp) {
+//                        temp += RELOADDATACOUNT - temp;
+//                    }
+//                    recomendDataCount = ws.recomendData.count + temp;
+//                }
+//            }
+//            
+//            [NetworkEntity getComplainListWithUserid:[[UserInfoModel defaultUserInfo] userID]
+//                                            SchoolId:[[UserInfoModel defaultUserInfo] schoolId]
+//                                           pageIndex:recomendDataCount / RELOADDATACOUNT + 1
+//                                             success:^(id responseObject) {
+//                                                 
+//                                                 NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
+//                                                 
+//                                                 if (type == 1) {
+//                                                     NSArray * listArray = [[BaseModelMethod getComplainListArrayFormDicInfo:[responseObject objectArrayForKey:@"data"]] mutableCopy];
+//                                                     if (listArray.count) {
+//                                                         [ws.complainData addObjectsFromArray:listArray];
+//                                                         [ws.tableView reloadData];
+//                                                     }else{
+//                                                         [ws showTotasViewWithMes:@"已经加载所有数据"];
+//                                                     }
+//                                                     [ws.tableView.refreshFooter endRefreshing];
+//                                                 }else{
+//                                                     [ws dealErrorResponseWithTableView:ws.tableView info:responseObject];
+//                                                 }
+//
+//                                             } failure:^(NSError *failure) {
+//                                                 
+//                                             }];
+//        }else{
+//            //评论
+//            ws.tableView.tableHeaderView = ws.pieView;
+//            
+//            NSInteger recomendDataCount = 0;
+//            if (ws.recomendData.count) {
+//                if (ws.recomendData.count <= 10) {
+//                    recomendDataCount = 10;
+//                }else {
+//                    NSInteger temp = ws.recomendData.count % 10;
+//                    if (temp) {
+//                        temp += RELOADDATACOUNT - temp;
+//                    }
+//                    recomendDataCount = ws.recomendData.count + temp;
+//                }
+//            }
+//            [NetworkEntity getRecommendListWithUserid:[[UserInfoModel defaultUserInfo] userID]
+//                                             SchoolId:[[UserInfoModel defaultUserInfo] schoolId]
+//                                            pageIndex:recomendDataCount / RELOADDATACOUNT + 1
+//                                           searchType:ws.searchType
+//                                         commentLevle:ws.toolView.selectButtonInteger - 100
+//                                              success:^(id responseObject) {
+////                                                  NSLog(@"%li==%@",ws.toolView.selectButtonInteger,responseObject);
+//                                                  NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
+//                                                  
+//                                                  if (type == 1) {
+//                                                      NSDictionary * data = [responseObject objectInfoForKey:@"data"];
+//                                                      NSArray * listArray = [[BaseModelMethod getRecomendListArrayFormDicInfo:[data objectArrayForKey:@"commentlist"]] mutableCopy];
+//                                                      if (listArray.count) {
+//                                                          [ws.recomendData addObjectsFromArray:listArray];
+//                                                          [ws.tableView reloadData];
+//                                                      }else{
+//                                                          [ws showTotasViewWithMes:@"已经加载所有数据"];
+//                                                      }
+//                                                      [ws.tableView.refreshFooter endRefreshing];
+//                                                  }else{
+//                                                      [ws dealErrorResponseWithTableView:ws.tableView info:responseObject];
+//                                                  }
+//                                                  
+//                                              } failure:^(NSError *failure) {
+//                                                  [ws netErrorWithTableView:ws.tableView];
+//                                              }];
+//            
+//        }
+//
+//    };
 }
 - (UIBarButtonItem *)pushBtn {
     if (!_pushBtn) {

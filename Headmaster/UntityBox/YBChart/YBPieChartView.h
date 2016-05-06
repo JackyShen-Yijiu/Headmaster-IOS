@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XYPieChart.h"
 
 @interface YBPieChartView : UIView
+
+@property (nonatomic, strong) XYPieChart *pieChart;
 
 // 百分比数组
 @property (nonatomic, strong) NSArray *percentageArray;
