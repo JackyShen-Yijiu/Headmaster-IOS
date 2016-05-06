@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class JZComplaintComplaintlist;
 @interface JZComplaintDetailController : UIViewController
+@property (nonatomic, strong) JZComplaintComplaintlist *dataModel;
 
 @end
