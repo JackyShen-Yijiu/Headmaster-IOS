@@ -85,6 +85,7 @@
 		B2CB3DD11CDCA6EF00442471 /* HomeDataModelRootClass.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CB3DCC1CDCA6EF00442471 /* HomeDataModelRootClass.m */; };
 		B2CB3DD21CDCA6EF00442471 /* HomeDataModelWeeklyData.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CB3DCE1CDCA6EF00442471 /* HomeDataModelWeeklyData.m */; };
 		B2CB3DD31CDCA6EF00442471 /* HomeDataModelWeeklyRootClass.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CB3DD01CDCA6EF00442471 /* HomeDataModelWeeklyRootClass.m */; };
+		B2CB3DD61CE0257700442471 /* TTProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CB3DD51CE0257700442471 /* TTProgressView.m */; };
 		B838C24B1C1B0AB800493360 /* ProjectGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = B838C24A1C1B0AB800493360 /* ProjectGuideView.m */; };
 		B838C24E1C1B0B1B00493360 /* SMPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B838C24D1C1B0B1B00493360 /* SMPageControl.m */; };
 		B8771AFA1C0976200051DE9D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B8771AF91C0976200051DE9D /* main.m */; };
@@ -616,6 +617,8 @@
 		B2CB3DCE1CDCA6EF00442471 /* HomeDataModelWeeklyData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeDataModelWeeklyData.m; sourceTree = "<group>"; };
 		B2CB3DCF1CDCA6EF00442471 /* HomeDataModelWeeklyRootClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeDataModelWeeklyRootClass.h; sourceTree = "<group>"; };
 		B2CB3DD01CDCA6EF00442471 /* HomeDataModelWeeklyRootClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeDataModelWeeklyRootClass.m; sourceTree = "<group>"; };
+		B2CB3DD41CE0257700442471 /* TTProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTProgressView.h; sourceTree = "<group>"; };
+		B2CB3DD51CE0257700442471 /* TTProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTProgressView.m; sourceTree = "<group>"; };
 		B838C2491C1B0AB800493360 /* ProjectGuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectGuideView.h; sourceTree = "<group>"; };
 		B838C24A1C1B0AB800493360 /* ProjectGuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectGuideView.m; sourceTree = "<group>"; };
 		B838C24C1C1B0B1B00493360 /* SMPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPageControl.h; sourceTree = "<group>"; };
@@ -3223,6 +3226,8 @@
 				D9C3F4581C167365006D22BC /* HomeProgressView.m */,
 				D9C3F4541C167322006D22BC /* DVVProgressView.h */,
 				D9C3F4551C167322006D22BC /* DVVProgressView.m */,
+				B2CB3DD41CE0257700442471 /* TTProgressView.h */,
+				B2CB3DD51CE0257700442471 /* TTProgressView.m */,
 				D92296C51C0FD2FF00D0FFDF /* InformationListCell.h */,
 				D92296C61C0FD2FF00D0FFDF /* InformationListCell.m */,
 				D92296C71C0FD2FF00D0FFDF /* InformationListCell.xib */,
@@ -3670,11 +3675,7 @@
 				B8771DF01C098DE40051DE9D /* EaseChatBarMoreView.m in Sources */,
 				0605B7BB1C12CA3100A575B4 /* DataDatilViewModel.m in Sources */,
 				D9D2DFA21C1808A7005DB212 /* HomeDetailEvaluationCell.m in Sources */,
-<<<<<<< HEAD
-=======
 				D94555411CDC9929003266EF /* JZInformationController.m in Sources */,
-				D95CE3BF1C12BDD700EF6F75 /* HomeDataModelWeeklyRootClass.m in Sources */,
->>>>>>> 85a91e587a635ec50e1005fd4f4bed266eed386f
 				D9CEC97C1C0ED643008DEE69 /* DVVDoubleRowToolBarView.m in Sources */,
 				B8771DF11C098DE40051DE9D /* EaseRecordView.m in Sources */,
 				06C3264D1CDB478F004D888A /* JZCommentListViewModel.m in Sources */,
@@ -3767,6 +3768,7 @@
 				06C326391CDB1126004D888A /* JZPassRateLabelView.m in Sources */,
 				06C326531CDB5C20004D888A /* JZCommentChartCell.m in Sources */,
 				B838C24B1C1B0AB800493360 /* ProjectGuideView.m in Sources */,
+				B2CB3DD61CE0257700442471 /* TTProgressView.m in Sources */,
 				06C326301CDAF522004D888A /* JZPassRateListModel.m in Sources */,
 				06C326271CDAEBA2004D888A /* JZNoDataShowBGView.m in Sources */,
 				D9CEC97A1C0ED643008DEE69 /* UIImageView+SDWedImage.m in Sources */,
