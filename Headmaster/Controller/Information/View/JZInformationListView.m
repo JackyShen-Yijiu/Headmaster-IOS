@@ -10,12 +10,15 @@
 #import "JZInformationListCell.h"
 #import "JZInformationData.h"
 #import <YYModel.h>
-#import "JZInformationTopView.h"
+#import "SDCycleScrollView.h"
+
 
 static NSString *JZInformationListCellID = @"JZInformationListCellID";
 
-@interface JZInformationListView ()<UITableViewDataSource,UITableViewDelegate>
+@interface JZInformationListView ()<UITableViewDataSource,UITableViewDelegate,SDCycleScrollViewDelegate>
 @property (nonatomic, strong) NSMutableArray *listDataArray;
+@property (nonatomic, strong) NSMutableArray *imagesURLStrings;
+@property (nonatomic, strong) NSMutableArray *titles;
 @end
 @implementation JZInformationListView
 
@@ -32,8 +35,6 @@ static NSString *JZInformationListCellID = @"JZInformationListCellID";
             self.rowHeight = 108;
        
             self.separatorStyle = NO;
-
-
         
 //        self.tableHeaderView.height = 160;
             [self loadData];
@@ -72,8 +73,16 @@ static NSString *JZInformationListCellID = @"JZInformationListCellID";
 #pragma mark - 代理
 
 
--(void)loadData {
+- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index
+{
+    NSLog(@"---点击了第%ld张图片", (long)index);
     
+    [self.vc.navigationController pushViewController:[NSClassFromString(@"DemoVCWithXib") new] animated:YES];
+}
+
+-(void)loadData {
+    static NSInteger index = 0;
+
     [NetworkEntity informationListWithseqindex:0 count:10 success:^(id responseObject) {
         
         NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
@@ -89,7 +98,24 @@ static NSString *JZInformationListCellID = @"JZInformationListCellID";
                     JZInformationData *listModel = [JZInformationData yy_modelWithJSON:dict];
                     [self.listDataArray addObject:listModel];
                     
+                    if (index<3) {
+                        [self.imagesURLStrings addObject:listModel.logimg];
+                        [self.titles addObject:listModel.title];
+                        
+                    }
+                    index ++;
+
                 }
+                
+                // 网络加载 --- 创建带标题的图片轮播器
+                SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0,0, kJZWidth, 160) delegate:self placeholderImage:[UIImage imageNamed:@"placeholder"]];
+                cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
+                cycleScrollView.titlesGroup = self.titles;
+                cycleScrollView.imageURLStringsGroup = self.imagesURLStrings;
+                // 自定义分页控件小圆标颜色
+                cycleScrollView.currentPageDotColor = [UIColor whiteColor];
+                self.tableHeaderView = cycleScrollView;
+
                 [self reloadData];
                 
                 
@@ -98,7 +124,6 @@ static NSString *JZInformationListCellID = @"JZInformationListCellID";
                 [alertView show];
                 
             }
-            
             
         }else {
             
@@ -127,6 +152,24 @@ static NSString *JZInformationListCellID = @"JZInformationListCellID";
     }
     
     return _listDataArray;
+}
+-(NSMutableArray *)imagesURLStrings {
+    
+    if (!_imagesURLStrings) {
+        
+        _imagesURLStrings = [[NSMutableArray alloc]init];
+    }
+    
+    return _imagesURLStrings;
+}
+-(NSMutableArray *)titles {
+    
+    if (!_titles) {
+        
+        _titles = [[NSMutableArray alloc]init];
+    }
+    
+    return _titles;
 }
 
 @end

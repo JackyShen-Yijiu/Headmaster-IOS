@@ -8,11 +8,15 @@
 
 #import "JZInformationController.h"
 #import "JZInformationListView.h"
-#import "JZInformationTopView.h"
+#import "SDCycleScrollView.h"
+#import "JZInformationData.h"
+
+#import <YYModel.h>
+
 @interface JZInformationController ()
 @property (nonatomic, weak) JZInformationListView *listView;
-@property (nonatomic, strong) NSMutableArray *listDataArray;
-
+@property (nonatomic, strong) NSMutableArray *imagesURLStrings;
+@property (nonatomic, strong) NSMutableArray *titles;
 
 @end
 
@@ -38,25 +42,24 @@
 
     // Do any additional setup after loading the view.
 
-    
-    
-    JZInformationListView *listView = [[JZInformationListView alloc] initWithFrame:CGRectMake(0, 0, kJZWidth, kJZHeight -  64) style:UITableViewStylePlain];
-    
-    
+    JZInformationListView *listView = [[JZInformationListView alloc] initWithFrame:CGRectMake(0, 0, kJZWidth, kJZHeight - 64) style:UITableViewStylePlain];
     self.listView = listView;
-    
-    self.listView.tableHeaderView = [[JZInformationTopView alloc]initWithFrame:CGRectMake(0, 0,kJZWidth, 160)];
-
-    
     [self.view addSubview:listView];
+    self.listView.vc = self;
+
+    /*
+     block监听点击方式
+     
+     cycleScrollView2.clickItemOperationBlock = ^(NSInteger index) {
+     NSLog(@">>>>>  %ld", (long)index);
+     };
+     
+     */
+
+    
+
+
+    
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
-
 
 @end

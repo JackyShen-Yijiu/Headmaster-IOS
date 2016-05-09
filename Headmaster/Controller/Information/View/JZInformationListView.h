@@ -8,5 +8,6 @@
 
 #import <UIKit/UIKit.h>
 @interface JZInformationListView : UITableView
+@property (nonatomic, strong) UIViewController *vc;
 
 @end
