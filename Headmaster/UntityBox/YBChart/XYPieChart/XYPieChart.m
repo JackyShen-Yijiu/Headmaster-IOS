@@ -101,6 +101,8 @@
     //animation control
     NSTimer *_animationTimer;
     NSMutableArray *_animations;
+    
+    NSInteger _resultIndex;
 }
 
 static NSUInteger kDefaultSliceZOrder = 100;
@@ -142,6 +144,7 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
         [self addSubview:_pieView];
         
         _selectedSliceIndex = -1;
+        _resultIndex = 5;
         _animations = [[NSMutableArray alloc] init];
         
         _animationSpeed = 0.5;
@@ -525,6 +528,7 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
     UITouch *touch = [touches anyObject];
     CGPoint point = [touch locationInView:_pieView];
     NSInteger selectedIndex = [self getCurrentSelectedOnTouch:point];
+    
     [self notifyDelegateOfSelectionChangeFrom:_selectedSliceIndex to:selectedIndex];
     [self touchesCancelled:touches withEvent:event];
 }
@@ -544,6 +548,9 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
 
 - (void)notifyDelegateOfSelectionChangeFrom:(NSUInteger)previousSelection to:(NSUInteger)newSelection
 {
+    if (previousSelection == newSelection) {
+        return;
+    }
     if (previousSelection != newSelection){
         if(previousSelection != -1){
             NSUInteger tempPre = previousSelection;
@@ -588,6 +595,7 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
 
 - (void)setSliceSelectedAtIndex:(NSInteger)index
 {
+    
     if(_selectedSliceOffsetRadius <= 0)
         return;
     SliceLayer *layer = (SliceLayer *)[_pieView.layer.sublayers objectAtIndex:index];
@@ -602,6 +610,9 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
 
 - (void)setSliceDeselectedAtIndex:(NSInteger)index
 {
+    
+    
+    
     if(_selectedSliceOffsetRadius <= 0)
         return;
     SliceLayer *layer = (SliceLayer *)[_pieView.layer.sublayers objectAtIndex:index];

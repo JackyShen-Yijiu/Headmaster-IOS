@@ -56,7 +56,7 @@
 - (UIView *)leftBigView{
     if (_leftBigView== nil) {
         _leftBigView = [[UIView alloc] init];
-        _leftBigView.hidden = NO;
+        _leftBigView.hidden = YES;
     }
     return _leftBigView;
 }
@@ -84,9 +84,29 @@
 // 图例和字体是否变大
 - (void)setIsShowBigView:(BOOL)isShowBigView{
     if (isShowBigView) {
+        
         _rightLabel.font = [UIFont systemFontOfSize:16];
-        _leftBigView.hidden = isShowBigView;
+        _leftBigView.hidden = !isShowBigView;
+        if (0 == _expandIndex) {
+            // 好评放大
+            _rightLabel.textColor =  RGB_Color(123, 214, 92);
+        }
+        if (1 == _expandIndex) {
+            // 中评放大
+            _rightLabel.textColor =  RGB_Color(61, 139, 255);
+        }
+        if (2 == _expandIndex) {
+            // 差评放大
+            _rightLabel.textColor =  RGB_Color(232, 0, 49);
+        }
+        
+    }else{
+        _rightLabel.font = [UIFont systemFontOfSize:14];
+        _rightLabel.textColor = kJZLightTextColor;
+        _leftBigView.hidden = !isShowBigView;
+
     }
+    
 }
 // 文字内容
 - (void)setTitieleStr:(NSString *)titieleStr{

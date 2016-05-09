@@ -235,7 +235,7 @@
     
     _viewModel.searchType = 1;
     [_viewModel networkRequestRefresh];
-//    [self testVC];
+    [self testVC];
     
 }
 - (void)testVC{

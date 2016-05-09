@@ -137,7 +137,9 @@ typedef NS_ENUM(NSInteger,kCommentDateSearchType) {
     kCommentDateSearchTypeThisMonth
 };
 
-
+/**
+ *  评价等级 差评,中评,好评
+ */
 typedef NS_ENUM(NSInteger,KCommnetLevel) {
     KCommnetLevelPoorRating = 1,
     KCommnetLevelMidRating,
