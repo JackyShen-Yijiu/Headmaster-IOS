@@ -11,15 +11,14 @@
 #import "JZInformationData.h"
 #import <YYModel.h>
 #import "SDCycleScrollView.h"
-
-
+#import "InformationDetailController.h"
 static NSString *JZInformationListCellID = @"JZInformationListCellID";
 
 @interface JZInformationListView ()<UITableViewDataSource,UITableViewDelegate,SDCycleScrollViewDelegate>
 @property (nonatomic, strong) NSMutableArray *listDataArray;
 @property (nonatomic, strong) NSMutableArray *imagesURLStrings;
 @property (nonatomic, strong) NSMutableArray *titles;
-//@property (nonatomic ,assign) NSInteger seqindex;
+@property (nonatomic, strong) NSMutableArray *topDataArr;
 
 @end
 @implementation JZInformationListView
@@ -73,13 +72,23 @@ static NSString *JZInformationListCellID = @"JZInformationListCellID";
 }
 
 #pragma mark - 代理
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    InformationDetailController *detailsVC = [InformationDetailController new];
+    JZInformationData *dataModel = self.listDataArray[indexPath.row];
+    detailsVC.urlStr = dataModel.contenturl;
+    detailsVC.navTitle = dataModel.title;
+    [self.vc.navigationController pushViewController:detailsVC animated:YES];
+    
+}
 
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index
 {
-    NSLog(@"---点击了第%ld张图片", (long)index);
-    
-    [self.vc.navigationController pushViewController:[NSClassFromString(@"DemoVCWithXib") new] animated:YES];
+    InformationDetailController *detailsVC = [InformationDetailController new];
+    JZInformationData *dataModel = self.topDataArr[index];
+    detailsVC.urlStr = dataModel.contenturl;
+    detailsVC.navTitle = dataModel.title;
+    [self.vc.navigationController pushViewController:detailsVC animated:YES];
 }
 
 -(void)loadData {
@@ -98,12 +107,11 @@ static NSString *JZInformationListCellID = @"JZInformationListCellID";
                 
                 for (NSDictionary  *dict in data) {
                     JZInformationData *listModel = [JZInformationData yy_modelWithJSON:dict];
-                    
-                   
-                    
+
                     if (index<3) {
                         [self.imagesURLStrings addObject:listModel.logimg];
                         [self.titles addObject:listModel.title];
+                        [self.topDataArr addObject:listModel];
                         
                     }else {
                        [self.listDataArray addObject:listModel];
@@ -243,6 +251,14 @@ static NSString *JZInformationListCellID = @"JZInformationListCellID";
     }
     
     return _titles;
+}
+-(NSMutableArray *)topDataArr {
+    if (!_topDataArr) {
+        
+        _topDataArr = [[NSMutableArray alloc]init];
+    }
+    
+    return _topDataArr;
 }
 
 @end
