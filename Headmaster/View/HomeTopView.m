@@ -60,8 +60,8 @@
     if (!_doubleRowView) {
        
         _doubleRowView = [DVVDoubleRowToolBarView new];
-        _doubleRowView.upTitleFont = [UIFont fontWithName:@"HiraKakuProN-W3" size:24];
-        _doubleRowView.downTitleFont = [UIFont fontWithName:@"HiraKakuProN-W3" size:14];
+        _doubleRowView.upTitleFont = [UIFont fontWithName:@"HiraKakuProN-W3" size:20];
+        _doubleRowView.downTitleFont = [UIFont fontWithName:@"HiraKakuProN-W3" size:13];
         _doubleRowView.followBarHidden = 1;
         _doubleRowView.upTitleOffSetY = 7;
         _doubleRowView.upTitleArray = @[ @"", @"", @"", @"" ];
@@ -82,20 +82,20 @@
         self.topLabel.textAlignment = 1;
         self.topLabel.textAlignment = NSTextAlignmentCenter;
         self.topLabel.text = @"今日报名人数";
-        self.topLabel.font = [UIFont boldSystemFontOfSize:15];
+        self.topLabel.font = [UIFont boldSystemFontOfSize:14];
         if (YBIphone6Plus) {
-            self.topLabel.font = [UIFont boldSystemFontOfSize:15*YBRatio];
+            self.topLabel.font = [UIFont boldSystemFontOfSize:14*YBRatio];
         }
-        self.topLabel.textColor = [UIColor colorWithHexString:@"19f9cc"];
+        self.topLabel.textColor = [UIColor whiteColor];
         
         // 添加分割线
-        UIView *lineView = [[UIView alloc] init];
-        lineView.frame = CGRectMake(10, 38, self.width-20, 0.5);
-        lineView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
+//        UIView *lineView = [[UIView alloc] init];
+//        lineView.frame = CGRectMake(10, 38, self.width-20, 0.5);
+//        lineView.backgroundColor = [UIColor whiteColor];
         
         [_topView addSubview:self.topLabel];
         
-        [_topView addSubview:lineView];
+//        [_topView addSubview:lineView];
         
     }
     

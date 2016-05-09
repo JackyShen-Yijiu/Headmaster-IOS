@@ -25,4 +25,7 @@
 @property (nonatomic, assign) BOOL isShowBigView; // 图例和字体是否变大
 
 @property (nonatomic, strong) NSString *titieleStr; // 文字内容
+
+@property (nonatomic, assign) NSInteger expandIndex; // 标记放大的下标
+
 @end

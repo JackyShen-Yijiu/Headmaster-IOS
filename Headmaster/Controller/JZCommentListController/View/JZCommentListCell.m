@@ -41,7 +41,7 @@
     return self;
 }
 - (void)initUI{
-    
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
     [self addSubview:self.iconView];
     [self addSubview:self.nameLabel];
     [self addSubview:self.teachNameLabel];

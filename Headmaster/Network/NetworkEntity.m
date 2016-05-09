@@ -66,7 +66,8 @@
 + (void)getRecommendListWithUserid:(NSString *)userId
                           SchoolId:(NSString *)schoolId
                          pageIndex:(NSInteger)index
-                        searchType:(kDateSearchType)type
+                             count:(NSInteger)count
+                        searchType:(kCommentDateSearchType)type
                       commentLevle:(KCommnetLevel)level
                            success:(NetworkSuccessBlock)success
                            failure:(NetworkFailureBlock)failure
@@ -79,6 +80,7 @@
                            @"userid":userId,
                            @"schoolid":schoolId,
                            @"index":@(index),
+                           @"count":@(count),
                            @"searchtype":@(type),
                            @"commentlevel":@(level)
                            };
@@ -283,7 +285,9 @@
     NSDictionary *params = @{ @"userid": [[UserInfoModel defaultUserInfo] userID],
                               @"searchtype": [NSString stringWithFormat:@"%li",searchType],
                               @"schoolid": [[UserInfoModel defaultUserInfo] schoolId] };
-        
+    
+    // http://127.0.0.1:8183/api/headmaster/statistics/getmainpagedata?userid=56582caf1fcf03d813f5fbfc&searchtype=1&schoolid=562dcc3ccb90f25c3bde40da
+
     [NetworkTool GET:HOME params:params success:success failure:failure];
 }
 
@@ -314,31 +318,6 @@
                              @"index":[NSString stringWithFormat:@"%li",index]};
     [NetworkTool GET:PASSRATELIST params:params success:success failure:failure];
 }
-/**
- *  V 2.0 学员评价
- */
 
-+ (void)getCommendListWithUserid:(NSString *)userId
-                         SchoolId:(NSString *)schoolId
-                        pageIndex:(NSInteger)index
-                           count:(NSInteger) count
-                       searchType:(kCommentDateSearchType)type
-                          success:(NetworkSuccessBlock)success
-                          failure:(NetworkFailureBlock)failure
-{
-    if (!userId || !schoolId) {
-        return [NetworkTool missParagramerCallBackFailure:failure];
-    };
-    NSString *urlStr = [NSString stringWithFormat:@"%@/%@",[NetworkTool domain],RECOMENDHMESSAGE];
-    NSDictionary * dic = @{
-                           @"userid":userId,
-                           @"schoolid":schoolId,
-                           @"index":@(index),
-                           @"conut":@(count),
-                           @"searchtype":@(type),
-                           
-                           };
-    [NetworkTool GET:urlStr params:dic success:success failure:failure];
-}
 
 @end

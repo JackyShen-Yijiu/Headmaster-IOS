@@ -49,13 +49,14 @@
  *  @param userId   校长id
  *  @param schoolId 学校id
  *  @param index    起始页面（从1开始）
- *  @param type     查询时间类型：1 今天 2昨天 3 一周 4 本月 5 本年
+ *  @param type     查询时间类型：1 今天 2昨天 3 一周 4 本月 5 本年 6 上周 7 上月
  *  @param level    评论等级 1：差评 2中评 3 好评
  */
 + (void)getRecommendListWithUserid:(NSString *)userId
                           SchoolId:(NSString *)schoolId
                          pageIndex:(NSInteger)index
-                        searchType:(kDateSearchType)type
+                             count:(NSInteger)count
+                        searchType:(kCommentDateSearchType)type
                       commentLevle:(KCommnetLevel)level
                            success:(NetworkSuccessBlock)success
                            failure:(NetworkFailureBlock)failure;
@@ -191,15 +192,4 @@ failure:(void (^)(AFHTTPRequestOperation *operation, id responseObject))failure;
                             index:(NSInteger) index
                           success:(NetworkSuccessBlock)success
                           failure:(NetworkFailureBlock)failure;
-
-/**
- *  V 2.0 学员评价
- */
-+ (void)getCommendListWithUserid:(NSString *)userId
-                        SchoolId:(NSString *)schoolId
-                       pageIndex:(NSInteger)index
-                           count:(NSInteger) count
-                      searchType:(kCommentDateSearchType)type
-                         success:(NetworkSuccessBlock)success
-                         failure:(NetworkFailureBlock)failure;
 @end

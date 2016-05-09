@@ -7,19 +7,13 @@
 //
 
 #import "JZCommentChartCell.h"
-#import "YBPieChartView.h"
-#import "TTCommentView.h"
+
+
 
 
 @interface JZCommentChartCell ()
 
-@property (nonatomic,strong) YBPieChartView *pieChartView;
 
-@property (nonatomic, strong) TTCommentView *goodCommentView;
-
-@property (nonatomic, strong) TTCommentView *mightCommentView;
-
-@property (nonatomic, strong) TTCommentView *badCommentView;
 
 @end
 @implementation JZCommentChartCell
@@ -34,6 +28,8 @@
     return self;
 }
 - (void)initUI{
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    self.userInteractionEnabled = YES;
     [self addSubview:self.pieChartView];
      [self addSubview:self.goodCommentView];
      [self addSubview:self.mightCommentView];
@@ -49,7 +45,7 @@
         make.width.mas_equalTo(@110);
     }];
     [self.goodCommentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.mas_top).offset(50);
+        make.top.mas_equalTo(self.pieChartView.mas_top).offset(10);
         make.left.mas_equalTo(self.pieChartView.mas_right).offset(50);
         make.height.mas_equalTo(@20);
        
@@ -74,6 +70,12 @@
 
     // Configure the view for the selected state
 }
+- (void)didCommentView:(UITapGestureRecognizer *)tap{
+    
+    if ([self.delegate respondsToSelector:@selector(initWithCommentViewIndex:)]) {
+        [self.delegate initWithCommentViewIndex:tap.view.tag];
+    }
+}
 - (YBPieChartView *)pieChartView{
     
     if (_pieChartView == nil) {
@@ -91,6 +93,12 @@
         _goodCommentView.titileColor = kJZLightTextColor;
         _goodCommentView.titieleStr = @"好评 2%";
         _goodCommentView.labelFont = [UIFont systemFontOfSize:14];
+        _goodCommentView.tag = 500;
+        _goodCommentView.userInteractionEnabled = YES;
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didCommentView:)];
+        [_goodCommentView addGestureRecognizer:tap];
+        
         
     }
     return _goodCommentView;
@@ -102,6 +110,10 @@
         _mightCommentView.titileColor = kJZLightTextColor;
         _mightCommentView.titieleStr = @"中评 16%";
         _mightCommentView.labelFont = [UIFont systemFontOfSize:14];
+        _mightCommentView.tag = 501;
+        _mightCommentView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didCommentView:)];
+        [_mightCommentView addGestureRecognizer:tap];
     }
     return _mightCommentView;
 }
@@ -112,6 +124,10 @@
         _badCommentView.titileColor = kJZLightTextColor;
         _badCommentView.titieleStr = @"差评 82%";
         _badCommentView.labelFont = [UIFont systemFontOfSize:14];
+        _badCommentView.tag = 502;
+        _badCommentView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didCommentView:)];
+        [_badCommentView addGestureRecognizer:tap];
         
     }
     return _badCommentView;

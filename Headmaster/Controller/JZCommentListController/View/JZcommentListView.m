@@ -21,13 +21,22 @@
 #import "JZCommentChartCell.h"
 #import "JZCommentListCell.h"
 
-@interface JZcommentListView ()<UITableViewDataSource,UITableViewDelegate>
+#import "XYPieChart.h"
+
+
+@interface JZcommentListView ()<UITableViewDataSource,UITableViewDelegate,XYPieChartDelegate,TTCommnentViewDeleage>
 
 @property (nonatomic, strong) JZCommentListViewModel *viewModel;
 
 @property (nonatomic, assign) BOOL successRequest;
 
 @property (nonatomic, strong) JZNoDataShowBGView *noDataShowBGView;
+
+@property (nonatomic, assign) NSInteger expandIndex; // 放大下标
+
+@property (nonatomic, assign) NSInteger reductionIndex; // 还原下标
+
+@property (nonatomic, strong) JZCommentChartCell *chartCell;
 
 
 @end
@@ -73,20 +82,28 @@
 - (void)networkRequest {
     
     self.viewModel.commentDateSearchType = self.commentDateSearchType;
+    self.viewModel.commentLevel = _commnetLevel;
     [self.viewModel networkRequestRefresh];
 }
 
 #pragma mark --- 加载更多
 - (void)moreData{
     self.viewModel.commentDateSearchType = self.commentDateSearchType;
+     self.viewModel.commentLevel = _commnetLevel;
     [self.viewModel networkRequestLoadMore];
     
 }
-- (void)setSearchType:(kCommentDateSearchType)commentDateSearchType {
+
+// 评价时间段
+- (void)setCommentDateSearchType:(kCommentDateSearchType)commentDateSearchType{
     _commentDateSearchType = commentDateSearchType;
     self.viewModel.commentDateSearchType = commentDateSearchType;
 }
-
+// 评价等级
+- (void)setCommnetLevel:(KCommnetLevel)commnetLevel{
+    _commnetLevel = commnetLevel;
+    self.viewModel.commentLevel = commnetLevel;
+}
 #pragma mark ---- UITableViewDelegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -162,6 +179,7 @@
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     JZPassRateHeaderView *headerView = [[JZPassRateHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.width, 44)];
+    headerView.arrowImgView.hidden = YES;
     headerView.backgroundColor = [UIColor whiteColor];
     headerView.titleLabel.text = @"好评(147)";
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(isShowClassType)];
@@ -179,9 +197,11 @@
     
     if (0 == indexPath.section) {
         static NSString *IDCell = @"cellID";
-        JZCommentChartCell *chartCell = [tableView dequeueReusableCellWithIdentifier:IDCell];
-        if (!chartCell) {
-            chartCell = [[JZCommentChartCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:IDCell];
+        _chartCell = [tableView dequeueReusableCellWithIdentifier:IDCell];
+        if (!_chartCell) {
+            _chartCell = [[JZCommentChartCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:IDCell];
+            _chartCell.pieChartView.pieChart.delegate = self;
+            _chartCell.delegate = self;
         }
         //    JZPassRateListModel *model = [[JZPassRateListModel alloc] init];
         //    if (_searchSubjectID == kDateSearchSubjectIDOne) {
@@ -202,7 +222,7 @@
         
         
         
-        return chartCell;
+        return _chartCell;
  
     }else{
         static NSString *listCellID = @"listCellID";
@@ -231,5 +251,73 @@
     }
     return _noDataShowBGView;
 }
+// 饼状图放大
+- (void)pieChart:(XYPieChart *)pieChart didSelectSliceAtIndex:(NSUInteger)index{
+    NSLog(@"===============================第%lu个饼状图放大",index);
 
+    if (0 == index) {
+        // 好评
+        self.commnetLevel = KCommnetLevelHighRating;
+        
+        _chartCell.goodCommentView.expandIndex = index;
+        
+        _chartCell.goodCommentView.isShowBigView = YES;
+        _chartCell.mightCommentView.isShowBigView = NO;
+        _chartCell.badCommentView.isShowBigView = NO;
+        
+    }
+    if (1 == index) {
+        // 中评
+        self.commnetLevel = KCommnetLevelMidRating;
+        
+        _chartCell.mightCommentView.expandIndex = index;
+        
+        _chartCell.goodCommentView.isShowBigView = NO;
+       _chartCell.mightCommentView.isShowBigView = YES;;
+        _chartCell.badCommentView.isShowBigView = NO;
+    }
+    if (2 == index) {
+        // 差评
+        self.commnetLevel = KCommnetLevelPoorRating;
+        
+          _chartCell.badCommentView.expandIndex = index;
+        
+        _chartCell.goodCommentView.isShowBigView = NO;
+        _chartCell.mightCommentView.isShowBigView = NO;
+        _chartCell.badCommentView.isShowBigView = YES;
+    }
+    
+    
+    // 刷新数据
+    [self networkRequest];
+}
+// 饼状图还原
+- (void)pieChart:(XYPieChart *)pieChart didDeselectSliceAtIndex:(NSUInteger)index{
+    NSLog(@"=================================第%lu个饼状图还原",index);
+    _reductionIndex  = index;
+    if (0 == index) {
+        // 好评
+        
+    }
+    if (1 == index) {
+        // 中评
+    }
+    if (2 == index) {
+        // 差评
+    }
+    
+}
+// 手势点击事件
+- (void)initWithCommentViewIndex:(NSInteger)index{
+    if (500 == index) {
+        // 好评
+        [_chartCell.pieChartView.pieChart setSliceDeselectedAtIndex:0];
+    }
+    if (501 == index) {
+        // 中评
+    }
+    if (502 == index) {
+        // 差评
+    }
+}
 @end
