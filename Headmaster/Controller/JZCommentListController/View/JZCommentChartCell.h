@@ -9,12 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "YBPieChartView.h"
 #import "TTCommentView.h"
-
-@protocol TTCommnentViewDeleage <NSObject>
-
-- (void)initWithCommentViewIndex:(NSInteger)index;
-
-@end
+#import "JZCommentData.h"
 
 @interface JZCommentChartCell : UITableViewCell
 
@@ -26,6 +21,8 @@
 
 @property (nonatomic, strong) TTCommentView *badCommentView;
 
-@property (nonatomic, weak) id <TTCommnentViewDeleage> delegate;
+@property (nonatomic, strong) JZCommentData *model;
+
+@property (nonatomic, strong) NSDictionary *commentDataNumberDic;
 
 @end

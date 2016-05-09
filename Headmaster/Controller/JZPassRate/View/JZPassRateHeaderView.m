@@ -81,7 +81,7 @@
 - (UILabel *)titleLabel{
     if (_titleLabel == nil) {
         _titleLabel = [[UILabel alloc] init];
-        _titleLabel.text = @"基本信息";
+        _titleLabel.text = @"";
         CGFloat fontSize = 14;
 //        if (YBIphone6Plus) {
 //            fontSize = 14 * YBRatio;

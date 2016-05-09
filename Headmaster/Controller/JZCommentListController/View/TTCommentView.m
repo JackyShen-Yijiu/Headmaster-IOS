@@ -17,7 +17,10 @@
 
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
+  
         [self initUI];
+        self.userInteractionEnabled=YES;
+        
     }
     return self;
 }
@@ -27,6 +30,8 @@
     [self addSubview:self.rightLabel];
 }
 - (void)layoutSubviews{
+    [super layoutSubviews];
+    
     [self.leftSmallView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(self.mas_centerY);
         make.left.mas_equalTo(self.mas_left);
@@ -45,11 +50,11 @@
         make.height.mas_equalTo(@16);
     }];
     
-    
 }
 - (UIView *)leftSmallView{
     if (_leftSmallView == nil) {
         _leftSmallView = [[UIView alloc] init];
+        _leftSmallView.userInteractionEnabled = YES;
     }
     return _leftSmallView;
 }
@@ -57,12 +62,15 @@
     if (_leftBigView== nil) {
         _leftBigView = [[UIView alloc] init];
         _leftBigView.hidden = YES;
+        _leftBigView.userInteractionEnabled = YES;
     }
     return _leftBigView;
 }
 - (UILabel *)rightLabel{
     if (_rightLabel == nil) {
         _rightLabel = [[UILabel alloc] init];
+        _rightLabel.userInteractionEnabled = YES;
+//        _rightLabel.backgroundColor = [UIColor greenColor];
     }
     return _rightLabel;
 }

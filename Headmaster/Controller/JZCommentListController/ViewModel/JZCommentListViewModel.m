@@ -8,7 +8,9 @@
 
 #import "JZCommentListViewModel.h"
 #import <YYModel.h>
-#import "JZCommentListModel.h"
+
+#import "JZCommentCommentlist.h"
+#import "JZCommentData.h"
 @implementation JZCommentListViewModel
 - (instancetype)init
 {
@@ -20,6 +22,12 @@
         _todayArray = [NSMutableArray array];
         _thisWeekArray = [NSMutableArray array];
         _thisMonthArray = [NSMutableArray array];
+        
+        _lastMonthDic = [NSDictionary dictionary];
+         _lastWeekDic = [NSDictionary dictionary];
+         _todayDic = [NSDictionary dictionary];
+         _thisWeekDic = [NSDictionary dictionary];
+         _thisMonthDic = [NSDictionary dictionary];
         
         _lastMonthIndex = 1;
         _lastWeekIndex = 1;
@@ -58,9 +66,10 @@
     }
     
     [NetworkEntity getRecommendListWithUserid:[UserInfoModel defaultUserInfo].userID SchoolId:[UserInfoModel defaultUserInfo].schoolId pageIndex:index count:10 searchType:_commentDateSearchType commentLevle:_commentLevel success:^(id responseObject) {
-        NSLog(@"responseObject=%@ subjectID=%@",responseObject, (NSString *)@(self.commentDateSearchType));
+        NSLog(@"responseObject=%@ commentDateSearchType=%@ _commentLevel = %lu",responseObject, (NSString *)@(self.commentDateSearchType),_commentLevel);
         NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
-        NSArray *data = [responseObject objectArrayForKey:@"data"];
+        NSDictionary *dic = [responseObject objectForKey:@"data"];
+        
         if (type == 1) {
             
             [self.lastMonthArray removeAllObjects];
@@ -69,32 +78,38 @@
             [self.thisWeekArray removeAllObjects];
             [self.thisMonthArray removeAllObjects];
             
-            
-            if (data.count == 0) {
+//            if (data.count == 0) {
+//                
+//            }
+            NSArray *array = [dic objectForKey:@"commentlist"];
+            for (NSDictionary *dic in array) {
                 
-            }
-            
-            for (NSDictionary *dic in data) {
-                
-                JZCommentListModel *model = [JZCommentListModel yy_modelWithDictionary:dic];
+                JZCommentCommentlist *model = [JZCommentCommentlist yy_modelWithDictionary:dic];
                 if (_commentDateSearchType == kCommentDateSearchTypeLastMonth) {
+                    _lastMonthDic = [dic objectForKey:@"commentcount"];
                     [_lastMonthArray addObject:model];
                 }
                 if (_commentDateSearchType == kCommentDateSearchTypeLastWeek) {
+                    _lastWeekDic = [dic objectForKey:@"commentcount"];
                     [_lastWeekArray addObject:model];
                 }
                 
                 if (_commentDateSearchType == kCommentDateSearchTypeToday) {
+                    _todayDic = [dic objectForKey:@"commentcount"];
                     [_todayArray addObject:model];
                 }
                 
                 if (_commentDateSearchType == kCommentDateSearchTypeThisWeek) {
+                    _thisWeekDic = [dic objectForKey:@"commentcount"];
                     [_thisWeekArray addObject:model];
                 }
                 if (_commentDateSearchType == kCommentDateSearchTypeThisMonth) {
+                    _thisMonthDic = [dic objectForKey:@"commentcount"];
                     [_thisMonthArray addObject:model];
                 }
+ 
             }
+            
         }
         
         [self successRefreshBlock];
@@ -135,35 +150,45 @@
     [NetworkEntity getRecommendListWithUserid:[UserInfoModel defaultUserInfo].userID SchoolId:[UserInfoModel defaultUserInfo].schoolId pageIndex:index count:10 searchType:_commentDateSearchType commentLevle:_commentLevel success:^(id responseObject) {
         NSLog(@"responseObject=%@ subjectID=%@",responseObject, (NSString *)@(self.commentDateSearchType));
         NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
-        NSArray *data = [responseObject objectArrayForKey:@"data"];
+         NSDictionary *dic = [responseObject objectForKey:@"data"];
         if (type == 1) {
             
             
-            if (data.count == 0) {
+            if ([[dic objectForKey:@"commentlist"] count] == 0) {
                 [self successLoadMoreBlockAndNoData];
             }
             
-            for (NSDictionary *dic in data) {
+            
+            NSArray *array = [dic objectForKey:@"commentlist"];
+            for (NSDictionary *dic in array) {
                 
-                JZCommentListModel *model = [JZCommentListModel yy_modelWithDictionary:dic];
+                JZCommentCommentlist *model = [JZCommentCommentlist yy_modelWithDictionary:dic];
                 if (_commentDateSearchType == kCommentDateSearchTypeLastMonth) {
+                    _lastMonthDic = [dic objectForKey:@"commentcount"];
                     [_lastMonthArray addObject:model];
                 }
                 if (_commentDateSearchType == kCommentDateSearchTypeLastWeek) {
+                    _lastWeekDic = [dic objectForKey:@"commentcount"];
                     [_lastWeekArray addObject:model];
                 }
                 
                 if (_commentDateSearchType == kCommentDateSearchTypeToday) {
+                    _todayDic = [dic objectForKey:@"commentcount"];
                     [_todayArray addObject:model];
                 }
                 
                 if (_commentDateSearchType == kCommentDateSearchTypeThisWeek) {
+                    _thisWeekDic = [dic objectForKey:@"commentcount"];
                     [_thisWeekArray addObject:model];
                 }
                 if (_commentDateSearchType == kCommentDateSearchTypeThisMonth) {
+                    _thisMonthDic = [dic objectForKey:@"commentcount"];
                     [_thisMonthArray addObject:model];
                 }
+                
             }
+            
+           
         }
         
         [self successRefreshBlock];

@@ -67,6 +67,7 @@
 - (void)initRefesh{
     
     self.todayView.commentDateSearchType = kCommentDateSearchTypeToday;
+    NSLog(@"%lu",_commentLevel);
     self.todayView.commnetLevel = _commentLevel;
     self.todayView.parementVC  = self;
     [self loadNetworkData];
@@ -95,20 +96,22 @@
     CGFloat width = self.scrollView.width;
     
     if (offSetX >= 0 && offSetX < self.scrollView.width) {
-        self.lastMonthView.commentDateSearchType = kCommentDateSearchTypeLastMonth;
+//        self.lastMonthView.commentDateSearchType = kCommentDateSearchTypeLastMonth;
         [self.lastMonthView networkRequest];
     }else if (offSetX >= width && offSetX < width * 2) {
-        self.lastWeekView.commentDateSearchType = kCommentDateSearchTypeLastWeek;
+//        self.lastWeekView.commentDateSearchType = kCommentDateSearchTypeLastWeek;
         [self.lastWeekView networkRequest];
     }else if (offSetX >= width * 2 && offSetX < width * 3) {
-        self.todayView.commentDateSearchType = kCommentDateSearchTypeToday;
+//        self.todayView.commentDateSearchType = kCommentDateSearchTypeToday;
         [self.todayView networkRequest];
         
     }else if (offSetX >= width * 3 && offSetX < width * 4) {
-        self.thisWeekView.commentDateSearchType = kCommentDateSearchTypeThisWeek;
+        
+//        self.thisWeekView.commentDateSearchType = kCommentDateSearchTypeThisWeek;
         [self.thisWeekView networkRequest];
-    }else if (offSetX >= width * 4 && offSetX < width *5) {
-        self.thisMonthView.commentDateSearchType = kCommentDateSearchTypeThisMonth;
+    }else if (offSetX >= width * 4 && offSetX < width * 5) {
+        
+//        self.thisMonthView.commentDateSearchType = kCommentDateSearchTypeThisMonth;
         [self.thisMonthView networkRequest];
     }
 }
