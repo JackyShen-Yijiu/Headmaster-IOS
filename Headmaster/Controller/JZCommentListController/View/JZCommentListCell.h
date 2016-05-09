@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JZCommentCommentlist.h"
 
 @interface JZCommentListCell : UITableViewCell
+
+@property (nonatomic, strong) JZCommentCommentlist *model;
 
 @end

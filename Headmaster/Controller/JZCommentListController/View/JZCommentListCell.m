@@ -163,4 +163,29 @@
     }
     return _bottonLineView;
 }
+- (void)setModel:(JZCommentCommentlist *)model{
+    /*
+     
+     "studentinfo": {
+     "userid": "5707a3037e1c28b744297d54",
+     "mobile": "156708536",
+     "name": "雷凯",
+     "headportrait": {
+     "originalpic": "http://7xnjg0.com1.z0.glb.clouddn.com/20160412/104926-5707a3037e1c28b744297d54.png",
+     "thumbnailpic": "",
+     "width": "",
+     "height": ""
+     },
+     */
+    [self.iconView sd_setImageWithURL:[NSURL URLWithString:model.studentinfo.headportrait.originalpic] placeholderImage:nil];
+    self.nameLabel.text = model.studentinfo.name;
+    
+    self.teachNameLabel.text = [NSString stringWithFormat:@"教练: %@",model.coachinfo.name];
+    self.commentContentLabel.text = model.commentcontent;
+    self.timeLabel.text = model.commenttime;
+    [self.rateView setScorePercent:(model.commentstarlevel / 5)];
+    
+    
+    
+}
 @end
