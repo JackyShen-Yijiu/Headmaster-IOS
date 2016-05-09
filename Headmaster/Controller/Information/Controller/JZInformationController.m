@@ -7,8 +7,12 @@
 //
 
 #import "JZInformationController.h"
-
+#import "JZInformationListView.h"
+#import "JZInformationTopView.h"
 @interface JZInformationController ()
+@property (nonatomic, weak) JZInformationListView *listView;
+@property (nonatomic, strong) NSMutableArray *listDataArray;
+
 
 @end
 
@@ -18,6 +22,7 @@
     self.myNavigationItem.title = @"资讯";
     
     [MobClick beginLogPageView:NSStringFromClass([self class])];
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -29,15 +34,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = NO;
+
     // Do any additional setup after loading the view.
+
     
-    self.view.backgroundColor = [UIColor cyanColor];
+    
+    JZInformationListView *listView = [[JZInformationListView alloc] initWithFrame:CGRectMake(0, 0, kJZWidth, kJZHeight -  64) style:UITableViewStylePlain];
+    
+    
+    self.listView = listView;
+    
+    self.listView.tableHeaderView = [[JZInformationTopView alloc]initWithFrame:CGRectMake(0, 0,kJZWidth, 160)];
+
+    
+    [self.view addSubview:listView];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 
 
