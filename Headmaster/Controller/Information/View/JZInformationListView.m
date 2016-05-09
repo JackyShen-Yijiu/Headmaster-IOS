@@ -10,12 +10,12 @@
 #import "JZInformationListCell.h"
 #import "JZInformationData.h"
 #import <YYModel.h>
+#import "JZInformationTopView.h"
 
 static NSString *JZInformationListCellID = @"JZInformationListCellID";
 
 @interface JZInformationListView ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) NSMutableArray *listDataArray;
-
 @end
 @implementation JZInformationListView
 
@@ -30,8 +30,12 @@ static NSString *JZInformationListCellID = @"JZInformationListCellID";
             self.delegate = self;
             
             self.rowHeight = 108;
-            
-            
+       
+            self.separatorStyle = NO;
+
+
+        
+//        self.tableHeaderView.height = 160;
             [self loadData];
             //        [self setRefresh];
             
@@ -64,6 +68,8 @@ static NSString *JZInformationListCellID = @"JZInformationListCellID";
     return listCell;
     
 }
+
+#pragma mark - 代理
 
 
 -(void)loadData {
@@ -122,4 +128,5 @@ static NSString *JZInformationListCellID = @"JZInformationListCellID";
     
     return _listDataArray;
 }
+
 @end

@@ -9,12 +9,8 @@
 #import "JZInformationController.h"
 #import "JZInformationListView.h"
 #import "JZInformationTopView.h"
-#import "JZInformationData.h"
-#import <YYModel.h>
-
 @interface JZInformationController ()
 @property (nonatomic, weak) JZInformationListView *listView;
-@property (nonatomic, weak) JZInformationTopView *topView;
 @property (nonatomic, strong) NSMutableArray *listDataArray;
 
 
@@ -38,22 +34,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = NO;
+
     // Do any additional setup after loading the view.
-    
-//    self.view.backgroundColor = [UIColor cyanColor];
-    
-    JZInformationTopView *topView = [[JZInformationTopView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth, 160)];
+
     
     
-    
-    self.topView = topView;
-    
-    [self.view addSubview:topView];
-    
-    JZInformationListView *listView = [[JZInformationListView alloc] initWithFrame:CGRectMake(0, 160, kJZWidth, kJZHeight - 160) style:UITableViewStylePlain];
+    JZInformationListView *listView = [[JZInformationListView alloc] initWithFrame:CGRectMake(0, 0, kJZWidth, kJZHeight -  64) style:UITableViewStylePlain];
     
     
     self.listView = listView;
+    
+    self.listView.tableHeaderView = [[JZInformationTopView alloc]initWithFrame:CGRectMake(0, 0,kJZWidth, 160)];
+
     
     [self.view addSubview:listView];
 }

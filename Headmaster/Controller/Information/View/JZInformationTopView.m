@@ -52,7 +52,7 @@
 }
 -(UIPageControl *)pageController{
     if (!_pageController) {
-        _pageController = [[UIPageControl alloc]initWithFrame:CGRectMake(kJZWidth - 100, kJZHeight - 50, 100, 50)];
+        _pageController = [[UIPageControl alloc]initWithFrame:CGRectMake(kJZWidth - 100, 100, 100, 50)];
         _pageController.numberOfPages = self.pictureArray.count;//圆点个数
         _pageController.currentPage = 0;//初始选中第一个圆点
         _pageController.pageIndicatorTintColor = [UIColor whiteColor];//圆点颜色
@@ -116,10 +116,7 @@
     UIImageView *imageView2 = (UIImageView *)[self.scrollView viewWithTag:1001];
     UIImageView *imageView3 = (UIImageView *)[self.scrollView viewWithTag:1002];
     if (index == self.pictureArray.count - 1){
-        
-//        imageView1.image = [UIImage imageNamed:self.pictureArray[index-1]];
-//        imageView2.image = [UIImage imageNamed:self.pictureArray[index]];
-//        imageView3.image = [UIImage imageNamed:self.pictureArray[0]];
+    
         
         [imageView1 sd_setImageWithURL:[NSURL URLWithString:self.pictureArray[index]]];
         [imageView2 sd_setImageWithURL:[NSURL URLWithString:self.pictureArray[index-1]]];
@@ -127,18 +124,13 @@
 
     }
     else if (index == 0){
-//        imageView1.image = [UIImage imageNamed:self.pictureArray.lastObject];
-//        imageView2.image = [UIImage imageNamed:self.pictureArray[index]];
-//        imageView3.image = [UIImage imageNamed:self.pictureArray[1+index]];
+
         
         [imageView1 sd_setImageWithURL:[NSURL URLWithString:self.pictureArray.lastObject]];
         [imageView2 sd_setImageWithURL:[NSURL URLWithString:self.pictureArray[index]]];
-        [imageView3 sd_setImageWithURL:[NSURL URLWithString:self.pictureArray[1+index]]];
+        [imageView3 sd_setImageWithURL:[NSURL URLWithString:self.pictureArray[index+1]]];
     }
     else{
-//        imageView1.image = [UIImage imageNamed:self.pictureArray[index-1]];
-//        imageView2.image = [UIImage imageNamed:self.pictureArray[index]];
-//        imageView3.image = [UIImage imageNamed:self.pictureArray[index+1]];
         
         [imageView1 sd_setImageWithURL:[NSURL URLWithString:self.pictureArray[index-1]]];
         [imageView2 sd_setImageWithURL:[NSURL URLWithString:self.pictureArray[index]]];
