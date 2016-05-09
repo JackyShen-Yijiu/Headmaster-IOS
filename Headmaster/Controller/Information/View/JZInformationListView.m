@@ -19,6 +19,8 @@ static NSString *JZInformationListCellID = @"JZInformationListCellID";
 @property (nonatomic, strong) NSMutableArray *listDataArray;
 @property (nonatomic, strong) NSMutableArray *imagesURLStrings;
 @property (nonatomic, strong) NSMutableArray *titles;
+//@property (nonatomic ,assign) NSInteger seqindex;
+
 @end
 @implementation JZInformationListView
 
@@ -26,23 +28,24 @@ static NSString *JZInformationListCellID = @"JZInformationListCellID";
     
     if (self = [super initWithFrame:frame style:style]) {
         
-            self.frame = frame;
-            
-            self.dataSource = self;
-            
-            self.delegate = self;
-            
-            self.rowHeight = 108;
-       
-            self.separatorStyle = NO;
+        self.frame = frame;
         
-//        self.tableHeaderView.height = 160;
-            [self loadData];
-            //        [self setRefresh];
-            
+        self.dataSource = self;
+        
+        self.delegate = self;
+        
+        self.rowHeight = 108;
+        
+        self.separatorStyle = NO;
+        
+        [self loadData];
+        
+        
+        //        [self setRefresh];
+        
     }
-        
-        return self;
+    
+    return self;
     
     
 }
@@ -81,30 +84,33 @@ static NSString *JZInformationListCellID = @"JZInformationListCellID";
 }
 
 -(void)loadData {
+    
     static NSInteger index = 0;
-
+    
     [NetworkEntity informationListWithseqindex:0 count:10 success:^(id responseObject) {
         
         NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
-
+        
         if (type) {
             
             NSArray *data = [responseObject objectForKey:@"data"];
             
             if (data) {
                 
-            
                 for (NSDictionary  *dict in data) {
                     JZInformationData *listModel = [JZInformationData yy_modelWithJSON:dict];
-                    [self.listDataArray addObject:listModel];
+                    
+                   
                     
                     if (index<3) {
                         [self.imagesURLStrings addObject:listModel.logimg];
                         [self.titles addObject:listModel.title];
                         
+                    }else {
+                       [self.listDataArray addObject:listModel];
                     }
                     index ++;
-
+                    
                 }
                 
                 // 网络加载 --- 创建带标题的图片轮播器
@@ -115,7 +121,58 @@ static NSString *JZInformationListCellID = @"JZInformationListCellID";
                 // 自定义分页控件小圆标颜色
                 cycleScrollView.currentPageDotColor = [UIColor whiteColor];
                 self.tableHeaderView = cycleScrollView;
+                
+                [self reloadData];
+                
+                
+            }else {
+                ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"暂无数据"];
+                [alertView show];
+                
+            }
+            
+        }else {
+            
+            ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"网络出错啦"];
+            [alertView show];
+        }
+        
+        
+        
+        
+    } failure:^(NSError *failure) {
+        ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"网络出错啦"];
+        [alertView show];
+        
+    }];
+    
+    
+    
+    
+}
 
+
+-(void)setRefresh {
+    
+    JZInformationData *dataModel = self.listDataArray.lastObject;
+    
+    [NetworkEntity informationListWithseqindex:dataModel.seqindex count:10 success:^(id responseObject) {
+        
+        NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
+        
+        if (type) {
+            
+            NSArray *data = [responseObject objectForKey:@"data"];
+            
+            if (data) {
+                
+                
+                for (NSDictionary  *dict in data) {
+                    JZInformationData *listModel = [JZInformationData yy_modelWithJSON:dict];
+                    [self.listDataArray addObject:listModel];
+                    
+                }
+                
                 [self reloadData];
                 
                 
@@ -141,9 +198,7 @@ static NSString *JZInformationListCellID = @"JZInformationListCellID";
     }];
     
 }
--(void)setRefresh {
-    
-}
+
 -(NSMutableArray *)listDataArray {
     
     if (!_listDataArray) {

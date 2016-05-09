@@ -53,6 +53,7 @@
 {
     _titleLabelBackgroundColor = titleLabelBackgroundColor;
     _titleLabel.backgroundColor = titleLabelBackgroundColor;
+    
 }
 
 - (void)setTitleLabelTextColor:(UIColor *)titleLabelTextColor
