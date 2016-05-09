@@ -407,7 +407,6 @@
 		D94555411CDC9929003266EF /* JZInformationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D94555401CDC9929003266EF /* JZInformationController.m */; };
 		D94555461CDC9973003266EF /* JZInformationData.m in Sources */ = {isa = PBXBuildFile; fileRef = D94555431CDC9973003266EF /* JZInformationData.m */; };
 		D94555471CDC9973003266EF /* JZInformationRootClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D94555451CDC9973003266EF /* JZInformationRootClass.m */; };
-		D945554D1CDC9C46003266EF /* JZInformationTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = D945554C1CDC9C46003266EF /* JZInformationTopView.m */; };
 		D94555501CDC9C70003266EF /* JZInformationListView.m in Sources */ = {isa = PBXBuildFile; fileRef = D945554F1CDC9C70003266EF /* JZInformationListView.m */; };
 		D94555531CDC9C8C003266EF /* JZInformationListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D94555521CDC9C8C003266EF /* JZInformationListCell.m */; };
 		D95CE3B61C12BD3600EF6F75 /* HomeDataModelCommentstudentcount.m in Sources */ = {isa = PBXBuildFile; fileRef = D95CE3AF1C12BD3600EF6F75 /* HomeDataModelCommentstudentcount.m */; };
@@ -477,6 +476,13 @@
 		D9D375621C127457008C54FF /* DVVTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D375601C127457008C54FF /* DVVTabBarController.m */; };
 		D9E41AB61C129DD0007A2019 /* YBBaseTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E41AB51C129DD0007A2019 /* YBBaseTableCell.m */; };
 		D9E7CD371CC8E3E400AF1B31 /* RefreshTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E7CD361CC8E3E400AF1B31 /* RefreshTableView.m */; };
+		D9EEA6D81CE0782200F8662D /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9EEA6CB1CE0782200F8662D /* TAAbstractDotView.m */; };
+		D9EEA6D91CE0782200F8662D /* TAAnimatedDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9EEA6CD1CE0782200F8662D /* TAAnimatedDotView.m */; };
+		D9EEA6DA1CE0782200F8662D /* TADotView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9EEA6CF1CE0782200F8662D /* TADotView.m */; };
+		D9EEA6DB1CE0782200F8662D /* TAPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D9EEA6D11CE0782200F8662D /* TAPageControl.m */; };
+		D9EEA6DC1CE0782200F8662D /* SDCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9EEA6D31CE0782200F8662D /* SDCollectionViewCell.m */; };
+		D9EEA6DD1CE0782200F8662D /* SDCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9EEA6D51CE0782200F8662D /* SDCycleScrollView.m */; };
+		D9EEA6DE1CE0782200F8662D /* UIView+SDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D9EEA6D71CE0782200F8662D /* UIView+SDExtension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1168,8 +1174,6 @@
 		D94555431CDC9973003266EF /* JZInformationData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZInformationData.m; sourceTree = "<group>"; };
 		D94555441CDC9973003266EF /* JZInformationRootClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZInformationRootClass.h; sourceTree = "<group>"; };
 		D94555451CDC9973003266EF /* JZInformationRootClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZInformationRootClass.m; sourceTree = "<group>"; };
-		D945554B1CDC9C46003266EF /* JZInformationTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZInformationTopView.h; sourceTree = "<group>"; };
-		D945554C1CDC9C46003266EF /* JZInformationTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZInformationTopView.m; sourceTree = "<group>"; };
 		D945554E1CDC9C70003266EF /* JZInformationListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZInformationListView.h; sourceTree = "<group>"; };
 		D945554F1CDC9C70003266EF /* JZInformationListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZInformationListView.m; sourceTree = "<group>"; };
 		D94555511CDC9C8C003266EF /* JZInformationListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZInformationListCell.h; sourceTree = "<group>"; };
@@ -1308,6 +1312,20 @@
 		D9E41AB51C129DD0007A2019 /* YBBaseTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YBBaseTableCell.m; sourceTree = "<group>"; };
 		D9E7CD351CC8E3E400AF1B31 /* RefreshTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RefreshTableView.h; path = Headmaster/ThirdPary/RefreshTableView.h; sourceTree = SOURCE_ROOT; };
 		D9E7CD361CC8E3E400AF1B31 /* RefreshTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RefreshTableView.m; path = Headmaster/ThirdPary/RefreshTableView.m; sourceTree = SOURCE_ROOT; };
+		D9EEA6CA1CE0782200F8662D /* TAAbstractDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAbstractDotView.h; sourceTree = "<group>"; };
+		D9EEA6CB1CE0782200F8662D /* TAAbstractDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAbstractDotView.m; sourceTree = "<group>"; };
+		D9EEA6CC1CE0782200F8662D /* TAAnimatedDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAnimatedDotView.h; sourceTree = "<group>"; };
+		D9EEA6CD1CE0782200F8662D /* TAAnimatedDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAnimatedDotView.m; sourceTree = "<group>"; };
+		D9EEA6CE1CE0782200F8662D /* TADotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TADotView.h; sourceTree = "<group>"; };
+		D9EEA6CF1CE0782200F8662D /* TADotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TADotView.m; sourceTree = "<group>"; };
+		D9EEA6D01CE0782200F8662D /* TAPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAPageControl.h; sourceTree = "<group>"; };
+		D9EEA6D11CE0782200F8662D /* TAPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAPageControl.m; sourceTree = "<group>"; };
+		D9EEA6D21CE0782200F8662D /* SDCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCollectionViewCell.h; sourceTree = "<group>"; };
+		D9EEA6D31CE0782200F8662D /* SDCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCollectionViewCell.m; sourceTree = "<group>"; };
+		D9EEA6D41CE0782200F8662D /* SDCycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCycleScrollView.h; sourceTree = "<group>"; };
+		D9EEA6D51CE0782200F8662D /* SDCycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCycleScrollView.m; sourceTree = "<group>"; };
+		D9EEA6D61CE0782200F8662D /* UIView+SDExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDExtension.h"; sourceTree = "<group>"; };
+		D9EEA6D71CE0782200F8662D /* UIView+SDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDExtension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2914,8 +2932,7 @@
 		D945553D1CDC98FF003266EF /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D945554B1CDC9C46003266EF /* JZInformationTopView.h */,
-				D945554C1CDC9C46003266EF /* JZInformationTopView.m */,
+				D9EEA6C81CE0782200F8662D /* SDCycleScrollView */,
 				D945554E1CDC9C70003266EF /* JZInformationListView.h */,
 				D945554F1CDC9C70003266EF /* JZInformationListView.m */,
 				D94555511CDC9C8C003266EF /* JZInformationListCell.h */,
@@ -3338,6 +3355,35 @@
 			path = DVVTabBarController;
 			sourceTree = "<group>";
 		};
+		D9EEA6C81CE0782200F8662D /* SDCycleScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				D9EEA6C91CE0782200F8662D /* PageControl */,
+				D9EEA6D21CE0782200F8662D /* SDCollectionViewCell.h */,
+				D9EEA6D31CE0782200F8662D /* SDCollectionViewCell.m */,
+				D9EEA6D41CE0782200F8662D /* SDCycleScrollView.h */,
+				D9EEA6D51CE0782200F8662D /* SDCycleScrollView.m */,
+				D9EEA6D61CE0782200F8662D /* UIView+SDExtension.h */,
+				D9EEA6D71CE0782200F8662D /* UIView+SDExtension.m */,
+			);
+			path = SDCycleScrollView;
+			sourceTree = "<group>";
+		};
+		D9EEA6C91CE0782200F8662D /* PageControl */ = {
+			isa = PBXGroup;
+			children = (
+				D9EEA6CA1CE0782200F8662D /* TAAbstractDotView.h */,
+				D9EEA6CB1CE0782200F8662D /* TAAbstractDotView.m */,
+				D9EEA6CC1CE0782200F8662D /* TAAnimatedDotView.h */,
+				D9EEA6CD1CE0782200F8662D /* TAAnimatedDotView.m */,
+				D9EEA6CE1CE0782200F8662D /* TADotView.h */,
+				D9EEA6CF1CE0782200F8662D /* TADotView.m */,
+				D9EEA6D01CE0782200F8662D /* TAPageControl.h */,
+				D9EEA6D11CE0782200F8662D /* TAPageControl.m */,
+			);
+			path = PageControl;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -3685,6 +3731,7 @@
 				B8771D151C098DE40051DE9D /* MWGridCell.m in Sources */,
 				B8771E391C098E6B0051DE9D /* UIView+Sizes.m in Sources */,
 				D9D375621C127457008C54FF /* DVVTabBarController.m in Sources */,
+				D9EEA6DC1CE0782200F8662D /* SDCollectionViewCell.m in Sources */,
 				5545DE5E1C14134F00F41506 /* AboutUsController.m in Sources */,
 				B8771D111C098DE40051DE9D /* UIScrollView+MJExtension.m in Sources */,
 				B8771D391C098DE40051DE9D /* PSTGridLayoutSection.m in Sources */,
@@ -3758,10 +3805,12 @@
 				B2CB3DD11CDCA6EF00442471 /* HomeDataModelRootClass.m in Sources */,
 				D95CE4461C12EB2A00EF6F75 /* HomeViewModel.m in Sources */,
 				D972448B1C1EC3E5002B3FDE /* DataDetailDMWeekRootClass.m in Sources */,
+				D9EEA6D81CE0782200F8662D /* TAAbstractDotView.m in Sources */,
 				B8771D281C098DE40051DE9D /* UIImage+EMMultiFormat.m in Sources */,
 				0605B7B81C1288CE00A575B4 /* UIBarButtonItem+Helper.m in Sources */,
 				55FDE40A1C0FC5C700329F17 /* InformationDetailController.m in Sources */,
 				B8C7031E1C12DD40006035B1 /* RecommendSegView.m in Sources */,
+				D9EEA6DE1CE0782200F8662D /* UIView+SDExtension.m in Sources */,
 				D9CEC9101C0E8CF7008DEE69 /* UITabBar+RedHot.m in Sources */,
 				B8771DEB1C098DE40051DE9D /* EaseChatToolbarItem.m in Sources */,
 				0699E5E61C1581360079CABF /* CoachCoureDatilModel.m in Sources */,
@@ -3781,7 +3830,6 @@
 				D9AEF2721CC603B200AB76DD /* JZPublishHistoryData.m in Sources */,
 				D9D2DF8A1C17D619005DB212 /* HomeDetailNormalLineChartCell.m in Sources */,
 				B8771DE31C098DE40051DE9D /* EaseBubbleView+File.m in Sources */,
-				D945554D1CDC9C46003266EF /* JZInformationTopView.m in Sources */,
 				D9CEC97D1C0ED643008DEE69 /* DVVToolBarView.m in Sources */,
 				B8771DDA1C098DE40051DE9D /* EaseEmotionEscape.m in Sources */,
 				D9CEC9571C0ED27E008DEE69 /* HomeController.m in Sources */,
@@ -3796,6 +3844,7 @@
 				0613DC1E1C1C524800580C32 /* HomeDetailController.m in Sources */,
 				D92424CA1CDB4971002AB7C0 /* JZComplaintDetailView.m in Sources */,
 				D9CEC9451C0EC432008DEE69 /* YBBaseController.m in Sources */,
+				D9EEA6DD1CE0782200F8662D /* SDCycleScrollView.m in Sources */,
 				55BA0F581C0EF6FA00F83CD8 /* SettingController.m in Sources */,
 				D972447F1C1EC3D1002B3FDE /* DataDetailDMMonthRootClass.m in Sources */,
 				B895A1A31C10448100FEDD78 /* RecomendCell.m in Sources */,
@@ -3829,6 +3878,7 @@
 				B838C24E1C1B0B1B00493360 /* SMPageControl.m in Sources */,
 				B22BADC81CC60C0A00455E1C /* AppDelegate+YJPush.m in Sources */,
 				B8771D2B1C098DE40051DE9D /* UIImageView+EMWebCache.m in Sources */,
+				D9EEA6DB1CE0782200F8662D /* TAPageControl.m in Sources */,
 				D92296C91C0FD2FF00D0FFDF /* HomeSeeTimeView.m in Sources */,
 				D922974D1C10439200D0FFDF /* YBPieChartView.m in Sources */,
 				B8771CFC1C098DE40051DE9D /* EMAudioPlayerUtil.m in Sources */,
@@ -3862,6 +3912,7 @@
 				0613DC181C1C51E200580C32 /* HomeDetailTableViewDataModel.m in Sources */,
 				D94555531CDC9C8C003266EF /* JZInformationListCell.m in Sources */,
 				D98511801C20A34900D277CD /* HomeGuideController.m in Sources */,
+				D9EEA6D91CE0782200F8662D /* TAAnimatedDotView.m in Sources */,
 				D92424C31CDB0FC0002AB7C0 /* JZComplaintStudentinfo.m in Sources */,
 				D92424911CDB0D58002AB7C0 /* JZComplaintListView.m in Sources */,
 				D92297441C10439200D0FFDF /* UUBar.m in Sources */,
@@ -3902,6 +3953,7 @@
 				B8771D231C098DE40051DE9D /* EMSDWebImagePrefetcher.m in Sources */,
 				B8771DEE1C098DE40051DE9D /* EaseFaceView.m in Sources */,
 				B8771D351C098DE40051DE9D /* PSTCollectionViewUpdateItem.m in Sources */,
+				D9EEA6DA1CE0782200F8662D /* TADotView.m in Sources */,
 				D922974C1C10439200D0FFDF /* YBLineChartView.m in Sources */,
 				062BB6ED1C1694A5006D5BEE /* HomeWeatherModelRootClass.m in Sources */,
 				B8771D2C1C098DE40051DE9D /* UIView+EMWebCacheOperation.m in Sources */,

@@ -81,10 +81,7 @@
         make.height.equalTo(@0.5);
         
     }];
-    
-
-    
-    
+ 
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -110,7 +107,7 @@
         UILabel *newsTitleLabel = [[UILabel alloc]init];
         
         [newsTitleLabel setFont:[UIFont systemFontOfSize:14]];
-        newsTitleLabel.textColor = [UIColor blackColor];
+        newsTitleLabel.textColor = kJZDarkTextColor;
         newsTitleLabel.numberOfLines = 0;
         self.newsTitleLabel = newsTitleLabel;
         [self.contentView addSubview:newsTitleLabel];
@@ -127,7 +124,7 @@
         UILabel *newsDateLabel = [[UILabel alloc]init];
         
         [newsDateLabel setFont:[UIFont systemFontOfSize:14]];
-        newsDateLabel.textColor = [UIColor blackColor];
+        newsDateLabel.textColor = kJZLightTextColor;
         self.newsDateLabel = newsDateLabel;
         [self.contentView addSubview:newsDateLabel];
 
