@@ -9,6 +9,7 @@
 #import "JZCommentListCell.h"
 #import "PortraitView.h"
 #import "CWStarRateView.h"
+#import "NSString+Helper.h"
 
 @interface JZCommentListCell ()
 
@@ -72,7 +73,8 @@
     [self.commentContentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.teachNameLabel.mas_bottom).offset(16);
         make.left.mas_equalTo(self.iconView.mas_left);
-        make.height.mas_equalTo(@14);
+        make.right.mas_equalTo(self.mas_right).offset(-16);
+//        make.height.mas_equalTo(@14);
     }];
     [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.nameLabel.mas_top);
@@ -135,6 +137,7 @@
         _commentContentLabel.font = [UIFont systemFontOfSize:14];
         _commentContentLabel.textColor = kJZDarkTextColor;
         _commentContentLabel.text = @"jjjj积极急急急";
+        _commentContentLabel.numberOfLines = 0;
     }
     return _commentContentLabel;
 }
@@ -186,6 +189,10 @@
     [self.rateView setScorePercent:(model.commentstarlevel / 5)];
     
     
-    
+}
++ (CGFloat)heightCellForList:(JZCommentCommentlist *)model{
+    CGFloat height = [NSString autoHeightWithString:model.commentcontent Width:[UIScreen mainScreen].bounds.size.width - 32 Font:[UIFont systemFontOfSize:14]];
+
+    return 96 + height;
 }
 @end

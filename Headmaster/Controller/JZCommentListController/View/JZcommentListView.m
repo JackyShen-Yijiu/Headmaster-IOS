@@ -56,9 +56,13 @@
         self.separatorStyle = UITableViewCellSeparatorStyleNone;
         self.backgroundColor = [UIColor clearColor];
 //        [self addSubview:self.noDataShowBGView];
+        
         self.viewModel = [JZCommentListViewModel new];
         [self.viewModel successRefreshBlock:^{
             [self refreshUI];
+//            NSInteger index = _commnetLevel - 1;
+//            [self expandTitleIndex:index];
+//            [self expandPieIndex:index];
             self.successRequest = 1;
             
             return;
@@ -189,7 +193,26 @@
     if (0 == indexPath.section) {
         return 166;
     }else{
-        return 110;
+        
+        JZCommentCommentlist *model = [[JZCommentCommentlist alloc] init];
+        
+        if (_commentDateSearchType == kCommentDateSearchTypeLastMonth) {
+            model = self.viewModel.lastMonthArray[indexPath.row];
+        }
+        if (_commentDateSearchType == kCommentDateSearchTypeLastWeek) {
+            model = self.viewModel.lastWeekArray[indexPath.row];
+        }
+        if (_commentDateSearchType == kCommentDateSearchTypeToday) {
+            model = self.viewModel.todayArray[indexPath.row];
+        }
+        if (_commentDateSearchType == kCommentDateSearchTypeThisWeek) {
+            model = self.viewModel.thisWeekArray[indexPath.row];
+        }
+        if (_commentDateSearchType == kCommentDateSearchTypeThisMonth) {
+            model = self.viewModel.thisMonthArray[indexPath.row];
+        }
+
+        return [JZCommentListCell heightCellForList:model];
     }
     return 0;
 }
@@ -304,10 +327,6 @@
     
     }
 
-- (void)didCommentView:(UITapGestureRecognizer *)tap{
-    NSLog(@"%s",__func__);
-}
-
 #pragma mark ----Action cell头部视图点击 是否显示详情
 - (void)isShowClassType{
     
@@ -326,7 +345,54 @@
 // 饼状图放大
 - (void)pieChart:(XYPieChart *)pieChart didSelectSliceAtIndex:(NSUInteger)index{
     NSLog(@"===============================第%lu个饼状图放大",index);
-
+    [self expandTitleIndex:index];
+   }
+// 饼状图还原
+- (void)pieChart:(XYPieChart *)pieChart didDeselectSliceAtIndex:(NSUInteger)index{
+    NSLog(@"=================================第%lu个饼状图还原",index);
+    _reductionIndex  = index;
+    if (0 == index) {
+        // 好评
+        
+    }
+    if (1 == index) {
+        // 中评
+    }
+    if (2 == index) {
+        // 差评
+    }
+    
+}
+// 手势点击事件
+- (void)didCommentView:(UITapGestureRecognizer *)tap{
+    NSInteger index = tap.view.tag - 500;
+    
+    [self expandTitleIndex:index];
+    [self expandPieIndex:index];
+}
+#pragma maek ----- 用于点击字体是饼状图放大
+- (void)expandPieIndex:(NSInteger )index{
+    if (index == 0) {
+        [_chartCell.pieChartView.pieChart setSliceSelectedAtIndex:0];
+        [_chartCell.pieChartView.pieChart setSliceDeselectedAtIndex:1];
+        [_chartCell.pieChartView.pieChart setSliceDeselectedAtIndex:2];
+    }
+    if (index == 1) {
+        [_chartCell.pieChartView.pieChart setSliceDeselectedAtIndex:0];
+        [_chartCell.pieChartView.pieChart setSliceSelectedAtIndex:1];
+        [_chartCell.pieChartView.pieChart setSliceDeselectedAtIndex:2];
+    }
+    if (index == 2) {
+        [_chartCell.pieChartView.pieChart setSliceDeselectedAtIndex:0];
+        [_chartCell.pieChartView.pieChart setSliceDeselectedAtIndex:1];
+        [_chartCell.pieChartView.pieChart setSliceSelectedAtIndex:2];
+    }
+    // 刷新数据
+    [self networkRequest];
+    
+}
+#pragma mark ---- 用于字体颜色放大
+- (void)expandTitleIndex:(NSInteger)index{
     if (0 == index) {
         // 好评
         self.commnetLevel = KCommnetLevelHighRating;
@@ -345,14 +411,14 @@
         _chartCell.mightCommentView.expandIndex = index;
         
         _chartCell.goodCommentView.isShowBigView = NO;
-       _chartCell.mightCommentView.isShowBigView = YES;;
+        _chartCell.mightCommentView.isShowBigView = YES;;
         _chartCell.badCommentView.isShowBigView = NO;
     }
     if (2 == index) {
         // 差评
         self.commnetLevel = KCommnetLevelPoorRating;
         
-          _chartCell.badCommentView.expandIndex = index;
+        _chartCell.badCommentView.expandIndex = index;
         
         _chartCell.goodCommentView.isShowBigView = NO;
         _chartCell.mightCommentView.isShowBigView = NO;
@@ -362,34 +428,6 @@
     
     // 刷新数据
     [self networkRequest];
-}
-// 饼状图还原
-- (void)pieChart:(XYPieChart *)pieChart didDeselectSliceAtIndex:(NSUInteger)index{
-    NSLog(@"=================================第%lu个饼状图还原",index);
-    _reductionIndex  = index;
-    if (0 == index) {
-        // 好评
-        
-    }
-    if (1 == index) {
-        // 中评
-    }
-    if (2 == index) {
-        // 差评
-    }
-    
-}
-// 手势点击事件
-- (void)initWithCommentViewIndex:(NSInteger)index{
-    if (500 == index) {
-        // 好评
-        [_chartCell.pieChartView.pieChart setSliceDeselectedAtIndex:0];
-    }
-    if (501 == index) {
-        // 中评
-    }
-    if (502 == index) {
-        // 差评
-    }
+
 }
 @end

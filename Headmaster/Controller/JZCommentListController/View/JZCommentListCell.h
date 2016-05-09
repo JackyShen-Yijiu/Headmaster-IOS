@@ -12,5 +12,5 @@
 @interface JZCommentListCell : UITableViewCell
 
 @property (nonatomic, strong) JZCommentCommentlist *model;
-
++ (CGFloat)heightCellForList:(JZCommentCommentlist *)model;
 @end
