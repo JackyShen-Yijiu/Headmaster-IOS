@@ -47,6 +47,7 @@
         // 文本框
         [self drawTextLabel];
         [self addSubview:_percentLabel];
+        _percentLabel.textColor = resultColor;
     }
     return self;
 }
@@ -63,8 +64,7 @@
     
     _percentLabel.font = [UIFont boldSystemFontOfSize:15];
     _percentLabel.textAlignment = NSTextAlignmentCenter;
-    _percentLabel.textColor = [UIColor redColor];
-        
+    
     if (!_timer) {
         _timer = [NSTimer scheduledTimerWithTimeInterval:.1 target:self selector:@selector(percentChange) userInfo:nil repeats:YES];
     }

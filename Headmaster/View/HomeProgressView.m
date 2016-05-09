@@ -54,7 +54,8 @@
     NSInteger maxColumns = 2;
     
     NSArray *subjectArray = [NSArray arrayWithObjects:@"科目一", @"科目二",@"科目三",@"科目四",nil];
-    
+    NSArray *ColorArray = [NSArray arrayWithObjects:@"7bd65c", @"3d8bff",@"e80031",@"3d8bff",nil];
+
     for (int i = 0; i < 4; i ++) {
     
         NSInteger col = i % maxColumns;
@@ -74,7 +75,7 @@
         [contentView addSubview:progressView];
         
         CGFloat progressY = 15;
-        TTProgressView  *progress = [[TTProgressView alloc] initWithFrame:CGRectMake(45, progressY, progressViewW-90, progressViewW-90) bgColor:[UIColor colorWithRed:246/255.0 green:246/255.0 blue:246/255.0 alpha:1.0f] resultColor:[UIColor colorWithRed:arc4random()%255/255.0 green:arc4random()%255/255.0 blue:arc4random()%255/255.0 alpha:1.0f]];
+        TTProgressView  *progress = [[TTProgressView alloc] initWithFrame:CGRectMake(45, progressY, progressViewW-90, progressViewW-90) bgColor:[UIColor colorWithRed:246/255.0 green:246/255.0 blue:246/255.0 alpha:1.0f] resultColor:[UIColor colorWithHexString:ColorArray[i]]];
         progress.tag = i + 100;
         progress.lineWidth = 5;
         progress.percent = 0.5;
@@ -136,7 +137,7 @@
         cirmpLabel.textAlignment = NSTextAlignmentCenter;
         cirmpLabel.frame = CGRectMake(cirmpLabelX, cirmpLabelY, cirmpLabelW, cirmpLabelH);
         cirmpLabel.font = [UIFont systemFontOfSize:12];
-        cirmpLabel.textColor = [UIColor grayColor];
+        cirmpLabel.textColor = [UIColor blackColor];
         [progressView addSubview:cirmpLabel];
         cirmpLabel.tag = i + 10000;
         [self.cirmpArray addObject:cirmpLabel];
@@ -168,18 +169,7 @@
         }
         
     }
-    
-    // 百分比
-//    for (UILabel  *label  in self.labelArray) {
-//        
-//        NSLog(@"label:%@",label);
-//        
-//        if (label.tag != 0 && ![[passrate objectAtIndex:label.tag - 1000] isKindOfClass:[NSNull class]]) {
-//            label.text = [NSString stringWithFormat:@"%ld%@",(long)[passrate[label.tag-1000] integerValue],@"％"];
-//        }
-//        
-//    }
-    
+  
    // 积压
     for (UILabel  *cirmpLabel  in self.cirmpArray) {
         
