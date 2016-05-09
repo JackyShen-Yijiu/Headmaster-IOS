@@ -40,8 +40,7 @@ static NSString *JZInformationListCellID = @"JZInformationListCellID";
         
         [self loadData];
         
-        
-        //        [self setRefresh];
+        [self setRefresh];
         
     }
     
@@ -151,8 +150,20 @@ static NSString *JZInformationListCellID = @"JZInformationListCellID";
     
 }
 
-
+#pragma mark - 下拉刷新
 -(void)setRefresh {
+    
+    WS(ws);
+    
+    self.refreshFooter.beginRefreshingBlock = ^{
+        [ws loadMoreData];
+    };
+    
+    self.refreshHeader = nil;
+    
+    
+}
+-(void)loadMoreData {
     
     JZInformationData *dataModel = self.listDataArray.lastObject;
     
@@ -166,16 +177,23 @@ static NSString *JZInformationListCellID = @"JZInformationListCellID";
             
             if (data) {
                 
+                if (!data.count) {
+                    
+                    [self.refreshFooter endRefreshing];
+                    self.refreshFooter.scrollView = nil;
+                    [self.vc showTotasViewWithMes:@"已经加载所有数据"];
+                    return;
+                    
+                }
                 
                 for (NSDictionary  *dict in data) {
                     JZInformationData *listModel = [JZInformationData yy_modelWithJSON:dict];
                     [self.listDataArray addObject:listModel];
                     
                 }
-                
                 [self reloadData];
-                
-                
+                [self.refreshFooter endRefreshing];
+  
             }else {
                 ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"暂无数据"];
                 [alertView show];
