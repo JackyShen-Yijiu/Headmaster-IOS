@@ -10,6 +10,6 @@
 
 @interface JZInformationTopView : UIView
 
-- (instancetype)initWithFrame:(CGRect)frame withPictures:(NSArray *)pictureArray;
+- (instancetype)initWithFrame:(CGRect)frame;
 
 @end
