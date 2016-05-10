@@ -8,6 +8,11 @@
 
 #import "JZMailBoxView.h"
 #import "JZMailBoxHeaderView.h"
+#import "JZMailboxData.h"
+#import "JZMailBoxCell.h"
+#import <YYModel.h>
+
+static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
 
 @interface JZMailBoxView ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) NSMutableArray *dataArr;
@@ -24,6 +29,7 @@
         self.dataSource = self;
         self.delegate = self;
         self.separatorStyle = NO;
+        self.backgroundColor = [UIColor orangeColor];
         
         self.sectionHeaderHeight = 10;
 
@@ -33,6 +39,8 @@
         
         [self reloadData];
         
+        [self loadData];
+//        [self setRefresh];
         
     }
     return self;
@@ -41,27 +49,74 @@
 #pragma mark - 数据源
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     [self.headerView setBadge:10];
-    return 10;
+    return self.dataArr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"123"];
+    JZMailBoxCell *listCell = [tableView dequeueReusableCellWithIdentifier:JZMailBoxCellID];
     
-    if (!cell) {
+    if (!listCell) {
         
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"123"];
+        listCell = [[JZMailBoxCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:JZMailBoxCellID];
         
     }
-    cell.textLabel.text = @"测试";
-    cell.backgroundColor = [UIColor cyanColor];
+        
+    listCell.selectionStyle = UITableViewCellSelectionStyleNone;
+    JZMailboxData *dataModel = self.dataArr[indexPath.row];
+    listCell.data = dataModel;
     
-    return cell;
+    
+    return listCell;
+
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
     return 1;
 }
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    JZMailboxData *dataModel = self.dataArr[indexPath.row];
+    
+    return [JZMailBoxCell cellHeightDmData:dataModel];
+}
+-(void)loadData {
+    
+    [NetworkEntity getCoachFeedbackWithUserid:[UserInfoModel defaultUserInfo].userID SchoolId:[UserInfoModel defaultUserInfo].schoolId count:10 index:1 success:^(id responseObject) {
+        
+        NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
+        if (type == 1) {
+            NSArray *resultData = responseObject[@"data"];
+            
+            
+            for (NSDictionary *dict in resultData) {
+                
+            JZMailboxData *dataModel = [JZMailboxData yy_modelWithJSON:dict];
+            [self.dataArr addObject:dataModel];
+                
+            }
+            
+            [self reloadData];
+            
+            
+            
+        }else{
+            
+            ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"网络出错啦"];
+            [alertView show];
+            
+        }
+
+    } failure:^(NSError *failure) {
+        ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"网络出错啦"];
+        [alertView show];
+        
+    }];
+    
+   }
+
+
+
 
 
 #pragma mark - 懒加载
