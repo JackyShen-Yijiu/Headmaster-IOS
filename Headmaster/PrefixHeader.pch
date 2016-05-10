@@ -49,6 +49,8 @@
 #define kJZLightTextColor RGB_Color(140,140,140)
 // V_2.0 Nav主色
 #define kJZNavBackgroundColor RGB_Color(29,28,33)
+// V_2.0 红色
+#define kJZRedColor RGB_Color(232,0,49)
 
 
 // V_2.0 主背景颜色 #e8e8ed

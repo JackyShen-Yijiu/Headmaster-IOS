@@ -13,7 +13,8 @@
 #import "DVVTabBarController.h"
 #import "RecommendViewController.h"
 #import "RecommendViewController.h"
-#import "ConversationListController.h"
+//#import "ConversationListController.h"
+#import "JZMailBoxController.h"
 
 @implementation AppDelegate (RootViewController)
 
@@ -21,7 +22,7 @@
 
     NSArray *controllerArray = @[ @"HomeController",
                                   @"JZInformationController",
-                                  @"ConversationListController"];
+                                  @"JZMailBoxController"];
     
     NSArray *titleArray = @[ @"数据概览", @"资讯", @"消息" ];
     

@@ -47,14 +47,6 @@
     [self.view addSubview:listView];
     self.listView.vc = self;
 
-    /*
-     block监听点击方式
-     
-     cycleScrollView2.clickItemOperationBlock = ^(NSInteger index) {
-     NSLog(@">>>>>  %ld", (long)index);
-     };
-     
-     */
 
     
 
