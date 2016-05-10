@@ -210,5 +210,12 @@ failure:(void (^)(AFHTTPRequestOperation *operation, id responseObject))failure;
                           Month:(NSInteger)month
                           success:(NetworkSuccessBlock)success
                           failure:(NetworkFailureBlock)failure;
+///  获取教练反馈
++ (void)getCoachFeedbackWithUserid:(NSString *)userId
+                       SchoolId:(NSString *)schoolId
+                             count:(NSInteger) count
+                             index:(NSInteger) index
+                        success:(NetworkSuccessBlock)success
+                        failure:(NetworkFailureBlock)failure;
 
 @end

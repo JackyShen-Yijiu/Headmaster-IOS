@@ -7,6 +7,8 @@
 //
 
 #import "JZMailBoxCell.h"
+#import "JZMailboxData.h"
+static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
 
 @interface JZMailBoxCell()
 ///  教练头像
@@ -21,9 +23,32 @@
 @property (nonatomic, strong) UIImageView *replyImage;
 ///  小红点
 @property (nonatomic, strong) UIView *badgeView;
+///  分割线
+@property (nonatomic, strong) UIView *lineView;
 
 @end
+
 @implementation JZMailBoxCell
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+
+        //        self.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    return self;
+}
+
+
+-(void)setData:(JZMailboxData *)data {
+    
+    _data = data;
+    
+     [self.coachIcon sd_setImageWithURL:[NSURL URLWithString:_data.coachid.headportrait.originalpic] placeholderImage:[UIImage imageNamed:@"head_null"]];
+    
+    self.coachNameLabel.text = _data.coachid.name;
+    self.contentLabel.text = _data.content;
+    self.dateLabel.text = [self getYearLocalDateFormateUTCDate:_data.createtime];
+}
+
 
 #pragma mark - 自动布局
 -(void)layoutSubviews {
@@ -34,16 +59,73 @@
        
         make.left.equalTo(self.contentView.mas_left).offset(16);
         make.top.equalTo(self.contentView.mas_top).offset(12);
+        make.width.equalTo(@24);
+        make.height.equalTo(@24);
+        
+    }];
+    
+    [self.coachNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+       
+        make.left.equalTo(self.coachIcon.mas_right).offset(16);
+        make.centerY.equalTo(self.coachIcon.mas_centerY);
+        
+    }];
+    
+    [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.left.equalTo(self.coachNameLabel.mas_left);
+        make.right.equalTo(self.contentView.mas_right).offset(16);
+        make.top.equalTo(self.coachNameLabel.mas_bottom).offset(12);
+    }];
+    
+    [self.dateLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+       
+        make.right.equalTo(self.contentView.mas_right).offset(-16);
+        make.top.equalTo(self.contentLabel.mas_bottom).offset(8);
+        
+        
+    }];
+
+    
+    [self.replyImage mas_makeConstraints:^(MASConstraintMaker *make) {
+       
+        make.top.equalTo(self.contentView.mas_top).offset(15);
+        make.right.equalTo(self.contentView.mas_right).offset(-16);
+        make.width.equalTo(@38);
+        make.height.equalTo(@14);
+        
+    }];
+    
+    [self.badgeView mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.top.equalTo(self.coachIcon.mas_top);
+        make.right.equalTo(self.coachIcon.mas_right);
         
     }];
     
     
+    [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.left.equalTo(self.contentView.mas_left);
+        make.right.equalTo(self.contentView.mas_right);
+        make.bottom.equalTo(self.contentView.mas_bottom);
+        make.height.equalTo(@0.5);
+        
+    }];
     
 }
-
-
-
-
++ (CGFloat)cellHeightDmData:(JZMailboxData *)dmData
+{
+    
+    JZMailBoxCell *cell = [[JZMailBoxCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:JZMailBoxCellID];
+    
+    cell.data = dmData;
+    
+    [cell layoutIfNeeded];
+    
+    return 17+14+12+8+12+12 + cell.contentLabel.height;
+    
+}
 
 
 #pragma mark - 懒加载
@@ -51,6 +133,8 @@
     if (!_coachIcon) {
         
         _coachIcon = [[UIImageView alloc]init];
+        
+        [self.contentView addSubview:_coachIcon];
 
     }
     return _coachIcon;
@@ -63,6 +147,8 @@
         _coachNameLabel = [[UILabel alloc]init];
         _coachNameLabel.font = [UIFont systemFontOfSize:14];
         _coachNameLabel.textColor = kJZDarkTextColor;
+        [self.contentView addSubview:_coachNameLabel];
+
     }
     
     return _contentLabel;
@@ -74,7 +160,10 @@
         _contentLabel = [[UILabel alloc]init];
         _contentLabel.font = [UIFont systemFontOfSize:14];
         _contentLabel.textColor = kJZLightTextColor;
+        [self.contentView addSubview:_contentLabel];
+
     }
+    
     return _contentLabel;
 }
 -(UILabel *)dateLabel {
@@ -86,6 +175,8 @@
         _dateLabel.font = [UIFont systemFontOfSize:12];
         
         _dateLabel.textColor = kJZLightTextColor;
+        [self.contentView addSubview:_dateLabel];
+
     }
     
     return _dateLabel;
@@ -95,7 +186,8 @@
         
         _replyImage = [[UIImageView alloc]init];
         _replyImage.image = [UIImage imageNamed:@"replied"];
-        
+        [self.contentView addSubview:_replyImage];
+
     }
     return _replyImage;
 }
@@ -107,13 +199,44 @@
         _badgeView.backgroundColor = kJZRedColor;
         _badgeView.layer.cornerRadius = 6;
         _badgeView.layer.masksToBounds = YES;
+        
+        [self.contentView addSubview:_badgeView];
+
     }
     
     return _badgeView;
 }
 
+-(UIView *)lineView {
+    
+    if (!_lineView) {
+        
+        
+        _lineView = [[UIView alloc]init];
+        _lineView.backgroundColor = JZ_MAIN_BACKGROUND_COLOR;
+        [self.contentView addSubview:_lineView];
+
+    }
+    
+    return _lineView;
+}
+
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
+}
+- (NSString *)getYearLocalDateFormateUTCDate:(NSString *)utcDate {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    //输入格式
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
+    NSTimeZone *localTimeZone = [NSTimeZone localTimeZone];
+    [dateFormatter setTimeZone:localTimeZone];
+    
+    NSDate *dateFormatted = [dateFormatter dateFromString:utcDate];
+    //输出格式
+    [dateFormatter setDateFormat:@"yyyy/MM/dd HH:mm"];
+    NSString *dateString = [dateFormatter stringFromDate:dateFormatted];
+    return dateString;
 }
 
 @end

@@ -414,6 +414,11 @@
 		D94F3E7A1CE17CF300695A86 /* JZMailBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = D94F3E791CE17CF300695A86 /* JZMailBoxView.m */; };
 		D94F3E7D1CE1A84100695A86 /* JZMailBoxHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D94F3E7C1CE1A84100695A86 /* JZMailBoxHeaderView.m */; };
 		D94F3E801CE1C6A800695A86 /* JZMailBoxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D94F3E7F1CE1C6A800695A86 /* JZMailBoxCell.m */; };
+		D94F3E981CE1D27C00695A86 /* JZMailboxCoachid.m in Sources */ = {isa = PBXBuildFile; fileRef = D94F3E8F1CE1D27C00695A86 /* JZMailboxCoachid.m */; };
+		D94F3E991CE1D27C00695A86 /* JZMailboxData.m in Sources */ = {isa = PBXBuildFile; fileRef = D94F3E911CE1D27C00695A86 /* JZMailboxData.m */; };
+		D94F3E9A1CE1D27C00695A86 /* JZMailboxHeadportrait.m in Sources */ = {isa = PBXBuildFile; fileRef = D94F3E931CE1D27C00695A86 /* JZMailboxHeadportrait.m */; };
+		D94F3E9B1CE1D27C00695A86 /* JZMailboxReplyid.m in Sources */ = {isa = PBXBuildFile; fileRef = D94F3E951CE1D27C00695A86 /* JZMailboxReplyid.m */; };
+		D94F3E9C1CE1D27C00695A86 /* JZMailboxRootClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D94F3E971CE1D27C00695A86 /* JZMailboxRootClass.m */; };
 		D95CE3B61C12BD3600EF6F75 /* HomeDataModelCommentstudentcount.m in Sources */ = {isa = PBXBuildFile; fileRef = D95CE3AF1C12BD3600EF6F75 /* HomeDataModelCommentstudentcount.m */; };
 		D95CE3B71C12BD3600EF6F75 /* HomeDataModelData.m in Sources */ = {isa = PBXBuildFile; fileRef = D95CE3B11C12BD3600EF6F75 /* HomeDataModelData.m */; };
 		D95CE3B91C12BD3600EF6F75 /* HomeDataModelSchoolstudentcount.m in Sources */ = {isa = PBXBuildFile; fileRef = D95CE3B51C12BD3600EF6F75 /* HomeDataModelSchoolstudentcount.m */; };
@@ -1193,6 +1198,16 @@
 		D94F3E7C1CE1A84100695A86 /* JZMailBoxHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZMailBoxHeaderView.m; sourceTree = "<group>"; };
 		D94F3E7E1CE1C6A800695A86 /* JZMailBoxCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZMailBoxCell.h; sourceTree = "<group>"; };
 		D94F3E7F1CE1C6A800695A86 /* JZMailBoxCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZMailBoxCell.m; sourceTree = "<group>"; };
+		D94F3E8E1CE1D27C00695A86 /* JZMailboxCoachid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JZMailboxCoachid.h; path = Model/JZMailboxCoachid.h; sourceTree = "<group>"; };
+		D94F3E8F1CE1D27C00695A86 /* JZMailboxCoachid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JZMailboxCoachid.m; path = Model/JZMailboxCoachid.m; sourceTree = "<group>"; };
+		D94F3E901CE1D27C00695A86 /* JZMailboxData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JZMailboxData.h; path = Model/JZMailboxData.h; sourceTree = "<group>"; };
+		D94F3E911CE1D27C00695A86 /* JZMailboxData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JZMailboxData.m; path = Model/JZMailboxData.m; sourceTree = "<group>"; };
+		D94F3E921CE1D27C00695A86 /* JZMailboxHeadportrait.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JZMailboxHeadportrait.h; path = Model/JZMailboxHeadportrait.h; sourceTree = "<group>"; };
+		D94F3E931CE1D27C00695A86 /* JZMailboxHeadportrait.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JZMailboxHeadportrait.m; path = Model/JZMailboxHeadportrait.m; sourceTree = "<group>"; };
+		D94F3E941CE1D27C00695A86 /* JZMailboxReplyid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JZMailboxReplyid.h; path = Model/JZMailboxReplyid.h; sourceTree = "<group>"; };
+		D94F3E951CE1D27C00695A86 /* JZMailboxReplyid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JZMailboxReplyid.m; path = Model/JZMailboxReplyid.m; sourceTree = "<group>"; };
+		D94F3E961CE1D27C00695A86 /* JZMailboxRootClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JZMailboxRootClass.h; path = Model/JZMailboxRootClass.h; sourceTree = "<group>"; };
+		D94F3E971CE1D27C00695A86 /* JZMailboxRootClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JZMailboxRootClass.m; path = Model/JZMailboxRootClass.m; sourceTree = "<group>"; };
 		D95CE3AE1C12BD3600EF6F75 /* HomeDataModelCommentstudentcount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeDataModelCommentstudentcount.h; sourceTree = "<group>"; };
 		D95CE3AF1C12BD3600EF6F75 /* HomeDataModelCommentstudentcount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeDataModelCommentstudentcount.m; sourceTree = "<group>"; };
 		D95CE3B01C12BD3600EF6F75 /* HomeDataModelData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeDataModelData.h; sourceTree = "<group>"; };
@@ -3000,6 +3015,16 @@
 		D94F3E701CE179F600695A86 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D94F3E901CE1D27C00695A86 /* JZMailboxData.h */,
+				D94F3E911CE1D27C00695A86 /* JZMailboxData.m */,
+				D94F3E8E1CE1D27C00695A86 /* JZMailboxCoachid.h */,
+				D94F3E8F1CE1D27C00695A86 /* JZMailboxCoachid.m */,
+				D94F3E941CE1D27C00695A86 /* JZMailboxReplyid.h */,
+				D94F3E951CE1D27C00695A86 /* JZMailboxReplyid.m */,
+				D94F3E921CE1D27C00695A86 /* JZMailboxHeadportrait.h */,
+				D94F3E931CE1D27C00695A86 /* JZMailboxHeadportrait.m */,
+				D94F3E961CE1D27C00695A86 /* JZMailboxRootClass.h */,
+				D94F3E971CE1D27C00695A86 /* JZMailboxRootClass.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3007,10 +3032,10 @@
 		D94F3E711CE179F600695A86 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D94F3E7B1CE1A84100695A86 /* JZMailBoxHeaderView.h */,
-				D94F3E7C1CE1A84100695A86 /* JZMailBoxHeaderView.m */,
 				D94F3E781CE17CF300695A86 /* JZMailBoxView.h */,
 				D94F3E791CE17CF300695A86 /* JZMailBoxView.m */,
+				D94F3E7B1CE1A84100695A86 /* JZMailBoxHeaderView.h */,
+				D94F3E7C1CE1A84100695A86 /* JZMailBoxHeaderView.m */,
 				D94F3E7E1CE1C6A800695A86 /* JZMailBoxCell.h */,
 				D94F3E7F1CE1C6A800695A86 /* JZMailBoxCell.m */,
 			);
@@ -3870,10 +3895,12 @@
 				D9EEA6DE1CE0782200F8662D /* UIView+SDExtension.m in Sources */,
 				D9CEC9101C0E8CF7008DEE69 /* UITabBar+RedHot.m in Sources */,
 				B8771DEB1C098DE40051DE9D /* EaseChatToolbarItem.m in Sources */,
+				D94F3E981CE1D27C00695A86 /* JZMailboxCoachid.m in Sources */,
 				0699E5E61C1581360079CABF /* CoachCoureDatilModel.m in Sources */,
 				B8771D191C098DE40051DE9D /* MWTapDetectingImageView.m in Sources */,
 				D94F3E7D1CE1A84100695A86 /* JZMailBoxHeaderView.m in Sources */,
 				06812B471CE0287800298156 /* JZCommentCommentlist.m in Sources */,
+				D94F3E9A1CE1D27C00695A86 /* JZMailboxHeadportrait.m in Sources */,
 				D9CEC9791C0ED643008DEE69 /* UIImage+Helper.m in Sources */,
 				B8771D291C098DE40051DE9D /* UIImage+EMWebP.m in Sources */,
 				D9CEC9171C0E8CF7008DEE69 /* CWStarRateView.m in Sources */,
@@ -3941,6 +3968,7 @@
 				D92296C91C0FD2FF00D0FFDF /* HomeSeeTimeView.m in Sources */,
 				D922974D1C10439200D0FFDF /* YBPieChartView.m in Sources */,
 				B8771CFC1C098DE40051DE9D /* EMAudioPlayerUtil.m in Sources */,
+				D94F3E9C1CE1D27C00695A86 /* JZMailboxRootClass.m in Sources */,
 				B8771DD81C098DE40051DE9D /* EaseEmoji.m in Sources */,
 				06C3261E1CDAE381004D888A /* JZPassRateController.m in Sources */,
 				B8771DD91C098DE40051DE9D /* EaseEmojiEmoticons.m in Sources */,
@@ -4016,7 +4044,9 @@
 				B8771DEE1C098DE40051DE9D /* EaseFaceView.m in Sources */,
 				B8771D351C098DE40051DE9D /* PSTCollectionViewUpdateItem.m in Sources */,
 				D9EEA6DA1CE0782200F8662D /* TADotView.m in Sources */,
+				D94F3E9B1CE1D27C00695A86 /* JZMailboxReplyid.m in Sources */,
 				D922974C1C10439200D0FFDF /* YBLineChartView.m in Sources */,
+				D94F3E991CE1D27C00695A86 /* JZMailboxData.m in Sources */,
 				062BB6ED1C1694A5006D5BEE /* HomeWeatherModelRootClass.m in Sources */,
 				B8771D2C1C098DE40051DE9D /* UIView+EMWebCacheOperation.m in Sources */,
 				D9CEC9891C0EDBCD008DEE69 /* LoginController.m in Sources */,
