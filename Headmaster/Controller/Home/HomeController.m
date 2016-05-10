@@ -31,7 +31,7 @@
 
 #import "JZPassRateController.h"
 #import "JZCommentListController.h"
-#import "JZCommentListController.h"
+
 
 @interface HomeController () <BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate,UIScrollViewDelegate>
 
@@ -253,7 +253,7 @@
 }
 - (void)testVC{
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                JZCommentListController *vc = [JZCommentListController new];
+                JZPassRateController *vc = [JZPassRateController new];
                 vc.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:vc animated:YES];
     });

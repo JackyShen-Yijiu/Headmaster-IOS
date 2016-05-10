@@ -9,20 +9,27 @@
 #import "RefreshTableView.h"
 #import "TTRefreshFooter.h"
 
+
 @protocol ShowNoDataBG <NSObject>
 
 - (void)initWithDataSearchType:(kDateSearchSubjectID)dataSearchSubjectID;
 
 @end
 
-@interface JZPassRateListView : TTRefreshFooter
+@interface JZPassRateListView : UITableView
 
 
 @property (nonatomic, strong) UIViewController *parementVC;
 
 @property (nonatomic, assign) kDateSearchSubjectID searchSubjectID;
 
+@property (nonatomic, assign) NSInteger month;
+
+@property (nonatomic, assign) NSInteger year;
+
 @property (nonatomic, strong) id<ShowNoDataBG> showNodataDelegate;
+
+@property (nonatomic, strong) NSMutableArray *timeDataArray;
 
 
 // 刷新数据的方法

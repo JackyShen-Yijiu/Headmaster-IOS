@@ -21,6 +21,10 @@
 
 @property (nonatomic, strong) NSMutableArray *subjectFourArray;
 
+@property (nonatomic, assign) NSInteger month;
+
+@property (nonatomic, assign) NSInteger year;
+
 @property (nonatomic, assign) NSInteger subjectOneIndex;
 @property (nonatomic, assign) NSInteger subjectTwoIndex;
 @property (nonatomic, assign) NSInteger subjectThreeIndex;

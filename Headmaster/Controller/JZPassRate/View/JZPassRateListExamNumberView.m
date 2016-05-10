@@ -8,7 +8,7 @@
 
 #import "JZPassRateListExamNumberView.h"
 
-#import "JZPassRateLabelView.h"
+
 
 @interface JZPassRateListExamNumberView ()
 
@@ -20,11 +20,7 @@
 
 @property (nonatomic, strong) UIView *rightlineView;
 
-@property (nonatomic, strong) JZPassRateLabelView *examLabel;
 
-@property (nonatomic, strong) JZPassRateLabelView *noexamLabel;
-
-@property (nonatomic, strong) JZPassRateLabelView *nopassLabel;
 
 
 

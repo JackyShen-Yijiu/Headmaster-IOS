@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JZPassRateLabelView.h"
 
 @interface JZPassRateListExamNumberView : UIView
 
+@property (nonatomic, strong) JZPassRateLabelView *examLabel;
+
+@property (nonatomic, strong) JZPassRateLabelView *noexamLabel;
+
+@property (nonatomic, strong) JZPassRateLabelView *nopassLabel;
 @end

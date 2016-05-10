@@ -139,6 +139,29 @@
 }
 #pragma mark --- 数据
 - (void)setModel:(JZPassRateListModel *)model{
+    /*
+     data =     (
+     {
+     examdate = "2016-5-16";
+     missexamstudent = 0;
+     nopassstudent = 0;
+     passrate = 1;
+     passstudent = 1;
+     studentcount = 1;
+     subject = 1;
+     }
+     );
+
+     */
+    self.titleLabel.text = @"";
+    self.timeLabel.text = model.examdate;
+    self.passRateResultLabel.text = [NSString stringWithFormat:@"%lu%%",model.passrate];
+    self.examNumberView.examLabel.resultStr = [NSString stringWithFormat:@"%lu人",model.studentcount];
+    self.examNumberView.noexamLabel.resultStr = [NSString stringWithFormat:@"%lu人",model.missexamstudent];
+    self.examNumberView.nopassLabel.resultStr = [NSString stringWithFormat:@"%lu人",model.missexamstudent];
+
+    
+    
     
 }
 @end
