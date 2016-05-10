@@ -10,6 +10,8 @@
 
 @interface HomeDetailNormalLineChartCell : HomeDetailBaseNormalCell
 
+@property (nonatomic, assign) kDateSearchType searchType;
+
 @property (nonatomic, strong) NSArray *xTitleArray;
 
 @property (nonatomic, strong) NSArray *valueArray;

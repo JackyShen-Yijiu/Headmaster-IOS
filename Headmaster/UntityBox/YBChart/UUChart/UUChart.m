@@ -20,7 +20,8 @@
 
 @implementation UUChart
 
--(id)initwithUUChartDataFrame:(CGRect)rect withSource:(id<UUChartDataSource>)dataSource withStyle:(UUChartStyle)style{
+-(id)initwithUUChartDataFrame:(CGRect)rect withSource:(id<UUChartDataSource>)dataSource withStyle:(UUChartStyle)style searchType:(kDateSearchType)searchType{
+    self.searchType = searchType;
     self.dataSource = dataSource;
     self.chartStyle = style;
     return [self initWithFrame:rect];
@@ -41,7 +42,23 @@
     if (self.chartStyle == UUChartLineStyle) {
     
         if(!_lineChart){
-            _lineChart = [[UULineChart alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+            
+            CGFloat xLabelWidth = 0;
+            switch (self.searchType) {
+                case kDateSearchTypeWeek:
+                    xLabelWidth = 37;
+                    break;
+                case kDateSearchTypeMonth:
+                    xLabelWidth = 60;
+                    break;
+                case kDateSearchTypeYear:
+                    xLabelWidth = 50;
+                    break;
+                    
+                default:
+                    break;
+            }
+            _lineChart = [[UULineChart alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height) with_xLabelWidth:xLabelWidth];
             [self addSubview:_lineChart];
         }
         
@@ -125,7 +142,9 @@
 		[_barChart setXLabels:[self.dataSource UUChart_xLableArray:self]];
         
         [_barChart strokeChart];
+        
 	}
+    
 }
 
 - (void)showInView:(UIView *)view
