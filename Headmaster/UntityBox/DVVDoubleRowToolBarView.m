@@ -25,17 +25,69 @@
 
 @implementation DVVDoubleRowToolBarView
 
-- (instancetype)init
+- (instancetype)initWithFrame:(CGRect)frame isHomeDetailsVc:(BOOL)isHomeDetailsVc upTitleArray:(NSArray *)upTitleArray downTitleArray:(NSArray *)downTitleArray upTitleFont:(UIFont *)upTitleFont downTitleFont:(UIFont *)downTitleFont
 {
-    self = [super init];
+    self = [super initWithFrame:frame];
     if (self) {
+        
+        self.isHomeDetailsVc = isHomeDetailsVc;
+        self.upTitleArray = upTitleArray;
+        self.downTitleArray = downTitleArray;
+        self.upTitleFont = upTitleFont;
+        self.downTitleFont = downTitleFont;
+        
+        //设置导航栏中的按钮大小
+        CGSize buttonSize = CGSizeMake(WIDTH/_downTitleArray.count, HEIGHT);
+        
+        //循环创建所有的按钮
+        for (int i = 0; i < _downTitleArray.count; i++) {
+            
+            UIButton *itemButton = [self createOneButtonWithUpTitle:_upTitleArray[i] downTitle:_downTitleArray[i] Size:buttonSize MinX:i * buttonSize.width Tag:i];
+            [self addSubview:itemButton];
+            
+            if (self.isHomeDetailsVc) {
+                
+                UIView *lineView = [[UIView alloc] init];
+                CGFloat lineViewX = itemButton.width-1;
+                lineView.frame = CGRectMake(lineViewX, 10, 0.5, itemButton.height-20);
+                lineView.backgroundColor = [UIColor lightGrayColor];
+                lineView.alpha = 0.3;
+                [itemButton addSubview:lineView];
+                
+            }
+            
+        }
+        
+        //添加跟随的按钮
+        CGFloat locationFloat = _selectButtonInteger * buttonSize.width;
+        if (_followBarLocation) {
+            _followBarLabel.frame = CGRectMake(locationFloat, 0, buttonSize.width, _followBarHeight);
+        }else{
+            _followBarLabel.frame = CGRectMake(locationFloat, buttonSize.height-_followBarHeight, buttonSize.width, _followBarHeight);
+        }
+        //颜色
+        _followBarLabel.backgroundColor = _followBarColor;
+        
+        //将跟随条的tag值设为12345，避免和按钮的tag值起冲突
+        _followBarLabel.tag = 12345;
+        
+        if (!_followBarHidden) {
+            [self addSubview:_followBarLabel];
+        }
+        
+        //默认选中第一个按钮
+        [self selectOneButton:_selectButtonInteger];
+        
         //调用初始化属性
         [self chuShiHuaShuXing];
+        
     }
     return self;
 }
 
 - (void)refreshUpTitle:(NSArray *)array {
+    
+    NSLog(@"%s array:%@ self.subviews:%@",__func__,array,self.subviews);
     
     if (!array.count) {
         return;
@@ -45,10 +97,13 @@
         for (UIButton *btn in itemButton.subviews) {
             if (btn.tag != 0 && [btn isKindOfClass:[UIButton class]]) {
                 [btn setTitle:array[btn.tag - 1] forState:UIControlStateNormal];
+                if (self.isHomeDetailsVc) {
+                    [btn setTitleColor:RGB_Color(61, 139, 255) forState:UIControlStateNormal];
+                }
             }
         }
-        
     }
+    
 }
 
 #pragma mark - 按钮的点击事件
@@ -119,46 +174,6 @@
 
 #pragma mark - 创建导航栏中的所有按钮
 
-- (void)layoutSubviews {
-    
-    //设置导航栏中的按钮大小
-    CGSize buttonSize = CGSizeMake(WIDTH/_downTitleArray.count, HEIGHT);
-    
-    //循环创建所有的按钮
-    for (int i = 0; i < _downTitleArray.count; i++) {
-        
-        UIButton *itemButton = [self createOneButtonWithUpTitle:_upTitleArray[i] downTitle:_downTitleArray[i] Size:buttonSize MinX:i * buttonSize.width Tag:i];
-        [self addSubview:itemButton];
-        
-//        UIView *lineView = [[UIView alloc] init];
-//        CGFloat lineViewX = itemButton.width-1;
-//        lineView.frame = CGRectMake(lineViewX, 10, 0.5, itemButton.height-20);
-//        lineView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
-//        [itemButton addSubview:lineView];
-        
-    }
-    
-    //添加跟随的按钮
-    CGFloat locationFloat = _selectButtonInteger * buttonSize.width;
-    if (_followBarLocation) {
-        _followBarLabel.frame = CGRectMake(locationFloat, 0, buttonSize.width, _followBarHeight);
-    }else{
-        _followBarLabel.frame = CGRectMake(locationFloat, buttonSize.height-_followBarHeight, buttonSize.width, _followBarHeight);
-    }
-    //颜色
-    _followBarLabel.backgroundColor = _followBarColor;
-    
-    //将跟随条的tag值设为12345，避免和按钮的tag值起冲突
-    _followBarLabel.tag = 12345;
-    
-    if (!_followBarHidden) {
-        [self addSubview:_followBarLabel];
-    }
-    
-    //默认选中第一个按钮
-    [self selectOneButton:_selectButtonInteger];
-}
-
 #pragma mark 创建一个按钮
 
 - (UIButton *)createOneButtonWithUpTitle:(NSString *)upTitle
@@ -188,15 +203,22 @@
     //显示文字颜色
     [upButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [upButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+    if (self.isHomeDetailsVc) {
+        [upButton setTitleColor:RGB_Color(61, 139, 255) forState:UIControlStateNormal];
+        [upButton setTitleColor:RGB_Color(61, 139, 255) forState:UIControlStateSelected];
+    }
     
     UIButton *downButton = [UIButton new];
     [downButton setBackgroundColor:[UIColor clearColor]];
-    downButton.frame = CGRectMake(0, size.height / 2.0, size.width, size.height / 2.0);
+    downButton.frame = CGRectMake(0, size.height / 2.0 - 10, size.width, size.height / 2.0);
     [downButton setTitle:downTitle forState:UIControlStateNormal];
     downButton.titleLabel.font = _downTitleFont;
     [downButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [downButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
-    
+    if (self.isHomeDetailsVc) {
+        [downButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        [downButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateSelected];
+    }
     upButton.userInteractionEnabled = NO;
     downButton.userInteractionEnabled = NO;
     
@@ -204,6 +226,7 @@
     [btn addSubview:downButton];
     
     return btn;
+    
 }
 
 #pragma mark - 初始化属性
@@ -225,7 +248,9 @@
     _downTitleFont = [UIFont systemFontOfSize:17];
     _titleNormalColor = [UIColor grayColor];
     _titleSelectColor = TITLE_COLOR;
-    
+    if (self.isHomeDetailsVc) {
+        _titleSelectColor = [UIColor blueColor];
+    }
     //跟随条
     _followBarColor = TITLE_COLOR;
     _followBarHeight = 2;

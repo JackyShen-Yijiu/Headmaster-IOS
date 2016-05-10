@@ -31,14 +31,15 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        self.backgroundColor = [UIColor clearColor];
         self.clipsToBounds = NO;
     }
     return self;
 }
 
 -(void)setUpChart{
-	if (self.chartStyle == UUChartLineStyle) {
+	
+    if (self.chartStyle == UUChartLineStyle) {
+    
         if(!_lineChart){
             _lineChart = [[UULineChart alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
             [self addSubview:_lineChart];
@@ -75,8 +76,8 @@
                 }
             }
             [_lineChart setShowHorizonLine:showHorizonArray];
-
         }
+        
         //判断显示最大最小值
         if ([self.dataSource respondsToSelector:@selector(UUChart:ShowMaxMinAtIndex:)]) {
             NSMutableArray *showMaxMinArray = [[NSMutableArray alloc]init];

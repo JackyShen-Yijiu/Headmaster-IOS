@@ -214,10 +214,6 @@
                             success:(NetworkSuccessBlock)success
                             failure:(NetworkFailureBlock)failure
 {
-//    NSDictionary *dict = @{@"userid":userid,
-//                           @"searchtype":[NSString stringWithFormat:@"%li",searchtype],
-//                           @"schoolid":schoolid
-//                           };
     NSDictionary *dict = @{@"userid":userid,
                            @"searchtype":[NSString stringWithFormat:@"%li",searchtype],
                            @"schoolid":schoolid

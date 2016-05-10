@@ -10,6 +10,10 @@
 
 @interface DVVDoubleRowToolBarView : UIView
 
+@property (nonatomic,assign) BOOL isHomeDetailsVc;
+
+- (instancetype)initWithFrame:(CGRect)frame isHomeDetailsVc:(BOOL)isHomeDetailsVc upTitleArray:(NSArray *)upTitleArray downTitleArray:(NSArray *)downTitleArray upTitleFont:(UIFont *)upTitleFont downTitleFont:(UIFont *)downTitleFont;
+
 //预定义一个Block类型
 typedef void(^DVVDoubleRowToolBarViewBlock)(UIButton *button);
 

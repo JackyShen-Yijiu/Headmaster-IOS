@@ -322,7 +322,8 @@
 - (void)moreButtonAction {
     
     HomeDetailController *detailVC = [HomeDetailController new];
-    detailVC.searchType = self.searchType;
+    detailVC.searchType = kDateSearchTypeWeek;
+    detailVC.viewModel = _viewModel;
     [self.navigationController pushViewController:detailVC animated:YES];
     
 }
@@ -345,7 +346,7 @@
 #pragma mark - lazy load
 - (HomeTopView *)topView {
     if (!_topView) {
-        _topView = [[HomeTopView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 105)];
+        _topView = [[HomeTopView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 105) withIsHomeDetailsVc:NO];
         _topView.backgroundColor = [UIColor blackColor];
     }
     return _topView;
@@ -373,11 +374,12 @@
 - (UIButton *)moreButton {
     if (!_moreButton) {
         _moreButton = [UIButton new];
-        _moreButton.frame = CGRectMake(0, 0, self.view.bounds.size.width - 100, self.view.bounds.size.width - 100);
-        _moreButton.center = CGPointMake(self.view.bounds.size.width / 2.f, self.view.bounds.size.height / 2.f);
-        [_moreButton.layer setMasksToBounds:YES];
-        [_moreButton.layer setCornerRadius:_moreButton.bounds.size.width / 2];
-        _moreButton.center = CGPointMake(self.view.centerX, self.view.centerY);
+        _moreButton.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.topView.height);
+//        _moreButton.center = CGPointMake(self.view.bounds.size.width / 2.f, self.view.bounds.size.height / 2.f);
+//        [_moreButton.layer setMasksToBounds:YES];
+//        [_moreButton.layer setCornerRadius:_moreButton.bounds.size.width / 2];
+//        _moreButton.center = CGPointMake(self.view.centerX, self.view.centerY);
+//        _moreButton.backgroundColor = [UIColor redColor];
         [_moreButton addTarget:self action:@selector(moreButtonAction) forControlEvents:UIControlEventTouchUpInside];
     }
     return _moreButton;
