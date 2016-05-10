@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface JZInformationListView : UITableView
+#import "RefreshTableView.h"
+@interface JZInformationListView : RefreshTableView
+@property (nonatomic, strong) UIViewController *vc;
 
 @end

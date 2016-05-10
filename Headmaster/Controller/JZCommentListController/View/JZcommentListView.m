@@ -16,15 +16,19 @@
 
 #import "JZPassRateListCell.h"
 
-#import "JZPassRateListModel.h"
+#import "JZCommentData.h"
 
 #import "JZCommentChartCell.h"
 #import "JZCommentListCell.h"
 
 #import "XYPieChart.h"
 
+#import "JZCommentCommentlist.h"
 
-@interface JZcommentListView ()<UITableViewDataSource,UITableViewDelegate,XYPieChartDelegate,TTCommnentViewDeleage>
+
+
+
+@interface JZcommentListView ()<UITableViewDataSource,UITableViewDelegate,XYPieChartDelegate>
 
 @property (nonatomic, strong) JZCommentListViewModel *viewModel;
 
@@ -48,12 +52,17 @@
         self.dataSource = self;
         self.delegate = self;
         //        self.refreshHeader = nil;
+//        self.commnetLevel = KCommnetLevelHighRating;
         self.separatorStyle = UITableViewCellSeparatorStyleNone;
         self.backgroundColor = [UIColor clearColor];
-        [self addSubview:self.noDataShowBGView];
+//        [self addSubview:self.noDataShowBGView];
+        
         self.viewModel = [JZCommentListViewModel new];
         [self.viewModel successRefreshBlock:^{
             [self refreshUI];
+//            NSInteger index = _commnetLevel - 1;
+//            [self expandTitleIndex:index];
+//            [self expandPieIndex:index];
             self.successRequest = 1;
             
             return;
@@ -154,14 +163,56 @@
     //    return 0;
     if (0 == section) {
         return 1;
+    }else{
+        if (_commentDateSearchType == kCommentDateSearchTypeLastMonth) {
+                    NSLog(@"1 ==== %lu",self.viewModel.lastMonthArray.count);
+                    return  self.viewModel.lastMonthArray.count;
+        }
+        if (_commentDateSearchType == kCommentDateSearchTypeLastWeek) {
+                        NSLog(@"2 ====== %lu",self.viewModel.lastWeekArray.count);
+           return  self.viewModel.lastWeekArray.count;
+        }
+        if (_commentDateSearchType == kCommentDateSearchTypeToday) {
+                        NSLog(@"3 ======%lu",self.viewModel.todayArray.count);
+            return  self.viewModel.todayArray.count;
+        }
+        if (_commentDateSearchType == kCommentDateSearchTypeThisWeek) {
+                        NSLog(@"4 ======%lu",self.viewModel.thisWeekArray.count);
+            return  self.viewModel.thisWeekArray.count;
+        }
+        if (_commentDateSearchType == kCommentDateSearchTypeThisMonth) {
+                        NSLog(@"5 ======%lu",self.viewModel.thisMonthArray.count);
+           return  self.viewModel.thisMonthArray.count;
+        }
+
     }
-    return 10;
+    
+    return 0;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (0 == indexPath.section) {
         return 166;
     }else{
-        return 110;
+        
+        JZCommentCommentlist *model = [[JZCommentCommentlist alloc] init];
+        
+        if (_commentDateSearchType == kCommentDateSearchTypeLastMonth) {
+            model = self.viewModel.lastMonthArray[indexPath.row];
+        }
+        if (_commentDateSearchType == kCommentDateSearchTypeLastWeek) {
+            model = self.viewModel.lastWeekArray[indexPath.row];
+        }
+        if (_commentDateSearchType == kCommentDateSearchTypeToday) {
+            model = self.viewModel.todayArray[indexPath.row];
+        }
+        if (_commentDateSearchType == kCommentDateSearchTypeThisWeek) {
+            model = self.viewModel.thisWeekArray[indexPath.row];
+        }
+        if (_commentDateSearchType == kCommentDateSearchTypeThisMonth) {
+            model = self.viewModel.thisMonthArray[indexPath.row];
+        }
+
+        return [JZCommentListCell heightCellForList:model];
     }
     return 0;
 }
@@ -181,7 +232,16 @@
     JZPassRateHeaderView *headerView = [[JZPassRateHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.width, 44)];
     headerView.arrowImgView.hidden = YES;
     headerView.backgroundColor = [UIColor whiteColor];
-    headerView.titleLabel.text = @"好评(147)";
+    if (_commnetLevel == KCommnetLevelHighRating) {
+        headerView.titleLabel.text = [NSString stringWithFormat:@"好评(%lu)", [[_viewModel.lastMonthDic objectForKey:@"goodcommnent"] integerValue]];
+    }
+    if (_commnetLevel == KCommnetLevelMidRating) {
+        headerView.titleLabel.text = [NSString stringWithFormat:@"中评(%lu)", [[_viewModel.lastMonthDic objectForKey:@"generalcomment"] integerValue]];
+    }
+    if (_commnetLevel == KCommnetLevelPoorRating) {
+        headerView.titleLabel.text = [NSString stringWithFormat:@"差评(%lu)", [[_viewModel.lastMonthDic objectForKey:@"badcomment"] integerValue]];
+    }
+    
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(isShowClassType)];
     [headerView addGestureRecognizer:tap];
     //        headerView.isShowClassTypeDetail = _isShowClassDetail;
@@ -196,32 +256,42 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (0 == indexPath.section) {
+       
         static NSString *IDCell = @"cellID";
         _chartCell = [tableView dequeueReusableCellWithIdentifier:IDCell];
         if (!_chartCell) {
             _chartCell = [[JZCommentChartCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:IDCell];
-            _chartCell.pieChartView.pieChart.delegate = self;
-            _chartCell.delegate = self;
         }
-        //    JZPassRateListModel *model = [[JZPassRateListModel alloc] init];
-        //    if (_searchSubjectID == kDateSearchSubjectIDOne) {
-        //        model = self.viewModel.subjectOneArray[indexPath.row];
-        //    }
-        //    if (_searchSubjectID == kDateSearchSubjectIDTwo) {
-        //        model = self.viewModel.subjectTwoArray[indexPath.row];
-        //    }
-        //    if (_searchSubjectID == kDateSearchSubjectIDThree) {
-        //        model = self.viewModel.subjectThreeArray[indexPath.row];
-        //    }
-        //    if (_searchSubjectID == kDateSearchSubjectIDFour) {
-        //        model = self.viewModel.subjectFourArray[indexPath.row];
-        //    }
+        _chartCell.pieChartView.pieChart.delegate = self;
+
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didCommentView:)];
+        [_chartCell.badCommentView addGestureRecognizer:tap];
         
+        UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didCommentView:)];
+        [_chartCell.mightCommentView addGestureRecognizer:tap1];
         
-        //    listCell.model = model;
+        UITapGestureRecognizer *tap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didCommentView:)];
+        [_chartCell.goodCommentView addGestureRecognizer:tap2];
         
         
         
+            if (_commentDateSearchType == kCommentDateSearchTypeLastMonth) {
+                _chartCell.commentDataNumberDic = self.viewModel.lastMonthDic;
+            }
+            if (_commentDateSearchType == kCommentDateSearchTypeLastWeek) {
+                _chartCell.commentDataNumberDic = self.viewModel.lastWeekDic;
+            }
+            if (_commentDateSearchType == kCommentDateSearchTypeToday) {
+                _chartCell.commentDataNumberDic = self.viewModel.todayDic;
+            }
+            if (_commentDateSearchType == kCommentDateSearchTypeThisWeek) {
+                _chartCell.commentDataNumberDic = self.viewModel.thisWeekDic;
+            }
+        if (_commentDateSearchType == kCommentDateSearchTypeThisMonth) {
+            _chartCell.commentDataNumberDic = self.viewModel.thisMonthDic;
+        }
+        
+
         return _chartCell;
  
     }else{
@@ -231,11 +301,32 @@
         if (!listCell) {
             listCell = [[JZCommentListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:listCellID];
         }
+        JZCommentCommentlist *model = [[JZCommentCommentlist alloc] init];
+        
+        if (_commentDateSearchType == kCommentDateSearchTypeLastMonth) {
+            model = self.viewModel.lastMonthArray[indexPath.row];
+        }
+        if (_commentDateSearchType == kCommentDateSearchTypeLastWeek) {
+            model = self.viewModel.lastWeekArray[indexPath.row];
+        }
+        if (_commentDateSearchType == kCommentDateSearchTypeToday) {
+            model = self.viewModel.todayArray[indexPath.row];
+        }
+        if (_commentDateSearchType == kCommentDateSearchTypeThisWeek) {
+            model = self.viewModel.thisWeekArray[indexPath.row];
+        }
+        if (_commentDateSearchType == kCommentDateSearchTypeThisMonth) {
+            model = self.viewModel.thisMonthArray[indexPath.row];
+        }
+        
+        listCell.model = model;
+
         return listCell;
 
     }
     
     }
+
 #pragma mark ----Action cell头部视图点击 是否显示详情
 - (void)isShowClassType{
     
@@ -247,14 +338,61 @@
         _noDataShowBGView.titleStr = @"暂无数据";
         _noDataShowBGView.titleColor  = JZ_FONTCOLOR_LIGHTWHITE;
         _noDataShowBGView.fontSize = 14.f;
-        _noDataShowBGView.hidden = NO;
+        _noDataShowBGView.hidden = YES;
     }
     return _noDataShowBGView;
 }
 // 饼状图放大
 - (void)pieChart:(XYPieChart *)pieChart didSelectSliceAtIndex:(NSUInteger)index{
     NSLog(@"===============================第%lu个饼状图放大",index);
-
+    [self expandTitleIndex:index];
+   }
+// 饼状图还原
+- (void)pieChart:(XYPieChart *)pieChart didDeselectSliceAtIndex:(NSUInteger)index{
+    NSLog(@"=================================第%lu个饼状图还原",index);
+    _reductionIndex  = index;
+    if (0 == index) {
+        // 好评
+        
+    }
+    if (1 == index) {
+        // 中评
+    }
+    if (2 == index) {
+        // 差评
+    }
+    
+}
+// 手势点击事件
+- (void)didCommentView:(UITapGestureRecognizer *)tap{
+    NSInteger index = tap.view.tag - 500;
+    
+    [self expandTitleIndex:index];
+    [self expandPieIndex:index];
+}
+#pragma maek ----- 用于点击字体是饼状图放大
+- (void)expandPieIndex:(NSInteger )index{
+    if (index == 0) {
+        [_chartCell.pieChartView.pieChart setSliceSelectedAtIndex:0];
+        [_chartCell.pieChartView.pieChart setSliceDeselectedAtIndex:1];
+        [_chartCell.pieChartView.pieChart setSliceDeselectedAtIndex:2];
+    }
+    if (index == 1) {
+        [_chartCell.pieChartView.pieChart setSliceDeselectedAtIndex:0];
+        [_chartCell.pieChartView.pieChart setSliceSelectedAtIndex:1];
+        [_chartCell.pieChartView.pieChart setSliceDeselectedAtIndex:2];
+    }
+    if (index == 2) {
+        [_chartCell.pieChartView.pieChart setSliceDeselectedAtIndex:0];
+        [_chartCell.pieChartView.pieChart setSliceDeselectedAtIndex:1];
+        [_chartCell.pieChartView.pieChart setSliceSelectedAtIndex:2];
+    }
+    // 刷新数据
+    [self networkRequest];
+    
+}
+#pragma mark ---- 用于字体颜色放大
+- (void)expandTitleIndex:(NSInteger)index{
     if (0 == index) {
         // 好评
         self.commnetLevel = KCommnetLevelHighRating;
@@ -273,14 +411,14 @@
         _chartCell.mightCommentView.expandIndex = index;
         
         _chartCell.goodCommentView.isShowBigView = NO;
-       _chartCell.mightCommentView.isShowBigView = YES;;
+        _chartCell.mightCommentView.isShowBigView = YES;;
         _chartCell.badCommentView.isShowBigView = NO;
     }
     if (2 == index) {
         // 差评
         self.commnetLevel = KCommnetLevelPoorRating;
         
-          _chartCell.badCommentView.expandIndex = index;
+        _chartCell.badCommentView.expandIndex = index;
         
         _chartCell.goodCommentView.isShowBigView = NO;
         _chartCell.mightCommentView.isShowBigView = NO;
@@ -290,34 +428,6 @@
     
     // 刷新数据
     [self networkRequest];
-}
-// 饼状图还原
-- (void)pieChart:(XYPieChart *)pieChart didDeselectSliceAtIndex:(NSUInteger)index{
-    NSLog(@"=================================第%lu个饼状图还原",index);
-    _reductionIndex  = index;
-    if (0 == index) {
-        // 好评
-        
-    }
-    if (1 == index) {
-        // 中评
-    }
-    if (2 == index) {
-        // 差评
-    }
-    
-}
-// 手势点击事件
-- (void)initWithCommentViewIndex:(NSInteger)index{
-    if (500 == index) {
-        // 好评
-        [_chartCell.pieChartView.pieChart setSliceDeselectedAtIndex:0];
-    }
-    if (501 == index) {
-        // 中评
-    }
-    if (502 == index) {
-        // 差评
-    }
+
 }
 @end

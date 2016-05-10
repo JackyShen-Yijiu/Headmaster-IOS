@@ -20,6 +20,17 @@
 @property (nonatomic, strong) NSMutableArray *thisWeekArray;
 @property (nonatomic, strong) NSMutableArray *thisMonthArray;
 
+@property (nonatomic, strong) NSDictionary *lastMonthDic;
+@property (nonatomic, strong) NSDictionary *lastWeekDic;
+
+@property (nonatomic, strong) NSDictionary *todayDic;
+
+@property (nonatomic, strong) NSDictionary *thisWeekDic;
+
+@property (nonatomic, strong) NSDictionary *thisMonthDic;
+
+
+
 @property (nonatomic, assign) NSInteger lastMonthIndex;
 @property (nonatomic, assign) NSInteger lastWeekIndex;
 @property (nonatomic, assign) NSInteger todayIndex;

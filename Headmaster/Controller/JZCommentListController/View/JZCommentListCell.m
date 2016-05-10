@@ -9,6 +9,7 @@
 #import "JZCommentListCell.h"
 #import "PortraitView.h"
 #import "CWStarRateView.h"
+#import "NSString+Helper.h"
 
 @interface JZCommentListCell ()
 
@@ -72,7 +73,8 @@
     [self.commentContentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.teachNameLabel.mas_bottom).offset(16);
         make.left.mas_equalTo(self.iconView.mas_left);
-        make.height.mas_equalTo(@14);
+        make.right.mas_equalTo(self.mas_right).offset(-16);
+//        make.height.mas_equalTo(@14);
     }];
     [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.nameLabel.mas_top);
@@ -135,6 +137,7 @@
         _commentContentLabel.font = [UIFont systemFontOfSize:14];
         _commentContentLabel.textColor = kJZDarkTextColor;
         _commentContentLabel.text = @"jjjj积极急急急";
+        _commentContentLabel.numberOfLines = 0;
     }
     return _commentContentLabel;
 }
@@ -162,5 +165,34 @@
         _bottonLineView.backgroundColor = HM_LINE_COLOR;
     }
     return _bottonLineView;
+}
+- (void)setModel:(JZCommentCommentlist *)model{
+    /*
+     
+     "studentinfo": {
+     "userid": "5707a3037e1c28b744297d54",
+     "mobile": "156708536",
+     "name": "雷凯",
+     "headportrait": {
+     "originalpic": "http://7xnjg0.com1.z0.glb.clouddn.com/20160412/104926-5707a3037e1c28b744297d54.png",
+     "thumbnailpic": "",
+     "width": "",
+     "height": ""
+     },
+     */
+    [self.iconView sd_setImageWithURL:[NSURL URLWithString:model.studentinfo.headportrait.originalpic] placeholderImage:nil];
+    self.nameLabel.text = model.studentinfo.name;
+    
+    self.teachNameLabel.text = [NSString stringWithFormat:@"教练: %@",model.coachinfo.name];
+    self.commentContentLabel.text = model.commentcontent;
+    self.timeLabel.text = model.commenttime;
+    [self.rateView setScorePercent:(model.commentstarlevel / 5)];
+    
+    
+}
++ (CGFloat)heightCellForList:(JZCommentCommentlist *)model{
+    CGFloat height = [NSString autoHeightWithString:model.commentcontent Width:[UIScreen mainScreen].bounds.size.width - 32 Font:[UIFont systemFontOfSize:14]];
+
+    return 96 + height;
 }
 @end

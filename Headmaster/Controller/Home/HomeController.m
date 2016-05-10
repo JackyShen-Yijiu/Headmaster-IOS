@@ -31,6 +31,7 @@
 
 #import "JZPassRateController.h"
 #import "JZCommentListController.h"
+#import "JZCommentListController.h"
 
 @interface HomeController () <BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate,UIScrollViewDelegate>
 
@@ -199,9 +200,21 @@
     self.mainScrollView.contentSize = CGSizeMake(self.view.width, CGRectGetMaxY(self.evaluateView.frame)+64+49);
     
     [self.evaluateView itemClick:^(UIButton *button) {
-        RecommendViewController *recommendVC = [RecommendViewController new];
-        recommendVC.searchType = self.searchType;
-        recommendVC.commentTag = button.tag;
+        NSLog(@"evaluateView ======== %lu ============",button.tag);
+        JZCommentListController *recommendVC = [JZCommentListController new];
+        if (0 == button.tag ) {
+            // 好评
+            recommendVC.commentLevel = KCommnetLevelHighRating;
+        }
+        if (1 == button.tag ) {
+            // 中评
+            recommendVC.commentLevel = KCommnetLevelMidRating;
+        }
+        if (2 == button.tag ) {
+            // 差评
+            recommendVC.commentLevel = KCommnetLevelPoorRating;
+        }
+        
         [self.myNavController pushViewController:recommendVC animated:YES];
     }];
 
@@ -235,7 +248,7 @@
     
     _viewModel.searchType = 1;
     [_viewModel networkRequestRefresh];
-    [self testVC];
+//    [self testVC];
     
 }
 - (void)testVC{
