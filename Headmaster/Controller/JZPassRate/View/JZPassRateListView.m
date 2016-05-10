@@ -18,6 +18,8 @@
 
 #import "JZPassRateListModel.h"
 
+#import "JZCommentTimeModel.h"
+
 @interface JZPassRateListView ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong) JZPassRateViewModel *viewModel;
@@ -38,7 +40,7 @@
 //        self.refreshHeader = nil;
         self.separatorStyle = UITableViewCellSeparatorStyleNone;
         self.backgroundColor = [UIColor clearColor];
-        [self addSubview:self.noDataShowBGView];
+//        [self addSubview:self.noDataShowBGView];
         self.viewModel = [JZPassRateViewModel new];
         [self.viewModel successRefreshBlock:^{
             [self refreshUI];
@@ -48,13 +50,13 @@
         }];
         [self.viewModel successLoadMoreBlock:^{
             [self refreshUI];
-            [self.refreshFooter endRefreshing];
+//            [self.refreshFooter endRefreshing];
             
             
         }];
         [self.viewModel successLoadMoreBlockAndNoData:^{
             [self.parementVC showTotasViewWithMes:@"已经加载更多"];
-            [self.refreshFooter endRefreshing];
+//            [self.refreshFooter endRefreshing];
         }];
     }
     
@@ -69,13 +71,19 @@
 #pragma mark - 刷新数据
 - (void)networkRequest {
     
+    // 科目类型
     self.viewModel.searchSubjectID = self.searchSubjectID;
+    self.viewModel.year = self.year;
+    self.viewModel.month = self.month;
+   
+    
     [self.viewModel networkRequestRefresh];
 }
 
 #pragma mark --- 加载更多
 - (void)moreData{
-    self.viewModel.searchSubjectID = self.searchSubjectID;    [self.viewModel networkRequestLoadMore];
+    self.viewModel.searchSubjectID = self.searchSubjectID;
+    [self.viewModel networkRequestLoadMore];
     
 }
 
@@ -87,7 +95,7 @@
 #pragma mark ---- UITableViewDelegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 5;
+    return _timeDataArray.count;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
@@ -132,7 +140,24 @@
 //        return self.viewModel.subjectFourArray.count;
 //    }
 //    return 0;
-    return 10;
+    JZCommentTimeModel *model = _timeDataArray[section];
+    if (model.isShowDetail) {
+        
+        if (_searchSubjectID == kDateSearchSubjectIDOne) {
+            return self.viewModel.subjectOneArray.count;
+        }
+        if (_searchSubjectID == kDateSearchSubjectIDTwo) {
+            return self.viewModel.subjectTwoArray.count;
+        }
+        if (_searchSubjectID == kDateSearchSubjectIDThree) {
+            return self.viewModel.subjectThreeArray.count;
+        }
+        if (_searchSubjectID == kDateSearchSubjectIDFour) {
+            return self.viewModel.subjectFourArray.count;
+        }
+
+    }
+    return 0;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 152 - 43;
@@ -141,15 +166,30 @@
     return 44;
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
     JZPassRateHeaderView *headerView = [[JZPassRateHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.width, 44)];
     headerView.backgroundColor = [UIColor whiteColor];
-    headerView.titleLabel.text = @"2016/04/13";
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(isShowClassType)];
+    JZCommentTimeModel *model = _timeDataArray[section];
+    headerView.titleLabel.text = model.ID;
+    if (_searchSubjectID == 1) {
+        headerView.tag = 500 + section;
+    }
+    if (_searchSubjectID == 2) {
+        headerView.tag = 600 + section;
+    }
+    if (_searchSubjectID == 3) {
+        headerView.tag = 700 + section;
+    }
+    if (_searchSubjectID == 4) {
+        headerView.tag = 800 + section;
+    }
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(isShowClassType:)];
     [headerView addGestureRecognizer:tap];
     //        headerView.isShowClassTypeDetail = _isShowClassDetail;
     return headerView;
     
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *IDCell = @"cellID";
@@ -157,30 +197,61 @@
     if (!listCell) {
         listCell = [[JZPassRateListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:IDCell];
     }
-//    JZPassRateListModel *model = [[JZPassRateListModel alloc] init];
-//    if (_searchSubjectID == kDateSearchSubjectIDOne) {
-//        model = self.viewModel.subjectOneArray[indexPath.row];
-//    }
-//    if (_searchSubjectID == kDateSearchSubjectIDTwo) {
-//        model = self.viewModel.subjectTwoArray[indexPath.row];
-//    }
-//    if (_searchSubjectID == kDateSearchSubjectIDThree) {
-//        model = self.viewModel.subjectThreeArray[indexPath.row];
-//    }
-//    if (_searchSubjectID == kDateSearchSubjectIDFour) {
-//        model = self.viewModel.subjectFourArray[indexPath.row];
-//    }
+    JZPassRateListModel *model = [[JZPassRateListModel alloc] init];
+    if (_searchSubjectID == kDateSearchSubjectIDOne) {
+        model = self.viewModel.subjectOneArray[indexPath.row];
+    }
+    if (_searchSubjectID == kDateSearchSubjectIDTwo) {
+        model = self.viewModel.subjectTwoArray[indexPath.row];
+    }
+    if (_searchSubjectID == kDateSearchSubjectIDThree) {
+        model = self.viewModel.subjectThreeArray[indexPath.row];
+    }
+    if (_searchSubjectID == kDateSearchSubjectIDFour) {
+        model = self.viewModel.subjectFourArray[indexPath.row];
+    }
     
     
-//    listCell.model = model;
+    listCell.model = model;
     
     
     
     return listCell;
 }
 #pragma mark ----Action cell头部视图点击 是否显示详情
-- (void)isShowClassType{
+- (void)isShowClassType:(UITapGestureRecognizer *)tap{
+    NSInteger index = tap.view.tag;
+    JZCommentTimeModel *model = [[JZCommentTimeModel alloc] init];
+   
     
+    if (_searchSubjectID == 1) {
+        index = index - 500;
+        model = _timeDataArray[index];
+        
+    }
+    if (_searchSubjectID == 2) {
+        index = index - 600;
+        model = _timeDataArray[index];
+    }
+    if (_searchSubjectID == 3) {
+        index = index - 700;
+        model = _timeDataArray[index];
+
+    }
+    if (_searchSubjectID == 4) {
+        index = index - 800;
+        model = _timeDataArray[index];
+       
+    }
+    
+    model.isShowDetail = !model.isShowDetail;
+    
+     NSArray *timeArray = [model.ID componentsSeparatedByString:@"-"];
+    self.year = [timeArray[0] integerValue];
+    self.month = [timeArray[1] integerValue];
+    
+    [self networkRequest];
+
 }
 - (JZNoDataShowBGView *)noDataShowBGView{
     if (_noDataShowBGView == nil) {

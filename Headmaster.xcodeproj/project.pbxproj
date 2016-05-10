@@ -55,6 +55,7 @@
 		0699E5EC1C15C33E0079CABF /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0699E5EB1C15C33E0079CABF /* libstdc++.6.0.9.tbd */; };
 		0699E5EE1C15C3630079CABF /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0699E5ED1C15C3630079CABF /* CoreTelephony.framework */; };
 		0699E5F01C15C3760079CABF /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0699E5EF1C15C3760079CABF /* libsqlite3.0.tbd */; };
+		06BE6EB41CE16FA000260976 /* JZCommentTimeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 06BE6EB31CE16FA000260976 /* JZCommentTimeModel.m */; };
 		06C3261E1CDAE381004D888A /* JZPassRateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C3261D1CDAE381004D888A /* JZPassRateController.m */; };
 		06C326211CDAE4DA004D888A /* JZPassRateToolBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C326201CDAE4DA004D888A /* JZPassRateToolBarView.m */; };
 		06C326241CDAE9C0004D888A /* JZPassRateListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C326231CDAE9C0004D888A /* JZPassRateListView.m */; };
@@ -575,6 +576,8 @@
 		0699E5EB1C15C33E0079CABF /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		0699E5ED1C15C3630079CABF /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		0699E5EF1C15C3760079CABF /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		06BE6EB21CE16FA000260976 /* JZCommentTimeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JZCommentTimeModel.h; path = ../../JZCommentListController/Model/JZCommentTimeModel.h; sourceTree = "<group>"; };
+		06BE6EB31CE16FA000260976 /* JZCommentTimeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JZCommentTimeModel.m; path = ../../JZCommentListController/Model/JZCommentTimeModel.m; sourceTree = "<group>"; };
 		06C3261C1CDAE381004D888A /* JZPassRateController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZPassRateController.h; sourceTree = "<group>"; };
 		06C3261D1CDAE381004D888A /* JZPassRateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZPassRateController.m; sourceTree = "<group>"; };
 		06C3261F1CDAE4DA004D888A /* JZPassRateToolBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZPassRateToolBarView.h; sourceTree = "<group>"; };
@@ -1423,6 +1426,8 @@
 		06C326191CDAE34C004D888A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				06BE6EB21CE16FA000260976 /* JZCommentTimeModel.h */,
+				06BE6EB31CE16FA000260976 /* JZCommentTimeModel.m */,
 				06C3262E1CDAF522004D888A /* JZPassRateListModel.h */,
 				06C3262F1CDAF522004D888A /* JZPassRateListModel.m */,
 			);
@@ -3913,6 +3918,7 @@
 				D94555501CDC9C70003266EF /* JZInformationListView.m in Sources */,
 				D92424851CDB0D58002AB7C0 /* JZComplaintDetailController.m in Sources */,
 				D972447C1C1EC3D1002B3FDE /* DataDetailDMMonthCoursedata.m in Sources */,
+				06BE6EB41CE16FA000260976 /* JZCommentTimeModel.m in Sources */,
 				B22BADCE1CC74DE000455E1C /* JGUserTools.m in Sources */,
 				D92297481C10439200D0FFDF /* UUColor.m in Sources */,
 				0613DC1B1C1C521C00580C32 /* HomeDetailTableView.m in Sources */,

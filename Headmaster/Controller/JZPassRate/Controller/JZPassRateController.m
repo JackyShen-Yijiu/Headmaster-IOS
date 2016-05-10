@@ -9,6 +9,8 @@
 #import "JZPassRateController.h"
 #import "JZPassRateToolBarView.h"
 #import "JZPassRateListView.h"
+#import "JZCommentTimeModel.h"
+#import <YYModel.h>
 
 @interface JZPassRateController ()<UIScrollViewDelegate>
 
@@ -20,6 +22,12 @@
 @property (nonatomic, strong) JZPassRateListView *twoSubjexctView;
 @property (nonatomic, strong) JZPassRateListView *threeSubjexctView;
 @property (nonatomic, strong) JZPassRateListView *fourSubjexctView;
+
+@property (nonatomic, assign) NSInteger subjectID;
+@property (nonatomic, strong) NSMutableArray *timeDataArrayOne;
+@property (nonatomic, strong) NSMutableArray *timeDataArrayTwo;
+@property (nonatomic, strong) NSMutableArray *timeDataArrayThree;
+@property (nonatomic, strong) NSMutableArray *timeDataArrayFour;
 
 @property (nonatomic, strong) UIView *bgView;
 
@@ -35,8 +43,12 @@
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.timeDataArrayOne = [NSMutableArray array];
+     self.timeDataArrayTwo = [NSMutableArray array];
+     self.timeDataArrayThree = [NSMutableArray array];
+    self.timeDataArrayFour = [NSMutableArray array];
     [self initUI];
-//    [self initRefesh];
+    [self initRefesh];
 }
 - (void)initUI{
     self.view.backgroundColor = JZ_MAIN_BACKGROUND_COLOR;
@@ -64,22 +76,22 @@
 }
 - (void)initRefesh{
     self.oneSubjexctView.searchSubjectID = kDateSearchSubjectIDOne;
-    [self loadNetworkData];
-    __weak typeof (self) ws = self;
+    [self getTimeData];
+//    __weak typeof (self) ws = self;
     
     
-    self.oneSubjexctView.refreshFooter.beginRefreshingBlock = ^(){
-        [ws moreLoadData];
-    };
-    self.twoSubjexctView.refreshFooter.beginRefreshingBlock = ^(){
-        [ws moreLoadData];
-    };
-    self.threeSubjexctView.refreshFooter.beginRefreshingBlock = ^(){
-        [ws moreLoadData];
-    };
-    self.fourSubjexctView.refreshFooter.beginRefreshingBlock = ^(){
-        [ws moreLoadData];
-    };
+//    self.oneSubjexctView.refreshFooter.beginRefreshingBlock = ^(){
+//        [ws moreLoadData];
+//    };
+//    self.twoSubjexctView.refreshFooter.beginRefreshingBlock = ^(){
+//        [ws moreLoadData];
+//    };
+//    self.threeSubjexctView.refreshFooter.beginRefreshingBlock = ^(){
+//        [ws moreLoadData];
+//    };
+//    self.fourSubjexctView.refreshFooter.beginRefreshingBlock = ^(){
+//        [ws moreLoadData];
+//    };
 }
 - (void)loadNetworkData {
     
@@ -87,17 +99,21 @@
     CGFloat width = self.scrollView.width;
     
     if (offSetX >= 0 && offSetX < self.scrollView.width) {
+        _subjectID = kDateSearchSubjectIDOne;
         self.oneSubjexctView.searchSubjectID = kDateSearchSubjectIDOne;
         [self.oneSubjexctView networkRequest];
     }else if (offSetX >= width && offSetX < width * 2) {
+        _subjectID = kDateSearchSubjectIDTwo;
          self.twoSubjexctView.searchSubjectID = kDateSearchSubjectIDTwo;
         [self.twoSubjexctView networkRequest];
         
     }else if (offSetX >= width * 2 && offSetX < width * 3) {
+        _subjectID = kDateSearchSubjectIDThree;
         self.threeSubjexctView.searchSubjectID = kDateSearchSubjectIDThree;
         [self.threeSubjexctView networkRequest];
         
     }else if (offSetX >= width * 3 && offSetX < width * 4) {
+        _subjectID = kDateSearchSubjectIDFour;
         self.fourSubjexctView.searchSubjectID = kDateSearchSubjectIDFour;
         [self.fourSubjexctView networkRequest];
     }}
@@ -134,75 +150,34 @@
         
         CGFloat contentOffsetX = 0;
         _scrollView.contentOffset = CGPointMake(contentOffsetX, 0);
-//        self.oneSubjexctView.searchSubjectID = kDateSearchSubjectIDOne;
         [self.scrollView addSubview:self.oneSubjexctView];
         self.oneSubjexctView.parementVC = self;
-        
-//        self.allListView.studentState = index;
-//        self.allListView.subjectID = self.subjectID;
-//        [self.allListView removeFromSuperview];
-//        
-//        self.allListView.frame = CGRectMake(0, 0, self.view.width, self.scrollView.height);
-//        [self.scrollView addSubview:self.allListView];
-//        self.allListView.parementVC = self;
         
     }else if (1 == index) {
         CGFloat contentOffsetX = self.view.width;
         _scrollView.contentOffset = CGPointMake(contentOffsetX, 0);
-//        self.twoSubjexctView.searchSubjectID = kDateSearchSubjectIDTwo;
         [self.scrollView addSubview:self.twoSubjexctView];
         self.twoSubjexctView.parementVC = self;
-
-//        NSLog(@"22_scrollView.contentOffset.y:%f",_scrollView.contentOffset.y);
-//        [self.noExameListView removeFromSuperview];
-//        self.noExameListView.frame = CGRectMake(self.view.width, 0, self.view.width, self.scrollView.height);
-//        NSLog(@"33_scrollView.contentOffset.y:%f",_scrollView.contentOffset.y);
-//        [self.scrollView addSubview:self.noExameListView];
-//        
-//        self.noExameListView.studentState = index + 1;
-//        self.noExameListView.subjectID = self.subjectID;
-//        self.noExameListView.parementVC = self;
-//        NSLog(@"44_scrollView.contentOffset.y:%f",_scrollView.contentOffset.y);
         
     }else if (2 == index) {
         CGFloat contentOffsetX = 2 * self.view.width;
         _scrollView.contentOffset = CGPointMake(contentOffsetX, 0);
-//        self.threeSubjexctView.searchSubjectID = kDateSearchSubjectIDThree;
         [self.scrollView addSubview:self.threeSubjexctView];
         self.threeSubjexctView.parementVC = self;
 
-        
-//        self.appointListView.subjectID = self.subjectID;
-//        self.appointListView.studentState = index + 1;
-//        self.appointListView.parementVC = self;
-//        
-//        [self.noExameListView removeFromSuperview];
-//        
-//        [self.scrollView addSubview:self.appointListView];
-//        self.appointListView.frame = CGRectMake(self.view.width * 2, 0, self.view.width, self.scrollView.height);
-//        
         
     }
     else if (3 == index) {
         CGFloat contentOffsetX = 3 * self.view.width;
         _scrollView.contentOffset = CGPointMake(contentOffsetX, 0);
-//        self.fourSubjexctView.searchSubjectID = kDateSearchSubjectIDFour;
         [self.scrollView addSubview:self.fourSubjexctView];
         self.fourSubjexctView.parementVC = self;
 
         
-//        self.retestListView.subjectID = self.subjectID;
-//        self.retestListView.studentState = index + 1;
-//        
-//        [self.retestListView removeFromSuperview];
-//        [self.scrollView addSubview:self.retestListView];
-//        self.retestListView.frame = CGRectMake(self.view.width * 3, 0, self.view.width, self.scrollView.height);
-//        self.retestListView.parementVC = self;
-        
     }
     NSLog(@"+++++++_scrollView.contentOffset.y:%f",_scrollView.contentOffset.y);
     
-//    [self loadNetworkData];
+    [self getTimeData];
     
 }
 #pragma mark --- UIScroller delegate
@@ -213,11 +188,13 @@
     if (0 == scrollView.contentOffset.x) {
         // 全部
         [_toolBarView selectItem:0];
+        _subjectID = 1;
         //         self.allListView.frame = CGRectMake(0, -64, self.view.width, self.scrollView.height);
     }
     if (width == scrollView.contentOffset.x) {
         // 未考
         [_toolBarView selectItem:1];
+          _subjectID = 2;
         //self.noExameListView.frame = CGRectMake(self.view.width, -64, self.view.width, self.scrollView.height);
         
         
@@ -225,12 +202,14 @@
     if (2 * width== scrollView.contentOffset.x) {
         // 约考
         [_toolBarView selectItem:2];
+          _subjectID = 3;
         //        self.appointListView.frame = CGRectMake(self.view.width * 2, -64, self.view.width, self.scrollView.height);
         
     }
     if (3 * width == scrollView.contentOffset.x) {
         // 补考
         [_toolBarView selectItem:3];
+          _subjectID = 4;
         //        self.retestListView.frame = CGRectMake(self.view.width * 3, -64, self.view.width, self.scrollView.height);
         
         
@@ -247,7 +226,83 @@
     
     
 }
+// 月份数据请求
+- (void)getTimeData{
+    [NetworkEntity getPassRateTimeWithUserid:[UserInfoModel defaultUserInfo].userID SchoolId:[UserInfoModel defaultUserInfo].schoolId SubjectID:_subjectID success:^(id responseObject) {
+        if (1 == [responseObject[@"type"] integerValue]) {
+            NSLog(@"response ======= ========== ================== ========  %@ %lu",responseObject,_subjectID);
+            NSArray *array = responseObject[@"data"];
+            if (array.count) {
+                [self.timeDataArrayOne removeAllObjects];
+                 [self.timeDataArrayTwo removeAllObjects];
+                 [self.timeDataArrayThree removeAllObjects];
+                 [self.timeDataArrayFour removeAllObjects];
+                for (NSDictionary *dic in array) {
+                    
+                    // 数据封装
+                    JZCommentTimeModel *timeModel = [JZCommentTimeModel yy_modelWithDictionary:dic];
+                    // 科目一
+                    if (_subjectID == 1) {
+                        [self.timeDataArrayOne addObject:timeModel];
+                        [self.oneSubjexctView reloadData];
+                    }
+                    // 科目二
+                    if (_subjectID == 2) {
+                        [self.timeDataArrayTwo addObject:timeModel];
+                        [self.twoSubjexctView reloadData];
+                    }
 
+                    // 科目三
+                    if (_subjectID == 3) {
+                        [self.timeDataArrayThree addObject:timeModel];
+                        [self.threeSubjexctView reloadData];
+                    }
+                    // 科目四
+                    if (_subjectID == 4) {
+                        [self.timeDataArrayFour addObject:timeModel];
+                        [self.fourSubjexctView reloadData];
+                    }
+
+                    
+                    
+                    // 请求考试详情
+//                    [self loadNetworkData];
+                }
+                
+                
+                // 数据刷新
+                // 科目一
+                if (_subjectID == kDateSearchSubjectIDOne) {
+                    self.oneSubjexctView.timeDataArray = _timeDataArrayOne;
+                    [self.oneSubjexctView reloadData];
+                }
+                // 科目二
+                if (_subjectID == kDateSearchSubjectIDTwo) {
+                    self.twoSubjexctView.timeDataArray = _timeDataArrayTwo;
+                    [self.twoSubjexctView reloadData];
+                }
+                
+                // 科目三
+                if (_subjectID == kDateSearchSubjectIDThree) {
+                    self.threeSubjexctView.timeDataArray = _timeDataArrayThree;
+                    [self.threeSubjexctView reloadData];
+                }
+                // 科目四
+                if (_subjectID == kDateSearchSubjectIDFour) {
+                    self.fourSubjexctView.timeDataArray = _timeDataArrayFour;
+                    [self.fourSubjexctView reloadData];
+                }
+
+                
+                
+            }
+        }else{
+            [self showPopAlerViewWithMes:@"网络错误"];
+        }
+    } failure:^(NSError *failure) {
+        [self showPopAlerViewWithMes:@"网络错误"];
+    }];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     

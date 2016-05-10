@@ -315,5 +315,52 @@
     [NetworkTool GET:PASSRATELIST params:params success:success failure:failure];
 }
 
+/**
+ *  V 2.0 考试月份
+ */
++ (void)getPassRateTimeWithUserid:(NSString *)userId
+                         SchoolId:(NSString *)schoolId
+                        SubjectID:(NSInteger)subjectID
+                          success:(NetworkSuccessBlock)success
+                          failure:(NetworkFailureBlock)failure{
+    if (!userId || !schoolId) {
+        return [NetworkTool missParagramerCallBackFailure:failure];
+    };
+    NSString *urlStr = [NSString stringWithFormat:@"%@/%@",[NetworkTool domain],TESTTIME];
+    NSLog(@"urlStr = %@",urlStr);
+    NSDictionary * dic = @{
+                           @"userid":userId,
+                           @"schoolid":schoolId,
+                           @"subjectid":@(subjectID)
+                           };
+    [NetworkTool GET:urlStr params:dic success:success failure:failure];
+
+    
+}
+/**
+ *  V 2.0 根据考试月份获取考试信息
+ */
++ (void)getTestDetailWithUserid:(NSString *)userId
+                       SchoolId:(NSString *)schoolId
+                      SubjectID:(NSInteger)subjectID
+                           Year:(NSInteger)year
+                          Month:(NSInteger)month
+                        success:(NetworkSuccessBlock)success
+                        failure:(NetworkFailureBlock)failure{
+    if (!userId || !schoolId) {
+        return [NetworkTool missParagramerCallBackFailure:failure];
+    };
+    NSString *urlStr = [NSString stringWithFormat:@"%@/%@",[NetworkTool domain],TESTDETAIL];
+    NSDictionary * dic = @{
+                           @"userid":userId,
+                           @"schoolid":schoolId,
+                           @"subjectid":@(subjectID),
+                           @"year":@(year),
+                           @"month":@(month)
+                           };
+    [NetworkTool GET:urlStr params:dic success:success failure:failure];
+
+    
+}
 
 @end

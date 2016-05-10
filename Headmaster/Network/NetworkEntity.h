@@ -192,4 +192,23 @@ failure:(void (^)(AFHTTPRequestOperation *operation, id responseObject))failure;
                             index:(NSInteger) index
                           success:(NetworkSuccessBlock)success
                           failure:(NetworkFailureBlock)failure;
+/**
+ *  V 2.0 考试月份
+ */
++ (void)getPassRateTimeWithUserid:(NSString *)userId
+                         SchoolId:(NSString *)schoolId
+                            SubjectID:(NSInteger)subjectID
+                          success:(NetworkSuccessBlock)success
+                          failure:(NetworkFailureBlock)failure;
+/**
+ *  V 2.0 根据考试月份获取考试信息
+ */
++ (void)getTestDetailWithUserid:(NSString *)userId
+                         SchoolId:(NSString *)schoolId
+                        SubjectID:(NSInteger)subjectID
+                           Year:(NSInteger)year
+                          Month:(NSInteger)month
+                          success:(NetworkSuccessBlock)success
+                          failure:(NetworkFailureBlock)failure;
+
 @end

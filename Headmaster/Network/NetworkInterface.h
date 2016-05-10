@@ -54,6 +54,13 @@
 
 #define PASSRATELIST            @"headmaster/userinfo/personalsetting"
 
+/*考试月份*/
+#define TESTTIME     @"headmaster/statistics/getexammonth"
+
+
+/*考试信息*/
+#define TESTDETAIL     @"headmaster/statistics/getexaminfo"
+
 
 
 
