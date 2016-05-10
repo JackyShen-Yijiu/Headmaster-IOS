@@ -123,6 +123,9 @@ static NSString *JZInformationListCellID = @"JZInformationListCellID";
                 // 网络加载 --- 创建带标题的图片轮播器
                 SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0,0, kJZWidth, 160) delegate:self placeholderImage:[UIImage imageNamed:@"placeholder"]];
                 cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
+                cycleScrollView.titleLabelTextFont = [UIFont systemFontOfSize:14];
+//                cycleScrollView.currentPageDotImage = [UIImage imageNamed:@"point_on"];
+//                cycleScrollView.pageDotImage = [UIImage imageNamed:@"point"];
                 cycleScrollView.titlesGroup = self.titles;
                 cycleScrollView.imageURLStringsGroup = self.imagesURLStrings;
                 // 自定义分页控件小圆标颜色
