@@ -17,23 +17,21 @@
     [self.contentView addSubview:self.markLabel];
     
     CGRect rect = self.bounds;
-    self.titleLabel.frame = CGRectMake(0, 0, rect.size.width, self.titleDefaultHeight);
+    self.titleLabel.frame = CGRectMake(10, 0, rect.size.width, self.titleDefaultHeight);
     CGFloat markLabelWidth = 100;
-    CGFloat rightMargin = 15;
-    self.markLabel.frame = CGRectMake(rect.size.width - markLabelWidth - rightMargin, 0, markLabelWidth, self.titleDefaultHeight);
-//    self.titleLabel.backgroundColor = [UIColor redColor];
-//    self.markLabel.backgroundColor = [UIColor orangeColor];
+    self.markLabel.frame = CGRectMake(rect.size.width - 10 - markLabelWidth, 0, markLabelWidth, self.titleDefaultHeight);
 }
 
 - (UILabel *)titleLabel {
     if (!_titleLabel) {
         _titleLabel = [UILabel new];
         _titleLabel.textAlignment = 1;
-        _titleLabel.font = [UIFont systemFontOfSize:16];
+        _titleLabel.font = [UIFont systemFontOfSize:14];
         if (YBIphone6Plus) {
-            _titleLabel.font = [UIFont systemFontOfSize:16*YBRatio];
+            _titleLabel.font = [UIFont systemFontOfSize:14*YBRatio];
         }
-        _titleLabel.textColor = [UIColor colorWithHexString:HIGHLIGHT_COLOR];
+        _titleLabel.textColor = RGB_Color(232, 0, 49);
+        _titleLabel.textAlignment = NSTextAlignmentLeft;
     }
     return _titleLabel;
 }
@@ -42,11 +40,12 @@
     if (!_markLabel) {
         _markLabel = [UILabel new];
         _markLabel.textAlignment = 2;
-        _markLabel.font = [UIFont systemFontOfSize:16];
+        _markLabel.font = [UIFont systemFontOfSize:15];
         if (YBIphone6Plus) {
-            _markLabel.font = [UIFont systemFontOfSize:16*YBRatio];
+            _markLabel.font = [UIFont systemFontOfSize:15*YBRatio];
         }
-        _markLabel.textColor = [UIColor colorWithHexString:HIGHLIGHT_COLOR];
+        _markLabel.textColor = [UIColor grayColor];
+        _markLabel.textAlignment = NSTextAlignmentRight;
     }
     return _markLabel;
 }

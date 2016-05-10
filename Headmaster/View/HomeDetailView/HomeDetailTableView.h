@@ -9,7 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "HomeDetailTableViewDataModel.h"
 
+@class HomeViewModel;
+
 @interface HomeDetailTableView : UITableView
+
+@property (nonatomic, strong) HomeViewModel *homeViewModel;
 
 @property (nonatomic, assign) kDateSearchType searchType;
 

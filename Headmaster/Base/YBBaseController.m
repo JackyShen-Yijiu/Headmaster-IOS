@@ -16,14 +16,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
 }
 
 - (void)addBackgroundImage {
-    
-    UIImage *image = [UIImage imageNamed:@"controllerBackground"];
-    self.view.layer.contents = (id)image.CGImage;
+    self.view.layer.backgroundColor = RGB_Color(247, 247, 247).CGColor;
 }
 
 - (void)didReceiveMemoryWarning {

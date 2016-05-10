@@ -35,6 +35,7 @@
         chartView.yTitleMarkWordString = _yTitleMarkWordString;
     }
     [chartView showInView:self];
+    chartView.backgroundColor = [UIColor clearColor];
     self.backgroundColor = [UIColor clearColor];
     
 }
@@ -69,12 +70,35 @@
 //判断显示横线条
 - (BOOL)UUChart:(UUChart *)chart ShowHorizonLineAtIndex:(NSInteger)index
 {
-    return YES;
+    return NO;
 }
 
 - (CGFloat)defaultHeight {
     
-    return 120;
+    return 260;
+}
+
+
+//显示数值范围
+//- (CGRange)UUChartChooseRangeInLineChart:(UUChart *)chart
+//{
+//    return CGRange(0,0);
+//
+//}
+//
+//#pragma mark 折线图专享功能
+////标记数值区域
+//- (CGRange)UUChartMarkRangeInLineChart:(UUChart *)chart
+//{
+//    return CGRange(0,0);
+//}
+
+//判断显示横线条
+
+//判断显示最大最小值
+- (BOOL)UUChart:(UUChart *)chart ShowMaxMinAtIndex:(NSInteger)index
+{
+    return YES;
 }
 
 

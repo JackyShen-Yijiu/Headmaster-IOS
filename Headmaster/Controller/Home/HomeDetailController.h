@@ -8,10 +8,14 @@
 
 #import "YBBaseController.h"
 
+@class HomeViewModel;
+
 @interface HomeDetailController : YBBaseController
 
 @property (nonatomic,assign) kDateSearchType searchType;
 
 @property (nonatomic, assign) BOOL isFormSideMenu;
+
+@property (nonatomic, strong) HomeViewModel *viewModel;
 
 @end

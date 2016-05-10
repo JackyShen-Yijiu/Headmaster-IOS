@@ -19,7 +19,7 @@
 {
     if (self = [super initWithFrame:frame]) {
         _selectButtonInteger = 101;
-        _titleArray = @[@"今天",@"昨天",@"本周",@"本月",@"本年"];
+        _titleArray = @[@"本周",@"本月",@"本年"];
         [self addTopViewtitle:_titleArray];
         // 设置初始值
         
@@ -33,10 +33,10 @@
  */
 - (void)addTopViewtitle:(NSArray *)titleArray
 {
-    CGFloat buttonW = ([UIScreen mainScreen].bounds.size.width - 50) / 5;
+    CGFloat buttonW = self.width / _titleArray.count;
     CGFloat buttonH = 40;
     
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < _titleArray.count; i++) {
         // 设置button的基本属性
         UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
         button.frame = CGRectMake (i * buttonW , 0, buttonW, buttonH);
