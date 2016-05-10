@@ -11,9 +11,9 @@
 
 @interface HomeTopView()
 
-@property (nonatomic, strong) DVVDoubleRowToolBarView *doubleRowView;
-
 @property (nonatomic, strong) UIView *topView;
+
+@property (nonatomic, strong) DVVDoubleRowToolBarView *doubleRowView;
 
 @property (nonatomic,strong) UILabel *topLabel;
 
@@ -21,10 +21,12 @@
 
 @implementation HomeTopView
 
-- (instancetype)initWithFrame:(CGRect)frame
+- (instancetype)initWithFrame:(CGRect)frame withIsHomeDetailsVc:(BOOL)isHomeDetailsVc
 {
     self = [super initWithFrame:frame];
     if (self) {
+        
+        self.isHomeDetailsVc = isHomeDetailsVc;
         
         [self addSubview:self.doubleRowView];
         
@@ -43,7 +45,10 @@
     [self.doubleRowView refreshUpTitle:array];
     
     self.topLabel.text = [NSString stringWithFormat:@"今日报名 %@ 人",sameDay];
-
+    if (self.isHomeDetailsVc) {
+        self.topLabel.text = @"当前在学人数";
+    }
+    
 }
 
 - (void)layoutSubviews {
@@ -59,13 +64,14 @@
     
     if (!_doubleRowView) {
        
-        _doubleRowView = [DVVDoubleRowToolBarView new];
-        _doubleRowView.upTitleFont = [UIFont fontWithName:@"HiraKakuProN-W3" size:20];
-        _doubleRowView.downTitleFont = [UIFont fontWithName:@"HiraKakuProN-W3" size:13];
+        NSArray *downTitleArray = @[ @"科一在学", @"科二在学", @"科三在学", @"科四在学" ];
+        if (self.isHomeDetailsVc) {
+            downTitleArray = @[ @"科目一", @"科目二", @"科目三", @"科目四" ];
+        }
+        
+        _doubleRowView = [[DVVDoubleRowToolBarView alloc] initWithFrame:CGRectMake(0, 38, self.width, self.height-38) isHomeDetailsVc:self.isHomeDetailsVc upTitleArray:@[ @"", @"", @"", @"" ] downTitleArray:downTitleArray upTitleFont:[UIFont fontWithName:@"HiraKakuProN-W3" size:20] downTitleFont:[UIFont fontWithName:@"HiraKakuProN-W3" size:13]];
         _doubleRowView.followBarHidden = 1;
         _doubleRowView.upTitleOffSetY = 7;
-        _doubleRowView.upTitleArray = @[ @"", @"", @"", @"" ];
-        _doubleRowView.downTitleArray = @[ @"科一在学", @"科二在学", @"科三在学", @"科四在学" ];
         
     }
     return _doubleRowView;
@@ -87,7 +93,9 @@
             self.topLabel.font = [UIFont boldSystemFontOfSize:14*YBRatio];
         }
         self.topLabel.textColor = [UIColor whiteColor];
-        
+        if (self.isHomeDetailsVc) {
+            self.topLabel.textColor = [UIColor blackColor];
+        }
         // 添加分割线
 //        UIView *lineView = [[UIView alloc] init];
 //        lineView.frame = CGRectMake(10, 38, self.width-20, 0.5);

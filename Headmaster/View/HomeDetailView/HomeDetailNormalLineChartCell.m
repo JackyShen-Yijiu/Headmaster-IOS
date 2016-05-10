@@ -23,7 +23,7 @@
         [self.contentView addSubview:self.lineChartView];
         self.backgroundColor = [UIColor clearColor];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        _lineChartView.frame = CGRectMake(13, self.titleDefaultHeight, width, _lineChartView.defaultHeight);
+        _lineChartView.frame = CGRectMake(10, self.titleDefaultHeight, width, _lineChartView.defaultHeight);
     }
     return self;
 }
@@ -40,8 +40,6 @@
 
 - (YBLineChartView *)lineChartView {
     if (!_lineChartView) {
-        
-       
         _lineChartView =  [YBLineChartView new];;
     }
     return _lineChartView;

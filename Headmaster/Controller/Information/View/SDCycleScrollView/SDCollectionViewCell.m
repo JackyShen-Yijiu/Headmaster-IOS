@@ -43,6 +43,7 @@
 {
     if (self = [super initWithFrame:frame]) {
         [self setupImageView];
+        [self setLabelBackgroundView];
         [self setupTitleLabel];
     }
     
@@ -51,8 +52,8 @@
 
 - (void)setTitleLabelBackgroundColor:(UIColor *)titleLabelBackgroundColor
 {
-    _titleLabelBackgroundColor = titleLabelBackgroundColor;
-    _titleLabel.backgroundColor = titleLabelBackgroundColor;
+//    _titleLabelBackgroundColor = titleLabelBackgroundColor;
+//    _titleLabel.backgroundColor = titleLabelBackgroundColor;
     
 }
 
@@ -73,6 +74,14 @@
     UIImageView *imageView = [[UIImageView alloc] init];
     _imageView = imageView;
     [self.contentView addSubview:imageView];
+}
+
+-(void)setLabelBackgroundView {
+    
+    UIView *labelBackgroundView = [[UIView alloc]init];
+    _labelBackgroundView = labelBackgroundView;
+    _labelBackgroundView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+    [self.contentView addSubview:labelBackgroundView];
 }
 
 - (void)setupTitleLabel
@@ -100,8 +109,17 @@
     CGFloat titleLabelH = _titleLabelHeight;
     CGFloat titleLabelX = 0;
     CGFloat titleLabelY = self.sd_height - titleLabelH;
-    _titleLabel.frame = CGRectMake(titleLabelX, titleLabelY, titleLabelW, titleLabelH);
+    _titleLabel.frame = CGRectMake(titleLabelX, titleLabelY, titleLabelW-50, titleLabelH);
     _titleLabel.hidden = !_titleLabel.text;
+    
+    [self.labelBackgroundView mas_makeConstraints:^(MASConstraintMaker *make) {
+       
+        make.left.equalTo(self.contentView.mas_left);
+        make.right.equalTo(self.contentView.mas_right);
+        make.bottom.equalTo(self.contentView.mas_bottom);
+        make.height.equalTo(@(_titleLabelHeight));
+        
+    }];
 }
 
 @end

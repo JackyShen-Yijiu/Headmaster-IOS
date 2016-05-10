@@ -33,7 +33,7 @@
         // Initialization code
         [self addSubview:self.myScrollView];
         self.backgroundColor = [UIColor clearColor];
-        _xLabelWidth = 50;
+        _xLabelWidth = 30;
         [self drawLine];
     }
     return self;
