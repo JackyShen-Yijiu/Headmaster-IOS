@@ -62,8 +62,8 @@
 #define TESTDETAIL     @"headmaster/statistics/getexaminfo"
 
 
-
-
+/*教练反馈*/
+#define COACHFEEDBACK @"headmaster/statistics/getcoachfeedback"
 
 #endif /* NetworkMacro_h */
 

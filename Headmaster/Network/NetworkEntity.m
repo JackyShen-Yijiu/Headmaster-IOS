@@ -363,4 +363,15 @@
     
 }
 
++(void)getCoachFeedbackWithUserid:(NSString *)userId SchoolId:(NSString *)schoolId count:(NSInteger)count index:(NSInteger)index success:(NetworkSuccessBlock)success failure:(NetworkFailureBlock)failure {
+    
+    NSDictionary *params = @{@"userid":userId,
+                             @"schoolid":schoolId,
+                             @"count":[NSString stringWithFormat:@"%zd",count],
+                             @"index":[NSString stringWithFormat:@"%zd",index]};
+    [NetworkTool GET:COACHFEEDBACK params:params success:success failure:failure];
+
+    
+}
+
 @end

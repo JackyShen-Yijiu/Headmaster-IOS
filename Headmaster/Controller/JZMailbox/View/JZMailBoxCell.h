@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class JZMailboxData;
 @interface JZMailBoxCell : UITableViewCell
 
+@property (nonatomic, strong) JZMailboxData *data;
++ (CGFloat)cellHeightDmData:(JZMailboxData *)dmData;
 @end
