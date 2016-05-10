@@ -370,6 +370,7 @@
         CGFloat height = kJZWidth * 0.86 + 30;
         _progressView = [[HomeProgressView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_topView.frame), self.view.bounds.size.width, height)];
         _progressView.backgroundColor = [UIColor whiteColor];
+        _progressView.parentVC = self;
     }
     return _progressView;
 }

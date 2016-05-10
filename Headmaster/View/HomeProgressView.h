@@ -12,4 +12,6 @@
 
 - (void)refreshpassrate:(NSArray *)passrate overstockstudent:(NSArray *)overstockstudent;
 
+@property (nonatomic, strong) UIViewController *parentVC;
+
 @end
