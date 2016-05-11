@@ -34,6 +34,9 @@
 /* 发布公告 */
 
 #define PUBLISHMESSAGE              @"headmaster/userinfo/publishbulletin"
+/* 回复教练反馈 */
+
+#define REPLYCOACHFEEDBACK              @"headmaster/statistics/replycoachfeedback"
 
 /*  获得天气数据 */
 #define WEATHERDATA                 @"headmaster/info/getweather"

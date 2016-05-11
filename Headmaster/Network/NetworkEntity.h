@@ -183,6 +183,12 @@
 success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
 failure:(void (^)(AFHTTPRequestOperation *operation, id responseObject))failure;
 
+
++ (void)postCoachFeedbackWithparams:(UserInfoModel *)uim ReplyContent:(NSString *)replyContent feedbackID:(NSString *)feedbackid
+                                   success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+                            failure:(void (^)(AFHTTPRequestOperation *operation, id responseObject))failure ;
+
+
 /**
  *  V 2.0 合格学员信息列表
  */

@@ -47,7 +47,7 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
     self.coachNameLabel.text = _data.coachid.name;
     self.contentLabel.text = _data.content;
     self.dateLabel.text = [self getYearLocalDateFormateUTCDate:_data.createtime];
-    self.replyImage.hidden = !_data.replycontent;
+    self.replyImage.hidden = !_data.replyflag;
 }
 
 

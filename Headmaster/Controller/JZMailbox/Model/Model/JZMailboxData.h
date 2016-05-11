@@ -4,7 +4,7 @@
 
 @interface JZMailboxData : NSObject
 
-@property (nonatomic, strong) NSString * idField;
+@property (nonatomic, strong) NSString * _id;
 @property (nonatomic, strong) JZMailboxCoachid * coachid;
 @property (nonatomic, strong) NSString * content;
 @property (nonatomic, strong) NSString * createtime;

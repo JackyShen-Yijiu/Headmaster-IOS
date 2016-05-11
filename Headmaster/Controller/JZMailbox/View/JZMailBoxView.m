@@ -12,6 +12,7 @@
 #import "JZMailBoxCell.h"
 #import <YYModel.h>
 #import "JZPublishHistoryController.h"
+#import "JZCoachFeedbackController.h"
 
 static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
 
@@ -30,7 +31,7 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
         self.dataSource = self;
         self.delegate = self;
         self.separatorStyle = NO;
-        self.backgroundColor = [UIColor orangeColor];
+//        self.backgroundColor = [UIColor orangeColor];
         
         self.sectionHeaderHeight = 10;
 
@@ -86,12 +87,26 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
     
     return [JZMailBoxCell cellHeightDmData:dataModel];
 }
+
+
+#pragma mark - 代理
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    JZCoachFeedbackController *feedbackVC = [JZCoachFeedbackController new];
+    JZMailboxData *dataModel = self.dataArr[indexPath.row];
+    
+    feedbackVC.dataModel = dataModel;
+    
+    [self.vc.navigationController pushViewController:feedbackVC animated:YES];
+    
+}
 #pragma mark - headerView点击事件
 -(void)headerViewClick:(UITapGestureRecognizer *)recognizer {
     
     JZPublishHistoryController *publishVC = [[JZPublishHistoryController alloc]init];
     
     [self.vc.myNavController pushViewController:publishVC animated:YES];
+    
     
 }
 

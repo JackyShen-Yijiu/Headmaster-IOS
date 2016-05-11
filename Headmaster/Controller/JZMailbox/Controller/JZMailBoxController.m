@@ -33,8 +33,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    
-    self.view.backgroundColor = [UIColor cyanColor];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+
+    self.view.backgroundColor = JZ_MAIN_BACKGROUND_COLOR;
     
     self.mailboxView = [[JZMailBoxView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth, kJZHeight) style:UITableViewStyleGrouped];
     
