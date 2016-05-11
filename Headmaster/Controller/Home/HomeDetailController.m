@@ -16,7 +16,7 @@
 
 #define topLabelH 40
 
-#define topButtonH 36
+#define topButtonH 30
 
 @interface HomeDetailController ()<UIScrollViewDelegate>
 
@@ -235,9 +235,8 @@
 - (UIScrollView *)scrollView {
     if (!_scrollView) {
         _scrollView = [UIScrollView new];
-        _scrollView.frame = CGRectMake(0, topLabelH + topButtonH, self.view.bounds.size.width, self.view.bounds.size.height - self.topButtonView.bounds.size.height - self.titleLabel.frame.size.height);
+        _scrollView.frame = CGRectMake(0, topLabelH + topButtonH + 10, self.view.bounds.size.width, self.view.bounds.size.height - self.topButtonView.bounds.size.height - self.titleLabel.frame.size.height - 10);
         _scrollView.contentSize = CGSizeMake(self.view.bounds.size.width * 3, 0);
-//        _scrollView.contentInset = UIEdgeInsetsMake(0, 0, 500, 0);
         _scrollView.pagingEnabled = YES;
         _scrollView.delegate = self;
         _scrollView.backgroundColor = RGB_Color(247, 247, 247);
@@ -247,7 +246,9 @@
 
 - (TopButtonView *)topButtonView {
     if (!_topButtonView) {
-        _topButtonView = [[TopButtonView alloc] initWithFrame:CGRectMake(80, topLabelH, self.view.bounds.size.width - 160, topButtonH)];
+        _topButtonView = [[TopButtonView alloc] initWithFrame:CGRectMake(80, topLabelH + 10, self.view.bounds.size.width - 160, topButtonH)];
+        _topButtonView.layer.masksToBounds = YES;
+        _topButtonView.layer.cornerRadius = 3;
     }
     return _topButtonView;
 }
@@ -263,7 +264,7 @@
         _titleLabel.textColor = [UIColor blackColor];
         _titleLabel.backgroundColor = [UIColor whiteColor];
         _titleLabel.textAlignment = NSTextAlignmentCenter;
-        _titleLabel.text = @"今日报名多少人";
+        _titleLabel.text = [NSString stringWithFormat:@"今日报名%@人",_viewModel.applyCount];
     }
     return _titleLabel;
 }

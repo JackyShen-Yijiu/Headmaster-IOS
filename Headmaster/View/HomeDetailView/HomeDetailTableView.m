@@ -92,19 +92,138 @@
         if (!normalLineChartCell) {
             normalLineChartCell = [[HomeDetailNormalLineChartCell alloc] initWithWidth:self.bounds.size.width - 20 Style:UITableViewCellStyleDefault reuseIdentifier:kNormalLineChartCellId];
         }
-        //        NSArray *ary_1 = @[@"22",@"44",@"15",@"40",@"42",@"25",@"15",@"30",@"42",@"32",@"40"];
-        //
-        //        normalLineChartCell.xTitleArray = @[ @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日", @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日" ];
-        //        normalLineChartCell.valueArray = @[ ary_1 ];
-        
+       
         normalLineChartCell.searchType = self.searchType;
+       
+//        //获取当前时间
+//        NSDate *now = [NSDate date];
+//        NSLog(@"now date is: %@", now);
+//        
+//        NSCalendar *calendar = [NSCalendar currentCalendar];
+//        NSUInteger unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
+//        NSDateComponents *dateComponent = [calendar components:unitFlags fromDate:now];
+//        
+//        NSInteger year = [dateComponent year];
+//        NSInteger month = [dateComponent month];
+//        NSInteger day = [dateComponent day];
+//        NSInteger hour = [dateComponent hour];
+//        NSInteger minute = [dateComponent minute];
+//        NSInteger second = [dateComponent second];
+//        NSInteger zhou = [dateComponent weekdayOrdinal];
+//
+//        NSLog(@"year is: %ld", (long)year);
+//        NSLog(@"month is: %ld", (long)month);
+//        NSLog(@"day is: %ld", (long)day);
+//        NSLog(@"hour is: %ld", (long)hour);
+//        NSLog(@"minute is: %ld", (long)minute);
+//        NSLog(@"second is: %ld", (long)second);
+//        NSLog(@"zhou is: %ld", (long)zhou);
+
+        NSDate*date = [NSDate date];
         
-        normalLineChartCell.titleLabel.text = @"某年某月某日";
+        
+        NSCalendar*calendar = [NSCalendar currentCalendar];
+        
+        
+        NSDateComponents*comps;
+        
+        
+        // 年月日获得
+        
+        
+        comps =[calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit |NSDayCalendarUnit)
+                
+                
+                           fromDate:date];
+        
+        
+        NSInteger year = [comps year];
+        
+        
+        NSInteger month = [comps month];
+        
+        
+        NSInteger day = [comps day];
+        
+        
+        NSLog(@"year:%d month: %d, day: %d", year, month, day);
+        
+        
+        
+        
+        
+        //当前的时分秒获得
+        
+        
+        comps =[calendar components:(NSHourCalendarUnit | NSMinuteCalendarUnit |NSSecondCalendarUnit)
+                
+                
+                           fromDate:date];
+        
+        
+        NSInteger hour = [comps hour];
+        
+        
+        NSInteger minute = [comps minute];
+        
+        
+        NSInteger second = [comps second];
+        
+        
+        NSLog(@"hour:%d minute: %d second: %d", hour, minute, second);
+        
+        
+        
+        
+        
+        // 周几和星期几获得
+        
+        
+        comps =[calendar components:(NSWeekCalendarUnit | NSWeekdayCalendarUnit |NSWeekdayOrdinalCalendarUnit)
+                
+                
+                           fromDate:date];
+        
+        
+        NSInteger week = [comps week]; // 今年的第几周
+        
+        
+        NSInteger weekday = [comps weekday]; // 星期几（注意，周日是“1”，周一是“2”。。。。）
+        
+        
+        NSInteger weekdayOrdinal = [comps weekdayOrdinal]; // 这个月的第几周
+        
+        
+        NSLog(@"week:%ld weekday: %d weekday ordinal: %d", (long)week, weekday, weekdayOrdinal);
+
+        
+        switch (self.searchType) {
+            
+            case kDateSearchTypeWeek:
+                normalLineChartCell.titleLabel.text = [NSString stringWithFormat:@"%ld年%ld月 第%ld周",(long)year,(long)month,weekdayOrdinal];
+                break;
+                
+            case kDateSearchTypeMonth:
+                normalLineChartCell.titleLabel.text = [NSString stringWithFormat:@"%ld年%ld月",(long)year,(long)month];
+                break;
+                
+            case kDateSearchTypeYear:
+                normalLineChartCell.titleLabel.text = [NSString stringWithFormat:@"%ld年",(long)year];
+                break;
+                
+            default:
+                break;
+        }
+        
         //    normalLineChartCell.xTitleMarkWordString = @"时";
         //    normalLineChartCell.yTitleMarkWordString = @"人";
         
         NSLog(@"self.viewModel.dataModel.reservationXTitleArray:%@",self.viewModel.dataModel.reservationXTitleArray);
         NSLog(@"self.viewModel.dataModel.reservationValueArray:%@",self.viewModel.dataModel.reservationValueArray);
+        
+        for (NSString *str in self.viewModel.dataModel.reservationXTitleArray) {
+            NSLog(@"self.viewModel.dataModel.reservationXTitleArray-str:%@",str);
+        }
         
         if (self.viewModel.dataModel.reservationXTitleArray.count) {
             normalLineChartCell.markLabel.text = [NSString stringWithFormat:@"共%li人",self.viewModel.dataModel.reservationStudentCount];

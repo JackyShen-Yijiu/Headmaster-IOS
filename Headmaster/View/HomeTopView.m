@@ -95,6 +95,10 @@
         self.topLabel.textColor = [UIColor whiteColor];
         if (self.isHomeDetailsVc) {
             self.topLabel.textColor = [UIColor blackColor];
+            self.topLabel.font = [UIFont systemFontOfSize:14];
+            if (YBIphone6Plus) {
+                self.topLabel.font = [UIFont systemFontOfSize:14*YBRatio];
+            }
         }
         // 添加分割线
 //        UIView *lineView = [[UIView alloc] init];
