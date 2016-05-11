@@ -67,6 +67,9 @@
     model.subjectArray = [dic objectForKey:@"subject"];
     model.mobile = [dic objectForKey:@"mobile"];
     model.passrate = [[dic objectForKey:@"passrate"] integerValue];
+     model.isonline = [[dic objectForKey:@"isonline"] integerValue];
+     model.coursecountr = [[dic objectForKey:@"coursecountr"] integerValue];
+    
     return model;
 }
 @end

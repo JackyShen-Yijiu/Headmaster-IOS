@@ -81,33 +81,68 @@
 //            if (data.count == 0) {
 //                
 //            }
+            
+            // 评论数量数据
+            
+            if (_commentDateSearchType == kCommentDateSearchTypeLastMonth) {
+                _lastMonthDic = [dic objectForKey:@"commentcount"];
+               
+            }
+            if (_commentDateSearchType == kCommentDateSearchTypeLastWeek) {
+                _lastWeekDic = [dic objectForKey:@"commentcount"];
+                
+            }
+            
+            if (_commentDateSearchType == kCommentDateSearchTypeToday) {
+                _todayDic = [dic objectForKey:@"commentcount"];
+               
+            }
+            
+            if (_commentDateSearchType == kCommentDateSearchTypeThisWeek) {
+                _thisWeekDic = [dic objectForKey:@"commentcount"];
+              
+            }
+            if (_commentDateSearchType == kCommentDateSearchTypeThisMonth) {
+                _thisMonthDic = [dic objectForKey:@"commentcount"];
+                
+            }
+
+            
+            
+            
+            
+            
+            
+            // 评论列表数据
             NSArray *array = [dic objectForKey:@"commentlist"];
-            for (NSDictionary *dic in array) {
-                
-                JZCommentCommentlist *model = [JZCommentCommentlist yy_modelWithDictionary:dic];
-                if (_commentDateSearchType == kCommentDateSearchTypeLastMonth) {
-                    _lastMonthDic = [dic objectForKey:@"commentcount"];
-                    [_lastMonthArray addObject:model];
+            if (array.count) {
+                for (NSDictionary *dic in array) {
+                    JZCommentCommentlist *model = [JZCommentCommentlist yy_modelWithDictionary:dic];
+                    if (_commentDateSearchType == kCommentDateSearchTypeLastMonth) {
+                        _lastMonthDic = [dic objectForKey:@"commentcount"];
+                        [_lastMonthArray addObject:model];
+                    }
+                    if (_commentDateSearchType == kCommentDateSearchTypeLastWeek) {
+                        _lastWeekDic = [dic objectForKey:@"commentcount"];
+                        [_lastWeekArray addObject:model];
+                    }
+                    
+                    if (_commentDateSearchType == kCommentDateSearchTypeToday) {
+                        _todayDic = [dic objectForKey:@"commentcount"];
+                        [_todayArray addObject:model];
+                    }
+                    
+                    if (_commentDateSearchType == kCommentDateSearchTypeThisWeek) {
+                        _thisWeekDic = [dic objectForKey:@"commentcount"];
+                        [_thisWeekArray addObject:model];
+                    }
+                    if (_commentDateSearchType == kCommentDateSearchTypeThisMonth) {
+                        _thisMonthDic = [dic objectForKey:@"commentcount"];
+                        [_thisMonthArray addObject:model];
+                    }
+                    
                 }
-                if (_commentDateSearchType == kCommentDateSearchTypeLastWeek) {
-                    _lastWeekDic = [dic objectForKey:@"commentcount"];
-                    [_lastWeekArray addObject:model];
-                }
-                
-                if (_commentDateSearchType == kCommentDateSearchTypeToday) {
-                    _todayDic = [dic objectForKey:@"commentcount"];
-                    [_todayArray addObject:model];
-                }
-                
-                if (_commentDateSearchType == kCommentDateSearchTypeThisWeek) {
-                    _thisWeekDic = [dic objectForKey:@"commentcount"];
-                    [_thisWeekArray addObject:model];
-                }
-                if (_commentDateSearchType == kCommentDateSearchTypeThisMonth) {
-                    _thisMonthDic = [dic objectForKey:@"commentcount"];
-                    [_thisMonthArray addObject:model];
-                }
- 
+
             }
             
         }

@@ -8,6 +8,7 @@
 
 #import "HomeProgressView.h"
 #import "TTProgressView.h"
+#import "JZPassRateController.h"
 
 @interface HomeProgressView()
 
@@ -68,6 +69,12 @@
         CGFloat progressViewH = contentView.height/2;
         CGFloat progressViewX = col * progressViewW;
         CGFloat progressViewY = 0;
+        progressView.userInteractionEnabled = YES;
+        progressView.tag = 500 + i;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didProgressView:)];
+        [progressView addGestureRecognizer:tap];
+        
+        
         if (i > 1) {
             progressViewY = progressViewH;
         }
@@ -181,6 +188,21 @@
     }
    
 }
+
+// 手势点击事件
+- (void)didProgressView:(UITapGestureRecognizer *)tap{
+    
+    NSInteger index = tap.view.tag - 500;
+    
+    JZPassRateController *passRateVC = [[JZPassRateController alloc] init];
+    passRateVC.subjectID = index + 1;
+    
+    [self.parentVC.myNavController pushViewController:passRateVC animated:YES];
+    
+    
+}
+
+
 
 /*
  // Only override drawRect: if you perform custom drawing.

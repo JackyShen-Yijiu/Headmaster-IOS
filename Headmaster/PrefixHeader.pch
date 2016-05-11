@@ -53,8 +53,11 @@
 #define kJZRedColor RGB_Color(232,0,49)
 
 
+
 // V_2.0 主背景颜色 #e8e8ed
 #define JZ_MAIN_BACKGROUND_COLOR RGB_Color(232,232,237)
+// V_2.0 主题蓝色蓝色 #3d8bff (61 139 255)
+#define JZ_BLUE_COLOR RGB_Color(61,139,255)
 
 
 // 白色字体颜色

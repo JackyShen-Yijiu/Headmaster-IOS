@@ -10,4 +10,6 @@
 
 @interface JZPassRateController : UIViewController
 
+@property (nonatomic, assign) NSInteger subjectID;
+
 @end

@@ -52,45 +52,47 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    UIImage *image = [UIImage imageNamed:@"sbg"];
+    UIImage *image = [UIImage imageNamed:@"background_side.jpg"];
     self.view.layer.contents = (id)image.CGImage;
     
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.scrollEnabled = NO;
     
-    // 发布公告
-    SideMenuItem * item1 = [[SideMenuItem alloc] init];
-    item1.title = @"发布公告";
-    item1.target = @"JZPublishController";
+//    // 发布公告
+//    SideMenuItem * item1 = [[SideMenuItem alloc] init];
+//    item1.title = @"发布公告";
+//    item1.target = @"JZPublishController";
     
     // 我校教练
-    SideMenuItem * item2 = [[SideMenuItem alloc] init];
-    item2.title = @"我校教练";
-    item2.target = @"TeacherController";
-    
-    // 运营数据
-    SideMenuItem * item3 = [[SideMenuItem alloc] init];
-    item3.title = @"数据概览";
-    item3.target = @"HomeDetailController";
-    
+    SideMenuItem * item1 = [[SideMenuItem alloc] init];
+    item1.title = @"教练";
+    item1.target = @"TeacherController";
     
     // 投诉评论
-    SideMenuItem * item4 = [[SideMenuItem alloc] init];
-    item4.title = @"评论投诉";
-    item4.target = @"RecommendViewController";
+    SideMenuItem * item2 = [[SideMenuItem alloc] init];
+    item2.title = @"投诉";
+    item2.target = @"RecommendViewController";
     
     
     // 设置
-    SideMenuItem * item5 = [[SideMenuItem alloc] init];
-    item5.title = @"设置";
-    item5.target = @"SettingController";
+    SideMenuItem * item3 = [[SideMenuItem alloc] init];
+    item3.title = @"设置";
+    item3.target = @"SettingController";
+
+    
+//    // 运营数据
+//    SideMenuItem * item3 = [[SideMenuItem alloc] init];
+//    item3.title = @"数据概览";
+//    item3.target = @"HomeDetailController";
+    
+    
     
    
     
     
     
-    self.LeftItemArray = @[ item1,item2,item3,item4,item5 ];
-    self.LeftIconArray = @[ @"announcement",@"coach",@"data",@"complaint",@"set" ];
+    self.LeftItemArray = @[ item1,item2,item3 ];
+    self.LeftIconArray = @[ @"coach",@"complaint",@"set" ];
     self.tableView.tableHeaderView = self.headView;
 }
 
@@ -107,8 +109,8 @@
         
         // 校长姓名
         UILabel *nameLabel = [[UILabel alloc] init];
-        nameLabel.frame = CGRectMake(0, CGRectGetMaxY(imgView.frame) + 14, 100, 16);
-        nameLabel.centerX = imgView.centerX;
+        nameLabel.frame = CGRectMake(CGRectGetMaxX(imgView.frame) - 10, CGRectGetMaxY(imgView.frame) + 14, 100, 16);
+        nameLabel.centerY = imgView.centerY;
         nameLabel.text = [UserInfoModel defaultUserInfo].name;
         nameLabel.textColor = [UIColor whiteColor];
         nameLabel.textAlignment = NSTextAlignmentCenter;
@@ -116,8 +118,23 @@
         if (YBIphone6Plus) {
             nameLabel.font = [UIFont systemFontOfSize:16*YBRatio];
         }
+        
+        
+        // 驾校姓名
+        UILabel *schoolLabel = [[UILabel alloc] init];
+        schoolLabel.frame = CGRectMake(CGRectGetMinX(imgView.frame), CGRectGetMaxY(imgView.frame) + 15, self.headView.width - LiftMargain, 16);
+//        schoolLabel.centerX  = imgView.centerX + 20;
+        schoolLabel.text = [NSString stringWithFormat:@"%@",[UserInfoModel defaultUserInfo].schoolName];
+        schoolLabel.textColor = [UIColor whiteColor];
+        schoolLabel.textAlignment = NSTextAlignmentLeft;
+        schoolLabel.font = [UIFont systemFontOfSize:16];
+        if (YBIphone6Plus) {
+            schoolLabel.font = [UIFont systemFontOfSize:16*YBRatio];
+        }
+
         [_headView addSubview:imgView];
         [_headView addSubview:nameLabel];
+        [_headView addSubview:schoolLabel];
         
         
 //        UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(iconViewIsClick)];
@@ -177,19 +194,19 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    // 数据概述 控制器的跳转
-    if (2 == indexPath.row ) {
-        HomeDetailController *vc = [[HomeDetailController alloc] init];
-        vc.searchType = kDateSearchTypeToday;
-        vc.isFormSideMenu = YES;
-        HMNagationController *nav = [[HMNagationController alloc] initWithRootViewController:vc];
-        [self presentViewController:nav animated:YES completion:nil];
-        return;
-
-    }
+//    // 数据概述 控制器的跳转
+//    if (0 == indexPath.row ) {
+//        HomeDetailController *vc = [[HomeDetailController alloc] init];
+//        vc.searchType = kDateSearchTypeToday;
+//        vc.isFormSideMenu = YES;
+//        HMNagationController *nav = [[HMNagationController alloc] initWithRootViewController:vc];
+//        [self presentViewController:nav animated:YES completion:nil];
+//        return;
+//
+//    }
     
     // 评论投诉
-    if (3 == indexPath.row ) {
+    if (1 == indexPath.row ) {
         RecommendViewController *vc = [[RecommendViewController alloc] init];
         vc.isFormSideMenu = YES;
         HMNagationController *nav = [[HMNagationController alloc] initWithRootViewController:vc];

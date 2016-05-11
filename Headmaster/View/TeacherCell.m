@@ -10,14 +10,17 @@
 #import "CWStarRateView.h"
 
 @interface TeacherCell()
-@property(nonatomic,strong)PortraitView * porView;
+@property(nonatomic,strong)UIImageView * iconView;
 @property(nonatomic,strong)UILabel * titleLabel;
 @property (nonatomic, strong) UILabel *teachcontentLabel;
+@property (nonatomic, strong) UIView *flagView;
+@property (nonatomic, strong) UILabel *teachStateLabel;
+@property (nonatomic, strong) UILabel *todeyTimeLabel;
+@property(nonatomic,strong)CWStarRateView * rateView;
 @property (nonatomic, strong) UILabel *passLabel;
 
-@property(nonatomic,strong)CWStarRateView * rateView;
 
-@property(nonatomic,strong)UIButton * messageButton;
+
 @property (nonatomic, strong) UIButton *phoneButton;
 @property(nonatomic,strong)UIView * bottonLineView;
 @end
@@ -26,7 +29,7 @@
 
 + (CGFloat)cellHigth
 {
-    return 90.f;
+    return 96.f;
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -41,8 +44,9 @@
 
 - (void)initUI
 {
-    self.porView = [[PortraitView alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
-    [self.contentView addSubview:self.porView];
+    self.backgroundColor = [UIColor whiteColor];
+    
+    [self.contentView addSubview:self.iconView];
     
     // 姓名
     self.titleLabel = [[UILabel alloc] init];
@@ -50,14 +54,14 @@
     if (YBIphone6Plus) {
         self.titleLabel.font =[UIFont systemFontOfSize:16.f*YBRatio];
     }
-    self.titleLabel.textColor = JZ_FONTCOLOR_WHITE;
+    self.titleLabel.textColor = kJZDarkTextColor;
     self.titleLabel.numberOfLines = 1;
     self.titleLabel.backgroundColor = [UIColor clearColor];
     
     // 教学科目
     self.teachcontentLabel = [[UILabel alloc] init];
-   self.teachcontentLabel.text = @"科目二 科目三";
-    self.teachcontentLabel.textColor = JZ_FONTCOLOR_LIGHTWHITE;
+//   self.teachcontentLabel.text = @"科目二 科目三";
+    self.teachcontentLabel.textColor = kJZLightTextColor;
    self.teachcontentLabel.font = [UIFont systemFontOfSize:12];
     if (YBIphone6Plus) {
         self.teachcontentLabel.font = [UIFont systemFontOfSize:12*YBRatio];
@@ -67,7 +71,7 @@
     // 通过率
     self.passLabel = [[UILabel alloc] init];
     self.passLabel.text = @"通过率 98%";
-    self.passLabel.textColor = JZ_FONTCOLOR_LIGHTWHITE;
+    self.passLabel.textColor = kJZLightTextColor;
     self.passLabel.font = [UIFont systemFontOfSize:12];
     if (YBIphone6Plus) {
         self.passLabel.font = [UIFont systemFontOfSize:12*YBRatio];
@@ -79,19 +83,14 @@
     [self.contentView addSubview:self.teachcontentLabel];
     [self.contentView addSubview:self.passLabel];
     
+    [self.contentView addSubview:self.flagView];
+    [self.contentView addSubview:self.teachStateLabel];
+    [self.contentView addSubview:self.todeyTimeLabel];
+    
     self.rateView = [[CWStarRateView alloc] initWithFrame:CGRectMake(0, 0, 90, 14.f) numberOfStars:5];
     [self.rateView setUserInteractionEnabled:NO];
     self.rateView.scorePercent = (2.5 / 5.f);
     [self.contentView addSubview:self.rateView];
-    
-    // 信息
-    self.messageButton = [[UIButton alloc] init];
-    [self.messageButton setImage:[UIImage imageNamed:@"chat"] forState:UIControlStateNormal];
-    [self.messageButton addTarget:self action:@selector(messageButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-    self.messageButton.tag = 600;
-     self.messageButton.imageEdgeInsets = UIEdgeInsetsMake(16, 0, 0, 8);
-//    self.messageButton.backgroundColor = [UIColor redColor];
-    [self.contentView addSubview:self.messageButton];
     
     // 电话
     self.phoneButton = [[UIButton alloc] init];
@@ -104,54 +103,70 @@
 //    self.phoneButton.backgroundColor = [UIColor cyanColor];
     [self.contentView addSubview:self.bottonLineView];
     
-    [self setNeedsUpdateConstraints];
+//    [self setNeedsUpdateConstraints];
 }
-
-
-- (void)updateConstraints
-{
-    [super updateConstraints];
-    [self.porView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(@(44.f));
-        make.width.equalTo(@(44.f));
-        make.centerY.equalTo(self.contentView);
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    [self.iconView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.contentView.mas_top).offset(16);
         make.left.equalTo(self.contentView).offset(16.f);
+        make.height.equalTo(@36.f);
+        make.width.equalTo(@36.f);
+        
     }];
     
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.porView.mas_right).offset(14.f);
-        make.top.equalTo(self.contentView).offset(18.f);
+        make.left.equalTo(self.iconView.mas_right).offset(14.f);
+        make.top.equalTo(self.iconView.mas_top);
+        make.height.equalTo(@14);
         
     }];
     
     [self.teachcontentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.titleLabel.mas_left);
-        make.top.equalTo(self.titleLabel.mas_bottom).offset(8.f);
+        make.top.equalTo(self.titleLabel.mas_bottom).offset(10.f);
+        make.height.equalTo(@12);
         
     }];
-    [self.passLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    
+    [self.flagView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.iconView.mas_centerX);
+        make.top.equalTo(self.iconView.mas_bottom).offset(14);
+        make.height.equalTo(@14);
+        make.width.equalTo(@14);
+        
+    }];
+    
+    
+    [self.teachStateLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.titleLabel.mas_left);
-        make.top.equalTo(self.teachcontentLabel.mas_bottom).offset(8.f);
+        make.top.equalTo(self.flagView.mas_top);
+        make.height.equalTo(@14);
+        
+    }];
+    [self.todeyTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.teachStateLabel.mas_right).offset(4);
+        make.top.equalTo(self.flagView.mas_top);
+        make.height.equalTo(@14);
         
     }];
     
     [self.rateView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentView).offset(21.f);
+        make.top.equalTo(self.contentView).offset(16.f);
         make.right.equalTo(self.contentView.mas_right).offset(-16);
         make.width.equalTo(@(90));
         make.height.equalTo(@(14.f));
     }];
-    
-    [self.phoneButton mas_makeConstraints:^(MASConstraintMaker *make) {
-         make.top.equalTo(self.rateView.mas_bottom).offset(0.f);
-        make.right.equalTo(self.contentView).offset(-16);
-        make.width.equalTo(@(28));
-        make.height.equalTo(@(36.f));
+    [self.passLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.rateView.mas_bottom).offset(12.f);
+        make.right.equalTo(self.contentView.mas_right).offset(-16);
+        make.height.equalTo(@(12.f));
     }];
     
-    [self.messageButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.rateView.mas_bottom).offset(0.f);
-        make.right.equalTo(self.phoneButton.mas_left).offset(-8);
+    
+    [self.phoneButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.passLabel.mas_bottom).offset(-5);
+        make.right.equalTo(self.contentView).offset(-16);
         make.width.equalTo(@(28));
         make.height.equalTo(@(36.f));
     }];
@@ -163,8 +178,14 @@
         make.height.equalTo(@0.5);
     }];
 
-
 }
+
+//- (void)updateConstraints
+//{
+//    [super updateConstraints];
+//    
+//
+//}
 
 - (void)setModel:(TeacherModel *)model
 {
@@ -174,12 +195,12 @@
     _model = model;
     UIImage * defaultImage = [UIImage imageNamed:@"defoult_por"];
     NSString * imageStr = _model.porInfo.originalpic;
-    self.porView.imageView.image = defaultImage;
+    self.iconView.image = defaultImage;
     if(imageStr)
-        [self.porView.imageView sd_setImageWithURL:[NSURL URLWithString:imageStr] placeholderImage:defaultImage completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        [self.iconView sd_setImageWithURL:[NSURL URLWithString:imageStr] placeholderImage:defaultImage completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             
         }];
-    
+
     self.titleLabel.text = _model.userName;
     
     // 可授科目
@@ -191,6 +212,21 @@
     self.teachcontentLabel.text = subStr;
     self.passLabel.text = [NSString stringWithFormat:@"通过率 %lu%%",model.passrate];
     self.rateView.scorePercent = _model.raring  / 5.f;
+    
+    // 是否在授课  0 是休息, 1 正在授课
+    if (model.isonline) {
+        // 正在授课
+        self.flagView.backgroundColor = JZ_BLUE_COLOR;
+        self.teachStateLabel.text = @"正在授课";
+        self.teachStateLabel.textColor = JZ_BLUE_COLOR;
+        self.todeyTimeLabel.text = [NSString stringWithFormat:@"今日%lu课时",model.coursecountr];
+    }else{
+        // 休息
+        self.flagView.backgroundColor = kJZLightTextColor;
+        self.teachStateLabel.text = @"休息";
+        self.teachStateLabel.textColor = kJZLightTextColor;
+        self.todeyTimeLabel.text = [NSString stringWithFormat:@"今日%lu课时",model.coursecountr];
+    }
     
 }
 
@@ -217,8 +253,44 @@
 - (UIView *)getOnelineView
 {
     UIView * view = [[UIView alloc] init];
-    view.backgroundColor = RGB_Color(52, 54, 53);
+    view.backgroundColor = HM_LINE_COLOR;
     return view;
+}
+-(UIImageView *)iconView{
+    if (_iconView == nil) {
+        _iconView = [[UIImageView alloc] init];
+        _iconView.layer.masksToBounds = YES;
+       _iconView.layer.cornerRadius = 18;
+
+    }
+    return _iconView;
+}
+- (UIView *)flagView{
+    if (_flagView == nil) {
+        _flagView = [[UIView alloc] init];
+        _flagView.backgroundColor = JZ_BLUE_COLOR;
+        _flagView.layer.masksToBounds = YES;
+        _flagView.layer.cornerRadius = 7;
+    }
+    return _flagView;
+}
+- (UILabel *)teachStateLabel{
+    if (_teachStateLabel == nil) {
+        _teachStateLabel = [[UILabel alloc] init];
+        _teachStateLabel.textColor = JZ_BLUE_COLOR;
+        _teachStateLabel.font = [UIFont systemFontOfSize:12];
+        _teachStateLabel.text = @"正在授课";
+    }
+    return _teachStateLabel;
+}
+- (UILabel *)todeyTimeLabel{
+    if (_todeyTimeLabel == nil) {
+        _todeyTimeLabel = [[UILabel alloc] init];
+        _todeyTimeLabel.textColor = kJZDarkTextColor;
+        _todeyTimeLabel.font = [UIFont systemFontOfSize:12];
+        _todeyTimeLabel.text = @"今日8课时";
+    }
+    return _todeyTimeLabel;
 }
 
 @end

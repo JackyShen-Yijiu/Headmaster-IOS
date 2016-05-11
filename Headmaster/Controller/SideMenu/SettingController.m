@@ -45,6 +45,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.view.backgroundColor = JZ_MAIN_BACKGROUND_COLOR;
     UIView *lineTopView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 2)];
     lineTopView.backgroundColor = RGB_Color(41, 41, 41);
     [self.view addSubview:lineTopView];
@@ -101,7 +102,7 @@
         _tableView.backgroundColor = [UIColor clearColor];
         _tableView.dataSource = self;
         _tableView.delegate = self;
-        _tableView.separatorColor = [UIColor darkGrayColor];
+        _tableView.separatorColor = kJZLightTextColor;
         
     }
     return _tableView;
@@ -120,7 +121,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 15;
+    return 10;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 44;
@@ -144,8 +145,8 @@
     if (YBIphone6Plus) {
         cell.textLabel.font = [UIFont systemFontOfSize:14*YBRatio];
     }
-    cell.textLabel.textColor = RGB_Color(185, 185, 185);
-    cell.backgroundColor = RGB_Color(41, 41, 41);
+    cell.textLabel.textColor = kJZDarkTextColor;
+    cell.backgroundColor = [UIColor whiteColor];
     cell.userInteractionEnabled = YES;
     
     if (indexPath.section == 1) {
@@ -159,7 +160,7 @@
             cell.userInteractionEnabled = (int)sizeF;
             
             label.text = message;
-            label.textColor = [UIColor colorWithHexString:@"b7b7b7"];
+            label.textColor = kJZDarkTextColor;
             label.font = [UIFont systemFontOfSize:12];
             if (YBIphone6Plus) {
                 label.font = [UIFont systemFontOfSize:12*YBRatio];
@@ -173,8 +174,8 @@
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 
     if (indexPath.section == 0) {
-        UISwitch *switchControl = [[UISwitch alloc] initWithFrame:CGRectMake(0, 0, 45, 20)];
-        switchControl.onTintColor = RGB_Color(0, 248, 199);
+        UISwitch *switchControl = [[UISwitch alloc] initWithFrame:CGRectMake(0, 0, 34, 18)];
+        switchControl.onTintColor = [UIColor colorWithHexString:@"3d8bff"];
         
         switchControl.tag = 100 + indexPath.row;
         
@@ -425,13 +426,13 @@
 }
 - (UIButton *)tableFootView {
     UIButton *quit = [UIButton buttonWithType:UIButtonTypeCustom];
-    quit.backgroundColor = RGB_Color(44, 44, 44);
-    [quit setTitle:@"退出" forState:UIControlStateNormal];
+    quit.backgroundColor = [UIColor whiteColor];
+    [quit setTitle:@"退出登录" forState:UIControlStateNormal];
     quit.titleLabel.font = [UIFont systemFontOfSize:14];
     if (YBIphone6Plus) {
         quit.titleLabel.font = [UIFont systemFontOfSize:14*YBRatio];
     }
-    [quit setTitleColor:RGB_Color(185, 185, 185) forState:UIControlStateNormal];
+    [quit setTitleColor:kJZLightTextColor forState:UIControlStateNormal];
     quit.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 44);
     [quit addTarget:self action:@selector(UserWillLoginOut) forControlEvents:UIControlEventTouchUpInside];
     return quit;
@@ -439,10 +440,10 @@
 }
 -(UIView *)headerView {
     
-    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 2, [UIScreen mainScreen].bounds.size.width, 15)];
+    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 2, [UIScreen mainScreen].bounds.size.width, 10)];
     
     
-    headerView.backgroundColor = RGB_Color(44, 44, 44);
+    headerView.backgroundColor = [UIColor clearColor];
     
     
     return headerView;

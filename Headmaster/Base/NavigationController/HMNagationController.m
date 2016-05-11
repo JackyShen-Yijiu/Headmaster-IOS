@@ -29,7 +29,11 @@
     [super viewDidLoad];
     
     UINavigationBar *bar = [UINavigationBar appearance];
-    [bar setBackgroundImage:[[UIImage imageNamed:@"nav_bar"] stretchableImageWithLeftCapWidth:10 topCapHeight:10] forBarMetrics:UIBarMetricsDefault];
+    
+    
+     bar.barTintColor = [UIColor blackColor];
+   [bar setTranslucent:NO];
+//    [bar setBackgroundImage:[[UIImage imageNamed:@"nav_bar1.jpg"] stretchableImageWithLeftCapWidth:10 topCapHeight:10] forBarMetrics:UIBarMetricsDefault];
     [bar setShadowImage:[UIImage new]];
     // 标题字体颜
     [bar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont systemFontOfSize:16]}];

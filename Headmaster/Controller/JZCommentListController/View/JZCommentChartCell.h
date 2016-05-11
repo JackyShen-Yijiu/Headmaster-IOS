@@ -25,4 +25,6 @@
 
 @property (nonatomic, strong) NSDictionary *commentDataNumberDic;
 
+@property (nonatomic, strong) UIView *noDataPieChartView;
+
 @end

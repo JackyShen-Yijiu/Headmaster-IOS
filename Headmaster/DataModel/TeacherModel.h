@@ -16,5 +16,7 @@
 @property (nonatomic, strong) NSArray *subjectArray;
 @property (nonatomic, strong) NSString *mobile;
 @property (nonatomic, assign) NSInteger passrate;
+@property (nonatomic, assign) NSInteger isonline;
+@property (nonatomic, assign) NSInteger coursecountr;
 + (TeacherModel *)converJsonDicToModel:(NSDictionary *)dic;
 @end

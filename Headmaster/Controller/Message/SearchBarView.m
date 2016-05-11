@@ -8,7 +8,7 @@
 
 #import "SearchBarView.h"
 
-#define LINEHEIGTH  2
+#define LINEHEIGTH  5
 #define LINESPACING 0
 #define LINECOLOR       RGB_Color(42, 42, 42)
 
@@ -108,11 +108,11 @@
 {
     if (!_topLineView) {
         _topLineView = [[UIView alloc] init];
-        _topLineView.backgroundColor = RGB_Color(52, 54, 53);
-        _topLineView.layer.shadowColor = [UIColor whiteColor].CGColor;
-        _topLineView.layer.shadowOffset = CGSizeMake(0, 2);
-        _topLineView.layer.shadowOpacity = 0.048;
-        _topLineView.layer.shadowRadius = 2;
+        _topLineView.backgroundColor = [UIColor clearColor];
+//        _topLineView.layer.shadowColor = [UIColor whiteColor].CGColor;
+//        _topLineView.layer.shadowOffset = CGSizeMake(0, 2);
+//        _topLineView.layer.shadowOpacity = 0.048;
+//        _topLineView.layer.shadowRadius = 2;
 
         [self addSubview:_topLineView];
     }
@@ -124,11 +124,11 @@
 {
     if (!_bottomView) {
         _bottomView = [[UIView alloc] init];
-        _bottomView.backgroundColor = RGB_Color(52, 54, 53);
-        _bottomView.layer.shadowColor = [UIColor whiteColor].CGColor;
-        _bottomView.layer.shadowOffset = CGSizeMake(0, 2);
-        _bottomView.layer.shadowOpacity = 0.048;
-        _bottomView.layer.shadowRadius = 2;
+       _bottomView.backgroundColor = [UIColor clearColor];
+//        _bottomView.layer.shadowColor = [UIColor whiteColor].CGColor;
+//        _bottomView.layer.shadowOffset = CGSizeMake(0, 2);
+//        _bottomView.layer.shadowOpacity = 0.048;
+//        _bottomView.layer.shadowRadius = 2;
 
         [self addSubview:_bottomView];
     }

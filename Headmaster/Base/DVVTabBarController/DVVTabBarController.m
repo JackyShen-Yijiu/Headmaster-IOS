@@ -56,8 +56,8 @@
 #pragma mark - 初始化属性 method
 - (void)initialProperty {
     
-    _titleNormalColor = [UIColor lightGrayColor];
-    _titleSelectedColor = [UIColor colorWithHexString:@"00f8c7"];
+    _titleNormalColor = kJZLightTextColor;
+    _titleSelectedColor = [UIColor colorWithHexString:@"3d8bff"];
     
 }
 
@@ -77,19 +77,19 @@
     
     self.iconNormalArray = @[ @"statistics",
                               @"nwes",
-                              @"information" ];
+                              @"mail" ];
     
     self.iconSelectedArray = @[ @"statistics_fill",
                                 @"nwes_fill",
-                                @"information_fill"];
-    
-    self.itemBackgroundNormalArray = @[ @"",
-                                        @"",
-                                        @"" ];
-    
-    self.itembackgroundSelectedArray = @[ @"",
-                                          @"",
-                                          @"" ];
+                                @"mail_fill"];
+//
+//    self.itemBackgroundNormalArray = @[ @"",
+//                                        @"",
+//                                        @"" ];
+//    
+//    self.itembackgroundSelectedArray = @[ @"",
+//                                          @"",
+//                                          @"" ];
     
     self.titleArray = @[ @"统计", @"资讯", @"消息"];
     
@@ -99,15 +99,16 @@
     
     _coverView = [UIView new];
     _coverView.frame = rect;
-    _coverView.backgroundColor = RGB_Color(29, 28, 33);
+//    _coverView.backgroundColor = RGB_Color(29, 28, 33);
+    _coverView.backgroundColor = [UIColor whiteColor];
     // 添加背景图片
-    if (_backgroundImage) {
-        _coverView.backgroundColor = [UIColor clearColor];
-        _backgroundImageView = [UIImageView new];
-        _backgroundImageView.image = _backgroundImage;
-        _backgroundImageView.frame = rect;
-        [self.tabBar addSubview:_backgroundImageView];
-    }
+//    if (_backgroundImage) {
+//        _coverView.backgroundColor = [UIColor clearColor];
+//        _backgroundImageView = [UIImageView new];
+//        _backgroundImageView.image = _backgroundImage;
+//        _backgroundImageView.frame = rect;
+//        [self.tabBar addSubview:_backgroundImageView];
+//    }
     
     [self.tabBar addSubview:_coverView];
     
@@ -124,8 +125,8 @@
 #pragma mark - 选中一项 method
 - (void)itemButtonSelected:(UIButton *)sender {
     
-    [self.selectBtn setBackgroundColor:RGB_Color(29, 28, 33)];
-    [sender setBackgroundColor:RGB_Color(22, 22, 25)];
+//    [self.selectBtn setBackgroundColor:RGB_Color(29, 28, 33)];
+//    [sender setBackgroundColor:RGB_Color(22, 22, 25)];
     self.selectBtn = sender;
     
     //取消上次选中的状态

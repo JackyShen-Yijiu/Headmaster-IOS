@@ -125,26 +125,46 @@ typedef NS_ENUM(NSInteger,kDateSearchSubjectID) {
  *  学员评价 上月,上周,今日,本周,本月
  */
 typedef NS_ENUM(NSInteger,kCommentDateSearchType) {
-    /**
-     *  上月
+    
+    /*
+     
+     1 今天2 昨天 3 一周 4 本月5本年 6： 上周 7 上月
+     
      */
-    kCommentDateSearchTypeLastMonth = 1,
+    
+    
     /**
-     *  上周
+     *  今天
      */
-   kCommentDateSearchTypeLastWeek,
+    kCommentDateSearchTypeToday = 1,
+    
     /**
-     *  今日
+     *  昨天
      */
-    kCommentDateSearchTypeToday,
+    kCommentDateSearchTypeYesterday,
     /**
      *  本周
      */
     kCommentDateSearchTypeThisWeek,
+
     /**
      *  本月
      */
-    kCommentDateSearchTypeThisMonth
+    kCommentDateSearchTypeThisMonth,
+    /**
+     *  本年
+     */
+    kCommentDateSearchTypeYear,
+    /**
+     *  上周
+     */
+    kCommentDateSearchTypeLastWeek,
+    /**
+     *  上月
+     */
+    kCommentDateSearchTypeLastMonth
+    
+
 };
 
 /**
