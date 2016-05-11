@@ -28,15 +28,14 @@
     NSHashTable *_chartLabelsForX;
 }
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithFrame:(CGRect)frame with_xLabelWidth:(CGFloat)xLabelWidth
 {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
         [self addSubview:self.scrollView];
         self.backgroundColor = [UIColor clearColor];
-        
-        _xLabelWidth = 50;
+        _xLabelWidth = xLabelWidth;
         [self drawLine];
     }
     return self;
@@ -114,6 +113,9 @@
 
 -(void)setXLabels:(NSArray *)xLabels
 {
+    
+    NSLog(@"%s xLabels:%@",__func__,xLabels);
+    
     if (!xLabels.count) {
         return;
     }
@@ -140,28 +142,28 @@
     
     for (int i=0; i<xLabels.count; i++) {
         NSString *labelText = xLabels[i];
-        UUChartLabel * label = [[UUChartLabel alloc] initWithFrame:CGRectMake(i * _xLabelWidth + _xLabelWidth / 2.f, self.bounds.size.height - UULabelHeight - UULabelHeight /2.f, _xLabelWidth, UULabelHeight)];
+        UUChartLabel * label = [[UUChartLabel alloc] initWithFrame:CGRectMake(i * _xLabelWidth, self.bounds.size.height - UULabelHeight - UULabelHeight /2.f, _xLabelWidth, UULabelHeight)];
         label.text = labelText;
         [self.scrollView addSubview:label];
         [_chartLabelsForX addObject:label];
     }
     
     //画竖线
-    for (int i=0; i<xLabels.count + 1; i++) {
-        if (i == 0 ) {
-            continue;
-        }
-        CAShapeLayer *shapeLayer = [CAShapeLayer layer];
-        UIBezierPath *path = [UIBezierPath bezierPath];
-        [path moveToPoint:CGPointMake(i*_xLabelWidth,UULabelHeight)];
-        [path addLineToPoint:CGPointMake(i*_xLabelWidth,self.frame.size.height-2*UULabelHeight)];
-        [path closePath];
-        shapeLayer.path = path.CGPath;
-        shapeLayer.strokeColor = [[[UIColor colorWithHexString:@"444444"] colorWithAlphaComponent:1] CGColor];
-//        shapeLayer.fillColor = [[UIColor whiteColor] CGColor];
-        shapeLayer.lineWidth = 1;
-        [self.scrollView.layer addSublayer:shapeLayer];
-    }
+//    for (int i=0; i<xLabels.count + 1; i++) {
+//        if (i == 0 ) {
+//            continue;
+//        }
+//        CAShapeLayer *shapeLayer = [CAShapeLayer layer];
+//        UIBezierPath *path = [UIBezierPath bezierPath];
+//        [path moveToPoint:CGPointMake(i*_xLabelWidth,UULabelHeight)];
+//        [path addLineToPoint:CGPointMake(i*_xLabelWidth,self.frame.size.height-2*UULabelHeight)];
+//        [path closePath];
+//        shapeLayer.path = path.CGPath;
+//        shapeLayer.strokeColor = [[[UIColor colorWithHexString:@"444444"] colorWithAlphaComponent:1] CGColor];
+////        shapeLayer.fillColor = [[UIColor whiteColor] CGColor];
+//        shapeLayer.lineWidth = 1;
+//        [self.scrollView.layer addSublayer:shapeLayer];
+//    }
     
     CGFloat chartCavanHeight = self.bounds.size.height - UULabelHeight*3;
     CGFloat levelHeight = chartCavanHeight /4.0;
@@ -172,12 +174,12 @@
             CAShapeLayer *shapeLayer = [CAShapeLayer layer];
             UIBezierPath *path = [UIBezierPath bezierPath];
             [path moveToPoint:CGPointMake(0,UULabelHeight+i*levelHeight)];
-            [path addLineToPoint:CGPointMake(_xLabelWidth + _xLabelWidth * _xLabels.count,UULabelHeight+i*levelHeight)];
+            [path addLineToPoint:CGPointMake(_xLabelWidth * _xLabels.count,UULabelHeight+i*levelHeight)];
             [path closePath];
             shapeLayer.path = path.CGPath;
-            shapeLayer.strokeColor = [[[UIColor colorWithHexString:@"444444"] colorWithAlphaComponent:1] CGColor];
+            shapeLayer.strokeColor = [[[UIColor lightGrayColor] colorWithAlphaComponent:1] CGColor];
 //            shapeLayer.fillColor = [[UIColor whiteColor] CGColor];
-            shapeLayer.lineWidth = 1;
+            shapeLayer.lineWidth = 0.5;
             [self.scrollView.layer addSublayer:shapeLayer];
         }
     }
@@ -257,13 +259,12 @@
                 isShowMaxAndMinPoint = YES;
             }
         }
-        [self addPoint:CGPointMake(xPosition + _xLabelWidth / 2.f, chartCavanHeight - grade * chartCavanHeight+UULabelHeight)
+        [self addPoint:CGPointMake(xPosition, chartCavanHeight - grade * chartCavanHeight+UULabelHeight)
                  index:i
                 isShow:isShowMaxAndMinPoint
                  value:firstValue];
-
         
-        [progressline moveToPoint:CGPointMake(xPosition + _xLabelWidth / 2.f, chartCavanHeight - grade * chartCavanHeight+UULabelHeight)];
+        [progressline moveToPoint:CGPointMake(xPosition, chartCavanHeight - grade * chartCavanHeight+UULabelHeight)];
         [progressline setLineWidth:2.0];
         [progressline setLineCapStyle:kCGLineCapRound];
         [progressline setLineJoinStyle:kCGLineJoinRound];
@@ -273,7 +274,7 @@
             float grade =([valueString floatValue]-_yValueMin) / ((float)_yValueMax-_yValueMin);
             if (index != 0) {
                 
-                CGPoint point = CGPointMake(xPosition+index*_xLabelWidth + _xLabelWidth / 2.f, chartCavanHeight - grade * chartCavanHeight+UULabelHeight);
+                CGPoint point = CGPointMake(xPosition+index*_xLabelWidth, chartCavanHeight - grade * chartCavanHeight+UULabelHeight);
                 [progressline addLineToPoint:point];
                 
                 BOOL isShowMaxAndMinPoint = YES;
@@ -308,14 +309,12 @@
         pathAnimation.toValue = [NSNumber numberWithFloat:1.0f];
         pathAnimation.autoreverses = NO;
         [_chartLine addAnimation:pathAnimation forKey:@"strokeEndAnimation"];
-        
         _chartLine.strokeEnd = 1.0;
-        
         
     }
     
     // 重新设置视图的宽度
-    CGFloat width = _xLabelWidth + _xLabelWidth * _xLabels.count;
+    CGFloat width = _xLabelWidth * _xLabels.count;
     self.scrollView.contentSize = CGSizeMake(width, 0);
     
     _markView = [UIView new];
@@ -324,11 +323,10 @@
     _markView.frame = CGRectMake(5, self.bounds.size.height - 20, 25, 20);
     [self addSubview:_markView];
     
-    UILabel *lineLabel = [[UILabel alloc] initWithFrame:CGRectMake(2.5, 10, 20, 0.5)];
-    lineLabel.backgroundColor = [UIColor colorWithHexString:@"047A64"];
-    lineLabel.transform = CGAffineTransformMakeRotation(M_PI * 0.75);
-    [_markView addSubview:lineLabel];
-    
+//    UILabel *lineLabel = [[UILabel alloc] initWithFrame:CGRectMake(2.5, 10, 20, 0.5)];
+//    lineLabel.backgroundColor = [UIColor colorWithHexString:@"047A64"];
+//    lineLabel.transform = CGAffineTransformMakeRotation(M_PI * 0.75);
+//    [_markView addSubview:lineLabel];
     
     _xTitleMarkLabel = [UILabel new];
     _xTitleMarkLabel.textColor = [UIColor colorWithHexString:@"047A64"];
@@ -390,21 +388,21 @@
 - (void)drawLine {
     NSInteger num = self.bounds.size.width / 30;
     //画竖线
-    for (int i=0; i<num + 1; i++) {
-        if (i == 0 ) {
-            continue;
-        }
-        CAShapeLayer *shapeLayer = [CAShapeLayer layer];
-        UIBezierPath *path = [UIBezierPath bezierPath];
-        [path moveToPoint:CGPointMake(i*_xLabelWidth,UULabelHeight)];
-        [path addLineToPoint:CGPointMake(i*_xLabelWidth,self.frame.size.height-2*UULabelHeight)];
-        [path closePath];
-        shapeLayer.path = path.CGPath;
-        shapeLayer.strokeColor = [[[UIColor colorWithHexString:@"444444"] colorWithAlphaComponent:1] CGColor];
-        //        shapeLayer.fillColor = [[UIColor whiteColor] CGColor];
-        shapeLayer.lineWidth = 1;
-        [self.scrollView.layer addSublayer:shapeLayer];
-    }
+//    for (int i=0; i<num + 1; i++) {
+//        if (i == 0 ) {
+//            continue;
+//        }
+//        CAShapeLayer *shapeLayer = [CAShapeLayer layer];
+//        UIBezierPath *path = [UIBezierPath bezierPath];
+//        [path moveToPoint:CGPointMake(i*_xLabelWidth,UULabelHeight)];
+//        [path addLineToPoint:CGPointMake(i*_xLabelWidth,self.frame.size.height-2*UULabelHeight)];
+//        [path closePath];
+//        shapeLayer.path = path.CGPath;
+//        shapeLayer.strokeColor = [[[UIColor colorWithHexString:@"444444"] colorWithAlphaComponent:1] CGColor];
+//        //        shapeLayer.fillColor = [[UIColor whiteColor] CGColor];
+//        shapeLayer.lineWidth = 1;
+//        [self.scrollView.layer addSublayer:shapeLayer];
+//    }
     
     CGFloat chartCavanHeight = self.bounds.size.height - UULabelHeight*3;
     CGFloat levelHeight = chartCavanHeight /4.0;
@@ -418,9 +416,9 @@
             [path addLineToPoint:CGPointMake(_xLabelWidth + _xLabelWidth * num,UULabelHeight+i*levelHeight)];
             [path closePath];
             shapeLayer.path = path.CGPath;
-            shapeLayer.strokeColor = [[[UIColor colorWithHexString:@"444444"] colorWithAlphaComponent:1] CGColor];
+            shapeLayer.strokeColor = [[[UIColor lightGrayColor] colorWithAlphaComponent:1] CGColor];
             //            shapeLayer.fillColor = [[UIColor whiteColor] CGColor];
-            shapeLayer.lineWidth = 1;
+            shapeLayer.lineWidth = 0.5;
             [self.scrollView.layer addSublayer:shapeLayer];
 //        }
     }

@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface JZMailBoxView : UITableView
+@property (nonatomic, strong) UIViewController *vc;
 
 @end

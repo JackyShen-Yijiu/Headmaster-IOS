@@ -31,6 +31,8 @@
         self.backgroundColor = [UIColor whiteColor];
         
         
+        
+        
         [self.publishImg mas_makeConstraints:^(MASConstraintMaker *make) {
             
             make.left.equalTo(self.mas_left).offset(16);

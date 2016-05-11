@@ -25,10 +25,10 @@
         [chartView removeFromSuperview];
         chartView = nil;
     }
-    
-    chartView = [[UUChart alloc]initwithUUChartDataFrame:CGRectMake(0, 0, self.bounds.size.width, self.defaultHeight)
-                                              withSource:self
-                                               withStyle:UUChartBarStyle];
+//    
+//    chartView = [[UUChart alloc]initwithUUChartDataFrame:CGRectMake(0, 0, self.bounds.size.width, self.defaultHeight)
+//                                              withSource:self
+//                                               withStyle:UUChartBarStyle searchType:self.se];
     if (_xTitleMarkWordString) {
         chartView.xTitleMarkWordString = _xTitleMarkWordString;
     }

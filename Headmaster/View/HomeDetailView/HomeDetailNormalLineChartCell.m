@@ -34,6 +34,7 @@
     self.lineChartView.valueArray = self.valueArray;
     self.lineChartView.xTitleMarkWordString = self.xTitleMarkWordString;
     self.lineChartView.yTitleMarkWordString = self.yTitleMarkWordString;
+    self.lineChartView.searchType = self.searchType;
     
     [self.lineChartView refreshUI];
 }

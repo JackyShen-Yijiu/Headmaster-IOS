@@ -24,10 +24,10 @@
         [chartView removeFromSuperview];
         chartView = nil;
     }
-    
+
     chartView = [[UUChart alloc]initwithUUChartDataFrame:CGRectMake(0, 0, self.bounds.size.width, self.defaultHeight)
                                               withSource:self
-                                               withStyle:UUChartLineStyle];
+                                               withStyle:UUChartLineStyle searchType:self.searchType];
     if (_xTitleMarkWordString) {
         chartView.xTitleMarkWordString = _xTitleMarkWordString;
     }
@@ -59,10 +59,10 @@
     if (_colorArray) {
         return _colorArray;
     }
-    return @[[UIColor colorWithHexString: @"00FFCC"],
-             [UIColor colorWithHexString: @"F3AD54"],
-             [UIColor colorWithHexString: @"FF663A"],
-             [UIColor colorWithHexString: @"ED1C24"]];
+    return @[[UIColor colorWithHexString: @"3d8bff"],
+             [UIColor colorWithHexString: @"3d8bff"],
+             [UIColor colorWithHexString: @"3d8bff"],
+             [UIColor colorWithHexString: @"3d8bff"]];
 }
 
 #pragma mark 折线图专享功能

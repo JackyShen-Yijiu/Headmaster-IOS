@@ -3131,6 +3131,7 @@
 				D9AEF2631CC5DA4B00AB76DD /* View */,
 			);
 			name = "Publish（公告）";
+			path = SideMenu;
 			sourceTree = "<group>";
 		};
 		D9AEF25F1CC5DA0700AB76DD /* Controller */ = {
@@ -3212,6 +3213,7 @@
 		D9CEC8F21C0E8CF7008DEE69 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D9AEF25E1CC5D9D000AB76DD /* Publish（公告） */,
 				D94F3E6E1CE179F600695A86 /* JZMailbox */,
 				06C326401CDB442C004D888A /* JZCommentListController */,
 				06C326171CDAE34C004D888A /* JZPassRate */,
@@ -3299,7 +3301,6 @@
 				D9CEC9841C0ED7D8008DEE69 /* SideMenuItem.m */,
 				55BA0F531C0EF6D300F83CD8 /* PublishController.h */,
 				55BA0F541C0EF6D300F83CD8 /* PublishController.m */,
-				D9AEF25E1CC5D9D000AB76DD /* Publish（公告） */,
 				5562F30B1C15386D002E5313 /* MenuController.h */,
 				5562F30C1C15386D002E5313 /* MenuController.m */,
 			);
@@ -3416,10 +3417,10 @@
 				D9D2DF791C17D619005DB212 /* HomeDetailCanClickBarChartCell.m */,
 				D9D2DF7A1C17D619005DB212 /* HomeDetailCanClickLineChartCell.h */,
 				D9D2DF7B1C17D619005DB212 /* HomeDetailCanClickLineChartCell.m */,
-				D9D2DF801C17D619005DB212 /* HomeDetailNormalLineChartCell.h */,
-				D9D2DF811C17D619005DB212 /* HomeDetailNormalLineChartCell.m */,
 				D9D2DFA01C1808A7005DB212 /* HomeDetailEvaluationCell.h */,
 				D9D2DFA11C1808A7005DB212 /* HomeDetailEvaluationCell.m */,
+				D9D2DF801C17D619005DB212 /* HomeDetailNormalLineChartCell.h */,
+				D9D2DF811C17D619005DB212 /* HomeDetailNormalLineChartCell.m */,
 				0613DC191C1C521C00580C32 /* HomeDetailTableView.h */,
 				0613DC1A1C1C521C00580C32 /* HomeDetailTableView.m */,
 			);
