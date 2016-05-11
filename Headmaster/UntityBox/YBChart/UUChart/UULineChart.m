@@ -34,7 +34,7 @@
     if (self) {
         // Initialization code
         [self addSubview:self.scrollView];
-        self.backgroundColor = [UIColor clearColor];
+        self.backgroundColor = RGB_Color(246, 246, 246);
         _xLabelWidth = xLabelWidth;
         [self drawLine];
     }
@@ -49,14 +49,19 @@
 
 -(void)setYLabels:(NSArray *)yLabels
 {
-    if (!yLabels.count) {
-        return;
-    }
+    NSLog(@"yLabels:%@",yLabels);
+    
+//    if (!yLabels.count) {
+//        return;
+//    }
+    
     NSInteger max = 0;
     NSInteger min = 1000000000;
 
     for (NSArray * ary in yLabels) {
         for (NSString *valueString in ary) {
+            NSLog(@"valueString:%@",valueString);
+            
             NSInteger value = [valueString integerValue];
             if (value > max) {
                 max = value;
@@ -66,6 +71,7 @@
             }
         }
     }
+    
     if (max < 4) {
         max = 4;
     }else {
@@ -74,6 +80,7 @@
             max += 4 - remainder;
         }
     }
+    
     if (self.showRange) {
         _yValueMin = min;
     }else{
@@ -86,28 +93,28 @@
         _yValueMin = _chooseRange.min;
     }
 
-    float level = (_yValueMax-_yValueMin) /4.0;
+    float level = (_yValueMax-_yValueMin) / 4.0;
     CGFloat chartCavanHeight = self.frame.size.height - UULabelHeight*3;
-    CGFloat levelHeight = chartCavanHeight /4.0;
+    CGFloat levelHeight = chartCavanHeight /4.0 - 3;
 
+    NSLog(@"level:%f _yValueMax:%f _yValueMin:%f",level,_yValueMax,_yValueMin);
+    
     // 添加侧栏
     _sideView = [UIView new];
     _sideView.frame = CGRectMake(0, 0, UUYLabelwidth, self.bounds.size.height);
-    _sideView.backgroundColor = [UIColor clearColor];
     [self addSubview:_sideView];
     
     for (int i=0; i<5; i++) {
-        if (i == 0) {
-            continue;
-        }
-        UUChartLabel * label = [[UUChartLabel alloc] initWithFrame:CGRectMake(0.0,chartCavanHeight-i*levelHeight+5, UUYLabelwidth, UULabelHeight)];
-		label.text = [NSString stringWithFormat:@"%d",(int)(level * i+_yValueMin)];
+        //
+        UUChartLabel * label = [[UUChartLabel alloc] initWithFrame:CGRectMake(0,(self.height-40)/4*i+5, UUYLabelwidth, UULabelHeight)];
+		label.text = [NSString stringWithFormat:@"%.0f",_yValueMax - level * i];
+        label.textColor = JZ_BLUE_COLOR;
         [_sideView addSubview:label];
     }
     if ([super respondsToSelector:@selector(setMarkRange:)]) {
-        UIView *view = [[UIView alloc]initWithFrame:CGRectMake(UUYLabelwidth, (1-(_markRange.max-_yValueMin)/(_yValueMax-_yValueMin))*chartCavanHeight+UULabelHeight, self.frame.size.width-UUYLabelwidth, (_markRange.max-_markRange.min)/(_yValueMax-_yValueMin)*chartCavanHeight)];
-        view.backgroundColor = [[UIColor clearColor] colorWithAlphaComponent:0.1];
-        [self addSubview:view];
+//        UIView *view = [[UIView alloc]initWithFrame:CGRectMake(UUYLabelwidth, (1-(_markRange.max-_yValueMin)/(_yValueMax-_yValueMin))*chartCavanHeight+UULabelHeight, self.frame.size.width-UUYLabelwidth, (_markRange.max-_markRange.min)/(_yValueMax-_yValueMin)*chartCavanHeight)];
+//        view.backgroundColor = [[UIColor orangeColor] colorWithAlphaComponent:0.1];
+//        [self addSubview:view];
     }
 }
 
@@ -144,6 +151,7 @@
         NSString *labelText = xLabels[i];
         UUChartLabel * label = [[UUChartLabel alloc] initWithFrame:CGRectMake(i * _xLabelWidth, self.bounds.size.height - UULabelHeight - UULabelHeight /2.f, _xLabelWidth, UULabelHeight)];
         label.text = labelText;
+        label.textColor = kJZRedColor;
         [self.scrollView addSubview:label];
         [_chartLabelsForX addObject:label];
     }
@@ -166,15 +174,14 @@
 //    }
     
     CGFloat chartCavanHeight = self.bounds.size.height - UULabelHeight*3;
-    CGFloat levelHeight = chartCavanHeight /4.0;
+    CGFloat levelHeight = chartCavanHeight/ 4.0 - 3;
     //画横线
     for (int i=0; i<5; i++) {
         if ([_ShowHorizonLine[i] integerValue]>0) {
-            
             CAShapeLayer *shapeLayer = [CAShapeLayer layer];
             UIBezierPath *path = [UIBezierPath bezierPath];
-            [path moveToPoint:CGPointMake(0,UULabelHeight+i*levelHeight)];
-            [path addLineToPoint:CGPointMake(_xLabelWidth * _xLabels.count,UULabelHeight+i*levelHeight)];
+            [path moveToPoint:CGPointMake(0,UULabelHeight+i*levelHeight+10)];
+            [path addLineToPoint:CGPointMake(_xLabelWidth * _xLabels.count,UULabelHeight+i*levelHeight+10)];
             [path closePath];
             shapeLayer.path = path.CGPath;
             shapeLayer.strokeColor = [[[UIColor lightGrayColor] colorWithAlphaComponent:1] CGColor];
@@ -183,6 +190,7 @@
             [self.scrollView.layer addSublayer:shapeLayer];
         }
     }
+    
 }
 
 -(void)setColors:(NSArray *)colors
@@ -204,7 +212,6 @@
 {
     _ShowHorizonLine = ShowHorizonLine;
 }
-
 
 -(void)strokeChart
 {
@@ -317,43 +324,44 @@
     CGFloat width = _xLabelWidth * _xLabels.count;
     self.scrollView.contentSize = CGSizeMake(width, 0);
     
-    _markView = [UIView new];
+//    _markView = [UIView new];
     
-    _markView.backgroundColor = [UIColor clearColor];
-    _markView.frame = CGRectMake(5, self.bounds.size.height - 20, 25, 20);
-    [self addSubview:_markView];
+//    _markView.backgroundColor = [UIColor clearColor];
+//    _markView.frame = CGRectMake(5, self.bounds.size.height - 20, 25, 20);
+//    _markView.backgroundColor = [UIColor yellowColor];
+//    [self addSubview:_markView];
     
 //    UILabel *lineLabel = [[UILabel alloc] initWithFrame:CGRectMake(2.5, 10, 20, 0.5)];
 //    lineLabel.backgroundColor = [UIColor colorWithHexString:@"047A64"];
 //    lineLabel.transform = CGAffineTransformMakeRotation(M_PI * 0.75);
 //    [_markView addSubview:lineLabel];
     
-    _xTitleMarkLabel = [UILabel new];
-    _xTitleMarkLabel.textColor = [UIColor colorWithHexString:@"047A64"];
-    _xTitleMarkLabel.frame = CGRectMake(1, 10, 25, 10);
-    _xTitleMarkLabel.textAlignment = 2;
-    _xTitleMarkLabel.font = [UIFont systemFontOfSize:12];
-    if (YBIphone6Plus) {
-        _xTitleMarkLabel.font = [UIFont systemFontOfSize:12*YBRatio];
-    }
-    [_markView addSubview:_xTitleMarkLabel];
+//    _xTitleMarkLabel = [UILabel new];
+//    _xTitleMarkLabel.textColor = [UIColor colorWithHexString:@"047A64"];
+//    _xTitleMarkLabel.frame = CGRectMake(1, 10, 25, 10);
+//    _xTitleMarkLabel.textAlignment = 2;
+//    _xTitleMarkLabel.font = [UIFont systemFontOfSize:12];
+//    if (YBIphone6Plus) {
+//        _xTitleMarkLabel.font = [UIFont systemFontOfSize:12*YBRatio];
+//    }
+//    [_markView addSubview:_xTitleMarkLabel];
     
-    _yTitleMarkLabel = [UILabel new];
-    _yTitleMarkLabel.textColor = [UIColor colorWithHexString:@"047A64"];
-    _yTitleMarkLabel.frame = CGRectMake(-3, 0, 30, 15);
-    _yTitleMarkLabel.textAlignment = 0;
-    _yTitleMarkLabel.font = [UIFont systemFontOfSize:12];
-    if (YBIphone6Plus) {
-        _yTitleMarkLabel.font = [UIFont systemFontOfSize:12*YBRatio];
-    }
-    [_markView addSubview:_yTitleMarkLabel];
+//    _yTitleMarkLabel = [UILabel new];
+//    _yTitleMarkLabel.textColor = [UIColor colorWithHexString:@"047A64"];
+//    _yTitleMarkLabel.frame = CGRectMake(-3, 0, 30, 15);
+//    _yTitleMarkLabel.textAlignment = 0;
+//    _yTitleMarkLabel.font = [UIFont systemFontOfSize:12];
+//    if (YBIphone6Plus) {
+//        _yTitleMarkLabel.font = [UIFont systemFontOfSize:12*YBRatio];
+//    }
+//    [_markView addSubview:_yTitleMarkLabel];
     
-    if (_xTitleMarkWordString) {
-        _xTitleMarkLabel.text = _xTitleMarkWordString;
-    }
-    if (_yTitleMarkWordString) {
-        _yTitleMarkLabel.text = _yTitleMarkWordString;
-    }
+//    if (_xTitleMarkWordString) {
+//        _xTitleMarkLabel.text = _xTitleMarkWordString;
+//    }
+//    if (_yTitleMarkWordString) {
+//        _yTitleMarkLabel.text = _yTitleMarkWordString;
+//    }
 //    _xTitleMarkLabel.backgroundColor = [UIColor cyanColor];
 //    _yTitleMarkLabel.backgroundColor = [UIColor magentaColor];
 }
@@ -362,6 +370,7 @@
 {
     UIView *view = [[UIView alloc]initWithFrame:CGRectMake(5, 5, 6, 6)];
     view.center = point;
+    view.backgroundColor = [UIColor greenColor];
     view.layer.masksToBounds = YES;
     view.layer.cornerRadius = 3;
     view.layer.borderWidth = 1.5;
@@ -405,15 +414,15 @@
 //    }
     
     CGFloat chartCavanHeight = self.bounds.size.height - UULabelHeight*3;
-    CGFloat levelHeight = chartCavanHeight /4.0;
+    CGFloat levelHeight = chartCavanHeight/4.0 - 3;
     //画横线
     for (int i=0; i<5; i++) {
 //        if ([_ShowHorizonLine[i] integerValue]>0) {
         
             CAShapeLayer *shapeLayer = [CAShapeLayer layer];
             UIBezierPath *path = [UIBezierPath bezierPath];
-            [path moveToPoint:CGPointMake(0,UULabelHeight+i*levelHeight)];
-            [path addLineToPoint:CGPointMake(_xLabelWidth + _xLabelWidth * num,UULabelHeight+i*levelHeight)];
+            [path moveToPoint:CGPointMake(0,UULabelHeight+i*levelHeight+10)];
+            [path addLineToPoint:CGPointMake(_xLabelWidth + _xLabelWidth * num,UULabelHeight+i*levelHeight+10)];
             [path closePath];
             shapeLayer.path = path.CGPath;
             shapeLayer.strokeColor = [[[UIColor lightGrayColor] colorWithAlphaComponent:1] CGColor];
