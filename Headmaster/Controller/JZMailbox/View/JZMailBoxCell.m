@@ -47,6 +47,7 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
     self.coachNameLabel.text = _data.coachid.name;
     self.contentLabel.text = _data.content;
     self.dateLabel.text = [self getYearLocalDateFormateUTCDate:_data.createtime];
+    self.replyImage.hidden = !_data.replycontent;
 }
 
 
@@ -66,16 +67,18 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
     
     [self.coachNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
        
-        make.left.equalTo(self.coachIcon.mas_right).offset(16);
         make.centerY.equalTo(self.coachIcon.mas_centerY);
-        
+        make.left.equalTo(self.coachIcon.mas_right).offset(16);
     }];
+    
+    
+    
     
     [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.left.equalTo(self.coachNameLabel.mas_left);
-        make.right.equalTo(self.contentView.mas_right).offset(16);
         make.top.equalTo(self.coachNameLabel.mas_bottom).offset(12);
+        make.left.equalTo(self.coachNameLabel.mas_left);
+        make.right.equalTo(self.contentView.mas_right).offset(-16);
     }];
     
     [self.dateLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -100,6 +103,8 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
         
         make.top.equalTo(self.coachIcon.mas_top);
         make.right.equalTo(self.coachIcon.mas_right);
+        make.width.equalTo(@6);
+        make.height.equalTo(@6);
         
     }];
     
@@ -128,11 +133,16 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
 }
 
 
+
 #pragma mark - 懒加载
 -(UIImageView *)coachIcon {
     if (!_coachIcon) {
         
         _coachIcon = [[UIImageView alloc]init];
+        
+        _coachIcon.layer.cornerRadius = 12;
+        
+        _coachIcon.layer.masksToBounds = YES;
         
         [self.contentView addSubview:_coachIcon];
 
@@ -151,7 +161,7 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
 
     }
     
-    return _contentLabel;
+    return _coachNameLabel;
 }
 -(UILabel *)contentLabel {
     
@@ -160,6 +170,7 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
         _contentLabel = [[UILabel alloc]init];
         _contentLabel.font = [UIFont systemFontOfSize:14];
         _contentLabel.textColor = kJZLightTextColor;
+        _contentLabel.numberOfLines = 0;
         [self.contentView addSubview:_contentLabel];
 
     }
@@ -197,7 +208,7 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
         
         _badgeView = [[UIView alloc]init];
         _badgeView.backgroundColor = kJZRedColor;
-        _badgeView.layer.cornerRadius = 6;
+        _badgeView.layer.cornerRadius = 3;
         _badgeView.layer.masksToBounds = YES;
         
         [self.contentView addSubview:_badgeView];

@@ -11,6 +11,7 @@
 #import "JZMailboxData.h"
 #import "JZMailBoxCell.h"
 #import <YYModel.h>
+#import "JZPublishHistoryController.h"
 
 static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
 
@@ -34,8 +35,13 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
         self.sectionHeaderHeight = 10;
 
         self.headerView = [[JZMailBoxHeaderView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth, 48)];
+        
+        UITapGestureRecognizer *tapGestureTel = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(headerViewClick:)];
+        self.headerView.userInteractionEnabled = YES;
+        [self.headerView addGestureRecognizer:tapGestureTel];
         self.tableHeaderView = self.headerView;
 
+        
         
         [self reloadData];
         
@@ -80,6 +86,16 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
     
     return [JZMailBoxCell cellHeightDmData:dataModel];
 }
+#pragma mark - headerView点击事件
+-(void)headerViewClick:(UITapGestureRecognizer *)recognizer {
+    
+    JZPublishHistoryController *publishVC = [[JZPublishHistoryController alloc]init];
+    
+    [self.vc.myNavController pushViewController:publishVC animated:YES];
+    
+}
+
+
 -(void)loadData {
     
     [NetworkEntity getCoachFeedbackWithUserid:[UserInfoModel defaultUserInfo].userID SchoolId:[UserInfoModel defaultUserInfo].schoolId count:10 index:1 success:^(id responseObject) {

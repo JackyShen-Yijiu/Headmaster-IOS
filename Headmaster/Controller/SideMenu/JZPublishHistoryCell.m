@@ -19,6 +19,9 @@
 
 @property (nonatomic, strong) UIView *linView;
 
+@property (nonatomic, strong) UILabel *nameLabel;
+
+
 
 
 
@@ -29,10 +32,10 @@
         [self initUI];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
-        UIView *bjView = [[UIView alloc]init];
-        bjView.backgroundColor = [UIColor blackColor];
-        bjView.alpha = 0.4;
-        self.backgroundView = bjView;
+//        UIView *bjView = [[UIView alloc]init];
+//        bjView.backgroundColor = [UIColor blackColor];
+//        bjView.alpha = 0.4;
+//        self.backgroundView = bjView;
     }
     return self;
 }
@@ -44,32 +47,38 @@
 -(void)initUI {
     self.mainTitleLabel = [[UILabel alloc]init];
     self.mainTitleLabel.textAlignment = NSTextAlignmentLeft;
-    self.mainTitleLabel.textColor = RGB_Color(0, 248, 199);
+    self.mainTitleLabel.textColor = kJZDarkTextColor;
     [self.mainTitleLabel setFont:[UIFont systemFontOfSize:14]];
-   
+    
+    
+    self.nameLabel = [[UILabel alloc]init];
+    self.nameLabel.textAlignment = NSTextAlignmentRight;
+    self.nameLabel.textColor = kJZLightTextColor;
+    [self.nameLabel setFont:[UIFont systemFontOfSize:12]];
     
     self.timeLabel = [[UILabel alloc]init];
     self.timeLabel.textAlignment = NSTextAlignmentLeft;
-    self.timeLabel.textColor = RGB_Color(185, 185, 185);
+    self.timeLabel.textColor = kJZLightTextColor;
     [self.timeLabel setFont:[UIFont systemFontOfSize:12]];
     
     self.contentLabel = [[UILabel alloc]init];
     self.contentLabel.textAlignment = NSTextAlignmentLeft;
-    self.contentLabel.textColor = [UIColor whiteColor];
+    self.contentLabel.textColor = kJZDarkTextColor;
     self.contentLabel.numberOfLines = 0;
     [self.contentLabel setFont:[UIFont systemFontOfSize:14]];
     
     self.linView = [[UIView alloc]init];
-    self.linView.backgroundColor = [UIColor darkGrayColor];
+    self.linView.backgroundColor = kJZLightTextColor;
     
-    self.linView.layer.shadowColor = [UIColor darkGrayColor].CGColor;
-    self.linView.layer.shadowOpacity = 0.5;
+//    self.linView.layer.shadowColor = [UIColor darkGrayColor].CGColor;
+//    self.linView.layer.shadowOpacity = 0.5;
     
     
     [self.contentView addSubview:self.mainTitleLabel];
     [self.contentView addSubview:self.timeLabel];
     [self.contentView addSubview:self.contentLabel];
     [self.contentView addSubview:self.linView];
+    [self.contentView addSubview:self.nameLabel];
     
     
 }
@@ -90,6 +99,13 @@
         make.top.equalTo(self.mainTitleLabel.mas_bottom).offset(10);//
         make.left.equalTo(self.contentView.mas_left).offset(16);
         
+    }];
+    
+    [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.top.equalTo(self.mainTitleLabel.mas_bottom).offset(10);
+        make.right.equalTo(self.contentView.mas_right).offset(-16);
+
     }];
     
     [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -116,11 +132,22 @@
     
     _data = data;
     
+    
+    
     if ([_data.title isEqualToString:@""]) {
         
-        self.mainTitleLabel.text = @"无标题";
+        NSString *str1 = @"无标题";
+        UIFont *boldFont = [UIFont boldSystemFontOfSize:16];
+        NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:@"无标题"];
+        [attrString addAttribute:NSFontAttributeName value:boldFont range:NSMakeRange(0, str1.length)];
+        [self.mainTitleLabel setAttributedText:attrString];
+        
     }else {
-        self.mainTitleLabel.text = _data.title;
+        NSString *str2 = _data.title;
+        UIFont *boldFont = [UIFont boldSystemFontOfSize:16];
+        NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:str2];
+        [attrString addAttribute:NSFontAttributeName value:boldFont range:NSMakeRange(0, str2.length)];
+        [self.mainTitleLabel setAttributedText:attrString];
     }
     
     
@@ -134,6 +161,9 @@
         make.right.equalTo(self.contentView.mas_right).offset(-16);
         
     }];
+    
+   
+    self.nameLabel.text = [NSString stringWithFormat:@"发布者: %@",_data.name];
     
 }
 
