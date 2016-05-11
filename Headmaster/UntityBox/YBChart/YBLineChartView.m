@@ -96,10 +96,10 @@
 //判断显示横线条
 
 //判断显示最大最小值
-- (BOOL)UUChart:(UUChart *)chart ShowMaxMinAtIndex:(NSInteger)index
-{
-    return YES;
-}
+//- (BOOL)UUChart:(UUChart *)chart ShowMaxMinAtIndex:(NSInteger)index
+//{
+//    return YES;
+//}
 
 
 

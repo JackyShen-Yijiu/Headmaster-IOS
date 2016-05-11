@@ -40,12 +40,13 @@
         UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
         button.frame = CGRectMake (i * buttonW , 0, buttonW, buttonH);
         [button setTitle:_titleArray[i] forState:UIControlStateNormal];
-        [button setTintColor:[UIColor colorWithHexString:@"047a64"]];
-        [button setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        [button setBackgroundColor:[UIColor whiteColor]];
         [button addTarget:self action:@selector(didClickButton:) forControlEvents:UIControlEventTouchUpInside];
         button.tag = 101 + i;
         if (i==0) {
-            [button setBackgroundColor:[UIColor blueColor]];
+            [button setBackgroundColor:JZ_BLUE_COLOR];
+            [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         }
         [self addSubview:button];
     }
@@ -74,7 +75,7 @@
         // 设置按钮恢复状态
         for (UIButton *childButton in btn.superview.subviews) {
             if (childButton.tag == _selectButtonInteger) {
-               [childButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+               [childButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
                 childButton.backgroundColor = [UIColor whiteColor];
             }
         }
@@ -97,7 +98,7 @@
             if ([array[i] tag] == tag) {
 //                [array[i] setTitleColor:[UIColor colorWithHexString:@"01e2b6"] forState:UIControlStateNormal];
                 [array[i] setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-                [array[i] setBackgroundColor:[UIColor blueColor]];
+                [array[i] setBackgroundColor:JZ_BLUE_COLOR];
                 // 获得button的frame
                 CGRect rect = [array[i] frame];
                 // 跟随条移动的位置

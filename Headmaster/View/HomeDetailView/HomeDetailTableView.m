@@ -129,8 +129,6 @@
         
         
         // 年月日获得
-        
-        
         comps =[calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit |NSDayCalendarUnit)
                 
                 
@@ -148,13 +146,7 @@
         
         NSLog(@"year:%d month: %d, day: %d", year, month, day);
         
-        
-        
-        
-        
         //当前的时分秒获得
-        
-        
         comps =[calendar components:(NSHourCalendarUnit | NSMinuteCalendarUnit |NSSecondCalendarUnit)
                 
                 
@@ -196,7 +188,6 @@
         
         NSLog(@"week:%ld weekday: %d weekday ordinal: %d", (long)week, weekday, weekdayOrdinal);
 
-        
         switch (self.searchType) {
             
             case kDateSearchTypeWeek:
@@ -223,6 +214,9 @@
         
         for (NSString *str in self.viewModel.dataModel.reservationXTitleArray) {
             NSLog(@"self.viewModel.dataModel.reservationXTitleArray-str:%@",str);
+        }
+        for (NSString *str in self.viewModel.dataModel.reservationValueArray) {
+            NSLog(@"self.viewModel.dataModel.reservationValueArray-str:%@",str);
         }
         
         if (self.viewModel.dataModel.reservationXTitleArray.count) {
