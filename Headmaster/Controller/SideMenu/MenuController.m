@@ -124,7 +124,7 @@
         UILabel *schoolLabel = [[UILabel alloc] init];
         schoolLabel.frame = CGRectMake(CGRectGetMinX(imgView.frame), CGRectGetMaxY(imgView.frame) + 15, self.headView.width - LiftMargain, 16);
 //        schoolLabel.centerX  = imgView.centerX + 20;
-        schoolLabel.text = [NSString stringWithFormat:@"“%@”",[UserInfoModel defaultUserInfo].schoolName];
+        schoolLabel.text = [NSString stringWithFormat:@"%@",[UserInfoModel defaultUserInfo].schoolName];
         schoolLabel.textColor = [UIColor whiteColor];
         schoolLabel.textAlignment = NSTextAlignmentLeft;
         schoolLabel.font = [UIFont systemFontOfSize:16];

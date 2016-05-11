@@ -171,6 +171,7 @@
     headerView.backgroundColor = [UIColor whiteColor];
     JZCommentTimeModel *model = _timeDataArray[section];
     headerView.titleLabel.text = model.ID;
+    // _timeDataArray 存放是科目中所以时间 2016-5 2016-6 给每个区添加tag 用于区分点击手势
     if (_searchSubjectID == 1) {
         headerView.tag = 500 + section;
     }
@@ -246,10 +247,12 @@
     
     model.isShowDetail = !model.isShowDetail;
     
+    // 取出时间 年和月传给服务器
      NSArray *timeArray = [model.ID componentsSeparatedByString:@"-"];
     self.year = [timeArray[0] integerValue];
     self.month = [timeArray[1] integerValue];
     
+    // 刷新数据
     [self networkRequest];
 
 }
