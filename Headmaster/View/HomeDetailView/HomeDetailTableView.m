@@ -10,7 +10,6 @@
 #import "YBLineChartView.h"
 #import "HomeDetailNormalLineChartCell.h"
 #import "HomeDetailCanClickLineChartCell.h"
-#import "HomeDetailCanClickBarChartCell.h"
 #import "HomeDetailEvaluationCell.h"
 #import "HomeDataDetailViewModel.h"
 #import "HomeTopView.h"
@@ -98,9 +97,14 @@
         //        normalLineChartCell.xTitleArray = @[ @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日", @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", @"周日" ];
         //        normalLineChartCell.valueArray = @[ ary_1 ];
         
+        normalLineChartCell.searchType = self.searchType;
+        
         normalLineChartCell.titleLabel.text = @"某年某月某日";
         //    normalLineChartCell.xTitleMarkWordString = @"时";
         //    normalLineChartCell.yTitleMarkWordString = @"人";
+        
+        NSLog(@"self.viewModel.dataModel.reservationXTitleArray:%@",self.viewModel.dataModel.reservationXTitleArray);
+        NSLog(@"self.viewModel.dataModel.reservationValueArray:%@",self.viewModel.dataModel.reservationValueArray);
         
         if (self.viewModel.dataModel.reservationXTitleArray.count) {
             normalLineChartCell.markLabel.text = [NSString stringWithFormat:@"共%li人",self.viewModel.dataModel.reservationStudentCount];
@@ -126,7 +130,6 @@
     [self.topView refreshSubjectData:_homeViewModel.subjectArray sameDay:_homeViewModel.applyCount];
    
     return footerCell;
-  
     
 }
 

@@ -10,6 +10,8 @@
 
 @interface YBLineChartView : UIView
 
+@property (nonatomic, assign) kDateSearchType searchType;
+
 // 横纵轴提示字符
 @property (nonatomic, copy) NSString *xTitleMarkWordString;
 @property (nonatomic, copy) NSString *yTitleMarkWordString;

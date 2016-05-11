@@ -57,11 +57,13 @@ typedef enum {
 //是否自动显示范围
 @property (nonatomic, assign) BOOL showRange;
 
+@property (nonatomic, assign) kDateSearchType searchType;
+
 @property (assign) UUChartStyle chartStyle;
 
--(id)initwithUUChartDataFrame:(CGRect)rect withSource:(id<UUChartDataSource>)dataSource withStyle:(UUChartStyle)style;
+-(id)initwithUUChartDataFrame:(CGRect)rect withSource:(id<UUChartDataSource>)dataSource withStyle:(UUChartStyle)style searchType:(kDateSearchType)searchType;
 
-- (void)showInView:(UIView *)view;
+-(void)showInView:(UIView *)view;
 
 -(void)strokeChart;
 

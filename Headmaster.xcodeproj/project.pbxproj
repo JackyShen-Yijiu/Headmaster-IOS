@@ -3417,10 +3417,10 @@
 				D9D2DF791C17D619005DB212 /* HomeDetailCanClickBarChartCell.m */,
 				D9D2DF7A1C17D619005DB212 /* HomeDetailCanClickLineChartCell.h */,
 				D9D2DF7B1C17D619005DB212 /* HomeDetailCanClickLineChartCell.m */,
-				D9D2DF801C17D619005DB212 /* HomeDetailNormalLineChartCell.h */,
-				D9D2DF811C17D619005DB212 /* HomeDetailNormalLineChartCell.m */,
 				D9D2DFA01C1808A7005DB212 /* HomeDetailEvaluationCell.h */,
 				D9D2DFA11C1808A7005DB212 /* HomeDetailEvaluationCell.m */,
+				D9D2DF801C17D619005DB212 /* HomeDetailNormalLineChartCell.h */,
+				D9D2DF811C17D619005DB212 /* HomeDetailNormalLineChartCell.m */,
 				0613DC191C1C521C00580C32 /* HomeDetailTableView.h */,
 				0613DC1A1C1C521C00580C32 /* HomeDetailTableView.m */,
 			);

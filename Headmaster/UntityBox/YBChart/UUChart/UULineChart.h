@@ -47,4 +47,6 @@
 
 - (NSArray *)chartLabelsForX;
 
+- (id)initWithFrame:(CGRect)frame with_xLabelWidth:(CGFloat)_xLabelWidth;
+
 @end
