@@ -32,6 +32,7 @@
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 
      [self.contentView addSubview:self.pieChartView];
+    [self.contentView addSubview:self.noDataPieChartView];
      [self.contentView addSubview:self.goodCommentView];
      [self.contentView addSubview:self.mightCommentView];
      [self.contentView addSubview:self.badCommentView];
@@ -43,6 +44,12 @@
     [super layoutSubviews];
     
     [self.pieChartView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.mas_equalTo(self.mas_centerY);
+        make.left.mas_equalTo(self.mas_left).offset(40);
+        make.height.mas_equalTo(@110);
+        make.width.mas_equalTo(@110);
+    }];
+    [self.noDataPieChartView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(self.mas_centerY);
         make.left.mas_equalTo(self.mas_left).offset(40);
         make.height.mas_equalTo(@110);
@@ -118,16 +125,19 @@
     }
     return _badCommentView;
 }
-- (void)setModel:(JZCommentData *)model{
-
-    
-    
-    // 评论列表赋值
-    
-
+- (UIView *)noDataPieChartView{
+    if (_noDataPieChartView == nil) {
+        _noDataPieChartView = [[UIView alloc] init];
+        _noDataPieChartView.backgroundColor = JZ_MAIN_BACKGROUND_COLOR;
+        _noDataPieChartView.layer.masksToBounds = YES;
+        _noDataPieChartView.layer.cornerRadius = 55;
+        _noDataPieChartView.hidden = YES;
+    }
+    return _noDataPieChartView;
 }
 - (void)setCommentDataNumberDic:(NSDictionary *)commentDataNumberDic{
     
+    NSLog(@"commentDataNumberDic = %@",commentDataNumberDic);
     // 计算百分比
     NSInteger goodComment = [[commentDataNumberDic objectForKey:@"goodcommnent"] integerValue];
     NSInteger mightComment = [[commentDataNumberDic objectForKey:@"generalcomment"] integerValue];
@@ -142,16 +152,39 @@
         CGFloat goodRate = goodComment / totalComnet;
         CGFloat mightRate = mightComment / totalComnet;
         CGFloat badRate = badComment / totalComnet;
+        self.pieChartView.hidden = NO;
+        self.noDataPieChartView.hidden = YES;
+
         
+        // 饼状图刷新
         NSArray *array = @[@(goodRate),@(mightRate),@(badRate)];
         self.pieChartView.percentageArray = array;
         [self.pieChartView reloadData];
         
         // 图例赋值
-        self.goodCommentView.titieleStr = [NSString stringWithFormat:@"好评 %f",goodRate];
-        self.mightCommentView.titieleStr = [NSString stringWithFormat:@"中评 %f",mightRate];
-        self.badCommentView.titieleStr = [NSString stringWithFormat:@"差评 %f",badRate];
-
+        if (goodComment == 0) {
+            self.goodCommentView.titieleStr = @"好评 0%";
+        }
+        if (mightComment == 0) {
+            self.mightCommentView.titieleStr = @"中评 0%";
+        }
+        if (badComment == 0) {
+             self.badCommentView.titieleStr = @"差评 0%";
+        }
+        if (goodComment != 0 && mightComment != 0 && badComment == 0) {
+            self.goodCommentView.titieleStr = [NSString stringWithFormat:@"好评 %f%%",goodRate];
+            self.mightCommentView.titieleStr = [NSString stringWithFormat:@"中评 %f%%",mightRate];
+            self.badCommentView.titieleStr = [NSString stringWithFormat:@"差评 %f%%",badRate];
+ 
+        }
+        
+        
+    }else{
+        self.goodCommentView.titieleStr = @"好评";
+        self.mightCommentView.titieleStr = @"中评";
+        self.badCommentView.titieleStr = @"差评";
+        self.pieChartView.hidden = YES;
+        self.noDataPieChartView.hidden = NO;
     }
     
     

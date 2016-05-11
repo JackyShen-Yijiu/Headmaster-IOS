@@ -90,7 +90,14 @@
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.tableHeaderView = self.searchBar;
+    
+    UIView *searchBarBGView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 42)];
+    searchBarBGView.backgroundColor = [UIColor clearColor];
+    [searchBarBGView addSubview:self.searchBar];
+    
+    
+    
+    self.tableView.tableHeaderView = searchBarBGView;
     [self.view addSubview:self.tableView];
     [self initRefreshView];
 }
@@ -167,8 +174,10 @@
 - (SearchBarView *)searchBar
 {
     if (_searchBar == nil) {
-        _searchBar = [[SearchBarView alloc] initWithFrame: CGRectMake(5, 10, self.view.frame.size.width - 10, 38)];
+        _searchBar = [[SearchBarView alloc] initWithFrame: CGRectMake(5, 5, self.view.frame.size.width - 10, 32)];
         _searchBar.backgroundColor = [UIColor whiteColor];
+        _searchBar.layer.masksToBounds = YES;
+        _searchBar.layer.cornerRadius = 8;
         _searchBar.searchBar.delegate = self;
     }
     return _searchBar;
