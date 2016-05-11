@@ -9,6 +9,7 @@
 #import "JZCoachFeedbackController.h"
 #import "JZMailboxData.h"
 #import "JZCoachFeedbackView.h"
+#import "JZMailBoxController.h"
 
 @interface JZCoachFeedbackController ()<UITextFieldDelegate>
 @property (nonatomic, weak) JZCoachFeedbackView *feedbackView;
@@ -51,19 +52,28 @@
     contentScrollView.contentSize = feedbackView.frame.size;
     
     [contentScrollView addSubview:feedbackView];
+    
+    
+    UITapGestureRecognizer *tapGestureTel = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(viewClick:)];
+    contentScrollView.userInteractionEnabled = YES;
+    [contentScrollView addGestureRecognizer:tapGestureTel];
+
 
     [self setUI];
     
     
 //    监听键盘frame将要发生变化时候的通知
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillShowNotification object:self.replyTextField];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardEndChangeFrame:) name:UIKeyboardDidHideNotification object:self.replyTextField];
-
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardEndChangeFrame:) name:UIKeyboardWillHideNotification object:nil];
     
     self.replyTextField.delegate = self;
     
     [self.replyButton addTarget:self action:@selector(replyButtonClick) forControlEvents:UIControlEventTouchUpInside];
 
+}
+-(void)viewClick:(UITapGestureRecognizer *)recognizer {
+    
+    [self.view endEditing:YES];
 }
 
 -(void)replyButtonClick {
@@ -79,6 +89,8 @@
         if (data) {
         ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"回复成功"];
         [alertView show];
+            
+            [self.myNavController popViewControllerAnimated:YES];
             
         }else {
             ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"回复失败"];
@@ -97,23 +109,29 @@
 
 - (void)keyboardWillChangeFrame:(NSNotification *)note {
     
-    NSDictionary *keyboardDict = note.userInfo;
-    
-    CGRect keyboardFrame = [keyboardDict[UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    
-    CGFloat tanslationY =  keyboardFrame.origin.y;
-    
-    // 出现
-    self.replyView.transform = CGAffineTransformMakeTranslation(0, -tanslationY +64);
-    
 
+    CGFloat durition = [note.userInfo[@"UIKeyboardAnimationDurationUserInfoKey"] doubleValue];
+    
+    CGRect keyboardRect = [note.userInfo[@"UIKeyboardFrameEndUserInfoKey"] CGRectValue];
+    
+    CGFloat keyboardHeight = keyboardRect.size.height;
+    
+    [UIView animateWithDuration:durition animations:^{
+        
+    self.replyView.transform = CGAffineTransformMakeTranslation(0, -keyboardHeight);
+    
+    }];
     
 }
 - (void)keyboardEndChangeFrame:(NSNotification *)note {
 
-    // 隐藏
+    CGFloat duration = [note.userInfo[@"UIKeyboardAnimationDurationUserInfoKey"] doubleValue];
+    
+    [UIView animateWithDuration:duration animations:^{
+        
         self.replyView.transform = CGAffineTransformIdentity;
-
+        
+    }];
 }
 -(void)setUI {
     
