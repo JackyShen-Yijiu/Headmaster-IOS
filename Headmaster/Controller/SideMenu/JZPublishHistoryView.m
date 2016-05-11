@@ -33,7 +33,7 @@ static NSString *JZPublishHistoryCellID = @"JZPublishHistoryCellID";
         self.separatorStyle = UITableViewCellSeparatorStyleNone;
 
         
-        [self addBackgroundImage];
+//        [self addBackgroundImage];
         [self loadData];
         [self setRefresh];
         
@@ -61,7 +61,7 @@ static NSString *JZPublishHistoryCellID = @"JZPublishHistoryCellID";
         listCell = [[JZPublishHistoryCell  alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:JZPublishHistoryCellID];
         listCell.selectionStyle = UITableViewCellSelectionStyleNone;
         
-        listCell.backgroundColor = [UIColor clearColor];
+        listCell.backgroundColor = [UIColor whiteColor];
 
     }
 
@@ -183,12 +183,12 @@ static NSString *JZPublishHistoryCellID = @"JZPublishHistoryCellID";
     return _listDataArray;
 }
 
-#pragma mark - 背景图片
-- (void)addBackgroundImage {
-    
-    UIImage *image = [UIImage imageNamed:@"controllerBackground"];
-    self.layer.contents = (id)image.CGImage;
-}
+//#pragma mark - 背景图片
+//- (void)addBackgroundImage {
+//    
+//    UIImage *image = [UIImage imageNamed:@"controllerBackground"];
+//    self.layer.contents = (id)image.CGImage;
+//}
 
 
 @end

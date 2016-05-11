@@ -8,4 +8,6 @@
 @property (nonatomic, strong) NSString * createtime;
 @property (nonatomic, assign) NSInteger seqindex;
 @property (nonatomic, strong) NSString * title;
+@property (nonatomic, strong) NSString *name;
+
 @end

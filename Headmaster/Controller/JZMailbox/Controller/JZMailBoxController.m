@@ -38,6 +38,7 @@
     
     self.mailboxView = [[JZMailBoxView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth, kJZHeight) style:UITableViewStyleGrouped];
     
+    self.mailboxView.vc = self;
     [self.view addSubview:self.mailboxView];
     
    

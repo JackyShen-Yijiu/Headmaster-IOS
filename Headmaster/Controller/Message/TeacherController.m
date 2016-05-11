@@ -82,10 +82,10 @@
 
 -(void)initUI
 {
-    self.bgView = [[UIImageView alloc] initWithFrame:self.view.bounds];
-    self.bgView.image = [UIImage imageNamed:@"teacher_bg"];
-    [self.view addSubview:self.bgView];
-    
+//    self.bgView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+//    self.bgView.image = [UIImage imageNamed:@"teacher_bg"];
+//    [self.view addSubview:self.bgView];
+    self.view.backgroundColor = JZ_MAIN_BACKGROUND_COLOR;
     self.tableView = [[RefreshTableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height - 64) style:UITableViewStylePlain];
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.delegate = self;
@@ -167,8 +167,8 @@
 - (SearchBarView *)searchBar
 {
     if (_searchBar == nil) {
-        _searchBar = [[SearchBarView alloc] initWithFrame: CGRectMake(0, 0, self.view.frame.size.width, 38)];
-        _searchBar.backgroundColor = [UIColor clearColor];
+        _searchBar = [[SearchBarView alloc] initWithFrame: CGRectMake(5, 10, self.view.frame.size.width - 10, 38)];
+        _searchBar.backgroundColor = [UIColor whiteColor];
         _searchBar.searchBar.delegate = self;
     }
     return _searchBar;
@@ -216,11 +216,6 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return [TeacherCell cellHigth];
-}
-
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    cell.backgroundColor = [UIColor clearColor];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

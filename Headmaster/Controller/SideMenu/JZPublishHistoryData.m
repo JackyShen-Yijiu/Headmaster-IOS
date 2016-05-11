@@ -12,6 +12,8 @@ NSString *const kJZPublishHistoryDataContent = @"content";
 NSString *const kJZPublishHistoryDataCreatetime = @"createtime";
 NSString *const kJZPublishHistoryDataSeqindex = @"seqindex";
 NSString *const kJZPublishHistoryDataTitle = @"title";
+NSString *const kJZPublishHistoryDataName = @"name";
+
 
 @interface JZPublishHistoryData ()
 @end

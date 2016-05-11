@@ -23,7 +23,6 @@
 @property (nonatomic, strong) JZPassRateListView *threeSubjexctView;
 @property (nonatomic, strong) JZPassRateListView *fourSubjexctView;
 
-@property (nonatomic, assign) NSInteger subjectID;
 @property (nonatomic, strong) NSMutableArray *timeDataArrayOne;
 @property (nonatomic, strong) NSMutableArray *timeDataArrayTwo;
 @property (nonatomic, strong) NSMutableArray *timeDataArrayThree;
@@ -53,7 +52,7 @@
 - (void)initUI{
     self.view.backgroundColor = JZ_MAIN_BACKGROUND_COLOR;
     
-    
+    self.title = @"考试合格率";
 
     _bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 40)];
     _bgView.layer.shadowColor = [UIColor blackColor].CGColor;
@@ -72,10 +71,12 @@
     [_scrollView addSubview:self.threeSubjexctView];
     [_scrollView addSubview:self.fourSubjexctView];
 
-
+    CGFloat contentOffsetX = (_subjectID - 1) * self.view.width;
+    _scrollView.contentOffset = CGPointMake(contentOffsetX, 0);
+    
 }
 - (void)initRefesh{
-    self.oneSubjexctView.searchSubjectID = kDateSearchSubjectIDOne;
+    self.oneSubjexctView.searchSubjectID = _subjectID;
     [self getTimeData];
 //    __weak typeof (self) ws = self;
     
@@ -331,6 +332,7 @@
         _toolBarView.followBarColor = [UIColor colorWithHexString:@"3d8bff"];
         _toolBarView.backgroundColor = [UIColor clearColor];
         _toolBarView.titleArray = @[ @"科目一", @"科目二", @"科目三" , @"科目四"];
+        _toolBarView.selectButtonInteger = _subjectID - 1;
         __weak typeof(self) ws = self;
         [_toolBarView dvvToolBarViewItemSelected:^(UIButton *button) {
             [ws dvvToolBarViewItemSelectedAction:button.tag];
