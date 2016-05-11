@@ -20,6 +20,7 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
 @property (nonatomic, strong) NSMutableArray *dataArr;
 @property (nonatomic, strong) JZMailBoxHeaderView *headerView;
 
+
 @end
 @implementation JZMailBoxView
 
@@ -33,21 +34,21 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
         self.separatorStyle = NO;
 //        self.backgroundColor = [UIColor orangeColor];
         
-        self.sectionHeaderHeight = 10;
+//        self.sectionHeaderHeight = 10;
 
-        self.headerView = [[JZMailBoxHeaderView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth, 48)];
+//        self.headerView = [[JZMailBoxHeaderView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth, 48)];
         
-        UITapGestureRecognizer *tapGestureTel = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(headerViewClick:)];
-        self.headerView.userInteractionEnabled = YES;
-        [self.headerView addGestureRecognizer:tapGestureTel];
-        self.tableHeaderView = self.headerView;
+//        UITapGestureRecognizer *tapGestureTel = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(headerViewClick:)];
+//        self.headerView.userInteractionEnabled = YES;
+//        [self.headerView addGestureRecognizer:tapGestureTel];
+//        self.tableHeaderView = self.headerView;
 
         
         
         [self reloadData];
         
         [self loadData];
-//        [self setRefresh];
+        [self setRefresh];
         
     }
     return self;
@@ -55,7 +56,7 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
 
 #pragma mark - 数据源
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    [self.headerView setBadge:10];
+//    [self.headerView setBadge:10];
     return self.dataArr.count;
 }
 
@@ -87,6 +88,15 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
     
     return [JZMailBoxCell cellHeightDmData:dataModel];
 }
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    
+    return @"教练反馈";
+
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 32;
+}
 
 
 #pragma mark - 代理
@@ -100,15 +110,15 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
     [self.vc.navigationController pushViewController:feedbackVC animated:YES];
     
 }
-#pragma mark - headerView点击事件
--(void)headerViewClick:(UITapGestureRecognizer *)recognizer {
-    
-    JZPublishHistoryController *publishVC = [[JZPublishHistoryController alloc]init];
-    
-    [self.vc.myNavController pushViewController:publishVC animated:YES];
-    
-    
-}
+//#pragma mark - headerView点击事件
+//-(void)headerViewClick:(UITapGestureRecognizer *)recognizer {
+//    
+//    JZPublishHistoryController *publishVC = [[JZPublishHistoryController alloc]init];
+//    
+//    [self.vc.myNavController pushViewController:publishVC animated:YES];
+//    
+//    
+//}
 
 
 -(void)loadData {
@@ -147,7 +157,60 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
    }
 
 
+#pragma mark - 下拉刷新
+-(void)setRefresh {
+    
+    WS(ws);
+    
+    self.refreshFooter.beginRefreshingBlock = ^{
+        [ws loadMoreData];
+    };
+    
+    self.refreshHeader = nil;
+    
+    
+}
+-(void)loadMoreData {
+    static NSInteger index = 2;
 
+    [NetworkEntity getCoachFeedbackWithUserid:[UserInfoModel defaultUserInfo].userID SchoolId:[UserInfoModel defaultUserInfo].schoolId count:10 index:index success:^(id responseObject) {
+        
+        NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
+        if (type == 1) {
+            NSArray *resultData = responseObject[@"data"];
+            index ++;
+            if (!resultData.count) {
+                
+                [self.refreshFooter endRefreshing];
+                self.refreshFooter.scrollView = nil;
+                [self.vc showTotasViewWithMes:@"已经加载所有数据"];
+                return;
+                
+            }
+            
+            for (NSDictionary *dict in resultData) {
+                
+                JZMailboxData *dataModel = [JZMailboxData yy_modelWithJSON:dict];
+                [self.dataArr addObject:dataModel];
+                
+            }
+            
+            [self reloadData];
+            [self.refreshFooter endRefreshing];
+            
+            
+        }else{
+            
+            ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"网络出错啦"];
+            [alertView show];
+            
+        }
+        
+    } failure:^(NSError *failure) {
+        ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"网络出错啦"];
+        [alertView show];
+        
+    }];}
 
 
 #pragma mark - 懒加载
@@ -159,6 +222,7 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
     
     return _dataArr;
 }
+
 
 
 @end
