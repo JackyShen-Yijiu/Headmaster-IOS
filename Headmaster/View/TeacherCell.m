@@ -218,11 +218,13 @@
         // 正在授课
         self.flagView.backgroundColor = JZ_BLUE_COLOR;
         self.teachStateLabel.text = @"正在授课";
+        self.teachStateLabel.textColor = JZ_BLUE_COLOR;
         self.todeyTimeLabel.text = [NSString stringWithFormat:@"今日%lu课时",model.coursecountr];
     }else{
         // 休息
         self.flagView.backgroundColor = kJZLightTextColor;
         self.teachStateLabel.text = @"休息";
+        self.teachStateLabel.textColor = kJZLightTextColor;
         self.todeyTimeLabel.text = [NSString stringWithFormat:@"今日%lu课时",model.coursecountr];
     }
     

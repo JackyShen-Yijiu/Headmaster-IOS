@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -16,7 +16,6 @@
                 <subviews>
                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defoult_por" translatesAutoresizingMaskIntoConstraints="NO" id="iuF-Pn-b0I">
                         <rect key="frame" x="15" y="15" width="39" height="39"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="39" id="Qo8-m1-cyc"/>
                             <constraint firstAttribute="width" constant="39" id="gZU-kL-1kD"/>
@@ -24,7 +23,6 @@
                     </imageView>
                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="imessageButton" translatesAutoresizingMaskIntoConstraints="NO" id="VEt-OG-tGs">
                         <rect key="frame" x="39" y="43" width="30" height="26"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="30" id="OyI-VO-noX"/>
                             <constraint firstAttribute="height" constant="30" id="lTF-Yg-ND7"/>
@@ -32,7 +30,6 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="毛云娇" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lfr-Bx-UTr">
                         <rect key="frame" x="84" y="15" width="100" height="21"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="100" id="Zrb-ek-86G"/>
                             <constraint firstAttribute="height" constant="21" id="gwd-vZ-ic3"/>
@@ -43,7 +40,6 @@
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c91-AX-Lda">
                         <rect key="frame" x="84" y="43" width="146" height="23"/>
-                        <animations/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="23" id="Vr7-zv-Pb0"/>
@@ -52,7 +48,6 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="课时" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9U-30-IPR">
                         <rect key="frame" x="590" y="27" width="30" height="21"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="30" id="23V-Ll-Vbn"/>
                             <constraint firstAttribute="height" constant="21" id="LjX-fk-gIb"/>
@@ -63,7 +58,6 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="79" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sp5-fU-uPN">
                         <rect key="frame" x="531" y="15" width="52" height="29"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="29" id="tOd-OV-vH2"/>
                         </constraints>
@@ -73,7 +67,6 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="好评10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SEc-FG-GFo">
                         <rect key="frame" x="15" y="146" width="53" height="21"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="QD0-0A-GU4"/>
                         </constraints>
@@ -83,7 +76,6 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="中评3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="07s-ha-rcf">
                         <rect key="frame" x="171" y="147" width="43" height="21"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="gmo-js-1SA"/>
                         </constraints>
@@ -93,7 +85,6 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="差评0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCV-A0-8IQ">
                         <rect key="frame" x="306" y="144" width="42" height="21"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="oS7-5M-xZ5"/>
                         </constraints>
@@ -103,7 +94,6 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="投诉3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2X-IB-scG">
                         <rect key="frame" x="492" y="143" width="42" height="21"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="owM-P3-UmO"/>
                         </constraints>
@@ -112,7 +102,6 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <animations/>
                 <constraints>
                     <constraint firstItem="GCV-A0-8IQ" firstAttribute="leading" secondItem="07s-ha-rcf" secondAttribute="trailing" constant="50" id="1Lh-cU-ZvK"/>
                     <constraint firstItem="c91-AX-Lda" firstAttribute="leading" secondItem="iuF-Pn-b0I" secondAttribute="trailing" constant="30" id="3A9-mN-rqO"/>
@@ -136,7 +125,6 @@
                     <constraint firstItem="GCV-A0-8IQ" firstAttribute="top" secondItem="c91-AX-Lda" secondAttribute="bottom" constant="13" id="y4U-DS-C4L"/>
                 </constraints>
             </tableViewCellContentView>
-            <animations/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="badCommondLabel" destination="GCV-A0-8IQ" id="FoW-EH-CtX"/>

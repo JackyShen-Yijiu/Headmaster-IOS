@@ -230,6 +230,19 @@
     return 0;
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    // 如果好评数,中评数,差评数都为0 则不显示 header
+    if ([[_viewModel.lastMonthDic objectForKey:@"goodcommnent"] integerValue] == 0 && [[_viewModel.lastMonthDic objectForKey:@"generalcomment"] integerValue] == 0 && [[_viewModel.lastMonthDic objectForKey:@"badcomment"] integerValue] == 0) {
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.width, 40)];
+        view.backgroundColor = [UIColor clearColor];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 40 - 14, 100, 14)];
+        label.textColor = kJZLightTextColor;
+        label.text = @"暂无数据";
+        label.font = [UIFont systemFontOfSize:14];
+        label.centerX = view.centerX;
+        label.textAlignment = NSTextAlignmentCenter;
+        [view addSubview:label];
+        return view;
+    }
     JZPassRateHeaderView *headerView = [[JZPassRateHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.width, 44)];
     headerView.arrowImgView.hidden = YES;
     headerView.backgroundColor = [UIColor whiteColor];
@@ -283,6 +296,7 @@
                 _chartCell.commentDataNumberDic = self.viewModel.lastWeekDic;
             }
             if (_commentDateSearchType == kCommentDateSearchTypeToday) {
+                NSLog(@"self.viewModel.todayDic = %@",self.viewModel.todayDic);
                 _chartCell.commentDataNumberDic = self.viewModel.todayDic;
             }
             if (_commentDateSearchType == kCommentDateSearchTypeThisWeek) {
