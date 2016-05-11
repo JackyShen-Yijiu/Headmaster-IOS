@@ -24,6 +24,7 @@
 #import "XYPieChart.h"
 
 #import "JZCommentCommentlist.h"
+#import "JZCommentListController.h"
 
 
 
@@ -372,17 +373,21 @@
 }
 #pragma maek ----- 用于点击字体是饼状图放大
 - (void)expandPieIndex:(NSInteger )index{
+    JZCommentListController *vc = (JZCommentListController *)self.parementVC;
     if (index == 0) {
+         vc.commentLevel = KCommnetLevelHighRating;
         [_chartCell.pieChartView.pieChart setSliceSelectedAtIndex:0];
         [_chartCell.pieChartView.pieChart setSliceDeselectedAtIndex:1];
         [_chartCell.pieChartView.pieChart setSliceDeselectedAtIndex:2];
     }
     if (index == 1) {
+        vc.commentLevel = KCommnetLevelMidRating;
         [_chartCell.pieChartView.pieChart setSliceDeselectedAtIndex:0];
         [_chartCell.pieChartView.pieChart setSliceSelectedAtIndex:1];
         [_chartCell.pieChartView.pieChart setSliceDeselectedAtIndex:2];
     }
     if (index == 2) {
+         vc.commentLevel = KCommnetLevelMidRating;
         [_chartCell.pieChartView.pieChart setSliceDeselectedAtIndex:0];
         [_chartCell.pieChartView.pieChart setSliceDeselectedAtIndex:1];
         [_chartCell.pieChartView.pieChart setSliceSelectedAtIndex:2];
@@ -393,9 +398,13 @@
 }
 #pragma mark ---- 用于字体颜色放大
 - (void)expandTitleIndex:(NSInteger)index{
+    
+    JZCommentListController *vc = (JZCommentListController *)self.parementVC;
     if (0 == index) {
         // 好评
         self.commnetLevel = KCommnetLevelHighRating;
+        
+        vc.commentLevel = KCommnetLevelHighRating;
         
         _chartCell.goodCommentView.expandIndex = index;
         
@@ -407,7 +416,7 @@
     if (1 == index) {
         // 中评
         self.commnetLevel = KCommnetLevelMidRating;
-        
+         vc.commentLevel = KCommnetLevelMidRating;
         _chartCell.mightCommentView.expandIndex = index;
         
         _chartCell.goodCommentView.isShowBigView = NO;
@@ -417,7 +426,7 @@
     if (2 == index) {
         // 差评
         self.commnetLevel = KCommnetLevelPoorRating;
-        
+         vc.commentLevel = KCommnetLevelPoorRating;
         _chartCell.badCommentView.expandIndex = index;
         
         _chartCell.goodCommentView.isShowBigView = NO;

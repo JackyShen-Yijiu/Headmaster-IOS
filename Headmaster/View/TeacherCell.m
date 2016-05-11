@@ -60,7 +60,7 @@
     
     // 教学科目
     self.teachcontentLabel = [[UILabel alloc] init];
-   self.teachcontentLabel.text = @"科目二 科目三";
+//   self.teachcontentLabel.text = @"科目二 科目三";
     self.teachcontentLabel.textColor = kJZLightTextColor;
    self.teachcontentLabel.font = [UIFont systemFontOfSize:12];
     if (YBIphone6Plus) {
@@ -82,9 +82,10 @@
     [self.contentView addSubview:self.titleLabel];
     [self.contentView addSubview:self.teachcontentLabel];
     [self.contentView addSubview:self.passLabel];
-//    [self.contentView addSubview:self.flagView];
-//    [self.contentView addSubview:self.teachStateLabel];
-//    [self.contentView addSubview:self.todeyTimeLabel];
+    
+    [self.contentView addSubview:self.flagView];
+    [self.contentView addSubview:self.teachStateLabel];
+    [self.contentView addSubview:self.todeyTimeLabel];
     
     self.rateView = [[CWStarRateView alloc] initWithFrame:CGRectMake(0, 0, 90, 14.f) numberOfStars:5];
     [self.rateView setUserInteractionEnabled:NO];
@@ -128,26 +129,27 @@
         
     }];
     
-//    [self.flagView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.centerX.equalTo(self.iconView.mas_centerX);
-//        make.top.equalTo(self.iconView.mas_bottom).offset(14);
-//        make.height.equalTo(@14);
-//        
-//    }];
-//    
-//    
-//    [self.teachStateLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(self.titleLabel.mas_left);
-//        make.top.equalTo(self.flagView.mas_top);
-//        make.height.equalTo(@14);
-//        
-//    }];
-//    [self.todeyTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(self.teachStateLabel.mas_right).offset(4);
-//        make.top.equalTo(self.flagView.mas_top);
-//        make.height.equalTo(@14);
-//        
-//    }];
+    [self.flagView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.iconView.mas_centerX);
+        make.top.equalTo(self.iconView.mas_bottom).offset(14);
+        make.height.equalTo(@14);
+        make.width.equalTo(@14);
+        
+    }];
+    
+    
+    [self.teachStateLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.titleLabel.mas_left);
+        make.top.equalTo(self.flagView.mas_top);
+        make.height.equalTo(@14);
+        
+    }];
+    [self.todeyTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.teachStateLabel.mas_right).offset(4);
+        make.top.equalTo(self.flagView.mas_top);
+        make.height.equalTo(@14);
+        
+    }];
     
     [self.rateView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView).offset(16.f);
@@ -163,7 +165,7 @@
     
     
     [self.phoneButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.rateView.mas_bottom).offset(0.f);
+        make.top.equalTo(self.passLabel.mas_bottom).offset(-5);
         make.right.equalTo(self.contentView).offset(-16);
         make.width.equalTo(@(28));
         make.height.equalTo(@(36.f));
@@ -211,6 +213,19 @@
     self.passLabel.text = [NSString stringWithFormat:@"通过率 %lu%%",model.passrate];
     self.rateView.scorePercent = _model.raring  / 5.f;
     
+    // 是否在授课  0 是休息, 1 正在授课
+    if (model.isonline) {
+        // 正在授课
+        self.flagView.backgroundColor = JZ_BLUE_COLOR;
+        self.teachStateLabel.text = @"正在授课";
+        self.todeyTimeLabel.text = [NSString stringWithFormat:@"今日%lu课时",model.coursecountr];
+    }else{
+        // 休息
+        self.flagView.backgroundColor = kJZLightTextColor;
+        self.teachStateLabel.text = @"休息";
+        self.todeyTimeLabel.text = [NSString stringWithFormat:@"今日%lu课时",model.coursecountr];
+    }
+    
 }
 
 #pragma mark Aciton
@@ -242,8 +257,8 @@
 -(UIImageView *)iconView{
     if (_iconView == nil) {
         _iconView = [[UIImageView alloc] init];
-//        _iconView.layer.masksToBounds = YES;
-//       _iconView.layer.cornerRadius = 18;
+        _iconView.layer.masksToBounds = YES;
+       _iconView.layer.cornerRadius = 18;
 
     }
     return _iconView;
@@ -258,13 +273,13 @@
     return _flagView;
 }
 - (UILabel *)teachStateLabel{
-    if (_teachcontentLabel == nil) {
-        _teachcontentLabel = [[UILabel alloc] init];
-        _teachcontentLabel.textColor = JZ_BLUE_COLOR;
-        _teachcontentLabel.font = [UIFont systemFontOfSize:12];
-        _teachcontentLabel.text = @"正在授课";
+    if (_teachStateLabel == nil) {
+        _teachStateLabel = [[UILabel alloc] init];
+        _teachStateLabel.textColor = JZ_BLUE_COLOR;
+        _teachStateLabel.font = [UIFont systemFontOfSize:12];
+        _teachStateLabel.text = @"正在授课";
     }
-    return _teachcontentLabel;
+    return _teachStateLabel;
 }
 - (UILabel *)todeyTimeLabel{
     if (_todeyTimeLabel == nil) {
