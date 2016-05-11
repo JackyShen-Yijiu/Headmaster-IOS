@@ -22,7 +22,6 @@
         _titleArray = @[@"本周",@"本月",@"本年"];
         [self addTopViewtitle:_titleArray];
         // 设置初始值
-        
     }
     return self;
 }
@@ -34,7 +33,7 @@
 - (void)addTopViewtitle:(NSArray *)titleArray
 {
     CGFloat buttonW = self.width / _titleArray.count;
-    CGFloat buttonH = 40;
+    CGFloat buttonH = 30;
     
     for (int i = 0; i < _titleArray.count; i++) {
         // 设置button的基本属性
@@ -42,8 +41,12 @@
         button.frame = CGRectMake (i * buttonW , 0, buttonW, buttonH);
         [button setTitle:_titleArray[i] forState:UIControlStateNormal];
         [button setTintColor:[UIColor colorWithHexString:@"047a64"]];
+        [button setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(didClickButton:) forControlEvents:UIControlEventTouchUpInside];
         button.tag = 101 + i;
+        if (i==0) {
+            [button setBackgroundColor:[UIColor blueColor]];
+        }
         [self addSubview:button];
     }
     // 添加跟随的线条
@@ -54,7 +57,7 @@
     _followLabel.backgroundColor = [UIColor colorWithHexString:@"01e2b6"];
     _followLabel.tag = 2000;
 //    _selectButtonInteger = 101;
-    [self addSubview:_followLabel];
+//    [self addSubview:_followLabel];
     
 }
 /**
@@ -68,16 +71,14 @@
     NSLog(@"%ld",btn.tag);
     // 当点击时设置button的字体颜色
     if (btn.tag != _selectButtonInteger) {
-        
         // 设置按钮恢复状态
         for (UIButton *childButton in btn.superview.subviews) {
             if (childButton.tag == _selectButtonInteger) {
-               [childButton setTitleColor:[UIColor colorWithHexString:@"047a64"] forState:UIControlStateNormal];
+               [childButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+                childButton.backgroundColor = [UIColor whiteColor];
             }
         }
-        
         [self selectOneButton:btn.tag];
-        
     }
     if (_didClick) {
         _didClick(btn);
@@ -88,15 +89,15 @@
  * 设置选中的button
  *
  */
-
 - (void)selectOneButton:(NSInteger)tag
 {
     NSArray *array = self.subviews;
     for (int i = 0; i < array.count; i++) {
 //        if ([array[i] isKindOfClass:[UIButton class]]) {
             if ([array[i] tag] == tag) {
-                [array[i] setTitleColor:[UIColor colorWithHexString:@"01e2b6"] forState:UIControlStateNormal];
-                
+//                [array[i] setTitleColor:[UIColor colorWithHexString:@"01e2b6"] forState:UIControlStateNormal];
+                [array[i] setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+                [array[i] setBackgroundColor:[UIColor blueColor]];
                 // 获得button的frame
                 CGRect rect = [array[i] frame];
                 // 跟随条移动的位置
@@ -107,8 +108,6 @@
                                //动画
                 [UIView animateWithDuration:0.3 animations:^{
                     _followLabel.frame= followNew;
-                   
-
                 }];
 
                 _selectButtonInteger = tag;
