@@ -98,11 +98,13 @@
         _rightLabel.backgroundColor = [UIColor redColor];
         _rightLabel.textAlignment = NSTextAlignmentCenter;
         _rightLabel.font = [UIFont systemFontOfSize:8];
+        _rightLabel.frame = CGRectMake(_rightView.width-10, 0, 10, 10);
+
         if (YBIphone6Plus) {
             _rightLabel.font = [UIFont systemFontOfSize:8*YBRatio];
+            _rightLabel.frame = CGRectMake(_rightView.width-10, 0, 16, 16);
         }
-        _rightLabel.frame = CGRectMake(_rightView.width-10, 0, 10, 10);
-        _rightLabel.layer.masksToBounds = YES;
+                _rightLabel.layer.masksToBounds = YES;
         _rightLabel.layer.cornerRadius = _rightLabel.width/2;
         [_rightView addSubview:_rightLabel];
         
