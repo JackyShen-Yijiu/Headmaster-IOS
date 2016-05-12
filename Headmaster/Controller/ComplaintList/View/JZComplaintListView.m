@@ -56,6 +56,8 @@ static NSString *JZComplaintCellID = @"JZComplaintCell";
     
     listCell.selectionStyle = UITableViewCellSelectionStyleNone;
      JZComplaintComplaintlist *dataModel = self.listDataArray[indexPath.row];
+    
+    
         listCell.data = dataModel;
 
     
@@ -92,7 +94,15 @@ static NSString *JZComplaintCellID = @"JZComplaintCell";
             
             NSArray *complaintlist = resultData[@"complaintlist"];
             
+            NSString *messageCount = resultData[@"count"];
             
+            
+            NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+                // 写入
+            [userDefaults setInteger:messageCount.integerValue forKey:@"JZComplainCount"];
+                // 强制写入
+            [userDefaults synchronize];
+
             
             for (NSDictionary *dict in complaintlist) {
                 

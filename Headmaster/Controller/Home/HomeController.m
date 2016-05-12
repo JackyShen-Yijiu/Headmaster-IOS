@@ -129,6 +129,7 @@
     
     [super viewWillAppear:YES];
     // 显示下面的导航栏
+    [self loadComplaintData];
     self.tabBarController.tabBar.hidden = NO;
     self.myNavigationItem.title = @"数据概览";
     self.myNavigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.rightView];
@@ -162,7 +163,7 @@
 
     NSLog(@"self.view:%@",self.view);
     
-    [self loadComplaintData];
+    
     
     if ([HomeGuideController isShowGuide]) {
         [HomeGuideController show];
@@ -225,7 +226,6 @@
         if (_viewModel.searchType == kDateSearchTypeWeek) {
             
             [self.evaluateView refreshData:_viewModel.evaluateArray];
-            self.rightLabel.text = _viewModel.evaluateArray[3];
 //            [self.progressView refreshData:@[ @(0), @(0), @(1), @(0) ]];
             [self.progressView refreshpassrate:_viewModel.passrate overstockstudent:_viewModel.overstockstudent];
 
@@ -236,13 +236,9 @@
             [self.progressView refreshpassrate:_viewModel.passrate overstockstudent:_viewModel.overstockstudent];
             
             [self.evaluateView refreshData:_viewModel.evaluateArray];
-            self.rightLabel.text = _viewModel.evaluateArray[3];
             
         }
         
-        if (_viewModel.evaluateArray[3] && [_viewModel.evaluateArray[3] isEqualToString:@"0"]) {
-            self.rightLabel.hidden = YES;
-        }
         
     }];
     
@@ -483,6 +479,26 @@
             NSDictionary *resultData = responseObject[@"data"];
             
             self.complaintCount = [resultData[@"count"] integerValue];
+            NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+            NSInteger messageCount =  [userDefaults integerForKey:@"JZComplainCount"];
+
+            
+            if (messageCount< self.complaintCount) {
+                
+
+                self.rightLabel.text = [NSString stringWithFormat:@"%zd",self.complaintCount - messageCount];
+                
+//                self.rightLabel.hidden = !self.complaintCount;
+                self.rightLabel.hidden = NO;
+
+            }else{
+                
+                self.rightLabel.hidden = YES;
+            }
+            
+
+
+            
             
             
         }else{

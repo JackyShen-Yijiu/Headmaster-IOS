@@ -11,5 +11,6 @@
 
 @interface JZComplaintListView : RefreshTableView
 @property (nonatomic, strong) UIViewController *vc;
+@property (nonatomic, assign) NSInteger messageCount;
 
 @end
