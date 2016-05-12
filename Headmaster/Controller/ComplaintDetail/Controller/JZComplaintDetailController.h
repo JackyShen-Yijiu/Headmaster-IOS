@@ -10,5 +10,6 @@
 @class JZComplaintComplaintlist;
 @interface JZComplaintDetailController : UIViewController
 @property (nonatomic, strong) JZComplaintComplaintlist *dataModel;
+@property (nonatomic, assign) BOOL isFormSideMenu;
 
 @end

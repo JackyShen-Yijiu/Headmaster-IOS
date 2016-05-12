@@ -77,10 +77,7 @@ static NSString *JZPublishHistoryCellID = @"JZPublishHistoryCellID";
         [userDefaults setInteger:self.messageCount forKey:@"JZPublishHistoryMessageCount"];
         // 强制写入
         [userDefaults synchronize];
-        
-        
-        
-        
+
     }
     listCell.data = dataModel;
     

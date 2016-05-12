@@ -12,6 +12,7 @@
 #import <YYModel.h>
 #import "RefreshTableView.h"
 #import "JZComplaintDetailController.h"
+#import "JZComplaintListController.h"
 
 static NSString *JZComplaintCellID = @"JZComplaintCell";
 
@@ -74,6 +75,11 @@ static NSString *JZComplaintCellID = @"JZComplaintCell";
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     JZComplaintDetailController *complaintDetailVC = [[JZComplaintDetailController alloc]init];
+    
+    JZComplaintListController *JZComplaintVC  = (JZComplaintListController * )self.vc;
+
+    complaintDetailVC.isFormSideMenu =   JZComplaintVC.isFormSideMenu;
+
    
     JZComplaintComplaintlist *dataModel = self.listDataArray[indexPath.row];
 

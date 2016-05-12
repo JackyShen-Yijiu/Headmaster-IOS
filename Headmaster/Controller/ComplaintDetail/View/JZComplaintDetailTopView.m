@@ -29,7 +29,9 @@
     
     if (self = [super initWithFrame:frame]) {
         
-        self.backgroundColor = kJZNavBackgroundColor;
+        self.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
+        
+//        self.backgroundColor = [UIColor redColor];
         
     }
     
