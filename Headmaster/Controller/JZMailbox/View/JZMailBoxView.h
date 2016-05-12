@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RefreshTableView.h"
 
-@interface JZMailBoxView : UITableView
+@interface JZMailBoxView : RefreshTableView
 @property (nonatomic, strong) UIViewController *vc;
 
 @end

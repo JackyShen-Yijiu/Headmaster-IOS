@@ -66,6 +66,22 @@ static NSString *JZPublishHistoryCellID = @"JZPublishHistoryCellID";
     }
 
     JZPublishHistoryData *dataModel = self.listDataArray[indexPath.row];
+    if (indexPath.row == 0) {
+        
+        JZPublishHistoryData *dataModel = self.listDataArray.firstObject;
+        
+        self.messageCount = dataModel.seqindex;
+        
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        // 写入
+        [userDefaults setInteger:self.messageCount forKey:@"JZPublishHistoryMessageCount"];
+        // 强制写入
+        [userDefaults synchronize];
+        
+        
+        
+        
+    }
     listCell.data = dataModel;
     
     return listCell;

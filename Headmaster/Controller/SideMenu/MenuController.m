@@ -11,11 +11,13 @@
 #import "UserCenterController.h"
 #import "HomeDetailController.h"
 #import "RecommendViewController.h"
+#import "JZComplaintListController.h"
 
 #define LiftMargain 36
 
 @interface MenuController () <UITableViewDataSource,UITableViewDelegate>
-
+///  投诉数量
+@property (nonatomic, assign) NSInteger complaintCount;
 @property (nonatomic, strong) UIView                    *headView;
 @property (nonatomic, copy) NSArray                     *LeftItemArray;
 @property (nonatomic, copy) NSArray                     *LeftIconArray;
@@ -50,6 +52,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self loadComplaintData];
     // Do any additional setup after loading the view.
     
     UIImage *image = [UIImage imageNamed:@"background_side.jpg"];
@@ -71,7 +75,7 @@
     // 投诉评论
     SideMenuItem * item2 = [[SideMenuItem alloc] init];
     item2.title = @"投诉";
-    item2.target = @"RecommendViewController";
+    item2.target = @"JZComplaintListController";
     
     
     // 设置
@@ -124,7 +128,7 @@
         UILabel *schoolLabel = [[UILabel alloc] init];
         schoolLabel.frame = CGRectMake(CGRectGetMinX(imgView.frame), CGRectGetMaxY(imgView.frame) + 15, self.headView.width - LiftMargain, 16);
 //        schoolLabel.centerX  = imgView.centerX + 20;
-        schoolLabel.text = [NSString stringWithFormat:@"“%@”",[UserInfoModel defaultUserInfo].schoolName];
+        schoolLabel.text = [NSString stringWithFormat:@"%@",[UserInfoModel defaultUserInfo].schoolName];
         schoolLabel.textColor = [UIColor whiteColor];
         schoolLabel.textAlignment = NSTextAlignmentLeft;
         schoolLabel.font = [UIFont systemFontOfSize:16];
@@ -207,8 +211,9 @@
     
     // 评论投诉
     if (1 == indexPath.row ) {
-        RecommendViewController *vc = [[RecommendViewController alloc] init];
+        JZComplaintListController *vc = [[JZComplaintListController alloc] init];
         vc.isFormSideMenu = YES;
+        vc.count = self.complaintCount;
         HMNagationController *nav = [[HMNagationController alloc] initWithRootViewController:vc];
         [self presentViewController:nav animated:YES completion:nil];
         return;
@@ -227,6 +232,35 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+///  加载投诉数量
+-(void)loadComplaintData {
+    
+    
+    [NetworkEntity getComplainListWithUserid:[UserInfoModel defaultUserInfo].userID SchoolId:[UserInfoModel defaultUserInfo].schoolId Index:1 Count:10 success:^(id responseObject) {
+        
+        
+        NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
+        if (type == 1) {
+            NSDictionary *resultData = responseObject[@"data"];
+            
+            self.complaintCount = [resultData[@"count"] integerValue];
+            
+            
+        }else{
+            
+            
+        }
+        
+    } failure:^(NSError *failure) {
+        
+        
+    }];
+    
+    
+    
+    
+}
+
 
 /*
 #pragma mark - Navigation

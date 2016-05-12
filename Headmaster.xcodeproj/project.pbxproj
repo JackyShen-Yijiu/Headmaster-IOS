@@ -493,6 +493,8 @@
 		D9EEA6DC1CE0782200F8662D /* SDCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9EEA6D31CE0782200F8662D /* SDCollectionViewCell.m */; };
 		D9EEA6DD1CE0782200F8662D /* SDCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9EEA6D51CE0782200F8662D /* SDCycleScrollView.m */; };
 		D9EEA6DE1CE0782200F8662D /* UIView+SDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D9EEA6D71CE0782200F8662D /* UIView+SDExtension.m */; };
+		D9F744121CE2E1C500C45A7D /* JZCoachFeedbackController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F744111CE2E1C500C45A7D /* JZCoachFeedbackController.m */; };
+		D9F744151CE2FAC400C45A7D /* JZCoachFeedbackView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F744141CE2FAC400C45A7D /* JZCoachFeedbackView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1356,6 +1358,10 @@
 		D9EEA6D51CE0782200F8662D /* SDCycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCycleScrollView.m; sourceTree = "<group>"; };
 		D9EEA6D61CE0782200F8662D /* UIView+SDExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDExtension.h"; sourceTree = "<group>"; };
 		D9EEA6D71CE0782200F8662D /* UIView+SDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDExtension.m"; sourceTree = "<group>"; };
+		D9F744101CE2E1C500C45A7D /* JZCoachFeedbackController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZCoachFeedbackController.h; sourceTree = "<group>"; };
+		D9F744111CE2E1C500C45A7D /* JZCoachFeedbackController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZCoachFeedbackController.m; sourceTree = "<group>"; };
+		D9F744131CE2FAC400C45A7D /* JZCoachFeedbackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZCoachFeedbackView.h; sourceTree = "<group>"; };
+		D9F744141CE2FAC400C45A7D /* JZCoachFeedbackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZCoachFeedbackView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3123,14 +3129,14 @@
 			path = Year;
 			sourceTree = "<group>";
 		};
-		D9AEF25E1CC5D9D000AB76DD /* Publish（公告） */ = {
+		D9AEF25E1CC5D9D000AB76DD /* Publish */ = {
 			isa = PBXGroup;
 			children = (
 				D9AEF2671CC5E91200AB76DD /* Model */,
 				D9AEF25F1CC5DA0700AB76DD /* Controller */,
 				D9AEF2631CC5DA4B00AB76DD /* View */,
 			);
-			name = "Publish（公告）";
+			name = Publish;
 			path = SideMenu;
 			sourceTree = "<group>";
 		};
@@ -3213,8 +3219,9 @@
 		D9CEC8F21C0E8CF7008DEE69 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D9AEF25E1CC5D9D000AB76DD /* Publish（公告） */,
 				D94F3E6E1CE179F600695A86 /* JZMailbox */,
+				D9F7440D1CE2E14200C45A7D /* JZCoachFeedback */,
+				D9AEF25E1CC5D9D000AB76DD /* Publish */,
 				06C326401CDB442C004D888A /* JZCommentListController */,
 				06C326171CDAE34C004D888A /* JZPassRate */,
 				D92424C41CDB3C4E002AB7C0 /* Complaint */,
@@ -3465,6 +3472,33 @@
 				D9EEA6D11CE0782200F8662D /* TAPageControl.m */,
 			);
 			path = PageControl;
+			sourceTree = "<group>";
+		};
+		D9F7440D1CE2E14200C45A7D /* JZCoachFeedback */ = {
+			isa = PBXGroup;
+			children = (
+				D9F7440E1CE2E14200C45A7D /* Controller */,
+				D9F7440F1CE2E14200C45A7D /* View */,
+			);
+			path = JZCoachFeedback;
+			sourceTree = "<group>";
+		};
+		D9F7440E1CE2E14200C45A7D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D9F744101CE2E1C500C45A7D /* JZCoachFeedbackController.h */,
+				D9F744111CE2E1C500C45A7D /* JZCoachFeedbackController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D9F7440F1CE2E14200C45A7D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D9F744131CE2FAC400C45A7D /* JZCoachFeedbackView.h */,
+				D9F744141CE2FAC400C45A7D /* JZCoachFeedbackView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -3763,6 +3797,7 @@
 				D95CE3B91C12BD3600EF6F75 /* HomeDataModelSchoolstudentcount.m in Sources */,
 				556D3CEA1C1128CF0012C2D5 /* PublishDataModel.m in Sources */,
 				B8771DE91C098DE40051DE9D /* EaseBubbleView.m in Sources */,
+				D9F744121CE2E1C500C45A7D /* JZCoachFeedbackController.m in Sources */,
 				0613DC161C1C51E200580C32 /* HomeDataDetailDMReservationstudentlist.m in Sources */,
 				D92297451C10439200D0FFDF /* UUBarChart.m in Sources */,
 				B8771D001C098DE40051DE9D /* EMCDDeviceManager+ProximitySensor.m in Sources */,
@@ -3897,6 +3932,7 @@
 				D9CEC9101C0E8CF7008DEE69 /* UITabBar+RedHot.m in Sources */,
 				B8771DEB1C098DE40051DE9D /* EaseChatToolbarItem.m in Sources */,
 				D94F3E981CE1D27C00695A86 /* JZMailboxCoachid.m in Sources */,
+				D9F744151CE2FAC400C45A7D /* JZCoachFeedbackView.m in Sources */,
 				0699E5E61C1581360079CABF /* CoachCoureDatilModel.m in Sources */,
 				B8771D191C098DE40051DE9D /* MWTapDetectingImageView.m in Sources */,
 				D94F3E7D1CE1A84100695A86 /* JZMailBoxHeaderView.m in Sources */,
@@ -4096,8 +4132,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Jizhi Driver Services Co., Ltd (2VG884M937)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Jizhi Driver Services Co., Ltd (2VG884M937)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Guo Bin Shen (L74C9NC842)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Guo Bin Shen (L74C9NC842)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -4119,7 +4155,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "84c617e5-dd02-488a-9351-253d3409da57";
+				PROVISIONING_PROFILE = "209ef630-a41d-4cc5-9687-f3fa89e736ed";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -4141,8 +4177,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Jizhi Driver Services Co., Ltd (2VG884M937)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Jizhi Driver Services Co., Ltd (2VG884M937)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Guo Bin Shen (L74C9NC842)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Guo Bin Shen (L74C9NC842)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -4157,7 +4193,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "84c617e5-dd02-488a-9351-253d3409da57";
+				PROVISIONING_PROFILE = "209ef630-a41d-4cc5-9687-f3fa89e736ed";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -4169,8 +4205,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Jizhi Driver Services Co., Ltd (2VG884M937)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Jizhi Driver Services Co., Ltd (2VG884M937)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Guo Bin Shen (L74C9NC842)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4202,7 +4238,7 @@
 					"$(PROJECT_DIR)/Headmaster/ThirdPary/JGPush",
 				);
 				PRODUCT_NAME = "极致校长";
-				PROVISIONING_PROFILE = "84c617e5-dd02-488a-9351-253d3409da57";
+				PROVISIONING_PROFILE = "209ef630-a41d-4cc5-9687-f3fa89e736ed";
 			};
 			name = Debug;
 		};
@@ -4212,8 +4248,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Jizhi Driver Services Co., Ltd (2VG884M937)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Jizhi Driver Services Co., Ltd (2VG884M937)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Guo Bin Shen (L74C9NC842)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4245,7 +4281,7 @@
 					"$(PROJECT_DIR)/Headmaster/ThirdPary/JGPush",
 				);
 				PRODUCT_NAME = "极致校长";
-				PROVISIONING_PROFILE = "84c617e5-dd02-488a-9351-253d3409da57";
+				PROVISIONING_PROFILE = "209ef630-a41d-4cc5-9687-f3fa89e736ed";
 			};
 			name = Release;
 		};

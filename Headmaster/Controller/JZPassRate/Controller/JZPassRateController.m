@@ -153,18 +153,21 @@
         _scrollView.contentOffset = CGPointMake(contentOffsetX, 0);
         [self.scrollView addSubview:self.oneSubjexctView];
         self.oneSubjexctView.parementVC = self;
+        self.oneSubjexctView.searchSubjectID = 1;
         
     }else if (1 == index) {
         CGFloat contentOffsetX = self.view.width;
         _scrollView.contentOffset = CGPointMake(contentOffsetX, 0);
         [self.scrollView addSubview:self.twoSubjexctView];
         self.twoSubjexctView.parementVC = self;
+         self.twoSubjexctView.searchSubjectID = 2;
         
     }else if (2 == index) {
         CGFloat contentOffsetX = 2 * self.view.width;
         _scrollView.contentOffset = CGPointMake(contentOffsetX, 0);
         [self.scrollView addSubview:self.threeSubjexctView];
         self.threeSubjexctView.parementVC = self;
+         self.threeSubjexctView.searchSubjectID = 3;
 
         
     }
@@ -173,6 +176,7 @@
         _scrollView.contentOffset = CGPointMake(contentOffsetX, 0);
         [self.scrollView addSubview:self.fourSubjexctView];
         self.fourSubjexctView.parementVC = self;
+         self.fourSubjexctView.searchSubjectID = 4;
 
         
     }
@@ -187,13 +191,13 @@
     CGFloat width = self.view.width;
     
     if (0 == scrollView.contentOffset.x) {
-        // 全部
+        // 科目一
         [_toolBarView selectItem:0];
         _subjectID = 1;
         //         self.allListView.frame = CGRectMake(0, -64, self.view.width, self.scrollView.height);
     }
     if (width == scrollView.contentOffset.x) {
-        // 未考
+        // 科目二
         [_toolBarView selectItem:1];
           _subjectID = 2;
         //self.noExameListView.frame = CGRectMake(self.view.width, -64, self.view.width, self.scrollView.height);
@@ -201,25 +205,18 @@
         
     }
     if (2 * width== scrollView.contentOffset.x) {
-        // 约考
+        // 科目三
         [_toolBarView selectItem:2];
           _subjectID = 3;
         //        self.appointListView.frame = CGRectMake(self.view.width * 2, -64, self.view.width, self.scrollView.height);
         
     }
     if (3 * width == scrollView.contentOffset.x) {
-        // 补考
+        // 科目四
         [_toolBarView selectItem:3];
           _subjectID = 4;
         //        self.retestListView.frame = CGRectMake(self.view.width * 3, -64, self.view.width, self.scrollView.height);
         
-        
-        
-    }
-    if (4 * width == scrollView.contentOffset.x) {
-        // 通过
-        [_toolBarView selectItem:4];
-        //        self.passListView.frame = CGRectMake(self.view.width * 4, -64, self.view.width, self.scrollView.height);
         
         
     }

@@ -22,9 +22,12 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
 ///“已回复”这个图片
 @property (nonatomic, strong) UIImageView *replyImage;
 ///  小红点
-@property (nonatomic, strong) UIView *badgeView;
+//@property (nonatomic, strong) UIView *badgeView;
 ///  分割线
 @property (nonatomic, strong) UIView *lineView;
+
+@property (nonatomic, strong) NSMutableDictionary *dict;
+
 
 @end
 
@@ -42,12 +45,23 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
     
     _data = data;
     
+//    _data.isRead = @"0";
+
+    
      [self.coachIcon sd_setImageWithURL:[NSURL URLWithString:_data.coachid.headportrait.originalpic] placeholderImage:[UIImage imageNamed:@"head_null"]];
     
     self.coachNameLabel.text = _data.coachid.name;
     self.contentLabel.text = _data.content;
     self.dateLabel.text = [self getYearLocalDateFormateUTCDate:_data.createtime];
-    self.replyImage.hidden = !_data.replycontent;
+    self.replyImage.hidden = !_data.replyflag;
+    
+
+    
+    
+       
+    
+    
+    
 }
 
 
