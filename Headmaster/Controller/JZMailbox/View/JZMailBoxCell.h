@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 @class JZMailboxData;
 @interface JZMailBoxCell : UITableViewCell
-
+///  小红点
+@property (nonatomic, strong) UIView *badgeView;
 @property (nonatomic, strong) JZMailboxData *data;
 + (CGFloat)cellHeightDmData:(JZMailboxData *)dmData;
 @end

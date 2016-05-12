@@ -10,6 +10,7 @@
 @class JZMailboxData;
 @interface JZCoachFeedbackView : UIView
 @property (nonatomic, strong) JZMailboxData *data;
+@property (nonatomic, assign) NSInteger index;
 
 + (CGFloat)coachFeedbackViewH:(JZMailboxData *)data;
 @end

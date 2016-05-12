@@ -12,4 +12,5 @@
 @property (nonatomic, assign) NSInteger replyflag;
 @property (nonatomic, strong) JZMailboxReplyid * replyid;
 @property (nonatomic, strong) NSString * replytime;
+@property (nonatomic, copy) NSString* isRead;
 @end

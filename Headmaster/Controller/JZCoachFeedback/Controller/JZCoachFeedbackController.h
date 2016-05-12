@@ -7,8 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JZCoachFeedbackView.h"
+
 @class JZMailboxData;
+//@class JZCoachFeedbackView;
+
 @interface JZCoachFeedbackController : UIViewController
 @property (nonatomic, strong) JZMailboxData *dataModel;
+@property (nonatomic, assign) NSInteger  index;
 
 @end

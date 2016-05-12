@@ -72,9 +72,46 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
         
     listCell.selectionStyle = UITableViewCellSelectionStyleNone;
     JZMailboxData *dataModel = self.dataArr[indexPath.row];
+    
     listCell.data = dataModel;
     
     
+    
+    // 系统路径
+  NSString *DocuPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    // 拼接文件路径
+  NSString *path = [DocuPath stringByAppendingPathComponent:[NSString stringWithFormat:@"mailBox%zd.plist",indexPath.row]];
+    if (path) {
+        
+
+        NSArray *isReadArr = [NSArray arrayWithContentsOfFile:path];
+        
+        NSDictionary *idDict = isReadArr.firstObject;
+        
+//        NSString *_id = idDict[@"_id"];
+        NSString *_id = [idDict valueForKey:[NSString stringWithFormat:@"%zd",indexPath.row]];
+        
+        
+            if ([_id isEqualToString:dataModel._id]) {
+        
+                listCell.badgeView.hidden = YES;
+        
+            }else {
+                
+                listCell.badgeView.hidden = NO;
+                
+            }
+        
+
+    }
+    
+    if (dataModel.replyflag) {
+        
+        listCell.badgeView.hidden = YES;
+        
+    }
+    
+   
     return listCell;
 
 }
@@ -87,6 +124,8 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
     JZMailboxData *dataModel = self.dataArr[indexPath.row];
     
     return [JZMailBoxCell cellHeightDmData:dataModel];
+    
+
 }
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     
@@ -106,6 +145,8 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
     JZMailboxData *dataModel = self.dataArr[indexPath.row];
     
     feedbackVC.dataModel = dataModel;
+    
+    feedbackVC.index = indexPath.row;
     
     [self.vc.navigationController pushViewController:feedbackVC animated:YES];
     

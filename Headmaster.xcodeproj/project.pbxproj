@@ -3219,9 +3219,9 @@
 		D9CEC8F21C0E8CF7008DEE69 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D94F3E6E1CE179F600695A86 /* JZMailbox */,
 				D9F7440D1CE2E14200C45A7D /* JZCoachFeedback */,
 				D9AEF25E1CC5D9D000AB76DD /* Publish */,
-				D94F3E6E1CE179F600695A86 /* JZMailbox */,
 				06C326401CDB442C004D888A /* JZCommentListController */,
 				06C326171CDAE34C004D888A /* JZPassRate */,
 				D92424C41CDB3C4E002AB7C0 /* Complaint */,

@@ -147,9 +147,6 @@
         self.replyCotentLabel.text = _data.replycontent;
         
     }
-
-    
-
     
 }
 
