@@ -93,7 +93,7 @@
         [_rightView addGestureRecognizer:tap];
         
         _rightLabel = [[UILabel alloc] init];
-        _rightLabel.text = @"1";
+//        _rightLabel.text = @"1";
         _rightLabel.textColor = [UIColor whiteColor];
         _rightLabel.backgroundColor = [UIColor redColor];
         _rightLabel.textAlignment = NSTextAlignmentCenter;
