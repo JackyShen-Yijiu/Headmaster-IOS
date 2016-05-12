@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+//@protocol JZPublishHistoryChangeMessageCount //协议
+//-(void)changeName:(NSInteger*)messageCount;
+//@end
 @interface JZPublishHistoryController : UIViewController
-
+//@property (nonatomic,weak)id<JZPublishHistoryChangeMessageCount>delegate;
 @end
