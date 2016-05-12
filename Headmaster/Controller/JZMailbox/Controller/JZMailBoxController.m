@@ -23,6 +23,25 @@
     [super viewWillAppear:animated];
     self.myNavigationItem.title = @"信箱";
     [MobClick beginLogPageView:NSStringFromClass([self class])];
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    
+    self.view.backgroundColor = JZ_MAIN_BACKGROUND_COLOR;
+    self.headerView = [[JZMailBoxHeaderView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth, 48)];
+    
+    [self.headerView setBadge:10];
+    
+    UITapGestureRecognizer *tapGestureTel = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(headerViewClick:)];
+    self.headerView.userInteractionEnabled = YES;
+    [self.headerView addGestureRecognizer:tapGestureTel];
+    
+    
+    self.mailboxView = [[JZMailBoxView alloc]initWithFrame:CGRectMake(0, 48, kJZWidth, kJZHeight-48-64) style:UITableViewStyleGrouped];
+    self.mailboxView.vc = self;
+    
+    [self.view addSubview:self.headerView];
+    [self.view addSubview:self.mailboxView];
+
     
 }
 
@@ -35,24 +54,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.automaticallyAdjustsScrollViewInsets = NO;
-    self.edgesForExtendedLayout = UIRectEdgeNone;
-
-    self.view.backgroundColor = JZ_MAIN_BACKGROUND_COLOR;
-    self.headerView = [[JZMailBoxHeaderView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth, 48)];
-    
-    [self.headerView setBadge:10];
-
-    UITapGestureRecognizer *tapGestureTel = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(headerViewClick:)];
-    self.headerView.userInteractionEnabled = YES;
-    [self.headerView addGestureRecognizer:tapGestureTel];
-    
-
-    self.mailboxView = [[JZMailBoxView alloc]initWithFrame:CGRectMake(0, 48, kJZWidth, kJZHeight-48-64) style:UITableViewStyleGrouped];
-    self.mailboxView.vc = self;
-    
-    [self.view addSubview:self.headerView];
-    [self.view addSubview:self.mailboxView];
     
     
    
