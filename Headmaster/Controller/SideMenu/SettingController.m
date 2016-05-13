@@ -189,14 +189,18 @@
                 
             }
         }else if (indexPath.row == 1) {
-            if ([UserInfoModel defaultUserInfo].complaintreminder) {
-                NSInteger num = [UserInfoModel defaultUserInfo].complaintreminder.integerValue;
-                switchControl.on = num;
+           
+//            if ([UserInfoModel defaultUserInfo].complaintreminder) {
+                //                BOOL setON = [UserInfoModel defaultUserInfo].complaintreminder.integerValue;
+                NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+                BOOL setON = [userDefaults boolForKey:@"setComplaint"];
+
+                switchControl.on = setON;
                 
-            }else {
-                switchControl.on = YES;
-                
-            }
+//            }else {
+//                switchControl.on = YES;
+            
+//            }
         }else if (indexPath.row == 2) {
             
             if ([UserInfoModel defaultUserInfo].applyreminder) {
@@ -211,6 +215,7 @@
         cell.accessoryView = switchControl;
         
         [switchControl addTarget:self action:@selector(switchBtnAction:) forControlEvents:UIControlEventValueChanged];
+        
 
     
     }
@@ -291,12 +296,19 @@
  
     }
     if (sender.tag - 100 == 1) {
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        
+        
         if (sender.on == YES) {
-            [[UserInfoModel defaultUserInfo] setValue:@"1" forKey:@"complaintreminder"];
+//            [[UserInfoModel defaultUserInfo] setValue:@"1" forKey:@"complaintreminder"];
+            [userDefaults setBool:YES forKey:@"setComplaint"];
         }else if (sender.on == NO) {
-            [[UserInfoModel defaultUserInfo] setValue:@"0" forKey:@"complaintreminder"];
+//            [[UserInfoModel defaultUserInfo] setValue:@"0" forKey:@"complaintreminder"];
+            [userDefaults setBool:NO forKey:@"setComplaint"];
+
         }
         
+        [userDefaults synchronize];
     }
     if (sender.tag - 100 == 2) {
         if (sender.on == YES) {
