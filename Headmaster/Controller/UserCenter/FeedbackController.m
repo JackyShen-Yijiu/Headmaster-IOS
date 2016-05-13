@@ -54,7 +54,7 @@
     _textview = [[UITextView alloc] init];
 
     _textview.backgroundColor = [UIColor whiteColor];
-    _textview.alpha = 0.5;
+//    _textview.alpha = 0.5;
     _textview.textColor = kJZDarkTextColor;
     _textview.delegate = self;
     _textview.layer.borderColor = kJZLightTextColor.CGColor;
@@ -142,8 +142,12 @@
                             };
     NSLog(@"%@",params);
     [NetworkEntity postFeedbackWithparams:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+         [self.navigationController popToRootViewControllerAnimated:YES];
         ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"我们以收到您的反馈，谢谢您的宝贵意见"];
         [alertView show];
+    
+        
     } failure:^(AFHTTPRequestOperation *operation, id responseObject) {
         ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"反馈失败，请检查网络连接"];
         [alertView show];
