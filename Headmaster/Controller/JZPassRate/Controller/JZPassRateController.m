@@ -231,7 +231,7 @@
 }
 // 月份数据请求
 - (void)getTimeData{
-    NSLog(@"000000000000000000000000000 = _subjectID = %lu",_subjectID);
+
     [NetworkEntity getPassRateTimeWithUserid:[UserInfoModel defaultUserInfo].userID SchoolId:[UserInfoModel defaultUserInfo].schoolId SubjectID:_subjectID success:^(id responseObject) {
         if (1 == [responseObject[@"type"] integerValue]) {
             NSLog(@"response ======= ========== ================== ========  %@ %lu",responseObject,_subjectID);

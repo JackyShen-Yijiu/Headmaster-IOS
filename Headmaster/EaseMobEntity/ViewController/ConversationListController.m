@@ -126,7 +126,7 @@ static NSString *kGroupName = @"GroupName";
             didSelectConversationModel:(id<IConversationModel>)conversationModel
 {
     if (conversationModel) {
-        
+          
         EMConversation *conversation = conversationModel.conversation;
         if (conversation) {
             

@@ -99,7 +99,7 @@
 #pragma mark 创建按钮
 - (void)createGoButton:(NSInteger)tag {
     
-    CGFloat btnWidth = 200;
+    CGFloat btnWidth = 100;
     CGFloat btnHeight = 40;
     CGFloat btnBottom = 60;
     UIButton *button = [UIButton new];
@@ -107,8 +107,8 @@
     [button.layer setCornerRadius:btnHeight / 2.f];
     [button setTitle:@"点击进入" forState:UIControlStateNormal];
     
-    button.frame = CGRectMake((SCREEN_WIDTH - btnWidth) / 2, SCREEN_HEIGHT - btnHeight - btnBottom, btnWidth, btnHeight);
-    button.backgroundColor = [UIColor colorWithHexString:@"01E2B6" alpha:1];
+    button.frame = CGRectMake((SCREEN_WIDTH - btnWidth) / 2, SCREEN_HEIGHT - btnHeight - btnBottom +  28, btnWidth, btnHeight);
+    button.backgroundColor = JZ_BLUE_COLOR;
     [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
     
     UIImageView *imageView = (UIImageView *)[self.scrollView viewWithTag:tag];
@@ -146,8 +146,8 @@
     [self.view addSubview:self.scrollView];
     [self.view addSubview:self.pageControl];
     
-    [self cycleCreateImageView:@[ @"guide_page_1.jpg", @"guide_page_2.jpg", @"guide_page_3.jpg", @"guide_page_4.jpg" ]];
-    self.pageControl.numberOfPages = 4;
+    [self cycleCreateImageView:@[ @"one_JZ.jpg", @"two_JZ.jpg", @"three_JZ.jpg" ]];
+    self.pageControl.numberOfPages = 3;
     
 }
 
