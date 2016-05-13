@@ -33,15 +33,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    UIView *lineTopView = [[UIView alloc] initWithFrame:CGRectMake(7.5, 0, self.view.bounds.size.width - 15, 2)];
-    lineTopView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
-    [self.view addSubview:lineTopView];
+//    UIView *lineTopView = [[UIView alloc] initWithFrame:CGRectMake(7.5, 0, self.view.bounds.size.width - 15, 2)];
+//    lineTopView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
+//    [self.view addSubview:lineTopView];
     [self addBackgroundImage];
     [self initUI];
 }
 
 - (void)initUI {
-    self.navigationItem.title = @"反馈";
+    self.navigationItem.title = @"意见反馈";
     
     CGRect backframe= CGRectMake(0, 0, 16, 16);
     UIButton* backButton= [UIButton buttonWithType:UIButtonTypeCustom];
@@ -50,31 +50,63 @@
     [backButton addTarget:self action:@selector(pushBtnClick) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
 
-    _placeholderLabel = [[UILabel alloc] init];
-    _placeholderLabel.backgroundColor = [UIColor clearColor];
-    _placeholderLabel.frame = CGRectMake(2, 8, 200, 30);
-    _placeholderLabel.text = @"请留下宝贵意见和建议";
-    _placeholderLabel.font = [UIFont systemFontOfSize:15];
-    if (YBIphone6Plus) {
-        _placeholderLabel.font = [UIFont systemFontOfSize:15*YBRatio];
-    }
-    _placeholderLabel.textColor = [UIColor grayColor];
-    [self.view addSubview:_placeholderLabel];
     
-    _textview = [[UITextView alloc] initWithFrame:CGRectMake(0, 8, self.view.frame.size.width, 100)];
-    _textview.backgroundColor = [UIColor blackColor];
+    _textview = [[UITextView alloc] init];
+
+    _textview.backgroundColor = [UIColor whiteColor];
     _textview.alpha = 0.5;
-    _textview.textColor = [UIColor colorWithHexString:TEXT_HIGHLIGHT_COLOR];
+    _textview.textColor = kJZDarkTextColor;
     _textview.delegate = self;
-    _textview.layer.borderColor = [UIColor blackColor].CGColor;
-    _textview.layer.borderWidth = 1;
+    _textview.layer.borderColor = kJZLightTextColor.CGColor;
+    _textview.layer.borderWidth = 0.5;
+    _textview.layer.cornerRadius = 3;
+    _textview.layer.masksToBounds = YES;
     [self.view addSubview:_textview];
     
-    UIButton *submitBtn = [[UIButton alloc] initWithFrame:CGRectMake(10, 113, self.view.frame.size.width-20, 40)];
+    [_textview mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.left.equalTo(self.view.mas_left).offset(12);
+        make.top.equalTo(self.view.mas_top).offset(16);
+        make.right.equalTo(self.view.mas_right).offset(-16);
+        make.height.equalTo(@218);
+        
+    }];
+    
+    _placeholderLabel = [[UILabel alloc] init];
+    _placeholderLabel.backgroundColor = [UIColor clearColor];
+    _placeholderLabel.text = @"您对极致驾服有什么建议或反馈";
+    _placeholderLabel.font = [UIFont systemFontOfSize:14];
+    if (YBIphone6Plus) {
+        _placeholderLabel.font = [UIFont systemFontOfSize:14*YBRatio];
+    }
+    _placeholderLabel.textColor = kJZLightTextColor;
+    [self.view addSubview:_placeholderLabel];
+    
+    [_placeholderLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+       
+        make.left.equalTo(_textview.mas_left).offset(12);
+        
+        make.top.equalTo(_textview.mas_top).offset(12);
+        
+    }];
+
+    
+    UIButton *submitBtn = [[UIButton alloc] init];
     [submitBtn setTitle:@"提交" forState:UIControlStateNormal];
-    submitBtn.backgroundColor = [UIColor darkGrayColor];
+    submitBtn.backgroundColor = JZ_BLUE_COLOR;
+    submitBtn.layer.cornerRadius = 3;
+    submitBtn.layer.masksToBounds = YES;
     [submitBtn addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:submitBtn];
+    
+    [submitBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+       
+        make.left.equalTo(self.view.mas_left).offset(12);
+        make.top.equalTo(_textview.mas_bottom).offset(16);
+        make.right.equalTo(self.view.mas_right).offset(-16);
+        make.height.equalTo(@44);
+        
+    }];
 }
 
 - (void)pushBtnClick {
