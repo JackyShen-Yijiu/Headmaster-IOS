@@ -98,7 +98,7 @@
         _rightLabel.backgroundColor = [UIColor redColor];
         _rightLabel.textAlignment = NSTextAlignmentCenter;
         _rightLabel.font = [UIFont systemFontOfSize:8];
-        _rightLabel.frame = CGRectMake(_rightView.width-10, 0, 10, 10);
+        _rightLabel.frame = CGRectMake(_rightView.width-8, 0, 10, 10);
 
         if (YBIphone6Plus) {
             _rightLabel.font = [UIFont systemFontOfSize:8*YBRatio];
