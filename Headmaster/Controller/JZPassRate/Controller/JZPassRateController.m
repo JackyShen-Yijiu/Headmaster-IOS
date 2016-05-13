@@ -70,13 +70,14 @@
     [_scrollView addSubview:self.twoSubjexctView];
     [_scrollView addSubview:self.threeSubjexctView];
     [_scrollView addSubview:self.fourSubjexctView];
-
+    
+//  传过来的subjectID 为 1,2,3,4,
     CGFloat contentOffsetX = (_subjectID - 1) * self.view.width;
     _scrollView.contentOffset = CGPointMake(contentOffsetX, 0);
     
 }
 - (void)initRefesh{
-    self.oneSubjexctView.searchSubjectID = _subjectID;
+//    self.oneSubjexctView.searchSubjectID = _subjectID;
     [self getTimeData];
 //    __weak typeof (self) ws = self;
     
@@ -192,29 +193,33 @@
     
     if (0 == scrollView.contentOffset.x) {
         // 科目一
-        [_toolBarView selectItem:0];
         _subjectID = 1;
+        [_toolBarView selectItem:0];
+        
         //         self.allListView.frame = CGRectMake(0, -64, self.view.width, self.scrollView.height);
     }
     if (width == scrollView.contentOffset.x) {
         // 科目二
+        _subjectID = 2;
         [_toolBarView selectItem:1];
-          _subjectID = 2;
+        
         //self.noExameListView.frame = CGRectMake(self.view.width, -64, self.view.width, self.scrollView.height);
         
         
     }
     if (2 * width== scrollView.contentOffset.x) {
         // 科目三
+         _subjectID = 3;
         [_toolBarView selectItem:2];
-          _subjectID = 3;
+        
         //        self.appointListView.frame = CGRectMake(self.view.width * 2, -64, self.view.width, self.scrollView.height);
         
     }
     if (3 * width == scrollView.contentOffset.x) {
         // 科目四
+        _subjectID = 4;
         [_toolBarView selectItem:3];
-          _subjectID = 4;
+        
         //        self.retestListView.frame = CGRectMake(self.view.width * 3, -64, self.view.width, self.scrollView.height);
         
         
@@ -226,6 +231,7 @@
 }
 // 月份数据请求
 - (void)getTimeData{
+    NSLog(@"000000000000000000000000000 = _subjectID = %lu",_subjectID);
     [NetworkEntity getPassRateTimeWithUserid:[UserInfoModel defaultUserInfo].userID SchoolId:[UserInfoModel defaultUserInfo].schoolId SubjectID:_subjectID success:^(id responseObject) {
         if (1 == [responseObject[@"type"] integerValue]) {
             NSLog(@"response ======= ========== ================== ========  %@ %lu",responseObject,_subjectID);
@@ -283,6 +289,8 @@
                 // 科目三
                 if (_subjectID == kDateSearchSubjectIDThree) {
                     self.threeSubjexctView.timeDataArray = _timeDataArrayThree;
+                    
+                    NSLog(@"self.threeSubjexctView.timeDataArray = %lu",self.threeSubjexctView.timeDataArray.count);
                     [self.threeSubjexctView reloadData];
                 }
                 // 科目四
