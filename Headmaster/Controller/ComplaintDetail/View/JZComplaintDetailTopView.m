@@ -29,7 +29,7 @@
     
     if (self = [super initWithFrame:frame]) {
         
-        self.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
+        self.backgroundColor = RGB_Color(0, 0, 0);
         
 //        self.backgroundColor = [UIColor redColor];
         
