@@ -17,7 +17,6 @@
 @property (nonatomic, strong) JZMailBoxView *mailboxView;
 @property (nonatomic, strong) JZMailBoxHeaderView *headerView;
 @property (nonatomic, strong) NSMutableArray *listDataArray;
-
 @end
 
 @implementation JZMailBoxController
@@ -32,19 +31,7 @@
     
     self.view.backgroundColor = JZ_MAIN_BACKGROUND_COLOR;
     self.headerView = [[JZMailBoxHeaderView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth, 48)];
-    
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    
-    NSInteger messageCount =  [userDefaults integerForKey:@"JZPublishHistoryMessageCount"];
-    
-    JZPublishHistoryData *dataModel = self.listDataArray.firstObject;
-    
-    if (messageCount< dataModel.seqindex) {
-        
-        [self.headerView setBadge:dataModel.seqindex - messageCount];
-        
-    }
-    
+ 
     UITapGestureRecognizer *tapGestureTel = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(headerViewClick:)];
     self.headerView.userInteractionEnabled = YES;
     [self.headerView addGestureRecognizer:tapGestureTel];
@@ -55,6 +42,39 @@
     
     [self.view addSubview:self.headerView];
     [self.view addSubview:self.mailboxView];
+    
+    UILabel *rightLabel = [[UILabel alloc] init];
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    
+    NSInteger messageCount =  [userDefaults integerForKey:@"JZPublishHistoryMessageCount"];
+    
+        JZPublishHistoryData *dataModel = self.listDataArray.firstObject;
+    
+        if (messageCount< dataModel.seqindex) {
+
+          rightLabel.text =  [NSString stringWithFormat:@"%zd",dataModel.seqindex - messageCount];
+            rightLabel.hidden = NO;
+        }else {
+            rightLabel.hidden = YES;
+        }
+
+    rightLabel.textColor = [UIColor whiteColor];
+    rightLabel.backgroundColor = [UIColor redColor];
+    rightLabel.textAlignment = NSTextAlignmentCenter;
+    rightLabel.font = [UIFont systemFontOfSize:8];
+    if (YBIphone6Plus) {
+        rightLabel.font = [UIFont systemFontOfSize:8*YBRatio];
+    }
+    rightLabel.frame = CGRectMake(kJZWidth-44, 16, 16, 16);
+    rightLabel.layer.masksToBounds = YES;
+    rightLabel.layer.cornerRadius = rightLabel.width/2;
+    
+    [self.view addSubview:rightLabel];
+    
+    
+    
+
 
     
 }
@@ -119,8 +139,6 @@
     
     return _listDataArray;
 }
-
-
 
 
 

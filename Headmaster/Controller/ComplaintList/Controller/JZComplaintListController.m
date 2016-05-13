@@ -37,6 +37,8 @@
     listView.vc = self;
     self.listView = listView;
     
+    self.listView.vc = self;
+    
     [self.view addSubview:listView];
 
 }

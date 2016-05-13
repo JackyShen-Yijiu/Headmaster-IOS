@@ -12,4 +12,6 @@
 
 @property (nonatomic, strong) JZComplaintComplaintlist *data;
 + (CGFloat)cellHeightDmData:(JZComplaintComplaintlist *)dmData;
+@property (nonatomic, strong) UIViewController *vc;
+
 @end

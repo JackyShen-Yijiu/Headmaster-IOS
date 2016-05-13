@@ -37,15 +37,21 @@
     UIImageView *_iconView;
     UIImageView *_phoneView;
     UIView *_upView;
-    UIView *_lineViewUP;
+//    UIView *_lineViewUP;
     UIImageView *_passwordView;
     UIView *_downView;
-    UIView *_lineViewDown;
+//    UIView *_lineViewDown;
     UIButton *_loginButton;
     UIButton *_callBtn;
     UIView *_phoneAndPasswordBG;
-    UIView *_bottomLineView;
+//    UIView *_bottomLineView;
 }
+
+@property (nonatomic, strong) UIView *lineView;
+
+@property (nonatomic, strong) UIView *BJView;
+
+
 
 @end
 
@@ -56,7 +62,9 @@
     // Do any additional setup after loading the view.
     [self initUI];
     [self configeUI];
-    [self updateUI];
+    
+    
+      [self updateUI];
     [self addNotify];
 }
 
@@ -95,29 +103,47 @@
 //    _iconView.backgroundColor = [UIColor cyanColor];
     [self.view addSubview:_iconView];
     
+    
+    self.BJView = [[UIView alloc]init];
+    self.BJView.backgroundColor = kJZLightTextColor;
+    self.BJView.layer.cornerRadius = 3;
+    self.BJView.layer.masksToBounds = YES;
+    
+    [self.view addSubview:self.BJView];
+    
+    self.lineView = [[UIView alloc]init];
+    
+    self.lineView.backgroundColor = kJZLightTextColor;
+    
+    
+    [self.view addSubview:self.lineView];
+    
+
+    
     _phoneAndPasswordBG = [[UIView alloc] init];
     _phoneAndPasswordBG.backgroundColor = [UIColor colorWithHexString:@"FFFFFF"];
-    _phoneAndPasswordBG.alpha = 0.1;
-    [self.view addSubview:_phoneAndPasswordBG];
+    _phoneAndPasswordBG.layer.cornerRadius = 3;
+    _phoneAndPasswordBG.layer.masksToBounds = YES;
+    
+//    _phoneAndPasswordBG.alpha = 0.1;
+    [self.BJView addSubview:_phoneAndPasswordBG];
     
     _phoneTF = [[UITextField alloc] init];           //账号输入框
-    _phoneTF.backgroundColor = [UIColor clearColor];
+    _phoneTF.backgroundColor = RGBA_Color(255, 255, 255, 0.72);
     _phoneTF.clearButtonMode = UITextFieldViewModeWhileEditing;
-    [self.view addSubview:_phoneTF];
+    [_phoneAndPasswordBG addSubview:_phoneTF];
     
     _upView = [[UIView alloc] init];                 //账号输入框左侧的父视图
     _phoneTF.leftView = _upView;
     
     _phoneView = [[UIImageView alloc]init];          //账号输入框的icon
     [_upView addSubview:_phoneView];
-    
-    _lineViewUP = [[UIView alloc] init];             //账号输入框下的线
-    _lineViewUP.backgroundColor = [UIColor colorWithHexString:@"585968"];
-    [self.view addSubview:_lineViewUP];
+
     
     _passwordTF = [[UITextField alloc] init];
+    _passwordTF.backgroundColor = RGBA_Color(255, 255, 255, 0.72);
     _passwordTF.clearButtonMode = UITextFieldViewModeWhileEditing;//密码输入框
-    [self.view addSubview:_passwordTF];
+    [_phoneAndPasswordBG addSubview:_passwordTF];
     
     _downView = [[UIView alloc] init];               //密码输入框左侧的父视图
     _passwordTF.leftView = _downView;
@@ -134,9 +160,6 @@
     _callBtn = [[UIButton alloc] init];              //联系我们
     [self.view addSubview:_callBtn];
     
-    _bottomLineView = [[UIView alloc] init];
-    _bottomLineView.backgroundColor = [UIColor colorWithHexString:@"#9A9DA6"];
-    [self.view addSubview:_bottomLineView];
     
     
 }
@@ -146,82 +169,155 @@
     
     _BackgroundImage.frame = self.view.bounds;
     
-    _iconView.frame         = CGRectMake(h_center.x -h_iconViewWidth/2, h_iconViewTOP, h_iconViewWidth, h_iconViewHeight);
-    NSLog(@"_iconView = %@",_iconView);
     
-    _phoneAndPasswordBG.frame = CGRectMake(15,CGRectGetMaxY(_iconView.frame) + [UIScreen mainScreen].bounds.size.height *116/667,  h_size.width -30, h_bgH);
+    [_iconView mas_makeConstraints:^(MASConstraintMaker *make) {
+       
+        make.top.equalTo(self.view.mas_top).offset(84);
+        make.centerX.equalTo(self.view.mas_centerX);
+        make.height.equalTo(@96);
+        make.width.equalTo(@78);
+        
+    }];
+    
+    
+    
+    [_phoneAndPasswordBG mas_makeConstraints:^(MASConstraintMaker *make) {
+       
+        make.top.equalTo(_iconView.mas_bottom).offset(68);
+        make.centerX.equalTo(self.view.mas_centerX);
+        make.left.equalTo(self.view.mas_left).offset(16);
+        make.right.equalTo(self.view.mas_right).offset(-16);
+        make.height.equalTo(@88.5);
 
-    _phoneTF.frame          = CGRectMake(15,CGRectGetMaxY(_iconView.frame) + [UIScreen mainScreen].bounds.size.height *116/667, _phoneAndPasswordBG.width, (_phoneAndPasswordBG.height - 1) / 2);
+    }];
     
-    _phoneView.frame        = CGRectMake(0, -1, 32 , 32);
+    [self.BJView mas_makeConstraints:^(MASConstraintMaker *make) {
+       
+        make.top.equalTo(_iconView.mas_bottom).offset(67.5);
+        make.centerX.equalTo(self.view.mas_centerX);
+        make.left.equalTo(self.view.mas_left).offset(15.5);
+        make.right.equalTo(self.view.mas_right).offset(-15.5);
+        make.height.equalTo(@89.5);
+        
+    }];
+    
+
+
+    [_phoneTF mas_makeConstraints:^(MASConstraintMaker *make) {
+       
+        make.top.equalTo(_iconView.mas_bottom).offset(68);
+        make.centerX.equalTo(self.view.mas_centerX);
+        make.left.equalTo(self.view.mas_left).offset(16);
+        make.right.equalTo(self.view.mas_right).offset(-16);
+        make.height.equalTo(@44);
+        
+    }];
+    
+    _phoneView.frame        = CGRectMake(8,6,16 , 16);
     _upView.frame           = CGRectMake(0, 0, 32,32);
     
+    [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+       
+        make.top.equalTo(_phoneTF.mas_bottom);
+        make.centerX.equalTo(self.view.mas_centerX);
+        make.left.equalTo(self.view.mas_left).offset(16);
+        make.right.equalTo(self.view.mas_right).offset(-16);
+        make.height.equalTo(@0.5);
+
+        
+    }];
     
-    _lineViewUP.frame       = CGRectMake(17,CGRectGetMaxY(_phoneTF.frame) , _phoneAndPasswordBG.width - 4, 1);
     
-    _passwordTF.frame       = CGRectMake(15, CGRectGetMaxY(_phoneTF.frame) + 1 , _phoneAndPasswordBG.width, (_phoneAndPasswordBG.height - 1) / 2);
-    _passwordView.frame     = CGRectMake(0, -1,32 , 32);
-    _downView.frame         = CGRectMake(0, 0, 32, 32);
+
+    
+    [_passwordTF mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.top.equalTo(_phoneTF.mas_bottom).offset(0.5);
+        make.centerX.equalTo(self.view.mas_centerX);
+        make.left.equalTo(self.view.mas_left).offset(16);
+        make.right.equalTo(self.view.mas_right).offset(-16);
+        make.height.equalTo(@44);
+        
+    }];
+    
+    _passwordView.frame     = CGRectMake(8,6,16 , 16);
+    
+
+    
+    _downView.frame         = CGRectMake(0,0, 32, 32);
+    
+
+    
+//    _lineViewDown.frame     = CGRectMake(0, _passwordTF.frame.origin.y +h_phoneTFHeight , h_size.width, 1);
+
+    
+    [_loginButton mas_makeConstraints:^(MASConstraintMaker *make) {
+       
+        make.top.equalTo(_passwordTF.mas_bottom).offset(16);
+        make.centerX.equalTo(self.view.mas_centerX);
+        make.left.equalTo(self.view.mas_left).offset(16);
+        make.right.equalTo(self.view.mas_right).offset(-16);
+        make.height.equalTo(@44);
+        
+    }];
     
     
-    _lineViewDown.frame     = CGRectMake(0, _passwordTF.frame.origin.y +h_phoneTFHeight , h_size.width, 1);
-    _loginButton.frame      = CGRectMake(15, CGRectGetMaxY(_phoneAndPasswordBG.frame) + [UIScreen mainScreen].bounds.size.height *40/667, h_size.width - 30 , h_loginBtnHeight);
+    [_callBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.top.equalTo(_loginButton.mas_bottom).offset(18);
+        make.centerX.equalTo(self.view.mas_centerX);
+    }];
     
-    _callBtn.frame          = CGRectMake(0,0, 144, h_numLabelHeight);
-    _callBtn.center         = CGPointMake(h_center.x,  h_size.height -h_numLabelHeight);
-    
-    _bottomLineView.frame = CGRectMake(0, 0, 55, 1);
-    _bottomLineView.center = CGPointMake(h_center.x + 32, h_size.height -10);
-    if (YBIphone6Plus) {
-        _bottomLineView.center = CGPointMake(h_center.x + 32, h_size.height -14);
-    }
-    
+
     
    }
 
 - (void)configeUI {
-    _BackgroundImage.image = [UIImage imageNamed:@"JZ_bg"];
+    _BackgroundImage.image = [UIImage imageNamed:@"background.jpg"];
     
 //    _iconView.contentMode = UIViewContentModeCenter;
-    _iconView.image = [UIImage imageNamed:@"JZ_image_logo"];
+    _iconView.image = [UIImage imageNamed:@"logo.jpg"];
     
-    _phoneTF.placeholder = @"请输入用户名";
-    _phoneTF.textColor = [UIColor colorWithHexString:@"#E4E5E6"];
-    [_phoneTF setValue:[UIColor colorWithHexString:@"#C8CACD"] forKeyPath:@"_placeholderLabel.textColor"];
-    [_phoneTF setValue:[UIFont systemFontOfSize:15] forKeyPath:@"_placeholderLabel.font"];
+    _phoneTF.placeholder = @"请输入手机号";
+    _phoneTF.textColor = kJZDarkTextColor;
+    [_phoneTF setValue:kJZLightTextColor forKeyPath:@"_placeholderLabel.textColor"];
+    [_phoneTF setValue:[UIFont systemFontOfSize:14] forKeyPath:@"_placeholderLabel.font"];
     if (YBIphone6Plus) {
-        [_phoneTF setValue:[UIFont systemFontOfSize:15*YBRatio] forKeyPath:@"_placeholderLabel.font"];
+        [_phoneTF setValue:[UIFont systemFontOfSize:14*YBRatio] forKeyPath:@"_placeholderLabel.font"];
     }
     _phoneTF.delegate = self;
     _phoneTF.keyboardType = UIKeyboardTypeNumberPad;
     _phoneTF.leftViewMode = UITextFieldViewModeAlways;
     
-    _phoneView.image = [UIImage imageNamed:@"JZ_icon_name"];
-    
+    _phoneView.image = [UIImage imageNamed:@"user"];
+    [_phoneView sizeToFit];
+
     _upView.backgroundColor = [UIColor clearColor];
     
-    _lineViewUP.backgroundColor = [UIColor whiteColor];
-    _lineViewUP.alpha = 0.1;
+//    _lineViewUP.backgroundColor = kJZLightTextColor;
+//    _lineViewUP.alpha = 0.1;
     
     _passwordTF.placeholder = @"请输入密码";
-    _passwordTF.textColor = [UIColor colorWithHexString:@"#E4E5E6"];
-    [_passwordTF setValue:[UIColor colorWithHexString:@"#C8CACD"] forKeyPath:@"_placeholderLabel.textColor"];
-    [_passwordTF setValue:[UIFont systemFontOfSize:15] forKeyPath:@"_placeholderLabel.font"];
+    _passwordTF.textColor = kJZDarkTextColor;
+    [_passwordTF setValue:kJZLightTextColor forKeyPath:@"_placeholderLabel.textColor"];
+    [_passwordTF setValue:[UIFont systemFontOfSize:14] forKeyPath:@"_placeholderLabel.font"];
     if (YBIphone6Plus) {
-        [_passwordTF setValue:[UIFont systemFontOfSize:15*YBRatio] forKeyPath:@"_placeholderLabel.font"];
+        [_passwordTF setValue:[UIFont systemFontOfSize:14*YBRatio] forKeyPath:@"_placeholderLabel.font"];
     }
     _passwordTF.delegate = self;
     _passwordTF.secureTextEntry = YES;
     _passwordTF.leftViewMode = UITextFieldViewModeAlways;
     
-    _passwordView.image = [UIImage imageNamed:@"JZ_icon_password"];
+    _passwordView.image = [UIImage imageNamed:@"key"];
+    
+    [_passwordView sizeToFit];
     
     _downView.backgroundColor = [UIColor clearColor];
     
-    _lineViewDown.backgroundColor = [UIColor whiteColor];
-    _lineViewDown.alpha = 0.1;
+//    _lineViewDown.backgroundColor = [UIColor clearColor];
+//    _lineViewDown.alpha = 0.1;
     
-    _loginButton.backgroundColor = [UIColor colorWithHexString:@"26CCC0"];
+    _loginButton.backgroundColor =JZ_BLUE_COLOR;
     [_loginButton setTitle:@"登录" forState:UIControlStateNormal];
     _loginButton.titleLabel.font = [UIFont systemFontOfSize:20];
     if (YBIphone6Plus) {
@@ -230,25 +326,33 @@
     [_loginButton setTitleColor:[UIColor colorWithHexString:@"#fefefe"] forState:UIControlStateNormal];
     [_loginButton addTarget:self action:@selector(buttonIsClick) forControlEvents:UIControlEventTouchUpInside];
     
+    _loginButton.layer.cornerRadius = 3;
+    _loginButton.layer.masksToBounds = YES;
+    
     [_callBtn setTitle:@"没有账号?联系我们" forState:UIControlStateNormal];
     _callBtn.titleLabel.font = [UIFont systemFontOfSize:14];
     if (YBIphone6Plus) {
         _callBtn.titleLabel.font = [UIFont systemFontOfSize:14*YBRatio];
     }
-    [_callBtn setTitleColor:[UIColor colorWithHexString:@"#9A9DA6"] forState:UIControlStateNormal];
+    [_callBtn setTitleColor:JZ_BLUE_COLOR forState:UIControlStateNormal];
     [_callBtn addTarget:self action:@selector(callNum) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
+    
+    _iconView.hidden = YES;
     textField.placeholder = @"";
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
+    
+    _iconView.hidden = NO;
+
     if ([_passwordTF.text isEqualToString:@""]) {
         _passwordTF.placeholder = @"请输入密码";
     }
     if ([_phoneTF.text isEqualToString:@""]) {
-        _phoneTF.placeholder = @"请输入用户名";
+        _phoneTF.placeholder = @"请输入手机号";
     }
 }
 
@@ -398,6 +502,8 @@
 }
 
 - (void)callNum {
+    
+//    NSLog(@"测试测试测试测试测试测试测试测试测试测试测试");
     NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel://010-53658566"];
     UIWebView * callWebview = [[UIWebView alloc] init];
     [callWebview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];

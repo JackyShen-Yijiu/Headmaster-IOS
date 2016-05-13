@@ -45,10 +45,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = JZ_MAIN_BACKGROUND_COLOR;
-    UIView *lineTopView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 2)];
-    lineTopView.backgroundColor = RGB_Color(41, 41, 41);
-    [self.view addSubview:lineTopView];
+//    self.view.backgroundColor = JZ_MAIN_BACKGROUND_COLOR;
+//    UIView *lineTopView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 2)];
+//    lineTopView.backgroundColor = RGB_Color(41, 41, 41);
+//    [self.view addSubview:lineTopView];
     [self setNavBar];
     
     [self addBackgroundImage];
@@ -102,7 +102,7 @@
         _tableView.backgroundColor = [UIColor clearColor];
         _tableView.dataSource = self;
         _tableView.delegate = self;
-        _tableView.separatorColor = kJZLightTextColor;
+        _tableView.separatorColor = JZ_MAIN_BACKGROUND_COLOR;
         
     }
     return _tableView;
@@ -189,14 +189,18 @@
                 
             }
         }else if (indexPath.row == 1) {
-            if ([UserInfoModel defaultUserInfo].complaintreminder) {
-                NSInteger num = [UserInfoModel defaultUserInfo].complaintreminder.integerValue;
-                switchControl.on = num;
+           
+//            if ([UserInfoModel defaultUserInfo].complaintreminder) {
+                //                BOOL setON = [UserInfoModel defaultUserInfo].complaintreminder.integerValue;
+                NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+                BOOL setON = [userDefaults boolForKey:@"setComplaint"];
+
+                switchControl.on = setON;
                 
-            }else {
-                switchControl.on = YES;
-                
-            }
+//            }else {
+//                switchControl.on = YES;
+            
+//            }
         }else if (indexPath.row == 2) {
             
             if ([UserInfoModel defaultUserInfo].applyreminder) {
@@ -211,6 +215,7 @@
         cell.accessoryView = switchControl;
         
         [switchControl addTarget:self action:@selector(switchBtnAction:) forControlEvents:UIControlEventValueChanged];
+        
 
     
     }
@@ -291,12 +296,19 @@
  
     }
     if (sender.tag - 100 == 1) {
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        
+        
         if (sender.on == YES) {
-            [[UserInfoModel defaultUserInfo] setValue:@"1" forKey:@"complaintreminder"];
+//            [[UserInfoModel defaultUserInfo] setValue:@"1" forKey:@"complaintreminder"];
+            [userDefaults setBool:YES forKey:@"setComplaint"];
         }else if (sender.on == NO) {
-            [[UserInfoModel defaultUserInfo] setValue:@"0" forKey:@"complaintreminder"];
+//            [[UserInfoModel defaultUserInfo] setValue:@"0" forKey:@"complaintreminder"];
+            [userDefaults setBool:NO forKey:@"setComplaint"];
+
         }
         
+        [userDefaults synchronize];
     }
     if (sender.tag - 100 == 2) {
         if (sender.on == YES) {

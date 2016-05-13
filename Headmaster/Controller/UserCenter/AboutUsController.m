@@ -12,8 +12,8 @@
 @interface AboutUsController () {
     UIImageView *_iconView;
     UILabel  *_iconNameLabel;
-    UILabel  *_descriptionLabel;
-    UILabel  *_versionLabel;
+//    UILabel  *_descriptionLabel;
+//    UILabel  *_versionLabel;
     UIButton *_LicenseServiceAgreementBtn;
     UILabel  *_buttomLabel;
 }
@@ -36,9 +36,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    UIView *lineTopView = [[UIView alloc] initWithFrame:CGRectMake(7.5, 0, self.view.bounds.size.width - 15, 2)];
-    lineTopView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
-    [self.view addSubview:lineTopView];
+//    UIView *lineTopView = [[UIView alloc] initWithFrame:CGRectMake(7.5, 0, self.view.bounds.size.width - 15, 2)];
+//    lineTopView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
+//    [self.view addSubview:lineTopView];
     [self addBackgroundImage];
     [self initUI];
     [self configeUI];
@@ -61,11 +61,11 @@
     _iconNameLabel = [[UILabel alloc] init];
     [self.view addSubview:_iconNameLabel];
     
-    _descriptionLabel = [[UILabel alloc] init];
-    [self.view addSubview:_descriptionLabel];
-    
-    _versionLabel = [[UILabel alloc] init];
-    [self.view addSubview:_versionLabel];
+//    _descriptionLabel = [[UILabel alloc] init];
+//    [self.view addSubview:_descriptionLabel];
+//    
+//    _versionLabel = [[UILabel alloc] init];
+//    [self.view addSubview:_versionLabel];
     
     _LicenseServiceAgreementBtn = [[UIButton alloc] init];
     [self.view addSubview:_LicenseServiceAgreementBtn];
@@ -79,39 +79,40 @@
 }
 
 - (void)configeUI {
-    _iconView.image = [UIImage imageNamed:@"ic_logo"];
+    _iconView.image = [UIImage imageNamed:@"icon_headmaster"];
     _iconView.layer.cornerRadius = 10;
     _iconView.clipsToBounds = YES;
-    
-    _iconNameLabel.text = @"极致驾服";
-    _iconNameLabel.textColor = [UIColor colorWithHexString:@"#fcfcfc"];
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+
+    _iconNameLabel.text = [NSString stringWithFormat:@"极致驾服 v%@",[infoDictionary objectForKey:@"CFBundleShortVersionString"]];
+    _iconNameLabel.textColor = kJZDarkTextColor;
     _iconNameLabel.font = [UIFont systemFontOfSize:14];
     if (YBIphone6Plus) {
         _iconNameLabel.font = [UIFont systemFontOfSize:14*YBRatio];
     }
-    _descriptionLabel.text = @"做有态度的驾校培训";
-    _descriptionLabel.textColor = [UIColor colorWithHexString:@"#fcfcfc"];
-    _descriptionLabel.font = [UIFont systemFontOfSize:15];
-    if (YBIphone6Plus) {
-        _descriptionLabel.font = [UIFont systemFontOfSize:15*YBRatio];
-    }
-    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
-    _versionLabel.text = [NSString stringWithFormat:@"v %@",[infoDictionary objectForKey:@"CFBundleShortVersionString"]];
-    _versionLabel.textColor = [UIColor colorWithHexString:@"#fcfcfc"];
-    _versionLabel.font = [UIFont systemFontOfSize:15];
-    if (YBIphone6Plus) {
-        _versionLabel.font = [UIFont systemFontOfSize:15*YBRatio];
-    }
+//    _descriptionLabel.text = @"做有态度的驾校培训";
+//    _descriptionLabel.textColor = [UIColor colorWithHexString:@"#fcfcfc"];
+//    _descriptionLabel.font = [UIFont systemFontOfSize:15];
+//    if (YBIphone6Plus) {
+//        _descriptionLabel.font = [UIFont systemFontOfSize:15*YBRatio];
+//    }
+//    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+//    _versionLabel.text = [NSString stringWithFormat:@"v %@",[infoDictionary objectForKey:@"CFBundleShortVersionString"]];
+//    _versionLabel.textColor = [UIColor colorWithHexString:@"#fcfcfc"];
+//    _versionLabel.font = [UIFont systemFontOfSize:15];
+//    if (YBIphone6Plus) {
+//        _versionLabel.font = [UIFont systemFontOfSize:15*YBRatio];
+//    }
     [_LicenseServiceAgreementBtn setTitle:@"许可服务协议" forState:UIControlStateNormal];
-    [_LicenseServiceAgreementBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    _LicenseServiceAgreementBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+    [_LicenseServiceAgreementBtn setTitleColor:JZ_BLUE_COLOR forState:UIControlStateNormal];
+    _LicenseServiceAgreementBtn.titleLabel.font = [UIFont systemFontOfSize:14];
     if (YBIphone6Plus) {
-        _LicenseServiceAgreementBtn.titleLabel.font = [UIFont systemFontOfSize:12*YBRatio];
+        _LicenseServiceAgreementBtn.titleLabel.font = [UIFont systemFontOfSize:14*YBRatio];
     }
     [_LicenseServiceAgreementBtn addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
     
     _buttomLabel.text = @"Copyright All Right Resrved";
-    _buttomLabel.textColor = [UIColor colorWithHexString:@"#fcfcfc"];
+    _buttomLabel.textColor = kJZLightTextColor;
     _buttomLabel.font = [UIFont systemFontOfSize:12];
     if (YBIphone6Plus) {
         _buttomLabel.font = [UIFont systemFontOfSize:12*YBRatio];
@@ -128,28 +129,28 @@
 - (void)updataUI {
     [_iconView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(self.view);
-        make.size.mas_equalTo(CGSizeMake(60, 60));
-        make.top.mas_equalTo(150);
+        make.size.mas_equalTo(CGSizeMake(98, 98));
+        make.top.mas_equalTo(128);
     }];
     
     [_iconNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(self.view);
-        make.top.mas_equalTo(_iconView.mas_bottom).offset(10);
+        make.top.mas_equalTo(_iconView.mas_bottom).offset(6);
     }];
     
-    [_descriptionLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.mas_equalTo(self.view);
-        make.top.mas_equalTo(_iconNameLabel.mas_bottom).offset(20);
-    }];
+//    [_descriptionLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.centerX.mas_equalTo(self.view);
+//        make.top.mas_equalTo(_iconNameLabel.mas_bottom).offset(20);
+//    }];
     
-    [_versionLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.mas_equalTo(self.view);
-        make.top.mas_equalTo(_descriptionLabel.mas_bottom).offset(15);
-    }];
+//    [_versionLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.centerX.mas_equalTo(self.view);
+//        make.top.mas_equalTo(_descriptionLabel.mas_bottom).offset(15);
+//    }];
     
     [_buttomLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(self.view);
-        make.bottom.mas_equalTo(-20);
+        make.bottom.mas_equalTo(-24);
     }];
     
     [_LicenseServiceAgreementBtn mas_makeConstraints:^(MASConstraintMaker *make) {
