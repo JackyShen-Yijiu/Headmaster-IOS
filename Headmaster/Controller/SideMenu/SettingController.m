@@ -45,10 +45,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = JZ_MAIN_BACKGROUND_COLOR;
-    UIView *lineTopView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 2)];
-    lineTopView.backgroundColor = RGB_Color(41, 41, 41);
-    [self.view addSubview:lineTopView];
+//    self.view.backgroundColor = JZ_MAIN_BACKGROUND_COLOR;
+//    UIView *lineTopView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 2)];
+//    lineTopView.backgroundColor = RGB_Color(41, 41, 41);
+//    [self.view addSubview:lineTopView];
     [self setNavBar];
     
     [self addBackgroundImage];
@@ -102,7 +102,7 @@
         _tableView.backgroundColor = [UIColor clearColor];
         _tableView.dataSource = self;
         _tableView.delegate = self;
-        _tableView.separatorColor = kJZLightTextColor;
+        _tableView.separatorColor = JZ_MAIN_BACKGROUND_COLOR;
         
     }
     return _tableView;
