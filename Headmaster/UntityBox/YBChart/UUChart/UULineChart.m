@@ -51,9 +51,9 @@
 {
     NSLog(@"yLabels:%@",yLabels);
     
-//    if (!yLabels.count) {
-//        return;
-//    }
+    if (!yLabels.count) {
+        return;
+    }
     
     NSInteger max = 0;
     NSInteger min = 1000000000;
@@ -95,7 +95,7 @@
 
     float level = (_yValueMax-_yValueMin) / 4.0;
     CGFloat chartCavanHeight = self.frame.size.height - UULabelHeight*3;
-    CGFloat levelHeight = chartCavanHeight /4.0 - 3;
+    CGFloat levelHeight = chartCavanHeight /4.0;
 
     NSLog(@"level:%f _yValueMax:%f _yValueMin:%f",level,_yValueMax,_yValueMin);
     
@@ -105,8 +105,9 @@
     [self addSubview:_sideView];
     
     for (int i=0; i<5; i++) {
-        //
-        UUChartLabel * label = [[UUChartLabel alloc] initWithFrame:CGRectMake(0,(self.height-40)/4*i+5, UUYLabelwidth, UULabelHeight)];
+        // UULabelHeight+i*levelHeight
+        // (self.height-40)/4*i+10
+        UUChartLabel * label = [[UUChartLabel alloc] initWithFrame:CGRectMake(0,UULabelHeight+i*levelHeight-UULabelHeight/2, UUYLabelwidth, UULabelHeight)];
 		label.text = [NSString stringWithFormat:@"%.0f",_yValueMax - level * i];
         label.textColor = JZ_BLUE_COLOR;
         [_sideView addSubview:label];
@@ -174,14 +175,14 @@
 //    }
     
     CGFloat chartCavanHeight = self.bounds.size.height - UULabelHeight*3;
-    CGFloat levelHeight = chartCavanHeight/ 4.0 - 3;
+    CGFloat levelHeight = chartCavanHeight/ 4.0;
     //画横线
     for (int i=0; i<5; i++) {
         if ([_ShowHorizonLine[i] integerValue]>0) {
             CAShapeLayer *shapeLayer = [CAShapeLayer layer];
             UIBezierPath *path = [UIBezierPath bezierPath];
-            [path moveToPoint:CGPointMake(0,UULabelHeight+i*levelHeight+10)];
-            [path addLineToPoint:CGPointMake(_xLabelWidth * _xLabels.count,UULabelHeight+i*levelHeight+10)];
+            [path moveToPoint:CGPointMake(0,UULabelHeight+i*levelHeight)];
+            [path addLineToPoint:CGPointMake(_xLabelWidth * _xLabels.count,UULabelHeight+i*levelHeight)];
             [path closePath];
             shapeLayer.path = path.CGPath;
             shapeLayer.strokeColor = [[[UIColor lightGrayColor] colorWithAlphaComponent:1] CGColor];
@@ -414,15 +415,15 @@
 //    }
     
     CGFloat chartCavanHeight = self.bounds.size.height - UULabelHeight*3;
-    CGFloat levelHeight = chartCavanHeight/4.0 - 3;
+    CGFloat levelHeight = chartCavanHeight/4.0;
     //画横线
     for (int i=0; i<5; i++) {
 //        if ([_ShowHorizonLine[i] integerValue]>0) {
         
             CAShapeLayer *shapeLayer = [CAShapeLayer layer];
             UIBezierPath *path = [UIBezierPath bezierPath];
-            [path moveToPoint:CGPointMake(0,UULabelHeight+i*levelHeight+10)];
-            [path addLineToPoint:CGPointMake(_xLabelWidth + _xLabelWidth * num,UULabelHeight+i*levelHeight+10)];
+            [path moveToPoint:CGPointMake(0,UULabelHeight+i*levelHeight)];
+            [path addLineToPoint:CGPointMake(_xLabelWidth + _xLabelWidth * num,UULabelHeight+i*levelHeight)];
             [path closePath];
             shapeLayer.path = path.CGPath;
             shapeLayer.strokeColor = [[[UIColor lightGrayColor] colorWithAlphaComponent:1] CGColor];

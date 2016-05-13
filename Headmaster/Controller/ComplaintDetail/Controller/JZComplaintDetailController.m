@@ -13,6 +13,8 @@
 @interface JZComplaintDetailController ()
 @property (nonatomic, weak) JZComplaintDetailView *detailView;
 @property (nonatomic, weak) JZComplaintDetailTopView *detailTopView;
+@property (nonatomic, strong) UIBarButtonItem *pushBtn;
+
 @end
 
 @implementation JZComplaintDetailController
@@ -22,12 +24,21 @@
     // Do any additional setup after loading the view.
     self.myNavigationItem.title = @"投诉详情";
     
+    if (_isFormSideMenu) {
+        self.navigationItem.leftBarButtonItem = self.pushBtn;
+    }
     self.view.backgroundColor = JZ_MAIN_BACKGROUND_COLOR;
     
     JZComplaintDetailTopView *detailTopView = [[JZComplaintDetailTopView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth, 146)];
 
     detailTopView.data = self.dataModel;
+    
+
+    
     self.detailTopView = detailTopView;
+
+    
+    
     [self.view addSubview:detailTopView];
     
     CGFloat detailViewHeight = [JZComplaintDetailView complaintDetailViewH:self.dataModel];
@@ -60,6 +71,22 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (void)pushBtnClick {
+//    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+- (UIBarButtonItem *)pushBtn {
+    if (!_pushBtn) {
+        CGRect backframe= CGRectMake(0, 0, 16, 16);
+        UIButton* backButton= [UIButton buttonWithType:UIButtonTypeCustom];
+        backButton.frame = backframe;
+        [backButton setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+        [backButton addTarget:self action:@selector(pushBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        _pushBtn = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+    }
+    return _pushBtn;
+}
+
 
 /*
 #pragma mark - Navigation

@@ -34,7 +34,8 @@
 //    topLine.backgroundColor = [UIColor blackColor];
 //    
 //    [self.view addSubview:topLine];
-    
+
+
     
     JZPublishHistoryView *historyView = [[JZPublishHistoryView alloc]initWithFrame:CGRectMake(0, 1, kJZWidth, kJZHeight-65)];
     
@@ -42,8 +43,7 @@
     self.historyView = historyView;
     
     [self.view addSubview:historyView];
-    
-    
+   
     
 
     

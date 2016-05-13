@@ -297,7 +297,24 @@
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     [manager POST:urlStr parameters:params success:success failure:failure];
 }
-
++(void)postCoachFeedbackWithparams:(UserInfoModel *)uim ReplyContent:(NSString *)replyContent feedbackID:(NSString *)feedbackid success:(void (^)(AFHTTPRequestOperation *, id))success failure:(void (^)(AFHTTPRequestOperation *, id))failure {
+    
+    {
+        NSDictionary *params =@{
+                                @"userid":uim.userID,
+                                @"replycontent":replyContent,
+                                @"feedbackid":feedbackid,
+                                @"schoolid":uim.schoolId,
+                                    };
+        NSString *urlStr = [NSString stringWithFormat:@"%@/%@",[NetworkTool domain],REPLYCOACHFEEDBACK];
+        
+        AFHTTPRequestOperationManager * manager = [AFHTTPRequestOperationManager manager];
+        [manager.requestSerializer setValue:uim.token forHTTPHeaderField:@"authorization"];
+        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
+        manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+        [manager POST:urlStr parameters:params success:success failure:failure];
+    }
+}
 /**
  *  V 2.0 合格学员信息列表
  */

@@ -91,7 +91,7 @@
 //                                          @"",
 //                                          @"" ];
     
-    self.titleArray = @[ @"统计", @"资讯", @"消息"];
+    self.titleArray = @[ @"统计", @"资讯", @"信箱"];
     
     CGRect rect = self.tabBar.bounds;
     // 高度需要+1，否则会出现底部tabBar的白色背景（会显示出来一条白线）
