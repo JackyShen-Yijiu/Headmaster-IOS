@@ -142,6 +142,17 @@
 
     _percentLabel.text = [NSString stringWithFormat:@"%.0f%%",_percent * 100];
 
+    if (percent==1) {// 绿色
+        _upperShapeLayer.strokeColor     = [UIColor colorWithHexString:@"7bd65c"].CGColor;
+        _percentLabel.textColor = [UIColor colorWithHexString:@"7bd65c"];
+    }else if (percent>0.5 && percent <1){// 蓝色ok
+        _upperShapeLayer.strokeColor     = JZ_BLUE_COLOR.CGColor;
+        _percentLabel.textColor = JZ_BLUE_COLOR;
+    }else{// 红色ok
+        _upperShapeLayer.strokeColor     = kJZRedColor.CGColor;
+        _percentLabel.textColor = kJZRedColor;
+    }
+    
 }
 
 - (void)shapeChange

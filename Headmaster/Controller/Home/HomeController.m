@@ -493,9 +493,11 @@
 //                self.rightLabel.hidden = !self.complaintCount;
                 
                 
-                if ([UserInfoModel defaultUserInfo].complaintreminder) {
-                    self.rightLabel.hidden = !([UserInfoModel defaultUserInfo].complaintreminder.integerValue);
+                if ([[NSUserDefaults standardUserDefaults]boolForKey:@"setComplaint"]) {
+                    self.rightLabel.hidden = !(self.complaintCount - messageCount);
                     
+                }else {
+                    self.rightLabel.hidden = YES;
                 }
                 
 
