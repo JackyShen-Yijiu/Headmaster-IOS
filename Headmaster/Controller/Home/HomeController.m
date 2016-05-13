@@ -491,7 +491,13 @@
                 self.rightLabel.text = [NSString stringWithFormat:@"%zd",self.complaintCount - messageCount];
                 
 //                self.rightLabel.hidden = !self.complaintCount;
-                self.rightLabel.hidden = NO;
+                
+                
+                if ([UserInfoModel defaultUserInfo].complaintreminder) {
+                    self.rightLabel.hidden = !([UserInfoModel defaultUserInfo].complaintreminder.integerValue);
+                    
+                }
+                
 
             }else{
                 
