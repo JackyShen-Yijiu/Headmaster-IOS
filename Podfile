@@ -17,4 +17,8 @@ pod 'ChameleonFramework'
 pod 'RESideMenu', '~> 4.0.7'
 pod 'BaiduMapKit'
 pod 'YYModel'
+<<<<<<< HEAD
 pod "MWPhotoBrowser"
+=======
+pod "MWPhotoBrowser"
+>>>>>>> 103216085f55e664e47d85f9d437dbd21d53cc02

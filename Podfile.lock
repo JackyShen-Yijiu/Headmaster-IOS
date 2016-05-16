@@ -42,7 +42,11 @@ PODS:
   - SDWebImage (3.7.6):
     - SDWebImage/Core (= 3.7.6)
   - SDWebImage/Core (3.7.6)
+<<<<<<< HEAD
   - UMengAnalytics (3.6.6)
+=======
+  - UMengAnalytics (4.0.0)
+>>>>>>> 103216085f55e664e47d85f9d437dbd21d53cc02
   - YYModel (1.0.3)
 
 DEPENDENCIES:
@@ -76,7 +80,11 @@ SPEC CHECKSUMS:
   Qiniu: 7a9c2a2bbdec02ae84b92051637e1e9ea3d182fb
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
+<<<<<<< HEAD
   UMengAnalytics: 4bf831415146b9c57cb10be65fbd43462ef8cf65
+=======
+  UMengAnalytics: 3bb802b73e815fa9ec4ef384c2fce8de9e1ec62b
+>>>>>>> 103216085f55e664e47d85f9d437dbd21d53cc02
   YYModel: 63142c2f07c5c8c9d1c261689cf3827ea6ab2886
 
 COCOAPODS: 0.39.0
