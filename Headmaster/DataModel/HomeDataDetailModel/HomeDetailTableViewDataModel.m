@@ -276,52 +276,57 @@
             NSInteger applyNum = 0;
             NSInteger reservationNum = 0;
             
-            if (detailRootClass.data.datalist.count) {
-                for (DataDetailDMMonthDatalist *item in detailRootClass.data.datalist) {
-                    [applyValueArray addObject:[NSString stringWithFormat:@"%li",item.applystudentcount]];
-                    applyNum += item.applystudentcount;
-                    [applyXTitleArray addObject:[self getXTitleItemWithValue:item.weekindex kdateSearchType:searchType]];
-                    
-                    [reservationValueArray addObject:[NSString stringWithFormat:@"%li",item.reservationcoursecount]];
-                    reservationNum += item.reservationcoursecount;
-                    [reservationXTitleArray addObject:[self getXTitleItemWithValue:item.weekindex kdateSearchType:searchType]];
-                    
-                    [goodArray addObject:[NSString stringWithFormat:@"%li",item.goodcommentcount]];
-                    [xTitleArray addObject:[self getXTitleItemWithValue:item.weekindex kdateSearchType:searchType]];
-                    
-                    [generalArray addObject:[NSString stringWithFormat:@"%li",item.generalcomment]];
-                    
-                    [badArray addObject:[NSString stringWithFormat:@"%li",item.badcommentcount]];
-                    
-                    [complaintArray addObject:[NSString stringWithFormat:@"%li",item.complaintcount]];
-                }
-            }
             
-            if (detailRootClass.data.coursedata.count) {
-                for (DataDetailDMMonthCoursedata *item in detailRootClass.data.coursedata) {
-                    [coachValueArray addObject:[NSString stringWithFormat:@"%li",item.coursecount]];
-                    [coachXTitleArray addObject:[NSString stringWithFormat:@"%li",item.coachcount]];
-                }
-            }
+//            if (detailRootClass.data.datalist.count) {
             
-            self.appleStudentCount = applyNum;
-            self.reservationStudentCount = reservationNum;
+                NSLog(@"detailRootClass.data.datalist:%@",detailRootClass.data.datalist);
+                
+//                for (NSNumber *item in detailRootClass.data.datalist) {
+//                    [applyValueArray addObject:item];
+//                    applyNum += item.applystudentcount;
+//                    [applyXTitleArray addObject:[self getXTitleItemWithValue:item.weekindex kdateSearchType:searchType]];
+//                    
+//                    [reservationValueArray addObject:[NSString stringWithFormat:@"%li",item.reservationcoursecount]];
+//                    reservationNum += item.reservationcoursecount;
+//                    [reservationXTitleArray addObject:[self getXTitleItemWithValue:item.weekindex kdateSearchType:searchType]];
+//                    
+//                    [goodArray addObject:[NSString stringWithFormat:@"%li",item.goodcommentcount]];
+//                    [xTitleArray addObject:[self getXTitleItemWithValue:item.weekindex kdateSearchType:searchType]];
+//                    
+//                    [generalArray addObject:[NSString stringWithFormat:@"%li",item.generalcomment]];
+//                    
+//                    [badArray addObject:[NSString stringWithFormat:@"%li",item.badcommentcount]];
+//                    
+//                    [complaintArray addObject:[NSString stringWithFormat:@"%li",item.complaintcount]];
+//                }
+//            }
             
-            self.applyXTitleArray = applyXTitleArray;
-            self.applyValueArray = applyValueArray;
+//            if (detailRootClass.data.coursedata.count) {
+//                for (DataDetailDMMonthCoursedata *item in detailRootClass.data.coursedata) {
+//                    [coachValueArray addObject:[NSString stringWithFormat:@"%li",item.coursecount]];
+//                    [coachXTitleArray addObject:[NSString stringWithFormat:@"%li",item.coachcount]];
+//                }
+//            }
             
-            self.reservationXTitleArray = reservationXTitleArray;
-            self.reservationValueArray = reservationValueArray;
+//            self.appleStudentCount = applyNum;
+//            self.reservationStudentCount = reservationNum;
             
-            self.coachCourseXTitleArray = coachXTitleArray;
-            self.coachCourseValueArray = coachValueArray;
+//            self.applyXTitleArray = [NSArray arrayWithObjects:@"上旬",@"中旬",@"下旬",nil];
+//            self.applyValueArray = [NSArray arrayWithObjects:@"上旬",@"中旬",@"下旬",nil];
             
-            self.goodValueArray = goodArray;
-            self.generalValueArray = generalArray;
-            self.badValueArray = badArray;
-            self.complaintValueArray = complaintArray;
+            self.reservationValueArray = detailRootClass.data.datalist;
+            self.reservationXTitleArray = [NSArray arrayWithObjects:@"上旬",@"中旬",@"下旬",nil];
+
+//            self.coachCourseXTitleArray = coachXTitleArray;
+//            self.coachCourseValueArray = coachValueArray;
             
-            self.evaluateXTitleArray = xTitleArray;
+//            self.goodValueArray = goodArray;
+//            self.generalValueArray = generalArray;
+//            self.badValueArray = badArray;
+//            self.complaintValueArray = complaintArray;
+//            
+//            self.evaluateXTitleArray = xTitleArray;
+            
         }
     }
     return self;
@@ -341,71 +346,76 @@
         self.msg = detailRootClass.msg;
         self.type = detailRootClass.type;
         
-        if (detailRootClass.type == 1) {
+//        if (detailRootClass.type == 1) {
+//            
+//            NSMutableArray *applyValueArray = [NSMutableArray array];
+//            NSMutableArray *reservationValueArray = [NSMutableArray array];
+//            NSMutableArray *coachValueArray = [NSMutableArray array];
+//            NSMutableArray *goodArray = [NSMutableArray array];
+//            NSMutableArray *badArray = [NSMutableArray array];
+//            NSMutableArray *generalArray = [NSMutableArray array];
+//            NSMutableArray *complaintArray = [NSMutableArray array];
+//            
+//            NSMutableArray *applyXTitleArray = [NSMutableArray array];
+//            NSMutableArray *reservationXTitleArray = [NSMutableArray array];
+//            NSMutableArray *coachXTitleArray = [NSMutableArray array];
+//            NSMutableArray *xTitleArray = [NSMutableArray array];
+//            
+//            NSInteger applyNum = 0;
+//            NSInteger reservationNum = 0;
+//            
+//            if (detailRootClass.data.datalist.count) {
+//                for (DataDetailDMYearDatalist *item in detailRootClass.data.datalist) {
+//                    [applyValueArray addObject:[NSString stringWithFormat:@"%li",item.applystudentcount]];
+//                    applyNum += item.applystudentcount;
+//                    [applyXTitleArray addObject:[self getXTitleItemWithValue:item.month kdateSearchType:searchType]];
+//                    
+//                    [reservationValueArray addObject:[NSString stringWithFormat:@"%li",item.reservationcoursecount]];
+//                    reservationNum += item.reservationcoursecount;
+//                    [reservationXTitleArray addObject:[self getXTitleItemWithValue:item.month kdateSearchType:searchType]];
+//                    
+//                    [goodArray addObject:[NSString stringWithFormat:@"%li",item.goodcommentcount]];
+//                    [xTitleArray addObject:[self getXTitleItemWithValue:item.month kdateSearchType:searchType]];
+//                    
+//                    [generalArray addObject:[NSString stringWithFormat:@"%li",item.generalcomment]];
+//                    
+//                    [badArray addObject:[NSString stringWithFormat:@"%li",item.badcommentcount]];
+//                    
+//                    [complaintArray addObject:[NSString stringWithFormat:@"%li",item.complaintcount]];
+//                }
+//            }
+        
+//            if (detailRootClass.data.coursedata.count) {
+//                for (DataDetailDMMonthCoursedata *item in detailRootClass.data.coursedata) {
+//                    [coachValueArray addObject:[NSString stringWithFormat:@"%li",item.coursecount]];
+//                    [coachXTitleArray addObject:[NSString stringWithFormat:@"%li",item.coachcount]];
+//                }
+//            }
             
-            NSMutableArray *applyValueArray = [NSMutableArray array];
-            NSMutableArray *reservationValueArray = [NSMutableArray array];
-            NSMutableArray *coachValueArray = [NSMutableArray array];
-            NSMutableArray *goodArray = [NSMutableArray array];
-            NSMutableArray *badArray = [NSMutableArray array];
-            NSMutableArray *generalArray = [NSMutableArray array];
-            NSMutableArray *complaintArray = [NSMutableArray array];
-            
-            NSMutableArray *applyXTitleArray = [NSMutableArray array];
-            NSMutableArray *reservationXTitleArray = [NSMutableArray array];
-            NSMutableArray *coachXTitleArray = [NSMutableArray array];
-            NSMutableArray *xTitleArray = [NSMutableArray array];
-            
-            NSInteger applyNum = 0;
-            NSInteger reservationNum = 0;
-            
-            if (detailRootClass.data.datalist.count) {
-                for (DataDetailDMYearDatalist *item in detailRootClass.data.datalist) {
-                    [applyValueArray addObject:[NSString stringWithFormat:@"%li",item.applystudentcount]];
-                    applyNum += item.applystudentcount;
-                    [applyXTitleArray addObject:[self getXTitleItemWithValue:item.month kdateSearchType:searchType]];
-                    
-                    [reservationValueArray addObject:[NSString stringWithFormat:@"%li",item.reservationcoursecount]];
-                    reservationNum += item.reservationcoursecount;
-                    [reservationXTitleArray addObject:[self getXTitleItemWithValue:item.month kdateSearchType:searchType]];
-                    
-                    [goodArray addObject:[NSString stringWithFormat:@"%li",item.goodcommentcount]];
-                    [xTitleArray addObject:[self getXTitleItemWithValue:item.month kdateSearchType:searchType]];
-                    
-                    [generalArray addObject:[NSString stringWithFormat:@"%li",item.generalcomment]];
-                    
-                    [badArray addObject:[NSString stringWithFormat:@"%li",item.badcommentcount]];
-                    
-                    [complaintArray addObject:[NSString stringWithFormat:@"%li",item.complaintcount]];
-                }
-            }
-            
-            if (detailRootClass.data.coursedata.count) {
-                for (DataDetailDMMonthCoursedata *item in detailRootClass.data.coursedata) {
-                    [coachValueArray addObject:[NSString stringWithFormat:@"%li",item.coursecount]];
-                    [coachXTitleArray addObject:[NSString stringWithFormat:@"%li",item.coachcount]];
-                }
-            }
-            
-            self.appleStudentCount = applyNum;
-            self.reservationStudentCount = reservationNum;
-            
-            self.applyXTitleArray = applyXTitleArray;
-            self.applyValueArray = applyValueArray;
-            
-            self.reservationXTitleArray = reservationXTitleArray;
-            self.reservationValueArray = reservationValueArray;
-            
-            self.coachCourseXTitleArray = coachXTitleArray;
-            self.coachCourseValueArray = coachValueArray;
-            
-            self.goodValueArray = goodArray;
-            self.generalValueArray = generalArray;
-            self.badValueArray = badArray;
-            self.complaintValueArray = complaintArray;
-            
-            self.evaluateXTitleArray = xTitleArray;
-        }
+//            self.appleStudentCount = applyNum;
+//            self.reservationStudentCount = reservationNum;
+//            
+//            self.applyXTitleArray = applyXTitleArray;
+//            self.applyValueArray = applyValueArray;
+//            
+//            self.reservationXTitleArray = reservationXTitleArray;
+//            self.reservationValueArray = reservationValueArray;
+//            
+//            self.coachCourseXTitleArray = coachXTitleArray;
+//            self.coachCourseValueArray = coachValueArray;
+//            
+//            self.goodValueArray = goodArray;
+//            self.generalValueArray = generalArray;
+//            self.badValueArray = badArray;
+//            self.complaintValueArray = complaintArray;
+//            
+//            self.evaluateXTitleArray = xTitleArray;
+        
+        self.reservationValueArray = detailRootClass.data.datalist;
+        self.reservationXTitleArray = [NSArray arrayWithObjects:@"第一季度",@"第二季度",@"第三季度",@"第四季度",nil];
+
+//        }
+    
     }
     return self;
 }

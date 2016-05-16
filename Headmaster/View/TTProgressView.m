@@ -63,6 +63,9 @@
     _percentLabel.bounds = CGRectMake(0, 0, width, height);
     
     _percentLabel.font = [UIFont boldSystemFontOfSize:15];
+    if (YBIphone6Plus) {
+        _percentLabel.font = [UIFont boldSystemFontOfSize:15*YBRatio];
+    }
     _percentLabel.textAlignment = NSTextAlignmentCenter;
     
     if (!_timer) {
