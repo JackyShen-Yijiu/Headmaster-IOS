@@ -21,8 +21,8 @@
 @property (nonatomic, strong) NSArray *applyValueArray;
 
 @property (nonatomic, assign) NSUInteger reservationStudentCount;
-@property (nonatomic, strong) NSArray *reservationXTitleArray;
-@property (nonatomic, strong) NSArray *reservationValueArray;
+@property (nonatomic, strong) NSArray *reservationXTitleArray;// X轴
+@property (nonatomic, strong) NSArray *reservationValueArray;// values 点
 
 @property (nonatomic, strong) NSArray *coachCourseXTitleArray;
 @property (nonatomic, strong) NSArray *coachCourseValueArray;

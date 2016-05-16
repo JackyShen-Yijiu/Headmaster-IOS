@@ -7,6 +7,7 @@
 //
 
 #import "HomeDataDetailViewModel.h"
+#import "YYModel.h"
 
 @implementation HomeDataDetailViewModel
 
@@ -17,29 +18,40 @@
         NSLog(@"--招生统计---%@======%li",responseObject,self.searchType);
         
         if (self.searchType == kDateSearchTypeWeek) {
+            
             DataDetailDMWeekRootClass *weekRC = [[DataDetailDMWeekRootClass alloc] initWithDictionary:responseObject];
             if (weekRC.type == 0) {
                 return ;
             }
             self.dataModel = [[HomeDetailTableViewDataModel alloc] initWithDataDetailDMWeekRootClass:weekRC searchType:self.searchType];
+            
         }else if (self.searchType == kDateSearchTypeMonth) {
-            DataDetailDMMonthRootClass *monthRC = [[DataDetailDMMonthRootClass alloc] initWithDictionary:responseObject];
+            
+            DataDetailDMMonthRootClass *monthRC = [DataDetailDMMonthRootClass yy_modelWithJSON:responseObject];
             if (monthRC.type == 0) {
                 return ;
             }
+            
+            NSLog(@"monthRC.data.datalist:%@",monthRC.data.datalist);
+            
             self.dataModel = [[HomeDetailTableViewDataModel alloc] initWithDataDetailDMMonthRootClass:monthRC searchType:self.searchType];
+            
         }else if (self.searchType == kDateSearchTypeYear) {
-            DataDetailDMYearRootClass *yearRC = [[DataDetailDMYearRootClass alloc] initWithDictionary:responseObject];
+            
+            DataDetailDMYearRootClass *yearRC = [DataDetailDMYearRootClass yy_modelWithJSON:responseObject];
             if (yearRC.type == 0) {
                 return ;
             }
             self.dataModel = [[HomeDetailTableViewDataModel alloc] initWithDataDetailDMYearRootClass:yearRC searchType:self.searchType];
+            
         }else {
+            
             HomeDataDetailDMRootClass *rootClass = [[HomeDataDetailDMRootClass alloc] initWithDictionary:responseObject];
             if (rootClass.type == 0) {
                 return ;
             }
             self.dataModel = [[HomeDetailTableViewDataModel alloc] initWithHomeDataDetailDMRootClass:rootClass searchType:self.searchType];
+            
         }
         [self successRefreshBlock];
         
