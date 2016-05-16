@@ -28,16 +28,26 @@
     [MobClick beginLogPageView:NSStringFromClass([self class])];
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.edgesForExtendedLayout = UIRectEdgeNone;
+    if (YBIphone6Plus) {
+        self.headerView = [[JZMailBoxHeaderView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth, 55.2)];
+        
+    }else {
+        self.headerView = [[JZMailBoxHeaderView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth, 48)];
+
+    }
     
-    self.view.backgroundColor = JZ_MAIN_BACKGROUND_COLOR;
-    self.headerView = [[JZMailBoxHeaderView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth, 48)];
  
     UITapGestureRecognizer *tapGestureTel = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(headerViewClick:)];
     self.headerView.userInteractionEnabled = YES;
     [self.headerView addGestureRecognizer:tapGestureTel];
+    if (YBIphone6Plus) {
+        self.mailboxView = [[JZMailBoxView alloc]initWithFrame:CGRectMake(0, 55.2, kJZWidth, kJZHeight-55.2-64) style:UITableViewStyleGrouped];
+ 
+    }else {
+        self.mailboxView = [[JZMailBoxView alloc]initWithFrame:CGRectMake(0, 48, kJZWidth, kJZHeight-48-64) style:UITableViewStyleGrouped];
+
+    }
     
-    
-    self.mailboxView = [[JZMailBoxView alloc]initWithFrame:CGRectMake(0, 48, kJZWidth, kJZHeight-48-64) style:UITableViewStyleGrouped];
     self.mailboxView.vc = self;
     
     [self.view addSubview:self.headerView];
@@ -63,20 +73,19 @@
     rightLabel.backgroundColor = [UIColor redColor];
     rightLabel.textAlignment = NSTextAlignmentCenter;
     rightLabel.font = [UIFont systemFontOfSize:8];
+    rightLabel.frame = CGRectMake(kJZWidth-44, 16, 16, 16);
+
     if (YBIphone6Plus) {
         rightLabel.font = [UIFont systemFontOfSize:8*YBRatio];
+        rightLabel.frame = CGRectMake(kJZWidth-44*YBRatio, 16*YBRatio, 16*YBRatio, 16*YBRatio);
+
     }
-    rightLabel.frame = CGRectMake(kJZWidth-44, 16, 16, 16);
     rightLabel.layer.masksToBounds = YES;
     rightLabel.layer.cornerRadius = rightLabel.width/2;
     
     [self.view addSubview:rightLabel];
     
-    
-    
 
-
-    
 }
 
 - (void)viewWillDisappear:(BOOL)animated

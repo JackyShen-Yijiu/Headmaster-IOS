@@ -74,8 +74,16 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
        
         make.left.equalTo(self.contentView.mas_left).offset(16);
         make.top.equalTo(self.contentView.mas_top).offset(12);
-        make.width.equalTo(@24);
-        make.height.equalTo(@24);
+        if (YBIphone6Plus) {
+            make.width.equalTo(@(24*YBRatio));
+            make.height.equalTo(@(24*YBRatio));
+            
+            
+        }else {
+            make.width.equalTo(@24);
+            make.height.equalTo(@24);
+        }
+       
         
     }];
     
@@ -108,8 +116,16 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
        
         make.top.equalTo(self.contentView.mas_top).offset(15);
         make.right.equalTo(self.contentView.mas_right).offset(-16);
-        make.width.equalTo(@38);
-        make.height.equalTo(@14);
+        if (YBIphone6Plus) {
+            
+            make.width.equalTo(@(38*YBRatio));
+            make.height.equalTo(@(14*YBRatio));
+            
+        }else {
+            make.width.equalTo(@38);
+            make.height.equalTo(@14);
+        }
+       
         
     }];
     
@@ -117,8 +133,15 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
         
         make.top.equalTo(self.coachIcon.mas_top);
         make.right.equalTo(self.coachIcon.mas_right);
-        make.width.equalTo(@6);
-        make.height.equalTo(@6);
+        if (YBIphone6Plus) {
+            
+            make.width.equalTo(@(6*YBRatio));
+            make.height.equalTo(@(6*YBRatio));
+        }else {
+            make.width.equalTo(@6);
+            make.height.equalTo(@6);
+        }
+        
         
     }];
     
@@ -142,8 +165,17 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
     
     [cell layoutIfNeeded];
     
-    return 17+14+12+8+12+12 + cell.contentLabel.height;
+    if (YBIphone6Plus) {
+        
+        return (17+14+12+8+12+12 + cell.contentLabel.height)*YBRatio;
+
+    }else {
+        
+        return 17+14+12+8+12+12 + cell.contentLabel.height;
+
+    }
     
+    return 0;
 }
 
 
@@ -154,7 +186,15 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
         
         _coachIcon = [[UIImageView alloc]init];
         
-        _coachIcon.layer.cornerRadius = 12;
+        if (YBIphone6Plus) {
+            
+            _coachIcon.layer.cornerRadius = 12*YBRatio;
+
+        }else {
+            _coachIcon.layer.cornerRadius = 12;
+
+        }
+        
         
         _coachIcon.layer.masksToBounds = YES;
         
@@ -169,7 +209,14 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
     if (!_coachNameLabel) {
         
         _coachNameLabel = [[UILabel alloc]init];
-        _coachNameLabel.font = [UIFont systemFontOfSize:14];
+        if (YBIphone6Plus) {
+            _coachNameLabel.font = [UIFont systemFontOfSize:14*YBRatio];
+
+            
+        }else {
+            _coachNameLabel.font = [UIFont systemFontOfSize:14];
+
+        }
         _coachNameLabel.textColor = kJZDarkTextColor;
         [self.contentView addSubview:_coachNameLabel];
 
@@ -182,7 +229,14 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
     if (!_contentLabel) {
         
         _contentLabel = [[UILabel alloc]init];
-        _contentLabel.font = [UIFont systemFontOfSize:14];
+        if (YBIphone6Plus) {
+            
+            _contentLabel.font = [UIFont systemFontOfSize:14*YBRatio];
+
+        }else {
+            _contentLabel.font = [UIFont systemFontOfSize:14];
+
+        }
         _contentLabel.textColor = kJZLightTextColor;
         _contentLabel.numberOfLines = 0;
         [self.contentView addSubview:_contentLabel];
@@ -196,8 +250,14 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
     if (!_dateLabel) {
         
         _dateLabel = [[UILabel alloc]init];
-        
-        _dateLabel.font = [UIFont systemFontOfSize:12];
+        if (YBIphone6Plus) {
+            
+            _dateLabel.font = [UIFont systemFontOfSize:12*YBRatio];
+
+        }else {
+            _dateLabel.font = [UIFont systemFontOfSize:12];
+
+        }
         
         _dateLabel.textColor = kJZLightTextColor;
         [self.contentView addSubview:_dateLabel];
