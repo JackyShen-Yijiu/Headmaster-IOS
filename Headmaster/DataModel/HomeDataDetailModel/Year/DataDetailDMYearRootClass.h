@@ -6,6 +6,4 @@
 @property (nonatomic, strong) DataDetailDMYearData * data;
 @property (nonatomic, strong) NSString * msg;
 @property (nonatomic, assign) NSInteger type;
-
--(instancetype)initWithDictionary:(NSDictionary *)dictionary;
 @end

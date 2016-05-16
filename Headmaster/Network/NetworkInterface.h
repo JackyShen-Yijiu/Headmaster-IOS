@@ -19,7 +19,7 @@
 #define HOME @"headmaster/statistics/getmainpagedatav2"
 
 /* 首页更多数据 */
-#define HOME_DATA_DETAIL @"headmaster/statistics/getmoredata"
+#define HOME_DATA_DETAIL @"headmaster/statistics/applyschoolinfo"
 
 /* 资讯相关 */
 #define INFORMATION_LIST            @"headmaster/info/getnews"

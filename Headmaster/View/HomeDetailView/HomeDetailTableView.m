@@ -94,31 +94,7 @@
         }
        
         normalLineChartCell.searchType = self.searchType;
-       
-//        //获取当前时间
-//        NSDate *now = [NSDate date];
-//        NSLog(@"now date is: %@", now);
-//        
-//        NSCalendar *calendar = [NSCalendar currentCalendar];
-//        NSUInteger unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
-//        NSDateComponents *dateComponent = [calendar components:unitFlags fromDate:now];
-//        
-//        NSInteger year = [dateComponent year];
-//        NSInteger month = [dateComponent month];
-//        NSInteger day = [dateComponent day];
-//        NSInteger hour = [dateComponent hour];
-//        NSInteger minute = [dateComponent minute];
-//        NSInteger second = [dateComponent second];
-//        NSInteger zhou = [dateComponent weekdayOrdinal];
-//
-//        NSLog(@"year is: %ld", (long)year);
-//        NSLog(@"month is: %ld", (long)month);
-//        NSLog(@"day is: %ld", (long)day);
-//        NSLog(@"hour is: %ld", (long)hour);
-//        NSLog(@"minute is: %ld", (long)minute);
-//        NSLog(@"second is: %ld", (long)second);
-//        NSLog(@"zhou is: %ld", (long)zhou);
-
+  
         NSDate*date = [NSDate date];
         
         

@@ -41,23 +41,25 @@
 	
     if (self.chartStyle == UUChartLineStyle) {
     
-        if(!_lineChart){
+        if(!_lineChart && [self.dataSource UUChart_xLableArray:self]){
             
-            CGFloat xLabelWidth = 0;
-            switch (self.searchType) {
-                case kDateSearchTypeWeek:
-                    xLabelWidth = 37;
-                    break;
-                case kDateSearchTypeMonth:
-                    xLabelWidth = 60;
-                    break;
-                case kDateSearchTypeYear:
-                    xLabelWidth = 50;
-                    break;
-                    
-                default:
-                    break;
-            }
+            NSLog(@"[self.dataSource UUChart_xLableArray:self]:%@",[self.dataSource UUChart_xLableArray:self]);
+           
+            CGFloat xLabelWidth = (self.width - 50)/ [self.dataSource UUChart_xLableArray:self].count;
+//            switch (self.searchType) {
+//                case kDateSearchTypeWeek:
+//                    xLabelWidth = 37;
+//                    break;
+//                case kDateSearchTypeMonth:
+//                    xLabelWidth = 60;
+//                    break;
+//                case kDateSearchTypeYear:
+//                    xLabelWidth = 50;
+//                    break;
+//                    
+//                default:
+//                    break;
+//            }
             _lineChart = [[UULineChart alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height) with_xLabelWidth:xLabelWidth];
             [self addSubview:_lineChart];
         }

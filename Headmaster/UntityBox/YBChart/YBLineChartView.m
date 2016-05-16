@@ -75,7 +75,7 @@
 
 - (CGFloat)defaultHeight {
     
-    return 260;
+    return [UIScreen mainScreen].bounds.size.height-64-40-30-20-40-10-105;
 }
 
 
