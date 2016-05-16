@@ -147,7 +147,7 @@
     [self.view addSubview:self.pageControl];
     
     [self cycleCreateImageView:@[ @"one_JZ.jpg", @"two_JZ.jpg", @"three_JZ.jpg" ]];
-    self.pageControl.numberOfPages = 3;
+    self.pageControl.numberOfPages = 0;
     
 }
 

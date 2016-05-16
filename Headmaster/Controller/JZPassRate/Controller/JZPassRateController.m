@@ -11,6 +11,7 @@
 #import "JZPassRateListView.h"
 #import "JZCommentTimeModel.h"
 #import <YYModel.h>
+#import "JZNoDataShowBGView.h"
 
 @interface JZPassRateController ()<UIScrollViewDelegate>
 
@@ -29,6 +30,13 @@
 @property (nonatomic, strong) NSMutableArray *timeDataArrayFour;
 
 @property (nonatomic, strong) UIView *bgView;
+
+
+
+@property (nonatomic, strong) JZNoDataShowBGView *oneNoDataView;
+@property (nonatomic, strong) JZNoDataShowBGView *twoNoDataView;
+@property (nonatomic, strong) JZNoDataShowBGView *threeNoDataView;
+@property (nonatomic, strong) JZNoDataShowBGView *fourNoDataView;
 
 
 
@@ -70,6 +78,11 @@
     [_scrollView addSubview:self.twoSubjexctView];
     [_scrollView addSubview:self.threeSubjexctView];
     [_scrollView addSubview:self.fourSubjexctView];
+    
+    [_scrollView addSubview:self.oneNoDataView];
+    [_scrollView addSubview:self.twoNoDataView];
+    [_scrollView addSubview:self.threeNoDataView];
+    [_scrollView addSubview:self.fourNoDataView];
     
 //  传过来的subjectID 为 1,2,3,4,
     CGFloat contentOffsetX = (_subjectID - 1) * self.view.width;
@@ -235,7 +248,47 @@
     [NetworkEntity getPassRateTimeWithUserid:[UserInfoModel defaultUserInfo].userID SchoolId:[UserInfoModel defaultUserInfo].schoolId SubjectID:_subjectID success:^(id responseObject) {
         if (1 == [responseObject[@"type"] integerValue]) {
             NSLog(@"response ======= ========== ================== ========  %@ %lu",responseObject,_subjectID);
+            
+            
+            self.oneNoDataView.hidden = YES;
+             self.twoNoDataView.hidden = YES;
+             self.threeNoDataView.hidden = YES;
+            self.fourNoDataView.hidden = YES;
+            
             NSArray *array = responseObject[@"data"];
+            
+            // 空白占位图片
+            if (array.count == 0) {
+                // 科目一
+                if (_subjectID == 1) {
+                    self.oneNoDataView.hidden = NO;
+                    [self.oneSubjexctView reloadData];
+                }
+                // 科目二
+                if (_subjectID == 2) {
+                    self.twoNoDataView.hidden = NO;
+                    [self.twoSubjexctView reloadData];
+                }
+                
+                // 科目三
+                if (_subjectID == 3) {
+                    self.threeNoDataView.hidden = NO;
+                    [self.threeSubjexctView reloadData];
+                }
+                // 科目四
+                if (_subjectID == 4) {
+                    self.fourNoDataView.hidden = NO;
+                    [self.fourSubjexctView reloadData];
+                }
+
+            }
+            
+            
+            
+            
+            
+    
+            
             if (array.count) {
                 [self.timeDataArrayOne removeAllObjects];
                  [self.timeDataArrayTwo removeAllObjects];
@@ -391,5 +444,54 @@
     return _fourSubjexctView;
 }
 
+- (JZNoDataShowBGView *)oneNoDataView{
+    if (_oneNoDataView == nil) {
+        _oneNoDataView = [[JZNoDataShowBGView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height )];
+        _oneNoDataView.titleStr = @"暂时还没有学员的考试信息";
+        _oneNoDataView.fontSize = 14;
+        _oneNoDataView.titleColor = kJZLightTextColor;
+        _oneNoDataView.imgStr = @"text_null";
+        _oneNoDataView.hidden = YES;
+    }
+    return _oneNoDataView;
+}
+- (JZNoDataShowBGView *)twoNoDataView{
+    if (_twoNoDataView == nil) {
+        _twoNoDataView = [[JZNoDataShowBGView alloc] initWithFrame:CGRectMake(self.view.width, 0, self.view.width, self.view.height)];
+        _twoNoDataView.titleStr = @"暂时还没有学员的考试信息";
+    
+        _twoNoDataView.fontSize = 14;
+        _twoNoDataView.titleColor = kJZLightTextColor;
+         _twoNoDataView.imgStr = @"text_null";
+        _twoNoDataView.hidden = YES;
+    }
+    return _twoNoDataView;
+}
+
+- (JZNoDataShowBGView *)threeNoDataView{
+    if (_threeNoDataView == nil) {
+        _threeNoDataView = [[JZNoDataShowBGView alloc] initWithFrame:CGRectMake(self.view.width * 2, 0, self.view.width, self.view.height)];
+        _threeNoDataView.titleStr = @"暂时还没有学员的考试信息";
+        _threeNoDataView.fontSize = 14;
+        _threeNoDataView.titleColor = kJZLightTextColor;
+         _threeNoDataView.imgStr = @"text_null";
+        _threeNoDataView.hidden = YES;
+    }
+    return _threeNoDataView;
+}
+- (JZNoDataShowBGView *)fourNoDataView
+{
+    if (_fourNoDataView == nil) {
+        _fourNoDataView = [[JZNoDataShowBGView alloc] initWithFrame:CGRectMake(self.view.width * 3, 0, self.view.width, self.view.height)];
+        _fourNoDataView.titleStr = @"暂时还没有学员的考试信息";
+        _fourNoDataView.fontSize = 14;
+        _fourNoDataView.titleColor = kJZLightTextColor;
+         _fourNoDataView.imgStr = @"text_null";
+        _fourNoDataView.hidden = YES;
+      
+        
+    }
+    return _fourNoDataView;
+}
 
 @end

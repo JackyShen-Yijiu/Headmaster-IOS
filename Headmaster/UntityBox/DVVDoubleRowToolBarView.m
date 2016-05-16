@@ -204,8 +204,8 @@
     [upButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [upButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
     if (self.isHomeDetailsVc) {
-        [upButton setTitleColor:RGB_Color(61, 139, 255) forState:UIControlStateNormal];
-        [upButton setTitleColor:RGB_Color(61, 139, 255) forState:UIControlStateSelected];
+        [upButton setTitleColor:RGB_Color(140, 140, 140) forState:UIControlStateNormal];
+        [upButton setTitleColor:RGB_Color(140, 140, 140) forState:UIControlStateSelected];
     }
     
     UIButton *downButton = [UIButton new];

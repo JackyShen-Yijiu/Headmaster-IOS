@@ -113,27 +113,27 @@
         
         // 校长姓名
         UILabel *nameLabel = [[UILabel alloc] init];
-        nameLabel.frame = CGRectMake(CGRectGetMaxX(imgView.frame) - 10, CGRectGetMaxY(imgView.frame) + 14, 100, 16);
-        nameLabel.centerY = imgView.centerY;
+        nameLabel.frame = CGRectMake(CGRectGetMaxX(imgView.frame) + 16, 100 , 100, 14);
+//        nameLabel.centerY = imgView.centerY;
         nameLabel.text = [UserInfoModel defaultUserInfo].name;
         nameLabel.textColor = [UIColor whiteColor];
-        nameLabel.textAlignment = NSTextAlignmentCenter;
-        nameLabel.font = [UIFont systemFontOfSize:16];
+        nameLabel.textAlignment = NSTextAlignmentLeft;
+        nameLabel.font = [UIFont systemFontOfSize:14];
         if (YBIphone6Plus) {
-            nameLabel.font = [UIFont systemFontOfSize:16*YBRatio];
+            nameLabel.font = [UIFont systemFontOfSize:14*YBRatio];
         }
         
         
         // 驾校姓名
         UILabel *schoolLabel = [[UILabel alloc] init];
-        schoolLabel.frame = CGRectMake(CGRectGetMinX(imgView.frame), CGRectGetMaxY(imgView.frame) + 15, self.headView.width - LiftMargain, 16);
+        schoolLabel.frame = CGRectMake(CGRectGetMaxX(imgView.frame) + 16,CGRectGetMaxY(nameLabel.frame) + 12 , self.headView.width - LiftMargain, 12);
 //        schoolLabel.centerX  = imgView.centerX + 20;
         schoolLabel.text = [NSString stringWithFormat:@"%@",[UserInfoModel defaultUserInfo].schoolName];
         schoolLabel.textColor = [UIColor whiteColor];
         schoolLabel.textAlignment = NSTextAlignmentLeft;
-        schoolLabel.font = [UIFont systemFontOfSize:16];
+        schoolLabel.font = [UIFont systemFontOfSize:12];
         if (YBIphone6Plus) {
-            schoolLabel.font = [UIFont systemFontOfSize:16*YBRatio];
+            schoolLabel.font = [UIFont systemFontOfSize:12*YBRatio];
         }
 
         [_headView addSubview:imgView];
@@ -163,7 +163,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 45;
+    return 64;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

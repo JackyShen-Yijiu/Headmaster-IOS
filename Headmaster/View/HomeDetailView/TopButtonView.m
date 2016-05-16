@@ -42,6 +42,7 @@
         [button setTitle:_titleArray[i] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         [button setBackgroundColor:[UIColor whiteColor]];
+        button.titleLabel.font = [UIFont systemFontOfSize:17];
         [button addTarget:self action:@selector(didClickButton:) forControlEvents:UIControlEventTouchUpInside];
         button.tag = 101 + i;
         if (i==0) {
