@@ -59,7 +59,7 @@
     
     NSInteger messageCount =  [userDefaults integerForKey:@"JZPublishHistoryMessageCount"];
     
-        JZPublishHistoryData *dataModel = self.listDataArray.firstObject;
+    JZPublishHistoryData *dataModel = self.listDataArray.firstObject;
     
         if (messageCount< dataModel.seqindex) {
 

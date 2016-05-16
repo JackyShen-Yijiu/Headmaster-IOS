@@ -170,6 +170,43 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
         if (type == 1) {
             NSArray *resultData = responseObject[@"data"];
             
+            //暂无数据空白图
+            if (!resultData.count) {
+                
+                UIView *noDataView = [[UIView alloc]initWithFrame:CGRectMake(0, 55.2+32, kJZWidth, kJZHeight-55.2-32)];
+                
+                noDataView.backgroundColor =  RGB_Color(239, 239, 244);
+                [self.vc.view addSubview:noDataView];
+                self.userInteractionEnabled = NO;
+                
+                UIImageView *noDataImg = [[UIImageView alloc]init];
+                noDataImg.image = [UIImage imageNamed:@"message_null"];
+                [noDataView addSubview:noDataImg];
+                
+                [noDataImg mas_makeConstraints:^(MASConstraintMaker *make) {
+                    
+                    make.centerX.equalTo(noDataView.mas_centerX);
+                    make.centerY.equalTo(noDataView.mas_centerY).offset(-44-44-24);
+                    
+                }];
+                UILabel *noDataLabel = [[UILabel alloc]init];
+                noDataLabel.text = @"暂时没有反馈消息";
+                noDataLabel.font = [UIFont systemFontOfSize:14];
+                noDataLabel.textColor = kJZLightTextColor;
+                [noDataView addSubview:noDataLabel];
+                
+                [noDataLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                    
+                    make.top.equalTo(noDataImg.mas_bottom).offset(24);
+                    make.centerX.equalTo(noDataView.mas_centerX);
+
+                }];
+                
+                
+                
+                
+                
+            }
             
             for (NSDictionary *dict in resultData) {
                 
@@ -184,15 +221,67 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
             
         }else{
             
-            ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"网络出错啦"];
-            [alertView show];
+            UIView *noDataView = [[UIView alloc]initWithFrame:CGRectMake(0, 55.2+32, kJZWidth, kJZHeight-55.2-32)];
+            
+            noDataView.backgroundColor =  RGB_Color(239, 239, 244);
+            [self.vc.view addSubview:noDataView];
+            self.userInteractionEnabled = NO;
+            
+            UIImageView *noDataImg = [[UIImageView alloc]init];
+            noDataImg.image = [UIImage imageNamed:@"net_null"];
+            [noDataView addSubview:noDataImg];
+            
+            [noDataImg mas_makeConstraints:^(MASConstraintMaker *make) {
+                
+                make.centerX.equalTo(noDataView.mas_centerX);
+                make.centerY.equalTo(noDataView.mas_centerY).offset(-44-44-24);
+                
+            }];
+            UILabel *noDataLabel = [[UILabel alloc]init];
+            noDataLabel.text = @"网络开小差了";
+            noDataLabel.font = [UIFont systemFontOfSize:14];
+            noDataLabel.textColor = kJZLightTextColor;
+            [noDataView addSubview:noDataLabel];
+            
+            [noDataLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                
+                make.top.equalTo(noDataImg.mas_bottom).offset(24);
+                make.centerX.equalTo(noDataView.mas_centerX);
+                
+            }];
+
             
         }
 
     } failure:^(NSError *failure) {
-        ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"网络出错啦"];
-        [alertView show];
+        UIView *noDataView = [[UIView alloc]initWithFrame:CGRectMake(0, 55.2+32, kJZWidth, kJZHeight-55.2-32)];
         
+        noDataView.backgroundColor =  RGB_Color(239, 239, 244);
+        [self.vc.view addSubview:noDataView];
+        self.userInteractionEnabled = NO;
+        
+        UIImageView *noDataImg = [[UIImageView alloc]init];
+        noDataImg.image = [UIImage imageNamed:@"net_null"];
+        [noDataView addSubview:noDataImg];
+        
+        [noDataImg mas_makeConstraints:^(MASConstraintMaker *make) {
+            
+            make.centerX.equalTo(noDataView.mas_centerX);
+            make.centerY.equalTo(noDataView.mas_centerY).offset(-44-44-24);
+            
+        }];
+        UILabel *noDataLabel = [[UILabel alloc]init];
+        noDataLabel.text = @"网络开小差了";
+        noDataLabel.font = [UIFont systemFontOfSize:14];
+        noDataLabel.textColor = kJZLightTextColor;
+        [noDataView addSubview:noDataLabel];
+        
+        [noDataLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            
+            make.top.equalTo(noDataImg.mas_bottom).offset(24);
+            make.centerX.equalTo(noDataView.mas_centerX);
+            
+        }];
     }];
     
    }

@@ -102,7 +102,39 @@ static NSString *JZPublishHistoryCellID = @"JZPublishHistoryCellID";
         
         NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
         NSArray *resultData = dataDic[@"data"];
-        
+        if (!resultData.count) {
+            
+            UIView *noDataView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth, kJZHeight-64)];
+            
+            noDataView.backgroundColor =  RGB_Color(239, 239, 244);
+            [self.vc.view addSubview:noDataView];
+            self.userInteractionEnabled = NO;
+            
+            UIImageView *noDataImg = [[UIImageView alloc]init];
+            noDataImg.image = [UIImage imageNamed:@"announcement_null"];
+            [noDataView addSubview:noDataImg];
+            
+            [noDataImg mas_makeConstraints:^(MASConstraintMaker *make) {
+                
+                make.centerX.equalTo(noDataView.mas_centerX);
+                make.centerY.equalTo(noDataView.mas_centerY).offset(-24-44);
+                
+            }];
+            UILabel *noDataLabel = [[UILabel alloc]init];
+            noDataLabel.text = @"暂时还没有驾校公告";
+            noDataLabel.font = [UIFont systemFontOfSize:14];
+            noDataLabel.textColor = kJZLightTextColor;
+            [noDataView addSubview:noDataLabel];
+            
+            [noDataLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                
+                make.top.equalTo(noDataImg.mas_bottom).offset(24);
+                make.centerX.equalTo(noDataView.mas_centerX);
+                
+            }];
+  
+  
+        }
         
         if ([[dataDic objectForKey:@"type"] integerValue]) {
           NSArray *array = resultData;
@@ -120,7 +152,41 @@ static NSString *JZPublishHistoryCellID = @"JZPublishHistoryCellID";
         
     } failure:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        [self.vc showTotasViewWithMes:@"网络出错啦"];
+        UIView *noDataView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth, kJZHeight-64)];
+        
+        noDataView.backgroundColor =  RGB_Color(239, 239, 244);
+        [self.vc.view addSubview:noDataView];
+        self.userInteractionEnabled = NO;
+        
+        UIImageView *noDataImg = [[UIImageView alloc]init];
+        noDataImg.image = [UIImage imageNamed:@"net_null"];
+        [noDataView addSubview:noDataImg];
+        
+        [noDataImg mas_makeConstraints:^(MASConstraintMaker *make) {
+            
+            make.centerX.equalTo(noDataView.mas_centerX);
+            make.centerY.equalTo(noDataView.mas_centerY).offset(-24-44);
+            
+        }];
+        UILabel *noDataLabel = [[UILabel alloc]init];
+        noDataLabel.text = @"网络开小差了";
+        if (YBIphone6Plus) {
+            noDataLabel.font = [UIFont systemFontOfSize:14*YBRatio];
+
+        }else {
+            noDataLabel.font = [UIFont systemFontOfSize:14];
+
+        }
+        noDataLabel.textColor = kJZLightTextColor;
+        [noDataView addSubview:noDataLabel];
+        
+        [noDataLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            
+            make.top.equalTo(noDataImg.mas_bottom).offset(24);
+            make.centerX.equalTo(noDataView.mas_centerX);
+            
+        }];
+
     }];
     
     

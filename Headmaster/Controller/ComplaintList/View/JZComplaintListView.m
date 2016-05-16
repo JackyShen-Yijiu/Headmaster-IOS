@@ -101,7 +101,44 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
             NSArray *complaintlist = resultData[@"complaintlist"];
             
             NSString *messageCount = resultData[@"count"];
-            
+            if (!messageCount.integerValue) {
+                
+                UIView *noDataView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth, kJZHeight-64)];
+                
+                noDataView.backgroundColor =  RGB_Color(239, 239, 244);
+                [self.vc.view addSubview:noDataView];
+                self.userInteractionEnabled = NO;
+                
+                UIImageView *noDataImg = [[UIImageView alloc]init];
+                noDataImg.image = [UIImage imageNamed:@"complaint_null"];
+                [noDataView addSubview:noDataImg];
+                
+                [noDataImg mas_makeConstraints:^(MASConstraintMaker *make) {
+                    
+                    make.centerX.equalTo(noDataView.mas_centerX);
+                    make.centerY.equalTo(noDataView.mas_centerY).offset(-24-44);
+                    
+                }];
+                UILabel *noDataLabel = [[UILabel alloc]init];
+                noDataLabel.text = @"暂时还没有收到学员投诉";
+                if (YBIphone6Plus) {
+                    noDataLabel.font = [UIFont systemFontOfSize:14*YBRatio];
+                    
+                }else {
+                    noDataLabel.font = [UIFont systemFontOfSize:14];
+                    
+                }
+                noDataLabel.textColor = kJZLightTextColor;
+                [noDataView addSubview:noDataLabel];
+                
+                [noDataLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                    
+                    make.top.equalTo(noDataImg.mas_bottom).offset(24);
+                    make.centerX.equalTo(noDataView.mas_centerX);
+                    
+                }];
+
+            }
             
             NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
                 // 写入
@@ -119,17 +156,82 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
             [self reloadData];
 
             
-            
+            ///  网络出错空白图
         }else{
         
-            ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"网络出错啦"];
-            [alertView show];
+            UIView *noDataView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth, kJZHeight-64)];
+            
+            noDataView.backgroundColor =  RGB_Color(239, 239, 244);
+            [self.vc.view addSubview:noDataView];
+            self.userInteractionEnabled = NO;
+            
+            UIImageView *noDataImg = [[UIImageView alloc]init];
+            noDataImg.image = [UIImage imageNamed:@"net_null"];
+            [noDataView addSubview:noDataImg];
+            
+            [noDataImg mas_makeConstraints:^(MASConstraintMaker *make) {
+                
+                make.centerX.equalTo(noDataView.mas_centerX);
+                make.centerY.equalTo(noDataView.mas_centerY).offset(-24-44);
+                
+            }];
+            UILabel *noDataLabel = [[UILabel alloc]init];
+            noDataLabel.text = @"网络开小差了";
+            if (YBIphone6Plus) {
+                noDataLabel.font = [UIFont systemFontOfSize:14*YBRatio];
+                
+            }else {
+                noDataLabel.font = [UIFont systemFontOfSize:14];
+                
+            }
+            noDataLabel.textColor = kJZLightTextColor;
+            [noDataView addSubview:noDataLabel];
+            
+            [noDataLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                
+                make.top.equalTo(noDataImg.mas_bottom).offset(24);
+                make.centerX.equalTo(noDataView.mas_centerX);
+                
+            }];
+
             
         }
-        
+        ///  网络出错空白图
     } failure:^(NSError *failure) {
-        ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"网络出错啦"];
-        [alertView show];
+        UIView *noDataView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth, kJZHeight-64)];
+        
+        noDataView.backgroundColor =  RGB_Color(239, 239, 244);
+        [self.vc.view addSubview:noDataView];
+        self.userInteractionEnabled = NO;
+        
+        UIImageView *noDataImg = [[UIImageView alloc]init];
+        noDataImg.image = [UIImage imageNamed:@"net_null"];
+        [noDataView addSubview:noDataImg];
+        
+        [noDataImg mas_makeConstraints:^(MASConstraintMaker *make) {
+            
+            make.centerX.equalTo(noDataView.mas_centerX);
+            make.centerY.equalTo(noDataView.mas_centerY).offset(-24-44);
+            
+        }];
+        UILabel *noDataLabel = [[UILabel alloc]init];
+        noDataLabel.text = @"网络开小差了";
+        if (YBIphone6Plus) {
+            noDataLabel.font = [UIFont systemFontOfSize:14*YBRatio];
+            
+        }else {
+            noDataLabel.font = [UIFont systemFontOfSize:14];
+            
+        }
+        noDataLabel.textColor = kJZLightTextColor;
+        [noDataView addSubview:noDataLabel];
+        
+        [noDataLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            
+            make.top.equalTo(noDataImg.mas_bottom).offset(24);
+            make.centerX.equalTo(noDataView.mas_centerX);
+            
+        }];
         
     }];
 

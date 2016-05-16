@@ -155,7 +155,7 @@ static NSString *JZInformationListCellID = @"JZInformationListCellID";
                 
                 
             }else {
-                ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"暂无数据"];
+                ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"暂无资讯"];
                 [alertView show];
                 
             }
