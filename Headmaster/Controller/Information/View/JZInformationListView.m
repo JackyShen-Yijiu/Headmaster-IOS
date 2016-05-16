@@ -124,7 +124,7 @@ static NSString *JZInformationListCellID = @"JZInformationListCellID";
                 // 网络加载 --- 创建带标题的图片轮播器
                 if (YBIphone6Plus) {
                     
-                    SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0,0, kJZWidth, 160*YBRatio) delegate:self placeholderImage:[UIImage imageNamed:@"placeholder"]];
+                    SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0,0, kJZWidth, 160*YBRatio) delegate:self placeholderImage:[UIImage imageNamed:@"pic_load"]];
                     cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
                     cycleScrollView.titleLabelTextFont = [UIFont systemFontOfSize:14*YBRatio];
                     //                cycleScrollView.currentPageDotImage = [UIImage imageNamed:@"point_on"];
@@ -137,7 +137,7 @@ static NSString *JZInformationListCellID = @"JZInformationListCellID";
 
                 }else {
                     
-                    SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0,0, kJZWidth, 160) delegate:self placeholderImage:[UIImage imageNamed:@"placeholder"]];
+                    SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0,0, kJZWidth, 160) delegate:self placeholderImage:[UIImage imageNamed:@"pic_load"]];
                     cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
                     cycleScrollView.titleLabelTextFont = [UIFont systemFontOfSize:14];
                     //                cycleScrollView.currentPageDotImage = [UIImage imageNamed:@"point_on"];
