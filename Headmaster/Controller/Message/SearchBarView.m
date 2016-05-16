@@ -46,7 +46,7 @@
             if (YBIphone6Plus) {
                 textField.font = [UIFont systemFontOfSize:14.f*YBRatio];
             }
-            textField.textColor = [UIColor whiteColor];
+            textField.textColor = kJZDarkTextColor;
             textField.clearButtonMode = UITextFieldViewModeNever;
             textField.clipsToBounds = YES;
         }
