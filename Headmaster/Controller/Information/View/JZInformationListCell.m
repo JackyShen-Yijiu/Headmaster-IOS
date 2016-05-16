@@ -36,7 +36,7 @@
     _data = data;
     
     
-    [self.newsImageView sd_setImageWithURL:[NSURL URLWithString:_data.logimg]];
+    [self.newsImageView sd_setImageWithURL:[NSURL URLWithString:_data.logimg]placeholderImage:[UIImage imageNamed:@"pic_load"]];
     
     self.newsTitleLabel.text = _data.title;
     
