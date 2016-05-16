@@ -105,8 +105,15 @@
     if (!_newsTitleLabel) {
         
         UILabel *newsTitleLabel = [[UILabel alloc]init];
+        if (YBIphone6Plus) {
+            
+            [newsTitleLabel setFont:[UIFont systemFontOfSize:14*YBRatio]];
+
+        }else {
+            [newsTitleLabel setFont:[UIFont systemFontOfSize:14]];
+
+        }
         
-        [newsTitleLabel setFont:[UIFont systemFontOfSize:14]];
         newsTitleLabel.textColor = kJZDarkTextColor;
         newsTitleLabel.numberOfLines = 0;
         self.newsTitleLabel = newsTitleLabel;
@@ -123,7 +130,15 @@
         
         UILabel *newsDateLabel = [[UILabel alloc]init];
         
-        [newsDateLabel setFont:[UIFont systemFontOfSize:14]];
+        if (YBIphone6Plus) {
+            [newsDateLabel setFont:[UIFont systemFontOfSize:14*YBRatio]];
+ 
+            
+        }else {
+            [newsDateLabel setFont:[UIFont systemFontOfSize:14]];
+
+        }
+        
         newsDateLabel.textColor = kJZLightTextColor;
         self.newsDateLabel = newsDateLabel;
         [self.contentView addSubview:newsDateLabel];

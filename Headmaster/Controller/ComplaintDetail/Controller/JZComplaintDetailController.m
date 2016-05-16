@@ -29,8 +29,21 @@
     }
     self.view.backgroundColor = JZ_MAIN_BACKGROUND_COLOR;
     
-    JZComplaintDetailTopView *detailTopView = [[JZComplaintDetailTopView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth, 146)];
 
+    
+    JZComplaintDetailTopView *detailTopView = [[JZComplaintDetailTopView alloc]init];
+
+    
+    if (YBIphone6Plus) {
+        
+
+        detailTopView.frame = CGRectMake(0, 0, kJZWidth, 146*YBRatio);
+
+    }else {
+        detailTopView.frame = CGRectMake(0, 0, kJZWidth, 146);
+
+    }
+    
     detailTopView.data = self.dataModel;
     
 
@@ -44,19 +57,39 @@
     CGFloat detailViewHeight = [JZComplaintDetailView complaintDetailViewH:self.dataModel];
     
 
-//    NSLog(@"detailViewHeight = %f",detailViewHeight);
-    JZComplaintDetailView *detailView = [[JZComplaintDetailView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth,detailViewHeight)];
-    detailView.data = self.dataModel;
-    self.detailView = detailView;
-    
-    UIScrollView *contentScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0,146,kJZWidth,detailViewHeight)];
-    contentScrollView.backgroundColor = [UIColor whiteColor];
-    
-    [self.view addSubview:contentScrollView];
-    
-    contentScrollView.contentSize = detailView.frame.size;
+    if (YBIphone6Plus) {
+        
+        JZComplaintDetailView *detailView = [[JZComplaintDetailView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth,detailViewHeight)];
+        detailView.data = self.dataModel;
+        self.detailView = detailView;
+        
+        UIScrollView *contentScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0,146*YBRatio,kJZWidth,detailViewHeight)];
+        contentScrollView.backgroundColor = [UIColor whiteColor];
+        
+        [self.view addSubview:contentScrollView];
+        
+        contentScrollView.contentSize = detailView.frame.size;
+        
+        [contentScrollView addSubview:detailView];
+        
+    }else {
+        
+        JZComplaintDetailView *detailView = [[JZComplaintDetailView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth,detailViewHeight)];
+        detailView.data = self.dataModel;
+        self.detailView = detailView;
+        
+        UIScrollView *contentScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0,146,kJZWidth,detailViewHeight)];
+        contentScrollView.backgroundColor = [UIColor whiteColor];
+        
+        [self.view addSubview:contentScrollView];
+        
+        contentScrollView.contentSize = detailView.frame.size;
+        
+        [contentScrollView addSubview:detailView];
+    }
 
-    [contentScrollView addSubview:detailView];
+    
+   
     
 
 

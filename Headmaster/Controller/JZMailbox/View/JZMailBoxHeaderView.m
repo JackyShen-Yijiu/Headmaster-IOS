@@ -17,7 +17,7 @@
 ///  小箭头
 @property (nonatomic, strong) UIImageView *extendImg;
 
-@property (nonatomic, strong) UILabel *badgeLabel;
+//@property (nonatomic, strong) UILabel *badgeLabel;
 
 @end
 @implementation JZMailBoxHeaderView
@@ -29,50 +29,64 @@
         
         self.frame = frame;
         self.backgroundColor = [UIColor whiteColor];
+
         
-        
-        
-        
-        [self.publishImg mas_makeConstraints:^(MASConstraintMaker *make) {
-            
-            make.left.equalTo(self.mas_left).offset(16);
-            make.centerY.equalTo(self.mas_centerY);
-            make.width.equalTo(@24);
-            make.height.equalTo(@24);
-            
-        }];
-        
-        [self.publishLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            
-            make.left.equalTo(self.publishImg.mas_right).offset(16);
-            make.centerY.equalTo(self.publishImg.mas_centerY);
-            
-        }];
-        [self.extendImg mas_makeConstraints:^(MASConstraintMaker *make) {
-            
-            make.right.equalTo(self.mas_right).offset(-16);
-            make.centerY.equalTo(self.publishImg.mas_centerY);
-            
-        }];
-        
-        [self.badgeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            
-            make.centerY.equalTo(self.publishImg.mas_centerY);
-            make.right.equalTo(self.extendImg.mas_right).offset(-16);
-            
-        }];
-        
-    }
+            }
     return self;
 }
 
-- (void)setBadge:(NSInteger)badge
-{
-    NSLog(@"badgeLabel = %@ self.badgeLabel:%@",self.badgeLabel.text,self.badgeLabel);
+//- (void)setBadge:(NSInteger)badge
+//{
+//    NSLog(@"badgeLabel = %@ self.badgeLabel:%@",self.badgeLabel.text,self.badgeLabel);
+//    
+//    self.badgeLabel.text = [NSString stringWithFormat:@"%zd",badge];
+//    self.badgeLabel.layer.masksToBounds = YES;
+//    self.badgeLabel.layer.cornerRadius = [self.badgeLabel.text sizeWithFont:self.badgeLabel.font].width/2;
+//
+//}
+
+-(void)layoutSubviews {
+    [super layoutSubviews];
     
-    self.badgeLabel.text = [NSString stringWithFormat:@"%zd",badge];
-    self.badgeLabel.layer.masksToBounds = YES;
-    self.badgeLabel.layer.cornerRadius = [self.badgeLabel.text sizeWithFont:self.badgeLabel.font].width/2;
+    [self.publishImg mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.left.equalTo(self.mas_left).offset(16);
+        make.centerY.equalTo(self.mas_centerY) ;
+        
+        if (YBIphone6Plus) {
+            
+            make.width.equalTo(@27.6);
+            make.height.equalTo(@(27.6));
+        }else {
+            
+            make.width.equalTo(@24);
+            make.height.equalTo(@24);
+        }
+        
+        
+        
+    }];
+    
+    [self.publishLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.left.equalTo(self.publishImg.mas_right).offset(16);
+        make.centerY.equalTo(self.mas_centerY);
+        
+    }];
+    [self.extendImg mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.right.equalTo(self.mas_right).offset(-16);
+        make.centerY.equalTo(self.mas_centerY);
+        
+    }];
+    
+    //        [self.badgeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    //
+    //            make.centerY.equalTo(self.publishImg.mas_centerY);
+    //            make.right.equalTo(self.extendImg.mas_right).offset(-16);
+    //
+    //        }];
+    
 
 }
 
@@ -82,7 +96,16 @@
     if (!_publishImg) {
         _publishImg = [[UIImageView alloc]init];
         _publishImg.image = [UIImage imageNamed:@"announcement"];
-        _publishImg.layer.cornerRadius = 12;
+        _publishImg.backgroundColor = [UIColor orangeColor];
+        if (YBIphone6Plus) {
+            
+            _publishImg.layer.cornerRadius = 12*YBRatio;
+
+        }else {
+            _publishImg.layer.cornerRadius = 12;
+
+        }
+        
         _publishImg.layer.masksToBounds = YES;
         [self addSubview:_publishImg];
     }
@@ -93,7 +116,15 @@
         _publishLabel = [[UILabel alloc]init];
         _publishLabel.text = @"驾校公告";
         _publishLabel.textColor = kJZDarkTextColor;
-        [_publishLabel setFont:[UIFont systemFontOfSize:14]];
+        if (YBIphone6Plus) {
+            
+            [_publishLabel setFont:[UIFont systemFontOfSize:14*YBRatio]];
+            
+        }else {
+            [_publishLabel setFont:[UIFont systemFontOfSize:14]];
+
+        }
+        
         [self addSubview:_publishLabel];
     }
     return _publishLabel;
@@ -106,18 +137,18 @@
     }
     return _extendImg;
 }
--(UILabel *)badgeLabel {
-    
-    if (!_badgeLabel) {
-        _badgeLabel = [[UILabel alloc]init];
-        _badgeLabel.backgroundColor = kJZRedColor;
-        _badgeLabel.textColor = [UIColor whiteColor];
-        _badgeLabel.font = [UIFont systemFontOfSize:10];
-        [self addSubview:_badgeLabel];
-    }
-    return _badgeLabel;
-    
-}
+//-(UILabel *)badgeLabel {
+//    
+//    if (!_badgeLabel) {
+//        _badgeLabel = [[UILabel alloc]init];
+//        _badgeLabel.backgroundColor = kJZRedColor;
+//        _badgeLabel.textColor = [UIColor whiteColor];
+//        _badgeLabel.font = [UIFont systemFontOfSize:10];
+//        [self addSubview:_badgeLabel];
+//    }
+//    return _badgeLabel;
+//    
+//}
 
 
 

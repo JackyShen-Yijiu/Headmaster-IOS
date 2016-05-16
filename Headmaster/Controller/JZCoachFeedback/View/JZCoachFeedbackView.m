@@ -47,8 +47,16 @@
           
            make.top.equalTo(self.mas_top).offset(16);
            make.left.equalTo(self.mas_left).offset(16);
-           make.width.equalTo(@24);
-           make.height.equalTo(@24);
+           if (YBIphone6Plus) {
+               
+               make.width.equalTo(@(24*YBRatio));
+               make.height.equalTo(@(24*YBRatio));
+               
+           }else {
+               make.width.equalTo(@24);
+               make.height.equalTo(@24);
+           }
+          
            
        }];
         
@@ -84,8 +92,15 @@
            
             make.top.equalTo(self.lineView.mas_top).offset(32);
             make.left.equalTo(self.mas_left).offset(16);
-            make.width.equalTo(@24);
-            make.height.equalTo(@24);
+            
+            if (YBIphone6Plus) {
+                make.width.equalTo(@(24*YBRatio));
+                make.height.equalTo(@(24*YBRatio));
+                
+            }else {
+                make.width.equalTo(@24);
+                make.height.equalTo(@24);
+            }
         }];
 //
         [self.headmasterNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -176,7 +191,15 @@
         
         _coachIcon = [[UIImageView alloc]init];
         
-        _coachIcon.layer.cornerRadius = 12;
+        if (YBIphone6Plus) {
+            
+            _coachIcon.layer.cornerRadius = 12*YBRatio;
+  
+        }else {
+            _coachIcon.layer.cornerRadius = 12;
+
+        }
+        
         
         _coachIcon.layer.masksToBounds = YES;
         
@@ -191,7 +214,14 @@
     if (!_coachNameLabel) {
         
         _coachNameLabel = [[UILabel alloc]init];
-        _coachNameLabel.font = [UIFont systemFontOfSize:14];
+        if (YBIphone6Plus) {
+            _coachNameLabel.font = [UIFont systemFontOfSize:14*YBRatio];
+
+            
+        }else {
+            _coachNameLabel.font = [UIFont systemFontOfSize:14];
+
+        }
         _coachNameLabel.textColor = kJZDarkTextColor;
         [self addSubview:_coachNameLabel];
         
@@ -204,7 +234,15 @@
     if (!_contentLabel) {
         
         _contentLabel = [[UILabel alloc]init];
-        _contentLabel.font = [UIFont systemFontOfSize:14];
+        if (YBIphone6Plus) {
+            
+            _contentLabel.font = [UIFont systemFontOfSize:14*YBRatio];
+
+            
+        }else {
+            _contentLabel.font = [UIFont systemFontOfSize:14];
+
+        }
         _contentLabel.textColor = kJZLightTextColor;
         _contentLabel.numberOfLines = 0;
         [self addSubview:_contentLabel];
@@ -219,7 +257,15 @@
         
         _dateLabel = [[UILabel alloc]init];
         
-        _dateLabel.font = [UIFont systemFontOfSize:12];
+        if (YBIphone6Plus) {
+            
+            _dateLabel.font = [UIFont systemFontOfSize:12*YBRatio];
+
+        }else {
+            _dateLabel.font = [UIFont systemFontOfSize:12];
+
+        }
+        
         
         _dateLabel.textColor = kJZLightTextColor;
         [self addSubview:_dateLabel];
@@ -247,8 +293,15 @@
     if (!_schoolIcon) {
         
         _schoolIcon = [[UIImageView alloc]init];
+        if (YBIphone6Plus) {
+            
+            _schoolIcon.layer.cornerRadius = 12*YBRatio;
+
+        }else {
+            _schoolIcon.layer.cornerRadius = 12;
+
+        }
         
-        _schoolIcon.layer.cornerRadius = 12;
         
         _schoolIcon.layer.masksToBounds = YES;
         
@@ -263,7 +316,14 @@
     if (!_headmasterNameLabel) {
         
         _headmasterNameLabel = [[UILabel alloc]init];
-        _headmasterNameLabel.font = [UIFont systemFontOfSize:14];
+        if (YBIphone6Plus) {
+            
+            _headmasterNameLabel.font = [UIFont systemFontOfSize:14*YBRatio];
+
+        }else {
+            _headmasterNameLabel.font = [UIFont systemFontOfSize:14];
+
+        }
         _headmasterNameLabel.textColor = kJZDarkTextColor;
         [self addSubview:_headmasterNameLabel];
         
@@ -277,7 +337,13 @@
     if (!_replyLabel) {
      
         _replyLabel = [[UILabel alloc]init];
-        _replyLabel.font = [UIFont systemFontOfSize:14];
+        if (YBIphone6Plus) {
+            _replyLabel.font = [UIFont systemFontOfSize:14*YBRatio];
+
+        }else {
+            _replyLabel.font = [UIFont systemFontOfSize:14];
+
+        }
         _replyLabel.textColor = kJZLightTextColor;
         [self addSubview:_replyLabel];
         
@@ -289,7 +355,15 @@
     if (!_replyCotentLabel) {
         
         _replyCotentLabel = [[UILabel alloc]init];
-        _replyCotentLabel.font = [UIFont systemFontOfSize:14];
+        if (YBIphone6Plus) {
+            
+            
+            _replyCotentLabel.font = [UIFont systemFontOfSize:14*YBRatio];
+
+        }else {
+            _replyCotentLabel.font = [UIFont systemFontOfSize:14];
+
+        }
         _replyCotentLabel.textColor = kJZLightTextColor;
         _replyCotentLabel.numberOfLines = 0;
         [self addSubview:_replyCotentLabel];
@@ -304,7 +378,15 @@
         
         _replyDateLabel = [[UILabel alloc]init];
         
-        _replyDateLabel.font = [UIFont systemFontOfSize:12];
+        if (YBIphone6Plus) {
+            
+            _replyDateLabel.font = [UIFont systemFontOfSize:12*YBRatio];
+
+        }else {
+            _replyDateLabel.font = [UIFont systemFontOfSize:12];
+
+        }
+        
         
         _replyDateLabel.textColor = kJZLightTextColor;
         [self addSubview:_replyDateLabel];
