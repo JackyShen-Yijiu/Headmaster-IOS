@@ -18,7 +18,7 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
 
 @interface JZComplaintListView ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) NSMutableArray *listDataArray;
-
+@property (nonatomic,assign) NSInteger index;
 @end
 
 @implementation JZComplaintListView
@@ -145,7 +145,8 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
             [userDefaults setInteger:messageCount.integerValue forKey:@"JZComplainCount"];
                 // 强制写入
             [userDefaults synchronize];
-
+            
+            self.index = 2;
             
             for (NSDictionary *dict in complaintlist) {
                 
@@ -253,12 +254,7 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
 #pragma mark - 下拉加载的数据
 -(void)loadMoreData {
     
-    static NSInteger index = 2;
-
-    
-    [NetworkEntity getComplainListWithUserid:[UserInfoModel defaultUserInfo].userID SchoolId:[UserInfoModel defaultUserInfo].schoolId Index:index Count:10 success:^(id responseObject) {
-        
-
+    [NetworkEntity getComplainListWithUserid:[UserInfoModel defaultUserInfo].userID SchoolId:[UserInfoModel defaultUserInfo].schoolId Index:self.index Count:10 success:^(id responseObject) {
 
         NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
         if (type == 1) {
@@ -266,9 +262,8 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
             
             NSArray *complaintlist = resultData[@"complaintlist"];
             
-            index ++;
             if (!complaintlist.count) {
-                
+                self.index ++;
                 [self.refreshFooter endRefreshing];
                 self.refreshFooter.scrollView = nil;
                 [self.vc showTotasViewWithMes:@"已经加载所有数据"];
@@ -284,9 +279,6 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
             }
             [self reloadData];
             [self.refreshFooter endRefreshing];
-
-            
-            
             
         }else{
             
