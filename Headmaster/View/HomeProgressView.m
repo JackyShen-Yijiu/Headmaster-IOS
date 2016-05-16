@@ -74,7 +74,6 @@
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didProgressView:)];
         [progressView addGestureRecognizer:tap];
         
-        
         if (i > 1) {
             progressViewY = progressViewH;
         }
@@ -82,7 +81,11 @@
         [contentView addSubview:progressView];
         
         CGFloat progressY = 15;
-        TTProgressView  *progress = [[TTProgressView alloc] initWithFrame:CGRectMake(45, progressY, progressViewW-90, progressViewW-90) bgColor:[UIColor colorWithRed:246/255.0 green:246/255.0 blue:246/255.0 alpha:1.0f] resultColor:[UIColor colorWithHexString:ColorArray[i]]];
+        CGFloat ratio = 1;
+        if (YBIphone6Plus) {
+            ratio = YBSizeRatio;
+        }
+        TTProgressView  *progress = [[TTProgressView alloc] initWithFrame:CGRectMake(45 * ratio, progressY, progressViewW-90*ratio, progressViewW-90*ratio) bgColor:[UIColor colorWithRed:246/255.0 green:246/255.0 blue:246/255.0 alpha:1.0f] resultColor:[UIColor colorWithHexString:ColorArray[i]]];
         progress.tag = i + 100;
         progress.lineWidth = 5;
         progress.percent = 0.5;
@@ -126,11 +129,14 @@
         CGFloat subjectLabelW = progressView.width;
         CGFloat subjectLabelH = 20;
         CGFloat subjectLabelX = 0;
-        CGFloat subjectLabelY = CGRectGetMaxY(progress.frame)+10;
+        CGFloat subjectLabelY = CGRectGetMaxY(progress.frame)+10*ratio;
         subjectLabel.text = [NSString stringWithFormat:@"%@",subjectArray[i]];
         subjectLabel.textAlignment = NSTextAlignmentCenter;
         subjectLabel.frame = CGRectMake(subjectLabelX, subjectLabelY, subjectLabelW, subjectLabelH);
         subjectLabel.font = [UIFont systemFontOfSize:13];
+        if (YBIphone6Plus) {
+            subjectLabel.font = [UIFont systemFontOfSize:13*YBRatio];
+        }
         subjectLabel.textColor = [UIColor grayColor];
         [progressView addSubview:subjectLabel];
 
@@ -139,11 +145,14 @@
         CGFloat cirmpLabelW = progressView.width;
         CGFloat cirmpLabelH = 15;
         CGFloat cirmpLabelX = 0;
-        CGFloat cirmpLabelY = CGRectGetMaxY(subjectLabel.frame);
+        CGFloat cirmpLabelY = CGRectGetMaxY(subjectLabel.frame)+3*ratio;
         cirmpLabel.text = @"积压人数";
         cirmpLabel.textAlignment = NSTextAlignmentCenter;
         cirmpLabel.frame = CGRectMake(cirmpLabelX, cirmpLabelY, cirmpLabelW, cirmpLabelH);
         cirmpLabel.font = [UIFont systemFontOfSize:12];
+        if (YBIphone6Plus) {
+            cirmpLabel.font = [UIFont systemFontOfSize:12*YBRatio];
+        }
         cirmpLabel.textColor = [UIColor blackColor];
         [progressView addSubview:cirmpLabel];
         cirmpLabel.tag = i + 10000;

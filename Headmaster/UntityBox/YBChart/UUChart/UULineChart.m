@@ -152,7 +152,7 @@
         NSString *labelText = xLabels[i];
         UUChartLabel * label = [[UUChartLabel alloc] initWithFrame:CGRectMake(i * _xLabelWidth, self.bounds.size.height - UULabelHeight - UULabelHeight /2.f, _xLabelWidth, UULabelHeight)];
         label.text = labelText;
-        label.textColor = kJZRedColor;
+        label.textColor = RGB_Color(140, 140, 140);
         [self.scrollView addSubview:label];
         [_chartLabelsForX addObject:label];
     }
