@@ -93,6 +93,7 @@ static NSString *JZInformationListCellID = @"JZInformationListCellID";
 
 -(void)loadData {
     
+    
     static NSInteger index = 0;
     
     [NetworkEntity informationListWithseqindex:0 count:10 success:^(id responseObject) {
@@ -121,16 +122,34 @@ static NSString *JZInformationListCellID = @"JZInformationListCellID";
                 }
                 
                 // 网络加载 --- 创建带标题的图片轮播器
-                SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0,0, kJZWidth, 160) delegate:self placeholderImage:[UIImage imageNamed:@"placeholder"]];
-                cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
-                cycleScrollView.titleLabelTextFont = [UIFont systemFontOfSize:14];
-//                cycleScrollView.currentPageDotImage = [UIImage imageNamed:@"point_on"];
-//                cycleScrollView.pageDotImage = [UIImage imageNamed:@"point"];
-                cycleScrollView.titlesGroup = self.titles;
-                cycleScrollView.imageURLStringsGroup = self.imagesURLStrings;
-                // 自定义分页控件小圆标颜色
-                cycleScrollView.currentPageDotColor = [UIColor whiteColor];
-                self.tableHeaderView = cycleScrollView;
+                if (YBIphone6Plus) {
+                    
+                    SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0,0, kJZWidth, 160*YBRatio) delegate:self placeholderImage:[UIImage imageNamed:@"placeholder"]];
+                    cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
+                    cycleScrollView.titleLabelTextFont = [UIFont systemFontOfSize:14*YBRatio];
+                    //                cycleScrollView.currentPageDotImage = [UIImage imageNamed:@"point_on"];
+                    //                cycleScrollView.pageDotImage = [UIImage imageNamed:@"point"];
+                    cycleScrollView.titlesGroup = self.titles;
+                    cycleScrollView.imageURLStringsGroup = self.imagesURLStrings;
+                    // 自定义分页控件小圆标颜色
+                    cycleScrollView.currentPageDotColor = [UIColor whiteColor];
+                    self.tableHeaderView = cycleScrollView;
+
+                }else {
+                    
+                    SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0,0, kJZWidth, 160) delegate:self placeholderImage:[UIImage imageNamed:@"placeholder"]];
+                    cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
+                    cycleScrollView.titleLabelTextFont = [UIFont systemFontOfSize:14];
+                    //                cycleScrollView.currentPageDotImage = [UIImage imageNamed:@"point_on"];
+                    //                cycleScrollView.pageDotImage = [UIImage imageNamed:@"point"];
+                    cycleScrollView.titlesGroup = self.titles;
+                    cycleScrollView.imageURLStringsGroup = self.imagesURLStrings;
+                    // 自定义分页控件小圆标颜色
+                    cycleScrollView.currentPageDotColor = [UIColor whiteColor];
+                    self.tableHeaderView = cycleScrollView;
+
+                }
+                
                 
                 [self reloadData];
                 
