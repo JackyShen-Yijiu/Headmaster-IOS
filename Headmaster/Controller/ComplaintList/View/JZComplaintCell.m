@@ -8,7 +8,7 @@
 
 #import "JZComplaintCell.h"
 #import "JZComplaintComplaintlist.h"
-static NSString *JZComplaintCellID = @"JZComplaintCell";
+static NSString *JZComplaintCellID = @"JZComplaintCellID";
 @interface JZComplaintCell()
 
 ///  学员头像
@@ -108,13 +108,16 @@ static NSString *JZComplaintCellID = @"JZComplaintCell";
        
         make.centerY.equalTo(self.studentIcon.mas_centerY);
         make.left.equalTo(self.studentIcon.mas_right).offset(14);
+//        make.height.equalTo(@14);
+
         
     }];
     
     
     [self.complaintName mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.studentIcon.mas_bottom).offset(16);
+        make.top.equalTo(self.studentIcon.mas_bottom).offset(14);
         make.left.equalTo(self.contentView.mas_left).offset(16);
+//        make.height.equalTo(@14);
     }];
     [self.complaintTime mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.studentIcon.mas_centerY);
@@ -129,7 +132,7 @@ static NSString *JZComplaintCellID = @"JZComplaintCell";
     
     [self.complaintImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.complaintName.mas_left);
-        make.top.mas_equalTo(self.complaintDetail.mas_bottom).offset(10);
+        make.top.mas_equalTo(self.complaintDetail.mas_bottom).offset(12);
         make.width.mas_equalTo(160);
         make.height.mas_equalTo(73);
     }];
@@ -160,7 +163,6 @@ static NSString *JZComplaintCellID = @"JZComplaintCell";
     
     _data = data;
     
-    
     [self.studentIcon sd_setImageWithURL:[NSURL URLWithString:_data.studentinfo.headportrait.originalpic] placeholderImage:[UIImage imageNamed:@"head_null"]];
     self.studentNameLabel.text = _data.studentinfo.name;
     
@@ -179,28 +181,26 @@ static NSString *JZComplaintCellID = @"JZComplaintCell";
     
     self.complaintTime.text = [self getYearLocalDateFormateUTCDate:_data.complaintDateTime];
     
-    if (_data.piclistr && _data.piclistr.count!=0) {
+    NSLog(@"_data.piclistr:%@",_data.piclistr);
+    
+    NSString *str = @"""";
+    
+    if (_data.piclistr && _data.piclistr.count!=0 && ![_data.piclistr containsObject:str]) {
         
         self.complaintImageView.hidden = NO;
         
-        if (_data.piclistr[0] && [_data.piclistr[0] length]!=0) {
+        if ((_data.piclistr[0] && [_data.piclistr[0] length]!=0)) {
             self.complaintFirstImg.hidden = NO;
+            self.complaintSecondImg.hidden = YES;
             [self.complaintFirstImg sd_setImageWithURL:[NSURL URLWithString:_data.piclistr[0]]];
-        }else{
-            self.complaintFirstImg.hidden = YES;
         }
         
-        if (_data.piclistr && _data.piclistr.count>1) {
-            
-            if (_data.piclistr[1] && [_data.piclistr[1] length]!=0) {
-                self.complaintSecondImg.hidden = NO;
-                [self.complaintSecondImg sd_setImageWithURL:[NSURL URLWithString:_data.piclistr[1]]];
-            }else{
-                self.complaintSecondImg.hidden = YES;
-            }
-            
+        if (_data.piclistr.count>1 && _data.piclistr[1] && [_data.piclistr[1] length]!=0) {
+            self.complaintFirstImg.hidden = NO;
+            self.complaintSecondImg.hidden = NO;
+            [self.complaintSecondImg sd_setImageWithURL:[NSURL URLWithString:_data.piclistr[1]]];
         }
-        
+       
     }else{
         
         self.complaintImageView.hidden = YES;
@@ -213,16 +213,18 @@ static NSString *JZComplaintCellID = @"JZComplaintCell";
 + (CGFloat)cellHeightDmData:(JZComplaintComplaintlist *)dmData
 {
     
-    JZComplaintCell *cell = [[JZComplaintCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"JZMyComplaintCell"];
+    JZComplaintCell *cell = [[JZComplaintCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:JZComplaintCellID];
     
     cell.data = dmData;
     
     [cell layoutIfNeeded];
     
-    if (dmData.piclistr && dmData.piclistr.count!=0) {
-        return cell.complaintName.height + cell.complaintDetail.height + cell.complaintImageView.height + cell.studentNameLabel.height + cell.studentIcon.height + 70;
+    NSString *str = @"""";
+    
+    if (dmData.piclistr && dmData.piclistr.count!=0 && ![dmData.piclistr containsObject:str]) {
+        return cell.complaintName.height + cell.complaintDetail.height + cell.complaintImageView.height + cell.studentIcon.height + 70.5;
     }
-    return cell.complaintName.height + cell.complaintDetail.height + cell.studentNameLabel.height + cell.studentIcon.height + 58;
+    return cell.complaintName.height + cell.complaintDetail.height + cell.studentIcon.height + 58.5;
     
 }
 

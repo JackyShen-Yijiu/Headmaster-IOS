@@ -172,33 +172,26 @@
     
     _data = data;
     
-    
+    NSString *str = @"""";
+
     self.complaintTime.text = [self getYearLocalDateFormateUTCDate:_data.complaintDateTime];
 
     
     self.complaintDetail.text = _data.complaintcontent;
-    
-    
-    if (_data.piclistr && _data.piclistr.count!=0) {
+    if (_data.piclistr && _data.piclistr.count!=0 && ![_data.piclistr containsObject:str]) {
         
         self.complaintImageView.hidden = NO;
         
-        if (_data.piclistr[0] && [_data.piclistr[0] length]!=0) {
+        if ((_data.piclistr[0] && [_data.piclistr[0] length]!=0)) {
             self.complaintFirstImg.hidden = NO;
+            self.complaintSecondImg.hidden = YES;
             [self.complaintFirstImg sd_setImageWithURL:[NSURL URLWithString:_data.piclistr[0]]];
-        }else{
-            self.complaintFirstImg.hidden = YES;
         }
         
-        if (_data.piclistr && _data.piclistr.count>1) {
-            
-            if (_data.piclistr[1] && [_data.piclistr[1] length]!=0) {
-                self.complaintSecondImg.hidden = NO;
-                [self.complaintSecondImg sd_setImageWithURL:[NSURL URLWithString:_data.piclistr[1]]];
-            }else{
-                self.complaintSecondImg.hidden = YES;
-            }
-            
+        if (_data.piclistr.count>1 && _data.piclistr[1] && [_data.piclistr[1] length]!=0) {
+            self.complaintFirstImg.hidden = NO;
+            self.complaintSecondImg.hidden = NO;
+            [self.complaintSecondImg sd_setImageWithURL:[NSURL URLWithString:_data.piclistr[1]]];
         }
         
     }else{
@@ -206,6 +199,34 @@
         self.complaintImageView.hidden = YES;
         
     }
+    
+//    if (_data.piclistr && _data.piclistr.count!=0) {
+//        
+//        self.complaintImageView.hidden = NO;
+//
+//        if (_data.piclistr[0] && [_data.piclistr[0] length]!=0) {
+//            self.complaintFirstImg.hidden = NO;
+//            [self.complaintFirstImg sd_setImageWithURL:[NSURL URLWithString:_data.piclistr[0]]];
+//        }else{
+//            self.complaintFirstImg.hidden = YES;
+//        }
+//        
+//        if (_data.piclistr && _data.piclistr.count>1) {
+//            
+//            if (_data.piclistr[1] && [_data.piclistr[1] length]!=0) {
+//                self.complaintSecondImg.hidden = NO;
+//                [self.complaintSecondImg sd_setImageWithURL:[NSURL URLWithString:_data.piclistr[1]]];
+//            }else{
+//                self.complaintSecondImg.hidden = YES;
+//            }
+//            
+//        }
+//        
+//    }else{
+//        
+//        self.complaintImageView.hidden = YES;
+//        
+//    }
     
 }
 
@@ -218,8 +239,9 @@
     detailView.data = date;
     
     [detailView layoutIfNeeded];
-    
-    if (date.piclistr && date.piclistr.count!=0) {
+    NSString *str = @"""";
+
+    if (date.piclistr && date.piclistr.count!=0 && ![date.piclistr containsObject:str]) {
         
         NSLog(@"===========complaintDetail%@", detailView.complaintDetail);
         NSLog(@"detailView.complaintContent.height:%f",detailView.complaintContent.height);
