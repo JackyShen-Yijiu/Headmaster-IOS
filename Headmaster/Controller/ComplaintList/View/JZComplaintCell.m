@@ -48,28 +48,62 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
     
     self.studentNameLabel = [[UILabel alloc]init];
     self.studentNameLabel.textColor = kJZLightTextColor;
-    [self.studentNameLabel setFont:[UIFont systemFontOfSize:14]];
+    if (YBIphone6Plus) {
+        
+        [self.studentNameLabel setFont:[UIFont systemFontOfSize:14*YBRatio]];
+
+    }else {
+        [self.studentNameLabel setFont:[UIFont systemFontOfSize:14]];
+
+    }
 
 
     self.studentIcon = [[UIImageView alloc]init];
-    self.studentIcon.layer.cornerRadius = 12;
+    if (YBIphone6Plus) {
+        
+        self.studentIcon.layer.cornerRadius = 12*YBRatio;
+
+    }else {
+        self.studentIcon.layer.cornerRadius = 12;
+
+    }
     self.studentIcon.layer.masksToBounds = YES;
 
     self.complaintTime = [[UILabel alloc]init];
     self.complaintTime.textColor = kJZLightTextColor;
     self.complaintName.textAlignment = NSTextAlignmentRight;
-    [self.complaintTime setFont:[UIFont systemFontOfSize:12]];
+    if (YBIphone6Plus) {
+        [self.complaintTime setFont:[UIFont systemFontOfSize:12*YBRatio]];
+
+    }else {
+        [self.complaintTime setFont:[UIFont systemFontOfSize:12]];
+
+    }
     self.complaintTime.numberOfLines = 0;
 
     self.complaintName = [[UILabel alloc]init];
     self.complaintName.textAlignment = NSTextAlignmentLeft;
     self.complaintName.textColor = kJZDarkTextColor;
-    [self.complaintName setFont:[UIFont systemFontOfSize:14]];
+    if (YBIphone6Plus) {
+        
+        [self.complaintName setFont:[UIFont systemFontOfSize:14*YBRatio]];
+
+    }else {
+        [self.complaintName setFont:[UIFont systemFontOfSize:14]];
+
+    }
 
     self.complaintDetail = [[UILabel alloc]init];
     self.complaintDetail.textColor = kJZDarkTextColor;
     self.complaintDetail.numberOfLines = 2;
-    [self.complaintDetail setFont:[UIFont systemFontOfSize:14]];
+    if (YBIphone6Plus) {
+        
+        [self.complaintDetail setFont:[UIFont systemFontOfSize:14*YBRatio]];
+
+    }else {
+        [self.complaintDetail setFont:[UIFont systemFontOfSize:14]];
+
+    }
     
     self.complaintImageView = [[UIView alloc] init];
 
@@ -97,8 +131,15 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
         
         make.top.equalTo(self.contentView.mas_top).offset(16);
         make.left.equalTo(self.contentView.mas_left).offset(16);
-        make.width.equalTo(@24);
-        make.height.equalTo(@24);
+        if (YBIphone6Plus) {
+            make.width.equalTo(@(24*YBRatio));
+            make.height.equalTo(@(24*YBRatio));
+            
+        }else {
+            make.width.equalTo(@24);
+            make.height.equalTo(@24);
+        }
+       
         
        
     }];
@@ -122,7 +163,7 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
     [self.complaintTime mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.studentIcon.mas_centerY);
         make.right.equalTo(self.contentView.mas_right).offset(-16);
-        make.height.equalTo(@12);
+//        make.height.equalTo(@12);
     }];
     [self.complaintDetail mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.complaintName.mas_bottom).offset(14);
@@ -133,21 +174,44 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
     [self.complaintImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.complaintName.mas_left);
         make.top.mas_equalTo(self.complaintDetail.mas_bottom).offset(12);
-        make.width.mas_equalTo(160);
-        make.height.mas_equalTo(73);
+        
+        if (YBIphone6Plus) {
+            make.width.mas_equalTo(160*YBRatio);
+            make.height.mas_equalTo(73*YBRatio);
+            
+        }else {
+            
+            make.width.mas_equalTo(160);
+            make.height.mas_equalTo(73);
+        }
+       
     }];
     [self.complaintFirstImg mas_makeConstraints:^(MASConstraintMaker *make){
         make.top.equalTo(@0);
         make.left.equalTo(@0);
         make.bottom.equalTo(@0);
-        make.width.mas_equalTo(73);
+        
+        if (YBIphone6Plus) {
+            
+            make.width.mas_equalTo(73*YBRatio);
+ 
+        }else {
+            make.width.mas_equalTo(73);
+
+        }
     }];
     [self.complaintSecondImg mas_makeConstraints:^(MASConstraintMaker *make){
         make.top.equalTo(@0);
         make.left.equalTo(self.complaintFirstImg.mas_right).offset(10);
         make.bottom.equalTo(@0);
-        make.width.mas_equalTo(73);
-    }];
+        if (YBIphone6Plus) {
+            
+            make.width.mas_equalTo(73*YBRatio);
+            
+        }else {
+            make.width.mas_equalTo(73);
+            
+        }    }];
     
     [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
        
