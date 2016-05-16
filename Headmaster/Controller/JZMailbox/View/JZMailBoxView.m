@@ -191,7 +191,14 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
                 }];
                 UILabel *noDataLabel = [[UILabel alloc]init];
                 noDataLabel.text = @"暂时没有反馈消息";
-                noDataLabel.font = [UIFont systemFontOfSize:14];
+                if (YBIphone6Plus) {
+                    noDataLabel.font = [UIFont systemFontOfSize:14*YBRatio];
+
+                    
+                }else {
+                    noDataLabel.font = [UIFont systemFontOfSize:14];
+
+                }
                 noDataLabel.textColor = kJZLightTextColor;
                 [noDataView addSubview:noDataLabel];
                 
@@ -239,7 +246,14 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
             }];
             UILabel *noDataLabel = [[UILabel alloc]init];
             noDataLabel.text = @"网络开小差了";
-            noDataLabel.font = [UIFont systemFontOfSize:14];
+            if (YBIphone6Plus) {
+                
+                noDataLabel.font = [UIFont systemFontOfSize:14*YBRatio];
+
+            }else {
+                noDataLabel.font = [UIFont systemFontOfSize:14];
+
+            }
             noDataLabel.textColor = kJZLightTextColor;
             [noDataView addSubview:noDataLabel];
             
@@ -272,7 +286,14 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
         }];
         UILabel *noDataLabel = [[UILabel alloc]init];
         noDataLabel.text = @"网络开小差了";
-        noDataLabel.font = [UIFont systemFontOfSize:14];
+        if (YBIphone6Plus) {
+            noDataLabel.font = [UIFont systemFontOfSize:14*YBRatio];
+            
+            
+        }else {
+            noDataLabel.font = [UIFont systemFontOfSize:14];
+            
+        }
         noDataLabel.textColor = kJZLightTextColor;
         [noDataView addSubview:noDataLabel];
         
