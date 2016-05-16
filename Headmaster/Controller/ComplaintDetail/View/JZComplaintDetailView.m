@@ -51,22 +51,45 @@
         [self.complaintImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self.mas_left).offset(16);
             make.top.mas_equalTo(self.complaintDetail.mas_bottom).offset(12);
-            make.width.mas_equalTo(158);
-            make.height.mas_equalTo(73);
+            
+            if (YBIphone6Plus) {
+                make.width.mas_equalTo(158*YBRatio);
+                make.height.mas_equalTo(73*YBRatio);
+                
+            }else {
+                make.width.mas_equalTo(158);
+                make.height.mas_equalTo(73);
+            }
+            
+            
         }];
         
             [self.complaintFirstImg mas_makeConstraints:^(MASConstraintMaker *make){
                 make.top.equalTo(@0);
                 make.left.equalTo(@0);
                 make.bottom.equalTo(@0);
-                make.width.mas_equalTo(73);
+                if (YBIphone6Plus) {
+                    make.width.mas_equalTo(73*YBRatio);
+ 
+                    
+                }else {
+                    make.width.mas_equalTo(73);
+
+                }
             }];
         
             [self.complaintSecondImg mas_makeConstraints:^(MASConstraintMaker *make){
                 make.top.equalTo(@0);
                 make.left.equalTo(self.complaintFirstImg.mas_right).offset(10);
                 make.bottom.equalTo(@0);
-                make.width.mas_equalTo(73);
+                if (YBIphone6Plus) {
+                    make.width.mas_equalTo(73*YBRatio);
+                    
+                    
+                }else {
+                    make.width.mas_equalTo(73);
+                    
+                }
             }];
         
     }
@@ -82,7 +105,15 @@
         UILabel *complaintContent = [[UILabel alloc]init];
         
         complaintContent.text = @"投诉内容";
-        [complaintContent setFont:[UIFont systemFontOfSize:14]];
+        
+        if (YBIphone6Plus) {
+            [complaintContent setFont:[UIFont systemFontOfSize:14*YBRatio]];
+
+            
+        }else {
+            [complaintContent setFont:[UIFont systemFontOfSize:14]];
+
+        }
         complaintContent.textColor = kJZLightTextColor;
         
         self.complaintContent = complaintContent;
@@ -100,7 +131,14 @@
         
         UILabel *complaintTime = [[UILabel alloc]init];
         
-        [complaintTime setFont:[UIFont systemFontOfSize:14]];
+        if (YBIphone6Plus) {
+            
+            [complaintTime setFont:[UIFont systemFontOfSize:14*YBRatio]];
+  
+        }else {
+            [complaintTime setFont:[UIFont systemFontOfSize:14]];
+
+        }
         complaintTime.textColor = kJZLightTextColor;
         
         self.complaintTime = complaintTime;
@@ -120,7 +158,14 @@
         
         UILabel *complaintDetail = [[UILabel alloc]init];
         
-        [complaintDetail setFont:[UIFont systemFontOfSize:14]];
+        if (YBIphone6Plus) {
+            
+            [complaintDetail setFont:[UIFont systemFontOfSize:14*YBRatio]];
+
+        }else {
+            [complaintDetail setFont:[UIFont systemFontOfSize:14]];
+
+        }
         complaintDetail.textColor = kJZDarkTextColor;
         
         self.complaintDetail = complaintDetail;
@@ -172,33 +217,26 @@
     
     _data = data;
     
-    
+    NSString *str = @"""";
+
     self.complaintTime.text = [self getYearLocalDateFormateUTCDate:_data.complaintDateTime];
 
     
     self.complaintDetail.text = _data.complaintcontent;
-    
-    
-    if (_data.piclistr && _data.piclistr.count!=0) {
+    if (_data.piclistr && _data.piclistr.count!=0 && ![_data.piclistr containsObject:str]) {
         
         self.complaintImageView.hidden = NO;
         
-        if (_data.piclistr[0] && [_data.piclistr[0] length]!=0) {
+        if ((_data.piclistr[0] && [_data.piclistr[0] length]!=0)) {
             self.complaintFirstImg.hidden = NO;
+            self.complaintSecondImg.hidden = YES;
             [self.complaintFirstImg sd_setImageWithURL:[NSURL URLWithString:_data.piclistr[0]]];
-        }else{
-            self.complaintFirstImg.hidden = YES;
         }
         
-        if (_data.piclistr && _data.piclistr.count>1) {
-            
-            if (_data.piclistr[1] && [_data.piclistr[1] length]!=0) {
-                self.complaintSecondImg.hidden = NO;
-                [self.complaintSecondImg sd_setImageWithURL:[NSURL URLWithString:_data.piclistr[1]]];
-            }else{
-                self.complaintSecondImg.hidden = YES;
-            }
-            
+        if (_data.piclistr.count>1 && _data.piclistr[1] && [_data.piclistr[1] length]!=0) {
+            self.complaintFirstImg.hidden = NO;
+            self.complaintSecondImg.hidden = NO;
+            [self.complaintSecondImg sd_setImageWithURL:[NSURL URLWithString:_data.piclistr[1]]];
         }
         
     }else{
@@ -206,6 +244,8 @@
         self.complaintImageView.hidden = YES;
         
     }
+    
+
     
 }
 
@@ -218,13 +258,14 @@
     detailView.data = date;
     
     [detailView layoutIfNeeded];
-    
-    if (date.piclistr && date.piclistr.count!=0) {
+    NSString *str = @"""";
+
+    if (date.piclistr && date.piclistr.count!=0 && ![date.piclistr containsObject:str]) {
         
-        NSLog(@"===========complaintDetail%@", detailView.complaintDetail);
-        NSLog(@"detailView.complaintContent.height:%f",detailView.complaintContent.height);
-        NSLog(@"detailView.complaintDetail.height:%f",detailView.complaintDetail.height);
-        NSLog(@"detailView.complaintImageView.height:%f",detailView.complaintImageView.height);
+//        NSLog(@"===========complaintDetail%@", detailView.complaintDetail);
+//        NSLog(@"detailView.complaintContent.height:%f",detailView.complaintContent.height);
+//        NSLog(@"detailView.complaintDetail.height:%f",detailView.complaintDetail.height);
+//        NSLog(@"detailView.complaintImageView.height:%f",detailView.complaintImageView.height);
 
         return detailView.complaintContent.height + detailView.complaintDetail.height + detailView.complaintImageView.height + 56;
     }

@@ -59,13 +59,15 @@ static NSString *JZPublishHistoryCellID = @"JZPublishHistoryCellID";
     if (!listCell) {
         
         listCell = [[JZPublishHistoryCell  alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:JZPublishHistoryCellID];
-        listCell.selectionStyle = UITableViewCellSelectionStyleNone;
         
-        listCell.backgroundColor = [UIColor whiteColor];
-
     }
+    
+   listCell.selectionStyle = UITableViewCellSelectionStyleGray;
+
+//    listCell.backgroundColor = [UIColor redColor];
 
     JZPublishHistoryData *dataModel = self.listDataArray[indexPath.row];
+    
     if (indexPath.row == 0) {
         
         JZPublishHistoryData *dataModel = self.listDataArray.firstObject;
@@ -79,6 +81,7 @@ static NSString *JZPublishHistoryCellID = @"JZPublishHistoryCellID";
         [userDefaults synchronize];
 
     }
+    
     listCell.data = dataModel;
     
     return listCell;

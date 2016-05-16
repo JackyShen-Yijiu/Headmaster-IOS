@@ -14,7 +14,7 @@
 #import "JZComplaintDetailController.h"
 #import "JZComplaintListController.h"
 
-static NSString *JZComplaintCellID = @"JZComplaintCell";
+static NSString *JZComplaintCellID = @"JZComplaintCellID";
 
 @interface JZComplaintListView ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) NSMutableArray *listDataArray;

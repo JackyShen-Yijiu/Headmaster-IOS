@@ -504,7 +504,7 @@
 - (void)callNum {
     
 //    NSLog(@"测试测试测试测试测试测试测试测试测试测试测试");
-    NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel://010-53658566"];
+    NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel://400-101-6669"];
     UIWebView * callWebview = [[UIWebView alloc] init];
     [callWebview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
     [self.view addSubview:callWebview];

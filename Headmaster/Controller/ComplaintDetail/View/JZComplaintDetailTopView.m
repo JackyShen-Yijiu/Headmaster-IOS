@@ -45,9 +45,14 @@
         
         make.left.equalTo(self.mas_left).offset(kJZWidth*0.25-24);
         make.top.equalTo(self.mas_top).offset(36);
-        make.width.equalTo(@48);
-        make.height.equalTo(@48);
-        
+        if (YBIphone6Plus) {
+            make.width.equalTo(@(48*YBRatio));
+            make.height.equalTo(@(48*YBRatio));
+            
+        }else {
+            make.width.equalTo(@48);
+            make.height.equalTo(@48);
+        }
     }];
     
     [self.studentNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -62,8 +67,15 @@
         
         make.right.equalTo(self.mas_left).offset(kJZWidth*0.75+24);
         make.centerY.equalTo(self.studentIcon.mas_centerY);
-        make.width.equalTo(@48);
-        make.height.equalTo(@48);
+        if (YBIphone6Plus) {
+            make.width.equalTo(@(48*YBRatio));
+            make.height.equalTo(@(48*YBRatio));
+            
+        }else {
+            make.width.equalTo(@48);
+            make.height.equalTo(@48);
+        }
+       
     }];
     
     [self.complaintNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -76,16 +88,30 @@
         
         make.top.equalTo(self.studentIcon.mas_top);
         make.left.equalTo(self.studentIcon.mas_right).offset(2);
-        make.width.equalTo(@28);
-        make.height.equalTo(@28);
-    }];
+        if (YBIphone6Plus) {
+            make.width.equalTo(@(28*YBRatio));
+            make.height.equalTo(@(28*YBRatio));
+
+        }else{
+            make.width.equalTo(@28);
+            make.height.equalTo(@28);
+
+        }
+           }];
     
     [self.directionImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.centerY.equalTo(self.studentIcon.mas_centerY);
         make.centerX.equalTo(self.mas_centerX);
-        make.width.equalTo(@36);
-        make.height.equalTo(@24);
+        if (YBIphone6Plus) {
+            
+            make.width.equalTo(@(36*YBRatio));
+            make.height.equalTo(@(24*YBRatio));
+        }else {
+            make.width.equalTo(@36);
+            make.height.equalTo(@24);
+        }
+       
         
     }];
 }
@@ -94,7 +120,14 @@
     if (!_studentIcon) {
         
         UIImageView *studentIcon = [[UIImageView alloc]init];
-        studentIcon.layer.cornerRadius = 24;
+        if (YBIphone6Plus) {
+            studentIcon.layer.cornerRadius = 24*YBRatio;
+
+            
+        }else {
+            studentIcon.layer.cornerRadius = 24;
+
+        }
         studentIcon.layer.masksToBounds = YES;
         self.studentIcon = studentIcon;
         [self addSubview:studentIcon];
@@ -106,7 +139,14 @@
     
     if (!_studentNameLabel) {
         UILabel *studentNameLabel = [[UILabel alloc]init];
-        [studentNameLabel setFont:[UIFont systemFontOfSize:14]];
+        if (YBIphone6Plus) {
+            [studentNameLabel setFont:[UIFont systemFontOfSize:14*YBRatio]];
+
+            
+        }else {
+            [studentNameLabel setFont:[UIFont systemFontOfSize:14]];
+
+        }
         studentNameLabel.textColor = [UIColor whiteColor];
         
         self.studentNameLabel = studentNameLabel;
@@ -120,7 +160,14 @@
 -(UIImageView *)complainIcon {
     if (!_complainIcon) {
         UIImageView *complainIcon = [[UIImageView alloc]init];
-        complainIcon.layer.cornerRadius = 24;
+        if (YBIphone6Plus) {
+            complainIcon.layer.cornerRadius = 24*YBRatio;
+ 
+            
+        }else {
+            complainIcon.layer.cornerRadius = 24;
+
+        }
         complainIcon.layer.masksToBounds = YES;
         self.complainIcon = complainIcon;
         [self addSubview:complainIcon];
@@ -132,7 +179,14 @@
     if (!_complaintNameLabel) {
         
         UILabel *complaintNameLabel = [[UILabel alloc]init];
-        [complaintNameLabel setFont:[UIFont systemFontOfSize:14]];
+        if (YBIphone6Plus) {
+            [complaintNameLabel setFont:[UIFont systemFontOfSize:14*YBRatio]];
+
+            
+        }else {
+            [complaintNameLabel setFont:[UIFont systemFontOfSize:14]];
+
+        }
         complaintNameLabel.textColor = [UIColor whiteColor];
         
         self.complaintNameLabel = complaintNameLabel;

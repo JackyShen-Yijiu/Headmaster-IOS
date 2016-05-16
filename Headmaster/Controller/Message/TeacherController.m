@@ -128,6 +128,7 @@
             NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
             if (type == 1) {
                 
+                [ws.dataSource removeAllObjects];
                 ws.myNavigationItem.title = [NSString stringWithFormat:@"我校教练(%@)",responseObject[@"extra"]];
 
                 ws.dataSource = [[BaseModelMethod getTeacherListArrayFormDicInfo:[responseObject objectArrayForKey:@"data"]] mutableCopy];
@@ -147,11 +148,20 @@
     };
     
     self.tableView.refreshFooter.beginRefreshingBlock = ^(){
-        [NetworkEntity getTeacherListWithSchoolId:[[UserInfoModel defaultUserInfo] schoolId] searchName:ws.searchKey pageIndex:ws.dataSource.count / RELOADDATACOUNT + 1 success:^(id responseObject) {
+        NSInteger pageIndex ;
+        if ((ws.dataSource.count % RELOADDATACOUNT)) {
+          pageIndex =   ws.dataSource.count / RELOADDATACOUNT + 2;
+        }else {
+            pageIndex = ws.dataSource.count / RELOADDATACOUNT + 1;
+        }
+        [NetworkEntity getTeacherListWithSchoolId:[[UserInfoModel defaultUserInfo] schoolId] searchName:ws.searchKey pageIndex:pageIndex success:^(id responseObject) {
             NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
+            NSLog(@"pageIndex = %lu",pageIndex);
+            
             
             if (type == 1) {
                 NSArray * listArray = [[BaseModelMethod getTeacherListArrayFormDicInfo:[responseObject objectArrayForKey:@"data"]] mutableCopy];
+                NSLog(@"listArray.count = %lu",listArray.count);
                 if (listArray.count) {
                     [ws.dataSource addObjectsFromArray:listArray];
                     [ws.tableView reloadData];

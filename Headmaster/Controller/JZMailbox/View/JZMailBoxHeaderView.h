@@ -10,6 +10,6 @@
 
 @interface JZMailBoxHeaderView : UIView
 
-- (void)setBadge:(NSInteger)badge;
+//- (void)setBadge:(NSInteger)badge;
 
 @end
