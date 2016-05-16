@@ -8,8 +8,6 @@
 
 #import "EaseBaseMessageCell.h"
 
-#import "UIImageView+EMWebCache.h"
-
 @interface EaseBaseMessageCell()
 
 @property (strong, nonatomic) UILabel *nameLabel;

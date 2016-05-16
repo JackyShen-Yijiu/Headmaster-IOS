@@ -8,7 +8,6 @@
 
 #import "EaseConversationCell.h"
 #import "EMConversation.h"
-#import "UIImageView+EMWebCache.h"
 #import "JGUserTools.h"
 
 CGFloat const EaseConversationCellPadding = 10;
