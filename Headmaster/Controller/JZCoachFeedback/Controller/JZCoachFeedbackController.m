@@ -49,7 +49,8 @@
     
     self.feedbackView.index = self.index;
     
-    self.replyView.hidden = self.dataModel.replyflag;
+//    self.replyView.hidden = self.dataModel.replyflag;
+
     
     NSString *key = [NSString stringWithFormat:@"%zd",self.index];
     NSArray *mailArr = @[@{key:self.dataModel._id}];
@@ -77,16 +78,26 @@
     [contentScrollView addGestureRecognizer:tapGestureTel];
 
 
-    [self setUI];
+   
+        if (self.dataModel.replyflag) {
+    
+            [self.replyTextField removeFromSuperview];
+            [self.replyButton removeFromSuperview];
+            [self.replyView removeFromSuperview];
+    
+        }else {
+             [self setUI];
+            //    监听键盘frame将要发生变化时候的通知
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillShowNotification object:nil];
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardEndChangeFrame:) name:UIKeyboardWillHideNotification object:nil];
+            
+            self.replyTextField.delegate = self;
+            
+            [self.replyButton addTarget:self action:@selector(replyButtonClick) forControlEvents:UIControlEventTouchUpInside];
+
+        }
     
     
-//    监听键盘frame将要发生变化时候的通知
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardEndChangeFrame:) name:UIKeyboardWillHideNotification object:nil];
-    
-    self.replyTextField.delegate = self;
-    
-    [self.replyButton addTarget:self action:@selector(replyButtonClick) forControlEvents:UIControlEventTouchUpInside];
 
 }
 -(void)viewClick:(UITapGestureRecognizer *)recognizer {
@@ -124,7 +135,7 @@
             
             self.feedbackView.replyCotentLabel.text = self.replyTextField.text;
 
-            
+            self.replyView.hidden = YES;
             
 //            [self.myNavController popViewControllerAnimated:YES];
             
