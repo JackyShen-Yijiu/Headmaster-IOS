@@ -77,33 +77,10 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
     
     
     
-    // 系统路径
-  NSString *DocuPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    // 拼接文件路径
-  NSString *path = [DocuPath stringByAppendingPathComponent:[NSString stringWithFormat:@"mailBox%zd.plist",indexPath.row]];
-    if (path) {
-        
-
-        NSArray *isReadArr = [NSArray arrayWithContentsOfFile:path];
-        
-        NSDictionary *idDict = isReadArr.firstObject;
-        
-//        NSString *_id = idDict[@"_id"];
-        NSString *_id = [idDict valueForKey:[NSString stringWithFormat:@"%zd",indexPath.row]];
-        
-        
-            if ([_id isEqualToString:dataModel._id]) {
-        
-                listCell.badgeView.hidden = YES;
-        
-            }else {
-                
-                listCell.badgeView.hidden = NO;
-                
-            }
-        
-
-    }
+    NSString *key = [NSString stringWithFormat:@"%@",dataModel._id];
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    BOOL isExit = [user boolForKey:key];
+    listCell.badgeView.hidden = isExit;
     
     if (dataModel.replyflag) {
         
@@ -141,8 +118,19 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
 #pragma mark - 代理
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    JZCoachFeedbackController *feedbackVC = [JZCoachFeedbackController new];
+    
     JZMailboxData *dataModel = self.dataArr[indexPath.row];
+    
+    NSString *key = [NSString stringWithFormat:@"%@",dataModel._id];
+    
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    [user setBool:YES forKey:key];
+    [user synchronize];
+    
+    [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath,nil] withRowAnimation:UITableViewRowAnimationNone];
+
+    
+    JZCoachFeedbackController *feedbackVC = [JZCoachFeedbackController new];
     
     feedbackVC.dataModel = dataModel;
     

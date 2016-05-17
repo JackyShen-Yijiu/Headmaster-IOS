@@ -61,7 +61,7 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
     
     listCell.data = dataModel;
     
-    NSString *key = [NSString stringWithFormat:@"%zd",indexPath.row];
+    NSString *key = [NSString stringWithFormat:@"%@",dataModel.complaintid];
     NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
     BOOL isExit = [user boolForKey:key];
     listCell.badgeView.hidden = isExit;
@@ -80,7 +80,7 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
 
     JZComplaintComplaintlist *dataModel = self.listDataArray[indexPath.row];
 
-    NSString *key = [NSString stringWithFormat:@"%zd",indexPath.row];
+    NSString *key = [NSString stringWithFormat:@"%@",dataModel.complaintid];
     
     NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
     [user setBool:YES forKey:key];
@@ -94,7 +94,6 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
 
     complaintDetailVC.isFormSideMenu =   JZComplaintVC.isFormSideMenu;
 
-    complaintDetailVC.index = indexPath.row;
 
     complaintDetailVC.dataModel = dataModel;
     

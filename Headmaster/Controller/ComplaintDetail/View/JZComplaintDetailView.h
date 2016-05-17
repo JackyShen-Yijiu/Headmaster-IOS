@@ -15,6 +15,5 @@
 + (CGFloat)complaintDetailViewH:(JZComplaintComplaintlist *)date;
 
 @property (nonatomic, strong) UIViewController *vc;
-@property (nonatomic, assign) NSInteger index;
 
 @end
