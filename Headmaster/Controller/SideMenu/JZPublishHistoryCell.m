@@ -135,7 +135,7 @@
     
     [self.contentLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
         
-        make.top.equalTo(self.timeLabel.mas_bottom).offset(14);// 14
+        make.top.equalTo(self.timeLabel.mas_bottom).offset(10);// 10
         make.left.equalTo(self.contentView.mas_left).offset(16);
         make.right.equalTo(self.contentView.mas_right).offset(-16);
         
@@ -162,7 +162,7 @@
 //    CGFloat height = [dmData.content sizeWithFont:[UIFont boldSystemFontOfSize:14*YBRatio] constrainedToSize:CGSizeMake(cell.contentView.width - 16 - 16, MAXFLOAT)].height;
 //    NSLog(@"---height:%f",height);
     
-    return cell.timeLabel.height + cell.mainTitleLabel.height + cell.contentLabel.height + 0.5 + 74;
+    return cell.timeLabel.height + cell.mainTitleLabel.height + cell.contentLabel.height + 0.5 + 70;
     
 }
 
