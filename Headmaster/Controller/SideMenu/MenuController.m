@@ -12,6 +12,7 @@
 #import "HomeDetailController.h"
 #import "RecommendViewController.h"
 #import "JZComplaintListController.h"
+#import "LoginController.h"
 
 #define LiftMargain 36
 
@@ -21,6 +22,9 @@
 @property (nonatomic, strong) UIView                    *headView;
 @property (nonatomic, copy) NSArray                     *LeftItemArray;
 @property (nonatomic, copy) NSArray                     *LeftIconArray;
+
+@property (nonatomic, strong) UILabel *nameLabel;
+@property (nonatomic, strong) UILabel *schoolLabel;
 
 @end
 
@@ -52,7 +56,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(infoChange) name:sideMenuInfochange object:nil];
     [self loadComplaintData];
     // Do any additional setup after loading the view.
     
@@ -102,43 +106,51 @@
 
 - (UIView *)headView {
     if (!_headView) {
+        
+        CGFloat fontSmallSize  = 12;
+        CGFloat fontBigSize = 14;
+        CGFloat sizeImageView = 58;
+        
+        if (YBIphone6Plus) {
+             fontSmallSize  = 12 * YBRatio;
+             fontBigSize = 14 * YBRatio;
+            sizeImageView = 58 * YBRatio;
+        }
+        
+        
+        
+        
+        
         _headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 200)];
         _headView.backgroundColor = [UIColor clearColor];
         // 头像
         UIImageView * imgView = [[self class] defaultImageView];
-        imgView.frame = CGRectMake(LiftMargain, 84, 58, 58);
+        imgView.frame = CGRectMake(LiftMargain, 84, sizeImageView, sizeImageView);
         imgView.userInteractionEnabled = YES;
         imgView.layer.masksToBounds = YES;
-        imgView.layer.cornerRadius = 29;
+        imgView.layer.cornerRadius = sizeImageView / 2;
         
         // 校长姓名
-        UILabel *nameLabel = [[UILabel alloc] init];
-        nameLabel.frame = CGRectMake(CGRectGetMaxX(imgView.frame) + 16, 100 , 100, 14);
+        _nameLabel = [[UILabel alloc] init];
+        _nameLabel.frame = CGRectMake(CGRectGetMaxX(imgView.frame) + 16, 100 , 100, fontBigSize);
 //        nameLabel.centerY = imgView.centerY;
-        nameLabel.text = [UserInfoModel defaultUserInfo].name;
-        nameLabel.textColor = [UIColor whiteColor];
-        nameLabel.textAlignment = NSTextAlignmentLeft;
-        nameLabel.font = [UIFont systemFontOfSize:14];
-        if (YBIphone6Plus) {
-            nameLabel.font = [UIFont systemFontOfSize:14*YBRatio];
-        }
+        _nameLabel.text = [UserInfoModel defaultUserInfo].name;
+        _nameLabel.textColor = [UIColor whiteColor];
+        _nameLabel.textAlignment = NSTextAlignmentLeft;
+        _nameLabel.font = [UIFont systemFontOfSize:fontBigSize];
         
         
         // 驾校姓名
-        UILabel *schoolLabel = [[UILabel alloc] init];
-        schoolLabel.frame = CGRectMake(CGRectGetMaxX(imgView.frame) + 16,CGRectGetMaxY(nameLabel.frame) + 12 , self.headView.width - LiftMargain, 12);
+        _schoolLabel = [[UILabel alloc] init];
+        _schoolLabel.frame = CGRectMake(CGRectGetMaxX(imgView.frame) + 16,CGRectGetMaxY(_nameLabel.frame) + 12 , self.headView.width - LiftMargain, fontSmallSize);
 //        schoolLabel.centerX  = imgView.centerX + 20;
-        schoolLabel.text = [NSString stringWithFormat:@"%@",[UserInfoModel defaultUserInfo].schoolName];
-        schoolLabel.textColor = [UIColor whiteColor];
-        schoolLabel.textAlignment = NSTextAlignmentLeft;
-        schoolLabel.font = [UIFont systemFontOfSize:12];
-        if (YBIphone6Plus) {
-            schoolLabel.font = [UIFont systemFontOfSize:12*YBRatio];
-        }
-
+        _schoolLabel.text = [NSString stringWithFormat:@"%@",[UserInfoModel defaultUserInfo].schoolName];
+        _schoolLabel.textColor = [UIColor whiteColor];
+        _schoolLabel.textAlignment = NSTextAlignmentLeft;
+        _schoolLabel.font = [UIFont systemFontOfSize:fontSmallSize];
         [_headView addSubview:imgView];
-        [_headView addSubview:nameLabel];
-        [_headView addSubview:schoolLabel];
+        [_headView addSubview:_nameLabel];
+        [_headView addSubview:_schoolLabel];
         
         
 //        UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(iconViewIsClick)];
@@ -260,7 +272,10 @@
     
     
 }
-
+- (void)infoChange{
+     _nameLabel.text = [UserInfoModel defaultUserInfo].name;
+     _schoolLabel.text = [NSString stringWithFormat:@"%@",[UserInfoModel defaultUserInfo].schoolName];
+}
 
 /*
 #pragma mark - Navigation

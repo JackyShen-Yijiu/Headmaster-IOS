@@ -439,6 +439,10 @@
                      
                      [[UserInfoModel defaultUserInfo] loginViewDic:loginInfo];
                      
+                     // 发送侧边栏个人信息改变通知
+                     [[NSNotificationCenter defaultCenter] postNotificationName:sideMenuInfochange object:nil];
+                     
+                     
                      [[MenuController defaultImageView] sd_setImageWithURL:[NSURL URLWithString:[UserInfoModel defaultUserInfo].portrait]];
                      
                      
