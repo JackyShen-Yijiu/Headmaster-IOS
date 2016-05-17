@@ -53,9 +53,10 @@
         
         if ([subview isKindOfClass:NSClassFromString(@"UINavigationButton")]) {
             UIButton * cancelButton = (UIButton *)subview;
-            [cancelButton setImage:[UIImage imageNamed:@"searchBar_cancel"] forState:UIControlStateNormal];
+            [cancelButton setImage:[UIImage imageNamed:@"delete_text"] forState:UIControlStateNormal];
             [cancelButton setTitle:@"" forState:UIControlStateNormal];
-            cancelButton.tintColor = RGB_Color(42, 42, 42);
+            cancelButton.tintColor = kJZLightTextColor;
+//            cancelButton.tintColor = RGB_Color(42, 42, 42);
            
         }
     }
