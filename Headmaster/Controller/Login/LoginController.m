@@ -439,6 +439,10 @@
                      
                      [[UserInfoModel defaultUserInfo] loginViewDic:loginInfo];
                      
+                     // 发送侧边栏个人信息改变通知
+                     [[NSNotificationCenter defaultCenter] postNotificationName:sideMenuInfochange object:nil];
+                     
+                     
                      [[MenuController defaultImageView] sd_setImageWithURL:[NSURL URLWithString:[UserInfoModel defaultUserInfo].portrait]];
                      
                      
@@ -472,8 +476,11 @@
                  }
                  else
                  {
-                     ToastAlertView *alerview = [[ToastAlertView alloc] initWithTitle:error.description controller:self];
-                     [alerview show];
+                     
+                     
+                     [self showTotasViewWithMes:error.description];
+//                     ToastAlertView *alerview = [[ToastAlertView alloc] initWithTitle:error.description controller:self];
+//                     [alerview show];
                      
                  }
                  
@@ -484,12 +491,17 @@
 //            [[EaseMob sharedInstance].chatManager removeAllConversationsWithDeleteMessages:YES append2Chat:NO];
 
                     }else {
-            ToastAlertView *toastView = [[ToastAlertView alloc] initWithTitle:[responseObject objectForKey:@"msg"]];
-            [toastView show];
+                        [self showTotasViewWithMes:[responseObject objectForKey:@"msg"]];
+   
+                        
+//            ToastAlertView *toastView = [[ToastAlertView alloc] initWithTitle:[responseObject objectForKey:@"msg"]];
+//            [toastView show];
         }
     } failure:^(NSError *failure) {
-        ToastAlertView *toastView = [[ToastAlertView alloc] initWithTitle:@"网络连接失败"];
-        [toastView show];
+        
+        [self showTotasViewWithMes:@"网络连接失败"];
+//        ToastAlertView *toastView = [[ToastAlertView alloc] initWithTitle:@"网络连接失败"];
+//        [toastView show];
     }];
 
 }

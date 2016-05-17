@@ -334,6 +334,9 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
                 
                 [self.refreshFooter endRefreshing];
                 self.refreshFooter.scrollView = nil;
+                self.refreshFooter.headerLabel.text = @"";
+                [self.refreshFooter.headerLabel removeFromSuperview];
+
                 [self.vc showTotasViewWithMes:@"已经加载所有数据"];
                 return;
                 

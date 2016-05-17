@@ -8,6 +8,8 @@
 
 #import "YBBaseController.h"
 
+static NSString *sideMenuInfochange = @"sideMenuInfochange";
+
 @class LoginController;
 @protocol LoginControllerDelegate <NSObject>
 - (void)loginControllerDidLoginSucess:(LoginController *)controller;

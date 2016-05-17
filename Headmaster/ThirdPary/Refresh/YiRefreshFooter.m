@@ -21,7 +21,7 @@
     BOOL isRefresh;
     
     
-    UILabel*headerLabel;
+//    UILabel*headerLabel;
     UIActivityIndicatorView *activityView;
     
 }
@@ -42,18 +42,18 @@
     float labelHeight=footerHeight;
     
     self.footerView=[[UIView alloc] init];
-    headerLabel=[[UILabel alloc] initWithFrame:CGRectMake((scrollWidth-labelWidth)/2, 0, labelWidth, labelHeight)];
-    [self.self.footerView addSubview:headerLabel];
-    headerLabel.textAlignment=NSTextAlignmentCenter;
-    headerLabel.text=@"";
-    headerLabel.textColor = [UIColor whiteColor];
-    headerLabel.font=[UIFont systemFontOfSize:14];
+    self.headerLabel=[[UILabel alloc] initWithFrame:CGRectMake((scrollWidth-labelWidth)/2, 0, labelWidth, labelHeight)];
+    [self.footerView addSubview:self.headerLabel];
+    self.headerLabel.textAlignment=NSTextAlignmentCenter;
+    self.headerLabel.text=@"正在加载...";
+    self.headerLabel.textColor = kJZDarkTextColor;
+    self.headerLabel.font=[UIFont systemFontOfSize:14];
     if (YBIphone6Plus) {
-        headerLabel.font=[UIFont systemFontOfSize:14*YBRatio];
+        self.headerLabel.font=[UIFont systemFontOfSize:14*YBRatio];
     }
     
     activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    activityView.frame=CGRectMake(headerLabel.right - 5, 0, imageWidth, imageHeight);
+    activityView.frame=CGRectMake(self.headerLabel.right - 5, 0, imageWidth, imageHeight);
     activityView.color = [UIColor whiteColor];
     [self.footerView addSubview:activityView];
     

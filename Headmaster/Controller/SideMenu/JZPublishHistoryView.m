@@ -33,7 +33,6 @@ static NSString *JZPublishHistoryCellID = @"JZPublishHistoryCellID";
         self.separatorStyle = UITableViewCellSeparatorStyleNone;
 
         
-//        [self addBackgroundImage];
         [self loadData];
         [self setRefresh];
         
@@ -61,8 +60,8 @@ static NSString *JZPublishHistoryCellID = @"JZPublishHistoryCellID";
         listCell = [[JZPublishHistoryCell  alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:JZPublishHistoryCellID];
         
     }
-    
-   listCell.selectionStyle = UITableViewCellSelectionStyleGray;
+
+   listCell.selectionStyle = UITableViewCellSelectionStyleNone;
 
 //    listCell.backgroundColor = [UIColor redColor];
 
@@ -221,15 +220,12 @@ static NSString *JZPublishHistoryCellID = @"JZPublishHistoryCellID";
             
             [self.refreshFooter endRefreshing];
             self.refreshFooter.scrollView = nil;
+            self.refreshFooter.headerLabel.text = @"";
+            [self.refreshFooter.headerLabel removeFromSuperview];
             [self.vc showTotasViewWithMes:@"已经加载所有数据"];
             return;
             
         }
-
-        
-        
-        
-
 
         if ([[dataDic objectForKey:@"type"] integerValue]) {
             NSArray *array = resultData;
@@ -265,12 +261,7 @@ static NSString *JZPublishHistoryCellID = @"JZPublishHistoryCellID";
     return _listDataArray;
 }
 
-//#pragma mark - 背景图片
-//- (void)addBackgroundImage {
-//    
-//    UIImage *image = [UIImage imageNamed:@"controllerBackground"];
-//    self.layer.contents = (id)image.CGImage;
-//}
+
 
 
 @end
