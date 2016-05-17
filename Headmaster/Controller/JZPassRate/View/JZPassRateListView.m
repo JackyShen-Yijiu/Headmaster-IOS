@@ -160,21 +160,36 @@
     return 0;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 152 - 43;
+    CGFloat headerH = 152 - 43;
+    if (YBIphone6Plus) {
+        headerH = (152 - 43) * YBRatio;
+    }
+
+    
+    return headerH;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 44;
+    
+    CGFloat headerH = 44;
+    if (YBIphone6Plus) {
+        headerH = 44 * YBRatio;
+    }
+
+    return headerH;
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
      JZCommentTimeModel *model =  _timeDataArray[section];
-    
-    JZPassRateHeaderView *headerView = [[JZPassRateHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.width, 44)];
+    CGFloat headerH = 44;
+    if (YBIphone6Plus) {
+        headerH = 44 * YBRatio;
+    }
+    JZPassRateHeaderView *headerView = [[JZPassRateHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.width, headerH)];
     headerView.backgroundColor = [UIColor whiteColor];
     if (model.isShowDetail) {
-        headerView.arrowImgView.image = [UIImage imageNamed:@"more_down"];
-    }else{
         headerView.arrowImgView.image = [UIImage imageNamed:@"more_up"];
+    }else{
+        headerView.arrowImgView.image = [UIImage imageNamed:@"more_down"];
     }
 
     headerView.titleLabel.text = model.ID;
