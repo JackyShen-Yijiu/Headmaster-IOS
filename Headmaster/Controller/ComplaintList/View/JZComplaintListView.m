@@ -59,8 +59,12 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
      JZComplaintComplaintlist *dataModel = self.listDataArray[indexPath.row];
     
     
-        listCell.data = dataModel;
-
+    listCell.data = dataModel;
+    
+    NSString *key = [NSString stringWithFormat:@"%@",dataModel.complaintid];
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    BOOL isExit = [user boolForKey:key];
+    listCell.badgeView.hidden = isExit;
     
     return listCell;
     
@@ -73,15 +77,23 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
 }
 #pragma mark - 代理
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    JZComplaintComplaintlist *dataModel = self.listDataArray[indexPath.row];
+
+    NSString *key = [NSString stringWithFormat:@"%@",dataModel.complaintid];
     
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    [user setBool:YES forKey:key];
+    [user synchronize];
+
+    [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath,nil] withRowAnimation:UITableViewRowAnimationNone];
+
     JZComplaintDetailController *complaintDetailVC = [[JZComplaintDetailController alloc]init];
     
     JZComplaintListController *JZComplaintVC  = (JZComplaintListController * )self.vc;
 
     complaintDetailVC.isFormSideMenu =   JZComplaintVC.isFormSideMenu;
 
-   
-    JZComplaintComplaintlist *dataModel = self.listDataArray[indexPath.row];
 
     complaintDetailVC.dataModel = dataModel;
     
