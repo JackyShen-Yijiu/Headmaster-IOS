@@ -37,7 +37,8 @@
     {
         if (!imgview) {
             imgview = [[UIImageView alloc] init];
-            [imgview sd_setImageWithURL:[NSURL URLWithString:[UserInfoModel defaultUserInfo].portrait]];
+            [imgview sd_setImageWithURL:[NSURL URLWithString:[UserInfoModel defaultUserInfo].portrait] placeholderImage:[UIImage imageNamed:@"head_headmaster_null"]];
+            
         }
     }
     return imgview;
