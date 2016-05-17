@@ -56,37 +56,29 @@
     
     CGFloat detailViewHeight = [JZComplaintDetailView complaintDetailViewH:self.dataModel];
     
-
+    JZComplaintDetailView *detailView = [[JZComplaintDetailView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth,detailViewHeight)];
+    detailView.data = self.dataModel;
+    self.detailView = detailView;
+    self.detailView.vc = self;
+    
+    UIScrollView *contentScrollView = [[UIScrollView alloc]init];
+    
     if (YBIphone6Plus) {
-        
-        JZComplaintDetailView *detailView = [[JZComplaintDetailView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth,detailViewHeight)];
-        detailView.data = self.dataModel;
-        self.detailView = detailView;
-        
-        UIScrollView *contentScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0,146*YBRatio,kJZWidth,detailViewHeight)];
-        contentScrollView.backgroundColor = [UIColor whiteColor];
-        
-        [self.view addSubview:contentScrollView];
-        
-        contentScrollView.contentSize = detailView.frame.size;
-        
-        [contentScrollView addSubview:detailView];
+
+       contentScrollView.frame = CGRectMake(0,146*YBRatio,kJZWidth,detailViewHeight);
         
     }else {
         
-        JZComplaintDetailView *detailView = [[JZComplaintDetailView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth,detailViewHeight)];
-        detailView.data = self.dataModel;
-        self.detailView = detailView;
-        
-        UIScrollView *contentScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0,146,kJZWidth,detailViewHeight)];
-        contentScrollView.backgroundColor = [UIColor whiteColor];
-        
-        [self.view addSubview:contentScrollView];
-        
-        contentScrollView.contentSize = detailView.frame.size;
-        
-        [contentScrollView addSubview:detailView];
+       contentScrollView.frame = CGRectMake(0,146,kJZWidth,detailViewHeight);
     }
+    
+    contentScrollView.backgroundColor = [UIColor whiteColor];
+    
+    [self.view addSubview:contentScrollView];
+    
+    contentScrollView.contentSize = detailView.frame.size;
+    
+    [contentScrollView addSubview:detailView];
 
     
    
