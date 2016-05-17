@@ -27,7 +27,7 @@
     if (_isFormSideMenu) {
         self.navigationItem.leftBarButtonItem = self.pushBtn;
     }
-    self.view.backgroundColor = JZ_MAIN_BACKGROUND_COLOR;
+    self.view.backgroundColor = [UIColor whiteColor];
     
 
     

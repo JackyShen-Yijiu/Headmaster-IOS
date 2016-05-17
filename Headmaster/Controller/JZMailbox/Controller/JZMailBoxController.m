@@ -28,30 +28,7 @@
     [MobClick beginLogPageView:NSStringFromClass([self class])];
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    if (YBIphone6Plus) {
-        self.headerView = [[JZMailBoxHeaderView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth, 55.2)];
-        
-    }else {
-        self.headerView = [[JZMailBoxHeaderView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth, 48)];
 
-    }
-    
- 
-    UITapGestureRecognizer *tapGestureTel = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(headerViewClick:)];
-    self.headerView.userInteractionEnabled = YES;
-    [self.headerView addGestureRecognizer:tapGestureTel];
-    if (YBIphone6Plus) {
-        self.mailboxView = [[JZMailBoxView alloc]initWithFrame:CGRectMake(0, 55.2, kJZWidth, kJZHeight-55.2-64) style:UITableViewStyleGrouped];
- 
-    }else {
-        self.mailboxView = [[JZMailBoxView alloc]initWithFrame:CGRectMake(0, 48, kJZWidth, kJZHeight-48-64) style:UITableViewStyleGrouped];
-
-    }
-    
-    self.mailboxView.vc = self;
-    
-    [self.view addSubview:self.headerView];
-    [self.view addSubview:self.mailboxView];
     
     UILabel *rightLabel = [[UILabel alloc] init];
     
@@ -62,8 +39,17 @@
     JZPublishHistoryData *dataModel = self.listDataArray.firstObject;
     
         if (messageCount< dataModel.seqindex) {
+            
+            if (dataModel.seqindex - messageCount>99) {
+                
+                rightLabel.text = @"99+";
+            }else {
+                rightLabel.text =  [NSString stringWithFormat:@"%zd",dataModel.seqindex - messageCount];
 
-          rightLabel.text =  [NSString stringWithFormat:@"%zd",dataModel.seqindex - messageCount];
+            }
+
+            
+            
             rightLabel.hidden = NO;
         }else {
             rightLabel.hidden = YES;
@@ -99,6 +85,31 @@
     [super viewDidLoad];
     
     
+    if (YBIphone6Plus) {
+        self.headerView = [[JZMailBoxHeaderView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth, 55.2)];
+        
+    }else {
+        self.headerView = [[JZMailBoxHeaderView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth, 48)];
+        
+    }
+    
+    
+    UITapGestureRecognizer *tapGestureTel = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(headerViewClick:)];
+    self.headerView.userInteractionEnabled = YES;
+    [self.headerView addGestureRecognizer:tapGestureTel];
+    
+    if (YBIphone6Plus) {
+        self.mailboxView = [[JZMailBoxView alloc]initWithFrame:CGRectMake(0, 55.2, kJZWidth, kJZHeight-55.2-64) style:UITableViewStyleGrouped];
+        
+    }else {
+        self.mailboxView = [[JZMailBoxView alloc]initWithFrame:CGRectMake(0, 48, kJZWidth, kJZHeight-48-64) style:UITableViewStyleGrouped];
+        
+    }
+    
+    self.mailboxView.vc = self;
+    
+    [self.view addSubview:self.headerView];
+    [self.view addSubview:self.mailboxView];
    
 }
 #pragma mark - headerView点击事件

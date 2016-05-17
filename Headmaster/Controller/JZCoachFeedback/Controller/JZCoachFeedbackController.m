@@ -49,21 +49,6 @@
     
     self.feedbackView.index = self.index;
     
-//    self.replyView.hidden = self.dataModel.replyflag;
-
-    
-//    NSString *key = [NSString stringWithFormat:@"%zd",self.index];
-//    NSArray *mailArr = @[@{key:self.dataModel._id}];
-//    // 系统路径
-//    NSString *DocuPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-//    // 拼接文件路径
-//    NSString *path = [DocuPath stringByAppendingPathComponent:[NSString stringWithFormat:@"mailBox%zd.plist",self.index]];
-//    
-//    // 写入
-//    [mailArr writeToFile:path atomically:YES];
-    
-
-    
     UIScrollView *contentScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0,0,kJZWidth,kJZHeight)];
     
     [self.view addSubview:contentScrollView];

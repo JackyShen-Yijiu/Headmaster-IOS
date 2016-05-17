@@ -133,7 +133,7 @@
     [bgView addGestureRecognizer:tapGes];
     bgView.userInteractionEnabled = YES;
     
-    bgView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
+    bgView.backgroundColor = [UIColor blackColor];
     bgView.alpha = 0;
     UIImageView *imageView = [UIImageView new];
     imageView.bounds = CGRectMake(0, 0, 0, 0);
@@ -145,7 +145,7 @@
     [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         
         bgView.alpha = 1;
-        imageView.bounds = CGRectMake(0, 0, kJZWidth - 100, kJZHeight-300);
+        imageView.bounds = CGRectMake(0, 0, kJZWidth, kJZHeight*0.7);
         
     } completion:^(BOOL finished) {
         
