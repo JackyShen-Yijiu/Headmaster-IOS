@@ -42,7 +42,7 @@
             
             if (dataModel.seqindex - messageCount>99) {
                 
-                rightLabel.text = @"99+";
+                rightLabel.text = @"n+";
             }else {
                 rightLabel.text =  [NSString stringWithFormat:@"%zd",dataModel.seqindex - messageCount];
 

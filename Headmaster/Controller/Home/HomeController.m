@@ -486,9 +486,15 @@
 
             
             if (messageCount< self.complaintCount) {
+                if ((self.complaintCount - messageCount)>99) {
+                    
+                    self.rightLabel.text = @"n+";
+                    
+                }else {
+                    self.rightLabel.text = [NSString stringWithFormat:@"%zd",self.complaintCount - messageCount];
+   
+                }
                 
-
-                self.rightLabel.text = [NSString stringWithFormat:@"%zd",self.complaintCount - messageCount];
                 
 //                self.rightLabel.hidden = !self.complaintCount;
                 
