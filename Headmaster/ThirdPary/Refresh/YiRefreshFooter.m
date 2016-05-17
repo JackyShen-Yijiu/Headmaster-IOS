@@ -45,8 +45,8 @@
     headerLabel=[[UILabel alloc] initWithFrame:CGRectMake((scrollWidth-labelWidth)/2, 0, labelWidth, labelHeight)];
     [self.self.footerView addSubview:headerLabel];
     headerLabel.textAlignment=NSTextAlignmentCenter;
-    headerLabel.text=@"";
-    headerLabel.textColor = [UIColor whiteColor];
+    headerLabel.text=@"正在加载...";
+    headerLabel.textColor = kJZDarkTextColor;
     headerLabel.font=[UIFont systemFontOfSize:14];
     if (YBIphone6Plus) {
         headerLabel.font=[UIFont systemFontOfSize:14*YBRatio];

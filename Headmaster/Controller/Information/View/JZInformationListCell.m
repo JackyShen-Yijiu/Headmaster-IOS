@@ -131,11 +131,11 @@
         UILabel *newsDateLabel = [[UILabel alloc]init];
         
         if (YBIphone6Plus) {
-            [newsDateLabel setFont:[UIFont systemFontOfSize:14*YBRatio]];
+            [newsDateLabel setFont:[UIFont systemFontOfSize:12*YBRatio]];
  
             
         }else {
-            [newsDateLabel setFont:[UIFont systemFontOfSize:14]];
+            [newsDateLabel setFont:[UIFont systemFontOfSize:12]];
 
         }
         
@@ -171,7 +171,7 @@
     
     NSDate *dateFormatted = [dateFormatter dateFromString:utcDate];
     //输出格式
-    [dateFormatter setDateFormat:@"MM/dd"];
+    [dateFormatter setDateFormat:@"YYYY/MM/dd"];
     NSString *dateString = [dateFormatter stringFromDate:dateFormatted];
     return dateString;
 }
