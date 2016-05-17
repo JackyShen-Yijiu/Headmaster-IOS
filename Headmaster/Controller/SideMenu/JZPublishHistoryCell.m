@@ -159,8 +159,6 @@
     
     [cell layoutIfNeeded];
 
-//    CGFloat height = [dmData.content sizeWithFont:[UIFont boldSystemFontOfSize:14*YBRatio] constrainedToSize:CGSizeMake(cell.contentView.width - 16 - 16, MAXFLOAT)].height;
-//    NSLog(@"---height:%f",height);
     
     return cell.timeLabel.height + cell.mainTitleLabel.height + cell.contentLabel.height + 0.5 + 70;
     

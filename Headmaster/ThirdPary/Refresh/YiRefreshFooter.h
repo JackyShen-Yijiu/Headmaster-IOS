@@ -14,6 +14,7 @@ typedef void (^BeginRefreshingBlock)(void);
 @property UIScrollView *scrollView;
 @property (nonatomic,strong) UIView *footerView;
 @property (nonatomic, copy) BeginRefreshingBlock beginRefreshingBlock;
+@property (nonatomic, strong) UILabel *headerLabel;
 
 
 -(void)footer;

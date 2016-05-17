@@ -210,6 +210,9 @@ static NSString *JZInformationListCellID = @"JZInformationListCellID";
                 if (!data.count) {
                     
                     [self.refreshFooter endRefreshing];
+                    self.refreshFooter.headerLabel.text = @"";
+                    [self.refreshFooter.headerLabel removeFromSuperview];
+
                     self.refreshFooter.scrollView = nil;
                     [self.vc showTotasViewWithMes:@"已经加载所有数据"];
                     return;
