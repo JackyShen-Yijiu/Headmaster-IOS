@@ -99,7 +99,7 @@
     
     _bottomShapeLayer.lineCap = kCALineCapSquare;
     
-    _bottomShapeLayer.lineWidth = 7;
+    _bottomShapeLayer.lineWidth = 4;
     _bottomShapeLayer.strokeColor     = _bgbgColor.CGColor;
     _bottomShapeLayer.fillColor       = [UIColor clearColor].CGColor;
     return _bottomShapeLayer;
@@ -119,7 +119,7 @@
     _upperShapeLayer.strokeStart = 0;
     _upperShapeLayer.strokeEnd =   0;
     [self performSelector:@selector(shapeChange) withObject:nil afterDelay:0.3];
-    _upperShapeLayer.lineWidth = 7;
+    _upperShapeLayer.lineWidth = 4;
     
     //    _upperShapeLayer.lineCap = kCALineCapButt;
     //    _upperShapeLayer.lineDashPattern = [NSArray arrayWithObjects:[NSNumber numberWithInt:5],[NSNumber numberWithInt:5], nil];

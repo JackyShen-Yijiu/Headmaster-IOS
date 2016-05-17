@@ -41,7 +41,7 @@
     self.topLabel.textAlignment = NSTextAlignmentCenter;
     self.topLabel.text = @"当前合格率";
     self.topLabel.font = [UIFont boldSystemFontOfSize:13];
-    if (YBIphone6Plus) {
+    if (YBIphone6Plus || YBIphone6) {
         self.topLabel.font = [UIFont boldSystemFontOfSize:13*YBRatio];
     }
     self.topLabel.textColor = [UIColor blackColor];
@@ -82,13 +82,15 @@
         
         CGFloat progressY = 15;
         CGFloat ratio = 1;
-        if (YBIphone6Plus) {
+        CGFloat margin = 45;
+        if (YBIphone6Plus || YBIphone6) {
             ratio = YBSizeRatio;
+            margin = 40;
         }
-        TTProgressView  *progress = [[TTProgressView alloc] initWithFrame:CGRectMake(45 * ratio, progressY, progressViewW-90*ratio, progressViewW-90*ratio) bgColor:[UIColor colorWithRed:246/255.0 green:246/255.0 blue:246/255.0 alpha:1.0f] resultColor:[UIColor colorWithHexString:ColorArray[i]]];
+        TTProgressView  *progress = [[TTProgressView alloc] initWithFrame:CGRectMake(margin * ratio, progressY, progressViewW-margin*2*ratio, progressViewW-margin*2*ratio) bgColor:[UIColor colorWithRed:246/255.0 green:246/255.0 blue:246/255.0 alpha:1.0f] resultColor:[UIColor colorWithHexString:ColorArray[i]]];
         progress.tag = i + 100;
-        progress.lineWidth = 5;
-        progress.percent = 0.5;
+        progress.lineWidth = 4;
+        progress.percent = 0;
         [progressView addSubview:progress];
         [self.progressViewArray addObject:progress];
         
@@ -130,11 +132,14 @@
         CGFloat subjectLabelH = 20;
         CGFloat subjectLabelX = 0;
         CGFloat subjectLabelY = CGRectGetMaxY(progress.frame)+10*ratio;
+        if (YBIphone6Plus || YBIphone6) {
+            subjectLabelY = CGRectGetMaxY(progress.frame)+15*ratio;
+        }
         subjectLabel.text = [NSString stringWithFormat:@"%@",subjectArray[i]];
         subjectLabel.textAlignment = NSTextAlignmentCenter;
         subjectLabel.frame = CGRectMake(subjectLabelX, subjectLabelY, subjectLabelW, subjectLabelH);
         subjectLabel.font = [UIFont systemFontOfSize:13];
-        if (YBIphone6Plus) {
+        if (YBIphone6Plus || YBIphone6) {
             subjectLabel.font = [UIFont systemFontOfSize:13*YBRatio];
         }
         subjectLabel.textColor = [UIColor grayColor];
@@ -150,7 +155,7 @@
         cirmpLabel.textAlignment = NSTextAlignmentCenter;
         cirmpLabel.frame = CGRectMake(cirmpLabelX, cirmpLabelY, cirmpLabelW, cirmpLabelH);
         cirmpLabel.font = [UIFont systemFontOfSize:12];
-        if (YBIphone6Plus) {
+        if (YBIphone6Plus || YBIphone6) {
             cirmpLabel.font = [UIFont systemFontOfSize:12*YBRatio];
         }
         cirmpLabel.textColor = [UIColor blackColor];

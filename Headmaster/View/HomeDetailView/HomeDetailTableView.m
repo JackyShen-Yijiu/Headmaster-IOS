@@ -196,7 +196,7 @@
         }
         
         if (self.viewModel.dataModel.reservationXTitleArray.count) {
-            normalLineChartCell.markLabel.text = [NSString stringWithFormat:@"共%li人",self.viewModel.dataModel.reservationStudentCount];
+            normalLineChartCell.markLabel.text = [NSString stringWithFormat:@"共%li人",[self getreservationStudentCount:self.viewModel.dataModel.reservationValueArray]];
             normalLineChartCell.xTitleArray = self.viewModel.dataModel.reservationXTitleArray;
             normalLineChartCell.valueArray = @[self.viewModel.dataModel.reservationValueArray];
         }
@@ -220,6 +220,15 @@
    
     return footerCell;
     
+}
+
+- (NSInteger)getreservationStudentCount:(NSArray *)array
+{
+    NSInteger count = 0;
+    for (NSString *str in array) {
+        count += [str integerValue];
+    }
+    return count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
