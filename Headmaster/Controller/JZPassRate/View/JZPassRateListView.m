@@ -169,11 +169,6 @@
     
      JZCommentTimeModel *model =  _timeDataArray[section];
     
-    
-    
-    
-    
-    
     JZPassRateHeaderView *headerView = [[JZPassRateHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.width, 44)];
     headerView.backgroundColor = [UIColor whiteColor];
     if (model.isShowDetail) {
