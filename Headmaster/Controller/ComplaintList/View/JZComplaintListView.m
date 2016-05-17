@@ -105,11 +105,12 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
     
     [NetworkEntity getComplainListWithUserid:[UserInfoModel defaultUserInfo].userID SchoolId:[UserInfoModel defaultUserInfo].schoolId Index:1 Count:10 success:^(id responseObject) {
         
+       
         
         NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
         if (type == 1) {
             NSDictionary *resultData = responseObject[@"data"];
-            
+            self.vc.myNavigationItem.title = [NSString stringWithFormat:@"投诉(%@)",resultData[@"count"]];
             NSArray *complaintlist = resultData[@"complaintlist"];
             
             NSString *messageCount = resultData[@"count"];
@@ -150,6 +151,8 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
                     
                 }];
 
+
+                
             }
             
             NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
