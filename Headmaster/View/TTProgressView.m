@@ -23,7 +23,7 @@
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if ((self = [super initWithFrame:frame])) {
-      
+        _percent = -1;
         [self drawBottomLayer];
         [self drawUpperLayer];
         [self.layer addSublayer:_bottomShapeLayer ];
@@ -57,7 +57,7 @@
     _percentLabel = [[UILabel alloc] init];
     CGFloat centerX = (CGRectGetMaxX(self.frame) - CGRectGetMinX(self.frame)) / 2;
     CGFloat centerY = (CGRectGetMaxY(self.frame) - CGRectGetMinY(self.frame)) / 2;
-    CGFloat width = self.frame.size.width / 2;
+    CGFloat width = self.frame.size.width;
     CGFloat height = self.frame.size.height / 2;
     _percentLabel.center = CGPointMake(centerX, centerY);
     _percentLabel.bounds = CGRectMake(0, 0, width, height);
@@ -77,6 +77,12 @@
 - (void)percentChange
 {
     _percentLabel.text = [NSString stringWithFormat:@"%.0f%%",_percent * 100];
+    
+    if (_percent<=0) {
+        _percentLabel.text = [NSString stringWithFormat:@"暂无数据"];
+        _percentLabel.font = [UIFont systemFontOfSize:13];
+    }
+
 }
 
 - (CAShapeLayer *)drawBottomLayer
@@ -134,21 +140,26 @@
 - (void)setPercent:(CGFloat)percent
 {
     _percent = percent;
-    
-    if (percent > 1) {
-        percent = 1;
-    }else if (percent < 0){
-        percent = 0;
-    }
+//    
+//    if (percent > 1) {
+//        percent = 1;
+//    }else if (percent < 0){
+//        percent = 0;
+//    }
    
     _upperShapeLayer.strokeEnd = _percent;
-
+    NSLog(@"_percent:%f",_percent);
     _percentLabel.text = [NSString stringWithFormat:@"%.0f%%",_percent * 100];
 
-    if (percent==1) {// 绿色
+    if (_percent<=0) {
+        _percentLabel.text = [NSString stringWithFormat:@"暂无数据"];
+        _percentLabel.font = [UIFont systemFontOfSize:13];
+    }
+    
+    if (_percent==1) {// 绿色
         _upperShapeLayer.strokeColor     = [UIColor colorWithHexString:@"7bd65c"].CGColor;
         _percentLabel.textColor = [UIColor colorWithHexString:@"7bd65c"];
-    }else if (percent>0.5 && percent <1){// 蓝色ok
+    }else if (_percent>0.5 && _percent <1){// 蓝色ok
         _upperShapeLayer.strokeColor     = JZ_BLUE_COLOR.CGColor;
         _percentLabel.textColor = JZ_BLUE_COLOR;
     }else{// 红色ok

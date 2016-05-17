@@ -160,7 +160,6 @@
 
     }
     
-    
     UIView *delive = [[UIView alloc] init];
     delive.backgroundColor = [UIColor lightGrayColor];
     delive.alpha = 0.3;
