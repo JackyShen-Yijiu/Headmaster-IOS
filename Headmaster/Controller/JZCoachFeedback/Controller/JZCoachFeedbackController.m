@@ -10,6 +10,7 @@
 #import "JZMailboxData.h"
 #import "JZCoachFeedbackView.h"
 #import "JZMailBoxController.h"
+#import "NSDate+Category.h"
 
 @interface JZCoachFeedbackController ()<UITextFieldDelegate>
 //@property (nonatomic, weak) JZCoachFeedbackView *feedbackView;
@@ -104,12 +105,31 @@
         NSString *data = response[@"data"];
         
         if (data) {
-        ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"回复成功"];
-        [alertView show];
+            [self.view endEditing:YES];
+            ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"回复成功"];
+            [alertView show];
             
-            [self.myNavController popViewControllerAnimated:YES];
+            [self.feedbackView.schoolIcon sd_setImageWithURL:[NSURL URLWithString:[UserInfoModel defaultUserInfo].portrait] placeholderImage:[UIImage imageNamed:@"head_null"]];
+            
+            self.feedbackView.headmasterNameLabel.text = [UserInfoModel defaultUserInfo].name;
+            
+            self.feedbackView.replyLabel.text = @"回复";
+            NSDate * date = [NSDate date];
+            NSTimeInterval sec = [date timeIntervalSinceNow];
+            NSDate * currentDate = [[NSDate alloc] initWithTimeIntervalSinceNow:sec];
+            NSDateFormatter * df = [[NSDateFormatter alloc] init ];
+            [df setDateFormat:@"yyyy/MM/dd HH:mm"];
+            NSString * nowTime = [df stringFromDate:currentDate];
+            self.feedbackView.replyDateLabel.text = nowTime;
+            
+            self.feedbackView.replyCotentLabel.text = self.replyTextField.text;
+
+            
+            
+//            [self.myNavController popViewControllerAnimated:YES];
             
         }else {
+            [self.view endEditing:YES];
             ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"回复失败"];
             [alertView show];
         }
@@ -117,7 +137,7 @@
         
     } failure:^(AFHTTPRequestOperation *operation, id responseObject) {
     
-       
+            [self.view endEditing:YES];
             ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"回复失败"];
             [alertView show];
         
@@ -156,8 +176,14 @@
         
         make.left.equalTo(self.view.mas_left);
         make.right.equalTo(self.view.mas_right);
-        make.height.equalTo(@46);
         make.bottom.equalTo(self.view.mas_bottom);
+        
+        if (YBIphone6Plus) {
+            make.height.equalTo(@(46*YBRatio));
+        }else {
+            make.height.equalTo(@46);
+
+        }
         
     }];
     [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -175,15 +201,28 @@
         make.left.equalTo(self.view.mas_left).offset(12);
         make.right.equalTo(self.view.mas_right).offset(-42);
         make.centerY.equalTo(self.replyView);
-        make.height.equalTo(@32);
+        if (YBIphone6Plus) {
+            make.height.equalTo(@(32*YBRatio));
+        }else {
+            make.height.equalTo(@32);
+
+        }
     }];
     
     [self.replyButton mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.left.equalTo(self.replyTextField.mas_right).offset(12);
         make.centerY.equalTo(self.replyView.mas_centerY);
-        make.height.equalTo(@18);
-        make.width.equalTo(@18);
+        if (YBIphone6Plus) {
+            
+            make.height.equalTo(@(18*YBRatio));
+            make.width.equalTo(@(18*YBRatio));
+        }else {
+           
+            make.height.equalTo(@18);
+            make.width.equalTo(@18);
+        }
+        
         
     }];
     
@@ -227,7 +266,15 @@
         
         _replyTextField = [[UITextField alloc]init];
         _replyTextField.backgroundColor = [UIColor whiteColor];
-        _replyTextField.font = [UIFont systemFontOfSize:14];
+        
+        if (YBIphone6Plus) {
+            
+            _replyTextField.font = [UIFont systemFontOfSize:14*YBRatio];
+
+        }else {
+            _replyTextField.font = [UIFont systemFontOfSize:14];
+
+        }
         _replyTextField.placeholder = @" 可在此处输入内容进行回复";
         _replyTextField.textColor = kJZDarkTextColor;
         _replyTextField.borderStyle = UITextBorderStyleRoundedRect;

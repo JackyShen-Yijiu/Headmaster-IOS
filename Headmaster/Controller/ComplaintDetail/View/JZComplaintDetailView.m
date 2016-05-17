@@ -8,6 +8,7 @@
 
 #import "JZComplaintDetailView.h"
 #import "JZComplaintComplaintlist.h"
+//#import "MWPhotoBrowser.h"
 
 @interface JZComplaintDetailView ()
 ///"投诉内容"这四个文字
@@ -22,6 +23,9 @@
 @property (strong, nonatomic)  UIImageView *complaintSecondImg;
 /// 放置两张图片的View
 @property (nonatomic,strong) UIView *complaintImageView;
+
+@property (nonatomic, strong) NSMutableArray *photos;
+
 @end
 @implementation JZComplaintDetailView
 
@@ -92,9 +96,69 @@
                 }
             }];
         
+        
+        self.complaintFirstImg.userInteractionEnabled = YES;
+        self.complaintSecondImg.userInteractionEnabled = YES; 
+        
+        UITapGestureRecognizer *tapFirst = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(seeFirstBigImg)];
+        [self.complaintFirstImg addGestureRecognizer:tapFirst];
+        UITapGestureRecognizer *tapSecond = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(seeSecondBigImg)];
+        [self.complaintSecondImg addGestureRecognizer:tapSecond];
+
+
+        
     }
     
     return self;
+}
+-(void)seeFirstBigImg {
+
+    JZComplaintComplaintlist *data = self.data;
+    NSString *picStr = data.piclistr[0];
+    
+    [self showBigImageStr:picStr];
+    
+}
+-(void)seeSecondBigImg {
+    JZComplaintComplaintlist *data = self.data;
+    NSString *picStr = data.piclistr[1];
+    
+    [self showBigImageStr:picStr];
+}
+
+- (void)showBigImageStr:(NSString *)imagestr {
+    
+    UIView *bgView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeBigImg:)];
+    [bgView addGestureRecognizer:tapGes];
+    bgView.userInteractionEnabled = YES;
+    
+    bgView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
+    bgView.alpha = 0;
+    UIImageView *imageView = [UIImageView new];
+    imageView.bounds = CGRectMake(0, 0, 0, 0);
+    imageView.center = bgView.center;
+    [imageView sd_setImageWithURL:[NSURL URLWithString:imagestr] placeholderImage:nil];
+    [bgView addSubview:imageView];
+    [[UIApplication sharedApplication].keyWindow addSubview:bgView];
+    
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        
+        bgView.alpha = 1;
+        imageView.bounds = CGRectMake(0, 0, kJZWidth - 100, kJZHeight-300);
+        
+    } completion:^(BOOL finished) {
+        
+    }];
+}
+- (void)closeBigImg:(UITapGestureRecognizer *)tagGes {
+    
+    UIView *view = tagGes.view;
+    [UIView animateWithDuration:0.3 animations:^{
+        view.alpha = 0;
+    } completion:^(BOOL finished) {
+        [tagGes.view removeFromSuperview];
+    }];
 }
 
 
@@ -231,6 +295,8 @@
             self.complaintFirstImg.hidden = NO;
             self.complaintSecondImg.hidden = YES;
             [self.complaintFirstImg sd_setImageWithURL:[NSURL URLWithString:_data.piclistr[0]]];
+            
+            
         }
         
         if (_data.piclistr.count>1 && _data.piclistr[1] && [_data.piclistr[1] length]!=0) {
@@ -262,10 +328,6 @@
 
     if (date.piclistr && date.piclistr.count!=0 && ![date.piclistr containsObject:str]) {
         
-//        NSLog(@"===========complaintDetail%@", detailView.complaintDetail);
-//        NSLog(@"detailView.complaintContent.height:%f",detailView.complaintContent.height);
-//        NSLog(@"detailView.complaintDetail.height:%f",detailView.complaintDetail.height);
-//        NSLog(@"detailView.complaintImageView.height:%f",detailView.complaintImageView.height);
 
         return detailView.complaintContent.height + detailView.complaintDetail.height + detailView.complaintImageView.height + 56;
     }
@@ -286,6 +348,7 @@
     NSString *dateString = [dateFormatter stringFromDate:dateFormatted];
     return dateString;
 }
+
 
 
 

@@ -14,4 +14,6 @@
 
 + (CGFloat)complaintDetailViewH:(JZComplaintComplaintlist *)date;
 
+@property (nonatomic, strong) UIViewController *vc;
+
 @end

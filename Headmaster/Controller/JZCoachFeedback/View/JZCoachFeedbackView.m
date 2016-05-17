@@ -20,17 +20,7 @@
 @property (nonatomic, strong) UILabel *dateLabel;
 ///  分割线
 @property (nonatomic, strong) UIView *lineView;
-///驾校头像
-@property (nonatomic, strong) UIImageView *schoolIcon;
-///  校长名称
-@property (nonatomic, strong) UILabel *headmasterNameLabel;
-///  回复时间
-@property (nonatomic, strong) UILabel *replyDateLabel;
-///  回复内容
-@property (nonatomic, strong) UILabel *replyCotentLabel;
 
-///  “回复”这两个字
-@property (nonatomic, strong) UILabel *replyLabel;
 
 
 
@@ -79,7 +69,7 @@
             make.right.equalTo(self.mas_right).offset(-16);
             
         }];
-//
+
         [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
             
             make.left.equalTo(self.coachIcon.mas_left);
@@ -87,7 +77,7 @@
             make.top.equalTo(self.dateLabel.mas_bottom).offset(48);
             make.height.equalTo(@0.5);
         }];
-//
+
         [self.schoolIcon mas_makeConstraints:^(MASConstraintMaker *make) {
            
             make.top.equalTo(self.lineView.mas_top).offset(32);
@@ -102,7 +92,7 @@
                 make.height.equalTo(@24);
             }
         }];
-//
+
         [self.headmasterNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             
             make.left.equalTo(self.schoolIcon.mas_right).offset(12);
@@ -115,13 +105,13 @@
             make.centerY.equalTo(self.schoolIcon.mas_centerY);
             
         }];
-//
+
         [self.replyDateLabel mas_makeConstraints:^(MASConstraintMaker *make) {
            
             make.centerY.equalTo(self.schoolIcon.mas_centerY);
             make.right.equalTo(self.mas_right).offset(-16);
         }];
-//
+
         [self.replyCotentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
            
             make.left.equalTo(self.headmasterNameLabel.mas_left);
@@ -129,8 +119,7 @@
             make.top.equalTo(self.headmasterNameLabel.mas_bottom).offset(12);
 
         }];
-//
-//        
+       
         
         
     }
