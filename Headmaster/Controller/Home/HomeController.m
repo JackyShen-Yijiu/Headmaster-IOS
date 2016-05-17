@@ -167,9 +167,9 @@
     
     
     
-    if ([HomeGuideController isShowGuide]) {
-        [HomeGuideController show];
-    }
+//    if ([HomeGuideController isShowGuide]) {
+//        [HomeGuideController show];
+//    }
     
     [self addSideMenuButton];
     
