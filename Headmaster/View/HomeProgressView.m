@@ -80,12 +80,13 @@
         progressView.frame = CGRectMake(progressViewX, progressViewY, progressViewW, progressViewH);
         [contentView addSubview:progressView];
         
-        CGFloat progressY = 15;
+        CGFloat progressY = 20;
         CGFloat ratio = 1;
         CGFloat margin = 45;
         if (YBIphone6Plus || YBIphone6) {
             ratio = YBSizeRatio;
             margin = 40;
+            progressY *= YBSizeRatio;
         }
         TTProgressView  *progress = [[TTProgressView alloc] initWithFrame:CGRectMake(margin * ratio, progressY, progressViewW-margin*2*ratio, progressViewW-margin*2*ratio) bgColor:[UIColor colorWithRed:246/255.0 green:246/255.0 blue:246/255.0 alpha:1.0f] resultColor:[UIColor colorWithHexString:ColorArray[i]]];
         progress.tag = i + 100;
@@ -131,9 +132,9 @@
         CGFloat subjectLabelW = progressView.width;
         CGFloat subjectLabelH = 20;
         CGFloat subjectLabelX = 0;
-        CGFloat subjectLabelY = CGRectGetMaxY(progress.frame)+10*ratio;
+        CGFloat subjectLabelY = CGRectGetMaxY(progress.frame)+5*ratio;
         if (YBIphone6Plus || YBIphone6) {
-            subjectLabelY = CGRectGetMaxY(progress.frame)+15*ratio;
+            subjectLabelY = CGRectGetMaxY(progress.frame)+10*ratio;
         }
         subjectLabel.text = [NSString stringWithFormat:@"%@",subjectArray[i]];
         subjectLabel.textAlignment = NSTextAlignmentCenter;
