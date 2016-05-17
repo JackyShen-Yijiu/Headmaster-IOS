@@ -423,7 +423,7 @@
         _evaluateView = [[HomeEvaluateView alloc] initWithFrame:CGRectMake(0,
                                                                            CGRectGetMaxY(_progressView.frame),
                                                                            self.view.width,
-                                                                           75+50)];
+                                                                           75+50 + 15)];
     }
     return _evaluateView;
 }
