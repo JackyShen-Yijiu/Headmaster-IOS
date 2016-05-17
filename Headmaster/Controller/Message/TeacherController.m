@@ -129,7 +129,13 @@
             if (type == 1) {
                 
                 [ws.dataSource removeAllObjects];
-                ws.myNavigationItem.title = [NSString stringWithFormat:@"我校教练(%@)",responseObject[@"extra"]];
+                NSString *titleItem = nil;
+                if ([responseObject[@"extra"] integerValue] == 0) {
+                    titleItem = @"0";
+                }else{
+                    titleItem = responseObject[@"extra"];
+                }
+                ws.myNavigationItem.title = [NSString stringWithFormat:@"我校教练(%@)",titleItem];
 
                 ws.dataSource = [[BaseModelMethod getTeacherListArrayFormDicInfo:[responseObject objectArrayForKey:@"data"]] mutableCopy];
                 if (ws.dataSource.count == 0) {
