@@ -47,7 +47,7 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
     self.lineView.backgroundColor = JZ_MAIN_BACKGROUND_COLOR;
     
     self.studentNameLabel = [[UILabel alloc]init];
-    self.studentNameLabel.textColor = kJZLightTextColor;
+    self.studentNameLabel.textColor = kJZDarkTextColor;
     if (YBIphone6Plus) {
         
         [self.studentNameLabel setFont:[UIFont systemFontOfSize:14*YBRatio]];
@@ -83,7 +83,7 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
 
     self.complaintName = [[UILabel alloc]init];
     self.complaintName.textAlignment = NSTextAlignmentLeft;
-    self.complaintName.textColor = kJZDarkTextColor;
+    self.complaintName.textColor = kJZLightTextColor;
     if (YBIphone6Plus) {
         
         [self.complaintName setFont:[UIFont systemFontOfSize:14*YBRatio]];
@@ -221,6 +221,23 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
         make.height.equalTo(@0.5);
         
     }];
+    
+    [self.badgeView mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.top.equalTo(self.studentIcon.mas_top);
+        make.right.equalTo(self.studentIcon.mas_right);
+        if (YBIphone6Plus) {
+            
+            make.width.equalTo(@(6*YBRatio));
+            make.height.equalTo(@(6*YBRatio));
+        }else {
+            make.width.equalTo(@6);
+            make.height.equalTo(@6);
+        }
+        
+        
+    }];
+
 
 }
 -(void)setData:(JZComplaintComplaintlist *)data {
@@ -291,7 +308,28 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
     return cell.complaintName.height + cell.complaintDetail.height + cell.studentIcon.height + 58.5;
     
 }
+-(UIView *)badgeView {
+    
+    if (!_badgeView) {
+        
+        _badgeView = [[UIView alloc]init];
+        _badgeView.backgroundColor = kJZRedColor;
+        if (YBIphone6Plus) {
+            
+            _badgeView.layer.cornerRadius = 3*YBRatio;
 
+        }else {
+            _badgeView.layer.cornerRadius = 3;
+
+        }
+        _badgeView.layer.masksToBounds = YES;
+        
+        [self.contentView addSubview:_badgeView];
+        
+    }
+    
+    return _badgeView;
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
     

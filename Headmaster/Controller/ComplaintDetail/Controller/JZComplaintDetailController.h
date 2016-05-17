@@ -11,5 +11,6 @@
 @interface JZComplaintDetailController : UIViewController
 @property (nonatomic, strong) JZComplaintComplaintlist *dataModel;
 @property (nonatomic, assign) BOOL isFormSideMenu;
+@property (nonatomic, assign) NSInteger index;
 
 @end

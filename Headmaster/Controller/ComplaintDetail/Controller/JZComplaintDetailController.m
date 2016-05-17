@@ -81,8 +81,9 @@
     [contentScrollView addSubview:detailView];
 
     
-   
+    self.detailView.index = self.index;    
     
+   
 
 
     

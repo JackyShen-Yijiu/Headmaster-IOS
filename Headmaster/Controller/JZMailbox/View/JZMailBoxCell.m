@@ -282,7 +282,14 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
         
         _badgeView = [[UIView alloc]init];
         _badgeView.backgroundColor = kJZRedColor;
-        _badgeView.layer.cornerRadius = 3;
+        if (YBIphone6Plus) {
+            _badgeView.layer.cornerRadius = 3*YBRatio;
+  
+            
+        }else {
+            _badgeView.layer.cornerRadius = 3;
+
+        }
         _badgeView.layer.masksToBounds = YES;
         
         [self.contentView addSubview:_badgeView];
