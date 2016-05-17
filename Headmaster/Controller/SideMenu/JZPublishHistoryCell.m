@@ -87,17 +87,63 @@
     
 }
 
+-(void)layoutSubviews {
+    
+    [super layoutSubviews];
+    
+    [self.mainTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.top.equalTo(self.contentView.mas_top).offset(24);// 24
+        make.left.equalTo(self.contentView.mas_left).offset(16);
+        make.height.equalTo(@16);
+        
+    }];
+    
+    [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.top.equalTo(self.mainTitleLabel.mas_bottom).offset(12);// 12
+        make.left.equalTo(self.contentView.mas_left).offset(16);
+        make.height.equalTo(@12);
+        
+    }];
+    
+    [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.top.equalTo(self.mainTitleLabel.mas_bottom).offset(12);
+        make.right.equalTo(self.contentView.mas_right).offset(-16);
+        make.height.equalTo(@12);
+        
+    }];
+    
+    [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.top.equalTo(self.timeLabel.mas_bottom).offset(10);// 10
+        make.left.equalTo(self.contentView.mas_left).offset(16);
+        make.right.equalTo(self.contentView.mas_right).offset(-16);
+        
+    }];
+    
+    [self.linView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.contentView.mas_left);
+        make.right.equalTo(self.contentView.mas_right);
+        make.bottom.equalTo(self.contentView.mas_bottom);
+        make.height.equalTo(@0.5);
+    }];
+    
+
+}
+
 -(void)setData:(JZPublishHistoryData *)data {
     
     _data = data;
     
-    NSString *str1 = @"无标题";
+    NSString *titleStr = @"无标题";
 
     if (_data.title && [_data.title length]!=0) {
-        str1 = _data.title;
+        titleStr = _data.title;
     }
     
-    self.mainTitleLabel.text = str1;
+    self.mainTitleLabel.text = titleStr;
     
     NSLog(@"_data.content:(%@)",_data.content);
           
@@ -111,42 +157,6 @@
         self.nameLabel.text = @"发布者: 未知";
     }
     
-    
-    [self.mainTitleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
-        
-        make.top.equalTo(self.contentView.mas_top).offset(24);// 24
-        make.left.equalTo(self.contentView.mas_left).offset(16);
-        
-    }];
-    
-    [self.timeLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
-        
-        make.top.equalTo(self.mainTitleLabel.mas_bottom).offset(12);// 12
-        make.left.equalTo(self.contentView.mas_left).offset(16);
-        
-    }];
-    
-    [self.nameLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
-        
-        make.top.equalTo(self.mainTitleLabel.mas_bottom).offset(12);
-        make.right.equalTo(self.contentView.mas_right).offset(-16);
-        
-    }];
-    
-    [self.contentLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
-        
-        make.top.equalTo(self.timeLabel.mas_bottom).offset(10);// 10
-        make.left.equalTo(self.contentView.mas_left).offset(16);
-        make.right.equalTo(self.contentView.mas_right).offset(-16);
-        
-    }];
-    
-    [self.linView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.contentView.mas_left).offset(0);
-        make.right.equalTo(self.contentView.mas_right).offset(0);
-        make.top.equalTo(self.contentLabel.mas_bottom).offset(24);// 24
-        make.height.equalTo(@0.5);
-    }];
 
 }
 

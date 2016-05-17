@@ -33,7 +33,6 @@ static NSString *JZPublishHistoryCellID = @"JZPublishHistoryCellID";
         self.separatorStyle = UITableViewCellSeparatorStyleNone;
 
         
-//        [self addBackgroundImage];
         [self loadData];
         [self setRefresh];
         
@@ -228,11 +227,6 @@ static NSString *JZPublishHistoryCellID = @"JZPublishHistoryCellID";
             
         }
 
-        
-        
-        
-
-
         if ([[dataDic objectForKey:@"type"] integerValue]) {
             NSArray *array = resultData;
             for (NSDictionary *dict in array) {
@@ -267,12 +261,7 @@ static NSString *JZPublishHistoryCellID = @"JZPublishHistoryCellID";
     return _listDataArray;
 }
 
-//#pragma mark - 背景图片
-//- (void)addBackgroundImage {
-//    
-//    UIImage *image = [UIImage imageNamed:@"controllerBackground"];
-//    self.layer.contents = (id)image.CGImage;
-//}
+
 
 
 @end
