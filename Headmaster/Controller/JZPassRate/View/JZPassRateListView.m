@@ -167,9 +167,21 @@
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
+     JZCommentTimeModel *model =  _timeDataArray[section];
+    
+    
+    
+    
+    
+    
     JZPassRateHeaderView *headerView = [[JZPassRateHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.width, 44)];
     headerView.backgroundColor = [UIColor whiteColor];
-    JZCommentTimeModel *model = _timeDataArray[section];
+    if (model.isShowDetail) {
+        headerView.arrowImgView.image = [UIImage imageNamed:@"more_down"];
+    }else{
+        headerView.arrowImgView.image = [UIImage imageNamed:@"more_up"];
+    }
+
     headerView.titleLabel.text = model.ID;
     // _timeDataArray 存放是科目中所以时间 2016-5 2016-6 给每个区添加tag 用于区分点击手势
     if (_searchSubjectID == 1) {
