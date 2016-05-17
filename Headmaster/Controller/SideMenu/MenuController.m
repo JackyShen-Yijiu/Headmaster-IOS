@@ -58,7 +58,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(infoChange) name:sideMenuInfochange object:nil];
-    [self loadComplaintData];
     // Do any additional setup after loading the view.
     
     UIImage *image = [UIImage imageNamed:@"background_side.jpg"];
@@ -226,7 +225,6 @@
     if (1 == indexPath.row ) {
         JZComplaintListController *vc = [[JZComplaintListController alloc] init];
         vc.isFormSideMenu = YES;
-        vc.count = self.complaintCount;
         HMNagationController *nav = [[HMNagationController alloc] initWithRootViewController:vc];
         [self presentViewController:nav animated:YES completion:nil];
         return;
@@ -245,34 +243,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-///  加载投诉数量
--(void)loadComplaintData {
-    
-    
-    [NetworkEntity getComplainListWithUserid:[UserInfoModel defaultUserInfo].userID SchoolId:[UserInfoModel defaultUserInfo].schoolId Index:1 Count:10 success:^(id responseObject) {
-        
-        
-        NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
-        if (type == 1) {
-            NSDictionary *resultData = responseObject[@"data"];
-            
-            self.complaintCount = [resultData[@"count"] integerValue];
-            
-            
-        }else{
-            
-            
-        }
-        
-    } failure:^(NSError *failure) {
-        
-        
-    }];
-    
-    
-    
-    
-}
+
 - (void)infoChange{
      _nameLabel.text = [UserInfoModel defaultUserInfo].name;
      _schoolLabel.text = [NSString stringWithFormat:@"%@",[UserInfoModel defaultUserInfo].schoolName];

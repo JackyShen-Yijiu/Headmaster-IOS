@@ -22,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.myNavigationItem.title = [NSString stringWithFormat:@"投诉(%zd)",self.count];
+//    self.myNavigationItem.title = [NSString stringWithFormat:@"投诉(%zd)",self.count];
     
     if (_isFormSideMenu) {
         self.navigationItem.leftBarButtonItem = self.pushBtn;
