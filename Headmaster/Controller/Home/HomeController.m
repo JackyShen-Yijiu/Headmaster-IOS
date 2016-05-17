@@ -34,6 +34,13 @@
 
 
 @interface HomeController () <BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate,UIScrollViewDelegate>
+{
+    
+        UIImageView *navBarHairlineImageView;
+        
+   
+
+}
 
 @property (nonatomic,strong) UIScrollView *mainScrollView;
 
@@ -75,7 +82,8 @@
     if (_mainScrollView==nil) {
         
         _mainScrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
-        
+        _mainScrollView.backgroundColor = [UIColor blackColor];
+        _mainScrollView.delegate = self;
     }
     return _mainScrollView;
 }
@@ -129,13 +137,24 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     
+    
+    
+    
     [super viewWillAppear:YES];
     // 显示下面的导航栏
+    
+    
+    
     [self loadComplaintData];
     self.tabBarController.tabBar.hidden = NO;
     self.myNavigationItem.title = @"数据概览";
     self.myNavigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.rightView];
     
+    
+    // 隐藏导航条底部分割线
+    navBarHairlineImageView = [self findHairlineImageViewUnder:self.myNavController.navigationBar];
+    navBarHairlineImageView.hidden=YES;
+
     [MobClick beginLogPageView:NSStringFromClass([self class])];
     
     
@@ -147,6 +166,19 @@
     
 }
 
+- (UIImageView*)findHairlineImageViewUnder:(UIView*)view {
+    
+    if([view isKindOfClass:UIImageView.class] && view.bounds.size.height<=1.0) {
+        return(UIImageView*)view;
+    }
+    for(UIView*subview in view.subviews) {
+        UIImageView*imageView = [self findHairlineImageViewUnder:subview];
+        if(imageView) {
+            return imageView;
+        }
+    }
+    return nil;
+}
 
 - (void)viewWillDisappear:(BOOL)animated
 {
@@ -165,7 +197,7 @@
 
     NSLog(@"self.view:%@",self.view);
     
-    
+    self.view.backgroundColor =[UIColor blackColor];
     
 //    if ([HomeGuideController isShowGuide]) {
 //        [HomeGuideController show];
@@ -184,10 +216,10 @@
     UIView *lineDownView = [[UIView alloc] initWithFrame:CGRectMake(10, CGRectGetMaxY(self.topView.frame), self.view.bounds.size.width - 20, 0.5)];
     lineDownView.backgroundColor = [UIColor colorWithHexString:@"2a2a2a"];
     
-    [self.mainScrollView addSubview:lineTopView];
-    [self.mainScrollView addSubview:lineDownView];
-    [self.mainScrollView addSubview:lineDownView];
-    [self.mainScrollView addSubview:lineTopView];
+//    [self.mainScrollView addSubview:lineTopView];
+//    [self.mainScrollView addSubview:lineDownView];
+//    [self.mainScrollView addSubview:lineDownView];
+//    [self.mainScrollView addSubview:lineTopView];
     
     // 加载地图用于定位,展示天气信息
     [self addMap];
@@ -326,6 +358,19 @@
         }
     }];
     
+}
+
+
+//#pargma mark --- UIScrollerViewDeleagate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    
+    _mainScrollView.backgroundColor = [UIColor blackColor];
+    
+    NSLog(@"scrollView.contentOffset.x = -----------%f",scrollView.contentOffset.y);
+    if (scrollView.contentOffset.y > 5) {
+        
+        _mainScrollView.backgroundColor = JZ_MAIN_BACKGROUND_COLOR;
+    }
 }
 
 #pragma mark - action

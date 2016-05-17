@@ -85,6 +85,8 @@
 - (UINavigationController *)myNavController
 {
     if (self.tabBarController) {
+//           [bar setShadowImage:[UIImage new]];
+        
         return self.tabBarController.navigationController;
     }
     return self.navigationController;
@@ -96,6 +98,7 @@
     self.myNavigationItem.titleView = nil;
 //    self.myNavigationItem.rightBarButtonItem = nil;
 //    self.myNavigationItem.rightBarButtonItems = nil;
+    
 }
 
 

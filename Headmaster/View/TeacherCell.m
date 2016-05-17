@@ -193,7 +193,7 @@
         return;
     }
     _model = model;
-    UIImage * defaultImage = [UIImage imageNamed:@"defoult_por"];
+    UIImage * defaultImage = [UIImage imageNamed:@"head_null"];
     NSString * imageStr = _model.porInfo.originalpic;
     self.iconView.image = defaultImage;
     if(imageStr)
