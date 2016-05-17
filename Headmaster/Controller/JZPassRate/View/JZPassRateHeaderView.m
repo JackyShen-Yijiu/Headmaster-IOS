@@ -83,9 +83,9 @@
         _titleLabel = [[UILabel alloc] init];
         _titleLabel.text = @"";
         CGFloat fontSize = 14;
-//        if (YBIphone6Plus) {
-//            fontSize = 14 * YBRatio;
-//        }
+        if (YBIphone6Plus) {
+            fontSize = 14 * YBRatio;
+        }
         _titleLabel.font = [UIFont systemFontOfSize:fontSize];
         _titleLabel.textColor = kJZDarkTextColor;
     }
