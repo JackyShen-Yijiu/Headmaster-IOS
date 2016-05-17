@@ -61,8 +61,8 @@ static NSString *JZPublishHistoryCellID = @"JZPublishHistoryCellID";
         listCell = [[JZPublishHistoryCell  alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:JZPublishHistoryCellID];
         
     }
-    
-   listCell.selectionStyle = UITableViewCellSelectionStyleGray;
+
+   listCell.selectionStyle = UITableViewCellSelectionStyleNone;
 
 //    listCell.backgroundColor = [UIColor redColor];
 
