@@ -115,7 +115,7 @@
             [stateBtn setImage:[UIImage imageNamed:imageArray[i]] forState:UIControlStateNormal];
             [stateBtn setTitle:titleArray[i] forState:UIControlStateNormal];
             [button addSubview:stateBtn];
-            label.textColor = [UIColor blueColor];
+            label.textColor = JZ_BLUE_COLOR;
         }
         
         [button addSubview:label];
