@@ -67,7 +67,7 @@
         [self.contentLabel setFont:[UIFont systemFontOfSize:14*YBRatio]];
 
     }else {
-        
+    
         [self.mainTitleLabel setFont:[UIFont boldSystemFontOfSize:16]];
         
         [self.nameLabel setFont:[UIFont systemFontOfSize:12]];

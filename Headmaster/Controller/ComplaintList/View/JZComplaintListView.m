@@ -13,7 +13,7 @@
 #import "RefreshTableView.h"
 #import "JZComplaintDetailController.h"
 #import "JZComplaintListController.h"
-
+#import "MJRefresh.h"
 static NSString *JZComplaintCellID = @"JZComplaintCellID";
 
 @interface JZComplaintListView ()<UITableViewDataSource,UITableViewDelegate>
@@ -249,7 +249,8 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
     
     self.refreshHeader = nil;
     
-    
+
+
 }
 #pragma mark - 下拉加载的数据
 -(void)loadMoreData {
@@ -262,8 +263,9 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
             
             NSArray *complaintlist = resultData[@"complaintlist"];
             
+            self.index ++;
             if (!complaintlist.count) {
-                self.index ++;
+                
                 [self.refreshFooter endRefreshing];
                 self.refreshFooter.scrollView = nil;
                 [self.vc showTotasViewWithMes:@"已经加载所有数据"];
