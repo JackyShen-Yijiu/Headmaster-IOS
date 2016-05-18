@@ -133,6 +133,8 @@ static NSString *JZInformationListCellID = @"JZInformationListCellID";
                     cycleScrollView.imageURLStringsGroup = self.imagesURLStrings;
                     // 自定义分页控件小圆标颜色
                     cycleScrollView.currentPageDotColor = [UIColor whiteColor];
+                    ///  图片填充方式
+                    cycleScrollView.bannerImageViewContentMode = 2;
                     self.tableHeaderView = cycleScrollView;
 
                 }else {
