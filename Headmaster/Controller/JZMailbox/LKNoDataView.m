@@ -36,8 +36,14 @@
         
         make.top.equalTo(self.noDataImageView.mas_bottom).offset(14);
         make.centerX.equalTo(self.mas_centerX);
+        if (YBIphone6Plus) {
+            make.height.equalTo(@(14*YBRatio));
+            
+        }else {
+            make.height.equalTo(@14);
+
+        }
         make.width.equalTo(@(kJZWidth));
-        make.height.equalTo(@14);
         
     }];
 
@@ -47,7 +53,13 @@
         
         self.noDataLabel = [[UILabel alloc]init];
         self.noDataLabel.textAlignment = NSTextAlignmentCenter;
-        self.noDataLabel.font = [UIFont systemFontOfSize:14];
+
+        if (YBIphone6Plus) {
+            self.noDataLabel.font = [UIFont systemFontOfSize:14*YBRatio];
+        }else {
+            self.noDataLabel.font = [UIFont systemFontOfSize:14];
+
+        }
         self.noDataLabel.textColor = kJZLightTextColor;
         [self addSubview:self.noDataLabel];
 
