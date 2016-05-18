@@ -12,6 +12,7 @@
 #import <YYModel.h>
 #import "SDCycleScrollView.h"
 #import "InformationDetailController.h"
+#import "LKNoDataView.h"
 static NSString *JZInformationListCellID = @"JZInformationListCellID";
 
 @interface JZInformationListView ()<UITableViewDataSource,UITableViewDelegate,SDCycleScrollViewDelegate>
@@ -19,6 +20,8 @@ static NSString *JZInformationListCellID = @"JZInformationListCellID";
 @property (nonatomic, strong) NSMutableArray *imagesURLStrings;
 @property (nonatomic, strong) NSMutableArray *titles;
 @property (nonatomic, strong) NSMutableArray *topDataArr;
+@property (nonatomic, strong) LKNoDataView *noDataView;
+
 
 @end
 @implementation JZInformationListView
@@ -97,7 +100,8 @@ static NSString *JZInformationListCellID = @"JZInformationListCellID";
     static NSInteger index = 0;
     
     [NetworkEntity informationListWithseqindex:0 count:10 success:^(id responseObject) {
-        
+        [self.noDataView removeFromSuperview];
+
         NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
         
         if (type) {
@@ -157,12 +161,17 @@ static NSString *JZInformationListCellID = @"JZInformationListCellID";
                 
                 
             }else {
+                [self.noDataView removeFromSuperview];
+
                 ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"暂无资讯"];
                 [alertView show];
                 
             }
             
         }else {
+            
+            [self.noDataView removeFromSuperview];
+
             
             ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"网络出错啦"];
             [alertView show];
@@ -172,8 +181,27 @@ static NSString *JZInformationListCellID = @"JZInformationListCellID";
         
         
     } failure:^(NSError *failure) {
-        ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"网络出错啦"];
-        [alertView show];
+        
+        [self.noDataView removeFromSuperview];
+        self.noDataView = [[LKNoDataView alloc]init];
+   
+        self.noDataView.frame =  CGRectMake(0,0, kJZWidth, kJZHeight-64);
+            
+        
+        self.noDataView.backgroundColor = RGB_Color(239, 239, 244);
+        
+        self.noDataView.noDataLabel.text = @"网络开小差了";
+        self.noDataView.noDataImageView.image = [UIImage imageNamed:@"net_null"];
+        
+        [self.vc.view addSubview: self.noDataView];
+        
+        [self.noDataView.noDataImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            
+            make.top.equalTo(self.mas_centerY).offset(-60-28);
+            make.centerX.equalTo(self.mas_centerX);
+            
+        }];
+
         
     }];
     

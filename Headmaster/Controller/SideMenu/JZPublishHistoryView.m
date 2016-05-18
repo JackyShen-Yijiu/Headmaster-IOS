@@ -11,9 +11,11 @@
 #import "BaseModelMethod.h"
 #import <YYModel.h>
 #import "JZPublishHistoryData.h"
+#import "LKNoDataView.h"
 static NSString *JZPublishHistoryCellID = @"JZPublishHistoryCellID";
 @interface JZPublishHistoryView ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) NSMutableArray *listDataArray;
+@property (nonatomic, strong) LKNoDataView *noDataView;
 
 @end
 
@@ -98,93 +100,44 @@ static NSString *JZPublishHistoryCellID = @"JZPublishHistoryCellID";
     
 
     [NetworkEntity getPublishListWithUseInfoModel:[UserInfoModel defaultUserInfo]  seqindex:0 count:10 success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
         NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
         NSArray *resultData = dataDic[@"data"];
         if (!resultData.count) {
             
-            UIView *noDataView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth, kJZHeight-64)];
+            [self.noDataView removeFromSuperview];
+            self.noDataView = [[LKNoDataView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth, kJZHeight-64)];
+            self.noDataView.noDataLabel.text = @"暂时还没有驾校公告";
+            self.noDataView.noDataImageView.image = [UIImage imageNamed:@"announcement_null"];
+            [self.vc.view addSubview: self.noDataView];
+
+        }else {
             
-            noDataView.backgroundColor =  RGB_Color(239, 239, 244);
-            [self.vc.view addSubview:noDataView];
-            self.userInteractionEnabled = NO;
-            
-            UIImageView *noDataImg = [[UIImageView alloc]init];
-            noDataImg.image = [UIImage imageNamed:@"announcement_null"];
-            [noDataView addSubview:noDataImg];
-            
-            [noDataImg mas_makeConstraints:^(MASConstraintMaker *make) {
+            [self.noDataView removeFromSuperview];
+
+            if ([[dataDic objectForKey:@"type"] integerValue]) {
+                NSArray *array = resultData;
+                for (NSDictionary *dict in array) {
+                    
+                    JZPublishHistoryData *listModel = [JZPublishHistoryData yy_modelWithDictionary:dict];
+                    
+                    [self.listDataArray addObject:listModel];
+                }
                 
-                make.centerX.equalTo(noDataView.mas_centerX);
-                make.centerY.equalTo(noDataView.mas_centerY).offset(-24-44);
+                [self reloadData];
                 
-            }];
-            UILabel *noDataLabel = [[UILabel alloc]init];
-            noDataLabel.text = @"暂时还没有驾校公告";
-            noDataLabel.font = [UIFont systemFontOfSize:14];
-            noDataLabel.textColor = kJZLightTextColor;
-            [noDataView addSubview:noDataLabel];
-            
-            [noDataLabel mas_makeConstraints:^(MASConstraintMaker *make) {
                 
-                make.top.equalTo(noDataImg.mas_bottom).offset(24);
-                make.centerX.equalTo(noDataView.mas_centerX);
-                
-            }];
-  
-  
+            }
+
         }
         
-        if ([[dataDic objectForKey:@"type"] integerValue]) {
-          NSArray *array = resultData;
-            for (NSDictionary *dict in array) {
-                
-                JZPublishHistoryData *listModel = [JZPublishHistoryData yy_modelWithDictionary:dict];
-                
-                [self.listDataArray addObject:listModel];
-            }
-            
-            [self reloadData];
-            
-            
-        }
         
     } failure:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        UIView *noDataView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth, kJZHeight-64)];
-        
-        noDataView.backgroundColor =  RGB_Color(239, 239, 244);
-        [self.vc.view addSubview:noDataView];
-        self.userInteractionEnabled = NO;
-        
-        UIImageView *noDataImg = [[UIImageView alloc]init];
-        noDataImg.image = [UIImage imageNamed:@"net_null"];
-        [noDataView addSubview:noDataImg];
-        
-        [noDataImg mas_makeConstraints:^(MASConstraintMaker *make) {
-            
-            make.centerX.equalTo(noDataView.mas_centerX);
-            make.centerY.equalTo(noDataView.mas_centerY).offset(-24-44);
-            
-        }];
-        UILabel *noDataLabel = [[UILabel alloc]init];
-        noDataLabel.text = @"网络开小差了";
-        if (YBIphone6Plus) {
-            noDataLabel.font = [UIFont systemFontOfSize:14*YBRatio];
-
-        }else {
-            noDataLabel.font = [UIFont systemFontOfSize:14];
-
-        }
-        noDataLabel.textColor = kJZLightTextColor;
-        [noDataView addSubview:noDataLabel];
-        
-        [noDataLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            
-            make.top.equalTo(noDataImg.mas_bottom).offset(24);
-            make.centerX.equalTo(noDataView.mas_centerX);
-            
-        }];
+        [self.noDataView removeFromSuperview];
+        self.noDataView = [[LKNoDataView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth, kJZHeight-64)];
+        self.noDataView.noDataLabel.text = @"网络开小差了";
+        self.noDataView.noDataImageView.image = [UIImage imageNamed:@"net_null"];
+        [self.vc.view addSubview: self.noDataView];
 
     }];
     
@@ -244,7 +197,7 @@ static NSString *JZPublishHistoryCellID = @"JZPublishHistoryCellID";
         
     } failure:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        
+       [self.vc showTotasViewWithMes:@"网络开小差了"];
     }];
 
     

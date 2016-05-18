@@ -397,6 +397,7 @@
 		D98511801C20A34900D277CD /* HomeGuideController.m in Sources */ = {isa = PBXBuildFile; fileRef = D985117F1C20A34900D277CD /* HomeGuideController.m */; };
 		D994A6281CC4B27100BC0059 /* JZPublishController.m in Sources */ = {isa = PBXBuildFile; fileRef = D994A6271CC4B27100BC0059 /* JZPublishController.m */; };
 		D994A62B1CC4B6D100BC0059 /* JZPublishHistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = D994A62A1CC4B6D100BC0059 /* JZPublishHistoryController.m */; };
+		D9A3063D1CEC50940086356E /* LKNoDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A3063C1CEC50940086356E /* LKNoDataView.m */; };
 		D9AEF2621CC5DA4500AB76DD /* JZPublishHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AEF2611CC5DA4500AB76DD /* JZPublishHistoryCell.m */; };
 		D9AEF2661CC5E19E00AB76DD /* JZPublishHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AEF2651CC5E19E00AB76DD /* JZPublishHistoryView.m */; };
 		D9AEF2721CC603B200AB76DD /* JZPublishHistoryData.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AEF26F1CC603B100AB76DD /* JZPublishHistoryData.m */; };
@@ -1123,6 +1124,8 @@
 		D994A6271CC4B27100BC0059 /* JZPublishController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZPublishController.m; sourceTree = "<group>"; };
 		D994A6291CC4B6D100BC0059 /* JZPublishHistoryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZPublishHistoryController.h; sourceTree = "<group>"; };
 		D994A62A1CC4B6D100BC0059 /* JZPublishHistoryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZPublishHistoryController.m; sourceTree = "<group>"; };
+		D9A3063B1CEC50940086356E /* LKNoDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKNoDataView.h; sourceTree = "<group>"; };
+		D9A3063C1CEC50940086356E /* LKNoDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKNoDataView.m; sourceTree = "<group>"; };
 		D9AEF2601CC5DA4500AB76DD /* JZPublishHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZPublishHistoryCell.h; sourceTree = "<group>"; };
 		D9AEF2611CC5DA4500AB76DD /* JZPublishHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZPublishHistoryCell.m; sourceTree = "<group>"; };
 		D9AEF2641CC5E19E00AB76DD /* JZPublishHistoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZPublishHistoryView.h; sourceTree = "<group>"; };
@@ -2752,6 +2755,8 @@
 				D94F3E6F1CE179F600695A86 /* Controller */,
 				D94F3E701CE179F600695A86 /* Model */,
 				D94F3E711CE179F600695A86 /* View */,
+				D9A3063B1CEC50940086356E /* LKNoDataView.h */,
+				D9A3063C1CEC50940086356E /* LKNoDataView.m */,
 			);
 			path = JZMailbox;
 			sourceTree = "<group>";
@@ -3583,6 +3588,7 @@
 				D9C3F4561C167322006D22BC /* DVVProgressView.m in Sources */,
 				B8771DDF1C098DE40051DE9D /* EaseUserCell.m in Sources */,
 				0613DC171C1C51E200580C32 /* HomeDataDetailDMRootClass.m in Sources */,
+				D9A3063D1CEC50940086356E /* LKNoDataView.m in Sources */,
 				D9CEC9151C0E8CF7008DEE69 /* HMRecomendModel.m in Sources */,
 				06C3264A1CDB455C004D888A /* JZcommentListView.m in Sources */,
 				B8771E391C098E6B0051DE9D /* UIView+Sizes.m in Sources */,
