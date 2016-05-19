@@ -450,6 +450,7 @@
 		D9D375611C127457008C54FF /* DVVDockItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D3755E1C127457008C54FF /* DVVDockItem.m */; };
 		D9D375621C127457008C54FF /* DVVTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D375601C127457008C54FF /* DVVTabBarController.m */; };
 		D9E3B0D91CED6CB9009040BC /* UIView+LKView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E3B0D81CED6CB9009040BC /* UIView+LKView.m */; };
+		D9E3B0DD1CED8C5C009040BC /* NSDateFormatter+LKDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E3B0DC1CED8C5C009040BC /* NSDateFormatter+LKDateFormatter.m */; };
 		D9E41AB61C129DD0007A2019 /* YBBaseTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E41AB51C129DD0007A2019 /* YBBaseTableCell.m */; };
 		D9E7CD371CC8E3E400AF1B31 /* RefreshTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E7CD361CC8E3E400AF1B31 /* RefreshTableView.m */; };
 		D9EEA6D81CE0782200F8662D /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9EEA6CB1CE0782200F8662D /* TAAbstractDotView.m */; };
@@ -1231,6 +1232,8 @@
 		D9D375601C127457008C54FF /* DVVTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVVTabBarController.m; sourceTree = "<group>"; };
 		D9E3B0D71CED6CB9009040BC /* UIView+LKView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LKView.h"; sourceTree = "<group>"; };
 		D9E3B0D81CED6CB9009040BC /* UIView+LKView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LKView.m"; sourceTree = "<group>"; };
+		D9E3B0DB1CED8C5C009040BC /* NSDateFormatter+LKDateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+LKDateFormatter.h"; sourceTree = "<group>"; };
+		D9E3B0DC1CED8C5C009040BC /* NSDateFormatter+LKDateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+LKDateFormatter.m"; sourceTree = "<group>"; };
 		D9E41AB41C129DD0007A2019 /* YBBaseTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBBaseTableCell.h; sourceTree = "<group>"; };
 		D9E41AB51C129DD0007A2019 /* YBBaseTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YBBaseTableCell.m; sourceTree = "<group>"; };
 		D9E7CD351CC8E3E400AF1B31 /* RefreshTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RefreshTableView.h; path = Headmaster/ThirdPary/RefreshTableView.h; sourceTree = SOURCE_ROOT; };
@@ -2807,6 +2810,7 @@
 		D95543041CED54CA00750B0C /* LKLibBox */ = {
 			isa = PBXGroup;
 			children = (
+				D9E3B0DA1CED8C35009040BC /* LKDateFormatter */,
 				D9E3B0D61CED6C9B009040BC /* LKViewCategory */,
 				D955430F1CED565600750B0C /* LKStringCategory */,
 				D95543061CED553A00750B0C /* LKNoDataView */,
@@ -3240,6 +3244,15 @@
 			path = LKViewCategory;
 			sourceTree = "<group>";
 		};
+		D9E3B0DA1CED8C35009040BC /* LKDateFormatter */ = {
+			isa = PBXGroup;
+			children = (
+				D9E3B0DB1CED8C5C009040BC /* NSDateFormatter+LKDateFormatter.h */,
+				D9E3B0DC1CED8C5C009040BC /* NSDateFormatter+LKDateFormatter.m */,
+			);
+			path = LKDateFormatter;
+			sourceTree = "<group>";
+		};
 		D9EEA6C81CE0782200F8662D /* SDCycleScrollView */ = {
 			isa = PBXGroup;
 			children = (
@@ -3651,6 +3664,7 @@
 				D9CEC97B1C0ED643008DEE69 /* UINavigationItem+BackItem.m in Sources */,
 				D97244AD1C1ED0BD002B3FDE /* DataDetailDMYearData.m in Sources */,
 				D9D2AE021CEAB32100C2DC96 /* JZCoachFeedbackController.m in Sources */,
+				D9E3B0DD1CED8C5C009040BC /* NSDateFormatter+LKDateFormatter.m in Sources */,
 				D922974B1C10439200D0FFDF /* YBBarChartView.m in Sources */,
 				B8771D011C098DE40051DE9D /* EMCDDeviceManager+Remind.m in Sources */,
 				06C326211CDAE4DA004D888A /* JZPassRateToolBarView.m in Sources */,

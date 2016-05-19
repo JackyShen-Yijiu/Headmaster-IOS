@@ -22,9 +22,6 @@
 ///  分割线
 @property (nonatomic, strong) UIView *lineView;
 
-
-
-
 @end
 
 @implementation JZCoachFeedbackView
@@ -173,8 +170,6 @@
     }
     
 }
-
-
 #pragma mark - 懒加载
 -(UIImageView *)coachIcon {
     if (!_coachIcon) {
@@ -198,7 +193,6 @@
     }
     return _coachIcon;
 }
-
 -(UILabel *)coachNameLabel {
     
     if (!_coachNameLabel) {
@@ -277,8 +271,6 @@
     
     return _lineView;
 }
-
-
 -(UIImageView *)schoolIcon {
     if (!_schoolIcon) {
         
@@ -300,7 +292,6 @@
     }
     return _schoolIcon;
 }
-//
 -(UILabel *)headmasterNameLabel {
     
     if (!_headmasterNameLabel) {
@@ -321,7 +312,6 @@
     
     return _headmasterNameLabel;
 }
-
 -(UILabel *)replyLabel {
     
     if (!_replyLabel) {

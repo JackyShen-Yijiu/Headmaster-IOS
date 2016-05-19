@@ -32,17 +32,17 @@
         
     }];
     
+    NSInteger noDataLabelH = 14;
+    if (YBIphone6Plus) {
+        
+        noDataLabelH = 14 * YBRatio;
+    }
+    
     [self.noDataLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.top.equalTo(self.noDataImageView.mas_bottom).offset(14);
         make.centerX.equalTo(self.mas_centerX);
-        if (YBIphone6Plus) {
-            make.height.equalTo(@(14*YBRatio));
-            
-        }else {
-            make.height.equalTo(@14);
-
-        }
+        make.height.equalTo(@(noDataLabelH));
         make.width.equalTo(@(kJZWidth));
         
     }];
