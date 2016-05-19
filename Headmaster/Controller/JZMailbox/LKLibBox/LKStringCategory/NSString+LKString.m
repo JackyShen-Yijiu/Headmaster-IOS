@@ -21,8 +21,10 @@
     switch (dataStyle) {
         case 0:
             [dateFormatter setDateFormat:@"yyyy/MM/dd HH:mm"];
+            break;
         case 1:
             [dateFormatter setDateFormat:@"MM/dd HH:mm"];
+            break;
         case 2:
             [dateFormatter setDateFormat:@"yyyy/MM/dd"];
 
