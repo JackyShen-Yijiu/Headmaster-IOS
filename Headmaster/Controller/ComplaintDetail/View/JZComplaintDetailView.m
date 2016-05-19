@@ -53,48 +53,37 @@
             make.left.equalTo(self.mas_left).offset(16);
             make.right.equalTo(self.mas_right).offset(-16);
         }];
+        
+        NSInteger complaintImageViewW = 158;
+        NSInteger complaintImageViewH = 73;
+        if (YBIphone6Plus) {
+            
+            complaintImageViewW = 158 * YBRatio;
+            complaintImageViewH = 73 * YBRatio;
+        }
+        
         [self.complaintImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self.mas_left).offset(16);
             make.top.mas_equalTo(self.complaintDetail.mas_bottom).offset(12);
-            
-            if (YBIphone6Plus) {
-                make.width.mas_equalTo(158*YBRatio);
-                make.height.mas_equalTo(73*YBRatio);
-                
-            }else {
-                make.width.mas_equalTo(158);
-                make.height.mas_equalTo(73);
-            }
-            
-            
+            make.width.mas_equalTo(complaintImageViewW);
+            make.height.mas_equalTo(complaintImageViewH);
+
         }];
         
             [self.complaintFirstImg mas_makeConstraints:^(MASConstraintMaker *make){
                 make.top.equalTo(@0);
                 make.left.equalTo(@0);
                 make.bottom.equalTo(@0);
-                if (YBIphone6Plus) {
-                    make.width.mas_equalTo(73*YBRatio);
- 
-                    
-                }else {
-                    make.width.mas_equalTo(73);
+                make.width.mas_equalTo(complaintImageViewH);
 
-                }
             }];
         
             [self.complaintSecondImg mas_makeConstraints:^(MASConstraintMaker *make){
                 make.top.equalTo(@0);
                 make.left.equalTo(self.complaintFirstImg.mas_right).offset(10);
                 make.bottom.equalTo(@0);
-                if (YBIphone6Plus) {
-                    make.width.mas_equalTo(73*YBRatio);
-                    
-                    
-                }else {
-                    make.width.mas_equalTo(73);
-                    
-                }
+                make.width.mas_equalTo(complaintImageViewH);
+
             }];
         
         
@@ -133,13 +122,12 @@
     UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeBigImg:)];
     [bgView addGestureRecognizer:tapGes];
     bgView.userInteractionEnabled = YES;
-    
     bgView.backgroundColor = [UIColor blackColor];
     bgView.alpha = 0;
     UIImageView *imageView = [UIImageView new];
     imageView.bounds = CGRectMake(0, 0, 0, 0);
     imageView.center = bgView.center;
-    [imageView sd_setImageWithURL:[NSURL URLWithString:imagestr] placeholderImage:nil];
+    [imageView sd_setImageWithURL:[NSURL URLWithString:imagestr] placeholderImage:[UIImage imageNamed:@"pic_load"]];
     [bgView addSubview:imageView];
     [[UIApplication sharedApplication].keyWindow addSubview:bgView];
     
@@ -195,14 +183,9 @@
     if (!_complaintTime) {
         
         UILabel *complaintTime = [[UILabel alloc]init];
-        
+        [complaintTime setFont:[UIFont systemFontOfSize:14]];
         if (YBIphone6Plus) {
-            
             [complaintTime setFont:[UIFont systemFontOfSize:14*YBRatio]];
-  
-        }else {
-            [complaintTime setFont:[UIFont systemFontOfSize:14]];
-
         }
         complaintTime.textColor = kJZLightTextColor;
         
@@ -214,7 +197,6 @@
     
     return _complaintTime;
 
-    
 }
 
 -(UILabel *)complaintDetail {
@@ -222,15 +204,11 @@
     if (!_complaintDetail) {
         
         UILabel *complaintDetail = [[UILabel alloc]init];
-        
+        [complaintDetail setFont:[UIFont systemFontOfSize:14]];
         if (YBIphone6Plus) {
-            
             [complaintDetail setFont:[UIFont systemFontOfSize:14*YBRatio]];
-
-        }else {
-            [complaintDetail setFont:[UIFont systemFontOfSize:14]];
-
         }
+
         complaintDetail.textColor = kJZDarkTextColor;
         
         self.complaintDetail = complaintDetail;
@@ -246,8 +224,6 @@
     if (!_complaintImageView) {
         
         UIView *complaintImageView = [[UIView alloc]init];
-        
-//        complaintImageView.backgroundColor = [UIColor cyanColor];
         self.complaintImageView = complaintImageView;
         
         [self addSubview:complaintImageView];
@@ -295,15 +271,13 @@
         if ((_data.piclistr[0] && [_data.piclistr[0] length]!=0)) {
             self.complaintFirstImg.hidden = NO;
             self.complaintSecondImg.hidden = YES;
-            [self.complaintFirstImg sd_setImageWithURL:[NSURL URLWithString:_data.piclistr[0]]];
-            
+            [self.complaintFirstImg sd_setImageWithURL:[NSURL URLWithString:_data.piclistr[0]]placeholderImage:[UIImage imageNamed:@"pic_load"]];
             
         }
-        
         if (_data.piclistr.count>1 && _data.piclistr[1] && [_data.piclistr[1] length]!=0) {
             self.complaintFirstImg.hidden = NO;
             self.complaintSecondImg.hidden = NO;
-            [self.complaintSecondImg sd_setImageWithURL:[NSURL URLWithString:_data.piclistr[1]]];
+            [self.complaintSecondImg sd_setImageWithURL:[NSURL URLWithString:_data.piclistr[1]]placeholderImage:[UIImage imageNamed:@"pic_load"]];
         }
         
     }else{
@@ -311,8 +285,6 @@
         self.complaintImageView.hidden = YES;
         
     }
-    
-
     
 }
 
@@ -335,9 +307,5 @@
     return detailView.complaintContent.height + detailView.complaintDetail.height + 44;
     
 }
-
-
-
-
 
 @end

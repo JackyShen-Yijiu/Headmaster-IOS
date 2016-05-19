@@ -449,6 +449,7 @@
 		D9D2DFA51C182F2D005DB212 /* RecommendToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D2DFA41C182F2D005DB212 /* RecommendToolView.m */; };
 		D9D375611C127457008C54FF /* DVVDockItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D3755E1C127457008C54FF /* DVVDockItem.m */; };
 		D9D375621C127457008C54FF /* DVVTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D375601C127457008C54FF /* DVVTabBarController.m */; };
+		D9E3B0D91CED6CB9009040BC /* UIView+LKView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E3B0D81CED6CB9009040BC /* UIView+LKView.m */; };
 		D9E41AB61C129DD0007A2019 /* YBBaseTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E41AB51C129DD0007A2019 /* YBBaseTableCell.m */; };
 		D9E7CD371CC8E3E400AF1B31 /* RefreshTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9E7CD361CC8E3E400AF1B31 /* RefreshTableView.m */; };
 		D9EEA6D81CE0782200F8662D /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9EEA6CB1CE0782200F8662D /* TAAbstractDotView.m */; };
@@ -1228,6 +1229,8 @@
 		D9D3755E1C127457008C54FF /* DVVDockItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVVDockItem.m; sourceTree = "<group>"; };
 		D9D3755F1C127457008C54FF /* DVVTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVVTabBarController.h; sourceTree = "<group>"; };
 		D9D375601C127457008C54FF /* DVVTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVVTabBarController.m; sourceTree = "<group>"; };
+		D9E3B0D71CED6CB9009040BC /* UIView+LKView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LKView.h"; sourceTree = "<group>"; };
+		D9E3B0D81CED6CB9009040BC /* UIView+LKView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LKView.m"; sourceTree = "<group>"; };
 		D9E41AB41C129DD0007A2019 /* YBBaseTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBBaseTableCell.h; sourceTree = "<group>"; };
 		D9E41AB51C129DD0007A2019 /* YBBaseTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YBBaseTableCell.m; sourceTree = "<group>"; };
 		D9E7CD351CC8E3E400AF1B31 /* RefreshTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RefreshTableView.h; path = Headmaster/ThirdPary/RefreshTableView.h; sourceTree = SOURCE_ROOT; };
@@ -2804,6 +2807,7 @@
 		D95543041CED54CA00750B0C /* LKLibBox */ = {
 			isa = PBXGroup;
 			children = (
+				D9E3B0D61CED6C9B009040BC /* LKViewCategory */,
 				D955430F1CED565600750B0C /* LKStringCategory */,
 				D95543061CED553A00750B0C /* LKNoDataView */,
 			);
@@ -3225,6 +3229,15 @@
 				D9D375601C127457008C54FF /* DVVTabBarController.m */,
 			);
 			path = DVVTabBarController;
+			sourceTree = "<group>";
+		};
+		D9E3B0D61CED6C9B009040BC /* LKViewCategory */ = {
+			isa = PBXGroup;
+			children = (
+				D9E3B0D71CED6CB9009040BC /* UIView+LKView.h */,
+				D9E3B0D81CED6CB9009040BC /* UIView+LKView.m */,
+			);
+			path = LKViewCategory;
 			sourceTree = "<group>";
 		};
 		D9EEA6C81CE0782200F8662D /* SDCycleScrollView */ = {
@@ -3694,6 +3707,7 @@
 				B8C7031E1C12DD40006035B1 /* RecommendSegView.m in Sources */,
 				D9EEA6DE1CE0782200F8662D /* UIView+SDExtension.m in Sources */,
 				D9CEC9101C0E8CF7008DEE69 /* UITabBar+RedHot.m in Sources */,
+				D9E3B0D91CED6CB9009040BC /* UIView+LKView.m in Sources */,
 				B8771DEB1C098DE40051DE9D /* EaseChatToolbarItem.m in Sources */,
 				D94F3E981CE1D27C00695A86 /* JZMailboxCoachid.m in Sources */,
 				0699E5E61C1581360079CABF /* CoachCoureDatilModel.m in Sources */,

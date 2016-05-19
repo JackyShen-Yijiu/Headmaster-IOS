@@ -9,7 +9,10 @@
 #import "JZComplaintCell.h"
 #import "JZComplaintComplaintlist.h"
 #import "NSString+LKString.h"
+
+
 static NSString *JZComplaintCellID = @"JZComplaintCellID";
+
 @interface JZComplaintCell()
 
 ///  学员头像
@@ -38,7 +41,6 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         [self initUI];
-//        self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return self;
 }
@@ -108,19 +110,18 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
 }
 -(void)layoutSubviews {
     [super layoutSubviews];
-    
+
+    NSInteger studentIconW  = 24;
+    if (YBIphone6Plus) {
+        studentIconW = 24 * YBRatio;
+    }
     [self.studentIcon mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.top.equalTo(self.contentView.mas_top).offset(16);
         make.left.equalTo(self.contentView.mas_left).offset(16);
-        if (YBIphone6Plus) {
-            make.width.equalTo(@(24*YBRatio));
-            make.height.equalTo(@(24*YBRatio));
-            
-        }else {
-            make.width.equalTo(@24);
-            make.height.equalTo(@24);
-        }
+        make.width.mas_equalTo(studentIconW);
+        make.height.mas_equalTo(studentIconW);
+
 
     }];
     
@@ -147,48 +148,34 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
         make.left.equalTo(self.contentView.mas_left).offset(16);
         make.right.equalTo(self.contentView.mas_right).offset(-16);
     }];
-    
+    NSInteger complaintImgW  = 73;
+    NSInteger complaintImageViewW = 160;
+    if (YBIphone6Plus) {
+        complaintImgW = 73 * YBRatio;
+        complaintImageViewW = 160*YBRatio;
+    }
     [self.complaintImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.complaintName.mas_left);
         make.top.mas_equalTo(self.complaintDetail.mas_bottom).offset(12);
-        
-        if (YBIphone6Plus) {
-            make.width.mas_equalTo(160*YBRatio);
-            make.height.mas_equalTo(73*YBRatio);
-            
-        }else {
-            
-            make.width.mas_equalTo(160);
-            make.height.mas_equalTo(73);
-        }
-       
+        make.width.mas_equalTo(complaintImageViewW);
+        make.height.mas_equalTo(complaintImgW);
     }];
+    
     [self.complaintFirstImg mas_makeConstraints:^(MASConstraintMaker *make){
         make.top.equalTo(@0);
         make.left.equalTo(@0);
         make.bottom.equalTo(@0);
-        
-        if (YBIphone6Plus) {
-            
-            make.width.mas_equalTo(73*YBRatio);
- 
-        }else {
-            make.width.mas_equalTo(73);
+        make.width.mas_equalTo(complaintImgW);
 
-        }
     }];
+    
     [self.complaintSecondImg mas_makeConstraints:^(MASConstraintMaker *make){
         make.top.equalTo(@0);
         make.left.equalTo(self.complaintFirstImg.mas_right).offset(10);
         make.bottom.equalTo(@0);
-        if (YBIphone6Plus) {
+        make.width.mas_equalTo(complaintImgW);
             
-            make.width.mas_equalTo(73*YBRatio);
-            
-        }else {
-            make.width.mas_equalTo(73);
-            
-        }    }];
+    }];
     
     [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
        
@@ -247,13 +234,14 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
         if ((_data.piclistr[0] && [_data.piclistr[0] length]!=0)) {
             self.complaintFirstImg.hidden = NO;
             self.complaintSecondImg.hidden = YES;
-            [self.complaintFirstImg sd_setImageWithURL:[NSURL URLWithString:_data.piclistr[0]]];
+            [self.complaintFirstImg sd_setImageWithURL:[NSURL URLWithString:_data.piclistr[0]]placeholderImage:[UIImage imageNamed:@"pic_load"]];
         }
         
         if (_data.piclistr.count>1 && _data.piclistr[1] && [_data.piclistr[1] length]!=0) {
             self.complaintFirstImg.hidden = NO;
             self.complaintSecondImg.hidden = NO;
-            [self.complaintSecondImg sd_setImageWithURL:[NSURL URLWithString:_data.piclistr[1]]];
+            [self.complaintSecondImg sd_setImageWithURL:[NSURL URLWithString:_data.piclistr[1]]placeholderImage:[UIImage imageNamed:@"pic_load"]];
+
         }
        
     }else{
