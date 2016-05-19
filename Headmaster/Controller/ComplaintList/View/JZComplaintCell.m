@@ -8,6 +8,7 @@
 
 #import "JZComplaintCell.h"
 #import "JZComplaintComplaintlist.h"
+#import "NSString+LKString.h"
 static NSString *JZComplaintCellID = @"JZComplaintCellID";
 @interface JZComplaintCell()
 
@@ -48,61 +49,42 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
     
     self.studentNameLabel = [[UILabel alloc]init];
     self.studentNameLabel.textColor = kJZDarkTextColor;
+    [self.studentNameLabel setFont:[UIFont systemFontOfSize:14]];
     if (YBIphone6Plus) {
-        
         [self.studentNameLabel setFont:[UIFont systemFontOfSize:14*YBRatio]];
-
-    }else {
-        [self.studentNameLabel setFont:[UIFont systemFontOfSize:14]];
-
     }
 
 
     self.studentIcon = [[UIImageView alloc]init];
+    self.studentIcon.layer.cornerRadius = 12;
     if (YBIphone6Plus) {
-        
         self.studentIcon.layer.cornerRadius = 12*YBRatio;
-
-    }else {
-        self.studentIcon.layer.cornerRadius = 12;
-
     }
     self.studentIcon.layer.masksToBounds = YES;
 
+    
     self.complaintTime = [[UILabel alloc]init];
     self.complaintTime.textColor = kJZLightTextColor;
-    self.complaintName.textAlignment = NSTextAlignmentRight;
+    self.complaintTime.textAlignment = NSTextAlignmentRight;
+    [self.complaintTime setFont:[UIFont systemFontOfSize:12]];
     if (YBIphone6Plus) {
         [self.complaintTime setFont:[UIFont systemFontOfSize:12*YBRatio]];
-
-    }else {
-        [self.complaintTime setFont:[UIFont systemFontOfSize:12]];
-
     }
-    self.complaintTime.numberOfLines = 0;
-
+    
     self.complaintName = [[UILabel alloc]init];
     self.complaintName.textAlignment = NSTextAlignmentLeft;
     self.complaintName.textColor = kJZLightTextColor;
+    [self.complaintName setFont:[UIFont systemFontOfSize:14]];
     if (YBIphone6Plus) {
-        
         [self.complaintName setFont:[UIFont systemFontOfSize:14*YBRatio]];
-
-    }else {
-        [self.complaintName setFont:[UIFont systemFontOfSize:14]];
-
     }
 
     self.complaintDetail = [[UILabel alloc]init];
     self.complaintDetail.textColor = kJZDarkTextColor;
     self.complaintDetail.numberOfLines = 2;
+    [self.complaintDetail setFont:[UIFont systemFontOfSize:14]];
     if (YBIphone6Plus) {
-        
         [self.complaintDetail setFont:[UIFont systemFontOfSize:14*YBRatio]];
-
-    }else {
-        [self.complaintDetail setFont:[UIFont systemFontOfSize:14]];
-
     }
     
     self.complaintImageView = [[UIView alloc] init];
@@ -139,9 +121,7 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
             make.width.equalTo(@24);
             make.height.equalTo(@24);
         }
-       
-        
-       
+
     }];
     
     
@@ -149,22 +129,19 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
        
         make.centerY.equalTo(self.studentIcon.mas_centerY);
         make.left.equalTo(self.studentIcon.mas_right).offset(14);
-//        make.height.equalTo(@14);
-
-        
     }];
     
     
     [self.complaintName mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.studentIcon.mas_bottom).offset(14);
         make.left.equalTo(self.contentView.mas_left).offset(16);
-//        make.height.equalTo(@14);
     }];
+    
     [self.complaintTime mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.studentIcon.mas_centerY);
         make.right.equalTo(self.contentView.mas_right).offset(-16);
-//        make.height.equalTo(@12);
     }];
+    
     [self.complaintDetail mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.complaintName.mas_bottom).offset(14);
         make.left.equalTo(self.contentView.mas_left).offset(16);
@@ -221,19 +198,17 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
         make.height.equalTo(@0.5);
         
     }];
-    
+    NSInteger badgeViewW  = 6;
+    if (YBIphone6Plus) {
+        badgeViewW = 6 * YBRatio;
+    }
     [self.badgeView mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.top.equalTo(self.studentIcon.mas_top);
         make.right.equalTo(self.studentIcon.mas_right);
-        if (YBIphone6Plus) {
-            
-            make.width.equalTo(@(6*YBRatio));
-            make.height.equalTo(@(6*YBRatio));
-        }else {
-            make.width.equalTo(@6);
-            make.height.equalTo(@6);
-        }
+        make.width.equalTo(@(badgeViewW));
+        make.height.equalTo(@(badgeViewW));
+
         
         
     }];
@@ -256,13 +231,12 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
     }else if (_data.feedbacktype == 2){
         
         self.complaintName.text = [NSString stringWithFormat:@"投诉驾校：%@",[UserInfoModel defaultUserInfo].schoolName];
-        
-        
+   
     }
     
-    self.complaintTime.text = [self getYearLocalDateFormateUTCDate:_data.complaintDateTime];
+    self.complaintTime.text = [NSString getYearLocalDateFormateUTCDate:_data.complaintDateTime style:LKDateStyleDefault];
     
-    NSLog(@"_data.piclistr:%@",_data.piclistr);
+//    NSLog(@"_data.piclistr:%@",_data.piclistr);
     
     NSString *str = @"""";
     
@@ -335,17 +309,5 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
     
     // Configure the view for the selected state
 }
-- (NSString *)getYearLocalDateFormateUTCDate:(NSString *)utcDate {
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    //输入格式
-    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
-    NSTimeZone *localTimeZone = [NSTimeZone localTimeZone];
-    [dateFormatter setTimeZone:localTimeZone];
-    
-    NSDate *dateFormatted = [dateFormatter dateFromString:utcDate];
-    //输出格式
-    [dateFormatter setDateFormat:@"yyyy/MM/dd HH:mm"];
-    NSString *dateString = [dateFormatter stringFromDate:dateFormatted];
-    return dateString;
-}
+
 @end

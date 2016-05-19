@@ -8,6 +8,7 @@
 
 #import "JZInformationListCell.h"
 #import "JZInformationData.h"
+#import "NSString+LKString.h"
 
 @interface JZInformationListCell()
 ///  新闻图片
@@ -37,7 +38,7 @@
     
     self.newsTitleLabel.text = _data.title;
     
-    self.newsDateLabel.text = [self getYearLocalDateFormateUTCDate:_data.createtime];
+    self.newsDateLabel.text = [NSString getYearLocalDateFormateUTCDate:_data.createtime style:LKDateStyleNoHaveTime];
     
     
 }
@@ -155,19 +156,7 @@
     return _lineView;
 }
 
-- (NSString *)getYearLocalDateFormateUTCDate:(NSString *)utcDate {
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    //输入格式
-    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
-    NSTimeZone *localTimeZone = [NSTimeZone localTimeZone];
-    [dateFormatter setTimeZone:localTimeZone];
-    
-    NSDate *dateFormatted = [dateFormatter dateFromString:utcDate];
-    //输出格式
-    [dateFormatter setDateFormat:@"YYYY/MM/dd"];
-    NSString *dateString = [dateFormatter stringFromDate:dateFormatted];
-    return dateString;
-}
+
 
 
 

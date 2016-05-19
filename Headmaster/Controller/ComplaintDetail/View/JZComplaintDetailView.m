@@ -9,6 +9,7 @@
 #import "JZComplaintDetailView.h"
 #import "JZComplaintComplaintlist.h"
 //#import "MWPhotoBrowser.h"
+#import "NSString+LKString.h"
 
 @interface JZComplaintDetailView ()
 ///"投诉内容"这四个文字
@@ -283,7 +284,7 @@
     
     NSString *str = @"""";
 
-    self.complaintTime.text = [self getYearLocalDateFormateUTCDate:_data.complaintDateTime];
+    self.complaintTime.text = [NSString getYearLocalDateFormateUTCDate:_data.complaintDateTime style:LKDateStyleDefault];
 
     
     self.complaintDetail.text = _data.complaintcontent;
@@ -335,19 +336,6 @@
     
 }
 
-- (NSString *)getYearLocalDateFormateUTCDate:(NSString *)utcDate {
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    //输入格式
-    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
-    NSTimeZone *localTimeZone = [NSTimeZone localTimeZone];
-    [dateFormatter setTimeZone:localTimeZone];
-    
-    NSDate *dateFormatted = [dateFormatter dateFromString:utcDate];
-    //输出格式
-    [dateFormatter setDateFormat:@"yyyy/MM/dd HH:mm"];
-    NSString *dateString = [dateFormatter stringFromDate:dateFormatted];
-    return dateString;
-}
 
 
 

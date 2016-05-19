@@ -8,6 +8,7 @@
 
 #import "JZCoachFeedbackView.h"
 #import "JZMailboxData.h"
+#import "NSString+LKString.h"
 
 @interface JZCoachFeedbackView ()
 ///  教练头像
@@ -135,7 +136,7 @@
     
     self.coachNameLabel.text = _data.coachid.name;
     self.contentLabel.text = _data.content;
-    self.dateLabel.text = [self getYearLocalDateFormateUTCDate:_data.createtime];
+    self.dateLabel.text = [NSString getYearLocalDateFormateUTCDate:_data.createtime style:LKDateStyleDefault];
 
    
     
@@ -146,7 +147,7 @@
         
         self.replyLabel.text = @"回复";
         //
-        self.replyDateLabel.text = [self getYearLocalDateFormateUTCDate:_data.replytime];
+        self.replyDateLabel.text = [NSString getYearLocalDateFormateUTCDate:_data.replytime style:LKDateStyleDefault];
         //
         self.replyCotentLabel.text = _data.replycontent;
         
@@ -385,19 +386,7 @@
     return _replyDateLabel;
 }
 
-- (NSString *)getYearLocalDateFormateUTCDate:(NSString *)utcDate {
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    //输入格式
-    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
-    NSTimeZone *localTimeZone = [NSTimeZone localTimeZone];
-    [dateFormatter setTimeZone:localTimeZone];
-    
-    NSDate *dateFormatted = [dateFormatter dateFromString:utcDate];
-    //输出格式
-    [dateFormatter setDateFormat:@"yyyy/MM/dd HH:mm"];
-    NSString *dateString = [dateFormatter stringFromDate:dateFormatted];
-    return dateString;
-}
+
 
 
 @end

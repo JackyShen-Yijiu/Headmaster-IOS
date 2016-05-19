@@ -8,6 +8,7 @@
 
 #import "JZPublishHistoryCell.h"
 #import "JZPublishHistoryData.h"
+#import "NSString+LKString.h"
 #define kLKSize [UIScreen mainScreen].bounds.size
 @interface JZPublishHistoryCell ()
 /// 标题
@@ -147,8 +148,9 @@
     
     NSLog(@"_data.content:(%@)",_data.content);
           
-    self.timeLabel.text = [self getYearLocalDateFormateUTCDate:_data.createtime];
-
+    self.timeLabel.text = [NSString getYearLocalDateFormateUTCDate:_data.createtime style:LKDateStyleNoHaveTime];
+    
+ 
     self.contentLabel.text = _data.content;
     
     if (_data.name && _data.name.length) {
@@ -174,26 +176,7 @@
     
 }
 
-- (NSString *)getYearLocalDateFormateUTCDate:(NSString *)utcDate {
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    //输入格式
-    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
-    NSTimeZone *localTimeZone = [NSTimeZone localTimeZone];
-    [dateFormatter setTimeZone:localTimeZone];
-    
-    NSDate *dateFormatted = [dateFormatter dateFromString:utcDate];
-    //输出格式
-    [dateFormatter setDateFormat:@"yyyy/MM/dd"];
-    NSString *dateString = [dateFormatter stringFromDate:dateFormatted];
-    return dateString;
-}
 
-//- (CGSize)getLabelWidthWithString:(NSString *)string {
-//    CGRect bounds = [string boundingRectWithSize:
-//                     CGSizeMake([[UIScreen mainScreen] bounds].size.width - 30, 10000) options:
-//                     NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14.f]} context:nil];
-//    return bounds.size.height;
-//}
 
 
 @end

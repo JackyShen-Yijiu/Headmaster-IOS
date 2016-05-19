@@ -378,6 +378,8 @@
 		D94F3E9A1CE1D27C00695A86 /* JZMailboxHeadportrait.m in Sources */ = {isa = PBXBuildFile; fileRef = D94F3E931CE1D27C00695A86 /* JZMailboxHeadportrait.m */; };
 		D94F3E9B1CE1D27C00695A86 /* JZMailboxReplyid.m in Sources */ = {isa = PBXBuildFile; fileRef = D94F3E951CE1D27C00695A86 /* JZMailboxReplyid.m */; };
 		D94F3E9C1CE1D27C00695A86 /* JZMailboxRootClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D94F3E971CE1D27C00695A86 /* JZMailboxRootClass.m */; };
+		D95543091CED553A00750B0C /* LKNoDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = D95543081CED553A00750B0C /* LKNoDataView.m */; };
+		D95543121CED565600750B0C /* NSString+LKString.m in Sources */ = {isa = PBXBuildFile; fileRef = D95543111CED565600750B0C /* NSString+LKString.m */; };
 		D95CE3B61C12BD3600EF6F75 /* HomeDataModelCommentstudentcount.m in Sources */ = {isa = PBXBuildFile; fileRef = D95CE3AF1C12BD3600EF6F75 /* HomeDataModelCommentstudentcount.m */; };
 		D95CE3B71C12BD3600EF6F75 /* HomeDataModelData.m in Sources */ = {isa = PBXBuildFile; fileRef = D95CE3B11C12BD3600EF6F75 /* HomeDataModelData.m */; };
 		D95CE3B91C12BD3600EF6F75 /* HomeDataModelSchoolstudentcount.m in Sources */ = {isa = PBXBuildFile; fileRef = D95CE3B51C12BD3600EF6F75 /* HomeDataModelSchoolstudentcount.m */; };
@@ -397,7 +399,6 @@
 		D98511801C20A34900D277CD /* HomeGuideController.m in Sources */ = {isa = PBXBuildFile; fileRef = D985117F1C20A34900D277CD /* HomeGuideController.m */; };
 		D994A6281CC4B27100BC0059 /* JZPublishController.m in Sources */ = {isa = PBXBuildFile; fileRef = D994A6271CC4B27100BC0059 /* JZPublishController.m */; };
 		D994A62B1CC4B6D100BC0059 /* JZPublishHistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = D994A62A1CC4B6D100BC0059 /* JZPublishHistoryController.m */; };
-		D9A3063D1CEC50940086356E /* LKNoDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A3063C1CEC50940086356E /* LKNoDataView.m */; };
 		D9AEF2621CC5DA4500AB76DD /* JZPublishHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AEF2611CC5DA4500AB76DD /* JZPublishHistoryCell.m */; };
 		D9AEF2661CC5E19E00AB76DD /* JZPublishHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AEF2651CC5E19E00AB76DD /* JZPublishHistoryView.m */; };
 		D9AEF2721CC603B200AB76DD /* JZPublishHistoryData.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AEF26F1CC603B100AB76DD /* JZPublishHistoryData.m */; };
@@ -1086,6 +1087,10 @@
 		D94F3E951CE1D27C00695A86 /* JZMailboxReplyid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JZMailboxReplyid.m; path = Model/JZMailboxReplyid.m; sourceTree = "<group>"; };
 		D94F3E961CE1D27C00695A86 /* JZMailboxRootClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JZMailboxRootClass.h; path = Model/JZMailboxRootClass.h; sourceTree = "<group>"; };
 		D94F3E971CE1D27C00695A86 /* JZMailboxRootClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JZMailboxRootClass.m; path = Model/JZMailboxRootClass.m; sourceTree = "<group>"; };
+		D95543071CED553A00750B0C /* LKNoDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKNoDataView.h; sourceTree = "<group>"; };
+		D95543081CED553A00750B0C /* LKNoDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKNoDataView.m; sourceTree = "<group>"; };
+		D95543101CED565600750B0C /* NSString+LKString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LKString.h"; sourceTree = "<group>"; };
+		D95543111CED565600750B0C /* NSString+LKString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LKString.m"; sourceTree = "<group>"; };
 		D95CE3AE1C12BD3600EF6F75 /* HomeDataModelCommentstudentcount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeDataModelCommentstudentcount.h; sourceTree = "<group>"; };
 		D95CE3AF1C12BD3600EF6F75 /* HomeDataModelCommentstudentcount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeDataModelCommentstudentcount.m; sourceTree = "<group>"; };
 		D95CE3B01C12BD3600EF6F75 /* HomeDataModelData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeDataModelData.h; sourceTree = "<group>"; };
@@ -1124,8 +1129,6 @@
 		D994A6271CC4B27100BC0059 /* JZPublishController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZPublishController.m; sourceTree = "<group>"; };
 		D994A6291CC4B6D100BC0059 /* JZPublishHistoryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZPublishHistoryController.h; sourceTree = "<group>"; };
 		D994A62A1CC4B6D100BC0059 /* JZPublishHistoryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZPublishHistoryController.m; sourceTree = "<group>"; };
-		D9A3063B1CEC50940086356E /* LKNoDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKNoDataView.h; sourceTree = "<group>"; };
-		D9A3063C1CEC50940086356E /* LKNoDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKNoDataView.m; sourceTree = "<group>"; };
 		D9AEF2601CC5DA4500AB76DD /* JZPublishHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZPublishHistoryCell.h; sourceTree = "<group>"; };
 		D9AEF2611CC5DA4500AB76DD /* JZPublishHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZPublishHistoryCell.m; sourceTree = "<group>"; };
 		D9AEF2641CC5E19E00AB76DD /* JZPublishHistoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZPublishHistoryView.h; sourceTree = "<group>"; };
@@ -2755,8 +2758,6 @@
 				D94F3E6F1CE179F600695A86 /* Controller */,
 				D94F3E701CE179F600695A86 /* Model */,
 				D94F3E711CE179F600695A86 /* View */,
-				D9A3063B1CEC50940086356E /* LKNoDataView.h */,
-				D9A3063C1CEC50940086356E /* LKNoDataView.m */,
 			);
 			path = JZMailbox;
 			sourceTree = "<group>";
@@ -2798,6 +2799,34 @@
 				D94F3E7F1CE1C6A800695A86 /* JZMailBoxCell.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		D95543041CED54CA00750B0C /* LKLibBox */ = {
+			isa = PBXGroup;
+			children = (
+				D955430F1CED565600750B0C /* LKStringCategory */,
+				D95543061CED553A00750B0C /* LKNoDataView */,
+			);
+			name = LKLibBox;
+			path = JZMailbox/LKLibBox;
+			sourceTree = "<group>";
+		};
+		D95543061CED553A00750B0C /* LKNoDataView */ = {
+			isa = PBXGroup;
+			children = (
+				D95543071CED553A00750B0C /* LKNoDataView.h */,
+				D95543081CED553A00750B0C /* LKNoDataView.m */,
+			);
+			path = LKNoDataView;
+			sourceTree = "<group>";
+		};
+		D955430F1CED565600750B0C /* LKStringCategory */ = {
+			isa = PBXGroup;
+			children = (
+				D95543101CED565600750B0C /* NSString+LKString.h */,
+				D95543111CED565600750B0C /* NSString+LKString.m */,
+			);
+			path = LKStringCategory;
 			sourceTree = "<group>";
 		};
 		D95CE3AD1C12BD2600EF6F75 /* HomeDataModel */ = {
@@ -2971,6 +3000,7 @@
 		D9CEC8F21C0E8CF7008DEE69 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D95543041CED54CA00750B0C /* LKLibBox */,
 				D94F3E6E1CE179F600695A86 /* JZMailbox */,
 				D9F7440D1CE2E14200C45A7D /* JZCoachFeedback */,
 				D9AEF25E1CC5D9D000AB76DD /* Publish */,
@@ -3588,7 +3618,7 @@
 				D9C3F4561C167322006D22BC /* DVVProgressView.m in Sources */,
 				B8771DDF1C098DE40051DE9D /* EaseUserCell.m in Sources */,
 				0613DC171C1C51E200580C32 /* HomeDataDetailDMRootClass.m in Sources */,
-				D9A3063D1CEC50940086356E /* LKNoDataView.m in Sources */,
+				D95543091CED553A00750B0C /* LKNoDataView.m in Sources */,
 				D9CEC9151C0E8CF7008DEE69 /* HMRecomendModel.m in Sources */,
 				06C3264A1CDB455C004D888A /* JZcommentListView.m in Sources */,
 				B8771E391C098E6B0051DE9D /* UIView+Sizes.m in Sources */,
@@ -3674,6 +3704,7 @@
 				D9CEC9171C0E8CF7008DEE69 /* CWStarRateView.m in Sources */,
 				D9CEC9861C0ED7D8008DEE69 /* SideMenuItem.m in Sources */,
 				06812B491CE0287800298156 /* JZCommentHeadportrait.m in Sources */,
+				D95543121CED565600750B0C /* NSString+LKString.m in Sources */,
 				0666FFA71C141CA5009FA71F /* ReservationStudentListModel.m in Sources */,
 				55BA0F4F1C0EF19A00F83CD8 /* TeacherController.m in Sources */,
 				0613DC131C1C51E200580C32 /* HomeDataDetailDMCoachcourselist.m in Sources */,

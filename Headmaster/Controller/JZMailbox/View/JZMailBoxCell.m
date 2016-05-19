@@ -8,6 +8,7 @@
 
 #import "JZMailBoxCell.h"
 #import "JZMailboxData.h"
+#import "NSString+LKString.h"
 static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
 
 @interface JZMailBoxCell()
@@ -52,7 +53,7 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
     
     self.coachNameLabel.text = _data.coachid.name;
     self.contentLabel.text = _data.content;
-    self.dateLabel.text = [self getYearLocalDateFormateUTCDate:_data.createtime];
+    self.dateLabel.text = [NSString getYearLocalDateFormateUTCDate:_data.createtime style:LKDateStyleDefault];
     self.replyImage.hidden = !_data.replyflag;
     
 
@@ -317,18 +318,6 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 }
-- (NSString *)getYearLocalDateFormateUTCDate:(NSString *)utcDate {
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    //输入格式
-    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
-    NSTimeZone *localTimeZone = [NSTimeZone localTimeZone];
-    [dateFormatter setTimeZone:localTimeZone];
-    
-    NSDate *dateFormatted = [dateFormatter dateFromString:utcDate];
-    //输出格式
-    [dateFormatter setDateFormat:@"yyyy/MM/dd HH:mm"];
-    NSString *dateString = [dateFormatter stringFromDate:dateFormatted];
-    return dateString;
-}
+
 
 @end
