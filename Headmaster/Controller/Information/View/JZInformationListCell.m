@@ -23,10 +23,7 @@
 @implementation JZInformationListCell
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-//                self.selectionStyle = UITableViewCellSelectionStyleNone;
-        
-        
-//        self.backgroundColor = [UIColor orangeColor];
+
     }
     return self;
 }
@@ -105,15 +102,14 @@
     if (!_newsTitleLabel) {
         
         UILabel *newsTitleLabel = [[UILabel alloc]init];
+        
+         [newsTitleLabel setFont:[UIFont systemFontOfSize:14]];
+        
         if (YBIphone6Plus) {
             
             [newsTitleLabel setFont:[UIFont systemFontOfSize:14*YBRatio]];
 
-        }else {
-            [newsTitleLabel setFont:[UIFont systemFontOfSize:14]];
-
         }
-        
         newsTitleLabel.textColor = kJZDarkTextColor;
         newsTitleLabel.numberOfLines = 0;
         self.newsTitleLabel = newsTitleLabel;
@@ -129,14 +125,11 @@
     if (!_newsDateLabel) {
         
         UILabel *newsDateLabel = [[UILabel alloc]init];
-        
+       
+        [newsDateLabel setFont:[UIFont systemFontOfSize:12]];
+       
         if (YBIphone6Plus) {
             [newsDateLabel setFont:[UIFont systemFontOfSize:12*YBRatio]];
- 
-            
-        }else {
-            [newsDateLabel setFont:[UIFont systemFontOfSize:12]];
-
         }
         
         newsDateLabel.textColor = kJZLightTextColor;

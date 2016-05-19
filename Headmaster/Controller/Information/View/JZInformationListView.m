@@ -124,39 +124,25 @@ static NSString *JZInformationListCellID = @"JZInformationListCellID";
                     index ++;
                     
                 }
-                
-                // 网络加载 --- 创建带标题的图片轮播器
+                //创建带标题的图片轮播器
+                SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0,0, kJZWidth, 160) delegate:self placeholderImage:[UIImage imageNamed:@"pic_load"]];
+                cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
+                cycleScrollView.titleLabelTextFont = [UIFont systemFontOfSize:14];
+                cycleScrollView.titlesGroup = self.titles;
+                cycleScrollView.imageURLStringsGroup = self.imagesURLStrings;
+                ///  图片填充方式
+                cycleScrollView.bannerImageViewContentMode = 2;
+                // 自定义分页控件小圆标颜色
+                cycleScrollView.currentPageDotColor = [UIColor whiteColor];
+               
                 if (YBIphone6Plus) {
                     
-                    SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0,0, kJZWidth, 160*YBRatio) delegate:self placeholderImage:[UIImage imageNamed:@"pic_load"]];
-                    cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
+                    cycleScrollView.frame = CGRectMake(0,0, kJZWidth, 160*YBRatio);
                     cycleScrollView.titleLabelTextFont = [UIFont systemFontOfSize:14*YBRatio];
-                    //                cycleScrollView.currentPageDotImage = [UIImage imageNamed:@"point_on"];
-                    //                cycleScrollView.pageDotImage = [UIImage imageNamed:@"point"];
-                    cycleScrollView.titlesGroup = self.titles;
-                    cycleScrollView.imageURLStringsGroup = self.imagesURLStrings;
-                    // 自定义分页控件小圆标颜色
-                    cycleScrollView.currentPageDotColor = [UIColor whiteColor];
-                    ///  图片填充方式
-                    cycleScrollView.bannerImageViewContentMode = 2;
-                    self.tableHeaderView = cycleScrollView;
-
-                }else {
-                    
-                    SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0,0, kJZWidth, 160) delegate:self placeholderImage:[UIImage imageNamed:@"pic_load"]];
-                    cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
-                    cycleScrollView.titleLabelTextFont = [UIFont systemFontOfSize:14];
-                    //                cycleScrollView.currentPageDotImage = [UIImage imageNamed:@"point_on"];
-                    //                cycleScrollView.pageDotImage = [UIImage imageNamed:@"point"];
-                    cycleScrollView.titlesGroup = self.titles;
-                    cycleScrollView.imageURLStringsGroup = self.imagesURLStrings;
-                    // 自定义分页控件小圆标颜色
-                    cycleScrollView.currentPageDotColor = [UIColor whiteColor];
-                    self.tableHeaderView = cycleScrollView;
 
                 }
                 
-                
+                self.tableHeaderView = cycleScrollView;
                 [self reloadData];
                 
                 
@@ -172,7 +158,6 @@ static NSString *JZInformationListCellID = @"JZInformationListCellID";
             
             [self.noDataView removeFromSuperview];
 
-            
             ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"网络出错啦"];
             [alertView show];
         }
@@ -186,8 +171,7 @@ static NSString *JZInformationListCellID = @"JZInformationListCellID";
         self.noDataView = [[LKNoDataView alloc]init];
    
         self.noDataView.frame =  CGRectMake(0,0, kJZWidth, kJZHeight-64);
-            
-        
+
         self.noDataView.backgroundColor = RGB_Color(239, 239, 244);
         
         self.noDataView.noDataLabel.text = @"网络开小差了";
