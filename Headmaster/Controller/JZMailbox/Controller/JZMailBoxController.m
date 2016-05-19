@@ -12,6 +12,7 @@
 #import "JZPublishHistoryController.h"
 #import "JZPublishHistoryData.h"
 #import <YYModel.h>
+static NSString *JZPublishHistoryMessageCount = @"JZPublishHistoryMessageCount";
 
 @interface JZMailBoxController ()
 @property (nonatomic, strong) JZMailBoxView *mailboxView;
@@ -34,7 +35,7 @@
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     
-    NSInteger messageCount =  [userDefaults integerForKey:@"JZPublishHistoryMessageCount"];
+    NSInteger messageCount =  [userDefaults integerForKey:JZPublishHistoryMessageCount];
     
     JZPublishHistoryData *dataModel = self.listDataArray.firstObject;
     

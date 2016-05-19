@@ -168,14 +168,9 @@ static NSString *JZInformationListCellID = @"JZInformationListCellID";
     } failure:^(NSError *failure) {
         
         [self.noDataView removeFromSuperview];
-        self.noDataView = [[LKNoDataView alloc]init];
+        self.noDataView = [[LKNoDataView alloc]initWithFrame:CGRectMake(0,0, kJZWidth, kJZHeight-64) andNoDataLabelText:@"网络开小差了" andNoDataImgName:@"net_null"];
    
-        self.noDataView.frame =  CGRectMake(0,0, kJZWidth, kJZHeight-64);
-
         self.noDataView.backgroundColor = RGB_Color(239, 239, 244);
-        
-        self.noDataView.noDataLabel.text = @"网络开小差了";
-        self.noDataView.noDataImageView.image = [UIImage imageNamed:@"net_null"];
         
         [self.vc.view addSubview: self.noDataView];
         

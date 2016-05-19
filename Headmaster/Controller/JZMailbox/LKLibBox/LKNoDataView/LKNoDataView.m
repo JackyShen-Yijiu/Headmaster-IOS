@@ -21,6 +21,21 @@
     return self;
     
 }
+-(instancetype)initWithFrame:(CGRect)frame andNoDataLabelText:(NSString *)noDataLabelText andNoDataImgName:(NSString *)noDataImgName {
+    
+    self = [super initWithFrame:frame];
+    
+    if (self) {
+        
+        self.backgroundColor = JZ_MAIN_BACKGROUND_COLOR;
+        self.noDataLabel.text = noDataLabelText;
+        self.noDataImageView.image = [UIImage imageNamed:noDataImgName];
+
+    }
+    
+    return self;
+}
+
 
 -(void)layoutSubviews {
     

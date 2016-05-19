@@ -31,7 +31,7 @@
 
 #import "JZPassRateController.h"
 #import "JZCommentListController.h"
-
+static NSString *JZComplainCount = @"JZComplainCount";
 
 @interface HomeController () <BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate,UIScrollViewDelegate>
 {
@@ -527,7 +527,7 @@
             
             self.complaintCount = [resultData[@"count"] integerValue];
             NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-            NSInteger messageCount =  [userDefaults integerForKey:@"JZComplainCount"];
+            NSInteger messageCount =  [userDefaults integerForKey:JZComplainCount];
 
             
             if (messageCount< self.complaintCount) {

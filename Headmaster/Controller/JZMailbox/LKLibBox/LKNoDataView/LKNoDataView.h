@@ -14,4 +14,7 @@
 @property (nonatomic, strong) UIImageView *noDataImageView;
 /// 没有数据时显示的Label
 @property (nonatomic, strong) UILabel *noDataLabel;
+
+
+-(instancetype)initWithFrame:(CGRect)frame andNoDataLabelText:(NSString *)noDataLabelText andNoDataImgName:(NSString *)noDataImgName;
 @end

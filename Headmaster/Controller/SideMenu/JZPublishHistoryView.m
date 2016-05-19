@@ -12,6 +12,8 @@
 #import <YYModel.h>
 #import "JZPublishHistoryData.h"
 #import "LKNoDataView.h"
+
+static NSString *JZPublishHistoryMessageCount = @"JZPublishHistoryMessageCount";
 static NSString *JZPublishHistoryCellID = @"JZPublishHistoryCellID";
 @interface JZPublishHistoryView ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) NSMutableArray *listDataArray;
@@ -77,7 +79,7 @@ static NSString *JZPublishHistoryCellID = @"JZPublishHistoryCellID";
         
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
         // 写入
-        [userDefaults setInteger:self.messageCount forKey:@"JZPublishHistoryMessageCount"];
+        [userDefaults setInteger:self.messageCount forKey:JZPublishHistoryMessageCount];
         // 强制写入
         [userDefaults synchronize];
 
@@ -105,9 +107,7 @@ static NSString *JZPublishHistoryCellID = @"JZPublishHistoryCellID";
         if (!resultData.count) {
             
             [self.noDataView removeFromSuperview];
-            self.noDataView = [[LKNoDataView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth, kJZHeight-64)];
-            self.noDataView.noDataLabel.text = @"暂时还没有驾校公告";
-            self.noDataView.noDataImageView.image = [UIImage imageNamed:@"announcement_null"];
+            self.noDataView = [[LKNoDataView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth, kJZHeight-64) andNoDataLabelText:@"暂时还没有驾校公告" andNoDataImgName:@"announcement_null"];
             [self.vc.view addSubview: self.noDataView];
 
         }else {
@@ -134,9 +134,7 @@ static NSString *JZPublishHistoryCellID = @"JZPublishHistoryCellID";
     } failure:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         [self.noDataView removeFromSuperview];
-        self.noDataView = [[LKNoDataView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth, kJZHeight-64)];
-        self.noDataView.noDataLabel.text = @"网络开小差了";
-        self.noDataView.noDataImageView.image = [UIImage imageNamed:@"net_null"];
+        self.noDataView = [[LKNoDataView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth, kJZHeight-64)andNoDataLabelText:@"网络开小差了" andNoDataImgName:@"net_null"];    
         [self.vc.view addSubview: self.noDataView];
 
     }];

@@ -16,6 +16,7 @@
 #import "MJRefresh.h"
 #import "LKNoDataView.h"
 static NSString *JZComplaintCellID = @"JZComplaintCellID";
+static NSString *JZComplainCount = @"JZComplainCount";
 
 @interface JZComplaintListView ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) NSMutableArray *listDataArray;
@@ -120,9 +121,7 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
             if (!messageCount.integerValue) {
 
                 [self.noDataView removeFromSuperview];
-                self.noDataView = [[LKNoDataView alloc]initWithFrame:CGRectMake(0,0, kJZWidth, kJZHeight-64)];
-                self.noDataView.noDataLabel.text = @"暂时还没有收到学员投诉";
-                self.noDataView.noDataImageView.image = [UIImage imageNamed:@"complaint_null"];
+                self.noDataView = [[LKNoDataView alloc]initWithFrame:CGRectMake(0,0, kJZWidth, kJZHeight-64)andNoDataLabelText:@"暂时还没有收到学员投诉" andNoDataImgName:@"complaint_null"];
                 [self.vc.view addSubview: self.noDataView];
   
             }else {
@@ -130,7 +129,7 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
 
                 NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
                 // 写入
-                [userDefaults setInteger:messageCount.integerValue forKey:@"JZComplainCount"];
+                [userDefaults setInteger:messageCount.integerValue forKey:JZComplainCount];
                 // 强制写入
                 [userDefaults synchronize];
                 
@@ -144,17 +143,12 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
                 }
                 [self reloadData];
             }
-            
-           
 
-            
             ///  网络出错空白图
         }else{
         
             [self.noDataView removeFromSuperview];
-            self.noDataView = [[LKNoDataView alloc]initWithFrame:CGRectMake(0,0, kJZWidth, kJZHeight-64)];
-            self.noDataView.noDataLabel.text = @"网络开小差了";
-            self.noDataView.noDataImageView.image = [UIImage imageNamed:@"net_null"];
+            self.noDataView = [[LKNoDataView alloc]initWithFrame:CGRectMake(0,0, kJZWidth, kJZHeight-64)andNoDataLabelText:@"网络开小差了" andNoDataImgName:@"net_null"];
             [self.vc.view addSubview: self.noDataView];
     
             
@@ -162,9 +156,7 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
         ///  网络出错空白图
     } failure:^(NSError *failure) {
         [self.noDataView removeFromSuperview];
-        self.noDataView = [[LKNoDataView alloc]initWithFrame:CGRectMake(0,0, kJZWidth, kJZHeight-64)];
-        self.noDataView.noDataLabel.text = @"网络开小差了";
-        self.noDataView.noDataImageView.image = [UIImage imageNamed:@"net_null"];
+        self.noDataView = [[LKNoDataView alloc]initWithFrame:CGRectMake(0,0, kJZWidth, kJZHeight-64)andNoDataLabelText:@"网络开小差了" andNoDataImgName:@"net_null"];
         [self.vc.view addSubview: self.noDataView];
         
     }];

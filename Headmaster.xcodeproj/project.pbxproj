@@ -2921,6 +2921,7 @@
 		D9AEF25E1CC5D9D000AB76DD /* Publish */ = {
 			isa = PBXGroup;
 			children = (
+				D9E3B0DE1CED9820009040BC /* Old */,
 				D9AEF2671CC5E91200AB76DD /* Model */,
 				D9AEF25F1CC5DA0700AB76DD /* Controller */,
 				D9AEF2631CC5DA4B00AB76DD /* View */,
@@ -2932,8 +2933,6 @@
 		D9AEF25F1CC5DA0700AB76DD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D994A6261CC4B27100BC0059 /* JZPublishController.h */,
-				D994A6271CC4B27100BC0059 /* JZPublishController.m */,
 				D994A6291CC4B6D100BC0059 /* JZPublishHistoryController.h */,
 				D994A62A1CC4B6D100BC0059 /* JZPublishHistoryController.m */,
 			);
@@ -3251,6 +3250,15 @@
 				D9E3B0DC1CED8C5C009040BC /* NSDateFormatter+LKDateFormatter.m */,
 			);
 			path = LKDateFormatter;
+			sourceTree = "<group>";
+		};
+		D9E3B0DE1CED9820009040BC /* Old */ = {
+			isa = PBXGroup;
+			children = (
+				D994A6261CC4B27100BC0059 /* JZPublishController.h */,
+				D994A6271CC4B27100BC0059 /* JZPublishController.m */,
+			);
+			name = Old;
 			sourceTree = "<group>";
 		};
 		D9EEA6C81CE0782200F8662D /* SDCycleScrollView */ = {

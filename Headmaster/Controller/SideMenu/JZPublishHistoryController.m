@@ -43,12 +43,7 @@
     self.historyView = historyView;
     
     [self.view addSubview:historyView];
-   
-    
 
-    
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {
