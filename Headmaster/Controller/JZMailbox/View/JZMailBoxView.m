@@ -23,6 +23,8 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
 
 @property (nonatomic, strong) LKNoDataView *noDataView;
 
+@property (nonatomic, assign) NSInteger index;
+
 
 
 @end
@@ -184,7 +186,7 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
 
             }else {
                 [self.noDataView removeFromSuperview];
-
+                self.index = 2;
                 for (NSDictionary *dict in resultData) {
                     
                     JZMailboxData *dataModel = [JZMailboxData yy_modelWithJSON:dict];
@@ -269,14 +271,14 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
     
 }
 -(void)loadMoreData {
-    static NSInteger index = 2;
+    
 
-    [NetworkEntity getCoachFeedbackWithUserid:[UserInfoModel defaultUserInfo].userID SchoolId:[UserInfoModel defaultUserInfo].schoolId count:10 index:index success:^(id responseObject) {
+    [NetworkEntity getCoachFeedbackWithUserid:[UserInfoModel defaultUserInfo].userID SchoolId:[UserInfoModel defaultUserInfo].schoolId count:10 index:self.index success:^(id responseObject) {
         
         NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
         if (type == 1) {
             NSArray *resultData = responseObject[@"data"];
-            index ++;
+           
             if (!resultData.count) {
                 
                 [self.refreshFooter endRefreshing];
@@ -288,7 +290,7 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
                 return;
                 
             }
-            
+            self.index ++;
             for (NSDictionary *dict in resultData) {
                 
                 JZMailboxData *dataModel = [JZMailboxData yy_modelWithJSON:dict];
