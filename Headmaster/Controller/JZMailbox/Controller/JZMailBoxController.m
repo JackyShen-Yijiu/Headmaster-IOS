@@ -18,6 +18,8 @@ static NSString *JZPublishHistoryMessageCount = @"JZPublishHistoryMessageCount";
 @property (nonatomic, strong) JZMailBoxView *mailboxView;
 @property (nonatomic, strong) JZMailBoxHeaderView *headerView;
 @property (nonatomic, strong) NSMutableArray *listDataArray;
+@property (nonatomic, strong) UILabel *rightLabel;
+
 @end
 
 @implementation JZMailBoxController
@@ -25,52 +27,15 @@ static NSString *JZPublishHistoryMessageCount = @"JZPublishHistoryMessageCount";
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self loadData];
+    
     self.myNavigationItem.title = @"信箱";
     [MobClick beginLogPageView:NSStringFromClass([self class])];
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.edgesForExtendedLayout = UIRectEdgeNone;
 
     
-    UILabel *rightLabel = [[UILabel alloc] init];
     
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    
-    NSInteger messageCount =  [userDefaults integerForKey:JZPublishHistoryMessageCount];
-    
-    JZPublishHistoryData *dataModel = self.listDataArray.firstObject;
-    
-        if (messageCount< dataModel.seqindex) {
-            
-            if (dataModel.seqindex - messageCount>99) {
-                
-                rightLabel.text = @"n+";
-            }else {
-                rightLabel.text =  [NSString stringWithFormat:@"%zd",dataModel.seqindex - messageCount];
-
-            }
-
-            
-            
-            rightLabel.hidden = NO;
-        }else {
-            rightLabel.hidden = YES;
-        }
-
-    rightLabel.textColor = [UIColor whiteColor];
-    rightLabel.backgroundColor = [UIColor redColor];
-    rightLabel.textAlignment = NSTextAlignmentCenter;
-    rightLabel.font = [UIFont systemFontOfSize:8];
-    rightLabel.frame = CGRectMake(kJZWidth-44, 16, 16, 16);
-
-    if (YBIphone6Plus) {
-        rightLabel.font = [UIFont systemFontOfSize:8*YBRatio];
-        rightLabel.frame = CGRectMake(kJZWidth-44*YBRatio, 16*YBRatio, 16*YBRatio, 16*YBRatio);
-
-    }
-    rightLabel.layer.masksToBounds = YES;
-    rightLabel.layer.cornerRadius = rightLabel.width/2;
-    
-    [self.view addSubview:rightLabel];
+   
     
 
 }
@@ -139,6 +104,34 @@ static NSString *JZPublishHistoryMessageCount = @"JZPublishHistoryMessageCount";
                 JZPublishHistoryData *listModel = [JZPublishHistoryData yy_modelWithDictionary:dict];
                 
                 [self.listDataArray addObject:listModel];
+                
+                
+                [self.view addSubview: self.rightLabel];
+                
+                NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+                
+                NSInteger messageCount =  [userDefaults integerForKey:JZPublishHistoryMessageCount];
+                
+                JZPublishHistoryData *dataModel = self.listDataArray.firstObject;
+                
+                if (dataModel.seqindex > messageCount) {
+                    
+                    if (dataModel.seqindex - messageCount>99) {
+                        self.rightLabel.text = @"n+";
+                    }else {
+                        self.rightLabel.text =  [NSString stringWithFormat:@"%zd",dataModel.seqindex - messageCount];
+                        
+                    }
+                    
+                    self.rightLabel.hidden = NO;
+                    
+                }else {
+                    
+                    self.rightLabel.text = @"";
+                    self.rightLabel.hidden = YES;
+                    
+                }
+
             }
             
             
@@ -161,7 +154,26 @@ static NSString *JZPublishHistoryMessageCount = @"JZPublishHistoryMessageCount";
     return _listDataArray;
 }
 
-
+-(UILabel *)rightLabel {
+    
+    if (!_rightLabel) {
+    
+         self.rightLabel = [[UILabel alloc] init];
+         self.rightLabel.textColor = [UIColor whiteColor];
+         self.rightLabel.backgroundColor = [UIColor redColor];
+         self.rightLabel.textAlignment = NSTextAlignmentCenter;
+         self.rightLabel.font = [UIFont systemFontOfSize:8];
+         self.rightLabel.frame = CGRectMake(kJZWidth-44, 16, 16, 16);
+        if (YBIphone6Plus) {
+             self.rightLabel.font = [UIFont systemFontOfSize:8*YBRatio];
+             self.rightLabel.frame = CGRectMake(kJZWidth-44*YBRatio, 16*YBRatio, 16*YBRatio, 16*YBRatio);
+        }
+         self.rightLabel.layer.masksToBounds = YES;
+         self.rightLabel.layer.cornerRadius =  self.rightLabel.width/2;
+    
+    }
+    return _rightLabel;
+}
 
 
 
