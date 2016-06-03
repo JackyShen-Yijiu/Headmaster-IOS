@@ -14,6 +14,7 @@
 @interface InformationDetailController () <UIWebViewDelegate> {
     UIWebView *_webView;
 }
+@property (nonatomic, strong) UIBarButtonItem *pushBtn;
 
 @end
 
@@ -22,7 +23,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [MobClick beginLogPageView:NSStringFromClass([self class])];
-    self.myNavigationItem.title = _navTitle;
+    self.title = _navTitle;
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -36,7 +37,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.navigationItem.leftBarButtonItem = self.pushBtn;
     self.automaticallyAdjustsScrollViewInsets = NO;
     _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, h_size.width, h_size.height -64)];
     _webView.delegate = self;
@@ -62,14 +63,19 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (UIBarButtonItem *)pushBtn {
+    if (!_pushBtn) {
+        CGRect backframe= CGRectMake(0, 0, 16, 16);
+        UIButton* backButton= [UIButton buttonWithType:UIButtonTypeCustom];
+        backButton.frame = backframe;
+        [backButton setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+        [backButton addTarget:self action:@selector(pushBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        _pushBtn = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+    }
+    return _pushBtn;
 }
-*/
+- (void)pushBtnClick{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 @end

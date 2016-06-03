@@ -96,6 +96,7 @@
 {
     self.myNavigationItem.title = nil;
     self.myNavigationItem.titleView = nil;
+    
 //    self.myNavigationItem.rightBarButtonItem = nil;
 //    self.myNavigationItem.rightBarButtonItems = nil;
     

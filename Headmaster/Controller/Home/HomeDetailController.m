@@ -38,9 +38,8 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [MobClick beginLogPageView:NSStringFromClass([self class])];
-    if (_isFormSideMenu) {
         self.navigationItem.leftBarButtonItem = self.pushBtn;
-    }
+  
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -82,7 +81,7 @@
             titleName = @"本年";
             contentOffsetX = width * 2;
         }
-        ws.myNavigationItem.title = [NSString stringWithFormat:@"%@数据",titleName];
+        ws.title = [NSString stringWithFormat:@"%@数据",titleName];
         
         [UIView animateWithDuration:0.5 animations:^{
             ws.scrollView.contentOffset = CGPointMake(contentOffsetX, 0);
@@ -100,7 +99,7 @@
 }
 
 - (void)pushBtnClick {
-   [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+   [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark 点击进入详情的回调

@@ -65,19 +65,20 @@
 
 - (void)initNavBar
 {
-    [self resetNavBar];
-    self.myNavigationItem.title = @"我校教练";
-    
+    //[self resetNavBar];
+    self.title = @"我校教练";
+  
     CGRect backframe= CGRectMake(0, 0, 16, 16);
     UIButton* backButton= [UIButton buttonWithType:UIButtonTypeCustom];
     backButton.frame = backframe;
     [backButton setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
     [backButton addTarget:self action:@selector(pushBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    self.myNavigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+    
 }
 
 - (void)pushBtnClick {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)initUI
@@ -135,7 +136,7 @@
                 }else{
                     titleItem = responseObject[@"extra"];
                 }
-                ws.myNavigationItem.title = [NSString stringWithFormat:@"我校教练(%@)",titleItem];
+                ws.title = [NSString stringWithFormat:@"我校教练(%@)",titleItem];
 
                 ws.dataSource = [[BaseModelMethod getTeacherListArrayFormDicInfo:[responseObject objectArrayForKey:@"data"]] mutableCopy];
                 if (ws.dataSource.count == 0) {

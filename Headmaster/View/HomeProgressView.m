@@ -210,20 +210,10 @@
     
     JZPassRateController *passRateVC = [[JZPassRateController alloc] init];
     passRateVC.subjectID = index + 1;
-    
-    [self.parentVC.myNavController pushViewController:passRateVC animated:YES];
+    passRateVC.hidesBottomBarWhenPushed = YES;
+    [self.parentVC.navigationController pushViewController:passRateVC animated:YES];
     
     
 }
-
-
-
-/*
- // Only override drawRect: if you perform custom drawing.
- // An empty implementation adversely affects performance during animation.
- - (void)drawRect:(CGRect)rect {
- // Drawing code
- }
- */
 
 @end

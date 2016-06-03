@@ -25,6 +25,8 @@
 @property (nonatomic, strong) UIView *lineView;
 @property (nonatomic, weak) JZCoachFeedbackView *feedbackView;
 
+@property (nonatomic, strong) UIBarButtonItem *pushBtn;
+
 
 
 
@@ -36,8 +38,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.myNavigationItem.title = @"教练反馈";
-
+    self.title = @"教练反馈";
+    self.navigationItem.leftBarButtonItem = self.pushBtn;
     self.view.backgroundColor = [UIColor whiteColor];
     
     
@@ -291,4 +293,19 @@
     }
     return _replyButton;
 }
+- (UIBarButtonItem *)pushBtn {
+    if (!_pushBtn) {
+        CGRect backframe= CGRectMake(0, 0, 16, 16);
+        UIButton* backButton= [UIButton buttonWithType:UIButtonTypeCustom];
+        backButton.frame = backframe;
+        [backButton setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+        [backButton addTarget:self action:@selector(pushBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        _pushBtn = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+    }
+    return _pushBtn;
+}
+- (void)pushBtnClick{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 @end

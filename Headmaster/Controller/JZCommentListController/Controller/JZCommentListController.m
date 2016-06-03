@@ -23,6 +23,8 @@
 @property (nonatomic, strong) JZcommentListView *thisWeekView;
 @property (nonatomic, strong) JZcommentListView *thisMonthView;
 
+@property (nonatomic, strong) UIBarButtonItem *pushBtn;
+
 @property (nonatomic, strong) UIView *bgView;
 
 @end
@@ -39,7 +41,7 @@
 }
 - (void)initUI{
     self.view.backgroundColor = JZ_MAIN_BACKGROUND_COLOR;
-   
+    self.navigationItem.leftBarButtonItem = self.pushBtn;
     _bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 40)];
     _bgView.layer.shadowColor = [UIColor blackColor].CGColor;
     _bgView.layer.shadowOffset = CGSizeMake(0, 2);
@@ -376,6 +378,20 @@
         
     }
     return _thisMonthView;
+}
+- (UIBarButtonItem *)pushBtn {
+    if (!_pushBtn) {
+        CGRect backframe= CGRectMake(0, 0, 16, 16);
+        UIButton* backButton= [UIButton buttonWithType:UIButtonTypeCustom];
+        backButton.frame = backframe;
+        [backButton setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+        [backButton addTarget:self action:@selector(pushBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        _pushBtn = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+    }
+    return _pushBtn;
+}
+- (void)pushBtnClick{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

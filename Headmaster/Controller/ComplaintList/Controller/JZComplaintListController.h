@@ -10,6 +10,5 @@
 
 @interface JZComplaintListController : UIViewController
 @property (nonatomic, assign) NSInteger count;
-@property (nonatomic, assign) BOOL isFormSideMenu;
 
 @end

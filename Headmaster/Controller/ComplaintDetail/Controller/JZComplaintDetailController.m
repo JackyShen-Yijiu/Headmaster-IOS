@@ -22,13 +22,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.myNavigationItem.title = @"投诉详情";
+    self.title = @"投诉详情";
     
-    if (_isFormSideMenu) {
-        self.navigationItem.leftBarButtonItem = self.pushBtn;
-    }
     self.view.backgroundColor = [UIColor whiteColor];
-    
+    self.navigationItem.leftBarButtonItem = self.pushBtn;
 
     
     JZComplaintDetailTopView *detailTopView = [[JZComplaintDetailTopView alloc]init];
@@ -79,14 +76,6 @@
     contentScrollView.contentSize = detailView.frame.size;
     
     [contentScrollView addSubview:detailView];
-
-    
-    
-   
-
-
-    
-    
     
 }
 
@@ -94,10 +83,9 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
 }
 - (void)pushBtnClick {
-//    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
     [self.navigationController popViewControllerAnimated:YES];
 }
 - (UIBarButtonItem *)pushBtn {
@@ -112,15 +100,5 @@
     return _pushBtn;
 }
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -141,6 +141,9 @@
     //打开选中的窗体
     self.selectedIndex = sender.tag;
     
+    // 
+    self.vcType = sender.tag;
+    
     sender.selected = YES;
 }
 

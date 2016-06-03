@@ -466,10 +466,10 @@
                      [[EaseMob sharedInstance].chatManager setIsAutoLoginEnabled:YES];
                      
 
-                     
-                     if ([_delegate respondsToSelector:@selector(loginControllerDidLoginSucess:)]) {
-                         [_delegate loginControllerDidLoginSucess:self];
-                     }
+                     [[NSNotificationCenter defaultCenter] postNotificationName:longinSuccess object:self];
+//                     if ([self.delegate respondsToSelector:@selector(loginControllerDidLoginSucess:)]) {
+//                         [self.delegate loginControllerDidLoginSucess:self];
+//                     }
 
                     
                      

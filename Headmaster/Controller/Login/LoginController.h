@@ -10,12 +10,21 @@
 
 static NSString *sideMenuInfochange = @"sideMenuInfochange";
 
+static NSString *longinSuccess = @"longinSuccess";
+
 @class LoginController;
+
 @protocol LoginControllerDelegate <NSObject>
+
 - (void)loginControllerDidLoginSucess:(LoginController *)controller;
+
 @end
 
 @interface LoginController : YBBaseController
+
 @property(nonatomic,weak)id<LoginControllerDelegate>delegate;
+
 @property (nonatomic, copy) void (^dismissController)(void);
+
+
 @end

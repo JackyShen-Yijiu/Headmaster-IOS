@@ -221,22 +221,30 @@
 //
 //    }
     
-    // 评论投诉
-    if (1 == indexPath.row ) {
-        JZComplaintListController *vc = [[JZComplaintListController alloc] init];
-        vc.isFormSideMenu = YES;
-        HMNagationController *nav = [[HMNagationController alloc] initWithRootViewController:vc];
-        [self presentViewController:nav animated:YES completion:nil];
-        return;
-        
+//    // 评论投诉
+//    if (1 == indexPath.row ) {
+//        JZComplaintListController *vc = [[JZComplaintListController alloc] init];
+//        vc.isFormSideMenu = YES;
+//        HMNagationController *nav = [[HMNagationController alloc] initWithRootViewController:vc];
+//        [self presentViewController:nav animated:YES completion:nil];
+//        return;
+//        
+//    }
+//
+//    
+//    // 侧边栏其他控制器的跳转
+//    SideMenuItem * item = self.LeftItemArray[indexPath.row];
+//    UIViewController *vc = [[NSClassFromString(item.target) alloc]init];
+//    HMNagationController *nav = [[HMNagationController alloc] initWithRootViewController:vc];
+//    [self presentViewController:nav animated:YES completion:nil];
+    
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if ([self.delegate respondsToSelector:@selector(didSelectItem:indexPath:)]) {
+        [self.delegate didSelectItem:nil indexPath:(NSIndexPath *)indexPath];
     }
 
-    
-    // 侧边栏其他控制器的跳转
-    SideMenuItem * item = self.LeftItemArray[indexPath.row];
-    UIViewController *vc = [[NSClassFromString(item.target) alloc]init];
-    HMNagationController *nav = [[HMNagationController alloc] initWithRootViewController:vc];
-    [self presentViewController:nav animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

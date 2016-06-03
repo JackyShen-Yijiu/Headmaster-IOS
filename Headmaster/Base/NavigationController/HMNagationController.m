@@ -30,13 +30,13 @@
     
     UINavigationBar *bar = [UINavigationBar appearance];
     
-    
      bar.barTintColor = [UIColor blackColor];
    [bar setTranslucent:NO];
-//    [bar setBackgroundImage:[[UIImage imageNamed:@"nav_bar1.jpg"] stretchableImageWithLeftCapWidth:10 topCapHeight:10] forBarMetrics:UIBarMetricsDefault];
+
     [bar setShadowImage:[UIImage new]];
     // 标题字体颜
     [bar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont systemFontOfSize:16]}];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -54,7 +54,8 @@
     @try {
         [super pushViewController:viewController animated:animated];
         [viewController.navigationItem setHidesBackButton:YES];
-        if (viewController.navigationItem.leftBarButtonItem == nil && [self.viewControllers count] > 2)
+        NSLog(@"viewController.navigationItem.leftBarButtonItem =  %@ %lu",viewController.navigationItem.leftBarButtonItem,[self.viewControllers count]);
+        if (viewController.navigationItem.leftBarButtonItem == nil && [self.viewControllers count] ==1)
             
         {
             viewController.navigationItem.leftBarButtonItems = @[[self barSpaingItem],[self createBackButton]];
@@ -101,7 +102,8 @@
 -(void)popself
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"SELFBACK" object:nil];
-    [self popViewControllerAnimated:YES];
+//    [self popViewControllerAnimated:YES];
+    
 }
 
 -(UIBarButtonItem*) createBackButton
@@ -113,8 +115,8 @@
     
     backButton.frame = backframe;
 
-    [backButton setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
-    [backButton setImage:[UIImage imageNamed:@"back"] forState:UIControlStateHighlighted];
+    [backButton setImage:[UIImage imageNamed:@"side"] forState:UIControlStateNormal];
+    [backButton setImage:[UIImage imageNamed:@"side"] forState:UIControlStateHighlighted];
     [backButton addTarget:self action:@selector(popself) forControlEvents:UIControlEventTouchUpInside];
     
     //定制自己的风格的  UIBarButtonItem

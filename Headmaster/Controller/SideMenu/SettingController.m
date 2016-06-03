@@ -12,6 +12,8 @@
 #import "EaseSDKHelper.h"
 
 #import "APService.h"
+#import "LoginController.h"
+#import "JZUserLoginManager.h"
 
 
 @interface SettingController () <UITableViewDataSource,UITableViewDelegate,UIAlertViewDelegate> {
@@ -26,10 +28,6 @@
 @end
 
 @implementation SettingController
-
-- (void)pushBtnClick {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -54,8 +52,19 @@
     [self addBackgroundImage];
     [self isFirstLOad];
     [self createUI];
+    CGRect backframe= CGRectMake(0, 0, 16, 16);
+    UIButton* backButton= [UIButton buttonWithType:UIButtonTypeCustom];
+    backButton.frame = backframe;
+    [backButton setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    [backButton addTarget:self action:@selector(pushBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
     
 }
+
+- (void)pushBtnClick {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 - (void)setNavBar {
     CGRect backframe= CGRectMake(0, 0, 16, 16);
@@ -488,12 +497,18 @@
         //友盟统计账号登出
         [MobClick profileSignOff];
         //    [self.navigationController pushViewController:lc animated:YES];
+     
         
-        [self dismissViewControllerAnimated:NO completion:^{
-            [[self slideMenu] hideMenuViewController];
-            [[(AppDelegate *)[[UIApplication sharedApplication] delegate] navController] popToRootViewControllerAnimated:NO];
-            
-        }];
+        LoginController *logninVC = (LoginController *)[JZUserLoginManager loginController];
+        ((AppDelegate *)[UIApplication sharedApplication].delegate).window.rootViewController = logninVC;
+
+    
+//        
+//        [self dismissViewControllerAnimated:NO completion:^{
+//            [[self slideMenu] hideMenuViewController];
+//            [[(AppDelegate *)[[UIApplication sharedApplication] delegate] navController] popToRootViewControllerAnimated:NO];
+//            
+//        }];
         
     } onQueue:nil];
     

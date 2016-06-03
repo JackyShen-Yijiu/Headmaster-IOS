@@ -91,13 +91,9 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
     JZComplaintDetailController *complaintDetailVC = [[JZComplaintDetailController alloc]init];
     
     JZComplaintListController *JZComplaintVC  = (JZComplaintListController * )self.vc;
-
-    complaintDetailVC.isFormSideMenu =   JZComplaintVC.isFormSideMenu;
-
-
     complaintDetailVC.dataModel = dataModel;
     
-    [self.vc.myNavController pushViewController:complaintDetailVC animated:YES];
+    [self.vc.navigationController pushViewController:complaintDetailVC animated:YES];
     
 }
 #pragma mark - 首次加载数据
@@ -110,7 +106,7 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
         NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
         if (type == 1) {
             NSDictionary *resultData = responseObject[@"data"];
-            self.vc.myNavigationItem.title = [NSString stringWithFormat:@"投诉(%@)",resultData[@"count"]];
+            self.vc.title = [NSString stringWithFormat:@"投诉(%@)",resultData[@"count"]];
             NSArray *complaintlist = resultData[@"complaintlist"];
             
             NSString *messageCount = resultData[@"count"];

@@ -135,6 +135,7 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
     feedbackVC.dataModel = dataModel;
     
     feedbackVC.index = indexPath.row;
+    feedbackVC.hidesBottomBarWhenPushed = YES;
     
     [self.vc.navigationController pushViewController:feedbackVC animated:YES];
     

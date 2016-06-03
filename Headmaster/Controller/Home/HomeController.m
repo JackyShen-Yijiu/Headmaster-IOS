@@ -249,8 +249,8 @@
             // 差评
             recommendVC.commentLevel = KCommnetLevelPoorRating;
         }
-        
-        [self.myNavController pushViewController:recommendVC animated:YES];
+        recommendVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:recommendVC animated:YES];
     }];
 
     _viewModel = [HomeViewModel new];
@@ -380,6 +380,7 @@
     HomeDetailController *detailVC = [HomeDetailController new];
     detailVC.searchType = kDateSearchTypeWeek;
     detailVC.viewModel = _viewModel;
+    detailVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:detailVC animated:YES];
     
 }

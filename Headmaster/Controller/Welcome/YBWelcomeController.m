@@ -7,6 +7,10 @@
 //
 
 #import "YBWelcomeController.h"
+#import "ViewController.h"
+#import "LoginController.h"
+#import "AppDelegate.h"
+#import "JZUserLoginManager.h"
 
 #pragma mark - 给NSString添加一个方法，用来获取当前的版本
 @interface NSString(Version)
@@ -118,16 +122,22 @@
 
 #pragma mark 按钮的点击事件
 - (void)buttonAction:(UIButton *)sender {
+    LoginController *loginVC = (LoginController *)[JZUserLoginManager loginController];
     
-    CGRect rect = self.view.frame;
-    rect.origin.x = -SCREEN_WIDTH;
-    [UIView animateWithDuration:0.5 animations:^{
-        self.view.frame = rect;
-        self.view.alpha = 0;
-    } completion:^(BOOL finished) {
-        [self.view.window resignKeyWindow];
-        self.view.window.hidden = YES;
-    }];
+    ((AppDelegate *)[UIApplication sharedApplication].delegate).window.rootViewController = loginVC;
+    
+    
+//    
+//    [UIApplication sharedApplication].keyWindow.rootViewController.navigationController presentViewController:<#(nonnull UIViewController *)#> animated:<#(BOOL)#> completion:<#^(void)completion#>
+//    CGRect rect = self.view.frame;
+//    rect.origin.x = -SCREEN_WIDTH;
+//    [UIView animateWithDuration:0.5 animations:^{
+//        self.view.frame = rect;
+//        self.view.alpha = 0;
+//    } completion:^(BOOL finished) {
+//        [self.view.window resignKeyWindow];
+//        self.view.window.hidden = YES;
+//    }];
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {

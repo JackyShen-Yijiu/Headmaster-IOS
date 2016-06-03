@@ -18,6 +18,9 @@
 #import "LoginController.h"
 #import "ProjectGuideView.h"
 #import "AppDelegate+YJPush.h"
+#import "ViewController.h"
+#import "WMCommon.h"
+#import "JZUserLoginManager.h"
 
 @interface AppDelegate ()<LoginControllerDelegate,IChatManagerDelegate>
 {
@@ -29,32 +32,36 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-    [self sysConfigWithApplication:application LaunchOptions:launchOptions];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSucess) name:longinSuccess object:nil];
+   [self sysConfigWithApplication:application LaunchOptions:launchOptions];
+//
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
-    LoginController * loginViewC = [[LoginController alloc] init];
-    loginViewC.delegate = self;
     
-    self.navController = [[HMNagationController alloc] initWithRootViewController:loginViewC];
-    self.window.rootViewController = [self sideControllerWithContentController:self.navController];
-
-    if ([UserInfoModel isLogin]) {
-        [self loginControllerDidLoginSucess:nil];
+    WMCommon *common = [WMCommon getInstance];
+    common.screenW = [[UIScreen mainScreen] bounds].size.width;
+    common.screenH = [[UIScreen mainScreen] bounds].size.height;
+    
+    // 引导页
+    if ([YBWelcomeController isShowWelcome]) {
+        self.window.rootViewController = [[YBWelcomeController alloc] init];
+    }else{
+        if ([UserInfoModel isLogin]) {
+            [self loginControllerDidLoginSucess:nil];
+        }else{
+            LoginController *loginVC = (LoginController *)[JZUserLoginManager loginController];
+            loginVC.delegate = self;
+            self.window.rootViewController = loginVC;
+            
+        }
     }
+
+    [self.window makeKeyAndVisible];
     
     if([self isReciveFromHunaxin:launchOptions]){
         [self.navController jumpToMessageList];
     }
     
-    // 添加引导页
-//    [YBWelcomeController removeSavedVersion]; // 测试引导页时打开注释
-    if ([YBWelcomeController isShowWelcome]) {
-//         当需要引导页时打开注释
-        [YBWelcomeController show];
-    }
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     
     return YES;
@@ -79,11 +86,30 @@
     options.displayStyle = ePushNotificationDisplayStyle_messageSummary;
     
     [self.navController setNavigationBarHidden:NO];
-    UIViewController * viewController = [self rootViewController];
-    [self.navController pushViewController:viewController animated:controller ? YES : NO];
+    
+    ViewController *viewVC = [[ViewController alloc] init];
+   self.window.rootViewController = viewVC;
     
 }
-
+- (void)loginSucess{
+    //    //设置是否自动登录
+    //    [[EaseMob sharedInstance].chatManager setIsAutoLoginEnabled:YES];
+    //
+    //    // 旧数据转换 (如果您的sdk是由2.1.2版本升级过来的，需要家这句话)
+    //    [[EaseMob sharedInstance].chatManager importDataToNewDatabase];
+    //    //获取数据库中数据
+    //    [[EaseMob sharedInstance].chatManager loadDataFromDatabase];
+    
+    EMPushNotificationOptions *options = [[EaseMob sharedInstance].chatManager pushNotificationOptions];
+    NSLog(@"[UserInfoModel defaultUserInfo].name:%@",[UserInfoModel defaultUserInfo].name);
+    options.nickname = [UserInfoModel defaultUserInfo].name;
+    options.displayStyle = ePushNotificationDisplayStyle_messageSummary;
+    
+    [self.navController setNavigationBarHidden:NO];
+    
+    ViewController *viewVC = [[ViewController alloc] init];
+    self.window.rootViewController = viewVC;
+}
 #pragma mark - 系统配置
 - (void)sysConfigWithApplication:(UIApplication *)application LaunchOptions:(NSDictionary *)launchOptions
 {
@@ -177,7 +203,7 @@
 {
     
 #warning 当App在后台接受到消息推送,点击消息提醒,调用此方法
-#warning 当App在前台接受到消息推送,调用此方法
+#warning 当App在前台接受到消息推送,直接调用此方法
     
     NSLog(@"%s userInfo:%@",__func__,userInfo);
     /*
@@ -211,6 +237,9 @@
      */
     
     completionHandler(UIBackgroundFetchResultNewData);
+    
+    
+    // ????????????????????????????????????   区分消息来自环信和JPush
     
     if ([self isReciveFromHunaxin:userInfo]) {
         [self.navController jumpToMessageList];

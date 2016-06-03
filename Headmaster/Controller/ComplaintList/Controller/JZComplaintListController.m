@@ -21,14 +21,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-//    self.myNavigationItem.title = [NSString stringWithFormat:@"投诉(%zd)",self.count];
-    
-    if (_isFormSideMenu) {
-        self.navigationItem.leftBarButtonItem = self.pushBtn;
-    }
-    
-    
     JZComplaintListView *listView = [[JZComplaintListView alloc]initWithFrame:CGRectMake(0, 0, kJZWidth, kJZHeight-64)];
     
     listView.vc = self;
@@ -39,16 +31,24 @@
     [self.view addSubview:listView];
 
 
+    CGRect backframe= CGRectMake(0, 0, 16, 16);
+    UIButton* backButton= [UIButton buttonWithType:UIButtonTypeCustom];
+    backButton.frame = backframe;
+    [backButton setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    [backButton addTarget:self action:@selector(pushBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+    
 }
 
+- (void)pushBtnClick {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (void)pushBtnClick {
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-}
+
 - (UIBarButtonItem *)pushBtn {
     if (!_pushBtn) {
         CGRect backframe= CGRectMake(0, 0, 16, 16);
@@ -60,15 +60,5 @@
     }
     return _pushBtn;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

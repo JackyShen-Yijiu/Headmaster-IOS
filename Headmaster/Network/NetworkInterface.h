@@ -180,3 +180,30 @@ typedef NS_ENUM(NSInteger,KCommnetLevel) {
     
    
 };
+
+/**
+ 侧边栏和主控制器
+ */
+typedef enum state {
+    kStateHome,
+    kStateMenu
+}state;
+
+/**
+ *  @brief  控制器类型
+ */
+typedef NS_ENUM(NSInteger, kControllerType){
+    /**
+     *  统计
+     */
+    kJZHomeViewController,
+    /**
+     *  资讯
+     */
+    kJZInformentViewController,
+    /**
+     *  信箱
+     */
+    kJZMailController
+};
+

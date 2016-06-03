@@ -38,6 +38,8 @@
 @property (nonatomic, strong) JZNoDataShowBGView *threeNoDataView;
 @property (nonatomic, strong) JZNoDataShowBGView *fourNoDataView;
 
+@property (nonatomic, strong) UIBarButtonItem *pushBtn;
+
 
 
 
@@ -48,6 +50,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.leftBarButtonItem = self.pushBtn;
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.timeDataArrayOne = [NSMutableArray array];
@@ -493,5 +496,18 @@
     }
     return _fourNoDataView;
 }
-
+- (UIBarButtonItem *)pushBtn {
+    if (!_pushBtn) {
+        CGRect backframe= CGRectMake(0, 0, 16, 16);
+        UIButton* backButton= [UIButton buttonWithType:UIButtonTypeCustom];
+        backButton.frame = backframe;
+        [backButton setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+        [backButton addTarget:self action:@selector(pushBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        _pushBtn = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+    }
+    return _pushBtn;
+}
+- (void)pushBtnClick{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end

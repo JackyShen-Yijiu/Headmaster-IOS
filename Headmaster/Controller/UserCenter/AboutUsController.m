@@ -75,7 +75,7 @@
 }
 
 - (void)pushBtnClick {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)configeUI {

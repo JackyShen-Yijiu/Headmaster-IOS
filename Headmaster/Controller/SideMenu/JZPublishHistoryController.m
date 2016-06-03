@@ -12,6 +12,8 @@
 @interface JZPublishHistoryController ()
 //@property (nonatomic, strong) UIBarButtonItem *pushBtn;
 @property (nonatomic, weak) JZPublishHistoryView *historyView;
+
+@property (nonatomic, strong) UIBarButtonItem *pushBtn;
 @end
 
 @implementation JZPublishHistoryController
@@ -23,7 +25,8 @@
 
     
 //    [self addBackgroundImage];
-    self.navigationItem.title = @"驾校公告";
+    self.title = @"驾校公告";
+    self.navigationItem.leftBarButtonItem = self.pushBtn;
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
@@ -82,4 +85,19 @@
 //    UIImage *image = [UIImage imageNamed:@"controllerBackground"];
 //    self.view.layer.contents = (id)image.CGImage;
 //}
+- (UIBarButtonItem *)pushBtn {
+    if (!_pushBtn) {
+        CGRect backframe= CGRectMake(0, 0, 16, 16);
+        UIButton* backButton= [UIButton buttonWithType:UIButtonTypeCustom];
+        backButton.frame = backframe;
+        [backButton setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+        [backButton addTarget:self action:@selector(pushBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        _pushBtn = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+    }
+    return _pushBtn;
+}
+- (void)pushBtnClick{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 @end

@@ -78,6 +78,7 @@ static NSString *JZInformationListCellID = @"JZInformationListCellID";
     JZInformationData *dataModel = self.listDataArray[indexPath.row];
     detailsVC.urlStr = dataModel.contenturl;
     detailsVC.navTitle = dataModel.title;
+    detailsVC.hidesBottomBarWhenPushed = YES;
     [self.vc.navigationController pushViewController:detailsVC animated:YES];
     
 }

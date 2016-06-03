@@ -116,8 +116,8 @@
 -(void)headerViewClick:(UITapGestureRecognizer *)recognizer {
     
     JZPublishHistoryController *publishVC = [[JZPublishHistoryController alloc]init];
-    
-    [self.myNavController pushViewController:publishVC animated:YES];
+    publishVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:publishVC animated:YES];
     
     
 }

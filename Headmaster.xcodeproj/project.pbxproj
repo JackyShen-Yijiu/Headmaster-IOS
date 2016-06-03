@@ -30,6 +30,8 @@
 		0613DC211C1C528F00580C32 /* HomeDataDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0613DC201C1C528F00580C32 /* HomeDataDetailViewModel.m */; };
 		062BB6ED1C1694A5006D5BEE /* HomeWeatherModelRootClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 062BB6EC1C1694A5006D5BEE /* HomeWeatherModelRootClass.m */; };
 		062BB6F01C1694BE006D5BEE /* HomeWeatherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 062BB6EF1C1694BE006D5BEE /* HomeWeatherModel.m */; };
+		063AC0D71CF2B35300345721 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 063AC0D61CF2B35300345721 /* ViewController.m */; };
+		063AC0DA1CF2B45700345721 /* WMCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 063AC0D91CF2B45700345721 /* WMCommon.m */; };
 		0666FF971C140E9A009FA71F /* HomeDataDatailModelRootClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 0666FF961C140E9A009FA71F /* HomeDataDatailModelRootClass.m */; };
 		0666FFA41C141C8D009FA71F /* ApplyStuentListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0666FFA31C141C8D009FA71F /* ApplyStuentListModel.m */; };
 		0666FFA71C141CA5009FA71F /* ReservationStudentListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0666FFA61C141CA5009FA71F /* ReservationStudentListModel.m */; };
@@ -73,6 +75,7 @@
 		06C326531CDB5C20004D888A /* JZCommentChartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C326521CDB5C20004D888A /* JZCommentChartCell.m */; };
 		06C326561CDB5C3E004D888A /* JZCommentListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C326551CDB5C3E004D888A /* JZCommentListCell.m */; };
 		06C326591CDB5EC2004D888A /* TTCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C326581CDB5EC2004D888A /* TTCommentView.m */; };
+		06CA76681CF54D6E00D8197A /* JZUserLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CA76671CF54D6E00D8197A /* JZUserLoginManager.m */; };
 		5543A6341C130D710063F7EE /* UserCenterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5543A6331C130D710063F7EE /* UserCenterController.m */; };
 		5545DE5E1C14134F00F41506 /* AboutUsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5545DE5D1C14134F00F41506 /* AboutUsController.m */; };
 		5545DE611C14228C00F41506 /* NewStudentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5545DE601C14228C00F41506 /* NewStudentController.m */; };
@@ -499,6 +502,10 @@
 		062BB6EC1C1694A5006D5BEE /* HomeWeatherModelRootClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeWeatherModelRootClass.m; sourceTree = "<group>"; };
 		062BB6EE1C1694BE006D5BEE /* HomeWeatherModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeWeatherModel.h; sourceTree = "<group>"; };
 		062BB6EF1C1694BE006D5BEE /* HomeWeatherModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeWeatherModel.m; sourceTree = "<group>"; };
+		063AC0D51CF2B35300345721 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		063AC0D61CF2B35300345721 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		063AC0D81CF2B45700345721 /* WMCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMCommon.h; sourceTree = "<group>"; };
+		063AC0D91CF2B45700345721 /* WMCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMCommon.m; sourceTree = "<group>"; };
 		0666FF951C140E9A009FA71F /* HomeDataDatailModelRootClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeDataDatailModelRootClass.h; sourceTree = "<group>"; };
 		0666FF961C140E9A009FA71F /* HomeDataDatailModelRootClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeDataDatailModelRootClass.m; sourceTree = "<group>"; };
 		0666FFA21C141C8D009FA71F /* ApplyStuentListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyStuentListModel.h; sourceTree = "<group>"; };
@@ -580,6 +587,8 @@
 		06C326551CDB5C3E004D888A /* JZCommentListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZCommentListCell.m; sourceTree = "<group>"; };
 		06C326571CDB5EC2004D888A /* TTCommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTCommentView.h; sourceTree = "<group>"; };
 		06C326581CDB5EC2004D888A /* TTCommentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTCommentView.m; sourceTree = "<group>"; };
+		06CA76661CF54D6E00D8197A /* JZUserLoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZUserLoginManager.h; sourceTree = "<group>"; };
+		06CA76671CF54D6E00D8197A /* JZUserLoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZUserLoginManager.m; sourceTree = "<group>"; };
 		5543A6321C130D710063F7EE /* UserCenterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterController.h; sourceTree = "<group>"; };
 		5543A6331C130D710063F7EE /* UserCenterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterController.m; sourceTree = "<group>"; };
 		5545DE5C1C14134F00F41506 /* AboutUsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutUsController.h; path = Headmaster/Controller/UserCenter/AboutUsController.h; sourceTree = SOURCE_ROOT; };
@@ -1268,6 +1277,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		063AC0D41CF2B31900345721 /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				063AC0D51CF2B35300345721 /* ViewController.h */,
+				063AC0D61CF2B35300345721 /* ViewController.m */,
+				063AC0D81CF2B45700345721 /* WMCommon.h */,
+				063AC0D91CF2B45700345721 /* WMCommon.m */,
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
 		0666FF941C140E30009FA71F /* HomeDatailDataModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -2929,6 +2949,8 @@
 				D9CEC8EA1C0E8C83008DEE69 /* AppDelegate.mm */,
 				D9CEC9521C0ED044008DEE69 /* AppDelegate+RootViewController.h */,
 				D9CEC9531C0ED044008DEE69 /* AppDelegate+RootViewController.m */,
+				06CA76661CF54D6E00D8197A /* JZUserLoginManager.h */,
+				06CA76671CF54D6E00D8197A /* JZUserLoginManager.m */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -2988,6 +3010,7 @@
 		D9CEC8F31C0E8CF7008DEE69 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				063AC0D41CF2B31900345721 /* SideMenu */,
 				D9CEC9551C0ED27E008DEE69 /* HomeController.h */,
 				D9CEC9561C0ED27E008DEE69 /* HomeController.m */,
 				D985117E1C20A34900D277CD /* HomeGuideController.h */,
@@ -3579,6 +3602,7 @@
 				B8771D131C098DE40051DE9D /* UIView+MJExtension.m in Sources */,
 				D9CEC9481C0EC46F008DEE69 /* YBBaseTableController.m in Sources */,
 				B8771D0D1C098DE40051DE9D /* MJRefreshGifHeader.m in Sources */,
+				06CA76681CF54D6E00D8197A /* JZUserLoginManager.m in Sources */,
 				D9CEC9541C0ED044008DEE69 /* AppDelegate+RootViewController.m in Sources */,
 				D9C3F4561C167322006D22BC /* DVVProgressView.m in Sources */,
 				B8771DDF1C098DE40051DE9D /* EaseUserCell.m in Sources */,
@@ -3654,6 +3678,7 @@
 				D972448B1C1EC3E5002B3FDE /* DataDetailDMWeekRootClass.m in Sources */,
 				D9EEA6D81CE0782200F8662D /* TAAbstractDotView.m in Sources */,
 				0605B7B81C1288CE00A575B4 /* UIBarButtonItem+Helper.m in Sources */,
+				063AC0DA1CF2B45700345721 /* WMCommon.m in Sources */,
 				55FDE40A1C0FC5C700329F17 /* InformationDetailController.m in Sources */,
 				B8C7031E1C12DD40006035B1 /* RecommendSegView.m in Sources */,
 				D9EEA6DE1CE0782200F8662D /* UIView+SDExtension.m in Sources */,
@@ -3663,6 +3688,7 @@
 				0699E5E61C1581360079CABF /* CoachCoureDatilModel.m in Sources */,
 				D94F3E7D1CE1A84100695A86 /* JZMailBoxHeaderView.m in Sources */,
 				06812B471CE0287800298156 /* JZCommentCommentlist.m in Sources */,
+				063AC0D71CF2B35300345721 /* ViewController.m in Sources */,
 				D94F3E9A1CE1D27C00695A86 /* JZMailboxHeadportrait.m in Sources */,
 				D9CEC9791C0ED643008DEE69 /* UIImage+Helper.m in Sources */,
 				D9CEC9171C0E8CF7008DEE69 /* CWStarRateView.m in Sources */,
