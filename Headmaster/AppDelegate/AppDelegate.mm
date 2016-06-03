@@ -33,6 +33,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSucess) name:longinSuccess object:nil];
+    // 系统基本信息配置
+    
    [self sysConfigWithApplication:application LaunchOptions:launchOptions];
 //
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
