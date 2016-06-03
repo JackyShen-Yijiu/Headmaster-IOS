@@ -9,6 +9,8 @@
 #import "JZComplaintDetailView.h"
 #import "JZComplaintComplaintlist.h"
 //#import "MWPhotoBrowser.h"
+#import "NSString+LKString.h"
+#import "UIView+LKView.h"
 
 @interface JZComplaintDetailView ()
 ///"投诉内容"这四个文字
@@ -52,48 +54,37 @@
             make.left.equalTo(self.mas_left).offset(16);
             make.right.equalTo(self.mas_right).offset(-16);
         }];
+        
+        NSInteger complaintImageViewW = 158;
+        NSInteger complaintImageViewH = 73;
+        if (YBIphone6Plus) {
+            
+            complaintImageViewW = 158 * YBRatio;
+            complaintImageViewH = 73 * YBRatio;
+        }
+        
         [self.complaintImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self.mas_left).offset(16);
             make.top.mas_equalTo(self.complaintDetail.mas_bottom).offset(12);
-            
-            if (YBIphone6Plus) {
-                make.width.mas_equalTo(158*YBRatio);
-                make.height.mas_equalTo(73*YBRatio);
-                
-            }else {
-                make.width.mas_equalTo(158);
-                make.height.mas_equalTo(73);
-            }
-            
-            
+            make.width.mas_equalTo(complaintImageViewW);
+            make.height.mas_equalTo(complaintImageViewH);
+
         }];
         
             [self.complaintFirstImg mas_makeConstraints:^(MASConstraintMaker *make){
                 make.top.equalTo(@0);
                 make.left.equalTo(@0);
                 make.bottom.equalTo(@0);
-                if (YBIphone6Plus) {
-                    make.width.mas_equalTo(73*YBRatio);
- 
-                    
-                }else {
-                    make.width.mas_equalTo(73);
+                make.width.mas_equalTo(complaintImageViewH);
 
-                }
             }];
         
             [self.complaintSecondImg mas_makeConstraints:^(MASConstraintMaker *make){
                 make.top.equalTo(@0);
                 make.left.equalTo(self.complaintFirstImg.mas_right).offset(10);
                 make.bottom.equalTo(@0);
-                if (YBIphone6Plus) {
-                    make.width.mas_equalTo(73*YBRatio);
-                    
-                    
-                }else {
-                    make.width.mas_equalTo(73);
-                    
-                }
+                make.width.mas_equalTo(complaintImageViewH);
+
             }];
         
         
@@ -116,50 +107,17 @@
     JZComplaintComplaintlist *data = self.data;
     NSString *picStr = data.piclistr[0];
     
-    [self showBigImageStr:picStr];
+    [UIView showBigImageStr:picStr];
     
 }
 -(void)seeSecondBigImg {
     JZComplaintComplaintlist *data = self.data;
     NSString *picStr = data.piclistr[1];
     
-    [self showBigImageStr:picStr];
+    [UIView showBigImageStr:picStr];
+
 }
 
-- (void)showBigImageStr:(NSString *)imagestr {
-    
-    UIView *bgView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeBigImg:)];
-    [bgView addGestureRecognizer:tapGes];
-    bgView.userInteractionEnabled = YES;
-    
-    bgView.backgroundColor = [UIColor blackColor];
-    bgView.alpha = 0;
-    UIImageView *imageView = [UIImageView new];
-    imageView.bounds = CGRectMake(0, 0, 0, 0);
-    imageView.center = bgView.center;
-    [imageView sd_setImageWithURL:[NSURL URLWithString:imagestr] placeholderImage:nil];
-    [bgView addSubview:imageView];
-    [[UIApplication sharedApplication].keyWindow addSubview:bgView];
-    
-    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        
-        bgView.alpha = 1;
-        imageView.bounds = CGRectMake(0, 0, kJZWidth, kJZHeight*0.7);
-        
-    } completion:^(BOOL finished) {
-        
-    }];
-}
-- (void)closeBigImg:(UITapGestureRecognizer *)tagGes {
-    
-    UIView *view = tagGes.view;
-    [UIView animateWithDuration:0.3 animations:^{
-        view.alpha = 0;
-    } completion:^(BOOL finished) {
-        [tagGes.view removeFromSuperview];
-    }];
-}
 
 
 #pragma mark - 懒加载
@@ -194,14 +152,9 @@
     if (!_complaintTime) {
         
         UILabel *complaintTime = [[UILabel alloc]init];
-        
+        [complaintTime setFont:[UIFont systemFontOfSize:14]];
         if (YBIphone6Plus) {
-            
             [complaintTime setFont:[UIFont systemFontOfSize:14*YBRatio]];
-  
-        }else {
-            [complaintTime setFont:[UIFont systemFontOfSize:14]];
-
         }
         complaintTime.textColor = kJZLightTextColor;
         
@@ -213,7 +166,6 @@
     
     return _complaintTime;
 
-    
 }
 
 -(UILabel *)complaintDetail {
@@ -221,15 +173,11 @@
     if (!_complaintDetail) {
         
         UILabel *complaintDetail = [[UILabel alloc]init];
-        
+        [complaintDetail setFont:[UIFont systemFontOfSize:14]];
         if (YBIphone6Plus) {
-            
             [complaintDetail setFont:[UIFont systemFontOfSize:14*YBRatio]];
-
-        }else {
-            [complaintDetail setFont:[UIFont systemFontOfSize:14]];
-
         }
+
         complaintDetail.textColor = kJZDarkTextColor;
         
         self.complaintDetail = complaintDetail;
@@ -245,8 +193,6 @@
     if (!_complaintImageView) {
         
         UIView *complaintImageView = [[UIView alloc]init];
-        
-//        complaintImageView.backgroundColor = [UIColor cyanColor];
         self.complaintImageView = complaintImageView;
         
         [self addSubview:complaintImageView];
@@ -283,7 +229,7 @@
     
     NSString *str = @"""";
 
-    self.complaintTime.text = [self getYearLocalDateFormateUTCDate:_data.complaintDateTime];
+    self.complaintTime.text = [NSString getYearLocalDateFormateUTCDate:_data.complaintDateTime style:LKDateStyleDefault];
 
     
     self.complaintDetail.text = _data.complaintcontent;
@@ -294,15 +240,13 @@
         if ((_data.piclistr[0] && [_data.piclistr[0] length]!=0)) {
             self.complaintFirstImg.hidden = NO;
             self.complaintSecondImg.hidden = YES;
-            [self.complaintFirstImg sd_setImageWithURL:[NSURL URLWithString:_data.piclistr[0]]];
-            
+            [self.complaintFirstImg sd_setImageWithURL:[NSURL URLWithString:_data.piclistr[0]]placeholderImage:[UIImage imageNamed:@"pic_load"]];
             
         }
-        
         if (_data.piclistr.count>1 && _data.piclistr[1] && [_data.piclistr[1] length]!=0) {
             self.complaintFirstImg.hidden = NO;
             self.complaintSecondImg.hidden = NO;
-            [self.complaintSecondImg sd_setImageWithURL:[NSURL URLWithString:_data.piclistr[1]]];
+            [self.complaintSecondImg sd_setImageWithURL:[NSURL URLWithString:_data.piclistr[1]]placeholderImage:[UIImage imageNamed:@"pic_load"]];
         }
         
     }else{
@@ -310,8 +254,6 @@
         self.complaintImageView.hidden = YES;
         
     }
-    
-
     
 }
 
@@ -334,22 +276,5 @@
     return detailView.complaintContent.height + detailView.complaintDetail.height + 44;
     
 }
-
-- (NSString *)getYearLocalDateFormateUTCDate:(NSString *)utcDate {
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    //输入格式
-    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
-    NSTimeZone *localTimeZone = [NSTimeZone localTimeZone];
-    [dateFormatter setTimeZone:localTimeZone];
-    
-    NSDate *dateFormatted = [dateFormatter dateFromString:utcDate];
-    //输出格式
-    [dateFormatter setDateFormat:@"yyyy/MM/dd HH:mm"];
-    NSString *dateString = [dateFormatter stringFromDate:dateFormatted];
-    return dateString;
-}
-
-
-
 
 @end

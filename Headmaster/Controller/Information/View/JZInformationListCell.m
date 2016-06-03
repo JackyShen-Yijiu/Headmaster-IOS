@@ -8,6 +8,7 @@
 
 #import "JZInformationListCell.h"
 #import "JZInformationData.h"
+#import "NSString+LKString.h"
 
 @interface JZInformationListCell()
 ///  新闻图片
@@ -23,10 +24,7 @@
 @implementation JZInformationListCell
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-//                self.selectionStyle = UITableViewCellSelectionStyleNone;
-        
-        
-//        self.backgroundColor = [UIColor orangeColor];
+
     }
     return self;
 }
@@ -40,7 +38,7 @@
     
     self.newsTitleLabel.text = _data.title;
     
-    self.newsDateLabel.text = [self getYearLocalDateFormateUTCDate:_data.createtime];
+    self.newsDateLabel.text = [NSString getYearLocalDateFormateUTCDate:_data.createtime style:LKDateStyleNoHaveTime];
     
     
 }
@@ -105,15 +103,14 @@
     if (!_newsTitleLabel) {
         
         UILabel *newsTitleLabel = [[UILabel alloc]init];
+        
+         [newsTitleLabel setFont:[UIFont systemFontOfSize:14]];
+        
         if (YBIphone6Plus) {
             
             [newsTitleLabel setFont:[UIFont systemFontOfSize:14*YBRatio]];
 
-        }else {
-            [newsTitleLabel setFont:[UIFont systemFontOfSize:14]];
-
         }
-        
         newsTitleLabel.textColor = kJZDarkTextColor;
         newsTitleLabel.numberOfLines = 0;
         self.newsTitleLabel = newsTitleLabel;
@@ -129,14 +126,11 @@
     if (!_newsDateLabel) {
         
         UILabel *newsDateLabel = [[UILabel alloc]init];
-        
+       
+        [newsDateLabel setFont:[UIFont systemFontOfSize:12]];
+       
         if (YBIphone6Plus) {
             [newsDateLabel setFont:[UIFont systemFontOfSize:12*YBRatio]];
- 
-            
-        }else {
-            [newsDateLabel setFont:[UIFont systemFontOfSize:12]];
-
         }
         
         newsDateLabel.textColor = kJZLightTextColor;
@@ -162,19 +156,7 @@
     return _lineView;
 }
 
-- (NSString *)getYearLocalDateFormateUTCDate:(NSString *)utcDate {
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    //输入格式
-    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
-    NSTimeZone *localTimeZone = [NSTimeZone localTimeZone];
-    [dateFormatter setTimeZone:localTimeZone];
-    
-    NSDate *dateFormatted = [dateFormatter dateFromString:utcDate];
-    //输出格式
-    [dateFormatter setDateFormat:@"YYYY/MM/dd"];
-    NSString *dateString = [dateFormatter stringFromDate:dateFormatted];
-    return dateString;
-}
+
 
 
 

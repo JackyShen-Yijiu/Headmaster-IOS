@@ -8,7 +8,11 @@
 
 #import "JZComplaintCell.h"
 #import "JZComplaintComplaintlist.h"
+#import "NSString+LKString.h"
+
+
 static NSString *JZComplaintCellID = @"JZComplaintCellID";
+
 @interface JZComplaintCell()
 
 ///  学员头像
@@ -37,7 +41,6 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         [self initUI];
-//        self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return self;
 }
@@ -48,61 +51,42 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
     
     self.studentNameLabel = [[UILabel alloc]init];
     self.studentNameLabel.textColor = kJZDarkTextColor;
+    [self.studentNameLabel setFont:[UIFont systemFontOfSize:14]];
     if (YBIphone6Plus) {
-        
         [self.studentNameLabel setFont:[UIFont systemFontOfSize:14*YBRatio]];
-
-    }else {
-        [self.studentNameLabel setFont:[UIFont systemFontOfSize:14]];
-
     }
 
 
     self.studentIcon = [[UIImageView alloc]init];
+    self.studentIcon.layer.cornerRadius = 12;
     if (YBIphone6Plus) {
-        
         self.studentIcon.layer.cornerRadius = 12*YBRatio;
-
-    }else {
-        self.studentIcon.layer.cornerRadius = 12;
-
     }
     self.studentIcon.layer.masksToBounds = YES;
 
+    
     self.complaintTime = [[UILabel alloc]init];
     self.complaintTime.textColor = kJZLightTextColor;
-    self.complaintName.textAlignment = NSTextAlignmentRight;
+    self.complaintTime.textAlignment = NSTextAlignmentRight;
+    [self.complaintTime setFont:[UIFont systemFontOfSize:12]];
     if (YBIphone6Plus) {
         [self.complaintTime setFont:[UIFont systemFontOfSize:12*YBRatio]];
-
-    }else {
-        [self.complaintTime setFont:[UIFont systemFontOfSize:12]];
-
     }
-    self.complaintTime.numberOfLines = 0;
-
+    
     self.complaintName = [[UILabel alloc]init];
     self.complaintName.textAlignment = NSTextAlignmentLeft;
     self.complaintName.textColor = kJZLightTextColor;
+    [self.complaintName setFont:[UIFont systemFontOfSize:14]];
     if (YBIphone6Plus) {
-        
         [self.complaintName setFont:[UIFont systemFontOfSize:14*YBRatio]];
-
-    }else {
-        [self.complaintName setFont:[UIFont systemFontOfSize:14]];
-
     }
 
     self.complaintDetail = [[UILabel alloc]init];
     self.complaintDetail.textColor = kJZDarkTextColor;
     self.complaintDetail.numberOfLines = 2;
+    [self.complaintDetail setFont:[UIFont systemFontOfSize:14]];
     if (YBIphone6Plus) {
-        
         [self.complaintDetail setFont:[UIFont systemFontOfSize:14*YBRatio]];
-
-    }else {
-        [self.complaintDetail setFont:[UIFont systemFontOfSize:14]];
-
     }
     
     self.complaintImageView = [[UIView alloc] init];
@@ -126,22 +110,19 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
 }
 -(void)layoutSubviews {
     [super layoutSubviews];
-    
+
+    NSInteger studentIconW  = 24;
+    if (YBIphone6Plus) {
+        studentIconW = 24 * YBRatio;
+    }
     [self.studentIcon mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.top.equalTo(self.contentView.mas_top).offset(16);
         make.left.equalTo(self.contentView.mas_left).offset(16);
-        if (YBIphone6Plus) {
-            make.width.equalTo(@(24*YBRatio));
-            make.height.equalTo(@(24*YBRatio));
-            
-        }else {
-            make.width.equalTo(@24);
-            make.height.equalTo(@24);
-        }
-       
-        
-       
+        make.width.mas_equalTo(studentIconW);
+        make.height.mas_equalTo(studentIconW);
+
+
     }];
     
     
@@ -149,69 +130,52 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
        
         make.centerY.equalTo(self.studentIcon.mas_centerY);
         make.left.equalTo(self.studentIcon.mas_right).offset(14);
-//        make.height.equalTo(@14);
-
-        
     }];
     
     
     [self.complaintName mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.studentIcon.mas_bottom).offset(14);
         make.left.equalTo(self.contentView.mas_left).offset(16);
-//        make.height.equalTo(@14);
     }];
+    
     [self.complaintTime mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.studentIcon.mas_centerY);
         make.right.equalTo(self.contentView.mas_right).offset(-16);
-//        make.height.equalTo(@12);
     }];
+    
     [self.complaintDetail mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.complaintName.mas_bottom).offset(14);
         make.left.equalTo(self.contentView.mas_left).offset(16);
         make.right.equalTo(self.contentView.mas_right).offset(-16);
     }];
-    
+    NSInteger complaintImgW  = 73;
+    NSInteger complaintImageViewW = 160;
+    if (YBIphone6Plus) {
+        complaintImgW = 73 * YBRatio;
+        complaintImageViewW = 160*YBRatio;
+    }
     [self.complaintImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.complaintName.mas_left);
         make.top.mas_equalTo(self.complaintDetail.mas_bottom).offset(12);
-        
-        if (YBIphone6Plus) {
-            make.width.mas_equalTo(160*YBRatio);
-            make.height.mas_equalTo(73*YBRatio);
-            
-        }else {
-            
-            make.width.mas_equalTo(160);
-            make.height.mas_equalTo(73);
-        }
-       
+        make.width.mas_equalTo(complaintImageViewW);
+        make.height.mas_equalTo(complaintImgW);
     }];
+    
     [self.complaintFirstImg mas_makeConstraints:^(MASConstraintMaker *make){
         make.top.equalTo(@0);
         make.left.equalTo(@0);
         make.bottom.equalTo(@0);
-        
-        if (YBIphone6Plus) {
-            
-            make.width.mas_equalTo(73*YBRatio);
- 
-        }else {
-            make.width.mas_equalTo(73);
+        make.width.mas_equalTo(complaintImgW);
 
-        }
     }];
+    
     [self.complaintSecondImg mas_makeConstraints:^(MASConstraintMaker *make){
         make.top.equalTo(@0);
         make.left.equalTo(self.complaintFirstImg.mas_right).offset(10);
         make.bottom.equalTo(@0);
-        if (YBIphone6Plus) {
+        make.width.mas_equalTo(complaintImgW);
             
-            make.width.mas_equalTo(73*YBRatio);
-            
-        }else {
-            make.width.mas_equalTo(73);
-            
-        }    }];
+    }];
     
     [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
        
@@ -221,19 +185,17 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
         make.height.equalTo(@0.5);
         
     }];
-    
+    NSInteger badgeViewW  = 6;
+    if (YBIphone6Plus) {
+        badgeViewW = 6 * YBRatio;
+    }
     [self.badgeView mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.top.equalTo(self.studentIcon.mas_top);
         make.right.equalTo(self.studentIcon.mas_right);
-        if (YBIphone6Plus) {
-            
-            make.width.equalTo(@(6*YBRatio));
-            make.height.equalTo(@(6*YBRatio));
-        }else {
-            make.width.equalTo(@6);
-            make.height.equalTo(@6);
-        }
+        make.width.equalTo(@(badgeViewW));
+        make.height.equalTo(@(badgeViewW));
+
         
         
     }];
@@ -256,13 +218,12 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
     }else if (_data.feedbacktype == 2){
         
         self.complaintName.text = [NSString stringWithFormat:@"投诉驾校：%@",[UserInfoModel defaultUserInfo].schoolName];
-        
-        
+   
     }
     
-    self.complaintTime.text = [self getYearLocalDateFormateUTCDate:_data.complaintDateTime];
+    self.complaintTime.text = [NSString getYearLocalDateFormateUTCDate:_data.complaintDateTime style:LKDateStyleDefault];
     
-    NSLog(@"_data.piclistr:%@",_data.piclistr);
+//    NSLog(@"_data.piclistr:%@",_data.piclistr);
     
     NSString *str = @"""";
     
@@ -273,13 +234,14 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
         if ((_data.piclistr[0] && [_data.piclistr[0] length]!=0)) {
             self.complaintFirstImg.hidden = NO;
             self.complaintSecondImg.hidden = YES;
-            [self.complaintFirstImg sd_setImageWithURL:[NSURL URLWithString:_data.piclistr[0]]];
+            [self.complaintFirstImg sd_setImageWithURL:[NSURL URLWithString:_data.piclistr[0]]placeholderImage:[UIImage imageNamed:@"pic_load"]];
         }
         
         if (_data.piclistr.count>1 && _data.piclistr[1] && [_data.piclistr[1] length]!=0) {
             self.complaintFirstImg.hidden = NO;
             self.complaintSecondImg.hidden = NO;
-            [self.complaintSecondImg sd_setImageWithURL:[NSURL URLWithString:_data.piclistr[1]]];
+            [self.complaintSecondImg sd_setImageWithURL:[NSURL URLWithString:_data.piclistr[1]]placeholderImage:[UIImage imageNamed:@"pic_load"]];
+
         }
        
     }else{
@@ -335,17 +297,5 @@ static NSString *JZComplaintCellID = @"JZComplaintCellID";
     
     // Configure the view for the selected state
 }
-- (NSString *)getYearLocalDateFormateUTCDate:(NSString *)utcDate {
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    //输入格式
-    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
-    NSTimeZone *localTimeZone = [NSTimeZone localTimeZone];
-    [dateFormatter setTimeZone:localTimeZone];
-    
-    NSDate *dateFormatted = [dateFormatter dateFromString:utcDate];
-    //输出格式
-    [dateFormatter setDateFormat:@"yyyy/MM/dd HH:mm"];
-    NSString *dateString = [dateFormatter stringFromDate:dateFormatted];
-    return dateString;
-}
+
 @end

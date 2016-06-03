@@ -13,12 +13,18 @@
 #import <YYModel.h>
 #import "JZPublishHistoryController.h"
 #import "JZCoachFeedbackController.h"
+#import "LKNoDataView.h"
 
 static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
 
 @interface JZMailBoxView ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) NSMutableArray *dataArr;
 @property (nonatomic, strong) JZMailBoxHeaderView *headerView;
+
+@property (nonatomic, strong) LKNoDataView *noDataView;
+
+@property (nonatomic, assign) NSInteger index;
+
 
 
 @end
@@ -161,135 +167,90 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
             
             //暂无数据空白图
             if (!resultData.count) {
-                
-                UIView *noDataView = [[UIView alloc]initWithFrame:CGRectMake(0, 55.2+32, kJZWidth, kJZHeight-55.2-32)];
-                
-                noDataView.backgroundColor =  RGB_Color(239, 239, 244);
-                [self.vc.view addSubview:noDataView];
-                self.userInteractionEnabled = NO;
-                
-                UIImageView *noDataImg = [[UIImageView alloc]init];
-                noDataImg.image = [UIImage imageNamed:@"message_null"];
-                [noDataView addSubview:noDataImg];
-                
-                [noDataImg mas_makeConstraints:^(MASConstraintMaker *make) {
-                    
-                    make.centerX.equalTo(noDataView.mas_centerX);
-                    make.centerY.equalTo(noDataView.mas_centerY).offset(-44-44-24);
-                    
-                }];
-                UILabel *noDataLabel = [[UILabel alloc]init];
-                noDataLabel.text = @"暂时没有反馈消息";
+
+                [self.noDataView removeFromSuperview];
+                self.noDataView = [[LKNoDataView alloc]initWithFrame:CGRectMake(0,44+32, kJZWidth, kJZHeight-64) andNoDataLabelText:@"暂时没有反馈消息" andNoDataImgName:@"message_null"];
                 if (YBIphone6Plus) {
-                    noDataLabel.font = [UIFont systemFontOfSize:14*YBRatio];
-
-                    
-                }else {
-                    noDataLabel.font = [UIFont systemFontOfSize:14];
-
+                   self.noDataView.frame =  CGRectMake(0,(44+32)*YBRatio, kJZWidth, kJZHeight-64);
                 }
-                noDataLabel.textColor = kJZLightTextColor;
-                [noDataView addSubview:noDataLabel];
                 
-                [noDataLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                self.noDataView.backgroundColor = RGB_Color(239, 239, 244);
+                
+                [self.vc.view addSubview: self.noDataView];
+                
+                [self.noDataView.noDataImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
                     
-                    make.top.equalTo(noDataImg.mas_bottom).offset(24);
-                    make.centerX.equalTo(noDataView.mas_centerX);
-
+                    make.top.equalTo(self.mas_centerY).offset(-60-28-44*YBRatio);
+                    make.centerX.equalTo(self.mas_centerX);
+                    
                 }];
+
+            }else {
+                [self.noDataView removeFromSuperview];
+                self.index = 2;
+                for (NSDictionary *dict in resultData) {
+                    
+                    JZMailboxData *dataModel = [JZMailboxData yy_modelWithJSON:dict];
+                    [self.dataArr addObject:dataModel];
+                    
+                }
                 
-                
-                
-                
-                
+                [self reloadData];
+
             }
             
-            for (NSDictionary *dict in resultData) {
-                
-            JZMailboxData *dataModel = [JZMailboxData yy_modelWithJSON:dict];
-            [self.dataArr addObject:dataModel];
-                
-            }
-            
-            [self reloadData];
             
             
             
         }else{
             
-            UIView *noDataView = [[UIView alloc]initWithFrame:CGRectMake(0, 55.2+32, kJZWidth, kJZHeight-55.2-32)];
             
-            noDataView.backgroundColor =  RGB_Color(239, 239, 244);
-            [self.vc.view addSubview:noDataView];
-            self.userInteractionEnabled = NO;
-            
-            UIImageView *noDataImg = [[UIImageView alloc]init];
-            noDataImg.image = [UIImage imageNamed:@"net_null"];
-            [noDataView addSubview:noDataImg];
-            
-            [noDataImg mas_makeConstraints:^(MASConstraintMaker *make) {
-                
-                make.centerX.equalTo(noDataView.mas_centerX);
-                make.centerY.equalTo(noDataView.mas_centerY).offset(-44-44-24);
-                
-            }];
-            UILabel *noDataLabel = [[UILabel alloc]init];
-            noDataLabel.text = @"网络开小差了";
+            [self.noDataView removeFromSuperview];
+            self.noDataView = [[LKNoDataView alloc]initWithFrame:CGRectMake(0,44+32, kJZWidth, kJZHeight-64) andNoDataLabelText:@"网络开小差了" andNoDataImgName:@"net_null"];
             if (YBIphone6Plus) {
-                
-                noDataLabel.font = [UIFont systemFontOfSize:14*YBRatio];
-
-            }else {
-                noDataLabel.font = [UIFont systemFontOfSize:14];
-
+                self.noDataView.frame =  CGRectMake(0,(44+32)*YBRatio, kJZWidth, kJZHeight-64);
             }
-            noDataLabel.textColor = kJZLightTextColor;
-            [noDataView addSubview:noDataLabel];
+            self.noDataView.backgroundColor = RGB_Color(239, 239, 244);
             
-            [noDataLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            [self.vc.view addSubview: self.noDataView];
+            
+            [self.noDataView.noDataImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
                 
-                make.top.equalTo(noDataImg.mas_bottom).offset(24);
-                make.centerX.equalTo(noDataView.mas_centerX);
+                make.top.equalTo(self.mas_centerY).offset(-60-28-44*YBRatio);
+                make.centerX.equalTo(self.mas_centerX);
                 
             }];
-
+            
             
         }
 
     } failure:^(NSError *failure) {
-        UIView *noDataView = [[UIView alloc]initWithFrame:CGRectMake(0, 55.2+32, kJZWidth, kJZHeight-55.2-32)];
         
-        noDataView.backgroundColor =  RGB_Color(239, 239, 244);
-        [self.vc.view addSubview:noDataView];
-        self.userInteractionEnabled = NO;
         
-        UIImageView *noDataImg = [[UIImageView alloc]init];
-        noDataImg.image = [UIImage imageNamed:@"net_null"];
-        [noDataView addSubview:noDataImg];
-        
-        [noDataImg mas_makeConstraints:^(MASConstraintMaker *make) {
-            
-            make.centerX.equalTo(noDataView.mas_centerX);
-            make.centerY.equalTo(noDataView.mas_centerY).offset(-44-44-24);
-            
-        }];
-        UILabel *noDataLabel = [[UILabel alloc]init];
-        noDataLabel.text = @"网络开小差了";
+        [self.noDataView removeFromSuperview];
+        self.noDataView = [[LKNoDataView alloc]init];
         if (YBIphone6Plus) {
-            noDataLabel.font = [UIFont systemFontOfSize:14*YBRatio];
+            self.noDataView.frame =  CGRectMake(0,(44+32)*YBRatio, kJZWidth, kJZHeight-64);
             
             
         }else {
-            noDataLabel.font = [UIFont systemFontOfSize:14];
+            self.noDataView.frame =  CGRectMake(0,44+32, kJZWidth, kJZHeight-64);
             
         }
-        noDataLabel.textColor = kJZLightTextColor;
-        [noDataView addSubview:noDataLabel];
+
+        [self.noDataView removeFromSuperview];
+        self.noDataView = [[LKNoDataView alloc]initWithFrame:CGRectMake(0,44+32, kJZWidth, kJZHeight-64) andNoDataLabelText:@"网络开小差了" andNoDataImgName:@"net_null"];
+        if (YBIphone6Plus) {
+            self.noDataView.frame =  CGRectMake(0,(44+32)*YBRatio, kJZWidth, kJZHeight-64);
+        }
+        self.noDataView.backgroundColor = RGB_Color(239, 239, 244);
         
-        [noDataLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        [self.vc.view addSubview: self.noDataView];
+        
+        [self.noDataView.noDataImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
             
-            make.top.equalTo(noDataImg.mas_bottom).offset(24);
-            make.centerX.equalTo(noDataView.mas_centerX);
+            make.top.equalTo(self.mas_centerY).offset(-60-28-44*YBRatio);
+            make.centerX.equalTo(self.mas_centerX);
             
         }];
     }];
@@ -311,14 +272,14 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
     
 }
 -(void)loadMoreData {
-    static NSInteger index = 2;
+    
 
-    [NetworkEntity getCoachFeedbackWithUserid:[UserInfoModel defaultUserInfo].userID SchoolId:[UserInfoModel defaultUserInfo].schoolId count:10 index:index success:^(id responseObject) {
+    [NetworkEntity getCoachFeedbackWithUserid:[UserInfoModel defaultUserInfo].userID SchoolId:[UserInfoModel defaultUserInfo].schoolId count:10 index:self.index success:^(id responseObject) {
         
         NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
         if (type == 1) {
             NSArray *resultData = responseObject[@"data"];
-            index ++;
+           
             if (!resultData.count) {
                 
                 [self.refreshFooter endRefreshing];
@@ -330,7 +291,7 @@ static NSString *JZMailBoxCellID = @"JZMailBoxCellID";
                 return;
                 
             }
-            
+            self.index ++;
             for (NSDictionary *dict in resultData) {
                 
                 JZMailboxData *dataModel = [JZMailboxData yy_modelWithJSON:dict];

@@ -8,6 +8,7 @@
 
 #import "JZCoachFeedbackView.h"
 #import "JZMailboxData.h"
+#import "NSString+LKString.h"
 
 @interface JZCoachFeedbackView ()
 ///  教练头像
@@ -20,9 +21,6 @@
 @property (nonatomic, strong) UILabel *dateLabel;
 ///  分割线
 @property (nonatomic, strong) UIView *lineView;
-
-
-
 
 @end
 
@@ -135,7 +133,7 @@
     
     self.coachNameLabel.text = _data.coachid.name;
     self.contentLabel.text = _data.content;
-    self.dateLabel.text = [self getYearLocalDateFormateUTCDate:_data.createtime];
+    self.dateLabel.text = [NSString getYearLocalDateFormateUTCDate:_data.createtime style:LKDateStyleDefault];
 
    
     
@@ -146,7 +144,7 @@
         
         self.replyLabel.text = @"回复";
         //
-        self.replyDateLabel.text = [self getYearLocalDateFormateUTCDate:_data.replytime];
+        self.replyDateLabel.text = [NSString getYearLocalDateFormateUTCDate:_data.replytime style:LKDateStyleDefault];
         //
         self.replyCotentLabel.text = _data.replycontent;
         
@@ -172,8 +170,6 @@
     }
     
 }
-
-
 #pragma mark - 懒加载
 -(UIImageView *)coachIcon {
     if (!_coachIcon) {
@@ -197,7 +193,6 @@
     }
     return _coachIcon;
 }
-
 -(UILabel *)coachNameLabel {
     
     if (!_coachNameLabel) {
@@ -276,8 +271,6 @@
     
     return _lineView;
 }
-
-
 -(UIImageView *)schoolIcon {
     if (!_schoolIcon) {
         
@@ -299,7 +292,6 @@
     }
     return _schoolIcon;
 }
-//
 -(UILabel *)headmasterNameLabel {
     
     if (!_headmasterNameLabel) {
@@ -320,7 +312,6 @@
     
     return _headmasterNameLabel;
 }
-
 -(UILabel *)replyLabel {
     
     if (!_replyLabel) {
@@ -385,19 +376,7 @@
     return _replyDateLabel;
 }
 
-- (NSString *)getYearLocalDateFormateUTCDate:(NSString *)utcDate {
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    //输入格式
-    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
-    NSTimeZone *localTimeZone = [NSTimeZone localTimeZone];
-    [dateFormatter setTimeZone:localTimeZone];
-    
-    NSDate *dateFormatted = [dateFormatter dateFromString:utcDate];
-    //输出格式
-    [dateFormatter setDateFormat:@"yyyy/MM/dd HH:mm"];
-    NSString *dateString = [dateFormatter stringFromDate:dateFormatted];
-    return dateString;
-}
+
 
 
 @end

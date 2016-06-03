@@ -12,6 +12,7 @@
 #import <YYModel.h>
 #import "SDCycleScrollView.h"
 #import "InformationDetailController.h"
+#import "LKNoDataView.h"
 static NSString *JZInformationListCellID = @"JZInformationListCellID";
 
 @interface JZInformationListView ()<UITableViewDataSource,UITableViewDelegate,SDCycleScrollViewDelegate>
@@ -19,6 +20,8 @@ static NSString *JZInformationListCellID = @"JZInformationListCellID";
 @property (nonatomic, strong) NSMutableArray *imagesURLStrings;
 @property (nonatomic, strong) NSMutableArray *titles;
 @property (nonatomic, strong) NSMutableArray *topDataArr;
+@property (nonatomic, strong) LKNoDataView *noDataView;
+
 
 @end
 @implementation JZInformationListView
@@ -98,7 +101,8 @@ static NSString *JZInformationListCellID = @"JZInformationListCellID";
     static NSInteger index = 0;
     
     [NetworkEntity informationListWithseqindex:0 count:10 success:^(id responseObject) {
-        
+        [self.noDataView removeFromSuperview];
+
         NSInteger type = [[responseObject objectForKey:@"type"] integerValue];
         
         if (type) {
@@ -121,41 +125,31 @@ static NSString *JZInformationListCellID = @"JZInformationListCellID";
                     index ++;
                     
                 }
-                
-                // 网络加载 --- 创建带标题的图片轮播器
+                //创建带标题的图片轮播器
+                SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0,0, kJZWidth, 160) delegate:self placeholderImage:[UIImage imageNamed:@"pic_load"]];
+                cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
+                cycleScrollView.titleLabelTextFont = [UIFont systemFontOfSize:14];
+                cycleScrollView.titlesGroup = self.titles;
+                cycleScrollView.imageURLStringsGroup = self.imagesURLStrings;
+                ///  图片填充方式
+                cycleScrollView.bannerImageViewContentMode = 2;
+                // 自定义分页控件小圆标颜色
+                cycleScrollView.currentPageDotColor = [UIColor whiteColor];
+               
                 if (YBIphone6Plus) {
                     
-                    SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0,0, kJZWidth, 160*YBRatio) delegate:self placeholderImage:[UIImage imageNamed:@"pic_load"]];
-                    cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
+                    cycleScrollView.frame = CGRectMake(0,0, kJZWidth, 160*YBRatio);
                     cycleScrollView.titleLabelTextFont = [UIFont systemFontOfSize:14*YBRatio];
-                    //                cycleScrollView.currentPageDotImage = [UIImage imageNamed:@"point_on"];
-                    //                cycleScrollView.pageDotImage = [UIImage imageNamed:@"point"];
-                    cycleScrollView.titlesGroup = self.titles;
-                    cycleScrollView.imageURLStringsGroup = self.imagesURLStrings;
-                    // 自定义分页控件小圆标颜色
-                    cycleScrollView.currentPageDotColor = [UIColor whiteColor];
-                    self.tableHeaderView = cycleScrollView;
-
-                }else {
-                    
-                    SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0,0, kJZWidth, 160) delegate:self placeholderImage:[UIImage imageNamed:@"pic_load"]];
-                    cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
-                    cycleScrollView.titleLabelTextFont = [UIFont systemFontOfSize:14];
-                    //                cycleScrollView.currentPageDotImage = [UIImage imageNamed:@"point_on"];
-                    //                cycleScrollView.pageDotImage = [UIImage imageNamed:@"point"];
-                    cycleScrollView.titlesGroup = self.titles;
-                    cycleScrollView.imageURLStringsGroup = self.imagesURLStrings;
-                    // 自定义分页控件小圆标颜色
-                    cycleScrollView.currentPageDotColor = [UIColor whiteColor];
-                    self.tableHeaderView = cycleScrollView;
 
                 }
                 
-                
+                self.tableHeaderView = cycleScrollView;
                 [self reloadData];
                 
                 
             }else {
+                [self.noDataView removeFromSuperview];
+
                 ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"暂无资讯"];
                 [alertView show];
                 
@@ -163,6 +157,8 @@ static NSString *JZInformationListCellID = @"JZInformationListCellID";
             
         }else {
             
+            [self.noDataView removeFromSuperview];
+
             ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"网络出错啦"];
             [alertView show];
         }
@@ -171,8 +167,21 @@ static NSString *JZInformationListCellID = @"JZInformationListCellID";
         
         
     } failure:^(NSError *failure) {
-        ToastAlertView *alertView = [[ToastAlertView alloc] initWithTitle:@"网络出错啦"];
-        [alertView show];
+        
+        [self.noDataView removeFromSuperview];
+        self.noDataView = [[LKNoDataView alloc]initWithFrame:CGRectMake(0,0, kJZWidth, kJZHeight-64) andNoDataLabelText:@"网络开小差了" andNoDataImgName:@"net_null"];
+   
+        self.noDataView.backgroundColor = RGB_Color(239, 239, 244);
+        
+        [self.vc.view addSubview: self.noDataView];
+        
+        [self.noDataView.noDataImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            
+            make.top.equalTo(self.mas_centerY).offset(-60-28);
+            make.centerX.equalTo(self.mas_centerX);
+            
+        }];
+
         
     }];
     
